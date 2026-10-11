@@ -524,7 +524,7 @@ title: story18
  <<if $chance <= (10+GetInt("iShips"))>> 
  On your orders, the fleet departed and soon located the core of the Ottoman navy off the isle of Lesbos. In a dramatic turn of fortune, your fleet engaged the Ottoman navy in a battle that defied all expectations. Skillfully navigating the treacherous waters, your admirals outmaneuvered the opposing forces, unleashing a barrage of cannon fire and decisive naval tactics. As the smoke cleared, it became evident that your fleet had emerged triumphant, dealing a significant blow to the Ottoman naval power. The resounding victory not only bolstered the morale of your city's defenders but also disrupted the blockade, providing a glimmer of hope in the looming shadow of the approaching siege. The waves of Marmara now bow to your power alone.
  <<Change bTurkFleet FALSE>>
- <<jump story9a>>
+ <<jump story18a>>
  <<else>>
  On your orders, the fleet departed and soon located the core of the Ottoman navy off the isle of Lesbos. The clash was fierce, with cannons thundering, galleys being boarded and cries of anguish ringing as the warships locked in a desperate struggle for control of the Marmara Sea. Despite the unwavering resolve of your naval forces, the battle ended in devastation as the Turks emerged victorious, leaving your ships shattered and scattered across the waves. Now, as the sun sets on the beleaguered waters surrounding Constantinople, the reality of the lost naval engagement casts a shadow over the city, intensifying the challenges that lie ahead in the face of the impending siege. Your fleet is gone.
  <<SetInt iFleet 5>>
