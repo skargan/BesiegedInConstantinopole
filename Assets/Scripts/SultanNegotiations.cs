@@ -3,8 +3,8 @@ using Yarn.Unity;
 
 public static class SultanNegotiations
 {
-    public static readonly string[] Titles={"Surrender — request terms","Talk of history","Send gifts","Recite poetry","Talk theology","Demand his surrender","Taunt him"};
-    public static readonly string[] Effects={"Receive a sealed offer to review. Once per day; no major action.","An exchange about rulers, conquest and inheritance. One conversation per day; no major action.","1,000 gold · Sultan's fury −5 points · Major action. May receive a return gift.","Exchange verses about desire, victory and loss. One conversation per day; no major action.","Discuss providence, judgement and the duties of a ruler. One conversation per day; no major action.","Army morale +3 points · Sultan's fury +5 points · Major action.","Public morale +3 points · Sultan's fury +5 points · Major action."};
+    public static readonly string[] Titles={"Surrender — request terms","Talk of history","Send a gift to Mehmed","Recite poetry","Talk theology","Demand his surrender","Taunt him"};
+    public static readonly string[] Effects={"Receive a sealed offer to review. Once per day; no major action.","An exchange about rulers, conquest and inheritance. One conversation per day; no major action.","Choose from eight gifts. Review gold, resources and effect before confirming. Major action. May receive a return gift.","Exchange verses about desire, victory and loss. One conversation per day; no major action.","Discuss providence, judgement and the duties of a ruler. One conversation per day; no major action.","Army morale +3 points · Sultan's fury +5 points · Major action.","Public morale +3 points · Sultan's fury +5 points · Major action."};
     public static bool IsConversation(int i)=>i==0 || i==1 || i==3 || i==4;
     public static bool IsTalk(int i)=>i==1 || i==3 || i==4;
     static int Topic(int i)=>i==1?0:i==3?1:2;
@@ -23,7 +23,7 @@ public static class SultanNegotiations
             if(Seen(Topic(i))==(1<<Exchanges[Topic(i)].Length)-1)return "All exchanges read";
         }
         if(i==0 && CouncilActions.Int("iSultanVisit0")==today)return "Terms requested today";
-        if(i==2 && CouncilActions.Int("iMoney")<1000)return "Requires 1,000 gold";
+
         return null;
     }
     public static bool Available(int i)=>Unavailable(i)==null;
@@ -47,6 +47,7 @@ public static class SultanNegotiations
     };
     public static bool Act(int index,out string report)
     {
+        if(index==2)return SultanGifts.Send(2,out report);
         report="";if(!Available(index)) {report=Unavailable(index);return false;}
         if(IsConversation(index))
         {

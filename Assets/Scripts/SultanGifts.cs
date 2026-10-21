@@ -3,6 +3,38 @@ using Yarn.Unity;
 
 public static class SultanGifts
 {
+    public class Gift {
+        public string Name, Description, Resource; public int Gold, Quantity, Fury;
+        public Gift(string name,string description,int gold,int fury,string resource=null,int quantity=0) {Name=name;Description=description;Gold=gold;Fury=fury;Resource=resource;Quantity=quantity;}
+        public string Cost=>Gold.ToString("N0")+" gold"+(Quantity>0?" + "+Quantity+" "+(Resource=="iProvisions"?"provisions":Resource=="iMaterials"?"materials":"secrets"):"");
+    }
+    public static readonly Gift[] Gifts={
+        new Gift("A casket of sweetmeats","Candied quince, honeyed almonds and rosewater sweets, sealed with the imperial eagle.",250,2),
+        new Gift("Bursa silk and a silver clasp","Fine silk bought from the City's merchants, with a clasp worked by a palace goldsmith.",500,3),
+        new Gift("An illuminated Alexander manuscript","A Greek account of Alexander's campaigns, copied on vellum and bound in crimson leather.",1000,5),
+        new Gift("An ivory chess set","Two little armies carved in ivory and ebony. Your envoy is instructed to make no joke about the kings.",2000,8),
+        new Gift("A jewelled astronomical instrument","A brass astrolabe with silver scales and a case set with garnets, fit for a ruler who studies the heavens.",3500,12),
+        new Gift("A feast for the Sultan's household","Oil, preserved fruit, flour and spices leave your stores beneath an escort carrying a flag of truce.",300,6,"iProvisions",200),
+        new Gift("Timber for a pleasure pavilion","Seasoned wood and dressed stone, offered for a garden pavilion. Your own workshops must surrender the stock.",600,8,"iMaterials",100),
+        new Gift("A portfolio of distant courts","Your agents prepare an account of foreign courts and their rivalries. The intelligence leaves your own archive.",1200,10,"iSecrets",2)
+    };
+    public static string GiftUnavailable(int index) {
+        if(index<0 || index>=Gifts.Length)return "Unknown gift";
+        var g=Gifts[index];
+        if(CouncilActions.Int("iMoney")<g.Gold)return "Requires "+g.Gold.ToString("N0")+" gold";
+        if(g.Quantity>0 && CouncilActions.Int(g.Resource)<g.Quantity)return "Requires "+g.Cost;
+        return null;
+    }
+    public static bool Send(int index,out string report) {
+        report=GiftUnavailable(index);if(report!=null)return false;
+        var g=Gifts[index];var before=VariableSingleton.Instance.CaptureState();
+        VariableSingleton.ChangeInt("iMoney",-g.Gold);
+        if(g.Quantity>0)VariableSingleton.ChangeInt(g.Resource,-g.Quantity);
+        VariableSingleton.ChangePercentFloat("fSultanRage",-g.Fury/100f);
+        report="Your envoy lays "+g.Name.ToLowerInvariant()+" before Mehmed. The Sultan has the gift brought closer and listens while the imperial letter is read. ‘Tell your Emperor that his courtesy has been received.’ His seal accompanies the answer; no promise of peace does."
+            +ReturnGift(Random.Range(0,100))+"\n\n"+EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState());
+        return true;
+    }
     static int Get(string suffix)=>CouncilActions.Int("iShah"+suffix);
     static void Set(string suffix,int value)=>VariableSingleton.SetInt("iShah"+suffix,value);
     static int Today=>TrainingPool.Day(VariableSingleton.GetDate());

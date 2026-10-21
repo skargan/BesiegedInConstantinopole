@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR || DEVELOPMENT_BUILD
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System;
 using System.Collections;
 using System.IO;
@@ -32,6 +32,23 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-gift-capture")) {
+            int checks=0;
+            for(int i=0;i<SultanGifts.Gifts.Length;i++) {
+                var g=SultanGifts.Gifts[i];
+                VariableSingleton.SetInt("iMoney",0);string report;
+                if(SultanGifts.Send(i,out report))throw new Exception("Unaffordable gift sent");checks++;
+                VariableSingleton.SetInt("iMoney",g.Gold);if(g.Quantity>0)VariableSingleton.SetInt(g.Resource,g.Quantity-1);
+                if(g.Quantity>0 && SultanGifts.Send(i,out report))throw new Exception("Resource gate bypassed");
+                if(g.Quantity>0)VariableSingleton.SetInt(g.Resource,g.Quantity);
+                if(SultanGifts.GiftUnavailable(i)!=null)throw new Exception("Affordable gift blocked");checks++;
+                VariableSingleton.ChangeFloat("fSultanRage",1);
+                if(!SultanGifts.Send(i,out report) || Mathf.Abs(VariableSingleton.GetFloatVariable("fSultanRage")-(1-g.Fury/100f))>.001f)throw new Exception("Gift effect");checks++;
+            }
+            var c=CouncilUI.For(manager);VariableSingleton.SetInt("iMoney",10000);VariableSingleton.SetInt("iSecrets",10);VariableSingleton.SetInt("iProvisions",1000);VariableSingleton.SetInt("iMaterials",1000);c.SultanGiftMenu();yield return Capture("25-gifts");
+            FindObjectsOfType<Button>().First(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Review gift").onClick.Invoke();yield return Capture("25-gift-review"); if(!FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Confirm — send gift"))throw new Exception("Gift review missing");checks++;
+            Debug.Log("GIFT_PLAYER_CHECKS "+checks+" passed");Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-achievement-capture")) {
             int checks=0;
             if(Achievements.Names.Length!=18 || Achievements.Descriptions.Length!=18)throw new Exception("Achievement inventory");checks++;
@@ -313,3 +330,5 @@ public class PlaytestCapture : MonoBehaviour
     }
 }
 #endif
+
+

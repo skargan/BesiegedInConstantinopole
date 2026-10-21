@@ -3,7 +3,7 @@ using UnityEngine.UI;
 public static class Achievements
 {
     public static readonly string[] Names={"Still We Stand","The Last Signature","The Sealed Bargain","A Season Against the World","The Unbroken Wall","The Emperor's Eyes","A Fleet on the Horizon","Master of the Workshops","Four Voices, One Crown","Bread for the City","Restored Praetorian Guard","Great Cannon","Fellowship of Constantinople","Ten Thousand Fallen","Thirty Thousand Fallen","Fifty Thousand Fallen","Seventy-five Thousand Fallen","Without a Single Repair"};
-    public static readonly string[] Descriptions={"Survive the siege or destroy the Ottoman field army.","Be assassinated by your own people while accepting surrender terms.","Conclude a surrender without being killed by your own people.","Hold Constantinople for 120 siege days.","Finish a campaign without abandoning the outer wall.","Build a network of eight agents.","Receive a foreign relief expedition.","Adopt every available technology.","Keep all four political blocs influential and the loyalists strongest.","Recover from famine and rebuild a month's food reserve.","Restore the Praetorian Guard. Restoration event forthcoming.","Bring the Great Cannon into the City's possession.","Recruit 12 distinct friendly characters in one campaign. The current roster will need further arrivals.","Cause 10,000 Ottoman troop deaths in one campaign.","Cause 30,000 Ottoman troop deaths in one campaign.","Cause 50,000 Ottoman troop deaths in one campaign.","Cause 75,000 Ottoman troop deaths in one campaign.","Win the siege without repairing any wall during the campaign. Requires a new campaign with repair tracking."};
+    public static readonly string[] Descriptions={"Survive the siege or destroy the Ottoman field army.","Be assassinated by your own people while accepting surrender terms.","Conclude a surrender without being killed by your own people.","Hold Constantinople for 120 siege days.","Finish a campaign without abandoning the outer wall.","Build a network of eight agents.","Receive a foreign relief expedition.","Adopt every available technology.","Keep all four political blocs influential and the loyalists strongest.","Recover from famine and rebuild a month's food reserve.","Restore the Praetorian Guard. Restoration event forthcoming.","Bring the Great Cannon into the City's possession.","Recruit seven distinct friendly characters in one campaign.","Cause 10,000 Ottoman troop deaths in one campaign.","Cause 30,000 Ottoman troop deaths in one campaign.","Cause 50,000 Ottoman troop deaths in one campaign.","Cause 75,000 Ottoman troop deaths in one campaign.","Win the siege without repairing any wall during the campaign. Requires a new campaign with repair tracking."};
     public static void Unlock(int index) {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if(!string.IsNullOrEmpty(VariableSingleton.TestSavePath))return;
@@ -32,7 +32,7 @@ public static class Achievements
         if(DailyLifeEvents.I("iKjoldState",1)==1)VariableSingleton.SetInt("iAchievementPerson200",1);
         if(SultanGifts.Known && (I("iShahStatus")==4 || I("iShahStatus")==7))VariableSingleton.SetInt("iAchievementPerson201",1);
         int count=0;foreach(int id in CharacterPortraits.People)if(id!=8 && id!=202 && I("iAchievementPerson"+id)>0)count++;
-        if(count>=12)Unlock(12);
+        if(count>=7)Unlock(12);
     }
     public static void Victory() {
         CheckCampaign();

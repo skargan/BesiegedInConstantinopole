@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 24 · Midnight Mosaic · 22 October 2026";
+    public const string BuildLabel="Version 25 · Midnight Mosaic · 22 October 2026";
 
 
 
@@ -1193,6 +1193,26 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
+    public void SultanGiftMenu() {
+        Open("Gifts for Mehmed","Choose a gift to review. Nothing is spent until you confirm. Each gift uses the major action; a return gift is possible.");
+        ControlSingleton.Instance.ReturnAction=Sultan;
+        BodyHeight(8*180);
+        for(int i=0;i<SultanGifts.Gifts.Length;i++) {
+            int choice=i;var g=SultanGifts.Gifts[i];var row=Row(i,180);
+            CampaignHUD.Label(row.transform,g.Name,new Vector2(.03f,.69f),new Vector2(.72f,.95f),26);
+            CampaignHUD.Explanation(row.transform,g.Description+"\n"+g.Cost+" · Sultan's fury −"+g.Fury+" points",new Vector2(.03f,.08f),new Vector2(.72f,.68f),22);
+            CampaignHUD.MakeButton(row.transform,"Review gift",new Vector2(.76f,.23f),new Vector2(.97f,.77f),()=>ReviewSultanGift(choice));
+        }
+    }
+    private void ReviewSultanGift(int index) {
+        var g=SultanGifts.Gifts[index];Open("Gift to Mehmed · "+g.Name,"Review the offering before sending your envoy.");
+        ControlSingleton.Instance.ReturnAction=SultanGiftMenu;BodyHeight(520);
+        CampaignHUD.Explanation(body,g.Description+"\n\nCost: "+g.Cost+"\nSultan's fury −"+g.Fury+" points (minimum zero).\nUses the major action. A return gift is possible, not guaranteed.",new Vector2(.05f,.35f),new Vector2(.95f,.95f),27);
+        string unavailable=SultanGifts.GiftUnavailable(index);
+        var confirm=CampaignHUD.MakeButton(body,unavailable??"Confirm — send gift",new Vector2(.05f,.08f),new Vector2(.62f,.25f),()=>{bool ok=SultanGifts.Send(index,out var report);Finish(ok,report);});confirm.interactable=unavailable==null;
+        CampaignHUD.MakeButton(body,"Choose another gift",new Vector2(.66f,.08f),new Vector2(.95f,.25f),SultanGiftMenu);
+    }
+
     public void Sultan()
 
     {
@@ -1214,8 +1234,9 @@ public partial class CouncilUI : MonoBehaviour
 
             CampaignHUD.Explanation(row.transform,SultanNegotiations.Effects[i],new Vector2(.03f,.08f),new Vector2(.7f,.53f),22);
 
-            var button=CampaignHUD.MakeButton(row.transform,SultanNegotiations.Available(i)?"Send message":SultanNegotiations.Unavailable(i),new Vector2(.75f,.18f),new Vector2(.97f,.82f),()=>{
+            var button=CampaignHUD.MakeButton(row.transform,SultanNegotiations.Available(i)?(i==2?"Choose gift":"Send message"):SultanNegotiations.Unavailable(i),new Vector2(.75f,.18f),new Vector2(.97f,.82f),()=>{
 
+                if(choice==2){SultanGiftMenu();return;}
                 bool ok=SultanNegotiations.Act(choice,out var report);
 
                 if(!ok){notice.text=report;return;}
