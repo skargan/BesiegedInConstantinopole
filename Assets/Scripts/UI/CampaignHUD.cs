@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 using UnityEngine.UI;
 
@@ -141,7 +141,7 @@ public class CampaignHUD : MonoBehaviour
         if(VariableSingleton.GetIntVariable("iDeposed")>0)reason="Giovanni has seized the imperial throne. Your reign ends; the defence continues under another emperor.";
         if (reason == null) return;
 
-        if(reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.") { PreparationCampaign.HonourVictory(); Achievements.Unlock(0); }
+        if(reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.") { PreparationCampaign.HonourVictory(); Achievements.Unlock(0); Achievements.Victory(); }
         ended = true;
 
         ShowModal("Campaign ended", reason + "\n\nSiege days survived: " + VariableSingleton.CompletedSiegeDays +

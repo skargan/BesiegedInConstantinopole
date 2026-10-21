@@ -1,4 +1,4 @@
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
+﻿#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System;
 using System.Collections;
 using System.IO;
@@ -32,6 +32,25 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-achievement-capture")) {
+            int checks=0;
+            if(Achievements.Names.Length!=18 || Achievements.Descriptions.Length!=18)throw new Exception("Achievement inventory");checks++;
+            VariableSingleton.SetInt("iAchievementOttomanDead",0);VariableSingleton.SetInt("iBazouks",50);
+            VariableSingleton.ChangeInt("iBazouks",-100);
+            if(CouncilActions.Int("iAchievementOttomanDead")!=50)throw new Exception("Loss cap");checks++;
+            VariableSingleton.ChangeInt("iBazouks",100);
+            if(CouncilActions.Int("iAchievementOttomanDead")!=50)throw new Exception("Reinforcements counted");checks++;
+            VariableSingleton.SetInt("iAchievementWallRepaired",0);VariableSingleton.ChangeFloat("fOuterWall",-.1f);
+            if(CouncilActions.Int("iAchievementWallRepaired")!=0)throw new Exception("Damage counts as repair");checks++;
+            VariableSingleton.ChangeFloat("fOuterWall",.1f);
+            if(CouncilActions.Int("iAchievementWallRepaired")!=1)throw new Exception("Repair untracked");checks++;
+            VariableSingleton.Instance.Save();VariableSingleton.SetInt("iAchievementOttomanDead",0);VariableSingleton.Instance.Load();
+            if(CouncilActions.Int("iAchievementOttomanDead")!=50 || CouncilActions.Int("iAchievementWallRepaired")!=1)throw new Exception("Achievement save persistence");checks++;
+            Achievements.Show(manager.transform.root);yield return Capture("24-achievements-top");
+            var achievementPanel=GameObject.Find("Achievements");achievementPanel.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition=0;
+            yield return Capture("24-achievements-bottom");
+            Debug.Log("ACHIEVEMENT_PLAYER_CHECKS "+checks+" passed");Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-background-capture")) {
             var c=CouncilUI.For(manager);int checks=0;
             foreach(string name in new[]{"walls-peace","walls-war","diplomacy","market-peace","market-war","intelligence","army","fleet-peace","fleet-war"}){if(Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/"+name)==null)throw new Exception("Missing background "+name);checks++;}

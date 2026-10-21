@@ -42,6 +42,7 @@ public class VariableSingleton : MonoBehaviour
         ArrivalNotice+=TroopTraining.Complete(GetDate());
         ArrivalNotice+=PreparationCampaign.Advance();
         ArrivalNotice+=PoliticalSystem.AdvancePolitics();
+        Achievements.CheckCampaign();
         return turn;
     }
     public int overrideTurn = -1;
@@ -116,6 +117,7 @@ public class VariableSingleton : MonoBehaviour
     static  public void SetInt(string varName, int newValue) 
     {
         iDict[varName] = newValue;
+        if(varName=="iGrandCannon" || varName=="iAdventurerArrived" || varName=="iShahStatus")Achievements.CheckCampaign();
     }
 
 
@@ -161,10 +163,12 @@ public class VariableSingleton : MonoBehaviour
         if(newValue && character>=0 && iDict.TryGetValue("iAllegiance"+character,out int bloc) && bloc>0 && PoliticalSystem.Banned(bloc-1)) return;
         bDict[varName] = newValue;
         CourtRoster.Record(varName,newValue);
+        Achievements.CheckCampaign();
     }
 
     static public void ChangeInt(string varName, int delta)
     {
+        Achievements.TroopLoss(varName,Math.Min(iDict[varName],Math.Max(0,-delta)));
         if (iDict[varName] + delta < 0)
         {
             iDict[varName] = 0;
@@ -184,6 +188,7 @@ public class VariableSingleton : MonoBehaviour
     {
         // Equipment quality is a lethality multiplier; other campaign floats are fractions.
         float value=fDict[varName]+delta;
+        Achievements.WallChanged(varName,fDict[varName],Mathf.Clamp01(value));
         fDict[varName]=varName.EndsWith("Quality")?Mathf.Max(0,value):Mathf.Clamp01(value);
     }
 
@@ -192,6 +197,7 @@ public class VariableSingleton : MonoBehaviour
     {
         if (fDict[varName] + delta > 1)
         {
+            Achievements.WallChanged(varName,fDict[varName],1);
             fDict[varName] = 1;
         }
         else ChangeFloat(varName, delta);
@@ -259,6 +265,7 @@ public class VariableSingleton : MonoBehaviour
         }
         PreparationCampaign.InitializeDefaults();
         IsInitialized = true;
+        Achievements.BeginCampaign();
     }
 
     /*********************
@@ -391,7 +398,7 @@ public class VariableSingleton : MonoBehaviour
         // New systems also reset when loading an older checkpoint in the same session.
         foreach(string key in new[]{"bTechVarangianDrills","bTechDismountedChampions"}) bDict[key]=false;
         foreach(string key in new System.Collections.Generic.List<string>(iDict.Keys))
-            if(key.StartsWith("iHard") || key.StartsWith("iCombat") || key=="iEmperorAtWall" || key.StartsWith("iLife") || key.StartsWith("iLady") || (key.StartsWith("iPopulation") && key!="iPopulation") || key.StartsWith("iDrill") || key.StartsWith("iTerms") || key.StartsWith("iSurrender") || key.StartsWith("iSultanSeen") || key=="iSultanConversationDay") iDict[key]=0;
+            if(key.StartsWith("iAchievement") || key.StartsWith("iHard") || key.StartsWith("iCombat") || key=="iEmperorAtWall" || key.StartsWith("iLife") || key.StartsWith("iLady") || (key.StartsWith("iPopulation") && key!="iPopulation") || key.StartsWith("iDrill") || key.StartsWith("iTerms") || key.StartsWith("iSurrender") || key.StartsWith("iSultanSeen") || key=="iSultanConversationDay") iDict[key]=0;
         iDict["iMerchantFavor"] = 50;
         iDict["iFencing"] = 25;
         turn = data.turn;

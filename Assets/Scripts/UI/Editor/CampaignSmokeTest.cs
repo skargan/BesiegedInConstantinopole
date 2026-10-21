@@ -584,7 +584,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         VariableSingleton.SetInt("iSurrenderEnding",0);VariableSingleton.SetInt("iTermsDay",0);VariableSingleton.SetInt("iCampAlert",0);VariableSingleton.ChangePercentFloat("fSultanRage",-1);VariableSingleton.ChangeFloat("fOuterWall",1);SurrenderTerms.Request();
         Check(SurrenderTerms.Accept(out surrenderReport) && CouncilActions.Int("iSurrenderEnding")==1,"Accepted safe terms produce negotiated campaign ending");
         Check(DiplomaticChronicles.All.Length==CouncilActions.Allies.Length && DiplomaticChronicles.All.All(p=>p.Paragraphs.Length==3),"Every diplomatic power has three chronicle paragraphs");
-        Check(Achievements.Names.Length==10 && Achievements.Descriptions.Length==10,"Ten initial achievements listed");
+        Check(Achievements.Names.Length==18 && Achievements.Descriptions.Length==18,"Eighteen achievements listed");
         Finish(null);
     }
     private IEnumerator EventChoice(string node, string choice, System.Action setup=null)
