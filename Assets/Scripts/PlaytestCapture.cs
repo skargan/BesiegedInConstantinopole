@@ -32,6 +32,14 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-politics-capture")) {
+            var c=CouncilUI.For(manager);
+            c.Factions();yield return Capture("political-factions");
+            c.CivicRelations();yield return Capture("civic-relations");
+            ControlSingleton.Instance.GoBack();yield return Capture("society-return");
+            c.Politics();yield return Capture("political-dealings");
+            Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-operations-capture")) {
             var c=CouncilUI.For(manager);
             AudioSettingsUI.Show(manager.transform.root);yield return Capture("18-settings");AudioSettingsUI.Close();

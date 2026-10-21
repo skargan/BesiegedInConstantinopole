@@ -14,7 +14,7 @@ public partial class CouncilUI : MonoBehaviour
 
 {
 
-    public const string BuildLabel="Version 19 · Midnight Mosaic · 21 October 2026";
+    public const string BuildLabel="Version 19.1 · Midnight Mosaic · 21 October 2026";
 
     private GameObject screen;
 
@@ -213,11 +213,43 @@ public partial class CouncilUI : MonoBehaviour
     }
 
     public void Factions()
+    {
+        Open("Society and politics", "Political influence measures each faction's share of power, not popular approval. Civic relations are shown separately.");
+        BodyHeight(590);
+        var tabs=SpyPanel("Society navigation",0,70);
+        CampaignHUD.MakeButton(tabs.transform,"Political dealings",new Vector2(.02f,.15f),new Vector2(.49f,.85f),Politics);
+        CampaignHUD.MakeButton(tabs.transform,"Civic relations and audiences",new Vector2(.51f,.15f),new Vector2(.98f,.85f),CivicRelations);
+        for(int i=0;i<4;i++)
+        {
+            int col=i%2, row=i/2, share=PoliticalSystem.Share(i);
+            bool banned=PoliticalSystem.Banned(i);
+            var card=SpyPanel(PoliticalSystem.Names[i],84+row*250,238);
+            var rect=card.GetComponent<RectTransform>();
+            rect.anchorMin=new Vector2(col*.5f,1);rect.anchorMax=new Vector2(col*.5f+.49f,1);
+            var title=CampaignHUD.Label(card.transform,PoliticalSystem.Names[i],new Vector2(.04f,.80f),new Vector2(.96f,.97f),25);
+            title.alignment=TextAlignmentOptions.Center;
+            var value=CampaignHUD.Label(card.transform,banned?"BANISHED":share+"% influence",new Vector2(.04f,.64f),new Vector2(.96f,.80f),24);
+            value.alignment=TextAlignmentOptions.Center;
+            var track=CampaignHUD.Panel(card.transform,"Influence",new Vector2(.06f,.57f),new Vector2(.94f,.60f));
+            track.GetComponent<Image>().color=new Color(.12f,.16f,.19f);
+            var fill=CampaignHUD.Panel(track.transform,"Current share",Vector2.zero,new Vector2(Mathf.Clamp01(share/100f),1));
+            fill.GetComponent<Image>().color=PoliticalSystem.Colours[i];
+            CampaignHUD.Explanation(card.transform,PoliticalSystem.Beliefs[i],new Vector2(.05f,.29f),new Vector2(.95f,.55f),20);
+            var offer=CampaignHUD.Label(card.transform,PoliticalSystem.Effects[i],new Vector2(.05f,.15f),new Vector2(.95f,.29f),20);
+            offer.alignment=TextAlignmentOptions.Center;
+            string status=banned?"This faction can no longer offer aid.":share<20?"Needs 20% influence to offer aid.":!PoliticalSystem.CanAid(i)?"Needs a Western expedition already on its way.":"A favour is available · uses your major action";
+            var availability=CampaignHUD.Label(card.transform,status,new Vector2(.05f,.02f),new Vector2(.95f,.14f),18);
+            availability.alignment=TextAlignmentOptions.Center;
+        }
+    }
+
+    public void CivicRelations()
 
     {
 
-        Open("Society and politics","Five overlapping interests. Each audience costs 300 gold, improves its measure by 3 points (up to 100%), and uses your major action.");
+        Open("Civic relations and audiences","Five overlapping interests. Each audience costs 300 gold, improves its measure by 3 points (up to 100%), and uses your major action.");
 
+        ControlSingleton.Instance.ReturnAction=Factions;
         BodyHeight(5*142);
 
         for(int i=0;i<5;i++)
@@ -585,7 +617,7 @@ public partial class CouncilUI : MonoBehaviour
 
     public void Politics()
     {
-        Open("Internal politics","A bloc needs 20% influence to act. Calling in a favour uses the major action and transfers up to 5 influence points to that bloc.");
+        Open("Political dealings","A bloc needs 20% influence to act. Calling in a favour uses the major action and transfers up to 5 influence points to that bloc.");
         ControlSingleton.Instance.ReturnAction=Factions;
         BodyHeight(1080);
         var chart=Row(0,240);
@@ -602,7 +634,7 @@ public partial class CouncilUI : MonoBehaviour
             var rect=row.GetComponent<RectTransform>();rect.anchoredPosition+=new Vector2(0,-35);
             CampaignHUD.Label(row.transform,PoliticalSystem.Names[i]+" - "+PoliticalSystem.Share(i)+"%"+(PoliticalSystem.Banned(i)?" | Banished":""),new Vector2(.02f,.76f),new Vector2(.66f,.98f),26);
             CampaignHUD.Explanation(row.transform,PoliticalSystem.Beliefs[i]+"\n\n"+PoliticalSystem.Effects[i]+" | Influence +5",new Vector2(.02f,.05f),new Vector2(.66f,.74f),21);
-            var order=CampaignHUD.MakeButton(row.transform,PoliticalSystem.Share(i)<20?"Requires 20% influence":i==2&&!PoliticalSystem.CanAid(i)?"Awaiting a Western expedition":PoliticalSystem.Orders[i],new Vector2(.69f,.43f),new Vector2(.98f,.94f),()=>{bool ok=PoliticalSystem.Aid(bloc,out var report);Finish(ok,report);});
+            var order=CampaignHUD.MakeButton(row.transform,PoliticalSystem.Banned(i)?"Faction banished":PoliticalSystem.Share(i)<20?"Requires 20% influence":i==2&&!PoliticalSystem.CanAid(i)?"Awaiting a Western expedition":PoliticalSystem.Orders[i],new Vector2(.69f,.43f),new Vector2(.98f,.94f),()=>{bool ok=PoliticalSystem.Aid(bloc,out var report);Finish(ok,report);});
             order.interactable=PoliticalSystem.CanAid(i);
             if(i>0){var ban=CampaignHUD.MakeButton(row.transform,"Banish faction...",new Vector2(.69f,.06f),new Vector2(.98f,.36f),()=>{
                 CampaignHUD.Instance.ShowReport("Banishment",PoliticalSystem.BanishPreview(bloc),()=>{CampaignHUD.Instance.DismissReport();bool ok=PoliticalSystem.Banish(bloc,out var report);Finish(ok,report);});
