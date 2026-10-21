@@ -26,7 +26,7 @@ public class ManagerUI : UIWindowFam
     //*****************************
     public void BringUpSiegeUI()
     {
-        SwitchPhase(siegeUI);ImperialTheme.LegacySurface(siegeUI);
+        SwitchPhase(siegeUI);ImperialTheme.LegacySurface(siegeUI);SceneBackdrop.Apply(siegeUI,SceneBackdrop.Phase("walls"));
         if(siegeUI.transform.Find("Special actions")==null)
             CampaignHUD.MakeButton(siegeUI.transform,"Special actions",new Vector2(.66f,.82f),new Vector2(.94f,.91f),()=>{siegeUI.SetActive(false);CouncilUI.For(this).WallSpecialActions();});
         if(siegeUI.transform.Find("Special actions")==null)
@@ -53,7 +53,7 @@ public class ManagerUI : UIWindowFam
     //*****************************
     public void BringUpTroopsUI()
     {
-        SwitchPhase(troopsUI);ImperialTheme.LegacySurface(troopsUI);
+        SwitchPhase(troopsUI);ImperialTheme.LegacySurface(troopsUI);SceneBackdrop.Apply(troopsUI,"army");
         Transform recruitmentPanel=troopsUI.transform;
         foreach(var child in troopsUI.GetComponentsInChildren<Transform>(true)) if(child.name=="Military UI") recruitmentPanel=child;
         if(recruitmentPanel.Find("Ongoing training")==null)

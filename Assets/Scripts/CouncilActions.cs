@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 using System.Text;
 
@@ -235,6 +235,7 @@ public static class CouncilActions
         if(accepted) VariableSingleton.SetInt("iAidDays"+index,Allies[index].Days);
 
         report=Report(before,accepted?$"{Allies[index].Name} commits aid. Expected in {Allies[index].Days} calendar days.\nPromised: {Allies[index].Cargo}.":$"{Allies[index].Name} declines your appeal. No reinforcements are promised.");
+        report+=DiplomaticReplies.Format(Allies[index].Name,accepted,Int("iReligion"),index+VariableSingleton.Turn);
 
         return true;
 

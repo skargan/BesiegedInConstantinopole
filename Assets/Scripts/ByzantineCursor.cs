@@ -10,7 +10,7 @@ public class ByzantineCursor:MonoBehaviour
     private void Awake(){
         var texture=Resources.Load<Texture2D>("UI/MidnightMosaic/byzantine-hand");if(texture==null){enabled=false;return;}
         layer=gameObject.AddComponent<Canvas>();layer.renderMode=RenderMode.ScreenSpaceOverlay;layer.sortingOrder=32760;
-        var imageObject=new GameObject("Hand",typeof(RectTransform),typeof(RawImage));imageObject.transform.SetParent(transform,false);hand=imageObject.GetComponent<RectTransform>();hand.sizeDelta=new Vector2(64,64);hand.pivot=new Vector2(.432f,.942f);
+        var imageObject=new GameObject("Hand",typeof(RectTransform),typeof(RawImage));imageObject.transform.SetParent(transform,false);hand=imageObject.GetComponent<RectTransform>();hand.sizeDelta=new Vector2(56,56);hand.pivot=new Vector2(169f/1254f,1f-125f/1254f); // Opaque upper-left fingertip is the click point.
         var image=imageObject.GetComponent<RawImage>();image.texture=texture;image.raycastTarget=false;
     }
     private void LateUpdate(){if(layer==null)return;Vector3 p=Input.mousePosition;bool inside=p.x>=0&&p.y>=0&&p.x<Screen.width&&p.y<Screen.height&&Application.isFocused;layer.enabled=inside;Cursor.visible=!inside;hand.position=p;}
@@ -18,3 +18,4 @@ public class ByzantineCursor:MonoBehaviour
     private void OnDisable(){Cursor.visible=true;if(layer!=null)layer.enabled=false;}
     private void OnApplicationQuit(){Cursor.visible=true;}
 }
+

@@ -1,0 +1,32 @@
+BESIEGED — NARRATIVE REVIEW NOTES: THE WALTARI LENS
+22 October 2026
+Status: designer-approved guidance for future writing/design reviews. These are our imagined literary observations, not quotations or claims about what Mika Waltari actually said. Examples below are proposals, not implemented features or new balance rules.
+
+Central question
+Does the player inhabit a threatened civilisation full of people with independent lives, or merely operate a collection of resource exchanges? Preserve serious strategy while allowing faith, desire, political calculation and self-deception to coexist.
+
+1. Characters want something besides serving the player.
+Give each important character a private interest, an obligation and a point on which they can disagree with the emperor. High loyalty should not erase disagreement. Notaras may protect his family; a devout lover may condemn an imperial policy; sound advice may also serve its speaker. Garden conversations should sometimes involve an uncomfortable favour or a refusal to discuss strategy.
+
+2. Explain orders without explaining away human beings.
+Keep known costs, eligibility and immediate mechanical results legible. Let uncertain motives and some later social consequences emerge through scenes, absence, changed behaviour and conversation. Do not conceal a known price or make an unexplained penalty the substitute for mystery. Example: appointing one commander may later change another man's willingness to visit; the player discovers his grievance through dialogue.
+
+3. Some things cannot be purchased.
+Avoid making every human problem a direct conversion of gold, secrets or favour. Paying for a child's burial need not buy the mother's gratitude. Saving a commander may not earn his respect. Winning a theological argument may make reconciliation harder. Such outcomes require believable character motives and sufficient context, not arbitrary punishment.
+
+4. Survival leaves a particular mark.
+Endings should remember recorded decisions and character outcomes. A city saved by stripping churches, granting foreign privileges and conceding Galata is a different victory from one saved by other means. Ask: whose city survives, what obligations remain, and what does the emperor tell himself? Exile should reflect the decision to leave and the people left behind. Do not invent consequences unsupported by campaign state.
+
+5. Prioritise one complete human story before expanding the catalogue.
+Proposed pilot: Kjold's early companionship; disagreement after an order that costs his men; later conduct reflecting how the emperor treated him; a specific epilogue consequence. Connect garden, siege event and ending. This pilot is a proposal awaiting detailed design, not an instruction to add unapproved combat or loyalty rules.
+
+Questions for each future writing review
+- What does this person want independently of the emperor?
+- What distinguishes this voice from another character's?
+- Is the decision a serious trade-off, or an obvious reward button?
+- What must be clearly explained, and what can reasonably remain uncertain?
+- Does a later scene remember this interaction without contradicting the journal?
+- Can the player understand a painful outcome without being told every hidden motive?
+- Does this scene enrich the lived experience of Constantinople, or merely lengthen the event list?
+
+Use original prose and individual character voices. The Waltari lens is thematic guidance, not an instruction to imitate passages or attribute invented quotations to him.

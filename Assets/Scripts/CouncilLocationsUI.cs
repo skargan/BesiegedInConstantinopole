@@ -32,7 +32,11 @@ public partial class CouncilUI
             LocationButton(holder.transform,"Walk in the garden",.73f,.08f,.97f,.22f,Garden);
         }
         int visitor=PalaceLocations.Visitor(place);
-        if(visitor>=0)LocationButton(holder.transform,GardenConversations.Name(visitor)+"\nSpeak",.05f,.07f,.33f,.24f,()=>{conversationLocation=place;GardenTalk(visitor,0);});
+        if(visitor>=0){
+            var speak=CampaignHUD.MakeButton(holder.transform,GardenConversations.Name(visitor)+"\nSpeak",new Vector2(.05f,.07f),new Vector2(.33f,.24f),()=>{conversationLocation=place;GardenTalk(visitor,0);});
+            var label=speak.GetComponentInChildren<TMPro.TMP_Text>();label.rectTransform.anchorMin=new Vector2(.30f,.04f);label.rectTransform.anchorMax=new Vector2(.97f,.96f);label.enableAutoSizing=true;label.fontSizeMin=17;label.fontSizeMax=25;
+            CharacterPortraits.Draw(speak.transform,visitor,new Vector2(.02f,.06f),new Vector2(.28f,.94f));
+        }
         if(place==2&&visitor>=0){ // Keep the visitor separate from the return doorway.
             var last=holder.transform.GetChild(holder.transform.childCount-1).GetComponent<RectTransform>();last.anchorMin=new Vector2(.37f,.08f);last.anchorMax=new Vector2(.65f,.24f);
         }

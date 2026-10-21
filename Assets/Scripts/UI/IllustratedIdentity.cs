@@ -6,7 +6,7 @@ public static class IllustratedIdentity {
         Atlas(parent,"UI/Identity/faith-medallions",new Rect(cell/3f,0,1f/3f,1),min,max,.85f);
     }
     public static void Portrait(Transform parent,int index) {
-        Atlas(parent,"UI/Identity/court-portraits",new Rect((index%3)/3f,(2-index/3)/3f,1f/3f,1f/3f),new Vector2(.015f,.06f),new Vector2(.18f,.94f),.85f);
+        CharacterPortraits.Draw(parent,index,new Vector2(.015f,.06f),new Vector2(.18f,.94f));
     }
     static void Atlas(Transform parent,string resource,Rect uv,Vector2 min,Vector2 max,float ratio) {
         var holder=CampaignHUD.Panel(parent,"Illustrated identity",min,max);holder.GetComponent<Image>().color=Color.clear;holder.GetComponent<Image>().raycastTarget=false;

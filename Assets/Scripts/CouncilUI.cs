@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 22 · Midnight Mosaic · 22 October 2026";
+    public const string BuildLabel="Version 23 · Midnight Mosaic · 22 October 2026";
 
 
 
@@ -297,6 +297,9 @@ public partial class CouncilUI : MonoBehaviour
 
 
         ImperialTheme.Panel(screen);
+        string sceneArt=SceneBackdrop.ForCouncil(title);
+        if(sceneArt!=null){SceneBackdrop.Apply(screen,sceneArt);var shade=CampaignHUD.Panel(screen.transform,"Readable heading",new Vector2(0,.80f),Vector2.one);shade.GetComponent<Image>().color=new Color(.015f,.035f,.05f,.90f);shade.GetComponent<Image>().raycastTarget=false;}
+
 
 
 
@@ -320,6 +323,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
+        if(sceneArt!=null){var artRect=viewport.GetComponent<RectTransform>();artRect.anchorMax=new Vector2(.945f,.61f);if(title=="Diplomacy and court"){artRect.anchorMin=new Vector2(.57f,.11f);artRect.anchorMax=new Vector2(.945f,.77f);}}
         viewport.AddComponent<RectMask2D>();
 
 
@@ -1079,7 +1083,7 @@ public partial class CouncilUI : MonoBehaviour
 
         CampaignHUD.Label(summary.transform,incoming.Count==0?"No foreign expeditions are currently committed.":"Committed reinforcements\n"+string.Join("\n",incoming),new Vector2(.03f,.06f),new Vector2(.97f,.94f),25);
 
-        CampaignHUD.MakeButton(links.transform,"Diplomatic relations · 16 powers",new Vector2(.04f,.69f),new Vector2(.96f,.96f),DiplomaticRelations);
+        CampaignHUD.MakeButton(links.transform,"Diplomatic relations · "+CouncilActions.Allies.Length+" powers",new Vector2(.04f,.69f),new Vector2(.96f,.96f),DiplomaticRelations);
 
         CampaignHUD.MakeButton(links.transform,"Negotiate with the Sultan",new Vector2(.04f,.37f),new Vector2(.96f,.64f),Sultan);
 
@@ -1195,15 +1199,16 @@ public partial class CouncilUI : MonoBehaviour
 
         Open("Messages to the Sultan","Envoys carry your words between the palace and Mehmed's court. Each conversation topic is available once per day.");
 
-        ControlSingleton.Instance.ReturnAction=Diplomacy;BodyHeight((SurrenderTerms.HasOffer?8:7)*160);
+        ControlSingleton.Instance.ReturnAction=Diplomacy;BodyHeight((SurrenderTerms.HasOffer?9:8)*160);
+        var sultanIdentity=Row(0,160);CharacterPortraits.Draw(sultanIdentity.transform,202,new Vector2(.02f,.07f),new Vector2(.17f,.93f));CampaignHUD.Label(sultanIdentity.transform,"Mehmed II\nSultan and supreme commander",new Vector2(.20f,.18f),new Vector2(.95f,.85f),28);
 
-        if(SurrenderTerms.HasOffer) {var offer=Row(7,160);CampaignHUD.MakeButton(offer.transform,SurrenderTerms.Valid?"Review surrender terms":"Read expired offer",new Vector2(.08f,.2f),new Vector2(.92f,.8f),ReviewTerms);}
+        if(SurrenderTerms.HasOffer) {var offer=Row(8,160);CampaignHUD.MakeButton(offer.transform,SurrenderTerms.Valid?"Review surrender terms":"Read expired offer",new Vector2(.08f,.2f),new Vector2(.92f,.8f),ReviewTerms);}
 
         for(int position=0;position<SultanNegotiations.Titles.Length;position++)
 
         {
 
-            int i=new[]{0,1,3,4,2,5,6}[position];int choice=i;var row=Row(position,160);
+            int i=new[]{0,1,3,4,2,5,6}[position];int choice=i;var row=Row(position+1,160);
 
             CampaignHUD.Label(row.transform,SultanNegotiations.Titles[i],new Vector2(.03f,.55f),new Vector2(.7f,.95f),27);
 
@@ -1524,15 +1529,15 @@ public partial class CouncilUI : MonoBehaviour
 
         }
 
-        if(shahServing) {var row=Row(position++,230);CampaignHUD.Label(row.transform,"Shaherezade — "+SultanGifts.Status+"\n\n"+SultanGifts.Note,new Vector2(.03f,.08f),new Vector2(.97f,.94f),25);}
+        if(shahServing) {var row=Row(position++,230);IllustratedIdentity.Portrait(row.transform,201);CampaignHUD.Label(row.transform,"Shaherezade — "+SultanGifts.Status+"\n\n"+SultanGifts.Note,new Vector2(.20f,.08f),new Vector2(.97f,.94f),25);}
 
         if(CharacterPreparations.InService) {
 
-            int c=CharacterPreparations.Candidate;var row=Row(position++,230);
+            int c=CharacterPreparations.Candidate;var row=Row(position++,230);IllustratedIdentity.Portrait(row.transform,100+c);
 
-            CampaignHUD.Label(row.transform,CharacterPreparations.Names[c]+" · "+CharacterPreparations.Status+" · Loyalty "+CharacterPreparations.Loyalty+" / 100",new Vector2(.03f,.72f),new Vector2(.97f,.97f),26);
+            CampaignHUD.Label(row.transform,CharacterPreparations.Names[c]+" · "+CharacterPreparations.Status+" · Loyalty "+CharacterPreparations.Loyalty+" / 100",new Vector2(.20f,.72f),new Vector2(.97f,.97f),26);
 
-            CampaignHUD.Explanation(row.transform,CharacterPreparations.Roles[c]+"\n"+CharacterPreparations.Profiles[c],new Vector2(.03f,.13f),new Vector2(.56f,.68f),23);
+            CampaignHUD.Explanation(row.transform,CharacterPreparations.Roles[c]+"\n"+CharacterPreparations.Profiles[c],new Vector2(.20f,.13f),new Vector2(.56f,.68f),23);
 
             CampaignHUD.Label(row.transform,"<color=#E8C36F>"+CharacterPreparations.Abilities[c]+"</color>",new Vector2(.60f,.40f),new Vector2(.97f,.70f),23);
 

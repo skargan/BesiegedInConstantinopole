@@ -32,6 +32,35 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-background-capture")) {
+            var c=CouncilUI.For(manager);int checks=0;
+            foreach(string name in new[]{"walls-peace","walls-war","diplomacy","market-peace","market-war","intelligence","army","fleet-peace","fleet-war"}){if(Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/"+name)==null)throw new Exception("Missing background "+name);checks++;}
+            c.Diplomacy();yield return Capture("23-diplomacy-art");c.Spies();yield return Capture("23-intelligence-art");
+            c.Market();yield return Capture("23-market-peace");c.Fleet();yield return Capture("23-fleet-peace");
+            c.Hide();manager.gameObject.SetActive(true);manager.BringUpSiegeUI();yield return Capture("23-walls-peace");ControlSingleton.Instance.GoBack();manager.BringUpTroopsUI();yield return Capture("23-army-art");ControlSingleton.Instance.GoBack();
+            VariableSingleton.Instance.overrideTurn=VariableSingleton.EffectiveSiegeTurn;VariableSingleton.IncrementTurn();VariableSingleton.ArrivalNotice="";
+            if(SceneBackdrop.Phase("walls")!="walls-war")throw new Exception("Siege artwork did not switch");
+            c.Market();yield return Capture("23-market-war");c.Fleet();yield return Capture("23-fleet-war");c.Hide();manager.gameObject.SetActive(true);manager.BringUpSiegeUI();yield return Capture("23-walls-war");
+            Debug.Log("BACKGROUND_PLAYER_CHECKS assets="+checks+" phase=passed");Application.Quit();yield break;
+        }
+        if(Environment.GetCommandLineArgs().Contains("-portrait-capture")) {
+            var c=CouncilUI.For(manager);int checkedPortraits=0;
+            foreach(int id in CharacterPortraits.People){if(CharacterPortraits.Texture(id)==null)throw new Exception("Missing portrait "+id);var uv=CharacterPortraits.UV(id);if(uv.xMin<0||uv.yMin<0||uv.xMax>1.001f||uv.yMax>1.001f)throw new Exception("Bad portrait crop "+id);checkedPortraits++;}
+            for(int i=0;i<8;i++)VariableSingleton.ChangeBool(CourtRoster.Keys[i],true);
+            VariableSingleton.SetInt("iAdventurerChoice",4);VariableSingleton.SetInt("iAdventurerArrived",1);
+            c.Court();yield return Capture("23-court");
+            FindObjectsOfType<ScrollRect>().First(v=>v.gameObject.activeInHierarchy).verticalNormalizedPosition=0;yield return Capture("23-court-visitor");
+            c.Garden();yield return Capture("23-garden");
+            var talk=typeof(CouncilUI).GetMethod("GardenTalk",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+            var question=typeof(CouncilUI).GetMethod("PersonalQuestion",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+            foreach(int person in new[]{0,103,200}){talk.Invoke(c,new object[]{person,0});yield return Capture("23-conversation-"+person);}
+            question.Invoke(c,new object[]{103});yield return Capture("23-question");
+            FindObjectsOfType<Button>().First(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text==CharacterQuestions.For(103).Replies[0]).onClick.Invoke();yield return Capture("23-reply");
+            var back=FindObjectsOfType<Button>().First(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Return to our conversation");
+            var scroll=FindObjectsOfType<ScrollRect>().First(v=>v.gameObject.activeInHierarchy);if(scroll.content.rect.height>scroll.viewport.rect.height+1)throw new Exception("Conversation overflows viewport");back.onClick.Invoke();
+            c.Sultan();yield return Capture("23-sultan");
+            Debug.Log("PORTRAIT_PLAYER_CHECKS portraits="+checkedPortraits+" return=passed");Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-dialogue-review-capture")) {
             var c=CouncilUI.For(manager);int old=CouncilActions.Int("iFleet");VariableSingleton.SetInt("iFleetPrepared",1);
             c.ReviewFleetMission(0);yield return Capture("22-fleet-review");
