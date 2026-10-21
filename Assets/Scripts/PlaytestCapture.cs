@@ -32,6 +32,21 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-dialogue-review-capture")) {
+            var c=CouncilUI.For(manager);int old=CouncilActions.Int("iFleet");VariableSingleton.SetInt("iFleetPrepared",1);
+            c.ReviewFleetMission(0);yield return Capture("22-fleet-review");
+            if(CouncilActions.Int("iFleet")!=old||CouncilActions.Int("iFleetPrepared")!=1)throw new Exception("Fleet changed during preview");
+            ControlSingleton.Instance.GoBack();if(CouncilActions.Int("iFleet")!=old||CouncilActions.Int("iFleetPrepared")!=1)throw new Exception("Return changed orders");
+            c.ReviewFleetMission(0);FindObjectsOfType<Button>().First(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Confirm mission").onClick.Invoke();
+            yield return Capture("22-fleet-confirmed");if(CouncilActions.Int("iFleet")!=0||CouncilActions.Int("iFleetPrepared")!=0)throw new Exception("Mission was not confirmed");
+            FindObjectOfType<RestUI>(true).gameObject.SetActive(false);manager.gameObject.SetActive(true);
+            VariableSingleton.SetInt("iAdventurerChoice",4);VariableSingleton.SetInt("iAdventurerArrived",1);
+            typeof(CouncilUI).GetMethod("GardenTalk",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance).Invoke(c,new object[]{103,0});yield return Capture("22-fontana");
+            typeof(CouncilUI).GetMethod("PersonalQuestion",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance).Invoke(c,new object[]{103});yield return Capture("22-question");
+            FindObjectsOfType<Button>().First(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text==CharacterQuestions.For(103).Replies[0]).onClick.Invoke();yield return Capture("22-reply");
+            if(DailyLifeEvents.I("iLifeQuestionReply103")!=1)throw new Exception("Reply not remembered");
+            Debug.Log("DIALOGUE_REVIEW_PLAYER_CHECKS passed=4");Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-political-system-capture")) {
             var c=CouncilUI.For(manager);c.Factions();yield return Capture("21-factions");
             c.ReviewPoliticalFavour(0);yield return Capture("21-favour");

@@ -4,17 +4,20 @@ using System;
 public static class GardenConversations
 {
     public const int Kjold=200;
-    public static string Name(int person)=>person==Kjold?"Kjold":CourtRoster.Names[person];
-    public static string Role(int person)=>person==Kjold?"Varangian officer · imperial guard":CourtRoster.Roles[person];
+    public static bool IsVisitor(int person)=>person>=100&&person<100+CharacterPreparations.Names.Length;
+    public static string Name(int person)=>person==Kjold?"Kjold":IsVisitor(person)?CharacterPreparations.Names[person-100]:person>=0&&person<8?CourtRoster.Names[person]:"Unknown visitor";
+    public static string Role(int person)=>person==Kjold?"Varangian officer · imperial guard":IsVisitor(person)?CharacterPreparations.Roles[person-100]:person>=0&&person<8?CourtRoster.Roles[person]:"";
     public static bool Available(int person)
     {
         if(person==Kjold){if(DailyLifeEvents.I("iKjoldState",1)!=1)return false;}
+        else if(IsVisitor(person)){if(!CharacterPreparations.InService||CharacterPreparations.CommanderId!=person)return false;}
         else if(!CourtRoster.InService(person))return false;
         int today=TrainingPool.Day(VariableSingleton.GetDate());
         return DailyLifeEvents.I("iHardOfficerReturn"+person)<=today;
     }
     public static string Personal(int person)
     {
+        if(IsVisitor(person))return VisitorPersonal[person-100];
         if(person==Kjold)return "Kjold rests his hands on the pommel of his sword. ‘My father thought I would return with money. My mother thought I would return with a wife. Neither asked whether I might learn to enjoy being far away.’ He glances towards the palace. ‘Now I stand at your doors. There are worse places for a man who has delayed going home.’";
         string[] words={
             "Giustiniani turns a fallen leaf between his fingers. ‘Men call me a soldier of fortune as though fortune ever paid a company on time. My men came because I came. If I ask them to remain, I must be somewhere they can see me.’ He drops the leaf. ‘You understand that part of command, I think.’",
@@ -30,6 +33,7 @@ public static class GardenConversations
     }
     public static string Advice(int person)
     {
+        if(IsVisitor(person))return VisitorAdvice[person-100];
         if(person==Kjold)return "‘Keep enough of the Guard together to act when the wall gives way. A dozen brave detachments cannot become one reserve merely because someone sends a messenger.’\n\nCheck available Varangians before committing them to missions. The breach decision states the force required.";
         int food=SupplyEconomy.DaysLeft;
         float wall=VariableSingleton.Instance.EnduringWall.GetHealth();
@@ -42,8 +46,25 @@ public static class GardenConversations
         if(person==6)return "‘Watch the moat as well as the wall. When the ditch is filled, the enemy's work becomes easier. Their daily report will tell you when the labourers have made progress.’";
         return "‘A promise about faith is heard by people who will remember it after this audience ends. Look at the factions before assuming that a sermon has satisfied them all.’\n\nSociety and politics shows their influence and support.";
     }
+    private static readonly string[] VisitorPersonal={
+        "Stephen stops to watch a young guard struggling with a buckle. ‘When a household loses its land, everyone suddenly remembers that its sons are young. Before that, we were old enough to inherit.’ He turns back to you. ‘I have come to learn what a claim is worth when a man must defend it himself. I do not expect the lesson to be gentle.’",
+        "Barbaro watches a servant carrying a basket through the doorway. ‘People think a journey is the line between two cities. It is the man who lends you a horse, the official who opens the gate, the interpreter who decides which part of your complaint to repeat. I have spent much of my life learning to remember their names.’",
+        "Bertrandon smiles when you ask about his travels. ‘I was once able to pass through places where a lord's banner would have brought a company of soldiers down upon me. There is something to be said for arriving without importance.’ He glances towards your attendants. ‘An advantage I fear Your Majesty will seldom enjoy.’",
+        "Fontana produces a folded sheet, then thinks better of opening it. ‘No drawings today. I have discovered that once a man sees a machine, he stops hearing the person who brought it.’ He slips the paper away. ‘I studied how bodies fail before I began asking similar questions of wood and metal. Neither benefits from an impressive explanation after the fact.’",
+        "Cyriacus points towards a fragment built into a newer wall. ‘Someone once commissioned those letters because he wished a deed remembered. Later someone else needed a stone of precisely that size. Both men had good reasons.’ He bends to trace a damaged word. ‘I try to arrive before the second reason erases the first.’",
+        "Tafur looks out across the roofs. ‘Returning to a city is stranger than first arriving. You remember a face, a doorway, a meal—and discover that the people who welcomed you have continued their lives without preserving the scene for your return.’ He smiles ruefully. ‘Travellers can become very possessive of other men's homes.’"
+    };
+    private static readonly string[] VisitorAdvice={
+        "‘Your infantry must know which officers will remain with them. Drills are useful, but the men should recognise the voices giving the orders when they cannot see the banners.’ Review infantry training and the appointed siege commander; new recruits are unavailable until their training finishes.",
+        "‘An expedition promised in a distant court still needs ships, provisions and a reason to sail. Attend to the appeals we can actually support, not simply the longest list of names.’ Diplomacy distinguishes an accepted appeal from reinforcements already arrived.",
+        "‘Look for what the enemy must do before he can do what he wishes. A ramp needs labour, an assault needs an approach. Their preparations may tell us more than a shouted threat.’ Check the moat, siege ramp and latest reported Ottoman operation.",
+        "‘Before ordering more guns, decide whether we can feed those we already possess. A workshop can finish a weapon more easily than it can conjure powder.’ Review ammunition, artillery technologies and the shipyard or recruitment queue before placing another order.",
+        "‘Men defend a place more stubbornly when they can name what they hope to find there tomorrow. Let them hear something besides the count of stones and sacks.’ Review army morale and civic support; promises made to one faction may trouble another.",
+        "‘A sortie is not improved merely by calling it bold. Know how the men will return, and what the wall must do while they are outside it.’ Inspect troop availability and the enemy's reported activity before committing a force to an exceptional action."
+    };
     public static string Siege(int person)
     {
+        if(IsVisitor(person)&&!VariableSingleton.HasSiegeStarted())return "The siege has not begun. "+VisitorAdvice[person-100];
         if(!VariableSingleton.HasSiegeStarted())return "The siege has not begun. "+(person==0?"‘Use these months to decide what we shall be able to do when decisions become expensive.’":person==2?"‘Every preparation is a choice against another preparation. Let us at least make those choices deliberately.’":"‘We still have time to prepare. We do not have time to do everything.’");
         string report=AI.Instance==null?"":AI.Instance.LastReport;
         return "<b>Latest report available to the council</b>\n"+(string.IsNullOrEmpty(report)?"No Ottoman operation has yet been reported.":report)+"\n\n<b>His assessment</b>\n"+Advice(person);

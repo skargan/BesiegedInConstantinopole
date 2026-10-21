@@ -9,9 +9,26 @@ public partial class CouncilUI
         Open(GardenConversations.Name(person),new[]{"In the Palace","In the palace garden","In Hagia Sophia"}[conversationLocation]);ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);BodyHeight(660);
         string text=topic==0?GardenConversations.Personal(person):topic==1?GardenConversations.Siege(person):GardenConversations.Advice(person);
         CampaignHUD.Explanation(body,text,new Vector2(.05f,.31f),new Vector2(.95f,.96f),27);
-        string[] topics={"Tell me about yourself","What do you make of the siege?","What should I attend to?"};
-        for(int i=0;i<3;i++){int selected=i;float left=.03f+i*.325f;CampaignHUD.MakeButton(body,topics[i],new Vector2(left,.06f),new Vector2(left+.305f,.24f),()=>GardenTalk(person,selected));}
+        string[] topics={"Tell me about yourself","What do you make of the siege?","What should I attend to?","Was there something you wished to ask me?"};
+        for(int i=0;i<4;i++){int selected=i;float left=i%2==0?.03f:.515f,top=i<2?.27f:.14f;CampaignHUD.MakeButton(body,topics[i],new Vector2(left,top-.11f),new Vector2(left+.455f,top),()=>{if(selected==3)PersonalQuestion(person);else GardenTalk(person,selected);});}
     }
+    private void PersonalQuestion(int person)
+    {
+        if(!GardenConversations.Available(person)){Location(conversationLocation);return;}
+        var exchange=CharacterQuestions.For(person);if(exchange==null)return;
+        int chosen=DailyLifeEvents.I("iLifeQuestionReply"+person)-1;
+        Open(GardenConversations.Name(person),"Was there something you wished to ask me?");
+        ControlSingleton.Instance.ReturnAction=()=>GardenTalk(person,0);BodyHeight(chosen>=0?700:650);
+        string passage=exchange.Question;
+        if(chosen>=0&&chosen<exchange.Replies.Length)passage+="\n\n<b>Your reply</b>\n"+exchange.Replies[chosen]+"\n\n"+exchange.Responses[chosen];
+        CampaignHUD.Explanation(body,passage,new Vector2(.05f,chosen>=0?.20f:.42f),new Vector2(.95f,.97f),25);
+        if(chosen<0)for(int i=0;i<3;i++){
+            int answer=i;float top=.37f-i*.11f;
+            CampaignHUD.MakeButton(body,exchange.Replies[i],new Vector2(.05f,top-.09f),new Vector2(.95f,top),()=>{VariableSingleton.SetInt("iLifeQuestionReply"+person,answer+1);PersonalQuestion(person);});
+        }
+        else CampaignHUD.MakeButton(body,"Return to our conversation",new Vector2(.15f,.05f),new Vector2(.85f,.15f),()=>GardenTalk(person,0));
+    }
+
     private void FocusCard(float top)
     {
         var row=SpyPanel("Strategic focus",top,220);

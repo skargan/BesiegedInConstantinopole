@@ -15,10 +15,32 @@ public partial class CouncilUI
             int mission=i;var row=Row(i,155);
             CampaignHUD.Label(row.transform,titles[i]+"\nSuccessful report: "+effects[i],new Vector2(.03f,.12f),new Vector2(.65f,.90f),24);
             bool current=CouncilActions.Int("iFleet")==i;
-            var button=CampaignHUD.MakeButton(row.transform,current?"Current orders":"Issue orders",new Vector2(.7f,.17f),new Vector2(.97f,.83f),()=>{bool ok=PreparationCampaign.ChangeFleet(mission,out var result);Finish(ok,result);});
+            var button=CampaignHUD.MakeButton(row.transform,current?"Current orders":"Review orders",new Vector2(.7f,.17f),new Vector2(.97f,.83f),()=>ReviewFleetMission(mission));
             button.interactable=!current&&CouncilActions.Int("iShips")>0&&(i!=2||VariableSingleton.GetBoolVariable("bStraitsOpen"));
         }
     }
+    public void ReviewFleetMission(int mission)
+    {
+        if(mission<0||mission>4)return;
+        string[] names={"Raid Ottoman supplies","Raid coastal shipping","Bring grain from Crimea","Defend the Golden Horn","Bring volunteers","Awaiting orders"};
+        string[] effects={"−3 days of Ottoman food stores","+750 gold","+150 provisions",RecurringEvents.FleetDefensiveDamage+" enemy casualties","+50 infantry and +25 archers"};
+        Open("Review fleet orders",names[mission]);ControlSingleton.Instance.ReturnAction=FleetOrders;BodyHeight(500);
+        var current=SpyPanel("Current fleet orders",0,260);var cr=current.GetComponent<RectTransform>();cr.anchorMax=new Vector2(.49f,1);
+        FleetText(current.transform,"CURRENT MISSION",.05f,.72f,.95f,.95f,24);
+        FleetText(current.transform,names[Mathf.Clamp(CouncilActions.Int("iFleet"),0,5)],.05f,.36f,.95f,.70f,28);
+        FleetText(current.transform,CouncilActions.Int("iShips")+" ships in service",.05f,.08f,.95f,.30f,23);
+        var proposed=SpyPanel("Proposed fleet orders",0,260);var pr=proposed.GetComponent<RectTransform>();pr.anchorMin=new Vector2(.51f,1);
+        FleetText(proposed.transform,"PROPOSED MISSION",.05f,.72f,.95f,.95f,24);
+        FleetText(proposed.transform,names[mission],.05f,.36f,.95f,.70f,28);
+        FleetText(proposed.transform,"Successful report: "+effects[mission],.05f,.07f,.95f,.32f,23);
+        var terms=SpyPanel("Order consequences",275,115);
+        FleetText(terms.transform,"Uses your major action. The whole fleet changes mission.\n"+(CouncilActions.Int("iFleetPrepared")>0?"Your prepared expedition bonus will be lost.":"No preparation bonus is granted.")+" Rewards arrive through later fleet reports.",.03f,.08f,.97f,.92f,23);
+        var controls=SpyPanel("Confirm fleet orders",405,80);bool submitted=false;
+        CampaignHUD.MakeButton(controls.transform,"Return",new Vector2(.03f,.12f),new Vector2(.47f,.88f),FleetOrders);
+        var confirm=CampaignHUD.MakeButton(controls.transform,"Confirm mission",new Vector2(.53f,.12f),new Vector2(.97f,.88f),()=>{if(submitted)return;bool ok=PreparationCampaign.ChangeFleet(mission,out var result);submitted=ok;Finish(ok,result);});
+        confirm.interactable=CouncilActions.Int("iShips")>0&&CouncilActions.Int("iFleet")!=mission&&(mission!=2||VariableSingleton.GetBoolVariable("bStraitsOpen"));
+    }
+
     public void ReviewNavalBattle()
     {
         Open("Commit the fleet","Victory and defeat both cost ships. This uses your major action.");ControlSingleton.Instance.ReturnAction=FleetOrders;BodyHeight(440);

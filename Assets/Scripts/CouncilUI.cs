@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 21 · Midnight Mosaic · 22 October 2026";
+    public const string BuildLabel="Version 22 · Midnight Mosaic · 22 October 2026";
 
 
 

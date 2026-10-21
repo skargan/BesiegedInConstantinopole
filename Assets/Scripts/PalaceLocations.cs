@@ -18,8 +18,7 @@ public static class PalaceLocations
     {
         if(DailyLifeEvents.I("iLifeLocationTurn")==Token)return;
         var candidates=new List<int>();
-        for(int i=0;i<8;i++)if(GardenConversations.Available(i))candidates.Add(i);
-        if(GardenConversations.Available(GardenConversations.Kjold))candidates.Add(GardenConversations.Kjold);
+        foreach(int person in CharacterQuestions.People)if(GardenConversations.Available(person))candidates.Add(person);
         // The priest belongs naturally in the cathedral. Other visitors rotate between the two secular spaces.
         int church=candidates.Contains(7)?7:-1;if(church>=0)candidates.Remove(church);
         VariableSingleton.SetInt("iLifeLocationVisitor2",church);

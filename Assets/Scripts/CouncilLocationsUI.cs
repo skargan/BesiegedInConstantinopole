@@ -21,12 +21,12 @@ public partial class CouncilUI
         if(texture!=null){if(locationPaintings[place]==null)locationPaintings[place]=Sprite.Create(texture,new Rect(0,0,texture.width,texture.height),new Vector2(.5f,.5f));picture.sprite=locationPaintings[place];picture.color=Color.white;var fit=holder.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=(float)texture.width/texture.height;}
         picture.preserveAspect=true;
         if(place==0){
-            LocationButton(holder.transform,"To the garden",.82f,.42f,.98f,.56f,Garden);
-            LocationButton(holder.transform,"Hagia Sophia",.33f,.58f,.49f,.70f,HagiaSophia);
-            LocationButton(holder.transform,"Imperial affairs",.39f,.10f,.64f,.24f,PalaceActions);
+            LocationHotspot.Create(holder.transform,"To the garden",GardenDoor(),Garden);
+            LocationHotspot.Create(holder.transform,"Hagia Sophia",PalaceCathedral(),HagiaSophia);
+            LocationHotspot.Create(holder.transform,"Imperial affairs",new[]{new Vector2(.30f,.43f),new Vector2(.59f,.46f),new Vector2(.90f,.28f),new Vector2(.66f,.14f),new Vector2(.32f,.31f)},PalaceActions);
         }else if(place==1){
-            LocationButton(holder.transform,"Return to the Palace",.02f,.45f,.24f,.59f,Palace);
-            LocationButton(holder.transform,"Hagia Sophia",.62f,.55f,.80f,.67f,HagiaSophia);
+            LocationHotspot.Create(holder.transform,"Return to the Palace",new[]{new Vector2(.015f,.46f),new Vector2(.080f,.48f),new Vector2(.081f,.77f),new Vector2(.043f,.79f),new Vector2(.014f,.77f)},Palace);
+            LocationHotspot.Create(holder.transform,"Hagia Sophia",new[]{new Vector2(.665f,.669f),new Vector2(.665f,.70f),new Vector2(.679f,.70f),new Vector2(.684f,.714f),new Vector2(.695f,.72f),new Vector2(.707f,.712f),new Vector2(.712f,.702f),new Vector2(.724f,.696f),new Vector2(.724f,.672f)},HagiaSophia);
         }else{
             LocationButton(holder.transform,"Return to the Palace",.03f,.08f,.27f,.22f,Palace);
             LocationButton(holder.transform,"Walk in the garden",.73f,.08f,.97f,.22f,Garden);
@@ -38,6 +38,13 @@ public partial class CouncilUI
         }
         if(place==0&&visitor>=0){var last=holder.transform.GetChild(holder.transform.childCount-1).GetComponent<RectTransform>();last.anchorMin=new Vector2(.03f,.07f);last.anchorMax=new Vector2(.31f,.24f);}
     }
+    private Vector2[] GardenDoor()
+    {
+        var points=new System.Collections.Generic.List<Vector2>{new Vector2(.844f,.411f),new Vector2(.844f,.765f)};
+        for(int i=1;i<=24;i++){float a=Mathf.PI-i*Mathf.PI/24;points.Add(new Vector2(.897f+Mathf.Cos(a)*.053f,.765f+Mathf.Sin(a)*.085f));}
+        points.Add(new Vector2(.950f,.393f));return points.ToArray();
+    }
+    private Vector2[] PalaceCathedral()=>new[]{new Vector2(.366f,.687f),new Vector2(.367f,.724f),new Vector2(.372f,.726f),new Vector2(.375f,.710f),new Vector2(.389f,.717f),new Vector2(.390f,.732f),new Vector2(.399f,.743f),new Vector2(.409f,.747f),new Vector2(.420f,.742f),new Vector2(.427f,.728f),new Vector2(.428f,.718f),new Vector2(.436f,.718f),new Vector2(.436f,.733f),new Vector2(.440f,.735f),new Vector2(.443f,.720f),new Vector2(.447f,.705f),new Vector2(.447f,.677f),new Vector2(.424f,.676f),new Vector2(.416f,.672f),new Vector2(.391f,.674f),new Vector2(.390f,.688f),new Vector2(.378f,.693f)};
     private void LocationButton(Transform parent,string title,float x,float y,float right,float top,UnityEngine.Events.UnityAction action)
     {
         CampaignHUD.MakeButton(parent,title,new Vector2(x,y),new Vector2(right,top),action);
