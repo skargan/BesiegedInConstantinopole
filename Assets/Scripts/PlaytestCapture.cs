@@ -32,6 +32,12 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-political-system-capture")) {
+            var c=CouncilUI.For(manager);c.Factions();yield return Capture("21-factions");
+            c.ReviewPoliticalFavour(0);yield return Capture("21-favour");
+            yield return CaptureEvent("politicalDemand","21-demand",true,()=>{VariableSingleton.SetInt("iPolDemand",4);VariableSingleton.SetInt("iPolIssued3",1);VariableSingleton.SetInt("iPolOwed3",1);VariableSingleton.SetInt("iPolDebtDay3_1",PoliticalSystem.Day-30);});
+            Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-naval-capture")) {
             var c=CouncilUI.For(manager);
             c.Fleet();yield return Capture("20-fleet");

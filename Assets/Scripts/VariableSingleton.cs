@@ -41,6 +41,7 @@ public class VariableSingleton : MonoBehaviour
         ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
         ArrivalNotice+=TroopTraining.Complete(GetDate());
         ArrivalNotice+=PreparationCampaign.Advance();
+        ArrivalNotice+=PoliticalSystem.AdvancePolitics();
         return turn;
     }
     public int overrideTurn = -1;

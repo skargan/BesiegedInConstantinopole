@@ -47,7 +47,7 @@ public class EventUI : UIWindowFam
         CampaignHUD.Instance.DismissReport();
         CampaignHUD.Instance.CheckEnding();
         if(CampaignHUD.Instance.HasModal) return;
-        string followup=PreparationCampaign.Followup(Node) ?? SupplyEconomy.PendingNode ?? SultanGifts.PendingNode;
+        string followup=PreparationCampaign.Followup(Node) ?? SupplyEconomy.PendingNode ?? PoliticalDemands.PendingNode ?? SultanGifts.PendingNode;
         if(followup!=null && runner!=null) {BeginEvent(followup);runner.StartDialogue(followup);return;}
         if(VariableSingleton.HasSiegeStarted()) SwitchPhase(assaultUI);
         else {VariableSingleton.IncrementTurn();SwitchPhase(managerUI);}

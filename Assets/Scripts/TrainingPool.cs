@@ -14,7 +14,7 @@ public static class TrainingPool
     public static readonly string[] Units={"iInfantry","iArchers","iCavalry","iVarangians","iShips","iCannons"};
     public static readonly string[] Names={"Infantry","Archers","Cavalry","Varangians","Warships","Cannons"};
     public static readonly int[] Days={5,10,15,20,30,10};
-    public static int Duration(string unit) {int i=Array.IndexOf(Units,unit);return i<0?0:Days[i];}
+    public static int Duration(string unit) {int i=Array.IndexOf(Units,unit);return i<0?0:(i<4&&PoliticalSystem.Passive(0)?(int)Math.Ceiling(Days[i]*.9):Days[i]);}
     public static string Name(string unit) {int i=Array.IndexOf(Units,unit);return i<0?unit:Names[i];}
     public static int Day(DateTime date) => (int)(date.Ticks/TimeSpan.TicksPerDay);
     public static DateTime ReadyDate(Order order) => new DateTime((long)order.readyDay*TimeSpan.TicksPerDay);

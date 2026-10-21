@@ -2,27 +2,11 @@ using UnityEngine;
 
 public partial class CouncilUI
 {
-    public void Garden()
-    {
-        Open("The palace garden","Speak with members of your court. Conversation does not spend the major action.");
-        ControlSingleton.Instance.ReturnAction=Palace;
-        int rowIndex=0;
-        for(int i=0;i<9;i++)
-        {
-            int person=i==8?GardenConversations.Kjold:i;
-            if(!GardenConversations.Available(person))continue;
-            var row=Row(rowIndex++,180);
-            CampaignHUD.Label(row.transform,GardenConversations.Name(person),new Vector2(.03f,.62f),new Vector2(.68f,.95f),27);
-            CampaignHUD.Explanation(row.transform,GardenConversations.Role(person),new Vector2(.03f,.15f),new Vector2(.68f,.60f),23);
-            CampaignHUD.MakeButton(row.transform,"Talk",new Vector2(.73f,.20f),new Vector2(.97f,.80f),()=>GardenTalk(person,0));
-        }
-        BodyHeight(Mathf.Max(220,rowIndex*180));
-        if(rowIndex==0)CampaignHUD.Label(body,"No serving courtiers are available in the garden today.",new Vector2(.03f,.2f),new Vector2(.97f,.9f),25);
-    }
+    public void Garden()=>Location(1);
     private void GardenTalk(int person,int topic)
     {
-        if(!GardenConversations.Available(person)){Garden();return;}
-        Open(GardenConversations.Name(person),"In the palace garden");ControlSingleton.Instance.ReturnAction=Garden;BodyHeight(660);
+        if(!GardenConversations.Available(person)){Location(conversationLocation);return;}
+        Open(GardenConversations.Name(person),new[]{"In the Palace","In the palace garden","In Hagia Sophia"}[conversationLocation]);ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);BodyHeight(660);
         string text=topic==0?GardenConversations.Personal(person):topic==1?GardenConversations.Siege(person):GardenConversations.Advice(person);
         CampaignHUD.Explanation(body,text,new Vector2(.05f,.31f),new Vector2(.95f,.96f),27);
         string[] topics={"Tell me about yourself","What do you make of the siege?","What should I attend to?"};

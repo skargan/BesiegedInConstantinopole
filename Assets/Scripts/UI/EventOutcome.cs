@@ -57,6 +57,7 @@ public static class EventOutcome
             if(v.key.StartsWith("iPrepDone") || v.key.StartsWith("iGalataEvent") || v.key=="iPreparationVersion" || v.key.StartsWith("iShah") || v.key=="iFoodShortfall" || v.key=="iHungerDays" || v.key=="iHungerOfferedDay") continue;
             if(v.key.StartsWith("iSultanVisit") || v.key.StartsWith("iSultanTalk") || v.key.StartsWith("iSultanSeen") || v.key=="iSultanConversationDay" || v.key=="iTurkPolicy" || v.key.StartsWith("iAdventurer")) continue;
             if(v.key=="iTurkSpies" && before.ints.FirstOrDefault(x=>x.key=="iTurkPolicy")?.value!=after.ints.FirstOrDefault(x=>x.key=="iTurkPolicy")?.value)continue;
+            if(v.key.StartsWith("iPol")) continue;
             if(v.key.StartsWith("iBloc") || v.key.StartsWith("iAllegiance") || v.key=="iBanishmentUsed") continue;
             if(v.key.StartsWith("iCourtState")) continue;
 

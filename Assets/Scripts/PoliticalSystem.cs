@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +11,33 @@ public static class PoliticalSystem
     public static readonly string[] Beliefs={"Preserve the Emperor's authority and the unity of his government.","Oppose surrender and Church Union; distrust foreign mercenaries and new methods.","Support Church Union, Western alliances and closer ties with the Latin powers.","Seek terms with the Sultan and protect their position under a settlement."};
     public static readonly string[] Orders={"Rally the garrison","Inspire the people","Expedite Western aid","Call upon their creditors"};
     public static readonly string[] Effects={"Army morale +5 points","Public morale +10 points","Western expeditions arrive up to 3 days sooner","Treasury +3,000 gold"};
+    public static readonly string[] Passives={"New troop training −10% time (rounded up to whole days)","Daily provisions consumption −5%","Western aid acceptance +5 percentage points","Market purchase totals −5%"};
+    public static bool Passive(int bloc)=>!Banned(bloc)&&Share(bloc)>20&&DailyLifeEvents.I("iPolBlocked"+bloc)<=Day;
+    public static int Day=>TrainingPool.Day(VariableSingleton.GetDate());
+    public static int Owed(int bloc)=>DailyLifeEvents.I("iPolOwed"+bloc);
+    public static string FavourUnavailable(int bloc)
+    {
+        if(bloc<0||bloc>3)return "Unknown faction";
+        if(Banned(bloc))return "Faction banished";
+        if(Share(bloc)<=20)return "Requires more than 20% influence";
+        int until=DailyLifeEvents.I("iPolBlocked"+bloc);
+        if(until>Day)return "Cooperation withheld for "+(until-Day)+" days";
+        int last=DailyLifeEvents.I("iPolLast"+bloc);
+        if(last>0&&Day-last<7)return "Available in "+(7-Day+last)+" days";
+        if(bloc==2&&!Enumerable.Range(0,CouncilActions.Allies.Length).Any(i=>Western(i)&&CouncilActions.Int("iAidState"+i)==1&&CouncilActions.Int("iAidDays"+i)>1))return "Awaiting a Western expedition";
+        return null;
+    }
+    public static string AdvancePolitics()
+    {
+        if(DailyLifeEvents.I("iPolDriftTurn")==VariableSingleton.Turn+1)return "";
+        VariableSingleton.SetInt("iPolDriftTurn",VariableSingleton.Turn+1);
+        PoliticalDemands.Schedule();
+        var eligible=Enumerable.Range(0,4).Where(i=>!Banned(i)&&Share(i)<100).ToArray();
+        if(eligible.Length==0)return "";
+        int bloc=eligible[UnityEngine.Random.Range(0,eligible.Length)],before=Share(bloc);
+        Gain(bloc,UnityEngine.Random.Range(1,11));
+        return "Political drift: "+Names[bloc]+" gain "+(Share(bloc)-before)+" influence points (now "+Share(bloc)+"%). Influence is redistributed from the other factions.\n\n";
+    }
     public static int Share(int i)=>VariableSingleton.GetIntVariable("iBloc"+i);
     public static bool Banned(int i)=>VariableSingleton.GetIntVariable("iBlocBan"+i)==1;
     public static string Allegiance(int character)
@@ -34,11 +61,11 @@ public static class PoliticalSystem
             VariableSingleton.SetInt("iBloc"+bloc,Share(bloc)+1);
         }
     }
-    static bool Western(int i)=>i==1 || i==2 || i==3 || i==5 || i==6 || i==7 || i==8 || i==9 || i==12 || i==13 || i==14 || i==15;
-    public static bool CanAid(int bloc)=>!Banned(bloc) && Share(bloc)>=20 && (bloc!=2 || Enumerable.Range(0,CouncilActions.Allies.Length).Any(i=>Western(i)&&CouncilActions.Int("iAidState"+i)==1&&CouncilActions.Int("iAidDays"+i)>1));
+    public static bool Western(int i)=>i==1 || i==2 || i==3 || i==5 || i==6 || i==7 || i==8 || i==9 || i==12 || i==13 || i==14 || i==15;
+    public static bool CanAid(int bloc)=>FavourUnavailable(bloc)==null;
     public static bool Aid(int bloc,out string report)
     {
-        report="Requires 20% influence";
+        report=FavourUnavailable(bloc);
         if(bloc<0 || bloc>3 || !CanAid(bloc)) return false;
         var before=VariableSingleton.Instance.CaptureState();
         if(bloc==0) VariableSingleton.ChangePercentFloat("fTroopRep",.05f);
@@ -46,7 +73,12 @@ public static class PoliticalSystem
         if(bloc==2) for(int i=0;i<CouncilActions.Allies.Length;i++) if(Western(i)&&CouncilActions.Int("iAidState"+i)==1) VariableSingleton.SetInt("iAidDays"+i,Mathf.Max(1,CouncilActions.Int("iAidDays"+i)-3));
         if(bloc==3) VariableSingleton.ChangeInt("iMoney",3000);
         Gain(bloc,5);
-        report=Orders[bloc]+".\n"+Effects[bloc]+"\n\n"+EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState())+"\n"+Names[bloc]+" influence: "+Share(bloc)+"%.";
+        int serial=DailyLifeEvents.I("iPolIssued"+bloc)+1;
+        VariableSingleton.SetInt("iPolIssued"+bloc,serial);
+        VariableSingleton.SetInt("iPolDebtDay"+bloc+"_"+serial,Day);
+        VariableSingleton.SetInt("iPolOwed"+bloc,Owed(bloc)+1);
+        VariableSingleton.SetInt("iPolLast"+bloc,Day);
+        report=Orders[bloc]+".\n"+Effects[bloc]+"\n\n"+EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState())+"\n"+Names[bloc]+" influence: "+Share(bloc)+"%.\nFavours owed: "+Owed(bloc)+". This favour cannot be called in before "+VariableSingleton.GetDate().AddDays(30).ToString("d MMM yyyy")+".";
         return true;
     }
     public static string BanishPreview(int bloc)
@@ -59,6 +91,7 @@ public static class PoliticalSystem
         report="Banishment is unavailable.";
         if(bloc<1 || bloc>3 || Banned(bloc)||CouncilActions.Int("iBanishmentUsed")!=0)return false;
         int power=Share(bloc);VariableSingleton.SetInt("iBloc"+bloc,0);VariableSingleton.SetInt("iBloc0",Share(0)+power);
+        if(PoliticalDemands.Active==bloc)VariableSingleton.SetInt("iPolDemand",0);
         VariableSingleton.SetInt("iBlocBan"+bloc,1);VariableSingleton.SetInt("iBanishmentUsed",1);
         foreach(string key in CouncilActions.FactionKeys) VariableSingleton.ChangePercentFloat(key,-.15f);
         for(int i=0;i<8;i++) if(CouncilActions.Int("iAllegiance"+i)==bloc+1)

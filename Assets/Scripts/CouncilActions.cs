@@ -204,6 +204,7 @@ public static class CouncilActions
         if(index==3) chance=Int("iReligion")==1?90:Int("iReligion")==2?70:35;
 
         if(Int("iFocus")==4) chance+=10;
+        if(PoliticalSystem.Passive(2)&&PoliticalSystem.Western(index))chance+=5;
 
         chance+=Mathf.RoundToInt(CourtRoster.Bonus(4,10,20));
 
