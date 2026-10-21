@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -14,6 +14,14 @@ public class ValueUpdater : MonoBehaviour
 
     private void OnEnable()
     {
+        if(variableName=="fInfantryQuality" || variableName=="fArchersQuality" || variableName=="fCavalryQuality")
+        {
+            string unit=variableName.Substring(1).Replace("Quality","");
+            targetText.text="Lethality\n×"+TroopTraining.Lethality(System.Array.IndexOf(TroopTraining.Units,unit)).ToString("0.##");
+            targetText.fontSize=20;
+            var tooltip=targetText.GetComponent<LethalityTooltip>()??targetText.gameObject.AddComponent<LethalityTooltip>();tooltip.Unit=System.Array.IndexOf(TroopTraining.Units,unit);targetText.raycastTarget=true;
+            return;
+        }
         switch(variableName[0])
         {
             case 'f':

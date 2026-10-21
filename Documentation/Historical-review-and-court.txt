@@ -1,0 +1,50 @@
+HISTORICAL REVIEW AND COURT IMPLEMENTATION — 12 OCTOBER 2026
+
+Design principle
+Keep entertaining counterfactual choices. Distinguish documented context, disputed testimony, and invented mechanics in short optional notes. No compulsory lecture before the next turn.
+
+Low-cost historical improvements
+1. Roman identity: retain Roman Empire / Romans in the inhabitants' voice. Byzantine remains useful in modern explanatory notes. The Metropolitan Museum describes their Roman self-identification [1].
+2. Technologies: describe adopting training, procuring equipment and organising workshops. Taxation and architecture already existed. The programme names are game categories, not inventions first made in 1453.
+3. Walls: retain the three fallback lines as the designer's counterfactual rebuilding scheme. Do not teach that these were three intact concentric defensive belts in 1453. The statement that the Theodosian land walls were breached in 1204 should be revised: the successful crusader attack involved the sea walls [2].
+4. Religious and political identities: distinguish disagreement over Union, imperial service, foreign volunteers and Galata's political neutrality. Avoid a single Catholic-loyalty or Orthodox-treason equation. The game can make their competing interests a source of negotiation.
+5. Court biography: give source-conscious roles, without invented intimate motives. Grant's origin and details of Hasan's heroic story need caution. Orban serving the City is explicitly a counterfactual branch.
+6. Evidence: Sphrantzes' authentic short chronicle must not be confused with its later expansion by Makarios Melissenos [3]. A quotation attributed to an eyewitness is not automatically from an eyewitness text.
+7. Artwork: catalogue the identity, date, source and licence of each portrait before publication. Current artwork is atmosphere, not a verified portrait gallery.
+
+Suggested event chains (not yet added to the campaign)
+- Four ships approaching, 20 April: escort commitment versus preserving naval reserves. Follow-up: allocate arriving supplies. Barbaro describes the relief and its naval struggle [4].
+- Ships overland, 22 April: react to the new Golden Horn threat with scarce defenders and naval assets [4]. Do not make good play magically prevent every historical development.
+- Countermining: noises below a sector, investigation by engineers, then an encounter with an enemy mine. Grant is a natural character lead; exact dates and outcomes need a second source before final scripting.
+- The surgeon's account: Nicolo Barbaro as a medical/logistics contact and a partial observer. His Venetian perspective makes competing reports interesting [4].
+- Venetian representation: Girolamo Minotto as a channel for merchant commitments and disputes; distinguish him from the naval captain Diedo [4].
+- Church unity without unanimity: a Scholarios-related petition offers reconciliation, postponement or confrontation. Include him as an independent religious voice, not automatically a hireable imperial official. Oxford scholarship identifies him in the anti-Unionist intellectual camp [5].
+
+Priority: naval relief, countermining, then the coalition's internal negotiations. These create choices across the existing fleet, food, engineers and court systems.
+
+Implemented now
+- Court roster for nine existing characters, under The Palace. Actual availability and commander flag are displayed; recruitment/departure and recorded imprisonment/death/enemy service persist with checkpoints.
+- Sphrantzes appears through the wardrobe audience as the official presenting the inventory, not an assertion that he personally held the wardrobe office.
+- Twelve technology entries with cost, effect, active status and short historical notes. Ten are purchasable; Concrete and Artillery Ships await the requested numerical decision.
+- Purchases use secrets and the major action; event unlocks remain free. Costs use the 1.3 table. One-tier quality upgrades use its explicit multiplier ladders. Effects are derived from saved flags so loading cannot stack them.
+- Active combat effects: Greek Fire +5% attackers stopped, Grenades +0.25 infantry lethality, Handcannons +0.5 ranged lethality, cannon shot +250% (=3.5x), architecture +5 defensive bonus, training/crossbows/armour one quality tier. Armour's incremental quality improvement contributes through dismounted cavalry reserves; this is a provisional extension of the existing combat formula.
+- Counterbattery: requires an active siege, a cannon and 3 ammunition; destroys 1–5 enemy cannons. The ammo and roll reuse the draft's cannon action as a provisional implementation.
+- Fiscal administration: population units x3 gold per completed siege day, with a daily report. Population units are thousands, not individual residents.
+- Court roles do not silently grant further commander bonuses. Existing Sphrantzes aid bonus remains +10 acceptance points.
+
+Sources consulted
+[1] Metropolitan Museum, Byzantium (ca. 330–1453).
+https://www.metmuseum.org/fr/essays/byzantium-ca-330-1453
+[2] Livius, Constantinople: Sea Walls.
+https://www.livius.org/articles/place/constantinople-istanbul/constantinople-photos/constantinople-sea-walls/
+[3] University of Chicago, Historians of the Ottoman Empire: Makarios Melissourgos-Melissenos.
+https://ottomanhistorians.uchicago.edu/en/historian/makarios-melissourgos-melissenos
+[4] De Re Militari, translated diary of Nicolo Barbaro. Eyewitness testimony with confessional and Venetian partisanship; do not import its army totals or accusations uncritically.
+https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-nicolo-barbaro/
+[5] Orthodox Readings of Aquinas, chapter abstract: Further Readings.
+https://academic.oup.com/book/4887/chapter-abstract/147259638
+Further synthesis: Anthony Kaldellis, 1453: The Conquest and Tragedy of Constantinople (publisher overview, not a full-book reading).
+https://academic.oup.com/book/62441
+
+Validation for Council r4
+190 automated checks passed. Windows development build succeeded. Visually inspected court and technology lists at the top and bottom, and the Palace screen at 1600x900; corrected the clipped Palace button. This is sampled UI and mechanics validation, not a full campaign balance assessment.

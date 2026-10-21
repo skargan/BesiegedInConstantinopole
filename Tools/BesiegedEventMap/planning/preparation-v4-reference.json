@@ -1,0 +1,4637 @@
+{
+  "version": 4,
+  "title": "Preparation, career unlocks and Galata · design proposal",
+  "status": "Developer planning framework; not installed as the game scheduler",
+  "calendarRule": "Four fixed councils in 1452: January strategic focus, April fortress warning, June Orban and December Union. February, March, May, July, August, September, October and November are selectable. January 1453 brings the Genoese and, provisionally, Hungry Mouths; February 1453 is selectable. March resolves the outpost castles, then Easter and the siege. Chain, commander and fleet orders are selectable preparations, not mandatory March events. Career options use persistent main-menu achievement counts earned across games.",
+  "counts": {
+    "existingPreparation": 18,
+    "existingVictoryResolution": 1,
+    "existingSiege": 2,
+    "existingEmptyShells": 5,
+    "legacyGalataSeeds": 7,
+    "newPreparation": 3
+  },
+  "lanes": [
+    "Calendar",
+    "Defence",
+    "Diplomacy",
+    "Faith & society",
+    "Maritime",
+    "Galata & Giovanni",
+    "Siege consequences",
+    "Shelved"
+  ],
+  "months": [
+    {
+      "date": "January 1452",
+      "events": [
+        "story0"
+      ],
+      "type": "Fixed core"
+    },
+    {
+      "date": "February 1452",
+      "events": [
+        "council-1452-02"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "March 1452",
+      "events": [
+        "council-1452-03"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "April 1452",
+      "events": [
+        "rumeli-warning"
+      ],
+      "type": "Fixed core"
+    },
+    {
+      "date": "May 1452",
+      "events": [
+        "council-1452-05"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "June 1452",
+      "events": [
+        "story3"
+      ],
+      "type": "Fixed core"
+    },
+    {
+      "date": "July 1452",
+      "events": [
+        "council-1452-07"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "August 1452",
+      "events": [
+        "council-1452-08"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "September 1452",
+      "events": [
+        "council-1452-09"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "October 1452",
+      "events": [
+        "council-1452-10"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "November 1452",
+      "events": [
+        "council-1452-11"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "12 December 1452",
+      "events": [
+        "story1"
+      ],
+      "type": "Fixed core"
+    },
+    {
+      "date": "January 1453",
+      "events": [
+        "story5",
+        "story4"
+      ],
+      "type": "Genoese arrival; refugees timing proposed"
+    },
+    {
+      "date": "February 1453",
+      "events": [
+        "council-1453-02"
+      ],
+      "type": "Flexible · choose one"
+    },
+    {
+      "date": "March 1453",
+      "events": [
+        "story20"
+      ],
+      "type": "Final decisions"
+    },
+    {
+      "date": "1 April 1453",
+      "events": [
+        "story22"
+      ],
+      "type": "Dated milestone"
+    },
+    {
+      "date": "6 April 1453",
+      "events": [
+        "story23"
+      ],
+      "type": "Dated milestone"
+    },
+    {
+      "date": "Siege consequences",
+      "events": [
+        "ottoman-readiness",
+        "story24",
+        "fleet-reassign",
+        "giovanni-demands",
+        "giovanni-crisis"
+      ],
+      "type": "Conditional responses"
+    }
+  ],
+  "events": [
+    {
+      "key": "story0",
+      "source": "runtime:story0",
+      "lane": "Calendar",
+      "when": "January 1452",
+      "column": 0,
+      "labels": [
+        "Fortifications",
+        "Mobilisation",
+        "War economy",
+        "Faith & unity",
+        "Diplomacy & spies"
+      ],
+      "notes": "Opening threat briefing must be rewritten as a growing danger across the coming year, not an army already at the gates.",
+      "title": "Messenger arrives"
+    },
+    {
+      "key": "story2",
+      "source": "runtime:story2",
+      "lane": "Defence",
+      "when": "SELECTABLE · flexible months",
+      "column": 1,
+      "labels": [
+        "Repair outer walls",
+        "Repair middle walls",
+        "Repair inner walls",
+        "Divide repairs"
+      ],
+      "notes": "Keep current resource choices for review. Work completion and monthly budget remain open.\n",
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "title": "Siege Preparation — Walls",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      }
+    },
+    {
+      "key": "story8",
+      "source": "runtime:story8",
+      "lane": "Diplomacy",
+      "when": "SELECTABLE · flexible months",
+      "column": 2,
+      "labels": [
+        "Ask the Pope for help",
+        "Request a crusade",
+        "Seek Orthodox allies",
+        "Appeal to all Christian realms"
+      ],
+      "notes": "Earlier diplomatic requests can be conditional on a future church settlement; December ratification should resolve promises rather than retroactively create March aid.\n",
+      "questions": [
+        "DECIDE: March aid choices currently require a religion policy not selected until December. Proposed rewrite: conditional promises in March; delivery after the December settlement."
+      ],
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "title": "Siege Preparation — Foreign Aid",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      }
+    },
+    {
+      "key": "rumeli-warning",
+      "source": null,
+      "lane": "Calendar",
+      "when": "April 1452",
+      "column": 3,
+      "labels": [],
+      "notes": "Creative writing draft, April 1452 fixed event. All numbers below are proposed balance values, not imported or implemented effects. Reconnaissance does not unlock the career-gated Rumeli event; it only improves an operation if that event is already available and later selected.",
+      "title": "A Fortress Rises on the Bosphorus",
+      "description": "The report reaches you before the morning bells. Across the water, on the European shore of the Bosphorus, Mehmed’s men are clearing ground. Stone barges crowd the landing; carts drag timber up the slope; armed guards turn away anyone who asks too many questions.\n\nYour pilots need no architect to explain the plan. A fortress there could put the grain ships of the Black Sea beneath Ottoman guns. The walls of Constantinople might still stand while its markets empty.\n\nNotaras spreads a chart across the council table. “We can protest, Majesty. We can buy what we shall need while the passage remains open. Or we can learn precisely what the Sultan is building.”\n\nBeyond the windows, merchant sails move quietly towards the strait. For the moment, they are still passing.",
+      "choices": [
+        {
+          "key": "protest",
+          "label": "“Send a formal protest—and copies to every court that still calls us an ally.”",
+          "text": "PROPOSED: −1,000 gold; public morale +5. Record a diplomatic warning that can improve the terms of a later Foreign Aid choice; size of that later benefit TBD. Construction continues. The public sees resistance, but parchment will not stop the guns."
+        },
+        {
+          "key": "grain",
+          "label": "“Let them raise their towers. We shall fill our granaries.”",
+          "text": "PROPOSED: −6,000 gold; +3,000 provisions bought while ships can still pass. No effect on construction. Immediate food instead of diplomatic or intelligence benefit; affordability required.",
+          "conditions": [
+            "At least 6,000 gold"
+          ]
+        },
+        {
+          "key": "watch",
+          "label": "“Put our people among the boatmen and suppliers. I want plans, names and watch schedules.”",
+          "text": "PROPOSED: −1,500 gold; +1 secret; record fortress reconnaissance. Suggested later benefit: +10 percentage points to one covert Rumeli operation, capped at 95%, then consume the reconnaissance benefit. No career unlock and no free assault. If the Rumeli event is unavailable, the secret remains useful.",
+          "conditions": [
+            "At least 1,500 gold"
+          ]
+        },
+        {
+          "key": "conserve",
+          "label": "“Our answer will be given from our own walls. Spend nothing on gestures.”",
+          "text": "PROPOSED: no resource cost; troop morale +5 from a clear defensive commitment. No extra grain, intelligence or diplomatic leverage; construction continues. A defensible economy choice, not a disguised punishment."
+        }
+      ],
+      "questions": [
+        "DECIDE: numerical balance of the four options, including the later diplomatic and reconnaissance modifiers."
+      ]
+    },
+    {
+      "key": "story10",
+      "source": "runtime:story10",
+      "lane": "Defence",
+      "when": "SELECTABLE · flexible months",
+      "column": 4,
+      "labels": [
+        "Raise 3,000 infantry",
+        "Raise 1,500 archers",
+        "Raise 300 cavalry",
+        "Raise a legion",
+        "Mobilise religious volunteers",
+        "Promise land to mercenaries"
+      ],
+      "notes": "Existing recruitment choices and resource effects retained for review.\n",
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "title": "Siege Preparation — Recruitment",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      }
+    },
+    {
+      "key": "story3",
+      "source": "runtime:story3",
+      "lane": "Defence",
+      "when": "June 1452",
+      "column": 5,
+      "labels": [
+        "Imprison Orban",
+        "Hire Orban: 20,000 gold",
+        "Negotiate: 10,000 gold",
+        "Decline his offer"
+      ],
+      "notes": "Orban decision opens artillery consequences. The narrative date is a proposed placement, not a verified historical claim.",
+      "title": "Artillery Genius"
+    },
+    {
+      "key": "story11",
+      "source": "runtime:story11",
+      "lane": "Diplomacy",
+      "when": "SELECTABLE · flexible months",
+      "column": 6,
+      "labels": [
+        "Keep local garrisons",
+        "Summon trained troops",
+        "Attack Ottoman supply lines",
+        "Mobilise every able man",
+        "Demand money and resources",
+        "Order prayers"
+      ],
+      "notes": "Need a separate delivery/failure resolution later; a dispatch should not teleport resources.\n",
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "title": "Siege Preparation — Morean Orders",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      }
+    },
+    {
+      "key": "story4",
+      "source": "runtime:story4",
+      "lane": "Faith & society",
+      "when": "January 1453 · proposed companion to Genoese arrival",
+      "column": 12.5,
+      "labels": [
+        "Admit everyone",
+        "Admit and tax the elite",
+        "Close the gates",
+        "Conscript refugees",
+        "Divert refugees elsewhere",
+        "Require labour and materials"
+      ],
+      "notes": "Keep food, population and labour tradeoffs visible. All six choices retain their source conditions and effects.",
+      "title": "Hungry Mouths"
+    },
+    {
+      "key": "story16",
+      "source": "runtime:story16",
+      "lane": "Maritime",
+      "when": "SELECTABLE · September 1452 onward; career unlock required",
+      "column": 8,
+      "labels": [
+        "Infiltrate",
+        "Bribe a saboteur",
+        "Assault at any cost",
+        "Undermine the fortress",
+        "Do nothing"
+      ],
+      "notes": "Successful neutralisation opens the Crimea mission. Failed or declined operation leaves that route unavailable.\n\nCAREER UNLOCK: only the persistent profile achievement count unlocks availability. An event outcome during this run does not unlock this event.",
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "title": "Siege Preparation — Neutralising Rumeli",
+      "access": {
+        "kind": "career-achievements",
+        "scope": "profile",
+        "minimumAchievements": null
+      },
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "key": "story17",
+      "source": "runtime:story17",
+      "lane": "Defence",
+      "when": "SELECTABLE · flexible months; career unlock required",
+      "column": 9,
+      "labels": [
+        "Search archives",
+        "Ask Mount Athos",
+        "Fund experiments",
+        "Improve conventional artillery",
+        "Abandon the search"
+      ],
+      "notes": "Optional technology branch; Greek Fire effects on later naval battles need a defined rule.\n\nCAREER UNLOCK: only the persistent profile achievement count unlocks availability. An event outcome during this run does not unlock this event.",
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "title": "Siege Preparation — Greek Fire",
+      "access": {
+        "kind": "career-achievements",
+        "scope": "profile",
+        "minimumAchievements": null
+      },
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "key": "story6",
+      "source": "runtime:story6",
+      "lane": "Faith & society",
+      "when": "SELECTABLE · flexible months",
+      "column": 10,
+      "labels": [
+        "Buy nothing",
+        "Buy city stocks",
+        "Buy provincial stocks",
+        "Buy all available cargo",
+        "Confiscate and ration food"
+      ],
+      "notes": "Base selectable stockpiling decision. Purchases or requisitions existing supplies; the separate Overseas Grain Missions event dispatches agents and waits for imported cargo. Repeat stockpiling policy and capacity remain open.",
+      "title": "Siege Preparation — Provisions Planning",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      }
+    },
+    {
+      "key": "story1",
+      "source": "runtime:story1",
+      "lane": "Faith & society",
+      "when": "12 December 1452",
+      "column": 11,
+      "labels": [
+        "Reject church union",
+        "Enforce church union",
+        "Proclaim union without coercion"
+      ],
+      "notes": "Fixed dated decision window. The ceremony is the historical route; rejecting it is an intentional alternate route. Do not force a ceremony after the player refuses. Earlier diplomatic promises resolve from this decision.",
+      "title": "12 December: the Union decision",
+      "questions": [
+        "DECIDE: one December settlement, or an earlier negotiation followed by December ratification? Recommended: one settlement initially."
+      ]
+    },
+    {
+      "key": "story5",
+      "source": "runtime:story5",
+      "lane": "Galata & Giovanni",
+      "when": "January 1453",
+      "column": 12,
+      "labels": [
+        "Promise Lemnos; welcome Giovanni",
+        "Turn the expedition away",
+        "Poison Giovanni; deal with Francesco"
+      ],
+      "notes": "The personal expedition is distinct from Galata government. Existing troop additions are TODO. Poisoning must explicitly make Giovanni unavailable; do not fire his later branches if dead or absent.",
+      "title": "The Genoese Arrive"
+    },
+    {
+      "key": "story20",
+      "source": "runtime:story20",
+      "lane": "Defence",
+      "when": "March 1453 · final outpost decision",
+      "column": 14.5,
+      "labels": [],
+      "notes": "User-approved direction: sacrifice delays operations 5–9 days and costs 5 troop morale; gifting gives diplomatic benefit without delay. Numerical favour and reinforcement terms remain proposals.",
+      "choices": [
+        {
+          "key": "withdraw",
+          "label": "Withdraw the garrisons",
+          "text": "CURRENT SOURCE: +100 archers. No Ottoman delay. Garrison is counted outside the city before withdrawal; avoid subtracting those same men from the city if left behind.",
+          "status": "Existing effect"
+        },
+        {
+          "key": "sacrifice",
+          "label": "Leave them to buy time",
+          "text": "AGREED: 5–9 days blocking Ottoman land operations after siege begins; troop morale −5 points (−0.05 on current scale); garrison sacrificed. Time, food and naval pressure continue. No double award of extra preparation months. Implementation still pending.",
+          "status": "Agreed rule"
+        },
+        {
+          "key": "reinforce",
+          "label": "Reinforce and fortify",
+          "text": "OPEN: troops/materials committed, additional delay and chance of survivors. Suggested: higher cost and a better result than abandonment, without a second independent delay roll stacking automatically."
+        },
+        {
+          "key": "gift",
+          "label": "Grant the castles to Galata",
+          "text": "AGREED DIRECTION: Ottomans bypass them; zero delay; Galata gains favour towards you. PROPOSED +15 goodwill and one diplomatic claim, redeemable later for one concession. Returning troops: TBD; no automatic duplicate +100 archers."
+        }
+      ],
+      "questions": [
+        "DECIDE: castle gift +15 goodwill and one claim?",
+        "DECIDE: does a castle gift return 100 archers, some of them, or none?"
+      ],
+      "title": "Fate of Stadia and Therapia Castles"
+    },
+    {
+      "key": "story15",
+      "source": "runtime:story15",
+      "lane": "Galata & Giovanni",
+      "when": "SELECTABLE · flexible months",
+      "column": 13.9,
+      "labels": [],
+      "notes": "Six core options retained. Only the two seizure routes open governance, after successful capture. Bribes purchase goodwill, never sovereignty. Immediate support is a one-time concession, not a recurring income stream. No fixed Galata treasury or troop inventory has been adopted. The preparation event includes stronger political routes unavailable in routine diplomacy.",
+      "title": "Siege Preparation — Galata",
+      "choices": [
+        {
+          "key": "support",
+          "label": "Demand immediate support",
+          "text": "Retain existing source package: +300 infantry, +300 archers, +4,500 gold, +500 provisions; −20 Galata goodwill. Galata remains neutral. One-time support concession; no governance follow-up.",
+          "conditions": [
+            "Galata is neutral",
+            "Immediate support not already collected"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "neutral",
+          "label": "Respect friendly neutrality",
+          "text": "Retain existing source benefit: +10 Galata goodwill. Galata remains neutral; no governance follow-up.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "varangians",
+          "label": "Seize Galata with the Varangians",
+          "text": "Existing source costs: at least 50 Varangians; lose 5–20 Varangians, 7 ships and 1 secret. On successful seizure: direct imperial control and Who Shall Govern Galata? Source +100 goodwill is not adopted as a control mechanic; goodwill consequence and success rule TBD.",
+          "conditions": [
+            "Galata is neutral",
+            "At least 50 Varangians",
+            "At least 7 ships and 1 secret"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "bribe",
+          "label": "Bribe the podestà for favour",
+          "text": "Retain existing source: −7,500 gold; +30 Galata goodwill. This buys favour, not control. No governance follow-up.",
+          "conditions": [
+            "At least 7,500 gold"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "giovanni",
+          "label": "Ask Giovanni to take control",
+          "text": "Requires Giovanni alive and present AND Diplomacy focus. On successful takeover: direct imperial control, then Who Shall Govern Galata? The capture itself does not grant him autonomy.",
+          "conditions": [
+            "Galata is neutral",
+            "Giovanni alive and present",
+            "Diplomacy focus"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "gifts",
+          "label": "Offer gifts and appeal to shared faith",
+          "text": "USER DIRECTION: +30 Galata goodwill (source currently grants +20). Retain Faith-focus gate pending review. Gift cost remains TBD; this is a one-time preparation benefit, not free repeatable diplomacy. No governance follow-up.",
+          "conditions": [
+            "Faith focus under existing source rule"
+          ],
+          "designEffects": [
+            {
+              "stat": "galataGoodwill",
+              "delta": 30,
+              "status": "user-directed"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        "DECIDE: capture success rule and local goodwill penalty; gift cost and whether shared-faith appeal should retain its existing Faith-focus gate."
+      ],
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false,
+        "repeatPolicy": "Initial proposal: once; repeat investments and tiers require decision."
+      },
+      "description": "The podestà promises friendship, the merchants promise discretion, and neither promise feeds a soldier. Galata holds ships, money and the far end of your harbour. Decide what the empire will ask of its neighbour—and how politely.",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "key": "story19",
+      "source": "runtime:story19",
+      "lane": "Maritime",
+      "when": "SELECTABLE · flexible months",
+      "column": 15,
+      "labels": [
+        "Keep the chain",
+        "Sell it",
+        "Cast ammunition and cannons",
+        "Ask Orban to cast a giant cannon"
+      ],
+      "notes": "Selectable base event. Preserve existing chain choices and source effects for review. It is not a compulsory March decision. If skipped, the existing chain remains in place. Galata ownership and physical chain integrity are separate.",
+      "title": "Siege Preparation — The Great Chain of the Golden Horn",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false
+      },
+      "description": "The great chain guards the Golden Horn. Your advisers see a barrier, a treasury of valuable iron, or metal for new guns. Decide what the harbour will rely on when the enemy fleet arrives."
+    },
+    {
+      "key": "story14",
+      "source": "runtime:story14",
+      "lane": "Defence",
+      "when": "SELECTABLE · flexible months",
+      "column": 16,
+      "labels": [
+        "Giovanni",
+        "Orhan",
+        "Orban",
+        "Notaras",
+        "Isidore",
+        "Diedo",
+        "Grant"
+      ],
+      "notes": "Selectable base event. Every successful appointment gives +10 army support once; this is faction support, not troop morale or personal loyalty. Choices require the candidate to be alive and present. Late selection is recommended so Giovanni and other arrivals can be considered. The current/source commander remains if skipped.",
+      "title": "Siege Preparation — Commander",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false
+      },
+      "commonOutcome": {
+        "stat": "armySupport",
+        "delta": 10,
+        "once": true,
+        "status": "user-directed"
+      },
+      "choices": [
+        {
+          "key": "giovanni",
+          "label": "Giovanni",
+          "text": "Appoint Giovanni. Existing commander assignment: SetInt iCommander 0. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        },
+        {
+          "key": "orhan",
+          "label": "Orhan",
+          "text": "Appoint Orhan. Existing commander assignment: SetInt iCommander 3. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        },
+        {
+          "key": "orban",
+          "label": "Orban",
+          "text": "Appoint Orban. Existing commander assignment: SetInt iCommander 5. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        },
+        {
+          "key": "notaras",
+          "label": "Notaras",
+          "text": "Appoint Notaras. Existing commander assignment: SetInt iCommander 2. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        },
+        {
+          "key": "isidore",
+          "label": "Isidore",
+          "text": "Appoint Isidore. Existing commander assignment: SetInt iCommander 7. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        },
+        {
+          "key": "diedo",
+          "label": "Diedo",
+          "text": "Appoint Diedo. Existing commander assignment: SetInt iCommander 1. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        },
+        {
+          "key": "grant",
+          "label": "Grant",
+          "text": "Appoint Grant. Existing commander assignment: SetInt iCommander 6. USER DIRECTION: +10 army support once on completing the appointment; no personal-loyalty or troop-morale bonus implied.",
+          "conditions": [
+            "Candidate alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "armySupport",
+              "delta": 10,
+              "status": "user-directed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "story18",
+      "source": "runtime:story18",
+      "lane": "Maritime",
+      "when": "SELECTABLE · flexible months",
+      "column": 17,
+      "labels": [],
+      "notes": "AGREED: one mission for the whole fleet. Changing it later spends an action. Battle victory opens Victorious Fleet. Defeat leaves survivors. Recurring rewards and retreat fraction are not yet coded. This is now selectable. Routine fleet controls still assign or change the single fleet mission. The preparation event also selects a one-time mobilisation advantage tied to the first deployment; later routine order changes do not regenerate it. All new advantage sizes are draft proposals.",
+      "choices": [
+        {
+          "key": "raid",
+          "label": "Raid Ottoman supply shipping",
+          "text": "Mission 0. Suggested: reduce enemy food each payout; rate and risk TBD. PREPARATION ADVANTAGE (PROPOSED): Prepared target list: suggested +25% effect on the first successful supply raid. Consumed on that first relevant resolution, never refreshed by ordinary mission changes."
+        },
+        {
+          "key": "plunder",
+          "label": "Raid for gold",
+          "text": "Mission 1. Suggested: gold each payout; rate and risk TBD. PREPARATION ADVANTAGE (PROPOSED): Prize agents: suggested +25% gold from the first successful gold raid. Consumed on that first relevant resolution, never refreshed by ordinary mission changes."
+        },
+        {
+          "key": "crimea",
+          "label": "Bring grain from Crimea",
+          "text": "Mission 2. Requires open straits; recurring provisions TBD. PREPARATION ADVANTAGE (PROPOSED): Advance grain contracts: suggested +25% delivered provisions on the first completed convoy. Consumed on that first relevant resolution, never refreshed by ordinary mission changes.",
+          "conditions": [
+            "Straits open"
+          ]
+        },
+        {
+          "key": "defend",
+          "label": "Defend the Golden Horn",
+          "text": "Mission 3. Suggested: naval defence bonus; amount TBD. PREPARATION ADVANTAGE (PROPOSED): Rehearsed harbour defence: suggested +10 percentage points to the first defensive naval battle, capped at 95%. Consumed on that first relevant resolution, never refreshed by ordinary mission changes."
+        },
+        {
+          "key": "recruit",
+          "label": "Bring volunteers and donations",
+          "text": "Mission 4. Suggested: periodic people/supplies; quantities TBD. PREPARATION ADVANTAGE (PROPOSED): Recruiting agents: suggested +25% volunteers from the first completed recruitment mission. Consumed on that first relevant resolution, never refreshed by ordinary mission changes."
+        },
+        {
+          "key": "battle",
+          "label": "Challenge the Ottoman fleet",
+          "text": "CURRENT SOURCE chance: 10 + own ship count, percent. AGREED: victory → Victorious Fleet; defeat → survivors retreat. PROPOSED: 50% of ships survive, at least one if any sailed; retreat defaults to harbour defence. Final survival rule and battle odds need approval. PREPARATION ADVANTAGE (PROPOSED): Concentrated first strike: suggested +10 percentage points for this battle, capped at 95%. Consumed on that first relevant resolution, never refreshed by ordinary mission changes."
+        }
+      ],
+      "questions": [
+        "DECIDE: defeat survivors fixed 50%, or random 30–60%?",
+        "DECIDE: retain current battle odds, or include admiral, Greek Fire and fleet strength?",
+        "DECIDE: approve or rebalance the proposed one-use preparation advantages. Fleet-wide mission and later action cost remain unchanged."
+      ],
+      "title": "Siege Preparation — Orders for the Fleet",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false
+      },
+      "description": "The captains can change course on your orders at any time. This council offers something more: advance contracts, rehearsals and intelligence for the fleet’s first deployment. Choose one mission for the whole fleet and prepare it properly."
+    },
+    {
+      "key": "story18a",
+      "source": "runtime:story18a",
+      "lane": "Maritime",
+      "when": "Conditional: naval victory",
+      "column": 18,
+      "labels": [
+        "Raid Ottoman supplies",
+        "Plunder for gold",
+        "Bring Crimean grain",
+        "Defend the harbour",
+        "Bring volunteers"
+      ],
+      "notes": "AGREED use existing Victorious Fleet. Source promises doubled mission efficiency; actual payout code was not found. Proposed mission modifier ×2 is not a guaranteed reward implementation.",
+      "group": "conditional",
+      "title": "Victorious Fleet"
+    },
+    {
+      "key": "fleet-retreat",
+      "source": null,
+      "lane": "Siege consequences",
+      "when": "Conditional: naval defeat",
+      "column": 18,
+      "labels": [],
+      "notes": "NEW authored resolution. Surviving fleet remains usable; no automatic complete destruction.",
+      "title": "The fleet returns battered",
+      "group": "conditional",
+      "choices": [
+        {
+          "key": "shelter",
+          "label": "Bring survivors into the harbour",
+          "text": "AGREED: partial fleet survives. PROPOSED: 50% survival, rounded up; harbour defence until an action is spent on new orders. Repair cost and recovery time TBD."
+        }
+      ],
+      "questions": [
+        "DECIDE: survival fraction and repairs."
+      ]
+    },
+    {
+      "key": "story22",
+      "source": "runtime:story22",
+      "lane": "Faith & society",
+      "when": "1 April 1453 · Easter",
+      "column": 19,
+      "labels": [
+        "Imperial legacy",
+        "Faith and sacrifice",
+        "Address all loyal subjects",
+        "Collect a compulsory war tax",
+        "Hold an Easter feast"
+      ],
+      "notes": "Fixed calendar milestone. Speech is a gameplay invention placed at Easter, not a claim of an attested speech. Variants should acknowledge December union and faction tensions.",
+      "title": "Easter Speech"
+    },
+    {
+      "key": "story23",
+      "source": "runtime:story23",
+      "lane": "Calendar",
+      "when": "6 April 1453 · proposed baseline",
+      "column": 20,
+      "labels": [
+        "Harass the vanguard",
+        "Lead a cavalry charge",
+        "Conserve troops; burn the approaches",
+        "Infiltrate the Ottoman camp"
+      ],
+      "notes": "Siege phase begins. Castle delay affects operational readiness downstream, not whether this node is connected.",
+      "group": "siege",
+      "title": "Siege Begins"
+    },
+    {
+      "key": "ottoman-readiness",
+      "source": null,
+      "lane": "Siege consequences",
+      "when": "After siege opening",
+      "column": 21,
+      "labels": [],
+      "notes": "NEW mechanic checkpoint. Current AI.TakeAIAction chooses actions immediately from moat and wall state; there is no existing operations-delay check.",
+      "title": "Ottoman operations become effective",
+      "group": "siege",
+      "choices": [
+        {
+          "key": "normal",
+          "label": "No castle delay",
+          "text": "Operations use baseline timing."
+        },
+        {
+          "key": "delayed",
+          "label": "Garrisons bought 5–9 days",
+          "text": "AGREED: land operations are blocked for the rolled 5–9 days. Calendar, food and naval pressure continue. Resume land operations when the counter expires; consume delay only once per siege day."
+        }
+      ]
+    },
+    {
+      "key": "story24",
+      "source": "runtime:story24",
+      "lane": "Siege consequences",
+      "when": "When Ottoman moat work begins",
+      "column": 22,
+      "labels": [
+        "Fire on the enslaved labourers",
+        "Shoot guards; spare labourers",
+        "Open gates for escapees",
+        "Sally out to rescue them"
+      ],
+      "notes": "First existing siege consequence. Proposed trigger: moat work is eligible and the delay has expired; do not trigger solely because an event ID equals a day number.",
+      "group": "siege",
+      "title": "Ottomans use prisoners to fill the Moat"
+    },
+    {
+      "key": "galata-charter",
+      "source": null,
+      "lane": "Galata & Giovanni",
+      "when": "Immediately after confirmed capture · no extra preparation month",
+      "column": 14.9,
+      "labels": [],
+      "notes": "One-time capture follow-up. It cannot be opened from neutral diplomacy, a failed/declined seizure, or a generic renegotiation. Consume the pending-governance flag after the decision. A later charter dispute is a separate interaction, not this event replayed.",
+      "title": "Who Shall Govern Galata?",
+      "group": "political expansion",
+      "choices": [
+        {
+          "key": "retain",
+          "label": "Retain imperial control",
+          "text": "Set Galata state to DIRECT IMPERIAL CONTROL; imperial administrator governs. Local goodwill and garrison requirement TBD.",
+          "conditions": [
+            "Capture confirmed; governance pending"
+          ]
+        },
+        {
+          "key": "commission",
+          "label": "Give Giovanni a revocable governorship",
+          "text": "Keep DIRECT IMPERIAL CONTROL, with Giovanni as appointed governor. Personal loyalty may improve, but sovereignty remains yours. Bonus and revocation consequences TBD.",
+          "conditions": [
+            "Capture confirmed; governance pending",
+            "Giovanni alive and present"
+          ]
+        },
+        {
+          "key": "fief",
+          "label": "Grant Galata to Giovanni after victory",
+          "text": "Retain direct imperial control. Record a grant of Galata to Giovanni conditional on victory; +15 personal loyalty now (selected from the user’s suggested +10/+15). Ownership changes only when victory fulfils the promise. No immediate defence increase. Promise can be honoured only if Galata is still held.",
+          "conditions": [
+            "Capture confirmed; governance pending",
+            "Giovanni alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "giovanniLoyalty",
+              "delta": 15,
+              "status": "selected-proposal"
+            },
+            {
+              "flag": "galataPostwarPromise",
+              "value": true
+            }
+          ]
+        },
+        {
+          "key": "now",
+          "label": "Grant Galata immediately",
+          "text": "Grant autonomous rule to Giovanni immediately: +30 personal loyalty. Increase Galata’s defences; size of increase TBD. Galata becomes a valid target for Ottoman attacks while the siege is active and Ottoman land actions are not blocked.",
+          "conditions": [
+            "Capture confirmed; governance pending",
+            "Giovanni alive and present"
+          ],
+          "designEffects": [
+            {
+              "stat": "giovanniLoyalty",
+              "delta": 30,
+              "status": "user-directed"
+            },
+            {
+              "stat": "galataDefences",
+              "delta": null,
+              "direction": "increase",
+              "status": "amount-TBD"
+            },
+            {
+              "stat": "galataState",
+              "value": "giovanni"
+            }
+          ]
+        },
+        {
+          "key": "neutral",
+          "label": "Confirm the podestà’s charter",
+          "text": "Restore NEUTRAL GALATA under the podestà, with negotiated concessions. This ends direct imperial control without expelling Giovanni from the army.",
+          "conditions": [
+            "Capture confirmed; governance pending"
+          ]
+        }
+      ],
+      "questions": [
+        "DECIDE: size of immediate defence bonus; initial loyalty, the commissioned-governor bonus and costs of restoring neutrality."
+      ],
+      "conditions": [
+        "Galata successfully captured by Varangians or Giovanni",
+        "Governance decision pending for this capture"
+      ]
+    },
+    {
+      "key": "galata-favour",
+      "source": null,
+      "lane": "Galata & Giovanni",
+      "when": "Open the Galata diplomacy section",
+      "column": 15.9,
+      "labels": [],
+      "notes": "Moved into the diplomacy interface, not a separate mandatory favour event. Claims and one-time concessions remain finite; no fixed 1,000/1,000/10,000 resource pool has been adopted.",
+      "title": "Diplomatic Options with Galata",
+      "group": "system interface",
+      "choices": [
+        {
+          "key": "supplies",
+          "label": "Request one supply convoy",
+          "text": "Spend one claim. Food or ammunition quantity TBD; no automatic repeat payout."
+        },
+        {
+          "key": "loan",
+          "label": "Request an emergency loan",
+          "text": "Spend one claim. Principal, interest and security TBD; feeds existing loan-event concept."
+        },
+        {
+          "key": "volunteers",
+          "label": "Request volunteer troops",
+          "text": "Spend one claim. Number and willingness TBD; independent of Giovanni’s expedition soldiers."
+        },
+        {
+          "key": "security",
+          "label": "Secure the chain and deny Ottoman access",
+          "text": "Spend one claim. Improve harbour cooperation; final effect and Ottoman response TBD."
+        },
+        {
+          "key": "reserve",
+          "label": "Save the favour",
+          "text": "Retain the claim for a later crisis."
+        }
+      ],
+      "conditions": [
+        "At least one unspent diplomatic claim for a concrete concession"
+      ]
+    },
+    {
+      "key": "giovanni-demands",
+      "source": null,
+      "lane": "Galata & Giovanni",
+      "when": "Conditional: unpaid troops, broken promises or growing power",
+      "column": 17.1,
+      "labels": [],
+      "notes": "NEW creative expansion. No arbitrary betrayal roll merely because Giovanni is powerful. Warnings and player conduct create the crisis.",
+      "title": "Giovanni asks for guarantees",
+      "group": "political expansion",
+      "conditions": [
+        "Giovanni alive and present"
+      ],
+      "choices": [
+        {
+          "key": "honour",
+          "label": "Honour the agreement",
+          "text": "Pay arrears or confirm promised rights. Loyalty improves; treasury/control cost depends on obligations."
+        },
+        {
+          "key": "renegotiate",
+          "label": "Exchange promises by consent",
+          "text": "Offer Galata instead of Lemnos, a governorship instead of ownership, or a smaller paid settlement. Acceptance depends on prior treatment; numbers TBD."
+        },
+        {
+          "key": "share",
+          "label": "Share command and oversight",
+          "text": "Limit personal power through a joint council. May reduce takeover risk but annoy Giovanni; no fixed penalty selected."
+        },
+        {
+          "key": "refuse",
+          "label": "Refuse or renege",
+          "text": "Trigger a loyalty crisis if sufficiently aggrieved; risk is visible before confirmation."
+        }
+      ]
+    },
+    {
+      "key": "giovanni-crisis",
+      "source": null,
+      "lane": "Galata & Giovanni",
+      "when": "Conditional: demands unresolved",
+      "column": 18.2,
+      "labels": [],
+      "notes": "NEW creative expansion. Losing Giovanni need not mean losing Galata; losing Galata need not remove him from the defence. Outcomes depend on who holds each role.",
+      "title": "A captain, an ally—or a rival?",
+      "group": "political expansion",
+      "conditions": [
+        "Giovanni alive and present",
+        "Unresolved grievance or broken promise"
+      ],
+      "choices": [
+        {
+          "key": "settle",
+          "label": "Negotiate a settlement",
+          "text": "Spend resources/concessions to retain service. Terms and success rule TBD."
+        },
+        {
+          "key": "autonomy",
+          "label": "Accept an autonomous ally",
+          "text": "Giovanni keeps Galata, supplies conditional help and denies direct imperial commands. A costly compromise, not automatic defeat."
+        },
+        {
+          "key": "leave",
+          "label": "Allow an orderly withdrawal",
+          "text": "Expedition departs with its own surviving troops. Define which ships/troops belong to him to avoid removing unrelated forces."
+        },
+        {
+          "key": "resist",
+          "label": "Resist his seizure of power",
+          "text": "AGREED POSSIBILITY: resist a bid for the imperial throne. Requires Giovanni alive and present, control of Galata, military leverage, a serious broken promise and an unresolved warning crisis. Chance, backing and consequences are still open."
+        }
+      ],
+      "questions": []
+    },
+    {
+      "key": "galata-26",
+      "source": "design:story26",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 100",
+      "column": 23,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 100 is not a verified >= or <= trigger or an event probability. Proposed response: full alliance. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata joins the Emperor",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "galata-27",
+      "source": "design:story27",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 70",
+      "column": 23.9,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 70 is not a verified >= or <= trigger or an event probability. Proposed response: diversion. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata distracts the Turks",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "galata-28",
+      "source": "design:story28",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 60",
+      "column": 24.8,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 60 is not a verified >= or <= trigger or an event probability. Proposed response: reinforcements. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata sends troops",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "galata-29",
+      "source": "design:story29",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 50",
+      "column": 25.7,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 50 is not a verified >= or <= trigger or an event probability. Proposed response: loan. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata offers a loan",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "galata-30",
+      "source": "design:story30",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 40",
+      "column": 26.6,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 40 is not a verified >= or <= trigger or an event probability. Proposed response: neutral trade. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata trades with the Turks",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "galata-31",
+      "source": "design:story31",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 30",
+      "column": 27.5,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 30 is not a verified >= or <= trigger or an event probability. Proposed response: intelligence leak. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata sells war plans",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "galata-32",
+      "source": "design:story32",
+      "lane": "Siege consequences",
+      "when": "Conditional siege response · legacy marker 0",
+      "column": 28.4,
+      "labels": [],
+      "notes": "SOURCE INDEX ONLY: legacy marker 0 is not a verified >= or <= trigger or an event probability. Proposed response: hostile access. Sovereignty, Ottoman pressure and goodwill must jointly govern eligibility. Not all seven fire in order.",
+      "title": "Galata opens its gates to the Turks",
+      "group": "political expansion",
+      "conditions": [
+        "Eligibility and repeat rules not yet defined"
+      ],
+      "questions": [
+        "DECIDE: trigger, payment, effect and whether once per campaign."
+      ]
+    },
+    {
+      "key": "fleet-reassign",
+      "source": null,
+      "lane": "Maritime",
+      "when": "During siege · when ships remain",
+      "column": 21.2,
+      "labels": [],
+      "notes": "AGREED: one mission for the whole fleet; changing later spends an action. No payout handler exists in inspected C# scripts. Reassignment is separate from a fresh battle and cannot farm a victory bonus.",
+      "title": "Change the fleet’s mission",
+      "group": "siege",
+      "choices": [
+        {
+          "key": "change",
+          "label": "Spend an action; choose a new mission",
+          "text": "Maintain one active mission. Crimea requires open straits. Action cost proposed: one. Payout timing and quantities TBD."
+        },
+        {
+          "key": "keep",
+          "label": "Keep the present mission",
+          "text": "No action spent; do not reissue rewards."
+        }
+      ],
+      "conditions": [
+        "Ships remain",
+        "A player action is available"
+      ]
+    },
+    {
+      "key": "story7",
+      "source": "runtime:story7",
+      "lane": "Shelved",
+      "when": "Unscheduled: empty source shell",
+      "column": 0,
+      "labels": [],
+      "notes": "Existing title only. Kept visible for inventory; not connected as playable content. Mind over Matter has no recoverable narrative or choices.",
+      "status": "Shelved",
+      "group": "empty shell",
+      "title": "Lord of the Imperial Wardrobe"
+    },
+    {
+      "key": "story9",
+      "source": "runtime:story9",
+      "lane": "Shelved",
+      "when": "Unscheduled: empty source shell",
+      "column": 1,
+      "labels": [],
+      "notes": "Existing title only. Kept visible for inventory; not connected as playable content. Mind over Matter has no recoverable narrative or choices.",
+      "status": "Shelved",
+      "group": "empty shell",
+      "title": "Mind over Matter"
+    },
+    {
+      "key": "story12",
+      "source": "runtime:story12",
+      "lane": "Shelved",
+      "when": "Unscheduled: empty source shell",
+      "column": 2,
+      "labels": [],
+      "notes": "Existing title only. Kept visible for inventory; not connected as playable content. Mind over Matter has no recoverable narrative or choices.",
+      "status": "Shelved",
+      "group": "empty shell",
+      "title": "Should we trust Venetians?"
+    },
+    {
+      "key": "story13",
+      "source": "runtime:story13",
+      "lane": "Shelved",
+      "when": "Unscheduled: empty source shell",
+      "column": 3,
+      "labels": [],
+      "notes": "Existing title only. Kept visible for inventory; not connected as playable content. Mind over Matter has no recoverable narrative or choices.",
+      "status": "Shelved",
+      "group": "empty shell",
+      "title": "Our Turks"
+    },
+    {
+      "key": "story21",
+      "source": "runtime:story21",
+      "lane": "Shelved",
+      "when": "Unscheduled: empty source shell",
+      "column": 4,
+      "labels": [],
+      "notes": "Existing title only. Kept visible for inventory; not connected as playable content. Mind over Matter has no recoverable narrative or choices.",
+      "status": "Shelved",
+      "group": "empty shell",
+      "title": "Sultan’s Envoy Arrives"
+    },
+    {
+      "key": "giovanni-throne",
+      "title": "The purple or the walls",
+      "source": null,
+      "lane": "Galata & Giovanni",
+      "when": "Conditional: grave political crisis during siege",
+      "column": 20.5,
+      "group": "political expansion",
+      "description": "Giovanni’s envoys offer you a choice: recognise his supreme authority, or face his troops while the Ottomans wait outside.",
+      "notes": "Creative design. A throne challenge is allowed by the user; it is never an automatic result of gifting land. Strong requirements and warnings precede it.",
+      "conditions": [
+        "Giovanni alive and present",
+        "Giovanni controls Galata and commands sufficient loyal troops",
+        "Serious broken promise; unresolved ultimatum"
+      ],
+      "choices": [
+        {
+          "key": "bargain",
+          "label": "Buy a settlement",
+          "text": "Offer enforceable concessions. Price, legitimacy loss and whether the agreement restores trust: TBD."
+        },
+        {
+          "key": "divide",
+          "label": "Split his coalition",
+          "text": "Appeal to captains, Galata merchants and imperial loyalists. Needs prior relationships or leverage; success rule TBD."
+        },
+        {
+          "key": "fight",
+          "label": "Defend the throne",
+          "text": "Risk internal fighting, troops and morale during the siege. Battle rule and consequences TBD."
+        },
+        {
+          "key": "yield",
+          "label": "Yield supreme command—or the crown",
+          "text": "OPEN: continue as a constrained ruler, switch protagonist, or end this campaign. Must be decided before coding."
+        }
+      ],
+      "questions": [
+        "DECIDE: does yielding the throne end the game or change the player role?"
+      ]
+    },
+    {
+      "key": "countermines",
+      "title": "Prepare countermining galleries",
+      "source": null,
+      "lane": "Shelved",
+      "when": "Not in the preparation pool",
+      "column": 10.5,
+      "group": "parked concept",
+      "description": "An earlier achievement opens a specialised preparation project.",
+      "notes": "Earlier assistant invention. Parked outside the selectable event pool; not an existing game event. No career-unlock or campaign-achievement rule is assigned.",
+      "conditions": [],
+      "choices": [],
+      "questions": [],
+      "status": "Parked concept"
+    },
+    {
+      "key": "master-gunners",
+      "title": "Train a specialist artillery corps",
+      "source": null,
+      "lane": "Shelved",
+      "when": "Not in the preparation pool",
+      "column": 11.4,
+      "group": "parked concept",
+      "description": "An earlier achievement opens a specialised preparation project.",
+      "notes": "Earlier assistant invention. Parked outside the selectable event pool; not an existing game event. No career-unlock or campaign-achievement rule is assigned.",
+      "conditions": [],
+      "choices": [],
+      "questions": [],
+      "status": "Parked concept"
+    },
+    {
+      "key": "black-sea-compact",
+      "title": "Secure a Black Sea grain compact",
+      "source": null,
+      "lane": "Shelved",
+      "when": "Not in the preparation pool",
+      "column": 12.3,
+      "group": "parked concept",
+      "description": "An earlier achievement opens a specialised preparation project.",
+      "notes": "Earlier assistant invention. Parked outside the selectable event pool; not an existing game event. No career-unlock or campaign-achievement rule is assigned.",
+      "conditions": [],
+      "choices": [],
+      "questions": [],
+      "status": "Parked concept"
+    },
+    {
+      "key": "fire-flotilla",
+      "title": "Equip the fleet with Greek Fire",
+      "source": null,
+      "lane": "Shelved",
+      "when": "Not in the preparation pool",
+      "column": 13.2,
+      "group": "parked concept",
+      "description": "An earlier achievement opens a specialised preparation project.",
+      "notes": "Earlier assistant invention. Parked outside the selectable event pool; not an existing game event. No career-unlock or campaign-achievement rule is assigned.",
+      "conditions": [],
+      "choices": [],
+      "questions": [],
+      "status": "Parked concept"
+    },
+    {
+      "source": null,
+      "column": 14,
+      "choices": [],
+      "conditions": [
+        "Varangian seizure succeeded OR Giovanni takeover succeeded"
+      ],
+      "questions": [],
+      "key": "galata-capture",
+      "title": "Capture of Galata confirmed",
+      "group": "system checkpoint",
+      "lane": "Galata & Giovanni",
+      "when": "Only on successful preparation-event seizure",
+      "description": "Record the successful capture and route used. Mark governance pending; then open Who Shall Govern Galata?.",
+      "notes": "Failure, refusal and ordinary diplomacy never enter this checkpoint. Proposed flag: captureId with governanceResolved=false; prevents duplicate follow-ups."
+    },
+    {
+      "source": null,
+      "column": 0,
+      "choices": [],
+      "conditions": [],
+      "questions": [
+        "DECIDE: achievement-count thresholds and first-campaign/next-campaign activation policy."
+      ],
+      "key": "career-unlocks",
+      "title": "Career achievements · main-menu profile",
+      "group": "profile system",
+      "lane": "Calendar",
+      "when": "Across completed games and earned achievements",
+      "external": true,
+      "description": "Persistent achievement count makes additional preparation events eligible for the selection list in subsequent campaigns. Finishing a campaign can award an achievement; completion itself is not a second duplicate count.",
+      "notes": "Not a campaign story event. No current-run event completion unlocks these projects. Thresholds and whether newly earned unlocks apply immediately or next campaign remain open."
+    },
+    {
+      "source": null,
+      "column": 10,
+      "choices": [
+        {
+          "key": "aegean",
+          "label": "Charter an Aegean grain convoy",
+          "text": "Suggested dependable route: pay agents, buy grain and charter merchant ships. Moderate cost and cargo; arrival after a stated delay. Exact cost, food, duration and interception rule TBD."
+        },
+        {
+          "key": "blacksea",
+          "label": "Send buyers to the Black Sea ports",
+          "text": "Suggested larger, cheaper cargo with a dangerous passage. Open straits may improve delivery; closed straits require a risk warning or a blocked route. This route condition does not unlock the event itself.",
+          "conditions": [
+            "A viable Black Sea passage; exact closed-straits rule TBD"
+          ]
+        },
+        {
+          "key": "galata",
+          "label": "Use Galata’s merchant network",
+          "text": "Negotiate credit, shipping or a protected charter. Terms depend on Galata’s state and goodwill. Autonomous Giovanni may demand a concession; Turkish-controlled Galata offers no normal allied charter."
+        },
+        {
+          "key": "decline",
+          "label": "Keep the money at home",
+          "text": "No agents dispatched, no imported food. Define whether cancellation occurs before committing the monthly slot."
+        }
+      ],
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ],
+      "questions": [
+        "DECIDE: career threshold, cost, cargo, delivery time and interception odds."
+      ],
+      "key": "grain-missions",
+      "title": "Siege Preparation — Overseas Grain Missions",
+      "group": "preparation",
+      "lane": "Diplomacy",
+      "when": "SELECTABLE · flexible months; allow time for delivery",
+      "access": {
+        "kind": "career-achievements",
+        "scope": "profile",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false
+      },
+      "description": "The city cannot eat promises. Send trusted agents to foreign ports to buy grain, charter merchant hulls and bring the cargo home before the sea closes around Constantinople.",
+      "notes": "NEW CREATIVE EVENT. This is separate from local Provisions Planning and from assigning the military fleet a siege mission. Merchant charters do not silently replace the fleet’s current orders. No instant food on dispatch; record the route, cost, arrival time and result. Late departures can arrive during the siege if their route remains viable."
+    },
+    {
+      "source": null,
+      "column": 13,
+      "choices": [
+        {
+          "key": "gift",
+          "label": "Send gifts",
+          "text": "Spend money to improve the relevant relationship. Cost and goodwill/loyalty split TBD; no free repeated bonus.",
+          "conditions": [
+            "Galata state: neutral or giovanni"
+          ]
+        },
+        {
+          "key": "appeal",
+          "label": "Negotiate friendly cooperation",
+          "text": "Discuss shared interests, harbour access and guarantees. No seizure, coup or territorial annexation option.",
+          "conditions": [
+            "Galata state: neutral or giovanni"
+          ]
+        },
+        {
+          "key": "aid",
+          "label": "Request troops, supplies or a loan",
+          "text": "Terms depend on relations, available resources and earlier promises. Consumes a finite concession where appropriate.",
+          "conditions": [
+            "Galata state: neutral or giovanni"
+          ]
+        },
+        {
+          "key": "claim",
+          "label": "Redeem a diplomatic claim",
+          "text": "Use a favour earned from the castle transfer or another agreement. The claim is spent once.",
+          "conditions": [
+            "Galata state: neutral or giovanni"
+          ]
+        },
+        {
+          "key": "administration",
+          "label": "Manage administration and local support",
+          "text": "Maintain control, address grievances and administer revenues. Initial governor selection does not replay here.",
+          "conditions": [
+            "Galata state: imperial"
+          ]
+        },
+        {
+          "key": "loyalty",
+          "label": "Discuss Giovanni’s obligations",
+          "text": "Visible only if Giovanni is alive and involved. Handle pay, promises and loyalty; renegotiation is not a fresh Who Shall Govern Galata event.",
+          "conditions": [
+            "Galata state: imperial or giovanni"
+          ]
+        },
+        {
+          "key": "intelligence",
+          "label": "Gather intelligence about occupied Galata",
+          "text": "Proposed hostile-territory interaction. Cost, spies and future liberation mechanics TBD; no ordinary gifts-for-allied-support shortcut.",
+          "conditions": [
+            "Galata state: ottoman"
+          ]
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "galata-panel",
+      "title": "Diplomacy & Court — Galata",
+      "group": "system interface",
+      "lane": "Galata & Giovanni",
+      "when": "Persistent campaign panel",
+      "description": "Open Galata’s relationship entry to see state-appropriate diplomatic or administrative actions. Character loyalty is displayed separately.",
+      "notes": "Design for the existing diplomacy UI; the map includes a state preview. No takeover buttons. Successful capture has its own one-time governance follow-up.",
+      "external": true
+    },
+    {
+      "source": null,
+      "column": 1,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-02",
+      "title": "February 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "February 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 2,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-03",
+      "title": "March 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "March 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 4,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-05",
+      "title": "May 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "May 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 6,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-07",
+      "title": "July 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "July 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 7,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-08",
+      "title": "August 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "August 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 8,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-09",
+      "title": "September 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "September 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 9,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-10",
+      "title": "October 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "October 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 10,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1452-11",
+      "title": "November 1452: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "November 1452",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "source": null,
+      "column": 13,
+      "choices": [
+        {
+          "key": "story2",
+          "label": "Siege Preparation — Walls",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story8",
+          "label": "Siege Preparation — Foreign Aid",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story10",
+          "label": "Siege Preparation — Recruitment",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story11",
+          "label": "Siege Preparation — Morean Orders",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story6",
+          "label": "Siege Preparation — Provisions Planning",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story15",
+          "label": "Siege Preparation — Galata",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story19",
+          "label": "Siege Preparation — The Great Chain of the Golden Horn",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story18",
+          "label": "Siege Preparation — Orders for the Fleet",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "story14",
+          "label": "Siege Preparation — Commander",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "naval-warfare",
+          "label": "Siege Preparation — Naval Warfare",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "grain-missions",
+          "label": "Siege Preparation — Overseas Grain Missions",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story16",
+          "label": "Siege Preparation — Neutralising Rumeli",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "story17",
+          "label": "Siege Preparation — Greek Fire",
+          "text": "Commit one monthly preparation slot. Inspect its choices first; individual resource and character gates still apply.",
+          "conditions": [
+            "Persistent game achievement threshold met (TBD)"
+          ],
+          "designEffects": []
+        },
+        {
+          "key": "pass",
+          "label": "Pass this month",
+          "text": "No preparation benefit. No banked extra slot.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "conditions": [],
+      "questions": [],
+      "key": "council-1453-02",
+      "title": "February 1453: choose a preparation",
+      "group": "calendar gateway",
+      "lane": "Calendar",
+      "when": "February 1453",
+      "description": "Choose one available preparation event or pass. Base options require no career achievement. Career options require the persistent profile threshold as well as ordinary timing and resource conditions.",
+      "notes": "One commitment per flexible month. Once-only topics cannot be picked twice. All career options remain visible with lock reasons; proposed thresholds 2/4/6 are preview settings only. Rumeli is unavailable before September 1452."
+    },
+    {
+      "key": "naval-warfare",
+      "source": null,
+      "title": "Siege Preparation — Naval Warfare",
+      "lane": "Maritime",
+      "column": 10,
+      "when": "SELECTABLE · flexible months",
+      "status": "New creative draft",
+      "description": "The admirals ask for ships. The shipwrights ask for timber. The pilots ask for silence. You can pay for one serious naval preparation before the harbour becomes a battlefield. Where should the money go?",
+      "notes": "NEW CREATIVE DRAFT requested by the user; not imported or an existing game event. Base selectable for evaluation, not a career unlock. Choose one investment, not all five. All prices, durations and percentages below are suggestions. Distinct from fleet orders: this builds capacity or infrastructure rather than choosing the military fleet’s mission.",
+      "access": {
+        "kind": "base",
+        "scope": "campaign",
+        "minimumAchievements": null
+      },
+      "opportunity": {
+        "cost": 1,
+        "repeatable": false
+      },
+      "choices": [
+        {
+          "key": "charter",
+          "label": "Charter armed merchantmen",
+          "text": "Suggested: −6,000 gold; +3 ships with hired crews before the siege. Advantage: immediate fleet strength. Trade-off: contracted crews require pay; arrears consequences TBD.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "dockyards",
+          "label": "Prepare the repair yards",
+          "text": "Suggested: −4,000 gold and −30 materials. First two damaged fleets returning to harbour restore 20% of damaged surviving hulls. Repair damage only: no resurrection of ships sunk in battle.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "stores",
+          "label": "Establish naval magazines",
+          "text": "Suggested: −3,000 gold and −500 provisions now; cover the first three fleet sorties’ supply charges. If no per-sortie supply system is adopted, redesign this option rather than add a bonus without a cost it can offset.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "secret-base",
+          "label": "Create a hidden anchorage on the Ottoman coast",
+          "text": "Suggested: −4,500 gold and commit one spy until the base is ready. One successful raid can return to the base and avoid one interception check. Risk proposal: 20% discovery per use; discovery closes the base and may capture its personnel. Route, timing and capture resolution TBD.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "signals",
+          "label": "Train harbour pilots and signal crews",
+          "text": "Suggested: −2,500 gold; +10 percentage points to the first two convoy/interception-avoidance checks, capped at 95%. No bonus to naval battle damage. Works without an intact chain; defending the chain requires it to exist.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ],
+      "questions": [
+        "DECIDE: which naval investments and proposed costs should enter the final event?",
+        "DECIDE: compatible damage/repair, sortie-supply and interception rules before translating these bonuses into gameplay."
+      ]
+    },
+    {
+      "key": "ottoman-attack-galata",
+      "title": "Ottoman Special Action — Attack Galata",
+      "source": null,
+      "group": "siege consequence",
+      "lane": "Siege consequences",
+      "when": "During siege · eligible Ottoman land action",
+      "column": 19,
+      "description": "Galata has abandoned neutrality. Ottoman forces may now choose to attack the district and its defences.",
+      "notes": "Eligibility implemented in the developer rules preview. Requires imperial or Giovanni control, active siege and zero remaining land-operation delay. It is an optional enemy action, not an automatic punishment. Cost, damage, frequency and conquest threshold are undecided; no invented casualty results.",
+      "conditions": [
+        "Galata state is imperial OR giovanni",
+        "Siege active",
+        "Ottoman land-action delay exhausted"
+      ],
+      "choices": [
+        {
+          "key": "attack",
+          "label": "Begin an attack on Galata",
+          "text": "Target Galata’s defences; strength, cost and duration TBD. On confirmed conquest only, state changes to Turkish control.",
+          "conditions": [],
+          "designEffects": []
+        },
+        {
+          "key": "elsewhere",
+          "label": "Commit forces elsewhere",
+          "text": "No Galata attack this opportunity.",
+          "conditions": [],
+          "designEffects": []
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "story18",
+      "to": "story18a",
+      "type": "outcome",
+      "label": "Victory → new fleet orders",
+      "choice": 5,
+      "conditions": [
+        "Naval battle won"
+      ]
+    },
+    {
+      "from": "story18",
+      "to": "fleet-retreat",
+      "type": "outcome",
+      "label": "Defeat → survivors return",
+      "choice": 5,
+      "conditions": [
+        "Naval battle lost"
+      ]
+    },
+    {
+      "from": "story18a",
+      "to": "story22",
+      "type": "return",
+      "label": "Return to dated milestones"
+    },
+    {
+      "from": "fleet-retreat",
+      "to": "story22",
+      "type": "return",
+      "label": "Return to dated milestones"
+    },
+    {
+      "from": "story16",
+      "to": "story18",
+      "type": "prerequisite",
+      "label": "Open straits → Crimea eligible",
+      "conditions": [
+        "Straits neutralised; affects Crimea choice only"
+      ]
+    },
+    {
+      "from": "story17",
+      "to": "story18",
+      "type": "influence",
+      "label": "Greek Fire → naval capability TBD"
+    },
+    {
+      "from": "story5",
+      "to": "story14",
+      "type": "prerequisite",
+      "label": "Giovanni available → commander option",
+      "choice": 0,
+      "conditions": [
+        "Giovanni alive and present"
+      ]
+    },
+    {
+      "from": "story1",
+      "to": "story22",
+      "type": "influence",
+      "label": "Union policy → Easter variants"
+    },
+    {
+      "from": "story20",
+      "to": "ottoman-readiness",
+      "type": "outcome",
+      "label": "Sacrifice → 5–9 days delay",
+      "choice": 1
+    },
+    {
+      "from": "story20",
+      "to": "galata-favour",
+      "type": "outcome",
+      "label": "Castle gift → diplomatic claim",
+      "choice": 3
+    },
+    {
+      "from": "story20",
+      "to": "story15",
+      "type": "influence",
+      "label": "Castle gift → Galata goodwill",
+      "choice": 3
+    },
+    {
+      "from": "galata-charter",
+      "to": "giovanni-demands",
+      "type": "influence",
+      "label": "Promises and power → later obligations"
+    },
+    {
+      "from": "story5",
+      "to": "giovanni-demands",
+      "type": "influence",
+      "label": "Lemnos promise → obligation",
+      "choice": 0,
+      "conditions": [
+        "Giovanni welcomed and alive"
+      ]
+    },
+    {
+      "from": "giovanni-demands",
+      "to": "giovanni-crisis",
+      "type": "outcome",
+      "label": "Refusal → conditional crisis",
+      "choice": 3
+    },
+    {
+      "from": "story23",
+      "to": "fleet-reassign",
+      "type": "availability",
+      "label": "Siege actions → change mission"
+    },
+    {
+      "from": "story23",
+      "to": "giovanni-demands",
+      "type": "availability",
+      "label": "Siege pressure → conditional demands",
+      "conditions": [
+        "Giovanni alive; grievance exists"
+      ]
+    },
+    {
+      "from": "story23",
+      "to": "galata-26",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "story23",
+      "to": "galata-27",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "story23",
+      "to": "galata-28",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "story23",
+      "to": "galata-29",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "story23",
+      "to": "galata-30",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "story23",
+      "to": "galata-31",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "story23",
+      "to": "galata-32",
+      "type": "availability",
+      "label": "Siege window → conditional response"
+    },
+    {
+      "from": "galata-favour",
+      "to": "galata-28",
+      "type": "outcome",
+      "label": "Redeem claim → troops",
+      "choice": 2
+    },
+    {
+      "from": "galata-favour",
+      "to": "galata-29",
+      "type": "outcome",
+      "label": "Redeem claim → loan",
+      "choice": 1
+    },
+    {
+      "from": "giovanni-crisis",
+      "to": "giovanni-throne",
+      "type": "outcome",
+      "label": "Escalation → throne challenge",
+      "choice": 3,
+      "conditions": [
+        "Galata controlled; leverage and serious grievance"
+      ]
+    },
+    {
+      "from": "galata-capture",
+      "to": "galata-charter",
+      "type": "follow-up",
+      "label": "Capture confirmed → govern once",
+      "conditions": [
+        "Governance pending for this capture"
+      ]
+    },
+    {
+      "from": "career-unlocks",
+      "to": "grain-missions",
+      "type": "profile-unlock",
+      "label": "Persistent achievement count → eligible",
+      "conditions": [
+        "Profile achievement count meets threshold TBD"
+      ],
+      "note": "Career/profile unlock, not an event completed during this campaign. Does not auto-select or execute the preparation."
+    },
+    {
+      "from": "career-unlocks",
+      "to": "story16",
+      "type": "profile-unlock",
+      "label": "Persistent achievement count → eligible",
+      "conditions": [
+        "Profile achievement count meets threshold TBD"
+      ],
+      "note": "Career/profile unlock, not an event completed during this campaign. Does not auto-select or execute the preparation."
+    },
+    {
+      "from": "career-unlocks",
+      "to": "story17",
+      "type": "profile-unlock",
+      "label": "Persistent achievement count → eligible",
+      "conditions": [
+        "Profile achievement count meets threshold TBD"
+      ],
+      "note": "Career/profile unlock, not an event completed during this campaign. Does not auto-select or execute the preparation."
+    },
+    {
+      "from": "story0",
+      "to": "galata-panel",
+      "type": "availability",
+      "label": "Diplomacy panel available throughout campaign"
+    },
+    {
+      "from": "galata-charter",
+      "to": "galata-panel",
+      "type": "state-update",
+      "label": "Governance choice → panel state"
+    },
+    {
+      "from": "story20",
+      "to": "galata-panel",
+      "type": "influence",
+      "label": "Castle gift → diplomatic relations",
+      "choice": 3
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-26",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-27",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-28",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-29",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-30",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-31",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "galata-panel",
+      "to": "galata-32",
+      "type": "influence",
+      "label": "State and goodwill → conditional response"
+    },
+    {
+      "from": "story15",
+      "to": "galata-capture",
+      "choice": 2,
+      "type": "outcome",
+      "label": "Varangian seizure succeeds",
+      "conditions": [
+        "Capture succeeded"
+      ]
+    },
+    {
+      "from": "story15",
+      "to": "galata-capture",
+      "choice": 4,
+      "type": "outcome",
+      "label": "Giovanni takeover succeeds",
+      "conditions": [
+        "Capture succeeded"
+      ]
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-02",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-02",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-03",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-03",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-05",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-07",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-07",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-08",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-08",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-09",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-09",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-10",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-10",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1452-11",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story2",
+      "choice": 0,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story8",
+      "choice": 1,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story10",
+      "choice": 2,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story11",
+      "choice": 3,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story6",
+      "choice": 4,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story15",
+      "choice": 5,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Galata is neutral",
+        "Preparation event not already resolved"
+      ]
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story19",
+      "choice": 6,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story18",
+      "choice": 7,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story14",
+      "choice": 8,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "naval-warfare",
+      "choice": 9,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": []
+    },
+    {
+      "from": "council-1453-02",
+      "to": "grain-missions",
+      "choice": 10,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story16",
+      "choice": 11,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)",
+        "September 1452 or later"
+      ]
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story17",
+      "choice": 12,
+      "type": "opportunity",
+      "label": "Select one preparation",
+      "conditions": [
+        "Persistent profile has the required number of game achievements (threshold TBD)"
+      ]
+    },
+    {
+      "from": "galata-capture",
+      "to": "ottoman-attack-galata",
+      "type": "availability",
+      "label": "May enable Ottoman attack",
+      "conditions": [
+        "Imperial or Giovanni control",
+        "Siege active",
+        "Land-action delay exhausted"
+      ]
+    },
+    {
+      "from": "galata-charter",
+      "to": "ottoman-attack-galata",
+      "type": "availability",
+      "label": "May enable Ottoman attack",
+      "conditions": [
+        "Imperial or Giovanni control",
+        "Siege active",
+        "Land-action delay exhausted"
+      ]
+    },
+    {
+      "from": "ottoman-readiness",
+      "to": "ottoman-attack-galata",
+      "type": "availability",
+      "label": "May enable Ottoman attack",
+      "conditions": [
+        "Imperial or Giovanni control",
+        "Siege active",
+        "Land-action delay exhausted"
+      ]
+    },
+    {
+      "from": "ottoman-attack-galata",
+      "to": "galata-panel",
+      "type": "state-update",
+      "label": "Confirmed conquest → Turkish control",
+      "conditions": [
+        "Galata conquered"
+      ]
+    },
+    {
+      "from": "naval-warfare",
+      "to": "story18",
+      "type": "influence",
+      "label": "Naval infrastructure affects fleet operations"
+    },
+    {
+      "from": "story0",
+      "to": "council-1452-02",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-02",
+      "to": "council-1452-03",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-03",
+      "to": "rumeli-warning",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "rumeli-warning",
+      "to": "council-1452-05",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-05",
+      "to": "story3",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story3",
+      "to": "council-1452-07",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-07",
+      "to": "council-1452-08",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-08",
+      "to": "council-1452-09",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-09",
+      "to": "council-1452-10",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-10",
+      "to": "council-1452-11",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1452-11",
+      "to": "story1",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story1",
+      "to": "story5",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story5",
+      "to": "story4",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story4",
+      "to": "council-1453-02",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "council-1453-02",
+      "to": "story20",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story20",
+      "to": "story22",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story22",
+      "to": "story23",
+      "type": "calendar",
+      "label": "Continue dated council flow",
+      "conditions": [
+        "Resolve fixed event or choose one monthly preparation/pass"
+      ]
+    },
+    {
+      "from": "story23",
+      "to": "ottoman-readiness",
+      "type": "availability",
+      "label": "Siege opens Ottoman operations",
+      "conditions": [
+        "Siege begun"
+      ]
+    },
+    {
+      "from": "ottoman-readiness",
+      "to": "story24",
+      "type": "availability",
+      "label": "Possible prisoner attack",
+      "conditions": [
+        "Land actions no longer blocked",
+        "Enemy prisoner attack selected"
+      ]
+    }
+  ],
+  "politics": {
+    "axes": [
+      "Galata state: neutral / imperial / giovanni-autonomous / ottoman",
+      "Galata goodwill: local relationship, independent of state",
+      "Character loyalty to the emperor: per character, independent of role and troop morale",
+      "Giovanni ambition and outstanding promises: proposed additional factors"
+    ],
+    "obligations": [
+      "Lemnos promise",
+      "Galata title or charter",
+      "Pay arrears",
+      "One-time castle gift claim"
+    ],
+    "rules": [
+      "Gift, cooperation, takeover and grant can happen successively. They are not exclusive campaign paths.",
+      "Changing sovereignty does not set goodwill to 100.",
+      "Only Giovanni alive/present can take his branches.",
+      "A territorial promise is not ownership until conditions are met.",
+      "Repeat visits do not repeat one-time gifts, troop grants or promises.",
+      "Rebellion is conditional on grievances and leverage; not inevitable.",
+      "A throne challenge needs personal power plus serious grievance and a prior warning. Granting Galata alone never triggers rebellion."
+    ],
+    "states": [
+      {
+        "id": "neutral",
+        "label": "Neutral Galata",
+        "description": "Normal diplomacy and negotiated assistance."
+      },
+      {
+        "id": "imperial",
+        "label": "Direct imperial control",
+        "description": "Administration and local goodwill; appointed Giovanni remains your governor."
+      },
+      {
+        "id": "giovanni",
+        "label": "Giovanni’s autonomous rule",
+        "description": "Negotiate with Giovanni as an autonomous ally; personal loyalty remains separate."
+      },
+      {
+        "id": "ottoman",
+        "label": "Turkish control",
+        "description": "Normal allied interactions unavailable; intelligence, captives and future recovery are separate proposals."
+      }
+    ],
+    "characterLoyalty": {
+      "scope": "campaign",
+      "perCharacter": true,
+      "proposedRange": [
+        0,
+        100
+      ],
+      "initialValue": null,
+      "rules": [
+        "Hiring/arrival, pay, appointments, treatment and promises can change loyalty.",
+        "Appointing a commander does not create a separate copy of the same character’s loyalty.",
+        "High loyalty does not automatically transfer Galata’s sovereignty.",
+        "Low loyalty alone does not trigger a coup; grievance, opportunity, power and warnings matter."
+      ]
+    },
+    "actions": [
+      {
+        "id": "gift",
+        "title": "Send gifts",
+        "states": [
+          "neutral",
+          "giovanni"
+        ],
+        "description": "Spend money to improve the relevant relationship. Cost and goodwill/loyalty split TBD; no free repeated bonus."
+      },
+      {
+        "id": "appeal",
+        "title": "Negotiate friendly cooperation",
+        "states": [
+          "neutral",
+          "giovanni"
+        ],
+        "description": "Discuss shared interests, harbour access and guarantees. No seizure, coup or territorial annexation option."
+      },
+      {
+        "id": "aid",
+        "title": "Request troops, supplies or a loan",
+        "states": [
+          "neutral",
+          "giovanni"
+        ],
+        "description": "Terms depend on relations, available resources and earlier promises. Consumes a finite concession where appropriate."
+      },
+      {
+        "id": "administration",
+        "title": "Manage administration and local support",
+        "states": [
+          "imperial"
+        ],
+        "description": "Maintain control, address grievances and administer revenues. Initial governor selection does not replay here."
+      },
+      {
+        "id": "loyalty",
+        "title": "Discuss Giovanni’s obligations",
+        "states": [
+          "imperial",
+          "giovanni"
+        ],
+        "description": "Visible only if Giovanni is alive and involved. Handle pay, promises and loyalty; renegotiation is not a fresh Who Shall Govern Galata event."
+      },
+      {
+        "id": "intelligence",
+        "title": "Gather intelligence about occupied Galata",
+        "states": [
+          "ottoman"
+        ],
+        "description": "Proposed hostile-territory interaction. Cost, spies and future liberation mechanics TBD; no ordinary gifts-for-allied-support shortcut."
+      },
+      {
+        "id": "convoy",
+        "title": "Negotiate a supply convoy",
+        "description": "Spend one diplomatic claim; cargo and route terms TBD.",
+        "states": [
+          "neutral",
+          "giovanni"
+        ]
+      },
+      {
+        "id": "loan",
+        "title": "Negotiate an emergency loan",
+        "description": "Spend one claim; principal, security and repayment TBD.",
+        "states": [
+          "neutral",
+          "giovanni"
+        ]
+      },
+      {
+        "id": "volunteers",
+        "title": "Request volunteer troops",
+        "description": "Spend one claim; troop count TBD, distinct from Giovanni’s expedition.",
+        "states": [
+          "neutral",
+          "giovanni"
+        ]
+      },
+      {
+        "id": "harbour",
+        "title": "Secure the chain anchorage",
+        "description": "Spend one claim for harbour cooperation; it cannot restore a chain that has been dismantled.",
+        "states": [
+          "neutral",
+          "giovanni"
+        ]
+      },
+      {
+        "id": "bribe",
+        "title": "Bribe the podestà for favour",
+        "description": "−7,500 gold; +30 goodwill. Does not transfer control. Repeat costs/cooldown require balancing.",
+        "states": [
+          "neutral"
+        ]
+      }
+    ],
+    "captureRoutes": [
+      "Varangian seizure through Siege Preparation — Galata",
+      "Giovanni takeover through Siege Preparation — Galata"
+    ],
+    "governanceTrigger": "successful capture AND governance pending; consume after choice; never from ordinary diplomacy",
+    "grants": {
+      "postwarLoyalty": 15,
+      "postwarLoyaltyStatus": "Selected from user range +10/+15",
+      "immediateLoyalty": 30,
+      "immediateDefenceBonus": null,
+      "defenceDirection": "increase"
+    },
+    "ottomanAttack": {
+      "id": "attack-galata",
+      "eligibleStates": [
+        "imperial",
+        "giovanni"
+      ],
+      "requiresSiege": true,
+      "blockedDuringLandDelay": true,
+      "resolution": "Separate action targeting Galata defences; damage, cost, duration and conquest threshold TBD. Defeat may change state to ottoman; not automatic on selecting the attack."
+    }
+  },
+  "decisions": [
+    {
+      "id": "Q-META",
+      "question": "How many persistent achievements unlock each event?",
+      "recommendation": "Provisional progression only: Overseas Grain Missions at 2, Rumeli at 4, Greek Fire at 6. Counts are not yet assigned in the rules."
+    },
+    {
+      "id": "Q-GRAIN",
+      "question": "What are the costs, delivery times and cargo amounts for Overseas Grain Missions?",
+      "recommendation": "Keep chartered merchant missions separate from military-fleet orders; food arrives on delivery, not dispatch."
+    },
+    {
+      "id": "Q-LOYALTY",
+      "question": "What are starting loyalty values and changes for each character?",
+      "recommendation": "Use a clear 0–100 scale, but assign starting values and effects individually; no automatic coup at one arbitrary number."
+    },
+    {
+      "id": "Q3",
+      "question": "Should a castle gift return troops and give a redeemable claim?",
+      "recommendation": "+15 Galata goodwill and one claim. Choose returning garrison count separately."
+    },
+    {
+      "id": "Q4",
+      "question": "What survives a failed fleet battle?",
+      "recommendation": "50% of ships, rounded up, with at least one survivor if ships sailed; harbour defence pending new orders."
+    },
+    {
+      "id": "Q-NAVAL",
+      "question": "Which naval investment packages and fleet mobilisation bonuses should become final rules?",
+      "recommendation": "Keep one investment per event; use one-use orders bonuses so routine fleet controls remain useful. Costs and values are proposals."
+    },
+    {
+      "id": "Q-GALATA-DEFENCE",
+      "question": "How much defence should an immediate Giovanni grant add, and how do Ottoman attacks damage Galata?",
+      "recommendation": "Keep defence separate from goodwill. The positive bonus is agreed; its number and the attack damage model remain unassigned."
+    }
+  ],
+  "historyNotes": [
+    {
+      "topic": "Union anchor",
+      "date": "12 December 1452",
+      "url": "https://erenow.org/postclassical/1453theholywarforconstantinople/7.php"
+    },
+    {
+      "topic": "Giovanni arrival anchor",
+      "date": "January 1453",
+      "url": "https://www.perlego.com/book/1548572/the-fall-of-constantinople-to-the-ottomans-context-and-consequences-pdf"
+    },
+    {
+      "topic": "Easter date; speech fictional",
+      "date": "1 April 1453",
+      "url": "https://www.hansischergeschichtsverein.de/file/qud74-2018-jenks-london-custom-accounts-24henryvi.pdf"
+    },
+    {
+      "topic": "Siege baseline",
+      "date": "6 April 1453",
+      "url": "https://www.deremilitari.org/RESOURCES/SOURCES/constantinople3.htm"
+    }
+  ],
+  "researchBoundary": "Date-anchor checks preceded the user’s request to stop historical research. All added Galata/Giovanni branches are creative proposals, not historical assertions.",
+  "acceptedDecisions": [
+    "Fixed 1452: January strategic focus; April A Fortress Rises on the Bosphorus; June Artillery Genius; December Union.",
+    "Eight flexible months in 1452 plus February 1453. Provisions and Galata are base selectable preparation events.",
+    "Hungry Mouths moves later, provisionally January 1453 alongside the Genoese arrival.",
+    "Career unlocks depend on the persistent number of game achievements, not achievements inside the current event chain. Required counts remain undecided.",
+    "Rumeli, Greek Fire and Overseas Grain Missions are career-unlocked preparation events. Every selectable event is titled Siege Preparation — ….",
+    "The diplomatic screen offers routine Galata interactions; the preparation event exclusively offers Varangian seizure and takeover through Giovanni.",
+    "Who Shall Govern Galata? fires only after successful capture by one of those routes, once per capture.",
+    "Galata has four states: neutral, direct imperial control, Giovanni autonomous, Turkish control. Appointing a governor alone does not grant autonomy.",
+    "Character loyalty to the emperor is a separate stat from troop morale, Galata goodwill and political control.",
+    "Castle sacrifice blocks Ottoman land operations for 5–9 days after siege begins; troop morale −5 points.",
+    "Giovanni can attempt a throne challenge after serious grievances and with sufficient political/military leverage.",
+    "One mission for the whole fleet; later changes cost an action; defeat leaves survivors; victory uses Victorious Fleet.",
+    "Galata preparation retains six core choices: support, neutrality, Varangians, bribe, Giovanni with Diplomacy focus, gifts/shared faith (+30 goodwill).",
+    "Post-victory Galata promise: +15 loyalty selected from +10/+15. Immediate autonomous grant: +30 loyalty and a positive defence bonus of undecided size.",
+    "Imperial and autonomous Giovanni Galata can be targeted by Ottoman land attacks during the siege, subject to the castle-induced action delay. Neutral or Turkish Galata cannot.",
+    "Chain, Fleet Orders and Commander are base selectable events. Successful commander appointment grants +10 army support once.",
+    "Naval Warfare is a newly authored base-event draft with five alternative investments. No fixed Galata treasury or troop inventory has been adopted."
+  ],
+  "projectPool": [
+    "story2",
+    "story8",
+    "story10",
+    "story11",
+    "story6",
+    "story15",
+    "story19",
+    "story18",
+    "story14",
+    "naval-warfare",
+    "grain-missions",
+    "story16",
+    "story17"
+  ],
+  "baseProjectPool": [
+    "story2",
+    "story8",
+    "story10",
+    "story11",
+    "story6",
+    "story15",
+    "story19",
+    "story18",
+    "story14",
+    "naval-warfare"
+  ],
+  "unlockedProjectPool": [
+    "grain-missions",
+    "story16",
+    "story17"
+  ],
+  "profileUnlocks": {
+    "scope": "profile",
+    "counter": "unlockedGameAchievementCount",
+    "minimumCounts": {
+      "grain-missions": null,
+      "story16": null,
+      "story17": null
+    },
+    "suggestedCounts": {
+      "grain-missions": 2,
+      "story16": 4,
+      "story17": 6
+    },
+    "activation": "TBD: immediate availability or next campaign",
+    "rules": [
+      "Count distinct achievements, not repeat completions of the same achievement.",
+      "Persist across campaign restarts.",
+      "Do not derive unlock count from current campaign event flags.",
+      "Ordinary event conditions may still govern individual choices; they are not career unlocks."
+    ]
+  }
+}

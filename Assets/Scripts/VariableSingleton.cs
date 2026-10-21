@@ -1,10 +1,13 @@
+﻿using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
 using Yarn.Unity;
 using System.Collections;
+using System.Globalization;
 
+[DefaultExecutionOrder(-1000)]
 public class VariableSingleton : MonoBehaviour
 {
     static private VariableSingleton _instance;
@@ -17,28 +20,56 @@ public class VariableSingleton : MonoBehaviour
         get => turn;
         private set => turn = value;
     }
+    public static string ArrivalNotice="";
+    public List<TrainingPool.Order> TrainingOrders = new List<TrainingPool.Order>();
     static public int IncrementTurn()
     {
+        var previousDate=GetDate();
+        bool completedSiegeDay=HasSiegeStarted();
+        EspionageSystem.AdvanceTurn();
         turn++;
         if (Instance.overrideTurn > -1) { turn = Instance.overrideTurn; Instance.overrideTurn = -1; }
+        if(CompletedSiegeDays>0 && TechnologySystem.Has("RomanTaxation"))
+        {
+            int income=PopulationAccounting.Tax(); ChangeInt("iMoney",income);
+            ArrivalNotice="Fiscal administration: +"+income.ToString("N0")+" gold. Treasury now "+GetIntVariable("iMoney").ToString("N0")+".\n\n";
+        }
+        else ArrivalNotice="";
+        if(completedSiegeDay) { ArrivalNotice+=SupplyEconomy.CompleteDay(); NavalState.CompleteDay(); }
+        if(CompletedSiegeDays>0 && GetIntVariable("iIncome")>0) {int income=GetIntVariable("iIncome");ChangeInt("iMoney",income);ArrivalNotice+="Merchant levy: +"+income+" gold.\n\n";}
+        ArrivalNotice+=CouncilActions.AdvanceAid(Math.Max(0,(GetDate()-previousDate).Days));
+        ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
+        ArrivalNotice+=TroopTraining.Complete(GetDate());
+        ArrivalNotice+=PreparationCampaign.Advance();
         return turn;
     }
     public int overrideTurn = -1;
 
     [SerializeField] int turnsToSiege;
 
-    public static bool HasSiegeStarted() => turn >= _instance.turnsToSiege;
+    public static bool QuickStartRequested;
+    public static string PreparationPresetPath => SavePath + ".preparation";
+    public static bool HasPreparationPreset => File.Exists(PreparationPresetPath);
+    public static int EffectiveSiegeTurn => PreparationCampaign.Active?PreparationCampaign.SiegeTurn:_instance.turnsToSiege;
+    public static int CompletedSiegeDays => _instance == null ? 0 : Mathf.Max(0, turn - EffectiveSiegeTurn);
+    [YarnFunction("GetPopulation")]
+    public static string PopulationInPeople() => PopulationAccounting.People.ToString("N0", CultureInfo.InvariantCulture);
+
+    public static bool HasSiegeStarted() => turn >= EffectiveSiegeTurn;
+
+    public static int SiegeDay => _instance == null ? 0 : Mathf.Max(0, turn - EffectiveSiegeTurn + 1);
 
     static DateTime siegeStart = new(1453, 4, 6);
     static public DateTime GetDate()
     {
+        if(PreparationCampaign.Active)return PreparationCampaign.Date(turn);
         if (turn < _instance.turnsToSiege)
         {
-            return siegeStart - new TimeSpan((_instance.turnsToSiege - turn -1) * 7, 0, 0, 0);
+            return siegeStart - new TimeSpan((_instance.turnsToSiege - turn) * 7, 0, 0, 0);
         }
         else
         {
-            return siegeStart + new TimeSpan(turn - _instance.turnsToSiege +1, 0, 0, 0);
+            return siegeStart + new TimeSpan(turn - EffectiveSiegeTurn, 0, 0, 0);
         }
     }
 
@@ -88,8 +119,11 @@ public class VariableSingleton : MonoBehaviour
 
 
     [YarnCommand("Change")]
-    static public void Change(string varName, float Value)
+    static public void Change(string varName, string value = "1")
     {
+        float Value = value.Equals("true", StringComparison.OrdinalIgnoreCase) ? 1 :
+            value.Equals("false", StringComparison.OrdinalIgnoreCase) ? 0 :
+            float.Parse(value, CultureInfo.InvariantCulture);
         switch (varName[0])
         {
             case 'b':
@@ -122,7 +156,10 @@ public class VariableSingleton : MonoBehaviour
 
     static public void ChangeBool(string varName, bool newValue)
     {
+        int character=Array.IndexOf(CourtRoster.Keys,varName);
+        if(newValue && character>=0 && iDict.TryGetValue("iAllegiance"+character,out int bloc) && bloc>0 && PoliticalSystem.Banned(bloc-1)) return;
         bDict[varName] = newValue;
+        CourtRoster.Record(varName,newValue);
     }
 
     static public void ChangeInt(string varName, int delta)
@@ -139,19 +176,14 @@ public class VariableSingleton : MonoBehaviour
 
     static public void ChangeInt(string varName, int min, int max)
     {
-        ChangeInt(varName, UnityEngine.Random.Range(min, max + 1));
+        ChangeInt(varName, UnityEngine.Random.Range(Math.Min(min, max), Math.Max(min, max) + 1));
     }
 
     static public void ChangeFloat(string varName, float delta)
     {
-        if (fDict[varName] + delta < 0)
-        {
-            fDict[varName] = 0;
-        }
-        else
-        {
-            fDict[varName] += delta;
-        }
+        // Equipment quality is a lethality multiplier; other campaign floats are fractions.
+        float value=fDict[varName]+delta;
+        fDict[varName]=varName.EndsWith("Quality")?Mathf.Max(0,value):Mathf.Clamp01(value);
     }
 
     [YarnCommand("ChangeFraction")]
@@ -166,7 +198,7 @@ public class VariableSingleton : MonoBehaviour
 
     static public void ChangeFloat(string varName, float min, float max)
     {
-        ChangeFloat(varName, UnityEngine.Random.Range(min, max));
+        ChangeFloat(varName, UnityEngine.Random.Range(Math.Min(min, max), Math.Max(min, max)));
     }
 
 
@@ -182,162 +214,51 @@ public class VariableSingleton : MonoBehaviour
     /*************************
      *VARIABLE INITIALISATION*/
 
-    class VarCSVParser : IEnumerator
+    public static int LastCheckpointTurn = -1;
+    public static bool ContinueRequested;
+    public static bool IsInitialized { get; private set; }
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public static string TestSavePath;
+#endif
+    public static string SavePath
     {
-        public string input;
-        int position = -1;
-        char type;
-        public char Type => type;
-
-        (string name, float val) fReadout;
-        (string name, int val) iReadout;
-        (string name, bool val) bReadout;
-
-        public (string, float) FReadout => fReadout;
-        public (string, int) IReadout => iReadout;
-        public (string, bool) BReadout => bReadout;
-
-        public VarCSVParser(string init)
+        get
         {
-            input = init;
-        }
-
-        public bool MoveNext()
-        {
-            if (position > input.Length - 2) return false;
-            else
-            {
-                Debug.Log(position + " " + input.Length);
-                string varName = "";
-                position++;
-                type = input[position];
-                Debug.Log(type);
-
-                while (input[position] != ',')
-                {
-                    varName += input[position];
-                    position++;
-                }
-                Debug.Log(varName);
-                position++;
-
-                switch (type)
-                {
-                    case 'f':
-                        {
-                        int intComp = 0;
-                        float outcome;
-
-                        while (input[position] != '.' && input[position] != '\n' && input[position] != '\r')
-                        {
-                            intComp = 10 * intComp + AmazUtil.NumFromChar(input[position]);
-                            position++;
-                        }
-                        outcome = intComp;
-                        if (input[position] != '\n' && input[position] != '\r') position++;
-
-                        float decimalComp = 0.1f;
-                        while (input[position] != '\n' && input[position] != '\r')
-                        {
-                            outcome += decimalComp * AmazUtil.NumFromChar(input[position]);
-                            decimalComp /= 10;
-                            position++;
-                        }
-                        fReadout = (varName, outcome);
-                        Debug.Log(outcome);
-                        break;
-                        }
-
-                    case 'i':
-                        {
-                        int outcome = 0;
-                        bool negative = false;
-                        if (input[position] == '-')
-                        {
-                            negative = true;
-                            position++;
-                        }
-                        while (input[position] != '\n' && input[position] != '\r')
-                        {
-                            outcome *= 10;
-                            outcome += AmazUtil.NumFromChar(input[position]);
-                            position++;
-                        }
-                        if (negative) outcome *= -1;
-                        iReadout = (varName, outcome);
-                        Debug.Log(outcome);
-                        break;
-                        }
-
-
-                    case 'b':
-                        {
-                        if (input[position] == 'T' || input[position] == 't') bReadout = (varName, true);
-                        else bReadout = bReadout = (varName, false);
-                        while (input[position] != '\n' && input[position] != '\r')
-                        {
-                            position++;
-                        }
-                        Debug.Log(bReadout.val);
-                        break;
-                        }
-
-                }
-                position++;
-                return true;
-            }
-                
-        }
-
-        public void Reset()
-        {
-            position = -1;
-        }
-
-        object IEnumerator.Current
-        {
-            get
-            {
-                switch (type)
-                {
-                    case 'f':
-                        return fReadout;
-
-                    case 'i':
-                        return iReadout;
-
-                    case 'b':
-                        return bReadout;
-                }
-                return type;
-            }
-        }
-
-        public object Current
-        {
-            get
-            {
-                switch (type)
-                {
-                    case 'f':
-                        return fReadout;
-
-                    case 'i':
-                        return iReadout;
-
-                    case 'b':
-                        return bReadout;
-                }
-                return type;
-            }
-        }
-
-        public bool NotComplete()
-        {
-            return position < input.Length-1;
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if (!string.IsNullOrEmpty(TestSavePath)) return TestSavePath;
+#endif
+            return Path.Combine(Application.persistentDataPath, "campaign-v1.json");
         }
     }
 
+    private void InitializeVariables()
+    {
+        ArrivalNotice="";
+        TrainingOrders.Clear();
+        bDict.Clear();
+        iDict.Clear();
+        fDict.Clear();
+        turn = 0;
+        LastCheckpointTurn = -1;
+        EnduringWall = new WallData("OuterWall");
+        var data = Resources.Load<TextAsset>("Constantinopole_System_Variables");
+        if (data == null) throw new InvalidOperationException("Starting campaign data is missing.");
+        foreach (string row in data.text.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
+        {
+            string[] cells = row.Split(',');
+            if (cells.Length != 2) throw new FormatException("Invalid campaign data: " + row);
+            string key = cells[0].Trim();
+            string value = cells[1].Trim();
+            switch (key[0])
+            {
+                case 'b': bDict[key] = bool.Parse(value); break;
+                case 'i': iDict[key] = int.Parse(value, CultureInfo.InvariantCulture); break;
+                case 'f': fDict[key] = float.Parse(value, CultureInfo.InvariantCulture); break;
+            }
+        }
+        PreparationCampaign.InitializeDefaults();
+        IsInitialized = true;
+    }
 
     /*********************
      * STORY INDEX */
@@ -347,12 +268,13 @@ public class VariableSingleton : MonoBehaviour
 
     public bool StoryScheduled()
     {
-        return possibleStory.Contains(turn);
+        return PreparationCampaign.Active ? PreparationCampaign.FixedNode(turn)!=null : possibleStory.Contains(turn);
     }
 
     public int RandomEventID()
     {
-        return possibleRandom[UnityEngine.Random.Range(0, possibleRandom.Count)];
+        var candidates = (possibleRandom.Count == 0 ? Enumerable.Range(0,23).ToList() : possibleRandom).Concat(new[]{23}).Distinct().Where(RecurringEvents.Eligible).ToList();
+        return candidates.Count==0 ? -1 : candidates[UnityEngine.Random.Range(0,candidates.Count)];
     }
 
     [YarnCommand("AddEvent")]
@@ -382,14 +304,14 @@ public class VariableSingleton : MonoBehaviour
         switch (eventList)
         {
             case "story":
-                if (!possibleStory.Contains(eventId))
+                if (possibleStory.Contains(eventId))
                 {
                     possibleStory.Remove(eventId);
                 }
                 break;
 
             case "random":
-                if (!possibleRandom.Contains(eventId))
+                if (possibleRandom.Contains(eventId))
                 {
                     possibleRandom.Remove(eventId);
                 }
@@ -400,92 +322,106 @@ public class VariableSingleton : MonoBehaviour
 
     /****************
      * SAVE SERVICE */
+    [Serializable] public class BoolValue { public string key; public bool value; }
+    [Serializable] public class IntValue { public string key; public int value; }
+    [Serializable] public class FloatValue { public string key; public float value; }
+    [Serializable] public class CampaignSave
+    {
+        public int version = 1;
+        public List<TrainingPool.Order> training = new List<TrainingPool.Order>();
+        public int turn;
+        public string wall;
+        public bool cityLost;
+        public UnityEngine.Random.State randomState;
+        public List<int> story;
+        public List<int> randomEvents;
+        public List<BoolValue> bools = new List<BoolValue>();
+        public List<IntValue> ints = new List<IntValue>();
+        public List<FloatValue> floats = new List<FloatValue>();
+    }
+
+    public static bool HasSave()
+    {
+        try
+        {
+            if (!File.Exists(SavePath)) return false;
+            var data = JsonUtility.FromJson<CampaignSave>(File.ReadAllText(SavePath));
+            return data != null && data.version == 1 && data.ints != null &&
+                data.ints.Count > 0 && data.wall != null;
+        }
+        catch (Exception) { return false; }
+    }
+
+    // Checkpoints are made at the start of management, never halfway through an event.
+    public CampaignSave CaptureState()
+    {
+        var data = new CampaignSave {
+            turn = turn, wall = EnduringWall.GetCodeName(), cityLost = EnduringWall.CityLost,
+            randomState = UnityEngine.Random.state,
+            story = possibleStory, randomEvents = possibleRandom
+        };
+        foreach(var order in TrainingOrders) data.training.Add(order.Copy());
+        foreach (var pair in bDict) data.bools.Add(new BoolValue { key = pair.Key, value = pair.Value });
+        foreach (var pair in iDict) data.ints.Add(new IntValue { key = pair.Key, value = pair.Value });
+        foreach (var pair in fDict) data.floats.Add(new FloatValue { key = pair.Key, value = pair.Value });
+        return data;
+    }
+
     public string Save()
     {
-        string saveCode;
-
-        saveCode = turn.ToString();
-        saveCode += " ";
-        /*foreach(bool b in bDict)
-        {
-            saveCode += b;
-            saveCode += " ";
-        }*/
-
-        File.WriteAllText("Save", saveCode);
-        return saveCode;
+        string json = JsonUtility.ToJson(CaptureState(), true);
+        Directory.CreateDirectory(Application.persistentDataPath);
+        File.WriteAllText(SavePath + ".tmp", json);
+        if (File.Exists(SavePath)) File.Copy(SavePath, SavePath + ".bak", true);
+        File.Copy(SavePath + ".tmp", SavePath, true);
+        if(turn == EffectiveSiegeTurn) File.WriteAllText(PreparationPresetPath, json);
+        LastCheckpointTurn = turn;
+        return json;
     }
 
     public void Load()
     {
-        string[] saveBreakdown = new string[2];
-
-        {
-            string saveCode = File.ReadAllText("Save");
-            int idx = 0;
-            foreach (char sig in saveCode)
-            {
-                if(sig == ' ')
-                {
-                    idx++;
-                }
-                else
-                {
-                    saveBreakdown[idx] += sig;
-                }
-            }
-        }
-
-        turn = int.Parse(saveBreakdown[0]);
-        //outerWallH = float.Parse(saveBreakdown[1]);
+        if (!HasSave()) return;
+        RestoreState(JsonUtility.FromJson<CampaignSave>(File.ReadAllText(SavePath)));
     }
-
-    /*********
-     * UNITY */
+    private void RestoreState(CampaignSave data)
+    {
+        PreparationCampaign.InitializeDefaults(legacy: true);
+        // New systems also reset when loading an older checkpoint in the same session.
+        foreach(string key in new[]{"bTechVarangianDrills","bTechDismountedChampions"}) bDict[key]=false;
+        foreach(string key in new System.Collections.Generic.List<string>(iDict.Keys))
+            if(key.StartsWith("iHard") || key.StartsWith("iCombat") || key=="iEmperorAtWall" || key.StartsWith("iLife") || key.StartsWith("iLady") || (key.StartsWith("iPopulation") && key!="iPopulation") || key.StartsWith("iDrill") || key.StartsWith("iTerms") || key.StartsWith("iSurrender") || key.StartsWith("iSultanSeen") || key=="iSultanConversationDay") iDict[key]=0;
+        iDict["iMerchantFavor"] = 50;
+        iDict["iFencing"] = 25;
+        turn = data.turn;
+        TrainingOrders = new List<TrainingPool.Order>();
+        if(data.training!=null) foreach(var order in data.training) TrainingOrders.Add(order.Copy());
+        EnduringWall.Restore(data.wall, data.cityLost);
+        foreach (var pair in data.bools) bDict[pair.key] = pair.value;
+        if(!data.ints.Any(p=>p.key=="iTurkShips")) iDict["iTurkShips"]=bDict["bTurkFleet"]?NavalState.StartingShips:0;
+        iDict["iCampAlert"] = 0; // Saves from before the alert system start at zero.
+        foreach (var pair in data.ints) iDict[pair.key] = pair.value;
+        iDict["iCampAlert"] = Mathf.Clamp(iDict["iCampAlert"],0,100);
+        foreach (var pair in data.floats) fDict[pair.key] = pair.key.EndsWith("Quality")?Mathf.Max(0,pair.value):Mathf.Clamp01(pair.value);
+        possibleStory = data.story ?? possibleStory;
+        possibleRandom = data.randomEvents ?? possibleRandom;
+        UnityEngine.Random.state = data.randomState;
+    }
 
     private void Awake()
     {
         _instance = this;
+        InitializeVariables();
+        if (QuickStartRequested && HasPreparationPreset)
+            RestoreState(JsonUtility.FromJson<CampaignSave>(File.ReadAllText(PreparationPresetPath)));
+        else if (ContinueRequested) Load();
+        QuickStartRequested = false;
+        ContinueRequested = false;
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        if (File.Exists("Save"))        //temporary, double file exists check, LoaderScript 
-        {                               //should be redesigned to handle all of this
-            transform.GetComponentInChildren<LoaderScript>().RunLoader();
-        }
-        else
-        {
-            Debug.Log("No save file found.");
-
-            string varCSVFile = File.ReadAllText("Constantinopole_System_Variables.csv");
-            for (VarCSVParser csvEnum = new VarCSVParser(varCSVFile); csvEnum.MoveNext();) //csvEnum.NotComplete()
-            {
-                switch (csvEnum.Type)
-                {
-                    case 'f':
-                        {
-                            (string name, float val) readout = ((string, float))csvEnum.Current;
-                            fDict.Add(readout.name, readout.val);
-                            break;
-                        }
-
-                    case 'i':
-                        {
-                            (string name, int val) readout = ((string, int))csvEnum.Current;
-                            iDict.Add(readout.name, readout.val);
-                            break;
-                        }
-
-                    case 'b':
-                        {
-                            (string name, bool val) readout = ((string, bool))csvEnum.Current;
-                            bDict.Add(readout.name, readout.val);
-                            break;
-                        }
-                }
-            }
-        }
+        if (_instance == this) { _instance = null; IsInitialized = false; }
     }
 
     /*********

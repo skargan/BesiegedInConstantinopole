@@ -1,0 +1,297 @@
+title: lifeSails
+---
+<<LifeSeen lifeSails>>
+<b>Sails on the Horizon</b>: <br> A lookout sees pale shapes beyond the blockade. Sails, he insists. His companion says low cloud. Already people are climbing roofs to look. By tomorrow, you should know whether anyone is coming.
+-> Announce that help is approaching. Public morale +5; if the sighting is false, public morale later -8.
+    <<LifeSails 1>>
+    The news passes through the markets faster than any ship could sail. For tonight, the City has something to look forward to.
+-> Wait quietly for confirmation.
+    <<LifeSails 0>>
+    You tell the lookout to keep watching. Hope is precious enough without issuing it on credit.
+===
+title: lifeFalseHope
+---
+<<SetInt iLifeSailsDue 0>>
+<b>Sails: False Hope</b>: <br> Morning brings a clear horizon. Whatever the lookout saw, it was not a ship coming to our aid.
+<<if LifeInt("iLifeAnnounced") == 1>>
+The people waiting by the harbour turn away. Yesterday's promise has become today's bitter joke.
+<<ChangeFraction fPeopleRep -0.08>>
+<<else>>
+You fold the report. A good thing you did not announce it too early.
+<<endif>>
+-> Return to the day's business.
+    The lookout resumes his watch.
+===
+title: lifeMorea
+---
+<<SetInt iLifeSailsDue 0>>
+<b>Sails: Morean Merchants</b>: <br> A merchant from our holdings in the Morea has slipped through the blockade with 500 provisions. He offers the cargo to the City, but expects to depart with his ship. His crew watches the harbour guards closely.
+-> Accept the cargo and reward his courage. Lose 100 gold; gain 500 provisions. The ship departs. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<Change iProvisions 500>>
+    The captain receives your reward with a bow. His men unload the grain, then prepare to sail while the passage remains open.
+-> Accept his gift with thanks. Gain 500 provisions; the merchant keeps his ship.
+    <<Change iProvisions 500>>
+    You cannot offer coin, but you thank him before the harbour workers. The grain enters the stores; the vessel remains his.
+-> Confiscate the cargo and ship for the defence. Gain 500 provisions and 1 ship; merchant favour -15.
+    <<Change iProvisions 500>>
+    <<Change iShips 1>>
+    <<MerchantFavor -15>>
+    Guards take possession of the vessel. The captain's protests follow you up the quay. By evening, every merchant in the City has heard how an imperial welcome is repaid.
+===
+title: lifeMercenaries
+---
+<<SetInt iLifeSailsDue 0>>
+<b>Sails: Italian Mercenaries</b>: <br> An Italian captain brings thirty infantry, thirty archers and a ship fit for service. He admires your courage, he says, but his men cannot eat admiration. Their price is 1,000 gold, vessel included.
+-> Hire the company and its ship. Lose 1,000 gold; gain 30 infantry, 30 archers and 1 ship. <<if GetInt("iMoney") >= 1000>>
+    <<Change iMoney -1000>>
+    <<Change iInfantry 30>>
+    <<Change iArchers 30>>
+    <<Change iShips 1>>
+    The captain counts the coin twice. His men shoulder their equipment and follow your officers towards the walls.
+-> Decline. Let them sail away.
+    The captain wishes you good fortune with the solemnity of a man who has decided not to share it.
+===
+title: lifeRefugees
+---
+<<SetInt iLifeSailsDue 0>>
+<b>Sails: Refugees</b>: <br> Two hundred refugees crowd the deck of a battered vessel. They offer the ship for the defence if you will admit them. There are children beneath the awnings, and few possessions worth unloading.
+-> Admit them and take the vessel into service. Gain 200 residents and 1 ship.
+    <<AddResidents 200>>
+    <<Change iShips 1>>
+    The passengers come ashore in silence until someone begins to weep. Harbour crews take charge of the empty vessel.
+-> Turn them away. Public morale -7; army, noble and clergy support -2 each; merchant favour -2.
+    <<ChangeFraction fPeopleRep -0.07>>
+    <<ChangeFraction fTroopRep -0.02>>
+    <<ChangeFraction fNobleRep -0.02>>
+    <<ChangeFraction fPriestRep -0.02>>
+    <<MerchantFavor -2>>
+    The vessel turns back towards open water. The crowd on the quay watches until it is too far away to hear.
+===
+title: lifeBread
+---
+<<LifeSeen lifeBread>>
+<b>Bread Still Warm</b>: <br> A baker brings a fresh loaf to the wall and asks you to taste it. Steam escapes where the crust has split. For a moment, the smell carries you somewhere without cannon.
+-> Share it with the sentries. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 2>>
+    <<LifePoison>>
+    The taste turns bitter. Your hand will no longer close around the cup. Someone shouts for a physician, but the poison has already done its work.
+    <<else>>
+    You break the loaf into portions. The sentries eat slowly, unwilling to finish it.
+    <<endif>>
+-> Keep the loaf for yourself. Health +20.
+    <<ChangeFraction fHealth 0.20>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 2>>
+    <<LifePoison>>
+    Before the loaf is finished, your breath catches. The guards seize the baker as you collapse. There will be questions, but you will not hear the answers.
+    <<else>>
+    Warm bread, a little water, and a few minutes in which nobody asks for anything. You feel better than you have all morning.
+    <<endif>>
+-> Return it to his family with thanks. Public morale +1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    You ask him to carry your thanks home with the loaf. His family will dine better tonight.
+===
+title: lifeWell
+---
+<<LifeSeen lifeWell>>
+<b>A Quarrel at the Well</b>: <br> Two streets accuse each other of taking more than their share of water. Buckets are overturned, sleeves rolled up, and a remarkable number of people claim to have arrived first.
+-> Ask the merchants' elders to arrange a fair queue. Merchant favour +1.
+    <<MerchantFavor 1>>
+    The elders mark places with chalk and appoint a keeper. By noon, everyone is arguing about the chalk instead.
+-> Send the senior watchman to settle it. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    The watchman separates the loudest disputants and makes them carry water for the oldest residents. His men approve of a problem with such an immediate solution.
+-> Resolve it personally. 70%: public morale +5. Failure: public morale -1, noble and clergy support -3.
+    <<set $chance = dice(100)>>
+    <<if $chance <= 70>>
+    <<ChangeFraction fPeopleRep 0.05>>
+    You listen, establish turns and carry the first bucket to an elderly woman. The crowd cheers an Emperor who has come down from the palace to hear them.
+    <<else>>
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<ChangeFraction fNobleRep -0.03>>
+    <<ChangeFraction fPriestRep -0.03>>
+    Your compromise satisfies nobody. Someone asks whether you intend to negotiate with the Sultan as successfully. By evening, the palace and clergy have heard the remark.
+    <<endif>>
+-> Ignore the quarrel.
+    The argument continues without imperial assistance.
+===
+title: lifeGhost
+---
+<<LifeSeen lifeGhost>>
+<b>The Watchman's Ghost</b>: <br> A sentry insists his dead comrade has resumed his patrol. He hears the familiar uneven step, then finds nobody at the stair. Other men have begun listening for it too.
+-> Have a priest bless the post. Clergy support +1.
+    <<ChangeFraction fPriestRep 0.01>>
+    The priest walks the parapet with a lamp and a prayer. That night, the watch seems less lonely.
+-> Let the men tell their story. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    If their comrade still keeps watch, the soldiers say, the least they can do is keep him company.
+-> Faith and Unity: visit the post at night and pray. <<if GetInt("iFocus") == 3>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 70>>
+    <<Change iSecrets 1>>
+    In the stillness, a thought arrives with the force of a voice spoken beside you. Fragments of reports suddenly fit together. You cannot explain the certainty, but by dawn your agents have a useful lead.
+    <<else>>
+    You hear only the wind and the changing watch. Yet when you rise from prayer, the darkness seems less oppressive.
+    <<endif>>
+===
+title: lifeBarrel
+---
+<<LifeSeen lifeBarrel>>
+<b>A Barrel Without an Owner</b>: <br> Soldiers discover a barrel of wine behind an abandoned warehouse. There is no legible mark on it. This is widely considered excellent evidence that it belongs to whoever found it.
+-> Distribute it after watch. Army morale +2.
+    <<LifeBarrel 1>>
+    <<ChangeFraction fTroopRep 0.02>>
+    Cups appear with impressive speed.
+-> Sell it. Gain 100 gold.
+    <<LifeBarrel 2>>
+    <<Change iMoney 100>>
+    A tavern keeper takes delivery before anyone can reconsider.
+-> Reserve it for the infirmary. Public morale +1.
+    <<LifeBarrel 3>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    The barrel is set aside, still sealed, for the physicians.
+===
+title: lifeBarrelOwner
+---
+<<SetInt iLifeBarrelDue 0>>
+<b>The Barrel's Owner Appears</b>: <br> A wine merchant arrives with a witness, a warehouse key and a surprisingly clear description of the allegedly unmarked barrel. He demands 250 gold in compensation.
+-> Pay him 250 gold. <<if GetInt("iMoney") >= 250>>
+    <<Change iMoney -250>>
+    He counts the money and declares the misunderstanding resolved.
+-> Return the sealed barrel from the infirmary. Merchant favour +1. <<if LifeInt("iLifeBarrelUse") == 3>>
+    <<MerchantFavor 1>>
+    The merchant inspects the seal, bows, and has his porters remove the barrel. He leaves speaking well of imperial justice.
+-> Refuse compensation. Public morale -4.
+    <<ChangeFraction fPeopleRep -0.04>>
+    By evening, he has told half the market that the Emperor steals wine and the other half that he refuses to pay his debts.
+===
+title: lifeCobbler
+---
+<<LifeSeen lifeCobbler>>
+<b>The Cobbler's Petition</b>: <br> A cobbler shows you a soldier's boot with daylight where the sole should be. He can repair a whole company, he says, if someone finds the leather.
+-> Pay for leather. Lose 100 gold; army morale +2. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<ChangeFraction fTroopRep 0.02>>
+    By evening, his apprentices are stitching beneath the shop awning.
+-> Ask wealthy households to contribute. Army morale +1; noble support -1.
+    <<ChangeFraction fTroopRep 0.01>>
+    <<ChangeFraction fNobleRep -0.01>>
+    Saddles and spare leather arrive, accompanied by complaints about the frequency of imperial requests.
+-> Decline for now.
+    The cobbler takes the ruined boot back to its owner.
+===
+title: lifeDrawing
+---
+<<LifeSeen lifeDrawing>>
+<b>A Child's Drawing</b>: <br> A child sends you a picture of the Turks fleeing before an Emperor taller than the walls. Your sword appears to be larger than the Ottoman camp.
+-> Display it in the guardroom. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    The guards admire the strategic advantages of your proposed height.
+-> Send a small gift. Lose 25 gold; public morale +1. <<if GetInt("iMoney") >= 25>>
+    <<Change iMoney -25>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    Your messenger returns with another drawing. This one includes a considerably larger crown.
+===
+title: lifeCandles
+---
+<<LifeSeen lifeCandles>>
+<b>Someone Has Eaten the Candles</b>: <br> Tallow candles have vanished from a store. The watch finds them in a hungry household's cooking pot. The storekeeper demands punishment; the smell makes his case less straightforward.
+-> Issue emergency rations. Lose 100 provisions; public morale +1. <<if GetInt("iProvisions") >= 100>>
+    <<Change iProvisions -100>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    Food is distributed through the neighbourhood. For once, the lamps are left to burn.
+-> Reprimand the household. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    The missing candles are entered as theft. The hunger remains unentered.
+===
+title: lifeCoin
+---
+<<LifeSeen lifeCoin>>
+<b>A Soldier's Last Coin</b>: <br> A veteran offers his remaining pay to the treasury. He says the walls have more use for it than he does.
+-> Accept his contribution publicly. Gain 25 gold; army morale +1.
+    <<Change iMoney 25>>
+    <<ChangeFraction fTroopRep 0.01>>
+    You take the purse before his comrades and thank him by name.
+-> Tell him to keep it. Army morale +2.
+    <<ChangeFraction fTroopRep 0.02>>
+    "You have already given enough." He closes his hand around the purse and salutes.
+===
+title: lifeWedding
+---
+<<LifeSeen lifeWedding>>
+<b>A Wedding Under Arms</b>: <br> A soldier asks leave to marry before his next watch. The bride is waiting outside, dressed in a gown borrowed from three different relatives.
+-> Allow a modest celebration. Lose 10 provisions; army morale +2. <<if GetInt("iProvisions") >= 10>>
+    <<Change iProvisions -10>>
+    <<ChangeFraction fTroopRep 0.02>>
+    For an hour, the courtyard sounds like a place where people expect a future.
+-> Give permission without festivities. Public morale +1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    They exchange their vows before he returns to the wall. Someone finds a flower for her hair.
+===
+title: lifeOnions
+---
+<<LifeSeen lifeOnions>>
+<b>The Price of Onions</b>: <br> An argument over the price of an onion becomes a market brawl. The onion itself is lost early in the proceedings.
+-> Release food from the public stores. Lose 250 provisions; public morale +2. <<if GetInt("iProvisions") >= 250>>
+    <<Change iProvisions -250>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    Ration carts quiet the market more effectively than threats.
+-> Send guards to break up the fight. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    The square is cleared. The price of onions remains a dangerous subject.
+===
+title: lifeQuiet
+---
+<<LifeSeen lifeQuiet>>
+<b>An Unusually Quiet Morning</b>: <br> The Ottoman guns are silent. Men lean over the parapet, listening to birds they had forgotten lived here.
+-> Use the respite for repairs. Lose 10 materials; restore 1 point of current wall integrity. <<if GetInt("iMaterials") >= 10>>
+    <<Change iMaterials -10>>
+    <<LifeRepair>>
+    Masons work while the silence lasts.
+-> Let the men rest. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 15 && LifeCanSurprise()>>
+    <<jump lifeSurprise>>
+    <<else>>
+    Men sleep against warm stone. The relief watch leaves them undisturbed.
+    <<endif>>
+===
+title: lifeSurprise
+---
+<b>Too Quiet</b>: <br> A sentry shouts. Ottoman troops have approached under the cover of the morning stillness, and ladders are rising against the wall. Men scramble for helmets and spears.
+-> Sound the alarm and hold the parapet. Fight the assault with the current garrison.
+    <<LifeSurprise>>
+    Bells ring along the wall. The attack will be resolved with your garrison's actual strength and defences.
+-> Rally the defenders personally. Lose 10 health; army morale +3 before the assault.
+    <<ChangeFraction fHealth -0.10>>
+    <<ChangeFraction fTroopRep 0.03>>
+    <<LifeSurprise>>
+    <<SetInt iEmperorAtWall 1>>
+    You reach the stair at a run. Men who were hesitating follow you towards the fighting.
+-> Issue reserve ammunition. Lose 5 ammunition; army morale +2 before the assault. <<if GetInt("iAmmunition") >= 5>>
+    <<Change iAmmunition -5>>
+    <<ChangeFraction fTroopRep 0.02>>
+    <<LifeSurprise>>
+    Fresh bundles reach the archers as the first ladders strike stone.
+===
+title: lifeInsult
+---
+<<LifeSeen lifeInsult>>
+<b>A Fine Insult</b>: <br> A soldier has invented an insult for the Sultan so elaborate that it requires a brief explanation of the Sultan's ancestry. His audience considers the explanation worthwhile.
+-> Let him perform it. Army morale +1; it may reach the Sultan.
+    <<ChangeFraction fTroopRep 0.01>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<ChangeFraction fSultanRage 0.05>>
+    The words travel across the lines. By afternoon, an Ottoman herald is demanding the offender's name. The Sultan has heard.
+    <<else>>
+    Laughter passes down the wall. For once, the enemy receives no explanation.
+    <<endif>>
+-> Silence him. Army morale -2.
+    <<ChangeFraction fTroopRep -0.02>>
+    The performance ends. The men return to their posts with noticeably less enthusiasm.
+===

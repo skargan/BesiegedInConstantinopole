@@ -1,0 +1,10 @@
+PAIRED ACTION REVIEW - 21 October 2026
+
+Scope: five society audiences (army, public, nobility, clergy, Galata).
+Select the action to review its title, italic description, current treasury and support, gold cost, capped benefit, and major-action commitment. Return and Escape return to society without applying anything. Confirm revalidates eligibility through SupportFaction and applies exactly once. Failed confirmation leaves the review visible with the reason. Support at maximum and insufficient gold disable Confirm.
+
+The completed-action screen has been rebuilt in the shared burgundy and gold style, with a scrollable report and Hear the next petition button. Its old background and unbound static 100% label are hidden. The completed-action stage remains an outcome, not a reversible selection.
+
+No council ledger was added. Potential next applications: technology adoption, espionage operations and wall repairs. Their additional risks or requirements could be shown beneath paired cost/benefit cards.
+
+Validation: 562 checks passed, zero failures. Windows build succeeded. Review, Return and completed-order screens captured; review and result visually inspected at 1600x900. Capture log contains no errors or exceptions.

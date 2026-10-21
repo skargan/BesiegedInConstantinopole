@@ -1,0 +1,14 @@
+ESPIONAGE UPDATE - 21 October 2026
+
+Eight intelligence levels fill with one agent each. Locked information stays grey and conceals its value. Agent totals above eight remain visible; all eight intelligence categories are then known. Losing agents can relock information.
+
+Camp alert starts at 0 and is saved with the campaign. Older saves default to 0. Range: 0 to 100. Each completed turn reduces alert by a random integer from 1 through 10, with a floor of zero. This is once per turn during preparation and siege, not once per calendar day during preparation.
+
+Operation increases in percentage points:
+Recruit contact +3; sabotage cannons +15; burn food stores +30; gather secrets +25; counter-espionage inside Constantinople +0.
+
+Approved risk formula: 5% plus half the starting camp alert. Counter-espionage has fixed 5% risk. The current operation's alert increase does not raise its own loss risk. An operation can lose at most one agent after its other effects resolve; recruitment may gain and lose an agent in the same operation. Rejected or unaffordable operations have no effect on alert or agents. Costs and existing mission outcomes remain unchanged.
+
+Interface: network track, two rows of four intelligence panels, separate alert meter, payment toggle, five action cards with distinct titles, italic descriptions, effects, risk, alert increase and payment buttons.
+
+Verification: 546 editor smoke checks, zero failures. Exported Windows build completed. Screens captured at 1600x900 for low/full intelligence and upper/lower action cards. No ten-campaign balance claim is made for these changes.

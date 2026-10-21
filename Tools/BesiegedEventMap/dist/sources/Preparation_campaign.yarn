@@ -1,0 +1,240 @@
+title: prepIntelligence
+---
+<b>Siege Preparation — Intelligence</b>: Before the Sultan arrives, strangers still enter his moving camp without attracting much notice. Sphrantzes lays four plans before you. Each cover opens different doors; every agent must live among the men who intend to destroy us.
+-> Send a loyal servant disguised as a beggar. +1 agent; +2 days of land-operation delay; +25 camp alert on arrival.
+    <<PrepIntelligence 0>>
+    Your servant joins the roadside beggars. He spreads a rumour that floods have destroyed a bridge on the army’s route. The scouts will waste two days verifying it; the discrepancy will also make the camp suspicious. Your servant stays behind as an agent.
+-> Send a merchant and a prostitute. 2,000 gold; +2 agents and +1 secret. <<if GetInt("iMoney") >= 2000>>
+    <<PrepIntelligence 1>>
+    The merchant listens over contracts; his companion listens when the officers believe business is finished. Their first reports contain a useful secret.
+-> Send a clandestine cell disguised as a performers’ troupe. 5,000 gold; +3 agents. <<if GetInt("iMoney") >= 5000>>
+    <<PrepIntelligence 2>>
+    A musician, an acrobat and the troupe’s quartermaster follow the army. Their wagons pass between camps, and their audiences include men who would never speak to an imperial envoy.
+-> Diplomacy and Spycraft: send a four-person caravan office. 3,000 gold; +4 agents. <<if GetInt("iFocus") == 4 && GetInt("iMoney") >= 3000>>
+    <<PrepIntelligence 3>>
+    A caravan factor handles contracts, an interpreter carries messages, a farrier works among the horses, and a camp physician visits the wounded. Their professions explain both their movements and their questions.
+===
+title: prepScorched
+---
+<b>Siege Preparation — Scorched Earth</b>: Your scouts mark the roads, mills and depots the Ottoman army will use. Every obstacle may buy time. Every burned storehouse also belongs to someone who once expected your protection. Choose one operation. The figures below are the current balance settings.
+-> Remove stores and cut crossings. 1,000 gold; delay 2 days; enemy food −3 days; 50 irregulars lost; public morale −3. <<if GetInt("iMoney") >= 1000>>
+    <<PrepScorched 0>>
+    Our parties evacuate stores and break minor crossings. Ottoman foragers stray into ambushes.
+-> Burn depots and harass the march. 3,000 gold; delay 4 days; enemy food −7 days; 150 irregulars lost; public morale −6. <<if GetInt("iMoney") >= 3000>>
+    <<PrepScorched 1>>
+    Raiding parties strike the depots and wagons. Smoke follows the enemy’s advance, and displaced villagers crowd towards the City.
+-> Strip the entire approach. 6,000 gold; delay 6 days; enemy food −12 days; 300 irregulars lost; public morale −9. <<if GetInt("iMoney") >= 6000>>
+    <<PrepScorched 2>>
+    The army will find ruined mills, empty granaries and contested roads. The soldiers call it preparation; the refugees have other names for it.
+-> Fortifications and Artillery: destroy powder and cannon convoys. 4,000 gold; delay 4 days; enemy food −5 days; up to 2 cannons destroyed. <<if GetInt("iFocus") == 0 && GetInt("iMoney") >= 4000>>
+    <<PrepScorched 3>>
+    Engineers identify the powder wagons and prepare timed charges. The explosion destroys guns that will never reach the walls.
+-> Mobilisation: ride out and bring over a Serbian mercenary band. 3,000 gold; requires 50 cavalry. Gain 50 cavalry, 150 archers, 300 infantry; Ottoman Christian allies −500. <<if GetInt("iFocus") == 1 && GetInt("iMoney") >= 3000 && GetInt("iCavalry") >= 50 && GetInt("iBalkans") >= 500>>
+    <<PrepScorched 4>>
+    Your riders bring an imperial guarantee of pay and safe passage. The Serbian captain changes sides with five hundred men. The same men leave the Ottoman rolls and enter yours.
+-> Leave the approaches untouched. We cannot fund the operation.
+    The villages keep their stores and crossings. The Ottoman army will find its route unimpeded.
+
+===
+title: prepFortress
+---
+<b>A Fortress Rises on the Bosphorus</b>: The report reaches you before the morning bells. Across the water, Mehmed’s men are clearing ground. Stone barges crowd the landing; armed guards turn away questions. Your pilots need no architect to explain the plan: grain ships from the Black Sea could soon pass beneath Ottoman guns. Notaras spreads a chart across the council table. “We can protest, Majesty. We can buy what we need while the passage remains open. Or we can learn precisely what the Sultan is building.”
+-> Send a formal protest to the Sultan and the Christian courts. 1,000 gold; public morale +5; one diplomatic secret. <<if GetInt("iMoney") >= 1000>>
+    <<Change iMoney -1000>>
+    <<Change fPeopleRep 0.05>>
+    <<Change iSecrets 1>>
+    Your letters establish the threat and open channels for later diplomacy. Construction continues.
+-> Let them raise towers. We shall fill our granaries. 6,000 gold; +3,000 provisions. <<if GetInt("iMoney") >= 6000>>
+    <<Change iMoney -6000>>
+    <<Change iProvisions 3000>>
+    Grain enters the storehouses while the passage is still open.
+-> Send five Varangians to reconnoitre the works. 50% return chance; success gives +1 secret and +30 points to later infiltration. <<if GetInt("iVarangians") >= 5>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<RumeliRecon varangians true>>
+    All five return with sketches of the approaches and watch changes. One secret gained. Their intelligence will improve an infiltration of the Straitcutter Fortress.
+    <<else>>
+    <<RumeliRecon varangians false>>
+    Five men leave. None return. The works keep their secrets.
+    <<endif>>
+-> Send one spy to reconnoitre the works. 75% success; failure loses the agent. Success gives +1 secret and +30 points to later infiltration. <<if GetInt("iSpies") >= 1>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 75>>
+    <<RumeliRecon spy true>>
+    The agent returns among the suppliers with plans concealed in a ledger. One secret gained; the reconnaissance advantage is secured.
+    <<else>>
+    <<RumeliRecon spy false>>
+    The agent is exposed and executed. No report reaches the City.
+    <<endif>>
+-> Our answer will come from our own walls. No cost; troop morale +5.
+    <<Change fTroopRep 0.05>>
+    The garrison hears your defiance. The Ottoman work continues.
+===
+title: prepGrain
+---
+<b>Siege Preparation — Overseas Grain Missions</b>: Merchant agents can charter their own ships to import grain. This does not change the mission of your military fleet. Payment is immediate; provisions arrive only when the voyage is complete.
+-> Charter an Aegean convoy: 4,000 gold; 3,000 provisions in 30 days. <<if GetInt("iMoney") >= 4000>>
+    <<PrepGrain 0>>
+    The agents depart with sealed contracts.
+-> Buy from the Black Sea: 6,000 gold; 5,000 provisions in 45 days. Requires open straits. <<if GetInt("iMoney") >= 6000 && GetBool("bStraitsOpen")>>
+    <<PrepGrain 1>>
+    The agents sail north before the passage closes.
+-> Use Galatan merchants: 3,000 gold; 2,500 provisions in 21 days. <<if GetInt("iMoney") >= 3000 && GetInt("iGalataState") != 3>>
+    <<PrepGrain 2>>
+    The podesta’s merchants arrange the cargo.
+-> Decline the contracts.
+    No mission is dispatched.
+===
+title: prepNaval
+---
+<b>Siege Preparation — Naval Warfare</b>: The captains ask for ships, the shipwrights for timber, and the pilots for silence. Choose one investment to support the fleet. These are current playtest balance settings.
+-> Charter three armed merchantmen: 6,000 gold; +3 ships. <<if GetInt("iMoney") >= 6000>>
+    <<PrepNaval 0>>
+    Three armed merchantmen join the fleet.
+-> Prepare repair yards: 4,000 gold and 30 materials; recover damaged survivors after up to two fleet reports. <<if GetInt("iMoney") >= 4000 && GetInt("iMaterials") >= 30>>
+    <<PrepNaval 1>>
+    The yards can restore laid-up damaged hulls. They cannot recover ships that have sunk.
+-> Establish naval magazines: 3,000 gold and 500 provisions; first three fleet reports gain 25% effect. <<if GetInt("iMoney") >= 3000 && GetInt("iProvisions") >= 500>>
+    <<PrepNaval 2>>
+    Dedicated stores let the fleet carry more operational cargo and remain effective longer.
+-> Create a hidden coastal anchorage: 4,500 gold and one committed agent; raiding reports gain 50% until discovery, 20% discovery risk per use. <<if GetInt("iMoney") >= 4500 && GetInt("iSpies") >= 1>>
+    <<PrepNaval 3>>
+    A remote landing becomes a covert base. The agent remains there; discovery ends its benefit.
+-> Train pilots and signal crews: 2,500 gold; first two grain or volunteer reports gain 25% effect. <<if GetInt("iMoney") >= 2500>>
+    <<PrepNaval 4>>
+    The pilots rehearse night approaches and agree signals with the harbour watch.
+-> Make do with the fleet we have.
+    The captains return to their ships. No new investment is made.
+
+===
+title: prepGalataGovernor
+---
+<b>Who Shall Govern Galata?</b>: The capture is confirmed. The keys are yours; the settlement is not. A governor serves the Emperor, while an autonomous lord holds power of his own.
+-> Keep Galata under an imperial administrator.
+    <<GrantGalata imperial>>
+    Galata remains under direct imperial control.
+-> Appoint Giovanni as imperial governor, without autonomy. <<if GetBool("bCharWarrior0")>>
+    <<GrantGalata governor>>
+    Giovanni receives an office, not an independent lordship.
+-> Promise Galata to Giovanni after victory. Loyalty +15; retain imperial control for now. <<if GetBool("bCharWarrior0")>>
+    <<GrantGalata later>>
+    The promise is recorded. It will be honoured upon victory if Galata remains in your hands.
+-> Grant autonomous rule immediately. Loyalty +30; Galata defences +25. <<if GetBool("bCharWarrior0")>>
+    <<GrantGalata now>>
+    Giovanni takes responsibility for the district and reinforces its defences.
+-> Restore the podesta and friendly neutrality.
+    <<GrantGalata neutral>>
+    Galata’s independent charter is restored.
+===
+title: prepPass
+---
+<b>Preparation council</b>: You reserve no further project this month.
+-> Let the month pass.
+    The calendar advances without an additional preparation benefit.
+===
+title: galata26
+---
+<b>Galata Joins the Emperor</b>: With goodwill at its height, the podesta offers allegiance.
+-> Accept imperial control. Galata becomes an Ottoman military target.
+    <<GalataState 1>>
+    The imperial banner rises beside Galata’s own. The podesta remains administrator; this voluntary accession does not replay the capture-governance event.
+-> Preserve their neutrality; receive one diplomatic claim instead.
+    <<Change iGalataClaims 1>>
+    Their friendship remains a diplomatic asset.
+===
+title: galata27
+---
+<b>Galata Distracts the Turks</b>: Galatan intermediaries can send Ottoman officers chasing a false report.
+-> Accept the diversion. Ottoman land operations delayed 2 days.
+    <<Change iEnemyDelay 2>>
+    The distraction buys two days.
+-> Keep the contacts in reserve. Gain one diplomatic claim.
+    <<Change iGalataClaims 1>>
+    The promise of assistance is recorded.
+===
+title: galata28
+---
+<b>Galata Sends Troops</b>: Volunteers offer to cross the harbour and join the defence.
+-> Welcome 150 infantry and 100 archers.
+    <<Change iInfantry 150>>
+    <<Change iArchers 100>>
+    The volunteers take their places.
+-> Ask them to strengthen Galata instead. Defences +15.
+    <<Change iGalataDefences 15>>
+    The district prepares its own walls.
+===
+title: galata29
+---
+<b>Galata Offers a Loan</b>: Merchants offer credit, with repayment expected after victory.
+-> Borrow 5,000 gold; record 5,000 debt.
+    <<Change iMoney 5000>>
+    <<Change iGalataDebt 5000>>
+    The loan is entered in the imperial accounts.
+-> Decline the loan.
+    No obligation is incurred.
+===
+title: galata30
+---
+<b>Galata Trades with the Turks</b>: Merchants are supplying the besiegers despite your protests.
+-> Pay 2,000 gold to buy out the cargo. Goodwill +5. <<if GetInt("iMoney") >= 2000>>
+    <<Change iMoney -2000>>
+    <<Change fGalataRep 0.05>>
+    The cargo is withdrawn.
+-> Allow the trade. Ottoman food +5 days.
+    <<Change iFood 5>>
+    The supplies enter the enemy camp.
+===
+title: galata31
+---
+<b>Galata Sells War Plans</b>: An intermediary offers the Ottomans plans of the City’s defences.
+-> Spend one secret to intercept the transaction. <<if GetInt("iSecrets") >= 1>>
+    <<Change iSecrets -1>>
+    Your contacts stop the exchange.
+-> We cannot stop it. Current wall loses 5 points of protection; camp alert +10.
+    <<GalataLeak>>
+    The enemy receives useful plans.
+===
+title: galata32
+---
+<b>Galata Opens Its Gates to the Turks</b>: At the lowest point of relations, a faction in Galata prepares to admit Ottoman soldiers.
+-> Spend 5,000 gold to buy the gate captains. Goodwill +15. <<if GetInt("iMoney") >= 5000>>
+    <<Change iMoney -5000>>
+    <<Change fGalataRep 0.15>>
+    The gates remain closed.
+-> We cannot prevent the betrayal. Galata passes to Turkish control.
+    <<GalataState 3>>
+    Ottoman troops occupy the district.
+===
+title: giovanniWarning
+---
+<b>Giovanni Asks for Guarantees</b>: Giovanni’s captains resent your demands on autonomous Galata. He asks for a settlement before resentment becomes defiance.
+-> Pay his men 3,000 gold. Loyalty +20. <<if GetInt("iMoney") >= 3000>>
+    <<Change iMoney -3000>>
+    <<CharacterLoyalty 0 20>>
+    <<SetInt iGiovanniWarning 1>>
+    His captains accept the settlement.
+-> Refuse. Loyalty −10; the warning remains unresolved.
+    <<CharacterLoyalty 0 -10>>
+    <<SetInt iGiovanniWarning 1>>
+    Giovanni leaves with his demands unanswered.
+===
+title: giovanniThrone
+---
+<b>The Purple or the Walls</b>: Giovanni holds Galata, commands armed followers and believes you have broken faith with him. Now his supporters demand that he take the imperial throne. This crisis follows an earlier warning.
+-> Buy a settlement: 6,000 gold; loyalty +30. <<if GetInt("iMoney") >= 6000>>
+    <<Change iMoney -6000>>
+    <<CharacterLoyalty 0 30>>
+    <<SetInt iGiovanniCrisis 1>>
+    His officers accept terms and abandon the challenge.
+-> Send 75 Varangians to arrest the conspirators. Lose 25 guards; Giovanni is imprisoned and Galata returns to imperial control. <<if GetInt("iVarangians") >= 75>>
+    <<Change iVarangians -25>>
+    <<Change bCharWarrior0 FALSE>>
+    <<SetInt iCourtState0 4>>
+    <<GalataState 1>>
+    <<SetInt iGiovanniCrisis 1>>
+    The guard breaks the conspiracy.
+-> Without the means to resist, concede the throne.
+    <<SetInt iGiovanniCrisis 1>>
+    <<SetInt iDeposed 1>>
+    You are deposed. Your reign ends; Giovanni’s seizure of the throne does not promise that the City will survive.
+===

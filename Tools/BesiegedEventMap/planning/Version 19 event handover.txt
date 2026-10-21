@@ -1,0 +1,52 @@
+VERSION 19 EVENT HANDOVER — 21 October 2026
+Recipient: Assess BesiegedInConstantinopole (01a0a8e2-b837-7953-bbb3-acf52c000d0c)
+Project: C:\Users\Dainius\Desktop\BesiegedInConstantinopole-codex-prototype-first-playtest
+
+CURRENT STABLE SOURCE
+Assets/Scripts/SiegeHardships.cs
+Assets/Yarn/Test/Siege_hardships.yarn
+RestUI.cs: hardship roots join daily pool; due chapters checked after DailyLifeEvents.DueNode.
+UI/EventOutcome.cs: internal iHard state hidden.
+UI/Editor/DailyLifeSmokeTest.cs: expanded node compilation and behavior checks.
+Tools/BesiegedEventMap: refreshed actual source; source references and stable node IDs retained.
+
+APPROVED HARDSHIP BATCH
+16 roots, 29 total nodes:
+Cistern; dead horse; rats in flour; unburied dead; grave robbery;
+illness after leave; brothel complaint; Theodora at barracks gate;
+captain's favourite; abandoned child; clipped pay; adulterated grain;
+head beneath wall; screams beyond gate; missing soldiers; Pride sermon.
+Grave: root -> blue-stitched shroud -> hospital linen corruption.
+Sand: root -> linked warehouses -> Levantine merchant scheme.
+Theodora: complaint -> confirmed testimony -> optional paid intelligence employment.
+Missing men: 12 removed from roster -> 8 recoverable -> remaining4 recoverable.
+Sermons: Pride -> Greed -> Lust -> Envy -> Gluttony -> Wrath -> Sloth.
+
+SCHEDULING AND STATE
+Ordinary roots: 30-day cooldown through LifeSeen.
+Investigation progression generally3days; alternate protected-witness route5days.
+Sermons7days; queued dates survive saves. Ended chains stage99 do not restart.
+Named investigations run once after investigation chosen; standalone unresolved incidents can recur.
+Sermon pressure0..100 determines last-chapter unrest, reconciliation or neutral ending.
+Arrest in Wrath closes the chain early at stated reputation cost.
+Theodora recruitment costs1000gold, grants1agent once. Justice is not conditional upon employment.
+Exact civilian changes use AddResidents, avoiding thousand-unit errors.
+All29 hardship nodes have an unconditional choice; affordability gates protect spending.
+
+HISTORICAL / DESIGN BOUNDARIES
+Brother Gennadios is fictional, distinct from historical Gennadius Scholarius.
+Seven sermon texts are authored scripture-themed paraphrases, not historical quotations.
+References: Luke18:14; Matthew6:24; Matthew5:28; James3:16; Luke16:19-21; James1:20; James4:17.
+Existing longer Eudokia/Helena six-event designs remain proposals, NOT implemented.
+Unselected entries in Forty unpleasant siege events.txt remain proposals.
+New costs/chances are provisional balance choices where user supplied no exact value.
+
+VALIDATION STATUS / OWNERSHIP
+14 map checks passed. Imported curated map143nodes52links.
+All hardship node options structurally audited for unconditional fallback.
+Earlier first daily-life Unity smoke:33checks0failures after forced Yarnproject reimport.
+Second daily batch and hardships require combined Unity validation by recipient.
+DailyLifeSmokeTest.Run force-imports NewProject.yarnproject synchronously and checks all expanded nodes.
+Required recipient-owned work: iHard load reset alongside iCombat/iFencing/iEmperorAtWall; EmperorCombat wall-kill hookup and consume-once behavior; latest full save/restore and combat smoke.
+Recipient owns Unity slot, combined Version19 build and GitHub publication.
+No claim of Version19 build or GitHub publication has been made by event-map agent.

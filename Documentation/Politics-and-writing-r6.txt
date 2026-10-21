@@ -1,0 +1,16 @@
+WRITING AND POLITICS - r6
+Player-facing prose describes people, events, choices and consequences. Research cautions, implementation commentary and comparisons with hypothetical misconceptions belong in documentation. Technology adoption passages are in-world announcements with a separate mechanical effect line.
+
+Commander values for playtesting: Giustiniani infantry +5% / +15%; Diedo ranged +5% / +15% while fleet defends harbour; Notaras repair gold -5% / -15%; Orhan enemy assault casualties +5% / +15%; Sphrantzes aid acceptance +10 / +20 percentage points; Orban cannon lethality +5% / +20%; Grant wall defence +2 / +6; Isidore breach-test morale +3 / +10 points. First figure is specialist benefit; second replaces it when commander. Only available characters contribute. These are provisional values, not historical claims.
+
+Internal politics is separate from civic favour. Four blocs start 40/20/20/20. Notaras alone starts Loyalist. The other characters start unaffiliated. Allegiance is saved and the SetAllegiance event command supports future political branches; detailed conversion and defection event chains still need authoring.
+
+Favour requires >=20% influence, uses the major action and transfers up to five points to the requesting bloc from the currently largest other bloc, one point at a time. Loyalists +5 army morale; Hardliners +10 public morale; Unionists accelerate committed Western aid by up to three days; Pragmatists supply 3000 gold. Expelled blocs cannot receive influence.
+
+Banishment: once per campaign, other than the Emperor's own bloc. All five civic relationships lose 15 points. All aligned characters leave, their bonuses stop, their commander appointment is cleared, and their former bloc's influence passes to Loyalists. Confirmation lists affected available characters. This can trigger existing low-support defeat rules; those crisis rules remain a separate unfinished design task.
+
+Counterespionage now uses its existing 50% chance to remove one enemy spy. Either 1000 gold or one secret; one major action.
+
+The faction positions are the user's alternate-history design. They should not be presented as a comprehensive historical taxonomy. Historical sources remain in the separate research notes.
+
+Validation: 213 checks passed, including saved influence, 20% threshold, favour effects, commander availability, exile persistence and counterespionage. Windows build succeeded. Inspected selected 1600x900 screens. This does not establish full campaign balance.

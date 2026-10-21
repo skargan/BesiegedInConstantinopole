@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -34,10 +34,37 @@ public class AI: MonoBehaviour
 
     [SerializeField] EnemyLossDisplay enemyLossDisplay;
     
+    public string LastReport { get; private set; } = "";
+    public int GuardsRequired => assaultTest;
+    public bool CanDeployGuards => assaultTest > 0 && VariableSingleton.GetIntVariable("iVarangians") >= assaultTest;
+    public bool WasAssault { get; private set; }
+    public bool AwaitingBreachDecision { get; private set; }
+
     public void TakeAIAction()
     {
+        WasAssault = false;
+        AwaitingBreachDecision = false;
+        LastReport = "No major Ottoman operation was completed today.";
+        assaultUI.SetAssaultResultButton(true);
+        enemyLossDisplay.SetLossesInfo(0, 0);
+        assaultSystem.ClearLossDisplay();
+        if (!VariableSingleton.HasSiegeStarted()) { LastReport="The siege has not begun. No Ottoman attack takes place."; return; }
+        string supplyReport=CouncilActions.ResolveEnemySupplies();
+        if (VariableSingleton.GetIntVariable("iEnemyDelay")>0)
+        {
+            VariableSingleton.ChangeInt("iEnemyDelay",-1);
+            LastReport="Ottoman siege operations are delayed this turn. "+VariableSingleton.GetIntVariable("iEnemyDelay")+" more days of delay remain. Food consumption and naval pressure continue."+(string.IsNullOrEmpty(supplyReport)?"":"\n"+supplyReport);
+            return;
+        }
+        if (!string.IsNullOrEmpty(supplyReport)) { LastReport=supplyReport; return; }
+        if(DailyLifeEvents.I("iLifeSurprise")==1)
+        {
+            VariableSingleton.SetInt("iLifeSurprise",0);
+            if(VariableSingleton.GetIntVariable("iBazouks")>0){AIBashiBazoukAssault();return;}
+        }
+        if(PreparationCampaign.CanAttackGalata&&UnityEngine.Random.Range(0,100)<15){LastReport=PreparationCampaign.AttackGalata();return;}
         float moatRemaining = VariableSingleton.GetFloatVariable("fMoat");
-        float wallHealth = VariableSingleton.GetFloatVariable("fOuterWall");     //needs function identifying current wall
+        float wallHealth = VariableSingleton.Instance.EnduringWall.GetHealth();     //needs function identifying current wall
         float sultanRage = VariableSingleton.GetFloatVariable("fSultanRage");    //needs update
         if (moatRemaining > 0) 
         {
@@ -85,31 +112,36 @@ public class AI: MonoBehaviour
     public void AIFillMoat()
     {
         Debug.Log("*Enemy is filling the moat!");
-        VariableSingleton.ChangeFloat("fMoat", -0.09f, -0.2f);
+        VariableSingleton.ChangeFloat("fMoat", -0.2f, -0.09f);
+        LastReport = "Ottoman labourers fill the moat, reducing its protection.";
     }
 
     public void AIBuildTower()
     {
         Debug.Log("*Enemy is building a tower!");
-        VariableSingleton.ChangeBool("bTower", true);
+        VariableSingleton.ChangeBool("bSiegeTower", true);
+        LastReport = "The Ottomans have built a siege tower.";
     }
 
     public void AIBuildRam()
     {
         Debug.Log("*Enemy is building a ram!");
-        VariableSingleton.ChangeBool("bRam", true);
+        VariableSingleton.ChangeBool("bBatteringRam", true);
+        LastReport = "The Ottomans have built a battering ram.";
     }
 
     public void AIBuildRamp()
     {
         Debug.Log("*Enemy is building a ramp!");
-        VariableSingleton.ChangeFloat("fRamp", 0.1f, 0.2f);
+        VariableSingleton.ChangePercentFloat("fSiegeRamp", Random.Range(0.1f, 0.2f));
+        LastReport = "The Ottoman siege ramp grows closer to the wall.";
     }
 
     public void AIMoarCannons()
     {
         Debug.Log("*Enemy is bringing more cannons!");
         VariableSingleton.ChangeInt("iTurkCannons", 1);
+        LastReport = "Another Ottoman cannon has reached the siege lines.";
     }
 
 
@@ -118,8 +150,10 @@ public class AI: MonoBehaviour
 
     public void AIBombard()
     {
-        Debug.Log("*Enemy launched a bompardment(this so far does nothing)");
-        VariableSingleton.GetIntVariable("iTurkCannons");    //can do maths on it first
+        // Mechanics document: each Ottoman cannon removes one percentage point.
+        int cannons = VariableSingleton.GetIntVariable("iTurkCannons");
+        VariableSingleton.ChangeFloat("f" + VariableSingleton.Instance.EnduringWall.GetCodeName(), -cannons / 100f);
+        LastReport = "Ottoman bombardment damages the current wall by " + cannons + "%.";
     }
 
     enum AssaultType 
@@ -135,10 +169,15 @@ public class AI: MonoBehaviour
 
     public void BreachingAssaultAftermath(bool deployVarangians) 
     {
-        int enemyLosses = assaultSystem.AssaultAftermath(assaultType==AssaultType.Janissary, attackerNumbers, false, deployVarangians? assaultTest : 0);
-        
+        if (!AwaitingBreachDecision) return;
+        if (deployVarangians && !CanDeployGuards) return;
+        AwaitingBreachDecision = false;
+        bool held = deployVarangians;
+        int guards = held ? assaultTest : 0;
+        int enemyLosses = assaultSystem.AssaultAftermath(assaultType == AssaultType.Janissary, attackerNumbers, held, guards);
         RecordEnemyLosses(enemyLosses);
-
+        if (!held) VariableSingleton.Instance.EnduringWall.Abandon();
+        LastReport = held ? "The Varangian Guard holds the breach at a terrible cost." : "Your defenders fall back from the breached wall.";
         assaultUI.AssaultAftermathUI();
     }
 
@@ -161,19 +200,23 @@ public class AI: MonoBehaviour
 
     public void AIBalkanSubjectAssault()
     {
+        WasAssault = true;
+        assaultType = AssaultType.Balkan;
+        LastReport = "Ottoman Balkan troops launch an assault.";
         Debug.Log("*Enemy launched Balkan Subject Assault");
         int balkanSubjectNumbers = VariableSingleton.GetIntVariable("iBalkans");
         assaultTest = assaultSystem.TestAssault(christianBalkanSubjectAV) - WallOverrunThreshold;
         if (assaultTest > 0) 
         {
-            assaultType = AssaultType.Balkan;
+            AwaitingBreachDecision = true;
+            WasAssault = true;
+        assaultType = AssaultType.Balkan;
             attackerNumbers = averageBalkanSubjectForce < balkanSubjectNumbers ? averageBalkanSubjectForce : balkanSubjectNumbers;
             assaultUI.SetAssaultResultButton(false);
         }
         else
         {
             int enemyLosses = assaultSystem.AssaultAftermath(false, averageBalkanSubjectForce < balkanSubjectNumbers ? averageBalkanSubjectForce : balkanSubjectNumbers);
-            VariableSingleton.ChangeInt("iBalkans", -enemyLosses);
             RecordEnemyLosses(enemyLosses);
             assaultUI.SetAssaultResultButton(true);
         }
@@ -181,19 +224,23 @@ public class AI: MonoBehaviour
 
     public void AIBashiBazoukAssault()
     {
+        WasAssault = true;
+        assaultType = AssaultType.Bazouk;
+        LastReport = "Ottoman Bazouk troops launch an assault.";
         Debug.Log("*Enemy launched Bashi Bazouk Assault");
         int bashiBazoukNumbers = VariableSingleton.GetIntVariable("iBazouks");
         assaultTest = assaultSystem.TestAssault(bashiBazoukAV) - WallOverrunThreshold;
         if (assaultTest > 0) 
         {
-            assaultType = AssaultType.Bazouk;
+            AwaitingBreachDecision = true;
+            WasAssault = true;
+        assaultType = AssaultType.Bazouk;
             attackerNumbers = averageBashiBazoukForce < bashiBazoukNumbers ? averageBashiBazoukForce : bashiBazoukNumbers;
             assaultUI.SetAssaultResultButton(false);
         }
         else
         {
             int enemyLosses = assaultSystem.AssaultAftermath(false, averageBashiBazoukForce < bashiBazoukNumbers ? averageBashiBazoukForce : bashiBazoukNumbers);
-            VariableSingleton.ChangeInt("iBazouks", -enemyLosses);
             RecordEnemyLosses(enemyLosses);
             assaultUI.SetAssaultResultButton(true);
         }
@@ -201,19 +248,23 @@ public class AI: MonoBehaviour
 
     public void AIJanissaryAssault()
     {
+        WasAssault = true;
+        assaultType = AssaultType.Janissary;
+        LastReport = "Ottoman Janissary troops launch an assault.";
         Debug.Log("*Enemy launched Janissary Assault");
         int janissaryNumbers = VariableSingleton.GetIntVariable("iJanissaries");
         assaultTest = assaultSystem.TestAssault(janissaryAV) - WallOverrunThreshold;
         if (assaultTest > 0)
         {
-            assaultType = AssaultType.Janissary;
+            AwaitingBreachDecision = true;
+            WasAssault = true;
+        assaultType = AssaultType.Janissary;
             attackerNumbers = averageJanissaryForce < janissaryNumbers ? averageJanissaryForce : janissaryNumbers;
             assaultUI.SetAssaultResultButton(false);
         }
         else
         {
             int enemyLosses = assaultSystem.AssaultAftermath(true, averageJanissaryForce < janissaryNumbers ? averageJanissaryForce : janissaryNumbers);
-            VariableSingleton.ChangeInt("iJanissaries", -enemyLosses);
             RecordEnemyLosses(enemyLosses);
             assaultUI.SetAssaultResultButton(true);
         }

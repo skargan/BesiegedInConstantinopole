@@ -1,0 +1,22 @@
+title: prepAdventurers
+---
+<b>Siege Preparation — Call on Adventurers</b>: <br> The chancery has letters enough for kings. Sphrantzes proposes a different appeal: to men whose fortunes are still unsettled. A traveller with useful acquaintances, an inventor hungry for a patron, a prince with a claim and nowhere safe to press it. Each might see in our danger an opportunity worth the voyage.<br>Choose one invitation. Your envoy will arrange passage; the guest is expected in thirty days.
+-> Invite Stephen of Moldavia. A young prince without a secure throne, with every reason to seek soldiers, patrons and a name of his own.
+    <<InviteAdventurer 0>>
+    Your secretary seals the invitation to Stephen of Moldavia. Quarters will be prepared, and an escort instructed to bring your guest to the palace. The expected arrival is recorded in Court and characters.
+-> Invite Giosafat Barbaro. A Venetian traveller who knows the Black Sea routes and the people who profit from them.
+    <<InviteAdventurer 1>>
+    Your secretary seals the invitation to Giosafat Barbaro. Quarters will be prepared, and an escort instructed to bring your guest to the palace. The expected arrival is recorded in Court and characters.
+-> Invite Bertrandon de la Broquière. A Burgundian who crossed Ottoman territory with an observant eye and returned to tell what he saw.
+    <<InviteAdventurer 2>>
+    Your secretary seals the invitation to Bertrandon de la Broquière. Quarters will be prepared, and an escort instructed to bring your guest to the palace. The expected arrival is recorded in Court and characters.
+-> Invite Giovanni Fontana. A physician and inventor whose drawings promise devices your craftsmen have never attempted.
+    <<InviteAdventurer 3>>
+    Your secretary seals the invitation to Giovanni Fontana. Quarters will be prepared, and an escort instructed to bring your guest to the palace. The expected arrival is recorded in Court and characters.
+-> Invite Cyriacus of Ancona. A restless antiquarian who believes the memory of the ancient world is still written on our stones.
+    <<InviteAdventurer 4>>
+    Your secretary seals the invitation to Cyriacus of Ancona. Quarters will be prepared, and an escort instructed to bring your guest to the palace. The expected arrival is recorded in Court and characters.
+-> Invite Pero Tafur. A Castilian knight who remembers the City from his travels and might return when others are leaving.
+    <<InviteAdventurer 5>>
+    Your secretary seals the invitation to Pero Tafur. Quarters will be prepared, and an escort instructed to bring your guest to the palace. The expected arrival is recorded in Court and characters.
+===

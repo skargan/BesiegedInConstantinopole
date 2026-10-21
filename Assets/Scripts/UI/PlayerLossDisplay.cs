@@ -1,12 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class PlayerLossDisplay : MonoBehaviour
 {
-    [SerializeField] string wallsHeldLine = "The walls held off the assaullt.";
-    [SerializeField] string wallsLostLine = "The walls given in, we had to retreat!";
+    [SerializeField] string wallsHeldLine = "The walls held off the assault.";
+    [SerializeField] string wallsLostLine = "The wall gave way; we had to retreat!";
 
     [SerializeField] TMP_Text infLoss;
     [SerializeField] TMP_Text archLoss;
@@ -21,7 +21,7 @@ public class PlayerLossDisplay : MonoBehaviour
         cavLoss.text = cavN.ToString();
         varanLoss.text = varanN.ToString();
 
-        WallStatus.text = wallHeld ? wallsHeldLine : wallsLostLine;
+        WallStatus.text = wallHeld ? "The defenders held the wall." : "The defenders withdrew to the next wall.";
     }
 
 }

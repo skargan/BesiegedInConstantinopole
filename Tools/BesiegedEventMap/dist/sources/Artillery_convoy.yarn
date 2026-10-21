@@ -1,0 +1,10 @@
+﻿title: random23
+---
+<b>The Road from Adrianople</b><br> At first the watchmen take the dust for another column of infantry. Then the teams of oxen emerge, dragging three bronze guns beneath dark canvas. Behind them come carts of powder, shot and fresh-cut timber. The foundries of Adrianople have not been idle. By dusk, the Ottoman engineers are marking new positions opposite our walls.
+-> Have the captains mark the new batteries. Three Ottoman cannons join the siege.
+    <<if GetInt("iArtilleryConvoy") == 0>>
+        <<Change iTurkCannons 3>>
+        <<SetInt iArtilleryConvoy 1>>
+    <<endif>>
+    Your officers return with sketches of the new positions. Counter-battery fire and sabotage may silence these guns; until then, every Ottoman bombardment will strike harder.
+===

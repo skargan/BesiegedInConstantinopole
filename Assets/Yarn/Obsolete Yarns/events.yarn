@@ -1,4 +1,4 @@
-title: story0
+﻿title: story0
 ---
 <<declare $Focus = "0">>
 
@@ -33,7 +33,7 @@ title: story1
   Your decision will cause anger among our priesthood and the nobles, but Catholics will surely aid us more.
    <<set $Religion to "1">>
 -> We need the Catholic aid, but also we need to maintain order. Let us adopt Catholic faith symbolically, but without enforcing it.
-  Your decision will annoy the priesthood, but the nobility won't care and Catholics will grudingly aid us.
+  Your decision will annoy the priesthood, but the nobility won't care and Catholics will grudgingly aid us.
    <<set $Religion to "2">>
 
 ===
@@ -55,7 +55,7 @@ title: story2
     Constantinian Wall is barely more than a ruin and hasn't seen action for a thousand years. However, with our efforts, it is now restored to 100% condition.
     <<set $Middle_wall to 100>>
     <<set $materials = $materials-160>>
--> Wihout Severan Wall is the weakest of the three, but it protects the Great Palace and heart of the city. [Cost: 80 materials]
+-> without Severan Wall is the weakest of the three, but it protects the Great Palace and heart of the city. [Cost: 80 materials]
     The core of the city is now once more protected and Severan wall is restored to 100% condition.
     <<set $Inner_wall to 100>>
     <<set $materials = $materials-80>> 

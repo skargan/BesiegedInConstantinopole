@@ -1,10 +1,18 @@
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public static class PrototypeLauncher
 {
     private const string PrototypeScene = "Assets/Scenes/Continue Game.unity";
+
+    [MenuItem("Besieged/Open Main Menu")]
+    public static void OpenMainMenu()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
+        EditorSceneManager.OpenScene("Assets/Scenes/Menu.unity", OpenSceneMode.Single);
+    }
 
     [MenuItem("Besieged/Open Prototype Scene")]
     public static void OpenPrototypeScene()

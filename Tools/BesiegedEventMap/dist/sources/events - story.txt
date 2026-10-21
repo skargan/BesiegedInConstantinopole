@@ -1,0 +1,610 @@
+1: Version 1.0
+3: Story events 21
+4: Written events: 21Coded events: 0Tested events: 0
+7: Event name
+8: Code
+9: Status (written/coded)
+10: Notes
+11: Does order matter?
+12: 1
+13: Messenger arrives
+14: story0
+15: Coded
+16: First event
+17: YES
+18: 2
+19: Mending the Schism
+20: story1
+21: Coded
+23: YES
+24: 3
+25: Siege Preparation - Walls
+26: story2
+27: Coded
+29: -
+30: Optional expansion (for later)
+32: 22
+38: 23
+44: 24
+50: 25
+56: 26
+57: RANDOM EVENTS:
+62: 27
+63: Galata joins the Emperor 
+64: story26
+66: Galata event (100)
+68: 28
+69: Galata distracts Turks (70)
+70: story27
+72: Galata event (70)
+74: 29
+75: Galata sends troops (60)
+76: story28
+78: Galata event (60)
+80: 30
+81: Galata offers loan (50)
+83: story29
+85: Galata event (50)
+87: 31
+88: Galata trades with the Turks
+90: story30
+92: Galata event (40)
+94: 32
+95: Galata sells our war plans (30)
+97: story31
+99: Galata event (30)
+101: 33
+102: Galata opens the Gates to the Turks
+104: story32
+106: Galata event (0) (+50 AV)
+133: title: story0
+134: ---
+135: <<declare $Outer_wall = 80>>
+136: <<declare $Middle_wall = 25>>
+137: <<declare $Inner_wall = 50>>
+138: <<declare $population = 100>>
+140: <<declare $materials = 1000>>
+141: <<declare $money = 100000>>
+142: <<declare $ammunition = 20>>
+143: <<declare $provisions = 3000>>
+144: <<declare $secrets = 1>>
+146: <<declare $spies = 10>>
+147: <<declare $engineers = 30>>
+148: <<declare $sentries = 100>>
+149: <<declare $healers = 50>>
+151: <<declare $noble_rep = 50>>
+152: <<declare $troop_rep = 50>>
+153: <<declare $priest_rep = 50>>
+154: <<declare $people_rep = 50>>
+155: <<declare $galata_rep = 90>>
+157: <<declare $varangians = 250>>
+158: <<declare $ships = 15 >>
+159: <<declare $infantry = 3000>>
+160: <<declare $archers = 2000>>
+161: <<declare $cavalry = 200>>
+162: <<declare $infantry_quality = 2>>
+163: <<declare $archers_quality = 2>>
+164: <<declare $cavalry_quality = 2>>
+166: <<declare $turk_troops = 80000>>
+167: <<declare $janissaries = 7500>>
+168: <<declare $turk_cannons = 5>>
+169: <<declare $turk_spies = 5>>
+170: <<declare $turk_morale = 100>>
+171: <<declare $turk_food = 100>>
+172: <<declare $turk_fleet = "exists">>
+173: <<declare $fury = 0>>
+175: <<declare $Focus = "0">>
+176: <<declare $Religion = "0">>
+177: <<declare $Fleet = "3">>
+178: <<declare $golden_horn_chain = "exists">>
+179: <<declare $chance = 100>>
+181: <b>Messenger arrives</b> <br>  
+183: A dusty messenger stumbles into your court room, clearly after riding many miles. Loukas Notaras, your megas doux and chief minister, takes the scroll out of messenger's shaking hand and unfolds it. You can see how blood leaves the face of your trusted advisor. He reads it and you realise that peace has come to an end. Sultan Mehmed the Second, Lord of the Turks, Master of the Ottoman Empire, is gathering armies in the city of Adrianople. His criers are spreading the call of Jihad across the Anatolia and the Balkans, his engineers are improving roads and bridges leading to Constantinople and there are rumours of massive cannons being forged. A massive army is being gathered and there can be only a single target for it - the last piece of the Eastern Roman Empire, the Holy City of Constantinople, your home. Although you have suspected that this attack will come, you hoped for more time. But now, you realise that you have mere months to prepare. Notaras asks: Imperator, what shall be your orders? How do we prepare for this? 
+184:   -> Theodosian Walls defended the City for over a thousand years. Our focus will be Fortifications and Artillery!
+185:    We will do all we can, but Fortifications and Artillery will be our main focus during the preparation for the siege.
+186:    <<set $Focus to "0">>
+187:   -> No walls can defend the City if there are no men to guard them. Our focus will be Mobilisation!
+188:    We will do all we can, but Mobilisation will be our main focus during the preparation for the siege.
+189:    <<set $Focus to "1">>
+190:   -> Gold is the sinews of war. We need money and resources to arm ourselves. Our focus will be War Economy!
+191:    We will do all we can, but War Economy will be our main focus during the preparation for the siege.
+192:    <<set $Focus to "2">>
+193:   -> God, not gold, will save us, as he did so many times before. Our focus will be Faith and Unity!
+194:    We will do all we can, but Faith and Unity will be our main focus during the preparation for the siege.
+195:    <<set $Focus to "3">>
+196:   -> Our strongest weapon is our mind and our reputation. We need strategise, scheme and to call allies. Our focus will be Diplomacy and Spycraft!
+197:    We will do all we can, but diplomacy will be our main focus during the preparation for the siege.
+198:    <<set $Focus to "4">> 
+200:    <<jump story1>>
+201: ===
+203: title: story1
+204: ---
+206: <b>Mending the Schism</b> <br>  
+207:  For years there have been attempts to mend the Great Schism between the Rome and Constantinople. Both churches proclaim themselves to be the rightful inheritors of the temple of Jesus on Earth. Cardinal Isidore of Kiev, one of the most prominent priests of our Empire, has worked for many years to secure so called "Union of Florence" between Constantinople and Rome and he strongly advocates that we accept it in order so that we can secure aid from the Pope and other Catholic nations. Meanwhile Loukas Notaras, our chief minister, stresses that the people and most clergy are opposed to this, as accursed Latins have once already been the reason of our downfall, when they took the City and almost destroyed the Empire in 1204. We need to consider the political and religious implications, should we stick with our tradition or consider converting to the Catholic faith, hoping to secure additional assistance?
+208: -> We shall support Orthodox Church unto death.
+209:  Damned be those heretics, war or peace, we shall remain Orthodox. Your decision causes a brief celebration among your elites, but will reduce the likelihood that Catholic nations will aid us.
+210:   <<set $Religion to "0">>
+211: <<Change fNobleRep +10>>
+212: <<Change fPriestRep +15>>
+213: -> We must seek to Mend the Schism, adopt Catholicism fully!
+214: The time has come to swallow our pride and admit our fault. The Emperor will convert to Catholicism and require everyone in the palace to do the same. We will fully embrace Union of Florence - Roma suprema est.  Your decision will cause anger among our priesthood and the nobles, but the Catholic nations will rejoice and we hope that the Pope shall call for a new crusade to save Constantinople.
+215: <<set $Religion to "1">>
+216: <<Change fNobleRep -20>>
+217: <<Change fPriestRep -30>>
+218: -> The Emperor shall embrace Union of Florence, but will not enforce it.
+219: We need the Catholic aid, but also we need to maintain our priests happy. Let us adopt Catholic faith by symbolically accepting Union of Florence, but without enforcing it. Your decision will still somewhat annoy the priesthood and the nobility will grumble, but the Catholics will aid us, although less than they would with full conversion.
+220:   <<set $Religion to "2">>
+221: <<Change fNobleRep -5>>
+222: <<Change fPriestRep -10>>
+224: <<jump story2>>
+225: ===
+227: title: story2
+228: ---
+230: <b>Siege Preparation - Walls</b>: 
+231: The main defense of your city are the walls separating the enemy scimitars from your throat. As everyone knows, the outer walls of the city, built by the Emperor Theodosius in the 5th century, are the greatest, most impressive piece of siege architecture in the whole of Europe. The only time these walls have been breached, was during the sack of the city in 1204 by the Frankish crusaders. If these walls would fall, the second line of defence would be the Constantinian walls, which have been abandoned for a long time and in their current condition could not stop a determined beggar. Finally, the core of the city is defended by the final line of Severan walls, which are also crumbling and haven't been properly maintained for centuries. In order to prepare for the siege, we need to restore our once glorious fortifications. How shall we focus on their reconstruction?
+232: [Enemy army will attempt to tear down your walls. When the walls are low enough, they will assault the city. If they successfully breach all the walls, after the final assault you will lose the game.]
+233: -> Theodosian Wall needs to be repaired - it is the highest priority. [Cost: 60 materials]
+234:     Construction takes some time, but Theodosian Wall is restored to 100% condition.
+235:     <<set $Outer_wall to 100>>
+236:     <<set $materials = $materials- 60>>
+237: -> Constantinian Wall is in a really bad shape, but it will be vital if the outer wall is breached. It must be rebuilt. [Cost: 160 materials]
+238:     Constantinian Wall is barely more than a ruin and hasn't seen action for a thousand years. However, with our efforts, it is now restored to 100% condition.
+239:     <<set $Middle_wall to 100>>
+240:     <<set $materials = $materials-160>>
+241: -> While Severan Wall is the weakest of the three, but it protects the Great Palace and the heart of the city. It must be rebuilt, especially to protect myself. [Cost: 80 materials]
+242:     The core of the city is now once more protected and Severan wall is restored to 100% condition. While this wall will not stop a determined Turkish assault, it will definitely protect you from your own angry population or any infiltrators lurking in the city.
+243:     <<set $Inner_wall to 100>>
+244:     <<set $materials = $materials-80>> 
+245: -> It will be a massive undertaking, but all the three Walls must be restored before the siege begins. However, our Focus on Fortification will help us efficiently use materials and save some of the costs. [Cost: 250 materials] <<if $Focus is "0">>
+246:     You initiate the greatest reconstruction effort in Constantinople since the times of Justinian. Soon, all three Walls are restored to 100%. 
+247:     <<set $Outer_wall to 100>>
+248:     <<set $Middle_wall to 100>>
+249:     <<set $Inner_wall to 100>> 
+250:     <<set $materials = $materials-250>>
+252: <<jump story3>>
+253: ===
+255: title: story3
+256: ---
+258: <b>Peloponnesus</b>: 
+259: While the territories under the control of the Eastern Roman Empire have waxed and waned over the centuries, never have they been smaller than today. Constantinople is the only major city left under the control of our Empire, we still have holdings in the Peloponnesus and islands of the Marmara sea. As the siege approaches, we need to issue orders for our troops serving there. We could summon them to help us, but it could anger our nobles, whose estates would remain unprotected. Alternatively, we could tell them to launch a diversion against the Turks. What shall be your orders?
+261: -> They should remain where they are, support of the nobility will be important to me.
+262:     The nobles are pleased with your decision.
+263:     <<set $money = $money+5000>>
+264: -> Summon all of the trained troops to Constantinople.
+265:   Soon, a few ships from Morea arrive, bringing 1000 soldiers, 400 archers and 100 cavalry.   
+266:     <<set $infantry = $infantry+1000>>
+267:     <<set $archers = $archers+400>>
+268:     <<set $cavalry = $cavalry+100>>
+269:     <<set $noble_rep = $noble_rep-10>>
+270: -> Order the lords of Peloponnesus to distract Mehmed's forces.
+271:     While the distraction is too small to truly distract Ottoman army, Mehmed sends 7500 troops to hunt down your troops. This means that they won't participate in the siege.
+272:     <<set $turk_troops = $turk_troops -7500>>
+273:     <<set $noble_rep = $noble_rep-10>>
+274: -> As our Focus is mobilisation, we should order every able bodied man from our holdings to come to defend Constantinople immediately. <<if $Focus is "1">>
+275:     While majority of the recruits are Morean farmers without much fighting experience, their numbers will significantly bolster our fighting strength. Soon, a few ships arrive, bringing 3000 soldiers, 500 archers and 100 cavalry.   
+276:     <<set $infantry = $infantry+3000>>
+277:     <<set $archers = $archers+500>>
+278:     <<set $cavalry = $cavalry+100>>
+279:     <<set $noble_rep = $noble_rep-20>>
+280: -> As our Focus is war economy, we should instead demand our holdings to provide all the resources and money they can. <<if $Focus is "2">>
+281:     The troops, instead of travelling to Constantinople, are used to shake everyone dry, collecting every penny for your treasury.
+282:     <<set $money = $money +20000>>
+283:     <<set $noble_rep = $noble_rep-20>>
+284: -> As our Focus is faith, we should instead order all of our holdings to pray for us. This will raise morale of all the defenders. <<if $Focus is "3">>
+285:     Every church in Peloponnesus is ringing bells day and night, every soldier and peasant spends their days praying for their Imperator and Constantinople.
+286:     <<set $noble_rep = $noble_rep +15>>
+287:     <<set $priest_rep = $priest_rep +15>>
+288:     <<set $people_rep = $people_rep +15>>
+289:     <<set $troop_rep = $troop_rep +15>>  
+291: <<jump story4>>
+292: ===
+294: title: story4
+295: ---
+296: <b>Siege Preparation - Raising an Army</b>: 
+297: The people of Constantinople have gotten used to peace and our army has for a long time been underfunded and the troops we have are too weak to withstand Ottoman might, we need more men. There are many ways to recruit more soldiers, but which one is the best?
+298: -> Infantry is the backbone of our army, they will hold the walls during the enemy assaults. Raise 3000 infantry. [Cost: 30,000 money] <<if $money >= 30000>>
+299:   We quickly recruit more spearmen from the citizens of Constantinople. Some have never held a weapon in their lives. They will learn quick or they will die.
+300:   <<set $infantry = $infantry+3000>>
+301:   <<set $money = $money -30000>>
+302: -> Nothing is more dangerous when approaching the walls than a well-aimed arrow. Ranged troops are most effective at killing attackers. Raise 1500 archers. [Cost: 30,000 money] <<if $money >= 30000>>
+303:   You order the ancient Hippodrome to be converted into three archery ranges, where hundreds of archers train daily. By the time siege comes, they should be ready.
+304:     <<set $archers = $archers+1500>>
+305:     <<set $money = $money -30000>>
+306: -> Cavalry will provide us with the flexibility to sally out and strike at our enemy and in the worst case scenario they will dismount and fight on the walls as knights. Raise 300 cavalry. [Cost: 30,000 money] <<if $money >= 30000>>
+307:   One does not become a knight overnight, but you hurry to ennoble promising candidates. This new force will train day and night to prepare for the war.
+308:    <<set $cavalry = $cavalry+300>>
+309:    <<set $money = $money -30000>>
+310: -> As our Focus is mobilisation, we can return to tradition and raise a Legion of 5000 infantry and 1000 archers, in the honour of our ancestors. [Cost: 50,000] <<if $Focus is "1" and $money >= 50000 >>
+311:   On your orders, the whole city is turned into a massive training encampment. As per ancient tradition, a legionary Aquila is forged from gold, perched atop a Cross. Freshly minted legionaries are motivated, but only time will tell if they deserve the name of their forebears.
+312:     <<set $infantry = $infantry+5000>>
+313:    <<set $archers = $archers+1000>>
+314:     <<set $troop_rep = $troop_rep  +10>>
+315:     <<set $money = $money  -50000>> 
+316: -> As our Focus is faith, we should call upon the religious fanatics, forming their mobs into military units. [Cost: 3000 money] <<if $Focus is "3">>
+317:     While nobles don't like our decision, these new fanatical troops are very motivated and numerous, numbering some 3000. But the best thing about them is that they are cheap. However, they are not trained and the overall quality of your infantry suffers.
+318:     <<set $infantry = $infantry+3000>>
+319:     <<set $noble_rep = $noble_rep -5>>
+320:     <<set $troop_rep = $troop_rep +30>>  
+321:     <<set $infantry_quality = $infantry_quality -1>>
+322:     <<set $money = $money  -3000>> 
+323: -> As our Focus is diplomacy, we should summon foreign mercenaries, promising them land and titles if we are victorious. [Cost: loss of support] <<if $Focus is "4">>
+324:     Soon brigands and mercenaries of all kinds flock to our banner. Primarily they are Italians from various states, but also come Cumans, Bulgars and even some Turks. They are not very numerous, but they are hardened killers, veterans of many wars, so their presence raises the quality of your troops across the board. However, their presence and unknown tongues and weird customs unnerve your people, priests, nobles and even other troops. In total, 750 infantry, 750 archers and 100 cavalry join your ranks.
+325:     <<set $infantry = $infantry+750>>
+326:     <<set $archers = $archers+750>>
+327:     <<set $cavalry = $cavalry+100>>
+328:     <<set $noble_rep = $noble_rep -5>>
+329:     <<set $priest_rep = $priest_rep -5>>
+330:     <<set $people_rep = $people_rep -5>>
+331:     <<set $troop_rep = $troop_rep -5>>  
+332:     <<set $infantry_quality = $infantry_quality +1>>
+333:     <<set $archers_quality = $archers_quality  +1>>
+334:     <<set $cavalry_quality = $cavalry_quality +1>>
+336: <<jump story5>>
+337: ===
+339: title: story5
+340: ---
+341: <b>Hungry Mouths</b>: 
+342: As the rumours about the coming siege spread, people from the countryside start trickling in to the City. At first they come in small numbers, family here or merchant there, but soon whole villages start flocking towards the mirage of safety in the Capital. Loukas Notaras, your Mesazon, chief minister, comes to you with concern in his eyes, arguing that a decision needs to be taken as to what course of action should be taken regarding these refugees. As the Emperor, you have to consider a few factors. These are your subjects and as many of them as possible should be saved. However, currently Constantinople already houses around 100 thousand people and all of them need to eat. Once the siege begins, our stores have enough food to hold out for about 30 days. Additional people will mean higher food consumption, but greater population will also provide more taxes, recruits and manpower for labour. This is one of the most important decisions to take before the siege.
+343: [City's supplies, or provisions, are consumed by the population daily. One thousand people consumes 1 unit of provisions per day. 7 thousand will consume 7 units, 100 thousand people will consume 100 units, etc. When you run out of provisions, people will starve and unrest will begin. Soon after that, you will lose your head.]
+344: -> The City is the final bastion of the Roman civilisation and everyone is welcome, open the gates. [Accept 20 to 50 thousand refugees, gain popularity] 
+345:   Thousands upon thousands of people flock through the Gate of St.Romanus. You come to inspect the crowds yourself and thousands of cheering, happy faces greet you. Everyone, even the nobles, feel that this is the right thing to do. For the time being you feel that you are doing your duty as the saviour of your people. What effect it will have, only time will tell.
+346:   <<set $population = $population+round(random_range(20, 50))>>
+347:   <<set $people_rep = $people_rep +30>>
+348:   <<set $noble_rep = $noble_rep +5>>
+349:   <<set $priest_rep = $priest_rep +10>>
+350:   <<set $troop_rep = $troop_rep +10>>  
+351: -> We need to save the flower of the nation, but leave the peasants beyond the gate. Open the gates to the nobles and their servants, priests, merchants, craftsmen and tax all of them on the entry to help pay for the siege costs. [Accept 5 to 10 thousand refugees, gain 10 to 30 thousand gold]
+352:  Your decision is rational, but depressing. No one seriously objects, but there is a feeling of gloom around the city. Everyone is thinking - what if I would have ended up on the other side of the gate?
+353:   <<set $population = $population+round(random_range(5, 10))>>
+354:   <<set $people_rep = $people_rep -10>>
+355:   <<set $noble_rep = $noble_rep -10>>
+356:   <<set $priest_rep = $priest_rep -10>>
+357:   <<set $troop_rep = $troop_rep -10>>  
+358:   <<set $money = $money +round(random_range(10000, 30000))>>
+359: -> Close the gate, we are full. No one is to be admitted inside. [Loss of popularity]
+360:  Wailing of the refugees beyond the gate doesn't let you sleep for a few days, but soon, they realise that nothing will change and start departing. You may have turned the hungry mouths away, but most of the City sees you as a cruel ruler who betrayed his own people. Only time will tell if you were right to do this.
+361:   <<set $people_rep = $people_rep -30>>
+362:   <<set $noble_rep = $noble_rep -5>>
+363:   <<set $priest_rep = $priest_rep -15>>
+364:   <<set $troop_rep = $troop_rep -15>>  
+365: -> As our Focus is mobilisation, we could press all the able bodied refugees to serve in our armed forces. Send peasants to train with the spears and hunters shall become archers. [Accept 30 thousand refugees, recruit 2000 infantry, 500 archers] <<if $Focus is "1">>
+366:   Their quality is poor, but these men know that they owe their lives to you, they shall fight like beasts when the Turks come, so the morale of your army improves. You gain 2000 infantry and 500 archers.
+367:   <<set $population = $population +30>>
+368:   <<set $infantry = $infantry +2000>>
+369:   <<set $archers = $archers +500>>
+370:   <<set $troop_rep = $troop_rep  +10>>
+371:   <<set $infantry_quality = $infantry_quality -1>>
+372:   <<set $archers_quality = $archers_quality  -1>>
+373: -> As our Focus is diplomacy, could order our agents to spread rumours among refugees about the awful conditions in the City, while mentioning that Pelopponesus is very nice this time of year and not as far as it seems, so they should consider going there instead. [Cost: 2500, accept a few thousand refugees] <<if $Focus is "4" and $money >= 2500>>
+374:     The plan works, our agents manage to successfuly divert majority of the refugees away from Constantinople. 
+375:     <<set $population = $population +round(random_range(3,7))>>
+376:     <<set $money = $money  -2500>> 
+378: <<jump story6>>
+379: ===
+381: title: story6
+382: ---
+383: <b>Preparing Provisions</b>:
+384:  One of the most important things to survive the siege will be to have adequate provisions to feed the population of the City. We need to take urgent measures to hoard enough food for everyone.  However, food costs money and merchants are likely to start raising price the more we buy, as it would become more scarce. How much food should we procure and how?
+385: -> We have enough food, this siege won't take longer than a month. 
+386:   Our confidence inspires the people.
+387:   <<set $people_rep = $people_rep +10>>
+388: -> Buy all the food in the city. [Cost: 6000. Buy 3000 provisions]<<if $money >= 6000>>
+389:  <<set $provisions = $provisions +3000>>
+390:  <<set $money = $money  -6000>>
+391:   Head of the palace stores went around all of the merchants in the city and bought everything. We now have {$provisions} provisions and {$money} gold.
+392: -> Buy all the food in the province. [Cost: 15000. Buy 6000 provisions] <<if $money >= 15000>>
+393:  <<set $provisions = $provisions +6000>>
+394:  <<set $money = $money  -15000>>
+395:  Merchants are quick to notice that there's a chance to make a killing and they raise the prices, but we still manage to secure a significant supply of food. We now have {$provisions} provisions and {$money} gold.
+396: -> Buy the food from everyone, even the Turkish smugglers from across the Straits. It will cost an arm and a leg, but it is necessary. [Cost: 35000. Buy 10000 provisions]<<if $money >= 35000>>
+397:  <<set $provisions = $provisions +10000>>
+398:  <<set $money = $money  -35000>>
+399:  Desperate times call for desperate measures. We now have {$provisions} provisions and {$money} gold.
+400: -> As our Focus is war economy, we could implement absolute food control in all of our domains. Our troops will confiscate all the food and then ration it. This will be highly unpopular and implementing this will still cost money, but we will secure a massive supply of food. [Cost: 10000. Requisition 20 000 provisions] <<if $Focus is "2" and $money >= 35000>>
+401:   <<set $provisions = $provisions +20000>>
+402:   <<set $money = $money  -10000>>
+403:   <<set $people_rep = $people_rep -10>>
+404:   <<set $noble_rep = $noble_rep -10>>
+405:   <<set $priest_rep = $priest_rep -10>>
+406:   <<set $troop_rep = $troop_rep -10>>  
+407:   With an iron fist Imperator has declared that food in your mouth now belongs to the Empire and you will eat only when you are ordered and only how much you ordered. Imperial stores now contain {$provisions} provisions and we have {$money} gold.
+409: <<jump story7>>
+410: ===
+412: title: story7
+413: ---
+414: <b>Call of Christendom: Major Powers</b>: 
+415: Alone we shall fall, that is certain to everyone from megas doux himself down to the blind Cuman beggar by the Hippodrome. But not all is lost. The time has come to call upon Christendom and ask for their help. Recent battle of Varna in 1444 has been a major defeat for the Christian nations, who suffered heavy casualties. The memories are still fresh, but maybe we could offer them a chance to even the score? Whom shall we reach out to in the first place?
+416: -> Send our envoy to the Pope. As the leader of the Christendom, he is guaranteed to provide aid, even if it will be small. [Chance: 40% medium aid, 60% minor aid] <<if $Religion is "2" or $Religion is "1">> 
+417:  <<set $chance = dice(100)>>
+418:  <<if $chance <= 40>> 
+419:  Pope sends 6 ships packed with food, carrying money and 600 archers, along with his letter in which he offers his prayers for the soul of Constantinople and promise of further aid.
+420:  <<else>>
+421:  Pope sends 2 ships packed with food, carrying money and 200 archers, along with his letter in which he offers his prayers for the soul of Constantinople.
+422:  <<endif>>
+423: -> As we have accepted Catholicism fully and our focus is diplomacy, send our envoy to the Pope and request him to launch a new crusade to help us! [Chance: 30% major aid, 50% minor aid, 20% no aid] <<if $Religion is "1" and $Focus is "4">> 
+424:  <<set $chance = dice(100)>>
+425:  <<if $chance <= 30>> 
+426:  Tireless work of your diplomats and the wise decision to mend the Schism create conditions which allow the Pope to call the Xth crusade, this time to protect Constantinople and repay the sins of the IVth crusade! Soon, pilgrim warriors flock to your cause, Italians, French, English, Scotish, Spanish, Portuguese, Hungarians, Polish and even a few Lithuanians. Over the coming months some 3000 infantry, 4000 archers and 800 cavalry arrive, along with maybe 15 000 pilgrims and camp followers who join your general population.
+427:  <<elseif $chance <= 80>> 
+428:  While the Christian kingdoms are not yet ready to commit to a full crusade, many send their volunteers to help you. Venetian and Genoese mercenaries soon arrive, bringing 600 infantry and 600 archers to support the defence of your city.
+429:  <<else>>
+430:  Memories of the defeat at Varna are too fresh... Your call for crusade falls on deaf ears.
+431:  <<endif>>
+432: -> As we have embraced truth of the Orthodoxy and our focus is faith, we send our envoys to Trebizond and the Georgian kingdom, stressing that if Constantinople falls, it will be the end of the Orthodox world and that they will be next. Announce the first Orthodox Crusade to save Constantinople and call all righteous Stavrophoroi (Orthodox crusaders) to our banner! [Chance: 20% major aid, 60% minor aid, 20% no aid] <<if $Religion is "0" and $Focus is "3">> 
+433:  <<set $chance = dice(100)>>
+434:  <<if $chance <= 20>> 
+435:  In our days, Orthodox realms are few and weak, but your call raises their hearts and triggers an unexpected movement of support for your cause. Orthodox monks from villages of Ruthenia to the mountains of Armenia ring bells and preach the need to defend Constantinople. Soon, pilgrim warriors flock to your cause, Bulgarians, Georgians, Armenians, Serbs, Ruthenians and even a few Cossacks. Over the coming months some 8000 infantry, 2500 archers and 1200 cavalry arrive, along with maybe 15 000 pilgrims and camp followers who join your general population.
+436:  <<elseif $chance <= 80>> 
+437:  In our days, Orthodox realms are few and weak, but they answer the call. Georgian nobility sends 100 young knights and soon a ship of volunteers from Ruthenia arrives, adding another 400 infantry. Also 200 Armenian archers join your cause as well.
+438:  <<else>>
+439:  In our days, Orthodox realms are few and weak. They close their eyes and ears to your pleas.
+440:  <<endif>>
+441: -> Make a general call for help to the Catholic realms. You know that your success here will depend greatly on how you managed to mend the Schism...
+442:  <<if $Religion is "0">>
+443:  In our days, Orthodox realms are few and weak, but they answer the call. Georgian nobility sends 50 young knights and soon a ship of volunteers from Ruthenia arrives, adding another 200 infantry.
+444:   <<elseif $Religion is "1">>
+445:  Your recent conversion to Catholicism has moved the hearts of believers. Knights Hospitaller have sent their fleet from Rhodes to support you, bringing 100 knights, 200 archers, 200 infantry and 5 ships.
+446:  <<elseif $Religion is "2">>
+447:   While you are not enforcing Union of Florence, pragmatically minded Italians nonetheless see the opportunity to find a place for themselves in your new Empire. Venetian and Genoese mercenaries soon arrive, bringing 400 infantry and 400 archers to support the defence of your city.
+448:  <<endif>>
+450: <<jump story8>>
+451: ===
+453: title: story8
+454: ---
+455: <b>Orders for the Fleet</b>: 
+456: It is clear that the Empire is too weak to meet Mehmed in the open field, however our small, but professional fleet is one of the few tools we have which we could still use offensively against our enemy. What shall be the purpose of our fleet during this siege?
+457: -> The fleet should be used to raid Ottoman food shipping and disrupt their logistics, so that their food supplies would run out as soon as possible.
+458:   <<set $Fleet = "0">>
+459: -> The fleet should be ordered to raid Ottoman coastal villages and target valuable merchant ships, we could use their plunder to fund the siege.
+460:  <<set $Fleet = "1">>
+461: -> The fleet should travel to Genoan colonies in Crimea, we know that their markets are full of cheap grain - they should run the blockade and keep bringing supplies to the city whenever possible.
+462:  <<set $Fleet = "2">>
+463: -> Order the fleet to remain in the Golden Horn, protecting the city and shooting their cannons at the attackers.
+464:  <<set $Fleet = "3">>
+465: -> Order the fleet to visit various ports around the Meditteranean Sea and bring volunteers, supplies and donations to help the siege.
+466:  <<set $Fleet = "4">>
+467: -> Order the fleet to engage the Ottoman fleet in direct battle and destroy them. [Chance: 10% + number of ships]
+468:  <<set $chance = dice(100)>>
+469:  <<if $chance <= (10+$ships)>> 
+470:  On your orders, the fleet departed and soon located the core of the Ottoman navy off the isle of Lesbos. In a dramatic turn of fortune, your fleet engaged the Ottoman navy in a battle that defied all expectations. Skillfully navigating the treacherous waters, your admirals outmaneuvered the opposing forces, unleashing a barrage of cannon fire and decisive naval tactics. As the smoke cleared, it became evident that your fleet had emerged triumphant, dealing a significant blow to the Ottoman naval power. The resounding victory not only bolstered the morale of your city's defenders but also disrupted the blockade, providing a glimmer of hope in the looming shadow of the approaching siege. The waves of Marmara now bow to your power alone.
+471:  <<set $turk_fleet = "destroyed" >>
+472:  <<jump story10>>
+473:  <<else>>
+474:  On your orders, the fleet departed and soon located the core of the Ottoman navy off the isle of Lesbos. The clash was fierce, with cannons thundering, galleys being boarded and cries of anguish ringing as the warships locked in a desperate struggle for control of the Marmara Sea. Despite the unwavering resolve of your naval forces, the battle ended in devastation as the Turks emerged victorious, leaving your ships shattered and scattered across the waves. Now, as the sun sets on the beleaguered waters surrounding Constantinople, the reality of the lost naval engagement casts a shadow over the city, intensifying the challenges that lie ahead in the face of the impending siege. Your fleet is gone.
+475:  <<set $Fleet = "5">>
+476:  <<endif>>
+479: <<jump story9>>
+480: ===
+482: title: story9
+483: ---
+484: <b>Easter Speech</b>: 
+485: As you gaze out over the majestic City below you, you contemplate the dire situation facing your beloved empire. With the mighty Ottoman forces encircling the city, you realise that siege will begin in mere hours, a couple of days at most. Heavy responsibility lies on your shoulders. While everyone knows about the impending siege, you are on your way to Hagia Sophia to rally the spirits of your people for the impending battle. Everyone will be there, from the lowest whores to the most esteemed nobles. What will you focus on in your speech?
+486: -> Citizens of the Roman Empire! We are the defenders of a legacy that spans millenia. Let every heart beat as one, for it is our resilience and unwavering spirit...
+487:  Your speech leaves a generally good impression on everyone gathered at the Hagia Sophia, but the nobles and the general population love it more than the rest.
+488:  <<set $people_rep = $people_rep +15>>
+489:   <<set $noble_rep = $noble_rep +15>>
+490:   <<set $priest_rep = $priest_rep +5>>
+491:   <<set $troop_rep = $troop_rep +5>>  
+492: -> Soldiers of Christ! We have gathered here under the majestic dome of our blessed temple, to worship our God and to steel ourselves to defend our creed...
+493:  Your speech leaves a generally good impression on everyone gathered at the Hagia Sophia, but the troops and the priests love it more than the rest.
+494:  <<set $people_rep = $people_rep +5>>
+495:   <<set $noble_rep = $noble_rep +5>>
+496:   <<set $priest_rep = $priest_rep +15>>
+497:   <<set $troop_rep = $troop_rep +15>>    
+498: -> My faithful subjects, all who live and breathe to serve our great cause - it is time for us to prepare to meet our enemies...
+499:  Your speech leaves a generally good impression on everyone gathered at the Hagia Sophia.
+500:    <<set $people_rep = $people_rep +10>>
+501:   <<set $noble_rep = $noble_rep +10>>
+502:   <<set $priest_rep = $priest_rep +10>>
+503:   <<set $troop_rep = $troop_rep +10>>  
+504: -> As your focus is war economy, you have a different plan. Order the Varangian Guard to close the doors and make them all donate to the war fund before they leave. Make exception for the priests if they help you convince the people.
+505:  People feel somewhat betrayed, but there's little they can do and the priests are happy to preach to them about the joys of donating for the common cause. Some nobles have to leave their jewelry, while the poor end up leaving their last pennies. But you know that you need this money more than they do.
+506:    <<set $money = $money  +15000>>
+507:    <<set $people_rep = $people_rep -10>>
+508:   <<set $noble_rep = $noble_rep -10>>
+509:   <<set $priest_rep = $priest_rep +0>>
+510:   <<set $troop_rep = $troop_rep -10>>  
+511: -> It is not for speeches that we gathered here! Let everyone feast and enjoy themselves for one last time before the siege begins! Let us celebrate, for tomorrow we may die! [Cost: 2000 gold and 3 days worth of provisions]
+512:  On your orders Guards roll in wine barrels and start hand out bread, while musicians strike up uplifting tunes. The priests are unhappy about their temple becoming a feast hall, but they cannot do anything. People who moments ago were sullen and concerned, soon relax, drink and laugh.
+513:    <<set $provisions = $provisions - ($population *3) >>
+514:    <<set $money = $money  -2000>>
+515:   <<set $people_rep = $people_rep +20>>
+516:   <<set $noble_rep = $noble_rep +20>>
+517:   <<set $priest_rep = $priest_rep -5>>
+518:   <<set $troop_rep = $troop_rep +20>>  
+520: <<jump story11>>
+521: ===
+523: title: story10
+524: ---
+525: <b>Victorious Fleet</b>: 
+526: Now that our fleet has claimed an amazing victory over the Turks at Lesbos, it has much more freedom to operate and requires new orders. Now that the Ottoman fleet sleeps with the fish, we can expect that our ships will be twice more efficient at their tasks. What will be its main purpose during the siege? 
+527: -> The fleet should be used to raid Ottoman food shipping and disrupt their logistics, so that their food supplies would run out as soon as possible.
+528:   <<set $Fleet = "0">>
+529: -> The fleet should be ordered to raid Ottoman coastal villages and target valuable merchant ships, we could use their plunder to fund the siege.
+530:  <<set $Fleet = "1">>
+531: -> The fleet should travel to Genoan colonies in Crimea, we know that their markets are full of cheap grain, let us take advantage of that.
+532:  <<set $Fleet = "2">>
+533: -> Order the fleet to remain in the Golden Horn, protecting the city and shooting their cannons at the attackers.
+534:  <<set $Fleet = "3">>
+535: -> Order the fleet to visit various ports around the Meditteranean Sea and bring volunteers, supplies and donations to help the siege.
+536:  <<set $Fleet = "4">>
+538: <<jump story11>>
+539:  ===
+542: title: story11
+543: ---
+544: <b>Siege Begins</b>: 
+545: So the time has come. You can see Mehmeds army marching in the distance, sky in their direction is marked by plumes of black smoke from the villages they set on fire while coming here. The siege of Constantinople has begun.
+546: [You have now entered siege phase. Please note that while in the early game turns marked passing weeks, currently each turn takes a day. Furthermore, as food will now stop coming into the city, your provisions will start decreasing at a rate based on your population size. Enemy will be attacking your walls daily and when they will be reduced enough, they will launch an assault, trying to take your head. Good luck.]
+547: -> Greet our guests - send the cavalry to harrass their forward formations, but avoid serious engagements.
+548:  <<set $chance = dice(100)>>
+549:  <<if $chance <= ($cavalry/10+10)>> 
+550:  Your cavalry, adept at hit-and-run tactics, successfully disrupts the Ottoman vanguard, overrunning surprised column of slaves, engineers and cooks and inflicting notable damage without being drawn into a decisive battle. One of your knights even manages to set a gunpowder wagon on fire, exploding it and destroying a few enemy cannons.The maneuver not only sets the stage for a more fortified defense but also instills a renewed sense of confidence among your ranks.
+551:   <<set $turk_troops = $turk_troops -round(random_range(500,1500))>>
+552:   <<set $turk_cannons = $turk_cannons - 5>>  
+553:   <<set $cavalry = $cavalry -round(random_range(5,25))>> 
+554:  <<else>>
+555:  Your decision to send the cavalry to harass Ottoman forward formations takes a disastrous turn. The seemingly straightforward plan unravels as the Turks send their light steppe horsemen to intercept your force. They are formidable than expected and repel your cavalry. What was intended as a show of strength turns into a minor defeat.
+556:   <<set $turk_troops = $turk_troops -round(random_range(300,900))>> 
+557:   <<set $cavalry = $cavalry --round(random_range(25,50))>> 
+558:  <<endif>>
+559: -> It is time for the Imperator to stretch his legs. I am going to lead a cavalry charge. Our goal is to kill as many of them as possible and retreat.
+560:  <<set $chance = dice(100)>>
+561:  <<if $chance <= (($cavalry/10)+20)>> 
+562:   Accompanied by a formidable contingent of heavily armored cataphracts, you charge headlong into the heart of Mehmed II's advancing army, hoping to surprise them. The thunderous clash of steel reverberates across the battlefield as the elite Byzantine cavalry fiercely engages the enemy, determined to disrupt the impending siege and strike a resounding blow against the encroaching threat to Constantinople. You lead your force bravely, and Theotoke protects you. Disciplined charge and tactical brilliance of your Byzantine forces shatter the cohesion of the Ottoman troops arriving after a long march, forcing them into a retreat. The intoxicating thrill of victory surges through your veins, offering a fleeting respite from the encroaching siege and instilling renewed hope among your city's defenders. You lost a few knights, but hundreds of enemies lay dead on the field.
+563:   <<set $turk_troops = $turk_troops -round(random_range(750,2500))>> 
+564:   <<set $cavalry = $cavalry --round(random_range(5,25))>> 
+565:  <<elseif $chance <= (($cavalry/10)+45)>> 
+566:   Accompanied by a formidable contingent of heavily armored cataphracts, you charge headlong into the heart of Mehmed II's advancing army, hoping to surprise them. The thunderous clash of steel reverberates across the battlefield as the elite Byzantine cavalry fiercely engages the enemy, determined to disrupt the impending siege and strike a resounding blow against the encroaching threat to Constantinople. The brutal clash is unforgiving, the relentless tide of Ottoman soldiers proving insurmountable. Despite the gallant effort, your cataphracts are slowly swallowed by the vast enemy numbers. Even though you kill more enemies than you lose knights, the battle ends in defeat and the somber reality sets in as you retreat within the city walls, leaving the dead and facing the grim prospect of an imminent siege.
+567:   <<set $turk_troops = $turk_troops -round(random_range(250,750))>> 
+568:   <<set $cavalry = $cavalry -round(random_range(50,100))>> 
+569:  <<else>>
+570:   Accompanied by a formidable contingent of heavily armored cataphracts, you charge headlong into the heart of Mehmed II's advancing army. The thunderous clash of steel reverberates across the battlefield as the elite Byzantine cavalry fiercely engages the enemy, determined to disrupt the impending siege and strike a resounding blow against the encroaching threat to Constantinople. You charge fearlessly with your cataphracts, but the brutal chaos of the battlefield claims your life. Such is fate.
+571:   [GAME OVER]
+572:   <<endif>>
+573: -> Conserve our forces. Set the fields and houses in front of the city on fire.
+574:  Ashes and dust will be all that will greet our invaders. Let them feast on that! We must hope that they will not be able to procure enough food to sustain this siege for long...
+575:  <<set $turk_food = $turk_food -20>> 
+576: -> Send spies to infiltrate enemy camp while they are still setting up and try to recruit agents for your cause. [Cost: 5000 gold]
+577:  The mission is a success, you have managed to recruit 5 spies.
+578: <<set $spies = $spies +5>> 
+580: ===
+581: title: story12
+582: </b> Ottomans use prisoners to fill the Moat </b>
+583: ---
+584: The moat protecting the Theodosian Walls is a serious issue for the Ottoman war machine and they have to deal with it before they can hope to breach the walls themselves. <br>
+586: Unfortunately, Ottomans have managed to capture enough prisoners, primarily refugees from the countryside, some slaves and soldiers captured in the skirmishes to form a labour detachment a few thousands strong, which they are sending now towards the walls. <br>
+587: Ottoman state is run with a whip and brutal discipline – even their elite Janissaries are slave-soldiers, so there is no mercy to be expected, their plan is clear. Turks are herding the prisoners towards the moat and will force them to fill it with earth or their own bodies, both options being preferable. <br>You hear your soldiers murmuring atop the walls – the archers anxiously play with arrows in their quivers, waiting your orders. It is one thing to shoot at the invaders, but entirely another to shoot at your own countrymen, taken prisoner and forced to labour on the enemy’s behalf.<br>
+588: [insert siege_commander] turns to you. <br>“Emperor, we cannot let the moat be filled. God forgive us, but we need to order our archers to fire on the enslaved labourers, otherwise we will all soon be slaves. What are your orders?”-> Order archers to fire on our enslaved people.
+589: Your command echoes across the walls, and reluctantly, your archers draw their bows. The first volleys rain down upon the enslaved prisoners, a brutal decision made in the face of strategic necessity. The moat is protected, but the atmosphere atop the walls turns dark. The morale of your troops falls, but you try to convince yourself that this sacrifice was necessary.
+591: [- morale, +moat]
+592: -> We don’t need the moat. Fire only at Turks.
+593: You prioritize preserving the moral integrity of your defenders. The order is given to focus solely on the Ottoman forces, sparing the enslaved laborers. While the moat remains a formidable obstacle, your archers concentrate their fire on the advancing Turks. The labourers fill up the moat, but some of them use the opportunity to run over to the walls, your soldiers throw them down ropes and help them get over the walls.
+595: [+ soldiers, + morale, -moat]-> Open the gates and encourage prisoners to defect.
+596: Opting for a gambit of compassion, you order the gates to be opened slightly. Your men start shouting from the walls, encouraging the enslaved prisoners to defect and join the city's defense. While some choose to embrace freedom, others remain hesitant, caught between the watchful eye of the Ottoman captors. Some of the prisoners never make it to the gates as the Turkish arrows catch up with them, but enough make it that the attempt to fill the moat is disrupted, at least temporarily.
+598: [+ soldiers, + morale, +moat]
+599: -> Emperor cannot abandon his people. Sally out!
+600: [ 50%]  With a resounding battle cry, your cavalry charges forth from the city gates. In a swift and coordinated assault, they catch the Ottomans off guard, successfully pushing them back. The prisoners, sensing an opportunity, join the defense, turning the tide in your favor. The city's morale soars as the enemy retreats, and the moat remains untouched, a testament to your strategic brilliance.
+602: [30%] With a resounding battle cry, your cavalry charges forth from the city gates. Despite the valor of your riders, the tide of battle turns against them. The Ottoman forces prove too formidable, overwhelming your sallying troops. In the chaos, the prisoners are left vulnerable, and the Ottomans seize the opportunity to press on, killing your troops and prisoners alike. You barely make it back inside the gate.
+604: [-troops]
+606: [20%] With a resounding battle cry, your cavalry charges forth from the city gates. Despite the valor of your riders, the tide of battle turns against them. The Ottoman forces prove too formidable, overwhelming your sallying troops. In the chaos, the prisoners are left vulnerable, and the Ottomans seize the opportunity to press on, killing your troops and prisoners alike. You try to rally your knights, but an arrow from nowhere strikes you, wounding you gravely.
+608: [-health, - troops]
+611: ===
+612: title: story13
+613: ---
+615: </b> The Great Chain of the Golden Horn </b>
+616: One of the most unique defence mechanisms of our great City is the famous Great Chain of the Golden Horn. It was initially constructed as a response to naval threats from hostile forces during times of siege and first proved itself during the Arab assaults on our city in the 8th century of our Lord. Composed of massive interlocking iron links, the chain spans the width of the Golden Horn, reaching around 750 meters in length, effectively blocking enemy ships from entering the harbour and providing an additional layer of defence to the city. However, some of our advisors claim that the Chain has outlived its usefulness and could be repurposed, either sold as scrap metal to raise funds for the siege preparations or melted to cast cannons and ammunition, to strengthen our artillery.
+617: They are fools! Without the Chain, Golden Horn will be open to enemy fleet assaults and we could lose access to Galata! [Chain: exists]
+618: Your decision to retain the Great Chain proves crucial. As enemy fleets attempt to navigate the Golden Horn, they will be met with the formidable obstacle to their plans. The Chain holds strong, safeguarding the harbour and preventing potential assaults and our strategic access to Galata is preserved.
+619: They are right, the Chain serves no purpose in the modern times. Scrap it and sell the metal.[+10 000 gold]
+620: Succumbing to the advice of your advisors, you opt to dismantle the Great Chain. The substantial amount of metal proves valuable as you sell it as scrap, bolstering your treasury with a significant influx of gold. However, the absence of the Chain raises concerns about the vulnerability of the Golden Horn to naval threats.
+621: We shall defend our harbour with our cannons, get rid of the Chain and cast ammunition and cannons. However, it will cost money. [-5000 gold, +10 cannons, +100 ammunition]
+622: Opting for a balanced approach, you decide to repurpose the Chain's metal for artillery. The financial investment incurs a cost, but the benefits are tangible. The newly cast cannons and ammunition enhance your defensive capabilities, providing a modernized form of protection for the harbour, however it costs money.
+623: The Chain is absolutely massive… We could ask Urban to cast the greatest cannon in the world from its metal. [IF URBAN] [-5000 gold, Grand Cannon: exists] 
+624: Recognizing the enormity of the Great Chain, you task Urban, the renowned artisan, with a monumental undertaking. The result is the creation of the Grand Cannon, a symbol of innovation and military might. While the cost is substantial, the presence of this unparalleled weapon significantly enhances your city's defensive capabilities.
+626: ===
+627: title: story14
+628: ---
+631: </b> Galata Question </b>
+632: Galata, also known as Pera, holds a complicated place in the history of our City. Your ancestor, Emperor Michael VIII Palaiologos granted it to the Genoese in 1267 in accordance with the Treaty of Nymphaeum. They were prohibited from fortifying it, but Latins, as is their habit, disregarded this, and through subsequent expansions of the walls, enlarged the area of their settlement. Our history with Genoese is complicated – on the one hand, they are Christians, fine soldiers and merchants. Their trade makes our City prosperous and a big part of our fleet is crewed by Genoese mercenary captains and sailors. <br> 
+633: On the other hand, their highest master is coin and they have their own ambitions to enrich themselves and build their own trade empire around the Mediterranean and the Black seas. Pragmatic to the core, they have even on occasion supported the Ottomans, such as before the recent crusade of Varna in 1444, when the Genoese ships transported Sultan Murad’s army across the Bosporus in exchange for one gold piece per soldier. This led to one of the greatest disasters of recent times, when the Christian armies were defeated, emboldening the Turks and exposing Constantinople to the current threat. <br> 
+634: Today Genoese of Galata see the threat to Constantinople and seem to be ready to indirectly support us, as they have grown concerned about the unchecked power of the Ottomans. However, Galata is not under our direct control and officially it remains neutral, meaning that the Sultan most likely won’t be attacking it, at least not until he deals with us. How should we plan to use Galata in our siege plans?
+635: Galata is crucial to our defence. We should try to bribe Angelo Lomellini, the Genoese podesta, mayor of the city.
+636: You extend an offer of alliance to Angelo Lomellini. A well-placed bribe persuades him to covertly support your cause, ensuring Galata becomes an invaluable ally in your defense against the Ottoman threat. [-7500gold, +30 support]
+637: Galata is crucial to our defence. Send the Varangian Guard at night to take over control of their gates and the Tower of Christ. In the morning our army shall enter Galata and claim it for us.
+638: Opting for a bold maneuver, the Varangian Guard executes a covert operation to seize control of Galata's key points. As dawn breaks, your forces assert dominance over the district, bringing it under your direct control and enhancing your defensive capabilities. There is some limited resistance to your attempt, but Varangians quickly extinguish it. [Take control of Galata, support=100, lose 1d20 Varangians]
+639: Neutral, but friendly Galata will be most useful to us during the siege.
+640: Prioritizing a delicate balance, you foster friendly relations with Galata while respecting its neutrality. This approach ensures their support without compromising their autonomy, contributing to the defense of Constantinople. [+10 support]
+641: Allow Galata to remain neutral, but secure promise from them that they won’t trade with the Turks.
+642: Recognizing Galata's desire for neutrality, you negotiate an agreement to limit trade with the Ottomans. This compromise helps safeguard Constantinople's interests without directly involving Galata in the conflict.
+643: Allow Galata to remain neutral, but demand them to provide us with troops, supplies and money for the siege.
+644: Acknowledging Galata's neutral stance, you leverage diplomatic pressure to secure vital support. While not directly engaging in the conflict, Galata becomes a crucial contributor to your siege efforts, offering troops, supplies, and financial aid.
+645: Send gifts to the people of Galata and remind them of their duty to the Christianity, asking them to join you. [IF FAITH]
+646: Leveraging religious ties, you send heartfelt gifts and reminders to the people of Galata, appealing to their sense of duty to Christianity. This faith-driven approach aims to inspire their allegiance to your cause.
+647: Ask Giustiniani to take control of Galata and offer it to him in perpetuity. [IF GIUSTINIANI]
+648: Entrusting the capable hands of Giustiniani, you propose that he assumes control of Galata. As he is Genoese citizen, him taking control of Galata will be much more diplomatically acceptable to the Genoese leadership. This strategic move not only strengthens your position but also ensures the district remains under loyal and skilled administration.
+651: ===
+652: title: story15
+653: ---
+655: </b> Artillery Genius</b>
+656: Word reaches Constantinople that the renowned Hungarian artillery engineer, Orban, famed for his mastery in crafting devastating weaponry is arriving to offer his services to you. When the man enters your court room, you are surprised – he appears to be much smaller than you originally imagined him and his eyes wander wildly around the room. He is clearly possessed by his art – he promises to build you the greatest cannon in the world, so big it could “blast the walls of Babylon itself'. Shall we hire this mad genius to serve us? 
+657: This madman is too gifted to leave him wandering around. Throw him into the dungeon!//60% - As your guards approach Orban, he screams and throws some explosive powder at the floor, which burns emitting foul smoke which blinds you and your soldiers. Mad artilleryman uses the opportunity to flee from the palace and disappear among the crowds of the Grand Market. A few weeks later your spies report that he has appeared in Sultan’s court and has been hired to destroy your city.//35% - As your guards approach Orban, he screams and attempts to resist, but Varangians break his arm and subdue him. Mad artilleryman will spend the rest of his days in Blachernae dungeons…//5% - As your guards approach Orban, he screams and activates some sort of rigged grenade, triggering a massive explosion, which tears him and your soldiers into pieces. The whole throne room turns into an inferno and the blast wave throws you at the wall with the strength of a murderous giant. As you lay dying on the floor in the pool of your own blood, you think of what fate awaits your City…
+658: Hire him, whatever the cost – we need this genius on our side. (60.000)
+659: //Orban is pleased – he immediately gets to work on our artillery. The servants whisper among themselves that he consorts with the devils at night, for they can hear constant explosions coming from his workshop and he constantly smells of sulfur. Priesthood thinks that he is dealing with dark arts and the nobles think you went mad to invest so much money into chasing some madman’s dream when we are about to be besieged. However our artillery is improving dramatically – Orban is training new artillerymen and forging new cannons using new methods, making them cheaper and deadlier (500 gold instead of 1000 gold).
+660: Hire him, but try to negotiate the price he demands [IF Fortifications and Artillery] (30.000)
+661: //Orban is pleased – he immediately gets to work on our artillery. The servants whisper among themselves that he consorts with the devils at night, for they can hear constant explosions coming from his workshop and he constantly smells of sulfur. Priesthood thinks that he is dealing with dark arts and the nobles think you went mad to invest so much money into chasing some madman’s dream when we are about to be besieged. However our artillery is improving dramatically – Orban is training new artillerymen and forging new cannons using new methods, making them cheaper and deadlier (500 gold instead of 1000 gold).
+662: Decline his offer, he is asking for too much.
+663: //85% Orban curses and departs your throne room in anger. A few weeks later your spies report that he has appeared in Sultan’s court and has been hired to destroy your city.
+664: //15% Orban curses and departs your throne room in anger. A few weeks later your spies report that he has tried to sell his services to the Sultan, be Mehmet has chosen instead to cut his head off.
+667: ===
+668: title: story16
+669: ---
+671: </b> Legendary Greek Fire</b>
+673: As the looming threat of the Ottoman siege casts its shadow over Constantinople, the question arises – should the Empire embark on the quest to rediscover the ancient knowledge of Greek Fire and prepare to use it during the siege? This legendary incendiary weapon, a closely guarded state secret, could potentially tip the scales in the impending conflict. It was known for its exceptional effectiveness in setting targets ablaze, even on water. Greek Fire was typically deployed using specialized siphon-like devices mounted on ships, allowing the Byzantines to unleash devastating fire upon their enemies. The weapon played a significant role in the defense of Constantinople and maybe it could do so again. However, it has been centuries since the last time it was used in battle. Although we have some clues, rediscovering the secret will be complicated and expensive process. Shall we try to embark on it?
+675: Explore Historical Archives of our Palace: Instruct scholars to delve into the vast historical archives of Blachernae, scouring ancient texts and records for any mentions of Greek Fire.
+676: Scholars meticulously comb through the historical archives, unearthing fragments of information on Greek Fire. While the process is slow, their dedicated efforts yield valuable insights, providing a foundation for further research and potential rediscovery.
+677: Send an Expedition to Mount Athos: Dispatch a daring expedition to Mount Athos, a revered center of Byzantine monasticism, where ancient manuscripts and forgotten wisdom may reside. The monks, known for preserving knowledge, could hold the key to unlocking the secrets of Greek Fire. (IF FAITH)
+678: A daring expedition sets forth to the sacred Mount Athos, seeking the wisdom preserved by devout monks. The journey proves fruitful, as the monks, bound by faith and a sense of duty, share ancient manuscripts that could hold the elusive formula for Greek Fire.
+679: Summon all the alchemists to test new methods to create Greek fire – invention beats rediscovery!
+680: Embracing innovation, you gather the realm's alchemists to experiment with novel methods of creating Greek Fire. While progress is slow, their inventive approaches lead to the development of a modified version, offering a contemporary twist on the legendary incendiary weapon.
+681: We should not rely on legends for our defence. Battles of this modern age will be decided by steel and cannon, not some esoteric alchemy.
+682: Adopting a pragmatic stance, you dismiss the pursuit of Greek Fire as an antiquated notion. Instead, you prioritize the advancement of conventional weaponry, placing faith in modern tools like steel and cannons for the imminent siege.
+684: ===
+685: title: story17
+687: </b> Siege Preparation – Commander </b>
+688: ---
+690: One of the most important decisions of your siege will be to select the main commander of your defence force. Personal qualities of the commander will be crucial in how we conduct this siege. Who will it be?
+692: I choose Giovanni Giustiniani, he is a hardened veteran and great frontline commander.
+693: Giustiniani, a seasoned and battle-hardened Genoese veteran, assumes command of the defense force. His tactical acumen and frontline leadership promise to bolster the resilience of the city's defenders.
+694: I choose prince Orhan, he hates Mehmet and as a Turk will know all their weaknesses.
+695: Prince Orhan, harboring a deep resentment towards Mehmet and possessing intimate knowledge of Turkish weaknesses, takes charge. His unique perspective as a Turk adds a strategic edge to the defense.
+696: I choose Orban, an artillery genius who will deliver death to our enemies.
+697: Orban, the renowned artillery genius, is entrusted with the responsibility of delivering devastating blows to the enemy. His expertise in artillery promises to reshape the battlefield in favor of the defenders.
+698: I choose Loukas Notaras, only a loyal administrator can manage our resources for such a siege.
+699: Recognizing the importance of resource management, Loukas Notaras, a loyal administrator, is appointed as the main commander. His organizational skills will be crucial for sustaining the city throughout the prolonged siege.
+700: I choose Cardinal Isidore, his faith will rally our defenders and maintain our morale.
+701: Cardinal Isidore, a symbol of unwavering faith, assumes command to rally the defenders spiritually. His presence is expected to maintain morale and inspire resilience among the city's inhabitants.
+702: I choose Alviso Diedo, an experienced captain who will utilize our fleet for maximum effect.
+703: Alviso Diedo, an experienced Venetian captain, takes control with a focus on leveraging the fleet for maximum impact. His naval expertise aims to disrupt the enemy's plans and provide crucial support from the sea.
+704: I choose Johannes Grant, a brilliant engineer who will maintain our walls
+705: Johannes Grant, a brilliant engineer, is entrusted with the maintenance of the city's walls. His technical prowess ensures the structural integrity of the defenses, reinforcing Constantinople against the impending onslaught.
+707: (unused options)
+708: I choose Demetrios Palaiologos, my brother. 
+709: I choose Theophilos Palaiologos, my cousin, a renowned scholar and warrior. 
+712: ===
+713: title: story18
+714: ---
+716: </b> Assault on the Strait-Cutter Fortress </b>
+717: Rumeli fortress, conceived and built in 1452 on the orders of Sultan Mehmed II, was built in preparation for the planned siege, with the goal of cutting off maritime military and logistical relief that could potentially come to our aid by way of the Bosphorus Strait. Hence the fortress's alternative name, Boğazkesen or "Strait-cutter". As the Ottoman armies are getting ready to besiege our City, we need to decide if we should use part of our resources to neutralise Boğazkesen.
+719: Order covert Infiltration of the fortress [-troops]
+720: You task a group of skilled infiltrators to slip into Rumeli Fortress under the cover of being merchants. Their mission is to start a fire and create confusion, creating an opening to open the gate and let in the rest of your army.
+721: [60%] You task a group of skilled infiltrators to slip into Rumeli Fortress under the cover of being merchants. Their mission is to start a fire and create confusion, creating an opening to open the gate and let in the rest of your army. The mission goes flawlessly - the infiltrators skillfully navigate Ottoman defenses and soon your troops raise your banner over the Boğazkesen.
+722: [40%] You task a group of skilled infiltrators to slip into Rumeli Fortress under the cover of being merchants. Their mission is to start a fire and create confusion, creating an opening to open the gate and let in the rest of your army.  Unfortunately Ottoman vigilance prevails as the infiltrators are detected. A swift and decisive response leads to their capture and execution. The rest of your troops return, seeing that there is no way to complete their mission.
+723: Bribe someone inside the castle to sabotage the Artillery [-money]
+724: [70%] There is no need to take over the whole fortress – the most important thing is to render it toothless by disabling the artillery. You order a sabotage mission and your spies bribe a Levantine sentry to set the gunpowder storage on fire. He is successful - the ammunition warehouse explodes with a thunderous roar, destroying the main artillery tower, destroying all the cannons and the ammunition required to fire it. The mission is a complete success and while Ottomans will eventually rebuild the castle, for now the Strait lies open once more.[30%] There is no need to take over the whole fortress – the most important thing is to render it toothless by disabling the artillery. You order a sabotage mission and your spies bribe a Levantine sentry to set the gunpowder storage on fire.  Unfortunately, Ottoman guards keenly guard the armoury and detect the sabotage attempt. Despite best efforts, the mission fails and our saboteur is executed. The artillery remains operational, maintaining the blockade of the Strait.
+725: Order a Diversionary Maneuver: 
+726: [70%] You order a diversionary maneuver on the outskirts of Rumeli, hoping to provoke the garrison. Your forces attack a few villages which supply the fortress with food. Their attempt is successful in drawing Ottoman forces away from the fortress. This creates an opportunity for a smaller force of your knights to exploit a weakened defense and seize control of the fortress. By sunset, your flag flutters in the wind above the Rumeli.
+727: [30%] You order a diversionary maneuver on the outskirts of Rumeli, hoping to provoke the garrison. Your forces attack a few villages which supply the fortress with food. Their attempt is not successful, as Ottoman forces resist the diversion, recognizing the strategic ploy. The defenders hold their positions, and the diversion fails to create the intended opening for exploitation, so your forces return empty-handed.
+728: Launch a Sudden Assault, take the castle at any cost [casualties]
+729: You realise that taking this fortress is critical for the survival of your City. The sudden assault catches Rumeli’s defenders off guard, and the well-equipped contingent led by the seasoned commander overwhelms the defenses. The fortress falls under your control, securing the Bosphorus Strait, but the price for this is great, as direct assault is always costly. 
+730: Do nothing
+731: Boğazkesen is too well fortified and we need all the men we can spare in Constantinople.
+734: ===
+735: title: story19
+736: ---
+738: </b> The Genoese Arrive </b> 
+739: As the ominous shadow of the impending Ottoman siege looms over Constantinople, a timely reinforcement sails into the Golden Horn from the maritime republic of Genoa, led by the seasoned commander Giovanni Giustiniani. This unexpected arrival brings a cadre of battle-tested soldiers, skilled sailors, and crucial supplies. The potential impact of this Genoese contingent on the city's defense cannot be overstated.
+740: Extend them a Warm Welcome 
+741: Welcoming the Genoese with open arms, you foster a strong bond that encourages them to contribute wholeheartedly. Their troops, expertise, and resources become integral to the imminent defense efforts.
+744: ===
+745: title: story20
+746: ---
+748: </b> Fate of Stadia and Therapia Castles </b> 
+749: Stadia and Therapia castles, are two remaining strategic outposts guarding the critical approaches to Constantinople. As the Ottoman forces will soon be on the move, we need to decide what will be their role in our siege plans. The castles are too week to hold out on their own for more than a few days as they are. We could either abandon them, leave them as they are or try to fortify them and hope for the best. Finally, we could give these castles as a gift to the neutral Genoese, hoping that Turks will respect their neutrality and desist from attacking them. The fate of these castles could impact the overall defense of the City. What will be your orders?
+751: Withdraw Garrison Troops [+100 troops] 
+752: Opting for a strategic retreat, you recall the garrison troops from both Stadia and Therapia Castles to reinforce the main defence lines of Constantinople. The castles are abandoned, but their defenders contribute to the city's overall strength.
+753: Leave Garrison to Delay Ottomans [+ delay 6 days]
+754: Choosing to sacrifice the garrisons, you instruct them to mount a valiant defense, aiming to delay the Ottoman forces. While the castles may fall, the delay provides valuable time for additional preparations in Constantinople.
+755: Send Reinforcements and Fortify the Castles [- enemy troops]
+756: Prioritizing the defence, you dispatch reinforcements to Stadia and Therapia castles and order the garrisons to fortify and prepare for a long siege. This strengthens the outposts and increases their resilience against the impending Ottoman assault. While the castles may eventually fall, the delay provides valuable time for additional preparations in Constantinople and will divert part of the Ottoman force to deal with them.
+757: Grant the Castles to the Genoese [+Galata support, + some troops]
+758: As Genoa and its colony Galata officially remains neutral and at peace with the Sultan, we decide to withdraw majority of our troops and grant the ownership of the castles to the Galatan podesta. He is pleased with your gesture and Galatan support for your cause increases, however now the Ottomans will simply go past the castles and they will not delay them for even one day.

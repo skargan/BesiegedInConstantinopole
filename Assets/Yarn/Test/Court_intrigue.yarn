@@ -1,0 +1,64 @@
+title: courtLady
+---
+<<LadyBegin>>
+<b>Promiscuous Court Lady</b>: <br> Lady Helena, a widowed noblewoman of thirty-two, has made the besieged palace considerably less monastic. A captain's signet has been found beneath her cushions; a minister has discovered that his supposedly private compliment was also delivered to his rival. Helena calls this generosity. The Patriarch prefers another word.<br>Tonight she approaches you with wine, a neckline calculated to test imperial discipline, and an observation: men who say nothing useful at council become remarkably candid after midnight. Her fingers linger on your wrist.<br>"Must everything at this court be a matter of duty, Majesty?"
+-> A. Invite her to your private apartments. Noble support -5; clergy support -10. Begins a personal intrigue.
+    <<ChangeFraction fNobleRep -0.05>>
+    <<ChangeFraction fPriestRep -0.10>>
+    <<LadyRoute 1>>
+    You dismiss the attendants. By dawn, Helena knows which imperial door sticks in its frame, and the servants know considerably more than they should. For once, the council's whispers concern something other than the walls.
+-> B. Ignore her advances. No immediate effect.
+    <<LadyRoute 0>>
+    You return to your papers. Helena studies the dispatches, then your expression. "How fortunate for the dispatches." She takes the wine with her.
+-> C. Arrange a marriage with {LadyMatchName()}. His loyalty +15; noble support -5. Begins a marriage intrigue. <<if LadyHasMatch()>>
+    <<LadyLoyalty 15>>
+    <<ChangeFraction fNobleRep -0.05>>
+    <<LadyRoute 2>>
+    You offer Helena an imperial dowry in prestige rather than coin, and a place beside {LadyMatchName()}. Both accept. He sees an honour; she sees a household of her own. The families passed over for the match discover an urgent concern for proper breeding.
+-> D. Diplomacy: cultivate her as a source of secrets. Gain 1 secret; noble support -3. <<if GetInt("iFocus") == 4>>
+    <<Change iSecrets 1>>
+    <<ChangeFraction fNobleRep -0.03>>
+    <<LadyRoute 0>>
+    "Keep your admirers," you tell her. "Remember what they say." Helena laughs and names an official whose night-time boasting contradicts his accounts. By the following council, several nobles have noticed how closely you listen when she speaks.
+-> E. Diplomacy: recruit her as an agent. Gain 1 agent; clergy support -5. <<if GetInt("iFocus") == 4>>
+    <<Change iSpies 1>>
+    <<ChangeFraction fPriestRep -0.05>>
+    <<LadyRoute 0>>
+    You give her a handler, a cipher and the means to report safely. Helena accepts on one condition: she chooses whom to approach. Her new errands attract clerical suspicion, but the intelligence office acquires someone who can enter rooms its sober gentlemen never see.
+===
+
+title: courtLadyLetters
+---
+<<SetInt iLadyFollowup 1>>
+<b>A Letter Left Unburned</b>: <br> A letter in your hand has escaped Helena's apartments. Its description of an evening without imperial robes would entertain the taverns for weeks. A chamberlain offers to recover it. Helena offers to find whoever stole it; her anger, at least, appears entirely sincere.
+-> Pay for its discreet recovery. Lose 1,000 gold; noble support -2. <<if GetInt("iMoney") >= 1000>>
+    <<Change iMoney -1000>>
+    <<ChangeFraction fNobleRep -0.02>>
+    The letter returns with a faint smell of another man's perfume. You burn it yourself. The chamberlain leaves richer; discretion, it seems, is a taxable commodity.
+-> Acknowledge the affair and refuse to be blackmailed. Noble support -5; clergy support -10.
+    <<ChangeFraction fNobleRep -0.05>>
+    <<ChangeFraction fPriestRep -0.10>>
+    Your refusal deprives the blackmailer of his price, though not the court of its entertainment. Helena takes your arm in public. The Patriarch requests a private audience of a rather different kind.
+-> Diplomacy: let Helena trace the blackmailer. Gain 1 secret; noble support -5. <<if GetInt("iFocus") == 4>>
+    <<Change iSecrets 1>>
+    <<ChangeFraction fNobleRep -0.05>>
+    She sends a second letter, more enticing and entirely false. The man who comes to buy it supplies a name. You gain a useful secret, although the first letter remains beyond your control.
+===
+
+title: courtLadyMarriage
+---
+<<SetInt iLadyFollowup 1>>
+<b>The Wedding and the Whisper</b>: <br> A former admirer circulates a story about Helena's wedding night which could only have been invented or overheard. The court is enjoying both possibilities. Your sponsorship of her marriage to {LadyMatchName()} has made the insult an imperial concern.
+-> Publicly defend the marriage and rebuke the gossip. Husband's loyalty +10 if still in service; noble support -5.
+    <<LadyLoyalty 10>>
+    <<ChangeFraction fNobleRep -0.05>>
+    You remind the court that a marriage under your protection is no invitation to a public spectacle. Helena thanks you without lowering her eyes. Several nobles resent the lecture more than they regret the gossip.
+-> Leave the couple to settle it privately. Husband's loyalty -10 if still in service; no faction reputation change.
+    <<LadyLoyalty -10>>
+    The palace doors remain closed. Your silence saves an argument at council, but an imperial promise of protection has proved disappointingly quiet when tested.
+-> Diplomacy: have Helena expose the slanderer's affairs. Gain 1 secret; husband's loyalty +5 if still in service; clergy support -5. <<if GetInt("iFocus") == 4>>
+    <<Change iSecrets 1>>
+    <<LadyLoyalty 5>>
+    <<ChangeFraction fPriestRep -0.05>>
+    Helena produces names, dates and a ribbon its owner would dearly like returned. Her tormentor falls silent. The clergy deplore a court which answers scandal by publishing a better scandal.
+===

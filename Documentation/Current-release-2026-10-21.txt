@@ -1,0 +1,37 @@
+CURRENT DESKTOP RELEASE — 21 October 2026, Midnight Mosaic 17
+
+Launch: desktop Besieged.lnk -> Play-Besieged.cmd -> Builds/Windows-MidnightMosaic/Besieged.exe.
+The old launcher targeted Windows-Espionage. Historical build folders are retained as snapshots, not updated copies. This directory is a ZIP checkout without .git; no GitHub publication was performed.
+Default ConfigurePlaytest.Build output now uses Windows-MidnightMosaic; legacy flags retain historical destinations. BuildLabel is shared by menu and HUD.
+
+Training: five documented tiers retained; 5000 gold / whole troop type / one major action; five calendar days; troops remain available. Save stores deadline and target quality. Training completes once. Preparation turns may advance beyond the deadline in one turn.
+Roman Tactics, Upgraded Crossbows, Cataphract Armour each add 25% of trained lethality. Grenades +0.25 and Handcannons +0.5 remain. Cavalry contributes half total lethality at walls; Dismounted Champions restores full contribution. Varangian Drills +20%; new specialist technologies cost 2 secrets each. Artillery Ships doubles the defensive fleet report from 100 to 200 enemy casualties. It does not invent a per-ship wall-assault coefficient. Existing technology keys remain for save compatibility.
+
+Surrender: seven rows, adding nobility to the six requested categories. Offer pressure = 40% fury + 20% camp alert + 40% active-wall damage. Bands below 25, 50, 75 and 75+ select adverse terms. Mid-range offers may sacrifice Emperor/household while sparing inhabitants. Extreme fury plus almost-destroyed walls can produce execution of inhabitants; high alert can extend execution to household. These are authored gameplay rules, not reconstructions of actual Ottoman terms.
+Offers are fixed until the date changes, saved when requested, with a separate final acceptance. Enslavement/execution adds assassination risk: inhabitants 10, military 50, household 20 percentage points; sum max80. One roll at acceptance, result saved. Assassination repudiates surrender and ends the player's reign; the City continues resisting in ending text. No playable successor campaign yet.
+Ten achievement entries: survival, surrender assassination and negotiated surrender track completion; seven planned entries are visibly marked. Test saves never unlock user achievements.
+
+Historical research / editorial sources:
+Melek Delilbasi, Belleten 47/185 (1983), Ottoman and other Turkish grants to western powers: Karaman-Venice treaty February1453.
+https://www.belleten.gov.tr/tam-metin/1777/tur
+TDV, Faruk Sumer, Karamanogullari: Anatolian dynastic rivalry.
+https://islamansiklopedisi.org.tr/karamanogullari
+Encyclopaedia Iranica, Rosemarie Quiring-Zoche, Aq Qoyunlu: succession struggle1452-1457; later Trebizond alliance; Venice alliance1464-1469. Avoid importing the mature alliance into1453.
+https://www.iranicaonline.org/articles/aq-qoyunlu-confederation/
+Order of Malta institutional history: Rhodes base before Malta1530.
+https://www.orderofmalta.int/history/names-of-the-order/
+Cyprus tribute and diplomatic gift exchange, Religions14(9),1163:
+https://www.mdpi.com/2077-1444/14/9/1163
+Casimir IV / Prussian chronology: open historical reference. The Prussian war starts1454, not before the siege. Poland and Lithuania are a dynastic union, not the1569 Commonwealth.
+https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Casimir_IV.
+
+Country chronicles are original game prose; aid motivations are interpretative, not claims of historical promises. Ruler's religion and population are distinguished, especially Cyprus and Athens. No unverified Vytautas Order of the Dragon claim included.
+Suggested Muslim aid: Karaman first (Anatolian diversion, not a fictional historical relief army); Aq Qoyunlu second with weaker1453 case. Mamluk military aid is a substantially weaker contemporary fit. No new diplomatic power added without selecting the gameplay package.
+
+Fleet overview added: current ships, orders, event-report effects, Diedo support, Artillery Ships and construction dates. Existing order-selection events retained.
+Main menu: Crimson Text by the Crimson Text Project Authors; SIL OFL1.1, licence bundled in Assets/Resources/Fonts/OFL.txt.
+
+Fleet copy repair: the failed naval-battle branch incorrectly repeated the victory paragraph; it now reports defeat. Removed an unsupported promise of double mission rewards after victory; existing reward values remain unchanged except the explicitly approved Artillery Ships bonus.
+
+Midnight Mosaic 17: shared ImperialTheme palette, Crimson Text, generated navy mosaic surfaces, crisp native gilt frames, hover/pressed/disabled treatments and teal return controls. Carved ivory module icons use a transparent atlas: fortifications, mobilisation, economy, faith, diplomacy. Both council navigation and Yarn focus choices consume the atlas. No style-dependent campaign rules or automatic religion-based theme changes are enabled. The palette and presentation helpers are isolated for future skin variants.
+QA: 590 campaign regression checks passed after repairing a missing CanvasRenderer in new borders. Final style changes validated by Windows export and captured game screens. Generated assets and prompts: UI-asset-prompts.txt.

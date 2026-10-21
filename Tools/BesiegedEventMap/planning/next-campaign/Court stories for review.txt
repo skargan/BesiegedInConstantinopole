@@ -1,0 +1,329 @@
+BESIEGED — THE ROOMS BEHIND THE THRONE
+Fully authored narrative package. Not yet integrated into Unity.
+Three six-chapter relationship routes, plus four new chapters completing the existing scandal route.
+
+romHelena1 — A Map with No Walls
+Helena has spread a sea chart across a table intended for petitions. The islands are weighted with silver spoons. “Every map in this palace ends at the walls,” she says. “That is a habit of mind, not a fact of geography.” She is a widow of thirty-two, accustomed to negotiating with captains who mistake courtesy for agreement. She moves a spoon away from Constantinople. “You may need to know what lies beyond your duty.”
+
+Ask her to explain the routes.
+She draws you a passage through the islands. For an hour you speak as two people who might have futures, rather than an emperor and his petitioner.
+Effects / conditions: {"trust:helena": 2, "flag:helenaRoutes": true}
+
+Tell her survival begins with holding the City.
+“Then hold it,” she answers, “but do not pretend there is nowhere else to stand.” She leaves the chart open.
+Effects / conditions: {"trust:helena": 0}
+
+Decline further private audiences.
+She gathers the spoons before the chart. “Of course, Majesty. The sea will remain where it is.”
+Effects / conditions: {"close:helena": "declined"}
+
+romHelena2 — Names on a Passenger List
+Helena brings a list of civilians for a departing merchantman. Wealthy families have paid for passage; the captain claims there is no room for the servants who helped pack their luggage. She points to a girl carrying two children. “He has room for three chests of plate. I counted them.” She asks for your intervention, not a declaration of affection.
+
+Pay 400 gold to secure passage for the servants.
+The captain discovers space. Helena stays on the quay until the last child has crossed the gangplank.
+Effects / conditions: {"iMoney": -400, "trust:helena": 3, "flag:helenaEvacuation": true}
+
+Require the families to give up their cargo space.
+Some trunks return to shore. Helena thanks you; their owners begin composing a less grateful account of the morning.
+Effects / conditions: {"fNobleRep": -0.03, "trust:helena": 2, "flag:helenaEvacuation": true}
+
+Leave the passenger arrangements to the captain.
+“Then let us call this a purchase,” she says, “and stop calling it deliverance.”
+Effects / conditions: {"trust:helena": -2}
+
+romHelena3 — The Captain Wants His Price
+A captain will reserve a small vessel for an emergency departure. His price includes silence, provisions and a crew willing to sail without asking who is beneath the cloak. Helena has not paid him. “I can make the arrangement. I will not make your decision for you.” Beyond her composure is something less easily negotiated: she wants you to remain alive.
+
+Reserve the passage for 1,000 gold.
+The captain accepts a deposit. Helena folds the receipt into the chart. A route exists; no order to depart has been given.
+Effects / conditions: {"iMoney": -1000, "flag:escapePassage": true, "trust:helena": 2}
+
+Ask her to stay, without promising to leave.
+She sits beside you. “That is an honest answer. An inconvenient one, but honest.”
+Effects / conditions: {"trust:helena": 2}
+
+Order her to stop discussing departure.
+She closes the chart. Her next conversation with you concerns the weather.
+Effects / conditions: {"trust:helena": -3}
+
+romHelena4 — A Life That Is Not an Office
+Helena finds you asleep over a dispatch. She takes the pen before it stains your sleeve. When you wake, she has no petition. “I have spent enough years being useful to men who would not name what I was to them.” She asks whether your private kindness means a shared future, or merely shelter from a difficult evening.
+
+Offer an acknowledged courtship.
+You ask her to remain as the woman you are courting. She accepts if your earlier conduct has earned her trust; a title alone cannot answer her question.
+Effects / conditions: {"commit": "helena", "requiresTrust": 4}
+
+Ask her to share your bed, without a public promise.
+She agrees only if she trusts you. The door closes on a freely chosen intimacy, not an agreement about tomorrow.
+Effects / conditions: {"intimacy": "helena", "requiresTrust": 4, "fNobleRep": -0.02}
+
+Offer friendship and no romantic expectation.
+“Then we can at least stop mistranslating one another.” She keeps her place at the table.
+Effects / conditions: {"friendship": "helena"}
+
+romHelena5 — What Might Come After
+If you have been lovers and the stored pregnancy roll succeeded, Helena tells you that she may be carrying your child. She has waited for a physician's opinion before speaking. Otherwise, she brings news that her family can shelter her abroad. In either case she asks the same question: will she be expected to remain here because leaving would embarrass you?
+
+Support her departure; pay 500 gold for her household.
+You give her the means to travel independently. Whatever passes between you, her future will not depend on waiting outside your door.
+Effects / conditions: {"iMoney": -500, "trust:helena": 3, "fate:helena": "departed_safely"}
+
+Ask her to remain, while leaving the choice to her.
+She stays if trust is sufficient. Otherwise she takes her leave without asking your permission a second time.
+Effects / conditions: {"conditionalStay": "helena", "requiresTrustForStay": 5}
+
+Prepare to leave together when I give the order.
+She begins practical arrangements. This records your intention; it does not end the campaign or guarantee escape.
+Effects / conditions: {"flag:escapeCompanionHelena": true, "flag:escapeIntention": true}
+
+romHelena6 — The Last Light on the Quay
+A lantern burns beneath the harbour wall. Helena has heard that the captain may sail before dawn. “You can stay,” she says. “You can come. What you cannot do is ask the boat to wait forever because you cannot bear to choose.” The distant guns supply no answer. Neither does she.
+
+Review an escape attempt together.
+She takes out the chart. You review the route, costs and current risk before giving any irreversible order.
+Effects / conditions: {"open": "escapeReview", "companion": "helena"}
+
+Remain at my post and release her from the promise.
+You tell her you will stay. She may go without being called faithless. If she chooses to remain, it will be for you, not because you trapped her with your own vow.
+Effects / conditions: {"resolve": "helena", "ending": "honest_separation_or_shared_defence"}
+
+End the relationship and let her sail.
+She returns a small gift you had forgotten giving her. The departure is quiet enough to hurt.
+Effects / conditions: {"resolve": "helena", "fate:helena": "departed", "relationship:helena": "separated"}
+
+romAnna1 — The Lamp in the Infirmary
+Anna Synadene is washing a bowl when you enter the infirmary. A devout laywoman of twenty-nine, she has organised linen, meals and volunteers with a competence that makes the palace inventories look theatrical. She finishes with the bowl before greeting you. “If you have come for a blessing, Majesty, the priest is upstairs. If you have come to help, hold this.”
+
+Help her carry water and speak with the wounded.
+She gives you work before conversation. By the time you leave, she has stopped addressing every sentence to the crown.
+Effects / conditions: {"trust:anna": 2}
+
+Send 100 provisions to the infirmary.
+She checks the delivery herself. Gratitude is written in a ledger beside the number of mouths it will feed.
+Effects / conditions: {"iProvisions": -100, "trust:anna": 2, "flag:annaInfirmary": true}
+
+Leave the infirmary to its attendants.
+She returns to work. There are patients who cannot wait for the Emperor to decide whether to care.
+Effects / conditions: {"close:anna": "declined"}
+
+romAnna2 — Mercy Has an Inventory
+A wounded Ottoman prisoner has been carried into the infirmary. A Greek soldier wants his bed for a cousin arriving from the walls. Anna has already stopped the bleeding. “I will not pretend the bed is empty,” she says. “Nor will I pretend your soldier's cousin is an abstraction.” She asks for resources to treat both, knowing exactly how scarce they are.
+
+Provide 150 provisions and treat both men.
+Two beds are made. Neither patient becomes an argument anyone has won.
+Effects / conditions: {"iProvisions": -150, "trust:anna": 3}
+
+Treat the prisoner under guard; use the existing stores.
+Anna accepts the guard. Some soldiers resent sharing their supplies with an enemy, though the wounded man never hears their complaints.
+Effects / conditions: {"fTroopRep": -0.02, "trust:anna": 1}
+
+Reserve the infirmary for our own people.
+Anna obeys the order to move him. She does not agree to call it merciful.
+Effects / conditions: {"trust:anna": -3, "fTroopRep": 0.01}
+
+romAnna3 — No Miracle Promised
+A frightened crowd wants Anna to proclaim that the City cannot fall while its relics remain within the walls. She refuses. “Faith is not a contract obliging God to spare us consequences.” A priest accuses her of weakening hope. She asks whether you want her to comfort the City with a certainty she does not possess.
+
+Support her honesty in public.
+You ask the people to pray and prepare. Anna watches as you resist a promise that would have been easy to make.
+Effects / conditions: {"trust:anna": 3, "fPeopleRep": -0.01, "flag:annaHonesty": true}
+
+Ask her to speak of courage, without predicting victory.
+She speaks of the duties still within reach of every listener. The crowd leaves quieter, with work to do.
+Effects / conditions: {"trust:anna": 1}
+
+Allow the reassuring story to circulate.
+She refuses to lend it her voice. Your officials find another speaker.
+Effects / conditions: {"trust:anna": -3, "fPeopleRep": 0.02}
+
+romAnna4 — A Promise Before Witnesses
+Anna meets you after vespers. Away from the infirmary, she seems younger and less certain what to do with her hands. “I know the difference between being needed and being loved,” she says. “I should like not to confuse them.” She will consider courtship. She will not become a secret kept between campaigns of repentance.
+
+Offer an acknowledged, faithful courtship.
+She accepts if your conduct has earned her trust and you have no unresolved commitment to another woman. For once, she allows someone else to carry the lamp.
+Effects / conditions: {"commit": "anna", "requiresTrust": 4, "requiresNoOtherCommitment": true}
+
+Ask for friendship and counsel.
+She takes the offer seriously. Her advice will not become less demanding because it is no longer romantic.
+Effects / conditions: {"friendship": "anna"}
+
+Suggest a discreet affair.
+“Then you have mistaken me.” She leaves without a scene. You have made a quieter, more durable mistake.
+Effects / conditions: {"trust:anna": -5, "close:anna": "romance_declined"}
+
+romAnna5 — The Marriage Without a Feast
+If you are courting Anna, a priest can solemnise the marriage with a handful of witnesses. There will be no banquet while the infirmary measures its bread. If you chose friendship, she instead asks you to protect the infirmary's stores by a public charter. Either proposal turns a private assurance into something others can hold you to.
+
+Marry her and endow the infirmary with 200 provisions.
+The service is brief. Afterwards Anna removes the ceremonial cloth from a table so the attendants can lay out clean dressings.
+Effects / conditions: {"requiresCommitment": "anna", "iProvisions": -200, "marry": "anna"}
+
+Issue the infirmary charter without a marriage.
+You place the institution under imperial protection. Anna receives a commitment she can use on behalf of people who have never met you.
+Effects / conditions: {"flag:infirmaryCharter": true, "trust:anna": 1}
+
+Postpone any formal commitment.
+She accepts the uncertainty. She will judge it by what you do next.
+Effects / conditions: {"trust:anna": -1}
+
+romAnna6 — Where She Will Remain
+Anna has prepared a shelter beneath the infirmary. She intends to remain with the wounded if the walls fall. If you married and later chose intimacy, a pregnancy may now be known; it changes whom she must consider, not the courage she owes a playwright. “I will hear your reasons,” she tells you. “I will not obey fear merely because it speaks in your voice.”
+
+Support the shelter with 300 gold.
+She buys water jars, locks and bedding. The refuge improves their chance of survival; it does not make the City invulnerable.
+Effects / conditions: {"iMoney": -300, "flag:annaShelter": true, "resolve": "anna"}
+
+Ask her to evacuate with the patients who can travel.
+She agrees only if transport for the patients is actually arranged. She will not board a private escape boat and call it an evacuation.
+Effects / conditions: {"requiresFlag": "civilianEvacuation", "fate:anna": "evacuated_with_patients", "resolve": "anna"}
+
+Respect her decision and remain beside her when duty permits.
+You leave knowing where to find her. The answer is neither a victory nor an escape, but it is an answer.
+Effects / conditions: {"resolve": "anna", "ending": "shared_duty"}
+
+romTheodora1 — The Woman Who Knows the Door
+Theodora, a courtesan of thirty-one, has been stopped at three palace doors and admitted through the fourth. She tells you this with professional amusement. A captain has paid her in a promissory note bearing your seal. “I thought you should know what the Empire is purchasing on credit.” When you ask her name, she catches the association before you speak. “Yes. But I charge extra for saving an emperor's reign.”
+
+Hear her account and investigate the forged promise.
+She names the captain and keeps the note. “You may borrow my evidence. You may not lose it.”
+Effects / conditions: {"trust:theodora": 2, "flag:forgedCourtCredit": true}
+
+Pay the 250 gold owed, then dismiss the claim.
+She counts it in front of you. Courtesy, she explains, is no reason to abandon arithmetic.
+Effects / conditions: {"iMoney": -250, "trust:theodora": 1}
+
+Refuse further audiences.
+She leaves through the same door, less impressed by the furniture than the guards had expected.
+Effects / conditions: {"close:theodora": "declined"}
+
+romTheodora2 — The Price of a Name
+Theodora has heard where a clerk sells copies of provisioning orders. She will give you the name, but asks that the women who told her not be swept up in the arrests. “Men tell us things because they think listening is part of the furniture. Do not punish my friends for proving otherwise.”
+
+Protect the witnesses and pay 300 gold for the information.
+The clerk is caught with a second set of accounts. The witnesses remain witnesses.
+Effects / conditions: {"iMoney": -300, "iSecrets": 1, "trust:theodora": 3}
+
+Diplomacy: establish a paid, discreet channel for her informants.
+She chooses the contact and the meeting place. Your intelligence office acquires one useful agent, not ownership of every woman in the district.
+Effects / conditions: {"requiresFocus": 4, "iMoney": -500, "iSpies": 1, "trust:theodora": 2}
+
+Demand the name without conditions.
+She tells you nothing. The next rumour reaches someone who knows how to ask.
+Effects / conditions: {"trust:theodora": -3}
+
+romTheodora3 — Silk at the Council Door
+A noble refuses to discuss a grain contract while Theodora is in the room. She has supplied the evidence of his supplier's fraud. “Then perhaps he would prefer the grain,” she says, “which is equally adulterated and considerably less well dressed.” The room waits to discover whether your favour survives an audience.
+
+Let her present the evidence.
+She names the figures without ornament. The noble hears her out and resents you for making him do it.
+Effects / conditions: {"fNobleRep": -0.03, "trust:theodora": 3}
+
+Hear her privately, then present the case yourself.
+The fraud is exposed. She understands the tactic and notices whose name is absent from the account.
+Effects / conditions: {"trust:theodora": -1}
+
+Send her away to preserve decorum.
+She leaves the papers behind. They contain every fact except the one the room has just demonstrated.
+Effects / conditions: {"trust:theodora": -4}
+
+romTheodora4 — No Patron in the Bedchamber
+Theodora refuses a purse you have sent with a private invitation. “If this is business, say so. If it is affection, stop arranging it through your treasurer.” Her wit has gone. She asks what you want from her, and whether you can bear to hear an answer you did not purchase.
+
+Offer an acknowledged relationship.
+She accepts only if trust has survived your public conduct. The next morning she enters by the principal door.
+Effects / conditions: {"commit": "theodora", "requiresTrust": 4, "fNobleRep": -0.03, "fPriestRep": -0.03}
+
+Ask for freely chosen intimacy, with no promise of exclusivity.
+She may accept if she trusts you. Neither of you mistakes the night for a charter governing the rest of her life.
+Effects / conditions: {"intimacy": "theodora", "requiresTrust": 4}
+
+Keep the relationship professional.
+She takes back the purse only when you specify the work it pays for. The distinction improves both your accounts.
+Effects / conditions: {"friendship": "theodora"}
+
+romTheodora5 — A Name for Tomorrow
+If intimacy has led to pregnancy, Theodora asks what protection a child will have when the court begins counting ancestors. Otherwise, she asks for the same protection for her household: property that cannot be reclaimed by a resentful official after your favour passes. “A gift that vanishes when you do is a loan with poor terms.”
+
+Settle 750 gold on her independent household.
+The deed names her, not a guardian appointed to speak for her. She reads it twice before thanking you.
+Effects / conditions: {"iMoney": -750, "flag:theodoraHousehold": true, "trust:theodora": 3}
+
+If there is a child, acknowledge responsibility publicly.
+You acknowledge responsibility without declaring an unconfirmed child an heir. The court finds sufficient scandal in the truth.
+Effects / conditions: {"requiresPregnancy": "theodora", "flag:acknowledgedTheodoraChild": true, "fNobleRep": -0.04, "trust:theodora": 2}
+
+Offer private reassurance without a settlement.
+“Then we still have the same question.” She folds her hands and waits for the audience to end.
+Effects / conditions: {"trust:theodora": -2}
+
+romTheodora6 — Purple Is an Expensive Shroud
+Someone at dinner repeats the old saying about imperial purple making a fine shroud. Theodora sets down her cup. “Very fine. Expensive. Useless to the person wearing it.” She would fight for a City that gave her a place in it; she will not pretend a theatrical death is the only proof of love. She asks what you intend to save: the throne, its people, or merely the story told about you.
+
+Entrust her household with a civilian evacuation.
+She puts her contacts to work, provided you have actually secured transport. Those who board will remember her name as well as yours.
+Effects / conditions: {"requiresFlag": "civilianEvacuation", "fate:theodora": "evacuated_with_household", "resolve": "theodora"}
+
+Ask her to review an escape with you.
+If she trusts you, she joins the preparations. You must still accept the risks and decide who else receives a place.
+Effects / conditions: {"requiresTrust": 5, "open": "escapeReview", "companion": "theodora"}
+
+Stay, and ask her to choose her own part in the defence.
+She remains if your conduct has given her reason to. Affection does not erase the accounts she has kept.
+Effects / conditions: {"conditionalStay": "theodora", "requiresTrustForStay": 5, "resolve": "theodora"}
+
+courtDamaris3 — An Account in Another Hand
+Damaris brings a household account altered to make her husband—or you, if the affair continued—appear to have diverted military pay. She recognises the handwriting. The writer once believed her affection entitled him to decide her future.
+
+Let her identify the forger under protection.
+She gives evidence before witnesses. The inquiry begins without treating her reputation as a substitute for proof.
+Effects / conditions: {"flag:damarisEvidence": true}
+
+Pay 500 gold to recover the original ledger.
+The genuine account returns. The thief remains unnamed, but the immediate accusation can be answered.
+Effects / conditions: {"iMoney": -500, "flag:damarisLedger": true}
+
+Refuse to intervene.
+The false account circulates. Those affected remember how little an imperial association protected them.
+Effects / conditions: {"fNobleRep": -0.03, "flag:damarisAbandoned": true}
+
+courtDamaris4 — The Men Who Believe Her Owed
+The man behind the forgery sends an intermediary. He will stop if Damaris leaves her household and resumes their former arrangement. She asks you to hear the demand so there can be no polite misunderstanding about what he wants.
+
+Prosecute him using the evidence already gathered.
+The forged accounts become the centre of the case. Damaris is a witness, not the charge.
+Effects / conditions: {"requiresAnyFlag": ["damarisEvidence", "damarisLedger"], "flag:damarisProtected": true}
+
+Buy time with 300 gold and arrange a guarded household.
+She gains security while the threat remains unresolved. She knows precisely what the money has and has not purchased.
+Effects / conditions: {"iMoney": -300, "flag:damarisGuard": true}
+
+Withdraw imperial protection.
+She begins arranging her own departure. The person you once called troublesome now has a practical reason to distrust you.
+Effects / conditions: {"flag:damarisAbandoned": true}
+
+courtDamaris5 — A Rumour with a Cradle
+If Damaris has been your lover, a stored pregnancy result may now be disclosed. On the marriage route, gossip instead claims the marriage has concealed another man’s child; the narration does not certify the allegation. In either case, courtiers have found a new way to make her private life public property.
+
+Protect her household without claiming facts you do not know.
+You forbid harassment and pay for proper medical care. A household receives protection; a rumour receives no imperial endorsement.
+Effects / conditions: {"iMoney": -200, "flag:damarisCare": true}
+
+Make a private provision of 600 gold.
+She accepts a settlement she can use, though it does little to quiet the corridors.
+Effects / conditions: {"iMoney": -600, "flag:damarisSettlement": true}
+
+Leave the matter to her household.
+She will find her own help. Your name becomes less welcome there.
+Effects / conditions: {"flag:damarisAbandoned": true}
+
+courtDamaris6 — The Door She Chooses
+Damaris has decided where she will live when the siege ends. Your decisions have helped determine whether that place includes you, her husband, an independent household or a passage abroad. She comes to tell you, rather than ask which ending you prefer.
+
+Honour the protection and settlement already offered.
+Promises already funded remain in force. A protected Damaris remains a friend of the household; an abandoned one departs when a route opens.
+Effects / conditions: {"resolve": "damaris", "ending": "state_based"}
+
+Offer 500 gold for safe independent passage.
+She takes the means to leave. Marriage and romance do not turn this into an order for her husband or the Emperor to follow.
+Effects / conditions: {"iMoney": -500, "fate:damaris": "departed", "resolve": "damaris"}

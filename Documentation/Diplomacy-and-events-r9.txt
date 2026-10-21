@@ -1,0 +1,27 @@
+BESIEGED — COUNCIL r9
+
+Play-Besieged.cmd launches Builds/Windows-Diplomacy/Besieged.exe after release verification.
+
+DIPLOMACY
+Sixteen powers: Hungary, Venice, Genoa, Papacy, Albania, Hospitallers, Naples, Holy Roman Empire, France, Athens, Georgia, Trebizond, Cyprus, Poland and Lithuania, Teutonic Order, England.
+Original eight save indices and packages retained. New aid packages, chances and unspecified travel times are provisional balancing values. The list shows acceptance chance, travel time and promised package. Existing appeals cost 1,000 gold and require an available ship. An appeal is attempted once per power per campaign. Committed aid uses calendar-day countdowns and arrives once. Western Unionist assistance now includes the added Western powers.
+The hub shows committed expeditions and leads to relations or Sultan messages.
+
+SULTAN
+History, poetry and theology each have their own once-per-calendar-day limit, independent of the major action. Three authored exchanges per topic rotate across visits. Topic progress and daily limits are saved. These are fictional exchanges for the alternate-history game, not quotations attributed to the historical Sultan.
+Surrender requests terms only. It does not accept them or end the campaign; available once per day.
+Gifts: 1,000 gold, fury -5 points. Demand surrender: army morale +2, fury +5. Taunt: public morale +1, fury +3. Each uses the major action and reports actual changes, bounded by the existing percentage limits.
+
+RECURRING EVENTS
+Original file preserved verbatim as Random_events_recurring-source.txt. Playable adaptation is Assets/Yarn/Test/Random_events_recurring.yarn: 23 recurring events plus the gardening follow-up.
+Random selection begins after the siege starts, on days without a scheduled story event. Eligibility prevents events involving nonexistent cannon/engineers, inappropriate wall layers or insufficient forces/stores. Pending gardens cannot be planted again. Story events retain precedence; a ripe harvest appears on the next free event day, from 25 calendar days after planting.
+Adaptation fixes malformed Yarn, duplicate declaration, mistaken resource names, impossible branch order, affordability conditions and percentage bounds. Merchant-cartel income adds 150 daily gold per decision. Conscripted infantry enter the five-day training pool.
+Previously missing effects have provisional playable outcomes: storm attacks and fire ships, surprise sorties, Ottoman cannon explosion, fleet reports and soldiers' recreation. Surprise attack success chances and consequences appear in choices; costs and outcomes are reported. Existing source consequences otherwise largely retained, including the lethal unguarded visitor.
+Fleet reports depend on standing order: enemy provisions -3; 750 gold; 150 provisions; 100 enemy irregulars removed; or 50 infantry and 25 archers arriving. A destroyed fleet instead exposes an impostor.
+The imported event prose is not a comprehensive editorial rewrite. Further balance testing and branch coverage remain useful; the source contains sharp losses and generous rewards.
+
+VERIFICATION
+See Logs/diplomacy-smoke.log and Logs/smoke-results.txt for the final test count and failures. Tests include original campaign checks, the sixteen-power roster, new-index aid save/countdown/single delivery, Western aid, conversation limits/persistence/progression, gifts, garden scheduling, conscript training, percentage bounds and an actual choice/outcome from every imported node.
+Every branch and long-term campaign balance have not been playtested. Development build screenshots are stored in Builds/Windows-Diplomacy/Captures.
+
+FINAL RESULT: 417 checks passed, zero failures. Windows release build completed successfully. Visually inspected the diplomacy hub, upper/lower relations lists, upper/lower Sultan messages, poetry report, sortie choices and garden outcome at 1600 x 900. No runtime errors or exceptions in the capture run. Original recurring source copy has matching SHA-256.

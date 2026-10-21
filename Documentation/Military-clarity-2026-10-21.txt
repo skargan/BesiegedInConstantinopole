@@ -1,0 +1,7 @@
+Military interface clarity - 21 October 2026
+
+Quality displays now include the multiplication sign and effective technology-adjusted value. Added a readable Quality & unit roles explanation covering infantry and archer casualty coefficients, the cavalry upgrade-only contribution during wall assaults, and the separate roles of Varangians, cannons and ships. Unbound Quality placeholders become dashes. Unimplemented equipment purchase buttons are hidden; existing technology upgrades remain.
+
+Training pool renamed Ongoing training across navigation, screen and recruitment receipt. Introduction and empty state rewritten. Combat rules and recruitment timing unchanged.
+
+Windows build succeeded. Military overview, explanation and ongoing training captured at 1600x900. Initial capture caught trailing whitespace in the placeholder labels; corrected with trimmed comparison and rebuilt.

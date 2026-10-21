@@ -1,0 +1,16 @@
+﻿title: hardStorm
+---
+<<LifeSeen hardStorm>>
+<b>A Horrible Storm: Fleet Diverted</b><br> Before dawn the wind swings round and strikes the sea into white ridges. Roof tiles chatter against the paving. From the harbour tower, your officers watch merchantmen drag their anchors while signals vanish behind curtains of rain.<br>A messenger arrives soaked to the skin. Farther out, ships bound for the City have been driven towards shelter. Even a captain willing to brave the blockade cannot command the weather.
+-> Read the harbourmaster's report.
+    <<ReliefStorm 1>>
+    {ReliefStormReport()}
+===
+title: hardCatastrophicStorm
+---
+<<LifeSeen hardCatastrophicStorm>>
+<b>A Catastrophic Storm</b><br> All night the sea sounds like masonry falling. The harbour bells cannot be heard above the wind. By morning, broken spars and planks turn slowly in the harbour mouth; beyond the chain, the water carries wreckage from both sides of the siege.<br>Your harbourmaster has spent the night counting lights. He now brings a smaller list of ships than the one he carried yesterday.
+-> Account for the ships and the relief expeditions.
+    <<ReliefStorm 2>>
+    {ReliefStormReport()}
+===

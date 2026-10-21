@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -35,7 +35,38 @@ namespace Yarn.Unity
 
         // The line we saw most recently.
         LocalizedLine lastSeenLine;
+        private string paragraphs="";
+        public override void DialogueStarted() { paragraphs="";lastSeenLine=null; }
 
+        private UnityEngine.UI.ScrollRect choiceScroll;
+        private UnityEngine.UI.ScrollRect storyScroll;
+        private void EnsureScroll()
+        {
+            if(choiceScroll!=null) return;
+            ImperialTheme.Panel(gameObject);
+            var viewport=new GameObject("Scrollable choices",typeof(RectTransform),typeof(UnityEngine.UI.Image),typeof(UnityEngine.UI.RectMask2D),typeof(UnityEngine.UI.ScrollRect));
+            viewport.transform.SetParent(optionPanel.parent,false);
+            var r=viewport.GetComponent<RectTransform>();r.anchorMin=optionPanel.anchorMin;r.anchorMax=optionPanel.anchorMax;r.offsetMin=optionPanel.offsetMin;r.offsetMax=optionPanel.offsetMax;
+            viewport.GetComponent<UnityEngine.UI.Image>().color=ImperialTheme.Navy;
+            choiceScroll=viewport.GetComponent<UnityEngine.UI.ScrollRect>();choiceScroll.viewport=r;choiceScroll.horizontal=false;choiceScroll.vertical=true;choiceScroll.scrollSensitivity=45;
+            choiceScroll.movementType=UnityEngine.UI.ScrollRect.MovementType.Clamped;
+            optionPanel.SetParent(viewport.transform,false);optionPanel.anchorMin=new Vector2(0,1);optionPanel.anchorMax=Vector2.one;optionPanel.pivot=new Vector2(.5f,1);
+            choiceScroll.content=optionPanel;
+            CampaignHUD.AddScrollbar(choiceScroll,viewport.transform,new Vector2(.984f,.01f),new Vector2(1,.99f));
+            var hint=transform.Find("Choice scroll hint");if(hint!=null) hint.gameObject.SetActive(false);
+            var story=CampaignHUD.Panel(transform,"Event narrative",new Vector2(.025f,.035f),new Vector2(.43f,.675f));
+            story.GetComponent<UnityEngine.UI.Image>().color=ImperialTheme.Navy;ImperialTheme.Frame(story);
+            story.AddComponent<UnityEngine.UI.RectMask2D>();
+            storyScroll=story.AddComponent<UnityEngine.UI.ScrollRect>();storyScroll.horizontal=false;storyScroll.scrollSensitivity=45;
+            storyScroll.movementType=UnityEngine.UI.ScrollRect.MovementType.Clamped;
+            storyScroll.viewport=story.GetComponent<RectTransform>();
+            lastLineText.transform.SetParent(story.transform,false);
+            var textRect=lastLineText.rectTransform;textRect.anchorMin=new Vector2(0,1);textRect.anchorMax=Vector2.one;textRect.pivot=new Vector2(.5f,1);
+            textRect.offsetMin=textRect.offsetMax=Vector2.zero;
+            lastLineText.fontStyle=FontStyles.Normal;lastLineText.font=ImperialTheme.Font;lastLineText.enableAutoSizing=false;lastLineText.fontSize=24;lastLineText.margin=new Vector4(12,12,28,12);
+            storyScroll.content=textRect;CampaignHUD.AddScrollbar(storyScroll,story.transform,new Vector2(.98f,.01f),new Vector2(1,.99f));
+            Canvas.ForceUpdateCanvases();
+        }
         public void Start()
         {
             canvasGroup.alpha = 0;
@@ -54,6 +85,8 @@ namespace Yarn.Unity
             // immediately indicate that we're finished with it. RunOptions
             // will use it to display the text of the previous line.
             lastSeenLine = dialogueLine;
+            paragraphs+=(paragraphs.Length>0 ? "\n\n" : "")+(palette!=null ? LineView.PaletteMarkedUpText(dialogueLine.Text,palette) : dialogueLine.Text.Text);
+            FindObjectOfType<EventUI>()?.ObserveLine(dialogueLine.Text.Text);
             onDialogueLineFinished();
         }
 
@@ -68,6 +101,14 @@ namespace Yarn.Unity
                     optionView.gameObject.SetActive(false);
                 }
             }
+
+            EnsureScroll();
+            EventCardArt.Refresh(transform,FindObjectOfType<EventUI>()?.Node ?? "",paragraphs);
+            FindObjectOfType<EventUI>()?.PresentChoices();
+            foreach(var old in optionButtons) old.gameObject.SetActive(false);
+            float usedHeight=0;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
 
             // Set up all of the option views
             int optionViewsCreated = 0;
@@ -85,17 +126,13 @@ namespace Yarn.Unity
                 else optionButton.interactable = true;
 
                 RectTransform layout = optionButton.GetComponent<RectTransform>();
-                RectTransform layoutPattern = layoutSourcer.ReadLayout(dialogueOptions.Length, i);
-
-                layout.anchorMax = layoutPattern.anchorMax;
-                layout.anchorMin = layoutPattern.anchorMin;
-                layout.offsetMax = layoutPattern.offsetMax;
-                layout.offsetMin = layoutPattern.offsetMin;
-
                 optionButton.gameObject.SetActive(true);
-
                 optionButton.palette = this.palette;
                 optionButton.Option = option;
+                float height=optionButton.PreferredHeight(choiceScroll.viewport.rect.width);
+                layout.anchorMin=new Vector2(0,1);layout.anchorMax=Vector2.one;layout.pivot=new Vector2(.5f,1);
+                layout.offsetMin=new Vector2(4,-usedHeight-height);layout.offsetMax=new Vector2(-4,-usedHeight-8);
+                usedHeight+=height+8;
 
                 // The first available option is selected by default
                 if (optionViewsCreated == 0)
@@ -106,6 +143,9 @@ namespace Yarn.Unity
                 optionViewsCreated += 1;
             }
 
+            optionPanel.sizeDelta=new Vector2(0,Mathf.Max(usedHeight,choiceScroll.viewport.rect.height));
+            optionPanel.anchoredPosition=Vector2.zero;
+            choiceScroll.verticalNormalizedPosition=1;
             // Update the last line, if one is configured
             if (lastLineContainer != null)
             {
@@ -138,6 +178,9 @@ namespace Yarn.Unity
                         lastLineText.text = line.Text;
                     }
 
+                    lastLineText.text=paragraphs;
+                    lastLineText.rectTransform.sizeDelta=new Vector2(0,Mathf.Max(storyScroll.viewport.rect.height,lastLineText.GetPreferredValues(paragraphs,storyScroll.viewport.rect.width-40,9999).y+30));
+                    lastLineText.rectTransform.anchoredPosition=Vector2.zero;storyScroll.verticalNormalizedPosition=1;
                     lastLineContainer.SetActive(true);
                 }
                 else
@@ -179,11 +222,15 @@ namespace Yarn.Unity
             /// </summary>
             void OptionViewWasSelected(DialogueOption option)
             {
+                if (!canvasGroup.interactable) return;
+                canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
                 StartCoroutine(OptionViewWasSelectedInternal(option));
 
                 IEnumerator OptionViewWasSelectedInternal(DialogueOption selectedOption)
                 {
                     yield return StartCoroutine(FadeAndDisableOptionViews(canvasGroup, 1, 0, fadeTime));
+                    paragraphs="";
                     OnOptionSelected(selectedOption.DialogueOptionID);
                 }
             }

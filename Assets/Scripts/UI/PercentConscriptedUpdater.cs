@@ -7,10 +7,10 @@ public class PercentConscriptedUpdater : MonoBehaviour
 {
     [SerializeField]TMP_Text targetText;
 
-    private void OnEnable()
+    private void Update()
     {
         float fractionConscripted = (float)((VariableSingleton.GetIntVariable("iInfantry") + VariableSingleton.GetIntVariable("iArchers")
-                                    + VariableSingleton.GetIntVariable("iCavalry"))) / (float)1000 * VariableSingleton.GetIntVariable("iPopulation");
+                                    + VariableSingleton.GetIntVariable("iCavalry"))) / Mathf.Max(1f, (float)PopulationAccounting.People);
 
         float percentageToThreeDecimals = Mathf.Round(fractionConscripted * 100000) / 1000;
 

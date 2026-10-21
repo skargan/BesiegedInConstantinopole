@@ -1,0 +1,71 @@
+﻿title: shah1
+---
+<b>The Sultan's Return Gift</b>: Shaherezade enters with the chamberlain. She is a young woman, plainly dressed, with ink on the side of one finger. The chamberlain reads Mehmed's letter aloud. She watches your face when he reaches the word ‘gift’.
+‘Do you read Greek?’ you ask.
+‘Yes, Majesty. Slowly, when someone is watching.’
+Her book contains stories, notes on medicines and several pages sewn shut. The chamberlain asks where she should be lodged.
+-> Receive her into the household under guard.
+    <<ShahChoose guard>>
+    She is given a room beside the servants' court. Visitors and letters must pass through the chamberlain. That evening she begins a story about a king who made every guest surrender their shoes. Nobody slept better for it.
+-> Give her freedom and a place as a guest in the palace.
+    <<ShahChoose free>>
+    Your secretary writes a deed of freedom. Shaherezade asks him to read it twice, then folds it into the cover of her book. ‘May I keep this even if you change your mind?’ The chamberlain assigns her a room in the outer household.
+-> Send her back with the envoy.
+    <<ShahChoose return>>
+    She closes her book. ‘What shall I tell him?’ You tell her that the Emperor already has enough people to protect. She leaves with the envoy before sunset.
+===
+
+title: shah2
+---
+<b>A Page Sewn Shut</b>: A servant finds Shaherezade near the passage used by the cupbearers. She says she was looking for the library. Later, a guard intercepts a scrap of paper addressed to someone beyond the walls: ‘The bird drinks after the third bell.’
+Shaherezade says the line belongs to a story. She can recite the passage around it. The guard points out that your evening wine is brought after the third bell.
+-> Have your agents trace the letter and examine the book. (1 secret) <<if GetInt("iSecrets") >= 1>>
+    <<ShahChoose investigate>>
+    Your agents copy the handwriting and follow the servant who carried the scrap. The book returns to its shelf with its stitches carefully replaced. Someone in the palace will discover that the Emperor can keep a secret too.
+-> Ask her to tell you the story in private. (Unsupervised access; risk of an attack.)
+    <<ShahChoose trust>>
+    ‘It is about a prisoner who taught a bird to carry water,’ she says. ‘The jailer mistook the bird for an omen. Everything that followed came from that mistake.’ You arrange an evening audience. The chamberlain's guards will wait outside.
+-> Keep her under guard and change the cupbearers' routine.
+    <<ShahChoose watch>>
+    The evening wine arrives at a different hour, carried by a different servant. Shaherezade remains in the outer household. From her room comes the scratch of a pen, stopping whenever a guard passes.
+-> Send her away before this goes further.
+    <<ShahChoose return>>
+    She asks for her book and the clothes in her room. The chamberlain supplies an escort to the Ottoman lines. Neither the letter's author nor its intended recipient is found.
+===
+
+title: shah3
+---
+<<ShahAttempt>>
+<<if GetInt("iShahIdentity") == 1>>
+<b>The Third Bell</b>
+<<if GetInt("iShahAccess") == 1 && GetInt("iShahEvidence") == 0>>
+The cup is already empty when you taste the bitterness beneath the wine. Your hands shake. Shaherezade reaches towards you; the chamberlain's men drag her back before you can decide whether she means to help. You spend the night vomiting, slipping in and out of consciousness while your physician works. Beneath her sleeve the guards find a narrow vial.
+<<elseif GetInt("iShahEvidence") == 1>>
+Your agents let the courier complete his journey. His reply gives the dose and the hour. When Shaherezade reaches for the cup, the chamberlain quietly takes it from her. She looks at the untouched wine, then at you. ‘How long have you known?’
+<<else>>
+The changed routine defeats her. A guard sees Shaherezade slip a vial to a servant beside the kitchen door. The servant talks before dawn. She listens to his confession without lifting her eyes.
+<<endif>>
+She admits that an Ottoman household officer sent her to poison you. She says Mehmed knew. You have only her word for that, and every reason to wonder what she hopes those words will buy.
+-> Keep her alive in custody. Have the agents question her.
+    <<ShahChoose prison>>
+    The chamberlain takes her away. Her book remains on your desk, open at a story whose final page has been cut out. She will have time to explain who removed it.
+-> Offer protection in exchange for her contact and continued false reports. (+2 secrets) <<if GetInt("iShahEvidence") == 1 || GetInt("iShahMercy") == 1>>
+    <<ShahChoose recruit>>
+    ‘He expects a message in my hand,’ she says. You give her paper. The first letter reports a fever. The second asks for instructions. Your agents collect the reply, and Shaherezade earns another evening alive. Secrets +2.
+-> Send her back, carrying the empty vial.
+    <<ShahChoose return>>
+    You send no letter. The envoy understands the message when he sees what she carries. At the gate she turns once, as though trying to remember the City from this side of the walls.
+<<else>>
+<b>The Story's Missing Page</b>: The cupbearer's assistant is caught copying your movements for an Ottoman courier. He admits planting the scrap among Shaherezade's belongings. The sewn pages in her book contain names and places: people she has been trying to find since her household was broken up.
+Shaherezade listens while the chamberlain explains. ‘May I have my book back?’ she asks. ‘There are people in it I haven’t found yet.’
+-> Restore her book and offer her a free place as the court storyteller. (+1 secret)
+    <<ShahChoose storyteller>>
+    She accepts a room, a stipend and the right to leave. In the evenings she reads to the household. One story includes a gatekeeper's name your agents have been trying to learn. When asked how she knows it, she smiles. ‘Servants listen while important men are speaking.’ Secrets +1.
+-> Keep her under guard while the remaining letters are examined.
+    <<ShahChoose prison>>
+    She receives her book, but her door remains watched. The household has heard that she was cleared. It will also remember that she was kept a prisoner afterwards.
+-> Give her safe passage and let her leave.
+    <<ShahChoose return>>
+    The chamberlain returns her possessions and obtains an escort. Before leaving she places one loose page on your desk: the ending of the story about the bird. The prisoner survives. The jailer never understands why.
+<<endif>>
+===

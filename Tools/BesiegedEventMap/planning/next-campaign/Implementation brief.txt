@@ -1,0 +1,70 @@
+BESIEGED — NARRATIVE AND CAMPAIGN CONTINUITY PACKAGE
+Status: design/integration handover; no claims of live Unity implementation.
+User approved meeting all three romance leads before committing, with consequences for later overlapping relationships. User approved risky escape ending in exile. Numeric values below are provisional for the balance agent.
+
+1. EVENT PACING
+Current RestUI builds one large recurring pool, then optionally overrides it with Galata/court content at25%. New recurring content therefore changes encounter frequency without an explicit design decision. Several due queues also precede fixed events. Do not allow backlog to silently skip a dated milestone.
+
+Proposed selection order:
+A. Campaign ending/critical immediate consequence, retaining its parent choice.
+B. Dated milestones; never silently replace them. Queue other content.
+C. Due continuations, ordered by due date then stable ID, subject to eligibility. An obsolete continuation resolves/cancels with a journal explanation. No fresh random roll to allow a promised continuation to occur.
+D. On days without A/B/C: choose CATEGORY, then choose an eligible event within it. Provisional weights: unseen standalone one-offs45, new chain openings20, recurring incidents30, quiet breathing-space5. Empty categories redistribute proportionally. Never add a duplicate fallback into multiple categories.
+E. In a category, favour never-seen recurring incidents over repeats3:1. Once-only events leave the pool permanently once resolved, including declined opportunities. Recurring cooldown>=30calendar days.
+F. Maximum2active multi-part chains by default; the three romance acquaintances count as ONE relationship storyline for pacing, not three competing emergencies. Do not stop already-due critical continuations because capacity is full. Don't open another chain when existing due scenes are more than3days overdue. Initial romance meetings become eligible from siege day7.
+G. Bound backlog: on two consecutive days occupied by noncritical continuations, prefer an eligible standalone next day unless a continuation has waited3days. Fixed/critical events always take priority. This rule needs the balance agent's simulations before final tuning.
+
+Probability honesty: vary results and context, not the rules after the player chooses. Roll each outcome once, preserve it in the event checkpoint, and log the outcome. Conditional options should appear because of known focus, resources, relationships or intelligence. Show unavailable options with a reason where useful. Do not randomly remove sensible choices merely to make the player guess.
+
+240–300events is a content goal, not a claim about current playable content. Report separate counts: unique encounters, chain chapters, mutually exclusive variants, and recurring templates. A250node catalogue with many exclusive branches cannot fill250days in a single campaign. Test actual campaign coverage/longest repetition gap, not catalogue size alone.
+
+2. ORIGINAL UNIQUE EVENTS — PRESERVE SOURCE
+Canonical reference: Tools/BesiegedEventMap/reference-extracts/events - random unique.txt, originally supplied DOCX. Existing old IDs collide with unrelated runtime nodes; do not overwrite them.
+- uniqueHiddenChamber: oldrandom4; absent in runtime. Live random4 is propaganda.
+- uniqueOttomanShipwreck: oldrandom6; absent in runtime. Live random6 is religious vigils.
+- uniqueBrutalMurder: oldrandom14; absent in runtime. Live random14 is outer-wall cracks.
+- recurringLiveAndLetLive: oldrandom15; absent in runtime. Live random15 is traitor investigation. Source itself labels this RECURRING; do not turn it into a one-off merely because of its document name.
+
+Hidden Chamber: preserve original small/large expedition, scholars, decline and Grant choices. Proposed small expedition distribution15/15/15/54/1(corrects source99%total), large25/25/10/37/3. Treasure25000gold remains rare authored reward. Small expedition50infantry/100gold; large300infantry/600gold: troops temporarily unavailable, NOT automatically killed. Normal survivors return after3days; lost-party survivors after7days with25or150casualties as source. Store troop commitment and outcome; save/load must not duplicate returned soldiers. Source tunnel discovery lacks a numeric benefit: propose+1secret, record exploration flag. Grant advantage25%treasure is unusually strong but source-authored; preserve provisionally and ask balance agent to assess instead of silently nerfing. Scholar source distribution70/27/3 preserved. Original raw text remains in map for comparison.
+
+Ottoman Shipwreck: preserve four source choices. Require at least1ship for retrieval and ammunition for destruction. Proposed large salvage outcomes50%goods,35%goods+casualties,15%Phoenix salvage. Goods750gold+250provisions; casualties20infantry; Phoenix+1ship after5days and20materials, never instantly with no repair. Small party source reward+1secret+500gold preserved. Fire on wreck costs3–8ammunition, capped/choice gated at8. Diplomatic burial access requiresDiplomacyfocus and lowers Sultan fury10points as source. Every outcome resolves the wreck once. Destroying one wreck does not erase an operational Ottoman ship a second time.
+
+Brutal Murder: original is PART-WRITTEN. Proposed three encounters,5daysapart: uniqueBrutalMurder -> uniqueMurderEvidence -> uniqueMurderVerdict. Opening: ignore(public morale-3, closescase); fundwatch200gold; assignSphrantzes ifservingandavailable, occupieshim3days. Evidence stage: stolenrationsealsfound; spend1secret to corroborate, or200gold to traceledger, or makepublicarrestwithoutproof. Storeculpritseedonceatopening(twoauthoredvariants: foodwarehouseextortion ordisguisedcampagent). Verdict must correspond to actualevidence; verifiedarrest+3publicmorale/+1secret; unverifiedarrest60%correct(provisional), wrongarrest-5publicmorale andcaseunresolved. Publicwrongfulconvictionoutcomeexplicitlydistinguishedfromvictory. Original onlyhasignore/Sphrantzeschoices; additionsaremarkedauthored, notimported.
+
+Live and Let Live: preserve cautiousaccommodation, execution, Giustinianiambush, Orhandefection, Notarastrade roles. Requireactualserving/availableofficers, activeOttomanlandforces andnooperationsdelay. Avoidbarefreebonuschoice: toleratedtradeimprovesfood butraisescounterintelligence exposure; executionscostarmy/publicsupport. Needsfullnumericbalanceapproval. Thirtydaycooldown; do not add to unique pool.
+
+3. DECISIONS MADE JOURNAL
+Name: Decisions made. Read-only chronological record with filtersAll/Preparation/War/Court/Diplomacy and optionalOutstandingtoggle. This is not a new action currency.
+Persist entry ID, calendar date, stableevent ID, displayedtitle, ALL choices through layered dialogue, visible outcome, actual resourcechanges, pendingconsequenceIDs, resolved/cancelledstate. Do not overwrite earlier choices with the last reply; EventUI currently records only one decision string.
+Capture at completed event/confirmed majoraction, not text display. One entry per committed outcome, idempotent across UI rerender. No hiddenrolls/undiscoveredculprits shown. Journal entries survive checkpointload; no separate sidecar that can diverge from the save.
+UI: compact dated rows, expand for full narrative/outcome. Show pendinggrainmission, arrival, convalescence, marriage/territorypromise onlywhen relevant. A journal links back to the actor and outcome, rather than asking player torememberthetechnicalflag.
+Current CampaignSave has int/bool/float collections but nojournalentrylist. Add versioned optionalList<JournalEntry>, defaultempty foroldsaves; do not fabricate a past history when loadinganoldcampaign. Newentriesstartfromloadpoint.
+
+4. ESCAPE
+Available fromPalace>Reviewescape during siege, without requiringromance. Reviewpage hasReturn and explicitAttemptescape, costs, currentrisk, whoiscomingandwhatwillhappen. Confirmendscampaign; never triggerfrommerelyopeningHelena/Theodoradialogue.
+Prerequisite:1availableplayer ship OR paidpassageflag. Cost2000gold and100provisions; paidHelena reservation reducesremaininggoldto1000, never refundsitsdeposit. Reserve/consumeoneplayer ship onlyif usingownfleet. Proposed success chanceclamp(45 +20ifownfleetoutnumbersOttoman +15paidpassage +10Helenaactivelyassisting -floor(campalert/5),10,90). Coefficientsprovisional; displayfullchanceandcapturefailurebeforeconfirming.
+One committedroll; survivescheckpointrestore, cannotrerollfromreview/backbutton. Success=>exileend, Emperor alive, selectedwillingcompanionsescaped. Failure=>captivityend, Emperor alive/captured; do not inventexecutionunlessaseparateexplicitoutcomedictatesit. Dismissal/death/coupendingtakesprecedenceifplayeralreadycannotact.
+Escape does NOT establishthatConstantinoplefell. Epilogue statesdefencecontinuedwithoutyou; fateofthoseleftbehind is unknownunlesspriorstateestablishedit. Nofreevictoryachievement. Companiontrust/fatechecks; Anna refusesprivateflightunlessactualpatientevacuationexists.
+
+5. EPILOGUE SEQUENCE
+Fivepages: The Emperor; The City; Galata and commitments; The people of your court; What remains. Journal link available. Use explicitending enum, not comparisonsagainstEnglishsentences. Snapshotcampaignonceaftervictorypromisesarehonoured; persist endingandepiloguedata, nofreshrollswhenreopening.
+Emperor outcomes: victoryalive; death(specificpoison/assassination/battlecausewhenknown); surrenderperSurrenderTerms; deposedbyGiovanni(doesnotimplydeath); exilefromescape; captivefromfailedescape; supportcollapse(overthrown, furtherfateunknownunlessdefined).
+City outcomes: victorypreserved; lastwallfallen; negotiatedsettlementonlyiftermsprovideit; escape/death/depositionleavecontinuedcityfateunresolved. Never inferdestructionofallinhabitantsfromgenericdefeat.
+Roster: enumerateeveryencounteredcharacter, notjustcurrentInService. StablebaseIDs0–8; visitingIDs100–105; Shaherezade; Damaris/Helena/Anna/Theodora; namedchainNPCsregisteredwhenencountered. Excludenever-metuninvitednobles. Includeenemyfiguresina separaterelevantparagraph, notasdepartedcourtiers.
+Resolveexplicitstatusfirst: dead, prison/captured, departed/banished/exile, enemyservice, activeservice. Then officeandrelationship. Do not assignalive/dead byloyaltyroll. ExistingbaseiCourtState3dead,4imprisoned,6banished; boolfalsealoneisNOTdeath. VisitingInvited+notarrived meansstilltravelling, notfallenincity. Shaherezadestatus0–7 usesheractualenum, notbasecourtstate.
+Giovanni: actualGalatastate0neutral/1imperial/2autonomous/3Ottoman, iGalataPromise1pending/2honoured, iDeposed. Mentionpromisedterritorylostbeforevictorywithoutpretendingitwasgranted. Appointedgovernor!=independentruler.
+Romances: commitment/friendship/betrayal/separationandstoredfate. Pregnancyonlyifconfirmedflag; childonlyifbirthactuallydue/resolved; noinventedheir. EvacuatedpersonkeepssurvivalstatuswhenCitylaterfalls. Personleftbehindduringescapehasunknownlaterfate, notautomaticdeath.
+
+6. ACCEPTANCE TESTS FOR IMPLEMENTATION AGENT
+- OriginalIDs preserved; newuniqueIDs no collisions; everynewnode reachableandhasavailablefallback.
+- Once-only decline preventssecondoffer; recurringLiveAndLetLive canreturnafter30days.
+- More minorcontentdoesnotchangecategoryweights; emptycategoryandall-ineligible pools terminatesafely.
+- Datedmilestoneandduefollowuponthesamedatebothpreserved; nobacklogstarvation.
+- Everyromancepathhasfriendship/refusalfallback; onlychoice-authorisedintimacy; prerequisitescannotbeevadedbyUI.
+- Pregnancyrollsavedonce; nobirthat75days; departureclosesin-cityvisits.
+- Escapepreviewspendsnothing; confirmspendsonce; nozero-resourceescape; failureiscapture; nofuturecityfatefabricated.
+- Journalretainsallnestedchoices, survivesload, doesnotleakhiddendata orduplicateentries.
+- Epiloguereopensidentically; dead/prisoner/banished/guest/visitor/companion distinctionscovered; honoursactualpromisesonce.
+- Exportsandmapclearlydistinguishoriginalsource, authoredcompletion, stagedcode, builtversion.
+
+Ownership: thischat authorednarrativeandcontracts; releaseagent integratesUnity/save/UIandbuilds; balanceagent tunesweights/rewards/risksagainstversionedsource. Do notblockVersion19forthispackage.

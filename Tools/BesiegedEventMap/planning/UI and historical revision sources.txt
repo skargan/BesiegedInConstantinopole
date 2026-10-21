@@ -1,0 +1,7 @@
+﻿21 October 2026
+Gennadius Scholarius replaces fictional Brother Gennadios. Historical monk and anti-Unionist: https://pinakes-dev.irht.cnrs.fr/notices/oeuvre/4709/ (dated antiunionist work, 25 December 1452); https://austriaca.at/0xc1aa5572_0x00390f83.pdf . Seven deadly-sin sermons, accusations and branching consequences are authored alternate-history fiction, not quotations from him.
+Karaman (Ibrahim Bey), distinct from Aq Qoyunlu: https://islamansiklopedisi.org.tr/karamanogullari . Appended ally16; provisional20% baseacceptance,25days,3000gold300provisions. Does not assert historical relief expedition.
+Hospitallers: https://www.orderofmalta.int/history/11-century-to-the-present-day/ ; https://www.orderofmalta.int/about-the-order-of-malta/faq/ . Expanded early history and hospital/military role.
+Council quote: Marcus Aurelius, Meditations VI.6, George Long translation: https://www.gutenberg.org/cache/epub/6920/pg6920-images.html . Exact wording retained, including editorial brackets.
+AI-generated faith medallions are decorative interpretations; portraits imagined likenesses, not authenticated historical portraits. Both atlases copied into Assets/Resources/UI/Identity. Original images retained.
+Siege opening recruits now1:50%,2:30%,3:17%,5:3%; previously fixed5.
