@@ -32,6 +32,15 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-naval-capture")) {
+            var c=CouncilUI.For(manager);
+            c.Fleet();yield return Capture("20-fleet");
+            FindObjectsOfType<ScrollRect>().First(v=>v.gameObject.activeInHierarchy).verticalNormalizedPosition=0;yield return Capture("20-fleet-bottom");
+            c.FleetOrders();yield return Capture("20-orders");
+            AudioSettingsUI.Show(manager.transform.root);yield return Capture("20-settings");AudioSettingsUI.Close();
+            c.Garden();yield return Capture("20-garden");c.ReviewFocus();yield return Capture("20-focus");c.IntelligenceBriefing();yield return Capture("20-intelligence");
+            Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-politics-capture")) {
             var c=CouncilUI.For(manager);
             c.Factions();yield return Capture("political-factions");

@@ -10,9 +10,10 @@ public partial class CouncilUI
         CampaignHUD.Label(battle.transform,"Seek battle · "+NavalState.VictoryChance+"% victory chance",new Vector2(.03f,.25f),new Vector2(.65f,.9f),25);
         var attack=CampaignHUD.MakeButton(battle.transform,"Review battle",new Vector2(.7f,.17f),new Vector2(.97f,.83f),ReviewNavalBattle);attack.interactable=CouncilActions.Int("iShips")>0&&NavalState.EnemyShips>0;
         string[] titles={"Raid Ottoman supplies","Raid coastal shipping","Bring grain from Crimea","Defend the Golden Horn","Bring volunteers"};
+        string[] effects={"−3 days of Ottoman food stores","+750 gold","+150 provisions","Inflict "+RecurringEvents.FleetDefensiveDamage+" enemy casualties","+50 infantry and +25 archers"};
         for(int i=0;i<5;i++){
             int mission=i;var row=Row(i,155);
-            CampaignHUD.Label(row.transform,titles[i],new Vector2(.03f,.2f),new Vector2(.65f,.85f),26);
+            CampaignHUD.Label(row.transform,titles[i]+"\nSuccessful report: "+effects[i],new Vector2(.03f,.12f),new Vector2(.65f,.90f),24);
             bool current=CouncilActions.Int("iFleet")==i;
             var button=CampaignHUD.MakeButton(row.transform,current?"Current orders":"Issue orders",new Vector2(.7f,.17f),new Vector2(.97f,.83f),()=>{bool ok=PreparationCampaign.ChangeFleet(mission,out var result);Finish(ok,result);});
             button.interactable=!current&&CouncilActions.Int("iShips")>0&&(i!=2||VariableSingleton.GetBoolVariable("bStraitsOpen"));

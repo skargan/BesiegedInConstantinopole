@@ -24,7 +24,10 @@ public static class AudioSettingsUI
         slider.onValueChanged.AddListener(v=>{settings.SetMusicVolume(v);value.text="Music volume: "+Mathf.RoundToInt(v*100)+"%";});
         var effects=CampaignHUD.MakeButton(panel.transform,settings.SfxEnabled?"Sound effects: On":"Sound effects: Off",new Vector2(.30f,.24f),new Vector2(.70f,.33f),()=>{});
         effects.onClick.AddListener(()=>{settings.SetSfxEnabled(!settings.SfxEnabled);effects.GetComponentInChildren<TMP_Text>().text=settings.SfxEnabled?"Sound effects: On":"Sound effects: Off";});
-        var help=CampaignHUD.Explanation(panel.transform,"Music and effects are independent. Both settings are saved.",new Vector2(.15f,.205f),new Vector2(.85f,.24f),18);help.alignment=TextAlignmentOptions.Center;
-        CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.35f,.10f),new Vector2(.65f,.20f),Close);
+        var display=CampaignHUD.MakeButton(panel.transform,Screen.fullScreen?"Fullscreen: On":"Fullscreen: Off",new Vector2(.30f,.13f),new Vector2(.70f,.22f),()=>{});
+        bool fullscreen=Screen.fullScreen;
+        display.onClick.AddListener(()=>{fullscreen=!fullscreen;settings.SetFullscreen(fullscreen);display.GetComponentInChildren<TMP_Text>().text=fullscreen?"Fullscreen: On":"Fullscreen: Off";});
+        var help=CampaignHUD.Explanation(panel.transform,"Audio and display preferences are saved.",new Vector2(.15f,.085f),new Vector2(.85f,.12f),18);help.alignment=TextAlignmentOptions.Center;
+        CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.35f,.015f),new Vector2(.65f,.08f),Close);
     }
 }

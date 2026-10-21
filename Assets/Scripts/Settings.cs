@@ -16,6 +16,12 @@ public class Settings : MonoBehaviour
     public void SetMusicEnabled(bool enabled) {MusicEnabled=enabled;PlayerPrefs.SetInt("Besieged.MusicEnabled",enabled?1:0);PlayerPrefs.Save();ApplyVolume();}
     public void SetMusicVolume(float volume) {MusicVolume=Mathf.Clamp01(volume);PlayerPrefs.SetFloat("Besieged.MusicVolume",MusicVolume);PlayerPrefs.Save();ApplyVolume();}
 
+    public void SetFullscreen(bool enabled)
+    {
+        PlayerPrefs.SetInt("Besieged.Fullscreen",enabled?1:0);PlayerPrefs.Save();
+        Screen.fullScreenMode=enabled?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
+    }
+
     private void OnValidate() { ApplyVolume(); }
     private void Awake()
     {
@@ -24,6 +30,10 @@ public class Settings : MonoBehaviour
         SfxEnabled=PlayerPrefs.GetInt("Besieged.SfxEnabled",1)!=0;
         MusicEnabled=PlayerPrefs.GetInt("Besieged.MusicEnabled",1)!=0;
         MusicVolume=PlayerPrefs.GetFloat("Besieged.MusicVolume",MusicVolume);
+        // Explicit capture/window arguments take precedence over saved display preferences.
+        var args=System.Environment.GetCommandLineArgs();
+        if(!args.Contains("-besieged-capture")&&!args.Contains("-screen-fullscreen")&&PlayerPrefs.HasKey("Besieged.Fullscreen"))
+            Screen.fullScreenMode=PlayerPrefs.GetInt("Besieged.Fullscreen")==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += ConnectSettings;
     }

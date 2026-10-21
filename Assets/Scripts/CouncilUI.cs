@@ -14,7 +14,7 @@ public partial class CouncilUI : MonoBehaviour
 
 {
 
-    public const string BuildLabel="Version 19.1 · Midnight Mosaic · 21 October 2026";
+    public const string BuildLabel="Version 20 · Midnight Mosaic · 21 October 2026";
 
     private GameObject screen;
 
@@ -106,11 +106,8 @@ public partial class CouncilUI : MonoBehaviour
 
             var button=CampaignHUD.MakeButton(manager.transform,labels[i],new Vector2(x,top-.105f),new Vector2(x+.255f,top),actions[i]);
 
-            int[] emblems={0,1,-1,4,3,-1,0,3,4,4,2};
-            if(emblems[i]>=0) {
-                ImperialTheme.Icon(button.transform,emblems[i],new Vector2(.025f,.1f),new Vector2(.22f,.9f));
-                var caption=button.GetComponentInChildren<TMP_Text>();caption.rectTransform.anchorMin=new Vector2(.23f,.03f);caption.rectTransform.anchorMax=new Vector2(.96f,.97f);
-            }
+            CouncilEmblems.Add(button.transform,i);
+            var caption=button.GetComponentInChildren<TMP_Text>();caption.rectTransform.anchorMin=new Vector2(.23f,.03f);caption.rectTransform.anchorMax=new Vector2(.96f,.97f);
             if(i==5) button.name="ButtonToContinue";
 
         }
@@ -476,32 +473,59 @@ public partial class CouncilUI : MonoBehaviour
 
     public void Fleet()
     {
-        Open("The Imperial Fleet","Inspect your ships, their orders and the benefits they bring to the City's defence.");
+        Open("The Imperial Fleet", "Command the sea: compare fleets, issue orders and inspect the harbour's defences.");
         int ships=CouncilActions.Int("iShips"),order=Mathf.Clamp(CouncilActions.Int("iFleet"),0,5);
-        string[] orders={"Raid Ottoman supplies","Raid coastal shipping","Bring grain from Crimea","Defend the Golden Horn","Bring volunteers","Fleet lost"};
-        string[] effects={"A successful fleet report removes 3 days of Ottoman food stores.","A successful fleet report brings 750 gold.","A successful fleet report brings 150 provisions.","A successful fleet report destroys "+RecurringEvents.FleetDefensiveDamage+" enemy casualties (4 per ship; doubled by Artillery Ships).","A successful fleet report brings 50 infantry and 25 archers.","The fleet cannot carry out its former orders."};
+        bool known=CouncilActions.Int("iSpies")>=2;
+        string[] orders={"Raid Ottoman supplies","Raid coastal shipping","Bring grain from Crimea","Defend the Golden Horn","Bring volunteers","Awaiting new orders"};
+        string[] effects={"Successful report: remove 3 days of Ottoman food stores.","Successful report: gain 750 gold.","Successful report: gain 150 provisions.","Successful report: inflict "+RecurringEvents.FleetDefensiveDamage+" enemy casualties.","Successful report: gain 50 infantry and 25 archers.","The previous fleet was lost. Issue fresh orders to the surviving or newly built ships."};
         var building=new System.Collections.Generic.List<string>();int queued=0;
         foreach(var o in TrainingPool.Orders) if(o.unit=="iShips") {queued+=o.quantity;building.Add(o.quantity+" warships · ready "+TrainingPool.ReadyDate(o).ToString("d MMM yyyy")+" ("+TrainingPool.Remaining(o)+" days)");}
-        BodyHeight(1120+building.Count*35);
-        var summary=Row(0,180);
-        CampaignHUD.Label(summary.transform,"Ships in service: "+ships+"     Under construction: "+queued,new Vector2(.03f,.65f),new Vector2(.97f,.97f),29);
-        CampaignHUD.Label(summary.transform,"Current orders: "+orders[order],new Vector2(.03f,.37f),new Vector2(.97f,.65f),25);
-        CampaignHUD.Explanation(summary.transform,ships==0?"No ships are available. New vessels take 30 days to build.":order==5?"The previous fleet was lost. Your captains must receive fresh orders before reports can bring rewards.":effects[order],new Vector2(.03f,.06f),new Vector2(.97f,.36f),23);
-        var command=Row(1,180);
-        CampaignHUD.Label(command.transform,"Command and equipment",new Vector2(.03f,.74f),new Vector2(.97f,.96f),27);
-        float bonus=ships>0 && order==3?CourtRoster.Bonus(1,.05f,.15f)*100:0;
-        CampaignHUD.Explanation(command.transform,"Alvise Diedo: "+CourtRoster.Status(1)+". Current archer support: +"+bonus.ToString("0")+"%.\nArtillery Ships: "+(TechnologySystem.Has("ArtilleryShips")?"active · defensive reports inflict twice the casualties.":"not adopted · available through Technologies.")+"\nDiedo supports the archers during wall assaults when ships are defending the Golden Horn.\nHarbour chain: "+(VariableSingleton.GetBoolVariable("bGoldenHornChain")?"intact":"removed")+" · Ottoman fleet: "+(CouncilActions.Int("iSpies")>=2?NavalState.EnemyShips+" vessels":"strength unknown")+" · "+NavalState.SeaControl,new Vector2(.03f,.08f),new Vector2(.97f,.72f),22);
-        var missions=Row(2,220);missions.GetComponent<RectTransform>().anchoredPosition+=new Vector2(0,80);
-        CampaignHUD.Label(missions.transform,"Orders and reports",new Vector2(.03f,.78f),new Vector2(.97f,.97f),27);
-        CampaignHUD.Explanation(missions.transform,"Preparation grants +50% to the next successful report. Use Change fleet mission below for later orders; this costs a major action and clears the preparation bonus. Fleet-report events deliver the rewards below.\n\nSupply raids: −3 enemy food days · Coastal raids: +750 gold\nCrimean grain: +150 provisions · Harbour defence: −"+RecurringEvents.FleetDefensiveDamage+" enemy irregulars\nVolunteers: +50 infantry and +25 archers",new Vector2(.03f,.07f),new Vector2(.97f,.77f),23);
-        var yard=Row(0,180+building.Count*35);yard.GetComponent<RectTransform>().anchoredPosition+=new Vector2(0,-590);
-        CampaignHUD.Label(yard.transform,"The shipyards",new Vector2(.03f,.72f),new Vector2(.97f,.97f),27);
-        CampaignHUD.Explanation(yard.transform,building.Count==0?"No warships are under construction. Build ships through Military and recruitment.":string.Join("\n",building),new Vector2(.03f,.1f),new Vector2(.97f,.70f),23);
-        var orderRow=Row(0,150);orderRow.GetComponent<RectTransform>().anchoredPosition+=new Vector2(0,-950-building.Count*35);
-        CampaignHUD.MakeButton(orderRow.transform,"Change fleet mission · major action",new Vector2(.03f,.2f),new Vector2(.97f,.8f),FleetOrders);
-        var links=Row(0,150);links.GetComponent<RectTransform>().anchoredPosition+=new Vector2(0,-790-building.Count*35);
-        CampaignHUD.MakeButton(links.transform,"Build warships",new Vector2(.03f,.2f),new Vector2(.47f,.8f),()=>{Hide();manager.BringUpTroopsUI();});
-        CampaignHUD.MakeButton(links.transform,"Ongoing construction",new Vector2(.53f,.2f),new Vector2(.97f,.8f),Training);
+        float yardHeight=Mathf.Max(170,100+building.Count*38);
+        BodyHeight(1050+yardHeight);
+        var strength=SpyPanel("Naval balance",0,170);
+        FleetText(strength.transform,"IMPERIAL WARSHIPS",.02f,.66f,.32f,.94f,22);
+        FleetText(strength.transform,ships.ToString(),.02f,.30f,.32f,.67f,38);
+        FleetText(strength.transform,queued+" under construction",.02f,.06f,.32f,.30f,20);
+        FleetText(strength.transform,"CONTROL OF THE SEA",.34f,.66f,.66f,.94f,22);
+        FleetText(strength.transform,NavalState.SeaControl,.34f,.30f,.66f,.67f,29);
+        FleetText(strength.transform,"Uncontested when our ships outnumber theirs",.34f,.04f,.66f,.30f,18);
+        FleetText(strength.transform,"OTTOMAN VESSELS",.68f,.66f,.98f,.94f,22);
+        FleetText(strength.transform,known?NavalState.EnemyShips.ToString():"Unknown",.68f,.30f,.98f,.67f,38);
+        FleetText(strength.transform,known?"+1 vessel each siege day":"Requires 2 agents in the enemy camp",.68f,.04f,.98f,.30f,19);
+        var controls=SpyPanel("Fleet command",184,90);
+        CampaignHUD.MakeButton(controls.transform,"Change mission",new Vector2(.02f,.15f),new Vector2(.33f,.85f),FleetOrders);
+        var battle=CampaignHUD.MakeButton(controls.transform,"Review naval battle",new Vector2(.35f,.15f),new Vector2(.66f,.85f),ReviewNavalBattle);
+        battle.interactable=ships>0&&NavalState.EnemyShips>0;
+        CampaignHUD.MakeButton(controls.transform,"Build warships",new Vector2(.68f,.15f),new Vector2(.98f,.85f),()=>{Hide();manager.BringUpTroopsUI();});
+        var mission=SpyPanel("Current mission",288,180);
+        FleetText(mission.transform,"CURRENT ORDERS · "+orders[order],.03f,.69f,.97f,.95f,27);
+        FleetText(mission.transform,ships==0?"No ships available. New warships take 30 days to build.":effects[order],.03f,.37f,.97f,.68f,24);
+        FleetText(mission.transform,"Rewards arrive through fleet-report events, not every day. Changing mission uses your major action.",.03f,.05f,.97f,.35f,20);
+        var harbour=SpyPanel("Harbour and command",482,250);
+        FleetText(harbour.transform,"HARBOUR DEFENCE",.03f,.79f,.97f,.96f,26);
+        float bonus=ships>0&&order==3?CourtRoster.Bonus(1,.05f,.15f)*100:0;
+        FleetText(harbour.transform,"Great Chain: "+(VariableSingleton.GetBoolVariable("bGoldenHornChain")?"intact":"removed"),.03f,.59f,.48f,.78f,24);
+        FleetText(harbour.transform,"Artillery Ships: "+(TechnologySystem.Has("ArtilleryShips")?"active":"not researched"),.52f,.59f,.97f,.78f,24);
+        FleetText(harbour.transform,"Alvise Diedo: "+CourtRoster.Status(1),.03f,.39f,.97f,.58f,22);
+        FleetText(harbour.transform,"Current archer support: +"+bonus.ToString("0")+"% · Diedo assists wall archers while the fleet defends the Golden Horn.",.03f,.19f,.97f,.38f,21);
+        FleetText(harbour.transform,"Harbour reports: 4 casualties per ship; Artillery Ships doubles this effect.",.03f,.03f,.97f,.18f,20);
+        var report=SpyPanel("Latest naval engagement",746,160);
+        FleetText(report.transform,"LATEST NAVAL BATTLE",.03f,.70f,.97f,.95f,25);
+        FleetText(report.transform,CouncilActions.Int("iNavalBattles")>0?"Our ships lost: "+CouncilActions.Int("iNavalOurLoss")+"     Ottoman ships lost: "+CouncilActions.Int("iNavalEnemyLoss"):"No naval battle has been fought.",.03f,.36f,.97f,.68f,23);
+        FleetText(report.transform,"Both fleets retain their survivors. The balance of ships determines whether the sea remains contested.",.03f,.04f,.97f,.34f,20);
+        var yard=SpyPanel("The shipyards",920,yardHeight);
+        FleetText(yard.transform,"SHIPYARDS · "+queued+" warships under construction",.03f,.72f,.97f,.96f,25);
+        FleetText(yard.transform,building.Count==0?"No orders in progress. Build ships through Military and recruitment.":string.Join("\n",building),.03f,.06f,.97f,.70f,22);
+        var preparation=SpyPanel("Fleet preparation",934+yardHeight,100);
+        FleetText(preparation.transform,CouncilActions.Int("iFleetPrepared")>0?"Prepared expedition: +50% to the next successful report. Changing mission removes this bonus.":"No preparation bonus is active. Review all five missions under Change mission.",.03f,.12f,.97f,.88f,22);
+    }
+
+    private TMP_Text FleetText(Transform parent,string text,float x0,float y0,float x1,float y1,int size)
+    {
+        var label=CampaignHUD.Label(parent,text,new Vector2(x0,y0),new Vector2(x1,y1),size);
+        label.alignment=TextAlignmentOptions.Center;label.enableAutoSizing=true;
+        label.fontSizeMin=16;label.fontSizeMax=size;label.overflowMode=TextOverflowModes.Ellipsis;
+        return label;
     }
 
     public void Diplomacy()
@@ -649,7 +673,7 @@ public partial class CouncilUI : MonoBehaviour
     public void Overview()
     {
         Open("Siege overview",VariableSingleton.HasSiegeStarted()?"Siege day "+VariableSingleton.SiegeDay+" · "+VariableSingleton.GetDate().ToString("d MMMM yyyy"):"Preparing the City · "+VariableSingleton.GetDate().ToString("d MMMM yyyy"));
-        BodyHeight(1440);
+        BodyHeight(1800);
         var defence=SpyPanel("Defence summary",0,230);
         string wall=VariableSingleton.Instance.EnduringWall.GetCodeName();
         wall=wall=="OuterWall"?"Theodosian Wall":wall=="MiddleWall"?"Constantinian Wall":wall=="InnerWall"?"Severan Wall":wall;
@@ -671,6 +695,9 @@ public partial class CouncilUI : MonoBehaviour
         int commander=CouncilActions.Int("iCommander");string command=CourtRoster.CommanderName(commander);
         CampaignHUD.Label(situation.transform,"SIEGE COMMANDER · "+command,new Vector2(.025f,.78f),new Vector2(.97f,.98f),26);
         CampaignHUD.Explanation(situation.transform,"Enemy ramp: "+VariableSingleton.GetPercentFloat("fSiegeRamp")+" · Threatens the walls when complete.\nSiege tower: "+(VariableSingleton.GetBoolVariable("bSiegeTower")?"ready":"none")+" · Battering ram: "+(VariableSingleton.GetBoolVariable("bBatteringRam")?"ready":"none")+"\n"+NavalState.SeaControl+" · Our ships: "+CouncilActions.Int("iShips")+" · Ottoman vessels: "+(CouncilActions.Int("iSpies")>=2?NavalState.EnemyShips.ToString():"requires 2 agents")+"\nAmmunition: "+CouncilActions.Int("iAmmunition")+" · Provisions: "+CouncilActions.Int("iProvisions")+" · Daily consumption: "+SupplyEconomy.DailyNeed,new Vector2(.025f,.05f),new Vector2(.97f,.76f),23);
+        FocusCard(1440);
+        var briefingLink=SpyPanel("Intelligence briefing",1674,95);
+        CampaignHUD.MakeButton(briefingLink.transform,"What does the latest enemy action mean?",new Vector2(.03f,.12f),new Vector2(.97f,.88f),IntelligenceBriefing);
         var links=SpyPanel("Overview navigation",1320,95);
         CampaignHUD.MakeButton(links.transform,"Spies and intelligence",new Vector2(.03f,.12f),new Vector2(.48f,.88f),Spies);
         CampaignHUD.MakeButton(links.transform,"Defence of the walls",new Vector2(.52f,.12f),new Vector2(.97f,.88f),()=>{Hide();manager.BringUpSiegeUI();});
@@ -800,6 +827,7 @@ public partial class CouncilUI : MonoBehaviour
         CampaignHUD.MakeButton(body,"Lead next wall assault / cancel · costs 5 health when fighting",new Vector2(.08f,.46f),new Vector2(.92f,.59f),()=>{notice.text=EmperorCombat.ToggleWall();});
 
 
+        CampaignHUD.MakeButton(body,"Walk in the garden · speak with your court",new Vector2(.08f,.17f),new Vector2(.92f,.26f),Garden);
         CampaignHUD.MakeButton(body,"Rest — use the major action",new Vector2(.08f,.03f),new Vector2(.92f,.16f),()=>{Hide();manager.ContinueToRest();});
 
     }
