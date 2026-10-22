@@ -19,6 +19,7 @@ public class PlaytestCapture : MonoBehaviour
         obj.AddComponent<PlaytestCapture>();
     }
     private IEnumerator Frames(int count){for(int i=0;i<count;i++)yield return null;}
+    private void ChooseAssaultIncident(){var ui=PhasedAssaultUI.Current;if(ui.CurrentIncident<0)return;var e=AssaultIncidents.All[ui.CurrentIncident];foreach(var c in e.Choices)if(AssaultIncidents.Unavailable(c,ui.Battle)==null){AssaultClick(c.Name);return;}throw new Exception("No incident choice");}
     private void AssaultClick(string prefix) {
         var button=FindObjectsOfType<Button>().FirstOrDefault(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith(prefix)==true);
         if(button==null)throw new Exception("Missing assault button: "+prefix);
@@ -39,6 +40,44 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-infiltration-capture")) {
+            int initialGold=CouncilActions.Int("iMoney"),initialSpies=CouncilActions.Int("iSpies");
+            manager.gameObject.SetActive(false);var eventView=FindObjectOfType<EventUI>(true);eventView.SetStartNode("story23");eventView.gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(1);yield return Capture("28-infiltration-choice");var infiltration=FindObjectsOfType<Yarn.Unity.OptionButton>().FirstOrDefault(o=>o.Option.Line.Text.Text.StartsWith("Infiltrate the Ottoman camp"));if(infiltration==null||!infiltration.IsInteractable())throw new Exception("Missing available infiltration choice");infiltration.InvokeOptionSelected();
+            yield return new WaitForSecondsRealtime(1);yield return Capture("28-infiltration-outcome");
+            int recruits=CouncilActions.Int("iSpies")-initialSpies;
+            if(CouncilActions.Int("iMoney")!=initialGold-5000||!(recruits==1||recruits==2||recruits==3||recruits==5)||!CampaignHUD.Instance.HasModal)throw new Exception("Infiltration branch did not complete with recruitment, cost and visible outcome");
+            var report=string.Join(" ",FindObjectsOfType<TMPro.TMP_Text>().Select(t=>t.text));if(!report.Contains("new agents inside the Ottoman camp"))throw new Exception("Missing infiltration outcome narrative");
+            Debug.Log("INFILTRATION_PLAYER_CHECKS completed story23 choice, recruitment, exact cost and visible outcome passed");Application.Quit();yield break;
+        }
+        if(Environment.GetCommandLineArgs().Contains("-assault27-capture")) {
+            PhasedAssaultUI.TestFocus=true;bool previous=PhasedAssaultUI.ActiveMode;
+            AssaultClick("Test assault");yield return Capture("27-practice-menu");
+            int beforeTurn=VariableSingleton.Turn,beforeFoot=CouncilActions.Int("iInfantry"),beforeAmmo=CouncilActions.Int("iAmmunition"),beforeGold=CouncilActions.Int("iMoney");
+            PhasedAssaultUI.ActiveMode=false;AssaultPractice.ForcedIncident=0;AssaultPractice.Launch(0);yield return null;
+            var ui=PhasedAssaultUI.Current;var b=ui.Battle;b.Breach=50;AssaultClick("Command from shelter");yield return Capture("27-incident");AssaultClick("Keep the captains");yield return null;
+            if(b.Cover!=1||b.TimedMoments!=0)throw new Exception("OFF cover neutrality");AssaultClick("Automatic volleys");yield return null;
+            if(b.VolleyMultiplier!=1)throw new Exception("OFF volley neutrality");
+            ChooseAssaultIncident();yield return Capture("27-crowd-contact");AssaultClick("Resolve remaining");yield return new WaitForSecondsRealtime(1.3f);
+            AssaultClick("Divide evenly");yield return null;AssaultClick("Commit ");yield return Capture("27-aftermath");
+            if(!b.Committed||VariableSingleton.Turn!=beforeTurn||CouncilActions.Int("iInfantry")!=beforeFoot||CouncilActions.Int("iAmmunition")!=beforeAmmo||CouncilActions.Int("iMoney")!=beforeGold)throw new Exception("Practice changed campaign");
+            AssaultClick("Return to assault practice");yield return null;
+            PhasedAssaultUI.ActiveMode=true;AssaultPractice.Launch(0);yield return null;ui=PhasedAssaultUI.Current;AssaultClick("Command from shelter");yield return null;AssaultClick("Keep the captains");yield return null;
+            if(FindObjectsOfType<Button>().Any(x=>x.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith("Start cover")==true)){AssaultClick("Start cover");yield return null;var ef=typeof(PhasedAssaultUI).GetField("elapsed",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);ef.SetValue(ui,1.7f);AssaultClick("Take cover");yield return null;}
+            AssaultClick("Start volleys");yield return Capture("27-active-controls");
+            var flags=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance;var elapsed=typeof(PhasedAssaultUI).GetField("elapsed",flags);elapsed.SetValue(ui,.4f);CampaignHUD.Instance.TogglePause();yield return Frames(8);if((float)elapsed.GetValue(ui)!=.4f)throw new Exception("Pause clock");CampaignHUD.Instance.TogglePause();yield return null;
+            for(int i=0;i<3;i++){elapsed.SetValue(ui,i*PhasedAssaultUI.VolleyDuration/3+PhasedAssaultUI.VolleyDuration/6);ui.SendMessage("LoadBow");ui.SendMessage("DrawBow");typeof(PhasedAssaultUI).GetField("drawAge",flags).SetValue(ui,.3f);typeof(PhasedAssaultUI).GetField("aimPoint",flags).SetValue(ui,new Vector2(.515f,.4f));ui.SendMessage("Fire");int shots=ui.Battle.Shots;ui.SendMessage("Fire");if(ui.Battle.Shots!=shots)throw new Exception("Double volley");}
+            if(ui.Battle.VolleyMultiplier!=1.25f)throw new Exception("Perfect volley bound");Destroy(ui.gameObject);yield return null;
+            AssaultPractice.Launch(3);yield return null;ui=PhasedAssaultUI.Current;ui.Volley();yield return null;AssaultClick("Take the gun");yield return Capture("27-cannon-aim");
+            typeof(PhasedAssaultUI).GetField("aimPoint",flags).SetValue(ui,new Vector2(.515f,.4f));AssaultClick("Fire the cannon");yield return Capture("27-cannon-blast");if(!ui.Battle.GunResolved||ui.Battle.Dead<=0)throw new Exception("Gun minigame");
+            yield return new WaitForSecondsRealtime(.8f);Destroy(ui.gameObject);yield return null;
+            AssaultPractice.Duel();yield return Capture("27-duel");var d=AssaultDuelUI.Current;AssaultClick("Start duel");yield return new WaitForSecondsRealtime(.25f);
+            d.Stroke(new Vector2(.4f,.5f),new Vector2(.6f,.5f));yield return Capture("27-armour-deflection");AssaultClick("Let the guard intervene");yield return null;
+            var frameSamples=new System.Collections.Generic.List<float>();AssaultPractice.Launch(0);yield return null;
+            for(int i=0;i<180;i++){frameSamples.Add(Time.unscaledDeltaTime*1000);yield return null;}frameSamples.Sort();
+            Debug.Log("ASSAULT27_FRAME_MS median="+frameSamples[90].ToString("0.00")+" p95="+frameSamples[171].ToString("0.00"));
+            PhasedAssaultUI.ActiveMode=previous;Debug.Log("ASSAULT27_PLAYER_CHECKS neutral OFF, practice isolation, controls, pause, bounded volleys, cannon and duel passed");Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-assault-capture")) {
             PhasedAssaultUI.TestFocus=true;bool previous=PhasedAssaultUI.ActiveMode;PhasedAssaultUI.ActiveMode=false;
             VariableSingleton.SetInt("iVarangians",500);VariableSingleton.SetInt("iTurkCannons",5);VariableSingleton.ChangeBool("bSiegeTower",true);

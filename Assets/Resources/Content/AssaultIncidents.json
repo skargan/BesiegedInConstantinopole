@@ -1,0 +1,1157 @@
+{
+  "SchemaVersion": 1,
+  "Incidents": [
+    {
+      "Id": "assault-00",
+      "Title": "Guns find the parapet",
+      "Phase": 0,
+      "Condition": "guns",
+      "Text": "The Ottoman batteries have found the height of your firing steps.",
+      "Choices": [
+        {
+          "Name": "Disperse the archers",
+          "R": -10,
+          "M": 0,
+          "G": 0,
+          "P": -6,
+          "E": -10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Return concentrated fire",
+          "R": 10,
+          "M": -5,
+          "G": 0,
+          "P": 3,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Keep the captains' plan",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-01",
+      "Title": "Smoke conceals the advance",
+      "Phase": 0,
+      "Condition": "guns",
+      "Text": "Smoke hides the first ranks. Shapes move through gaps in the haze.",
+      "Choices": [
+        {
+          "Name": "Wait for silhouettes",
+          "R": 10,
+          "M": 0,
+          "G": 0,
+          "P": 4,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Send forward observers",
+          "R": 0,
+          "M": -8,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": true,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Sweep the approach",
+          "R": -5,
+          "M": 0,
+          "G": 10,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-02",
+      "Title": "Enemy archers rake the crest",
+      "Phase": 0,
+      "Condition": "archers",
+      "Text": "An Ottoman screen fires at anyone showing above the parapet.",
+      "Choices": [
+        {
+          "Name": "Counterfire from cover",
+          "R": -10,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": -15,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Shield the wall companies",
+          "R": 0,
+          "M": -8,
+          "G": 0,
+          "P": -4,
+          "E": -10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Accept the ordinary exchange",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-03",
+      "Title": "A shielded approach",
+      "Phase": 0,
+      "Condition": "always",
+      "Text": "Shields overlap as the enemy closes ranks beneath the wall.",
+      "Choices": [
+        {
+          "Name": "Use high arcing volleys",
+          "R": 10,
+          "M": 0,
+          "G": -10,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold until they close",
+          "R": 15,
+          "M": 0,
+          "G": 0,
+          "P": 5,
+          "E": 5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Break shields with a gun",
+          "R": 0,
+          "M": 0,
+          "G": 15,
+          "P": -3,
+          "E": 0,
+          "Ammo": 1,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-04",
+      "Title": "Fascines enter the moat",
+      "Phase": 0,
+      "Condition": "moat",
+      "Text": "Carriers throw brushwood into the ditch while assault troops follow.",
+      "Choices": [
+        {
+          "Name": "Target the carriers",
+          "R": -10,
+          "M": 0,
+          "G": 0,
+          "P": -8,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Save arrows for the ranks",
+          "R": 10,
+          "M": 0,
+          "G": 0,
+          "P": 5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Send a covering detachment",
+          "R": 0,
+          "M": -10,
+          "G": 0,
+          "P": -5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-05",
+      "Title": "Ladders at two towers",
+      "Phase": 1,
+      "Condition": "always",
+      "Text": "Two points demand men at once; a third remains dangerously quiet.",
+      "Choices": [
+        {
+          "Name": "Concentrate at the gate",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": 5,
+          "E": 5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Distribute the companies",
+          "R": 0,
+          "M": -5,
+          "G": 0,
+          "P": -6,
+          "E": -5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Preserve the reserve",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-06",
+      "Title": "The siege tower closes",
+      "Phase": 0,
+      "Condition": "tower",
+      "Text": "The tower's upper platform rises almost level with your parapet.",
+      "Choices": [
+        {
+          "Name": "Shoot the exposed crew",
+          "R": -12,
+          "M": 0,
+          "G": 0,
+          "P": -10,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Reinforce the threatened bay",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": 3,
+          "E": 5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold the existing line",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-07",
+      "Title": "The ram beneath its roof",
+      "Phase": 0,
+      "Condition": "ram",
+      "Text": "A timber roof shelters the men bringing the ram against the gate.",
+      "Choices": [
+        {
+          "Name": "Brace the gate",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -10,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 40,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Drop stones on its escort",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": 0,
+          "E": 8,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Fire through the shelter",
+          "R": 0,
+          "M": 0,
+          "G": 20,
+          "P": -4,
+          "E": 0,
+          "Ammo": 1,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-08",
+      "Title": "Listening jars tremble",
+      "Phase": 1,
+      "Condition": "tunnel",
+      "Text": "The known Ottoman tunnel grows louder below the threatened position.",
+      "Choices": [
+        {
+          "Name": "Use Grant's counterminers",
+          "R": 0,
+          "M": -10,
+          "G": 0,
+          "P": -12,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": 6
+        },
+        {
+          "Name": "Evacuate the exposed footing",
+          "R": 0,
+          "M": -5,
+          "G": 0,
+          "P": 6,
+          "E": -20,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Brace the foundations",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -7,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 35,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-09",
+      "Title": "Rubble opens a new path",
+      "Phase": 1,
+      "Condition": "wall",
+      "Text": "Fresh debris forms a rough slope where the wall was steep.",
+      "Choices": [
+        {
+          "Name": "Build a barricade",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -8,
+          "E": -5,
+          "Ammo": 0,
+          "Materials": 35,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold behind the rubble",
+          "R": 0,
+          "M": -5,
+          "G": 0,
+          "P": 0,
+          "E": -10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Counterattack the opening",
+          "R": 0,
+          "M": 15,
+          "G": 0,
+          "P": 5,
+          "E": 10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-10",
+      "Title": "Packed ranks below the gun",
+      "Phase": 0,
+      "Condition": "cannon",
+      "Text": "A dense body of men has entered the gun's field of fire.",
+      "Choices": [
+        {
+          "Name": "Fire on the packed ranks",
+          "R": 0,
+          "M": 0,
+          "G": 15,
+          "P": 2,
+          "E": 0,
+          "Ammo": 1,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Wait for a closer shot",
+          "R": 0,
+          "M": 0,
+          "G": 20,
+          "P": 5,
+          "E": 8,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Use the ordinary firing plan",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-11",
+      "Title": "Archers caught on a flank",
+      "Phase": 1,
+      "Condition": "archers",
+      "Text": "The enemy has reached the stair leading to a surviving archer position.",
+      "Choices": [
+        {
+          "Name": "Withdraw behind infantry",
+          "R": 0,
+          "M": -8,
+          "G": 0,
+          "P": -3,
+          "E": -10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Send an infantry escort",
+          "R": 0,
+          "M": 5,
+          "G": 0,
+          "P": -5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 1,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold the stair by force",
+          "R": 0,
+          "M": 12,
+          "G": 0,
+          "P": 4,
+          "E": 10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-12",
+      "Title": "Fresh Janissary ranks",
+      "Phase": 1,
+      "Condition": "janissaries",
+      "Text": "The rear ranks of the committed Janissary force step forward together.",
+      "Choices": [
+        {
+          "Name": "Commit the reserve early",
+          "R": 0,
+          "M": 15,
+          "G": 0,
+          "P": 6,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Give ground to the barricade",
+          "R": 0,
+          "M": -10,
+          "G": 0,
+          "P": 5,
+          "E": -15,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold formation",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-13",
+      "Title": "Drums at the wrong gate",
+      "Phase": 1,
+      "Condition": "always",
+      "Text": "The noise favours one gate, but shield movements suggest another purpose.",
+      "Choices": [
+        {
+          "Name": "Send experienced scouts",
+          "R": 0,
+          "M": -8,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": true,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Strengthen both approaches",
+          "R": 0,
+          "M": -5,
+          "G": 0,
+          "P": -5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Wait for the next signal",
+          "R": 0,
+          "M": 5,
+          "G": 0,
+          "P": 3,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-14",
+      "Title": "The enemy appears to recoil",
+      "Phase": 1,
+      "Condition": "always",
+      "Text": "Several ranks turn downhill. A fresh standard remains beyond them.",
+      "Choices": [
+        {
+          "Name": "Hold the wall",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -3,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Make a short pursuit",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": 3,
+          "E": 5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Press the pursuit",
+          "R": 0,
+          "M": 20,
+          "G": 0,
+          "P": 8,
+          "E": 15,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 1,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-15",
+      "Title": "A gun barrel overheats",
+      "Phase": 0,
+      "Condition": "cannon",
+      "Text": "The gun crew warns that the barrel and fittings need attention.",
+      "Choices": [
+        {
+          "Name": "Cool and service the piece",
+          "R": 0,
+          "M": 0,
+          "G": -10,
+          "P": -2,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 15,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Spend powder on another discharge",
+          "R": 0,
+          "M": 0,
+          "G": 15,
+          "P": 3,
+          "E": 0,
+          "Ammo": 1,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Withdraw its exposed crew",
+          "R": 0,
+          "M": 0,
+          "G": -15,
+          "P": 0,
+          "E": -8,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-16",
+      "Title": "Arrow bundles go astray",
+      "Phase": 0,
+      "Condition": "archers",
+      "Text": "The expected bundles are at the wrong stair. The approach is already filling.",
+      "Choices": [
+        {
+          "Name": "Send infantry runners",
+          "R": 5,
+          "M": -10,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Conserve what is at hand",
+          "R": -10,
+          "M": 0,
+          "G": 0,
+          "P": -2,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Open emergency stores",
+          "R": 10,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 25,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-17",
+      "Title": "A captain falls wounded",
+      "Phase": 1,
+      "Condition": "infantry",
+      "Text": "A wounded captain lies where both sides can see him.",
+      "Choices": [
+        {
+          "Name": "Cover his evacuation",
+          "R": 0,
+          "M": -8,
+          "G": 0,
+          "P": -5,
+          "E": -5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Appoint the next officer",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 2,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Send a rescue party",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": -3,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 1,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-18",
+      "Title": "The standard vanishes",
+      "Phase": 1,
+      "Condition": "always",
+      "Text": "Smoke and falling stone hide the banner above the fighting.",
+      "Choices": [
+        {
+          "Name": "Raise a second standard",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 15,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Rally from shelter",
+          "R": 0,
+          "M": -5,
+          "G": 0,
+          "P": -3,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Advance a command party",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": -5,
+          "E": 8,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-19",
+      "Title": "Fire at the ammunition shelter",
+      "Phase": 0,
+      "Condition": "cannon",
+      "Text": "A burning cloth catches beside the gun's powder shelter.",
+      "Choices": [
+        {
+          "Name": "Divert men to smother it",
+          "R": 0,
+          "M": -10,
+          "G": 0,
+          "P": -2,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Douse and replace exposed stock",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -4,
+          "E": 0,
+          "Ammo": 1,
+          "Materials": 10,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Isolate the gun position",
+          "R": 0,
+          "M": 0,
+          "G": -20,
+          "P": 0,
+          "E": -10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-20",
+      "Title": "A stairway choked with rubble",
+      "Phase": 1,
+      "Condition": "wall",
+      "Text": "The reserve cannot reach the threatened parapet by its usual route.",
+      "Choices": [
+        {
+          "Name": "Clear the stair",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 30,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Take the longer route",
+          "R": 0,
+          "M": -8,
+          "G": 0,
+          "P": 2,
+          "E": -5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold with local companies",
+          "R": 0,
+          "M": 10,
+          "G": 0,
+          "P": 5,
+          "E": 5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-21",
+      "Title": "The sortie reaches a crowded gate",
+      "Phase": 1,
+      "Condition": "sortie",
+      "Text": "The raiding party returns as more men demand passage through the gate.",
+      "Choices": [
+        {
+          "Name": "Open briefly under shields",
+          "R": 0,
+          "M": 5,
+          "G": 0,
+          "P": 5,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Send a covering company",
+          "R": 0,
+          "M": -10,
+          "G": 0,
+          "P": -5,
+          "E": -5,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Use another postern",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": -3,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 1,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-22",
+      "Title": "The reserve is exhausted",
+      "Phase": 1,
+      "Condition": "infantry",
+      "Text": "Men who have already fought ask for a moment behind the line.",
+      "Choices": [
+        {
+          "Name": "Rotate the companies",
+          "R": 0,
+          "M": -10,
+          "G": 0,
+          "P": -4,
+          "E": -15,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Commit them together",
+          "R": 0,
+          "M": 15,
+          "G": 0,
+          "P": 5,
+          "E": 10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Shorten the defended frontage",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 5,
+          "E": -10,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    },
+    {
+      "Id": "assault-23",
+      "Title": "An enemy reaches the Emperor",
+      "Phase": 2,
+      "Condition": "frontline",
+      "Text": "An attacker forces his way through the passage beside your position.",
+      "Choices": [
+        {
+          "Name": "Let the guard extract you",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Hold the passage personally",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        },
+        {
+          "Name": "Lead a desperate countercharge",
+          "R": 0,
+          "M": 0,
+          "G": 0,
+          "P": 0,
+          "E": 0,
+          "Ammo": 0,
+          "Materials": 0,
+          "InfantryLoss": 0,
+          "Reveal": false,
+          "RequiredCharacter": -1
+        }
+      ]
+    }
+  ]
+}

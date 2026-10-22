@@ -51,31 +51,41 @@ public class AI: MonoBehaviour
         var b=new PhasedAssault(Random.Range(1,int.MaxValue));
         b.Type=type;b.Attackers=b.EnemyLeft=Mathf.Min(TroopWaveSize(type),VariableSingleton.GetIntVariable(key));
         if(b.Attackers==0){WasAssault=false;PendingPhased=null;LastReport="No troops remain to mount this assault.";return;}
-        b.InitialInfantry=b.Infantry=CouncilActions.Int("iInfantry");b.InitialArchers=b.Archers=CouncilActions.Int("iArchers");
-        b.InitialCavalry=b.Cavalry=CouncilActions.Int("iCavalry");b.InitialGuards=b.Guards=CouncilActions.Int("iVarangians");
         b.Frontline=DailyLifeEvents.I("iEmperorAtWall")==1;b.PersonalBudget=1+EmperorCombat.Skill/10;
         b.InitialHealth=b.Health=Mathf.RoundToInt(VariableSingleton.GetFloatVariable("fHealth")*100);
-        b.Wall=VariableSingleton.Instance.EnduringWall.GetHealth();b.Breach=assaultSystem.TestAssault(TroopAssaultRating(type))-WallOverrunThreshold;
-        b.ArcherBudget=b.Archers*(TechnologySystem.Quality("Archers")+(TechnologySystem.Has("Handcannons")?.5f:0))*(1+(CouncilActions.Int("iFleet")==3&&CouncilActions.Int("iShips")>0?CourtRoster.Bonus(1,.05f,.15f):0));
-        b.Cannons=CouncilActions.Int("iCannons");b.Ammo=Mathf.Min(CouncilActions.Int("iAmmunition"),b.Cannons>0?3:0);
-        b.GunBudget=b.Cannons*assaultSystem.CannonLethality*(b.Ammo/3f);
-        b.FootBudget=b.Infantry*(TechnologySystem.Quality("Infantry")+(TechnologySystem.Has("Grenades")?.25f:0))*(1+CourtRoster.Bonus(0,.05f,.15f))*(1+CourtRoster.Bonus(3,.05f,.15f));
-        b.CavalryBudget=b.Cavalry*TroopTraining.WallCavalry;b.GuardPower=assaultSystem.GuardLethality;b.EnemyLethality=TroopLethality(type);
+        PopulateDisposition(b);
         b.Tower=VariableSingleton.GetBoolVariable("bSiegeTower");b.Ram=VariableSingleton.GetBoolVariable("bBatteringRam");
         PendingPhased=b;LastReport=(type==2?"Janissaries":type==1?"Bashi-bazouks":"Ottoman Balkan troops")+" assemble for an assault: "+b.Attackers.ToString("N0")+" committed attackers. Prepare to command the defence.";
         assaultUI.SetAssaultResultButton(true);
     }
+    // Recalculate allocation without creating another encounter or rerolling its random stream.
+    void PopulateDisposition(PhasedAssault b) {
+        b.InitialInfantry=b.Infantry=DefencePosture.LandInfantry;b.InitialArchers=b.Archers=DefencePosture.LandArchers;
+        b.InitialCavalry=b.Cavalry=DefencePosture.Dismounted?CouncilActions.Int("iCavalry"):0;b.InitialGuards=b.Guards=CouncilActions.Int("iVarangians");
+
+        b.Wall=VariableSingleton.Instance.EnduringWall.GetHealth();b.Breach=assaultSystem.TestAssault(TroopAssaultRating(b.Type))-WallOverrunThreshold;
+        b.ArcherBudget=b.Archers*(TechnologySystem.Quality("Archers")+(TechnologySystem.Has("Handcannons")?.5f:0))*(1+(CouncilActions.Int("iFleet")==3&&CouncilActions.Int("iShips")>0?CourtRoster.Bonus(1,.05f,.15f):0));
+        b.Cannons=CouncilActions.Int("iCannons");b.Ammo=Mathf.Min(CouncilActions.Int("iAmmunition"),b.Cannons>0?3:0);
+        b.GunBudget=b.Cannons*assaultSystem.CannonLethality*(b.Ammo/3f);
+        b.FootBudget=.45f*b.Infantry*(TechnologySystem.Quality("Infantry")+(TechnologySystem.Has("Grenades")?.25f:0))*(1+CourtRoster.Bonus(0,.05f,.15f))*(1+CourtRoster.Bonus(3,.05f,.15f));
+        b.CavalryBudget=b.Cavalry*TroopTraining.WallCavalry;b.GuardPower=assaultSystem.GuardLethality;b.EnemyLethality=TroopLethality(b.Type);
+        if(b.Infantry+b.Archers+b.Cavalry==0)b.Breach=Mathf.Max(b.Breach,b.Attackers/20+1);
+    }
+    public void RefreshDisposition(PhasedAssault b){
+        if(b==null||b.Practice||b.Stage!=PhasedAssault.Phase.Approach||b.Shots>0||b.GunResolved||b.CoverResolved)return;
+        PopulateDisposition(b);
+    }
     public void CommitPhased(PhasedAssault b) {
-        if(b==null||b.Committed||!b.Finished)return;b.Committed=true;
-        VariableSingleton.ChangeInt("iInfantry",b.Infantry-b.InitialInfantry);VariableSingleton.ChangeInt("iArchers",b.Archers-b.InitialArchers);
-        VariableSingleton.ChangeInt("iCavalry",b.Cavalry-b.InitialCavalry);VariableSingleton.ChangeInt("iVarangians",b.Guards-b.InitialGuards);
-        VariableSingleton.ChangeInt("iAmmunition",-b.Ammo);VariableSingleton.ChangePercentFloat("fHealth",(b.Health-b.InitialHealth)/100f);
+        if(b==null||(!b.Practice&&b!=PendingPhased)||!b.TryCommit())return;if(b.Practice)return;var r=b.Outcome;
+        VariableSingleton.ChangeInt("iInfantry",r.InfantryDelta);VariableSingleton.ChangeInt("iArchers",r.ArcherDelta);
+        VariableSingleton.ChangeInt("iCavalry",r.CavalryDelta);VariableSingleton.ChangeInt("iVarangians",r.GuardDelta);
+        VariableSingleton.ChangeInt("iAmmunition",-r.AmmoSpent);VariableSingleton.ChangeInt("iMaterials",-r.MaterialsSpent);VariableSingleton.ChangePercentFloat("fHealth",(r.HealthDelta)/100f);
         VariableSingleton.SetInt("iEmperorAtWall",0);
-        RecordEnemyLosses(b.Dead);VariableSingleton.ChangeFloat("fMoat",-.1f);
-        VariableSingleton.ChangeBool("bSiegeTower",b.Tower);VariableSingleton.ChangeBool("bBatteringRam",b.Ram);
-        if(!b.Held&&b.Health>0){VariableSingleton.Instance.EnduringWall.Abandon();VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));}
-        LastReport=b.Result;AwaitingBreachDecision=false;assaultUI.SetAssaultResultButton(b.Held);
-        assaultSystem.SetPhasedReport(string.Join("\n\n",b.Journal),"Enemy dead: "+b.Dead+"\nEnemy survivors: "+b.EnemyLeft+"\nInfantry lost: "+(b.InitialInfantry-b.Infantry)+"\nArchers lost: "+(b.InitialArchers-b.Archers)+"\nCavalry lost: "+(b.InitialCavalry-b.Cavalry)+"\nGuards lost: "+(b.InitialGuards-b.Guards)+"\nAmmunition spent: "+b.Ammo+"\n\n"+b.Result);
+        RecordEnemyLosses(r.EnemyDead,b.Type);VariableSingleton.ChangeFloat("fMoat",-.1f);
+        VariableSingleton.ChangeBool("bSiegeTower",r.Tower);VariableSingleton.ChangeBool("bBatteringRam",r.Ram);
+        if(!r.Held&&r.Health>0){VariableSingleton.Instance.EnduringWall.Abandon();VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));}
+        LastReport=r.Summary;AwaitingBreachDecision=false;assaultUI.SetAssaultResultButton(r.Held);
+        assaultSystem.SetPhasedReport(r.Ledger,"Enemy dead: "+r.EnemyDead+"\nEnemy survivors: "+r.EnemySurvivors+"\nInfantry lost: "+(-r.InfantryDelta)+"\nArchers lost: "+(-r.ArcherDelta)+"\nCavalry lost: "+(-r.CavalryDelta)+"\nGuards lost: "+(-r.GuardDelta)+"\nAmmunition spent: "+r.AmmoSpent+"\n\n"+r.Summary);
     }
 
     public void TakeAIAction()
@@ -220,9 +230,10 @@ public class AI: MonoBehaviour
         assaultUI.AssaultAftermathUI();
     }
 
-    void RecordEnemyLosses(int enemyLosses) 
+    void RecordEnemyLosses(int enemyLosses,int type=-1)
     {
-        switch (assaultType)
+        var resolvedType=type>=0?(AssaultType)type:assaultType;
+        switch (resolvedType)
         {
             case AssaultType.Balkan:
                 VariableSingleton.ChangeInt("iBalkans", -enemyLosses); break;
@@ -234,7 +245,7 @@ public class AI: MonoBehaviour
                 VariableSingleton.ChangeInt("iJanissaries", -enemyLosses); break;
         }
 
-        enemyLossDisplay.SetLossesInfo((int)assaultType, enemyLosses);
+        enemyLossDisplay.SetLossesInfo((int)resolvedType, enemyLosses);
     }
 
     public void AIBalkanSubjectAssault()

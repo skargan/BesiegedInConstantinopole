@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 
 
@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 26 · Midnight Mosaic · 22 October 2026";
+    public const string BuildLabel="Version 28 · Architecture consolidation · 22 October 2026";
 
 
 
@@ -226,6 +226,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
+        CampaignHUD.MakeButton(manager.transform,"Test assault",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>AssaultPractice.Show(manager));
     }
 
 
@@ -1194,6 +1195,16 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
+    public void AssaultPracticeMenu(){
+        Open("Assault practice","Practice leaves campaign resources and casualties unchanged. Choose an encounter; minigames can be switched ON/OFF in its briefing.");ControlSingleton.Instance.ReturnAction=AssaultPractice.Exit;BodyHeight(500);
+        string[] names={"Ladder assault","Ram and siege tower","Janissary breach","Command a cannon","Mouse-sword duel","24 assault incidents"};
+        for(int i=0;i<6;i++){int n=i;float x=i%2*.5f,y=1-i/2*.325f;var tile=CampaignHUD.Panel(body,names[i],new Vector2(x+.012f,y-.30f),new Vector2(x+.488f,y-.015f));ImperialTheme.Panel(tile,false);CampaignHUD.Label(tile.transform,names[i],new Vector2(.04f,.55f),new Vector2(.96f,.94f),25);CampaignHUD.MakeButton(tile.transform,i==5?"Choose an incident":"Launch practice",new Vector2(.04f,.07f),new Vector2(.96f,.48f),()=>{if(n==4)AssaultPractice.Duel();else if(n==5)AssaultIncidentPractice();else {AssaultPractice.ForcedIncident=-1;AssaultPractice.Launch(n);}});}
+    }
+    public void AssaultIncidentPractice(){
+        Open("Assault incident catalogue","Choose one of the 24 situations to force it into a practice assault. Campaign encounters still check actual equipment, troops and circumstances.");ControlSingleton.Instance.ReturnAction=AssaultPracticeMenu;BodyHeight(24*130);
+        for(int i=0;i<AssaultIncidents.All.Length;i++){int n=i;var e=AssaultIncidents.All[i];var row=Row(i,130);CampaignHUD.Label(row.transform,(i+1)+" · "+e.Title+"\n"+e.Condition,new Vector2(.03f,.1f),new Vector2(.70f,.9f),24);CampaignHUD.MakeButton(row.transform,"Test incident",new Vector2(.75f,.15f),new Vector2(.97f,.85f),()=>{AssaultPractice.ForcedIncident=n;AssaultPractice.Launch(n==23?2:1);});}
+    }
+
     public void SultanGiftMenu() {
         Open("Gifts for Mehmed","Choose a gift to review. Nothing is spent until you confirm. Each gift uses the major action; a return gift is possible.");
         ControlSingleton.Instance.ReturnAction=Sultan;
@@ -1694,6 +1705,3 @@ public partial class CouncilUI : MonoBehaviour
 
 
 }
-
-
-

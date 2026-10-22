@@ -1,0 +1,12 @@
+ARCHITECTURE DECISIONS - 22 October 2026
+
+D01 Adopt supplied AI GAME STUDIO doctrine as project reference. Source: C:/Users/Dainius/Desktop/AI GAME STUDIO.docx, preserved unchanged. Local text copy is for efficient lookup. Context: consolidate working systems; no engine rewrite.
+D02 Preserve Unity2022.3/C#/Yarn and CampaignSave v1 in this pass. Changes to save schema need explicit migration tests. Keep playable Version27 as rollback reference.
+D03 Separate campaign state, temporary encounter state, content definitions and frozen encounter result. Use a narrow existing AI adapter for commits rather than a new generic event bus.
+D04 Model owns legal major phases and once-only consequences. Presentation may subdivide phases for timing/animation but cannot grant a second resolution.
+D05 Keep one Resources JSON source for the repeated assault incidents. Stable IDs and schema validation are mandatory. Leave narrative content in Yarn. No ScriptableObject rewrite merely for conformity.
+D06 Gameplay RNG must be unaffected by rendering. Model uses explicit seed; presentation samples local RNG. Full campaign replay remains separate work.
+D07 Consolidation should preserve established numerical rules and RNG distributions; individual outcomes can change when cosmetic random consumption is removed or incident draws move to battle seed. Record this compatibility distinction. No promise of byte-identical old replays.
+D08 Release gates: model/content checks, particle isolation, Yarn validation, exported-player practice smoke; visual samples labelled precisely. Do not equate one smoke pass to whole-campaign QA.
+D09 Event information approved by designer: exact commitments/costs; exact guaranteed major preparation benefits; narrative clues for uncertain later benefits; actual visible results after; enemy secrets hidden.
+D10 Important new mechanics remain queued behind stabilisation. Profile and event work remain owned by concurrent agent and merge independently.

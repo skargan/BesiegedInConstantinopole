@@ -37,6 +37,7 @@ public class VariableSingleton : MonoBehaviour
         else ArrivalNotice="";
         if(completedSiegeDay) { ArrivalNotice+=SupplyEconomy.CompleteDay(); NavalState.CompleteDay(); }
         if(CompletedSiegeDays>0 && GetIntVariable("iIncome")>0) {int income=GetIntVariable("iIncome");ChangeInt("iMoney",income);ArrivalNotice+="Merchant levy: +"+income+" gold.\n\n";}
+        if(completedSiegeDay)ArrivalNotice+=DefencePosture.Advance();
         ArrivalNotice+=CouncilActions.AdvanceAid(Math.Max(0,(GetDate()-previousDate).Days));
         ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
         ArrivalNotice+=TroopTraining.Complete(GetDate());
@@ -264,6 +265,7 @@ public class VariableSingleton : MonoBehaviour
             }
         }
         PreparationCampaign.InitializeDefaults();
+        DefencePosture.Initialise();
         IsInitialized = true;
         Achievements.BeginCampaign();
     }
@@ -394,6 +396,7 @@ public class VariableSingleton : MonoBehaviour
     }
     private void RestoreState(CampaignSave data)
     {
+        DefencePosture.Initialise();
         PreparationCampaign.InitializeDefaults(legacy: true);
         // New systems also reset when loading an older checkpoint in the same session.
         foreach(string key in new[]{"bTechVarangianDrills","bTechDismountedChampions"}) bDict[key]=false;

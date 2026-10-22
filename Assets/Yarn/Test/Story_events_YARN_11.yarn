@@ -771,10 +771,10 @@ title: story23
 -> Conserve our forces. Set the fields and houses in front of the city on fire. // 
     Ashes and dust will be all that will greet our invaders. Let them feast on that! We must hope that they will not be able to procure enough food to sustain this siege for long...
     <<Change iFood -20>> 
--> Infiltrate the Ottoman camp and recruit local informants. 5,000 gold; usually 1–2 agents. <<if GetInt("iMoney") >= 5000>>
+-> Infiltrate the Ottoman camp. Seek informants among its interpreters, drivers and camp followers; the strength of the network remains uncertain. \[Cost: 5,000 gold\] <<if GetInt("iMoney") >= 5000>>
     <<set $openingAgents = OpeningRecruits()>>
     Quiet approaches to interpreters, drivers and camp followers establish {$openingAgents} new agents inside the Ottoman camp. Their reports will begin reaching your spymaster.
-    <<Change iSpies $openingAgents>> 
+    <<Change iSpies {$openingAgents}>>
     <<Change iMoney -5000>> 
 ===
 title: story24

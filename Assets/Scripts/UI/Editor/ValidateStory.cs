@@ -1,10 +1,15 @@
-﻿using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 using System.Linq;
 public static class ValidateStory
 {
     public static void Run()
     {
+        foreach(var file in System.IO.Directory.GetFiles("Assets/Yarn/Test","*.yarn",System.IO.SearchOption.AllDirectories)) {
+            string text=System.IO.File.ReadAllText(file);
+            if(System.Text.RegularExpressions.Regex.IsMatch(text,@"(?<!\\)\[Cost:"))throw new System.Exception("Unescaped cost markup in "+file);
+            if(System.Text.RegularExpressions.Regex.IsMatch(text,@"<<Change\s+\w+\s+\$\w+"))throw new System.Exception("Uninterpolated numeric Yarn command in "+file);
+        }
         string path="Assets/Yarn/Test/NewProject.yarnproject";
         AssetDatabase.ImportAsset("Assets/Yarn/Test/Story_events_YARN_11.yarn",ImportAssetOptions.ForceUpdate);
         AssetDatabase.ImportAsset("Assets/Yarn/Test/Random_events_recurring.yarn",ImportAssetOptions.ForceUpdate);
