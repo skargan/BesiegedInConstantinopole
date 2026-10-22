@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -12,7 +12,9 @@ public static class AudioSettingsUI
         var settings=Settings.Instance;
         panel=CampaignHUD.Panel(parent,"Settings",Vector2.zero,Vector2.one);
         ImperialTheme.Panel(panel);
-        var title=CampaignHUD.Label(panel.transform,"Settings",new Vector2(.12f,.80f),new Vector2(.88f,.94f),40);title.alignment=TextAlignmentOptions.Center;
+        var title=CampaignHUD.Label(panel.transform,"Settings",new Vector2(.12f,.88f),new Vector2(.88f,.98f),40);title.alignment=TextAlignmentOptions.Center;
+        var assault=CampaignHUD.MakeButton(panel.transform,PhasedAssaultUI.ActiveMode?"Assaults: Active timing":"Assaults: Assisted",new Vector2(.30f,.76f),new Vector2(.70f,.85f),()=>{});
+        assault.onClick.AddListener(()=>{PhasedAssaultUI.ActiveMode=!PhasedAssaultUI.ActiveMode;assault.GetComponentInChildren<TMP_Text>().text=PhasedAssaultUI.ActiveMode?"Assaults: Active timing":"Assaults: Assisted";});
         var toggle=CampaignHUD.MakeButton(panel.transform,settings.MusicEnabled?"Music: On":"Music: Off",new Vector2(.30f,.61f),new Vector2(.70f,.72f),()=>{});
         toggle.onClick.AddListener(()=>{settings.SetMusicEnabled(!settings.MusicEnabled);toggle.GetComponentInChildren<TMP_Text>().text=settings.MusicEnabled?"Music: On":"Music: Off";});
         var value=CampaignHUD.Label(panel.transform,"Music volume: "+Mathf.RoundToInt(settings.MusicVolume*100)+"%",new Vector2(.25f,.46f),new Vector2(.75f,.56f),28);value.alignment=TextAlignmentOptions.Center;

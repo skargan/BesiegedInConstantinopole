@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
@@ -44,7 +44,7 @@ public class AssaultUI : UIWindowFam
 
     public void ContinueToEmperorAction()
     {
-        if (finished || AI.Instance.AwaitingBreachDecision) return;
+        if (finished || AI.Instance.AwaitingBreachDecision || AI.Instance.HasPendingPhased) return;
         finished = true;
         VariableSingleton.IncrementTurn();
         wallsHeldMessage.SetActive(false);
@@ -58,6 +58,7 @@ public class AssaultUI : UIWindowFam
     {
         procedeToAssaultResult.gameObject.SetActive(false);
         if (!AI.Instance.WasAssault) { ContinueToEmperorAction(); return; }
+        if(AI.Instance.HasPendingPhased){PhasedAssaultUI.Open(AI.Instance.PendingPhased,transform.parent);return;}
         if (wallHeld) AssaultAftermathUI();
         else WallsOverwhelmed();
     }

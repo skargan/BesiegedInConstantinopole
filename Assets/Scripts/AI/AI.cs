@@ -34,14 +34,53 @@ public class AI: MonoBehaviour
 
     [SerializeField] EnemyLossDisplay enemyLossDisplay;
     
+    public int TroopAssaultRating(int type) => type==0?christianBalkanSubjectAV:type==1?bashiBazoukAV:janissaryAV;
+    public int TroopWaveSize(int type) => type==0?averageBalkanSubjectForce:type==1?averageBashiBazoukForce:averageJanissaryForce;
+    public float TroopLethality(int type) => assaultSystem.EnemyLethality(type==2);
     public string LastReport { get; private set; } = "";
     public int GuardsRequired => assaultTest;
     public bool CanDeployGuards => assaultTest > 0 && VariableSingleton.GetIntVariable("iVarangians") >= assaultTest;
     public bool WasAssault { get; private set; }
     public bool AwaitingBreachDecision { get; private set; }
 
+    public PhasedAssault PendingPhased { get; private set; }
+    public bool HasPendingPhased=>PendingPhased!=null&&!PendingPhased.Committed;
+    void BeginPhased(int type) {
+        WasAssault=true;AwaitingBreachDecision=false;assaultType=(AssaultType)type;
+        string key=type==0?"iBalkans":type==1?"iBazouks":"iJanissaries";
+        var b=new PhasedAssault(Random.Range(1,int.MaxValue));
+        b.Type=type;b.Attackers=b.EnemyLeft=Mathf.Min(TroopWaveSize(type),VariableSingleton.GetIntVariable(key));
+        if(b.Attackers==0){WasAssault=false;PendingPhased=null;LastReport="No troops remain to mount this assault.";return;}
+        b.InitialInfantry=b.Infantry=CouncilActions.Int("iInfantry");b.InitialArchers=b.Archers=CouncilActions.Int("iArchers");
+        b.InitialCavalry=b.Cavalry=CouncilActions.Int("iCavalry");b.InitialGuards=b.Guards=CouncilActions.Int("iVarangians");
+        b.Frontline=DailyLifeEvents.I("iEmperorAtWall")==1;b.PersonalBudget=1+EmperorCombat.Skill/10;
+        b.InitialHealth=b.Health=Mathf.RoundToInt(VariableSingleton.GetFloatVariable("fHealth")*100);
+        b.Wall=VariableSingleton.Instance.EnduringWall.GetHealth();b.Breach=assaultSystem.TestAssault(TroopAssaultRating(type))-WallOverrunThreshold;
+        b.ArcherBudget=b.Archers*(TechnologySystem.Quality("Archers")+(TechnologySystem.Has("Handcannons")?.5f:0))*(1+(CouncilActions.Int("iFleet")==3&&CouncilActions.Int("iShips")>0?CourtRoster.Bonus(1,.05f,.15f):0));
+        b.Cannons=CouncilActions.Int("iCannons");b.Ammo=Mathf.Min(CouncilActions.Int("iAmmunition"),b.Cannons>0?3:0);
+        b.GunBudget=b.Cannons*assaultSystem.CannonLethality*(b.Ammo/3f);
+        b.FootBudget=b.Infantry*(TechnologySystem.Quality("Infantry")+(TechnologySystem.Has("Grenades")?.25f:0))*(1+CourtRoster.Bonus(0,.05f,.15f))*(1+CourtRoster.Bonus(3,.05f,.15f));
+        b.CavalryBudget=b.Cavalry*TroopTraining.WallCavalry;b.GuardPower=assaultSystem.GuardLethality;b.EnemyLethality=TroopLethality(type);
+        b.Tower=VariableSingleton.GetBoolVariable("bSiegeTower");b.Ram=VariableSingleton.GetBoolVariable("bBatteringRam");
+        PendingPhased=b;LastReport=(type==2?"Janissaries":type==1?"Bashi-bazouks":"Ottoman Balkan troops")+" assemble for an assault: "+b.Attackers.ToString("N0")+" committed attackers. Prepare to command the defence.";
+        assaultUI.SetAssaultResultButton(true);
+    }
+    public void CommitPhased(PhasedAssault b) {
+        if(b==null||b.Committed||!b.Finished)return;b.Committed=true;
+        VariableSingleton.ChangeInt("iInfantry",b.Infantry-b.InitialInfantry);VariableSingleton.ChangeInt("iArchers",b.Archers-b.InitialArchers);
+        VariableSingleton.ChangeInt("iCavalry",b.Cavalry-b.InitialCavalry);VariableSingleton.ChangeInt("iVarangians",b.Guards-b.InitialGuards);
+        VariableSingleton.ChangeInt("iAmmunition",-b.Ammo);VariableSingleton.ChangePercentFloat("fHealth",(b.Health-b.InitialHealth)/100f);
+        VariableSingleton.SetInt("iEmperorAtWall",0);
+        RecordEnemyLosses(b.Dead);VariableSingleton.ChangeFloat("fMoat",-.1f);
+        VariableSingleton.ChangeBool("bSiegeTower",b.Tower);VariableSingleton.ChangeBool("bBatteringRam",b.Ram);
+        if(!b.Held&&b.Health>0){VariableSingleton.Instance.EnduringWall.Abandon();VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));}
+        LastReport=b.Result;AwaitingBreachDecision=false;assaultUI.SetAssaultResultButton(b.Held);
+        assaultSystem.SetPhasedReport(string.Join("\n\n",b.Journal),"Enemy dead: "+b.Dead+"\nEnemy survivors: "+b.EnemyLeft+"\nInfantry lost: "+(b.InitialInfantry-b.Infantry)+"\nArchers lost: "+(b.InitialArchers-b.Archers)+"\nCavalry lost: "+(b.InitialCavalry-b.Cavalry)+"\nGuards lost: "+(b.InitialGuards-b.Guards)+"\nAmmunition spent: "+b.Ammo+"\n\n"+b.Result);
+    }
+
     public void TakeAIAction()
     {
+        PendingPhased=null;
         WasAssault = false;
         AwaitingBreachDecision = false;
         LastReport = "No major Ottoman operation was completed today.";
@@ -200,6 +239,7 @@ public class AI: MonoBehaviour
 
     public void AIBalkanSubjectAssault()
     {
+        if(PhasedAssaultUI.Enabled){BeginPhased(0);return;}
         WasAssault = true;
         assaultType = AssaultType.Balkan;
         LastReport = "Ottoman Balkan troops launch an assault.";
@@ -224,6 +264,7 @@ public class AI: MonoBehaviour
 
     public void AIBashiBazoukAssault()
     {
+        if(PhasedAssaultUI.Enabled){BeginPhased(1);return;}
         WasAssault = true;
         assaultType = AssaultType.Bazouk;
         LastReport = "Ottoman Bazouk troops launch an assault.";
@@ -248,6 +289,7 @@ public class AI: MonoBehaviour
 
     public void AIJanissaryAssault()
     {
+        if(PhasedAssaultUI.Enabled){BeginPhased(2);return;}
         WasAssault = true;
         assaultType = AssaultType.Janissary;
         LastReport = "Ottoman Janissary troops launch an assault.";

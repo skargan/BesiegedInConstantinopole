@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 25 · Midnight Mosaic · 22 October 2026";
+    public const string BuildLabel="Version 26 · Midnight Mosaic · 22 October 2026";
 
 
 
@@ -858,6 +858,7 @@ public partial class CouncilUI : MonoBehaviour
             var value=CampaignHUD.Label(cell.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.04f,.03f),new Vector2(.96f,.48f),21);
 
             if(!known) {title.color=new Color(.57f,.54f,.52f);value.color=title.color;value.fontStyle|=FontStyles.Italic;}
+            if(i==0){title.text="Enemy soldiers · View types";EnemyTroopsLink(cell,Spies);}
 
         }
 
@@ -1405,6 +1406,7 @@ public partial class CouncilUI : MonoBehaviour
             var value=CampaignHUD.Label(item.transform,known?EspionageSystem.IntelligenceValue(n):"Requires "+(n+1)+" agents",new Vector2(.04f,.06f),new Vector2(.96f,.49f),23);
 
             if(!known){label.color=value.color=new Color(.55f,.60f,.63f);value.fontStyle|=FontStyles.Italic;}
+            if(n==0){label.text="Enemy soldiers · View types";EnemyTroopsLink(item,Overview);}
 
         }
 

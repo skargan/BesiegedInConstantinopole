@@ -48,8 +48,10 @@ public class AssaultSystem : MonoBehaviour
 
 
 
+    public float EnemyLethality(bool janissary) => janissary?jannisaryLethalityFacotr:commonEnemyLethalityFactor;
     public float CannonLethality => cannonLethalityFactor * (1+CourtRoster.Bonus(5,.05f,.20f)) * (TechnologySystem.Has("Grapeshot")?3.5f:1);
     public float GuardLethality => varangianLethalityFactor * (TechnologySystem.Has("VarangianDrills")?1.2f:1f);
+    public void SetPhasedReport(string stages,string losses){StageReport=stages;LossReport=losses;}
     public string StageReport { get; private set; }="";
     public string LossReport { get; private set; }="";
     public void ClearLossDisplay() {StageReport=LossReport="";playerLossDisplay.SetLossesInfo(0,0,0,0,true);}

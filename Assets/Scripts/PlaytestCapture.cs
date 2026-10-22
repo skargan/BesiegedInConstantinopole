@@ -1,4 +1,4 @@
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
+﻿#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System;
 using System.Collections;
 using System.IO;
@@ -18,6 +18,13 @@ public class PlaytestCapture : MonoBehaviour
         DontDestroyOnLoad(obj);
         obj.AddComponent<PlaytestCapture>();
     }
+    private IEnumerator Frames(int count){for(int i=0;i<count;i++)yield return null;}
+    private void AssaultClick(string prefix) {
+        var button=FindObjectsOfType<Button>().FirstOrDefault(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith(prefix)==true);
+        if(button==null)throw new Exception("Missing assault button: "+prefix);
+        if(!button.interactable)throw new Exception("Disabled assault button: "+prefix);
+        button.onClick.Invoke();
+    }
     private IEnumerator Start()
     {
         AudioListener.volume = 0;
@@ -32,6 +39,48 @@ public class PlaytestCapture : MonoBehaviour
         FindObjectOfType<MainMenuUI>().NewGame();
         yield return Capture("02-management");
         var manager = FindObjectOfType<ManagerUI>();
+        if(Environment.GetCommandLineArgs().Contains("-assault-capture")) {
+            PhasedAssaultUI.TestFocus=true;bool previous=PhasedAssaultUI.ActiveMode;PhasedAssaultUI.ActiveMode=false;
+            VariableSingleton.SetInt("iVarangians",500);VariableSingleton.SetInt("iTurkCannons",5);VariableSingleton.ChangeBool("bSiegeTower",true);
+            AI.Instance.AIJanissaryAssault();var b=AI.Instance.PendingPhased;b.ArcherBudget*=.1f;b.FootBudget*=.1f;b.Breach=30;
+            int beforeTurn=VariableSingleton.Turn,enemyBefore=CouncilActions.Int("iJanissaries");
+            FindObjectOfType<AssaultUI>(true).ShowResult();yield return Capture("26-assault-command");
+            AssaultClick("Command from shelter");yield return Capture("26-assault-cover");
+            AssaultClick("Let captains");yield return Capture("26-assault-volley");
+            AssaultClick("Let the captains judge");yield return Capture("26-assault-sortie");
+            AssaultClick("Send up to 100");yield return Capture("26-assault-sortie-recall");AssaultClick("Quick strike");
+            yield return Capture("26-assault-contact");
+            for(int i=0;i<3;i++){AssaultClick("Resolve this wave");yield return null;}
+            yield return Capture("26-assault-reserve");AssaultClick("Divide evenly");yield return null;
+            AssaultClick("Commit ");yield return Capture("26-assault-aftermath");
+            if(!b.Committed||VariableSingleton.Turn!=beforeTurn||enemyBefore-CouncilActions.Int("iJanissaries")!=b.Dead)throw new Exception("Phased settlement mismatch");
+            if(DailyLifeEvents.I("iEmperorAtWall")!=0)throw new Exception("Queued wall order not consumed");
+            int after=CouncilActions.Int("iJanissaries");AI.Instance.CommitPhased(b);if(CouncilActions.Int("iJanissaries")!=after)throw new Exception("Double settlement");
+            AssaultClick("Continue to siege report");yield return Capture("26-assault-report");
+            // Active timing: three deliberate centre releases produce only +25%, not compounded output.
+            AI.Instance.AIBashiBazoukAssault();var activeBattle=AI.Instance.PendingPhased;PhasedAssaultUI.ActiveMode=true;
+            PhasedAssaultUI.Open(activeBattle,manager.transform.parent);yield return null;PhasedAssaultUI.Current.Volley();yield return Capture("26-active-volley");
+            var field=typeof(PhasedAssaultUI).GetField("elapsed",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+            for(int i=0;i<3;i++){field.SetValue(PhasedAssaultUI.Current,i*10f+5);AssaultClick("Loose arrows");}
+            if(Mathf.Abs(activeBattle.VolleyMultiplier-1.25f)>.001f)throw new Exception("Volley multiplier");
+            Destroy(PhasedAssaultUI.Current.gameObject);yield return null;
+            AI.Instance.AIBashiBazoukAssault();var timed=AI.Instance.PendingPhased;timed.ArcherBudget=timed.FootBudget=timed.CavalryBudget=0;timed.Breach=2000;
+            PhasedAssaultUI.Open(timed,manager.transform.parent);yield return null;AssaultClick("Join the parapet");yield return null;
+            var ui=PhasedAssaultUI.Current;field.SetValue(ui,4f);CampaignHUD.Instance.TogglePause();yield return Frames(8);
+            if(Mathf.Abs((float)field.GetValue(ui)-4)> .001f)throw new Exception("Timer advanced while paused");
+            CampaignHUD.Instance.TogglePause();yield return null;field.SetValue(ui,30f);yield return Frames(2);
+            if(timed.Cover!=.9f)throw new Exception("Unsafe cover timeout");
+            field.SetValue(ui,30f);yield return Frames(2);
+            if(timed.Shots!=3 || timed.VolleyMultiplier!=.75f || timed.TimedMoments>2)throw new Exception("Volley timeout or timed moment cap");
+            AssaultClick("Keep the gates shut");yield return null;
+            for(int i=0;i<3;i++){AssaultClick("Resolve this wave");yield return null;}
+            AssaultClick("Divide evenly");yield return Capture("26-emperor-emergency");
+            AssaultClick("Accept the escort");yield return null;timed.Guards=0;
+            // Insufficient guards must still leave retreat available.
+            AssaultClick("Abandon this line");yield return Capture("26-assault-fallback");
+            if(!timed.Committed||timed.Held||timed.Health<=0)throw new Exception("Fallback or safe escort");
+            PhasedAssaultUI.ActiveMode=previous;Debug.Log("PHASED_ASSAULT_PLAYER_CHECKS assisted path, settlement, active volleys, pause, timeouts, personal emergency and fallback passed");Application.Quit();yield break;
+        }
         if(Environment.GetCommandLineArgs().Contains("-gift-capture")) {
             int checks=0;
             for(int i=0;i<SultanGifts.Gifts.Length;i++) {
@@ -330,5 +379,6 @@ public class PlaytestCapture : MonoBehaviour
     }
 }
 #endif
+
 
 
