@@ -1,0 +1,1419 @@
+{
+  "version": 1,
+  "status": "Written and structurally checked; not playable until integrated",
+  "events": [
+    {
+      "id": "uniqueVenetianGuarantees",
+      "title": "The Price of a Venetian Promise",
+      "text": "The merchants have brought three copies of their petition, each more courteous than the last. They offer warehouses, shipping contacts and credit; they want their property protected against imperial requisition. Their spokesman lays a hand on the paper. “An emperor must sometimes do what necessity commands.” He pauses. “We merely wish to know whether necessity will begin with our grain.”",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueVenetianGuarantees:0",
+          "label": "Guarantee compensation for requisitioned goods.",
+          "outcome": "You sign a promise that will be cheaper today than on the day it is called in.",
+          "effects": {
+            "flag:merchantCompensation": true,
+            "iProvisions": 300
+          },
+          "next": "venetianPromiseDue"
+        },
+        {
+          "id": "uniqueVenetianGuarantees:1",
+          "label": "Pay 1,000 gold for the supplies without special privileges.",
+          "outcome": "The merchants count the money and discover that they can trust an emperor who pays in advance.",
+          "effects": {
+            "iMoney": -1000,
+            "iProvisions": 300
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueVenetianGuarantees:2",
+          "label": "Refuse special terms.",
+          "outcome": "The copies return to their leather case. The grain remains in private warehouses.",
+          "effects": {},
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "venetianPromiseDue",
+      "title": "A Seal Is Also a Debt",
+      "text": "The watch has taken sacks from a Venetian warehouse during a shortage. A merchant arrives with your earlier guarantee, unfolded so often that the imperial seal is beginning to crack. “My men obeyed your officers,” he says. “Will your officers obey you?”",
+      "requires": "15 days after guarantee; actually requisitioned supplies or explicit newly narrated requisition, not an unexplained fine",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "venetianPromiseDue:0",
+          "label": "Honour the guarantee: pay 750 gold.",
+          "outcome": "He bows to the seal before he bows to you. Your promise has survived its first encounter with expense.",
+          "effects": {
+            "iMoney": -750,
+            "merchantFavor": 10,
+            "flag:merchantPromiseHonoured": true
+          },
+          "next": null
+        },
+        {
+          "id": "venetianPromiseDue:1",
+          "label": "Return 300 provisions instead.",
+          "outcome": "The sacks leave the imperial storehouse. The City keeps its word and loses the food.",
+          "effects": {
+            "iProvisions": -300,
+            "flag:merchantPromiseHonoured": true
+          },
+          "next": null
+        },
+        {
+          "id": "venetianPromiseDue:2",
+          "label": "Declare an emergency exemption.",
+          "outcome": "He folds the paper carefully. It has ceased to be a guarantee, but may still be useful as evidence.",
+          "effects": {
+            "merchantFavor": -15,
+            "flag:merchantPromiseBroken": true
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniquePatriarchAudience",
+      "title": "The Empty Chair of the Patriarch",
+      "text": "The patriarchal delegation arrives carrying a petition, not a patriarch. Each priest explains why the absent office ought to speak through him. The Unionists demand protection for their worship; their opponents demand that no Latin profession be imposed upon the City. Both tell you that the people are united behind them. They have come by different doors to avoid the same crowd.",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniquePatriarchAudience:0",
+          "label": "Hear both delegations under imperial protection.",
+          "outcome": "You lend them a room and deny either party the privilege of owning its door.",
+          "effects": {
+            "flag:religiousMediation": true
+          },
+          "next": "patriarchTwoAltars"
+        },
+        {
+          "id": "uniquePatriarchAudience:1",
+          "label": "Give the Unionist delegation precedence.",
+          "outcome": "The first blessing is yours. Outside, another priest begins explaining what it cost.",
+          "effects": {
+            "fPriestRep": -0.03,
+            "flag:unionistPrecedence": true
+          },
+          "next": "patriarchTwoAltars"
+        },
+        {
+          "id": "uniquePatriarchAudience:2",
+          "label": "Give the anti-Union delegation precedence.",
+          "outcome": "The crowd cheers your defence of tradition. Isidore asks whether his men should still defend your walls.",
+          "effects": {
+            "fPriestRep": 0.03,
+            "flag:antiUnionPrecedence": true
+          },
+          "next": "patriarchTwoAltars"
+        }
+      ]
+    },
+    {
+      "id": "patriarchTwoAltars",
+      "title": "Two Altars, One Bread Queue",
+      "text": "A procession has blocked a delivery of bread. Men who yesterday shared a parapet now dispute whether prayer offered beside a Unionist is a prayer at all. The priests agree on one point: your earlier audience encouraged the other side. A baker asks whether he may deliver the loaves before they acquire a theology.",
+      "requires": "7 days after preceding audience; both factions still present",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "patriarchTwoAltars:0",
+          "label": "Protect both services; keep the bread distribution separate.",
+          "outcome": "The watch clears a passage. Nobody calls it reconciliation, but people eat.",
+          "effects": {
+            "iMoney": -300,
+            "flag:worshipProtected": true
+          },
+          "next": "patriarchSettlement"
+        },
+        {
+          "id": "patriarchTwoAltars:1",
+          "label": "Require a joint public service.",
+          "outcome": "The service takes place. Several clergy stand silent throughout it; attendance proves easier to command than belief.",
+          "effects": {
+            "fPeopleRep": 0.02,
+            "fPriestRep": -0.04,
+            "flag:forcedService": true
+          },
+          "next": "patriarchSettlement"
+        },
+        {
+          "id": "patriarchTwoAltars:2",
+          "label": "Let each quarter organise its own relief.",
+          "outcome": "The quarrel subsides into separate lists. Those outside the recognised congregations discover how narrow a charity can become.",
+          "effects": {
+            "fPeopleRep": -0.03,
+            "flag:sectarianRelief": true
+          },
+          "next": "patriarchSettlement"
+        }
+      ]
+    },
+    {
+      "id": "patriarchSettlement",
+      "title": "Who Holds the Keys?",
+      "text": "The disputants return with a smaller demand: control of the chapel keys and relief accounts. It is no longer the fate of Christendom they place before you, merely a ring of iron and a ledger. Somehow the choice feels more dangerous now that it can be carried away in one hand.",
+      "requires": "7 days after Two Altars; records political settlement without silently changing player religion",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "patriarchSettlement:0",
+          "label": "Place relief under a mixed lay commission.",
+          "outcome": "The priests keep their altars. Neither receives the power to decide who deserves bread.",
+          "effects": {
+            "iMoney": -500,
+            "fPeopleRep": 0.03,
+            "flag:layReliefSettlement": true
+          },
+          "next": null
+        },
+        {
+          "id": "patriarchSettlement:1",
+          "label": "Confirm the faction you favoured at the first audience.",
+          "outcome": "Your allies gain the keys. Their opponents keep the memory of the door closing.",
+          "effects": {
+            "fPriestRep": 0.02,
+            "fNobleRep": -0.02,
+            "flag:factionChurchSettlement": true
+          },
+          "next": null
+        },
+        {
+          "id": "patriarchSettlement:2",
+          "label": "Keep the keys under imperial administration.",
+          "outcome": "Your steward accepts another responsibility. From this day, every missing loaf is more directly your fault.",
+          "effects": {
+            "iProvisions": -150,
+            "flag:imperialReliefSettlement": true
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueSecretTunnel",
+      "title": "The Stair Beneath the Hearth",
+      "text": "A mason lifts a cracked hearthstone and finds steps descending beneath the house. The air rising from them is cool and smells faintly of lamp oil. Someone has used this passage recently. Its owner insists that his grandfather sealed it. You have noticed that grandfathers are entrusted with most of the City’s convenient explanations.",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueSecretTunnel:0",
+          "label": "Investigate with a guarded party: 200 gold.",
+          "outcome": "A rope is tied beside the hearth. The first man down asks that it not be untied by anyone claiming to be his grandfather.",
+          "effects": {
+            "iMoney": -200,
+            "tunnel": "investigating"
+          },
+          "next": "tunnelCatacombs"
+        },
+        {
+          "id": "uniqueSecretTunnel:1",
+          "label": "Seal it with 10 materials.",
+          "outcome": "The masons work in daylight. The passage becomes a question safely buried beneath stone.",
+          "effects": {
+            "iMaterials": -10,
+            "tunnel": "sealed"
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueSecretTunnel:2",
+          "label": "Leave a concealed watch: 150 gold.",
+          "outcome": "The hearth is replaced with a gap large enough to breathe through. Your men wait without a fire.",
+          "effects": {
+            "iMoney": -150,
+            "tunnel": "ambush",
+            "rollOnce": "tunnelOccupants"
+          },
+          "next": "tunnelAmbush"
+        }
+      ]
+    },
+    {
+      "id": "tunnelCatacombs",
+      "title": "Catacombs of Constantinople",
+      "text": "Beneath the house lies a city which has never heard of the siege. Names have worn away from tombs; the faces painted above them still look expectant. Beyond a collapsed arch, the men find fresh wax and three passages. One carries salt air. Another has been cleared with recent tools. At the third, someone has left a child’s shoe.",
+      "requires": "3 days after investigation; tunnel not sealed",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelCatacombs:0",
+          "label": "Map the passage carrying salt air.",
+          "outcome": "The surveyor returns with wet boots and a route towards the outer ground. For the first time you know where the passage goes, rather than merely where it begins.",
+          "effects": {
+            "flag:tunnelSurveyed": true
+          },
+          "next": "tunnelExit"
+        },
+        {
+          "id": "tunnelCatacombs:1",
+          "label": "Follow the recent digging, cautiously.",
+          "outcome": "Your men extinguish their lights before the next bend. Ahead, someone speaks Greek with the patience of a man learning a password.",
+          "effects": {},
+          "next": "tunnelSpyNetwork"
+        },
+        {
+          "id": "tunnelCatacombs:2",
+          "label": "Follow the shoe and search for civilians.",
+          "outcome": "You find a family hiding from both the bombardment and its creditors. Their guide knows the underground ways considerably better than the tax collector.",
+          "effects": {
+            "fPeopleRep": 0.02,
+            "flag:tunnelCivilianWitnesses": true
+          },
+          "next": "tunnelExit"
+        }
+      ]
+    },
+    {
+      "id": "tunnelAmbush",
+      "title": "Footsteps Under the Floor",
+      "text": "At the second watch, the men beneath the hearth hear movement. A lantern is shuttered; someone climbs the last three steps by touch. The sergeant allows the visitor to put down what he is carrying before revealing that the room contains six armed witnesses.",
+      "requires": "2 days after ambush; stored branch is saved, never rerolled",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelAmbush:0",
+          "label": "Hear the sergeant’s account.",
+          "outcome": "The encounter is determined by the occupants already using the tunnel, not by which explanation would please you.",
+          "effects": {
+            "resolveStored": "tunnelOccupants: scandal 35%, spies 40%, deserters 25%"
+          },
+          "next": [
+            "tunnelScandal",
+            "tunnelSpyNetwork",
+            "tunnelDeserters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tunnelScandal",
+      "title": "A Scandalous Encounter",
+      "text": "The captured visitors are a noble household’s steward and a merchant’s married daughter. Their parcel contains sweetmeats, a clean shirt and no military intelligence. The steward attempts an explanation involving an aunt. The woman interrupts him. “If you invent one more relative, I shall ask the Emperor to hang you.”",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelScandal:0",
+          "label": "Keep their names private and seal the passage: 10 materials.",
+          "outcome": "They leave by different doors. The sergeant is disappointed; he had expected either traitors or a better story.",
+          "effects": {
+            "iMaterials": -10,
+            "tunnel": "sealed",
+            "fNobleRep": 0.01
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelScandal:1",
+          "label": "Demand information about the passage, not their marriage.",
+          "outcome": "Between their embarrassment and their fear, you acquire a useful map. It is the first honest document either has produced tonight.",
+          "effects": {
+            "iSecrets": 1,
+            "flag:tunnelSurveyed": true
+          },
+          "next": "tunnelExit"
+        },
+        {
+          "id": "tunnelScandal:2",
+          "label": "Make the discovery public.",
+          "outcome": "The tale entertains the City. The two households remember who supplied the audience.",
+          "effects": {
+            "fPeopleRep": 0.02,
+            "fNobleRep": -0.04,
+            "tunnel": "sealedByWatch"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "tunnelSpyNetwork",
+      "title": "The Turkish Spy Network",
+      "text": "The prisoner carries no uniform. He carries a list of households, quantities of lamp oil and times when particular watchmen drink. Beneath the ordinary entries are marks corresponding to gates. A City may be conquered, you reflect, by men who have never troubled to learn its grand names.",
+      "requires": "If enemy city-spy count is zero, exclude this branch rather than invent/remove negative spies",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelSpyNetwork:0",
+          "label": "Arrest the identified cell and close the passage.",
+          "outcome": "The arrests are quiet. Several apparently harmless errands cease at once.",
+          "effects": {
+            "enemyCitySpies": "remove up to 2 confirmed members; cap at current count",
+            "tunnel": "sealed"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelSpyNetwork:1",
+          "label": "Diplomacy: turn the courier with 500 gold and close supervision.",
+          "outcome": "He leaves carrying a message dictated by your secretary. It is not loyalty you have bought, but a narrow opportunity to check his work.",
+          "effects": {
+            "requiresFocus": 4,
+            "iMoney": -500,
+            "iSpies": 1,
+            "enemyCitySpies": "remove up to 1",
+            "flag:controlledCourier": true
+          },
+          "next": "tunnelFalseOrders"
+        },
+        {
+          "id": "tunnelSpyNetwork:2",
+          "label": "Seize the papers and seal it without further arrests.",
+          "outcome": "You keep the information. The unarrested names disappear from their usual lodgings before dawn.",
+          "effects": {
+            "iSecrets": 1,
+            "tunnel": "sealed"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "tunnelFalseOrders",
+      "title": "A Dispatch Written Twice",
+      "text": "Your captive courier brings back a reply. The Ottoman handler wants a date when the gate watch will be weak. Sphrantzes lays two drafts before you. One lies about your weakness. The other lies about your intentions. “We should choose,” he says, “which misunderstanding we can afford to maintain.”",
+      "requires": "5 days after controlled courier; one resolution only",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelFalseOrders:0",
+          "label": "Feed a false gate schedule, then arrest the receiver.",
+          "outcome": "The receiver enters a courtyard already occupied by the watch. The tunnel operation ends before its success can tempt you into carelessness.",
+          "effects": {
+            "iSecrets": 1,
+            "enemyCitySpies": "remove up to 1",
+            "tunnel": "sealed"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelFalseOrders:1",
+          "label": "Send misleading supply information.",
+          "outcome": "The message leaves the City. A later report will tell you whether the lie bought time; there is no second courier to spend indefinitely.",
+          "effects": {
+            "iEnemyDelay": 1,
+            "tunnel": "sealed"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelFalseOrders:2",
+          "label": "End the operation now.",
+          "outcome": "The courier is placed under guard. You surrender a possible advantage in exchange for an actual conclusion.",
+          "effects": {
+            "tunnel": "sealed"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "tunnelDeserters",
+      "title": "Men Carrying Their Own Boots",
+      "text": "Four soldiers are found in the passage carrying their boots to avoid making a sound. One has a loaf. Another has a letter so often read that its folds have become holes. None claims to be a hero. It is a modest defence, and for that reason difficult to answer with a speech.",
+      "requires": "At least 4 infantry; no disguised deduction of 4000 men",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelDeserters:0",
+          "label": "Return them under guard; let their captains judge them.",
+          "outcome": "The men put on their boots. Tomorrow they will have to look at the comrades they meant to leave.",
+          "effects": {
+            "fTroopRep": -0.01,
+            "tunnel": "sealed"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelDeserters:1",
+          "label": "Pardon them and ask what drove them to flee.",
+          "outcome": "Their answers concern arrears, exhaustion and a child outside the City. You spend 200 gold settling immediate debts; the larger questions remain.",
+          "effects": {
+            "iMoney": -200,
+            "fTroopRep": 0.02,
+            "tunnel": "sealed"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelDeserters:2",
+          "label": "Permit them to leave without weapons.",
+          "outcome": "Four names are struck from the infantry roll. The garrison calls your decision merciful or dangerous according to how far it stands from the walls.",
+          "effects": {
+            "iInfantry": -4,
+            "fTroopRep": -0.02,
+            "tunnel": "sealed"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "tunnelExit",
+      "title": "The Door Beyond the Wall",
+      "text": "The last stretch opens among scrub and broken masonry outside the defended circuit. Your men emerge one at a time, blinking like creatures dragged from another age. The surveyor has marked every turn. There is room for a small party, he says. Not an army, not a miracle, and certainly not two parties trying to pass each other.",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "tunnelExit:0",
+          "label": "Reserve it for one surprise raid.",
+          "outcome": "The map passes to the war council. A useful route is now an actual military option.",
+          "effects": {
+            "bSecretRomanTunnel": true,
+            "tunnel": "militaryRoute"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelExit:1",
+          "label": "Prepare it as an escape route.",
+          "outcome": "Water and plain clothing are hidden near the exit. Reviewing an escape remains a separate decision, with its own risks.",
+          "effects": {
+            "flag:tunnelEscapeRoute": true,
+            "tunnel": "escapeRoute"
+          },
+          "next": null
+        },
+        {
+          "id": "tunnelExit:2",
+          "label": "Seal it before the enemy finds it: 10 materials.",
+          "outcome": "The surveyor keeps his drawing. You keep the comfort of knowing that nobody can follow it through intact stone.",
+          "effects": {
+            "iMaterials": -10,
+            "tunnel": "sealed"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueMadMonk",
+      "title": "A Man Who Has Mislaid His Century",
+      "text": "The monk wears a robe repaired with thread of several colours. He speaks ordinary Greek until frightened, when unfamiliar words escape him. He has demanded an audience with Emperor Palaiologos and then, brought before you, seems relieved to find you younger than he expected. He asks first for water. The guard recommends a dungeon; the physician recommends sleep.",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueMadMonk:0",
+          "label": "Shelter him under watch: 100 gold.",
+          "outcome": "He drinks with both hands around the cup. “I remember it being hot,” he says, though the water is cold.",
+          "effects": {
+            "iMoney": -100,
+            "flag:monkSheltered": true,
+            "rollOnce": "monkIdentity"
+          },
+          "next": "monkRecovery"
+        },
+        {
+          "id": "uniqueMadMonk:1",
+          "label": "Turn him away with food.",
+          "outcome": "He accepts the loaf. At the door he looks back as if uncertain whether he is leaving you or remembering you.",
+          "effects": {
+            "iProvisions": -5,
+            "monkFate": "departed"
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueMadMonk:2",
+          "label": "Hold him in the palace cells.",
+          "outcome": "The gaoler records a man without a satisfactory name. His account of the year is even less satisfactory.",
+          "effects": {
+            "monkFate": "imprisoned"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "monkRecovery",
+      "title": "The Name He Gives",
+      "text": "Three days of sleep have restored his strength without improving the plausibility of his story. He asks that the windows be closed. When you ask why, he says that he dislikes the sound of an army before it knows it has won. Outside, the afternoon is quiet.",
+      "requires": "3 days after shelter; four equiprobable provisional variants stored once at initial acceptance",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkRecovery:0",
+          "label": "Hear him with the guards present.",
+          "outcome": "He begins an account which the secretary will later describe as testimony, confession or delirium, according to which superior asks to read it.",
+          "effects": {
+            "revealStored": "monkIdentity"
+          },
+          "next": [
+            "monkDesigner",
+            "monkAccuser",
+            "monkAngel",
+            "monkEmperor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monkDesigner",
+      "title": "A Game of Celestial Spheres",
+      "text": "“I made a game,” he says. “Something like chess. No, you would not understand the board. There were celestial spheres inside enchanted stones, and we taught them to remember.” He grips the chair when the guns sound. “You must win. If you fail, I die.” You ask whether he is threatening you. He looks astonished. “I have never been less in control of anything.”",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkDesigner:0",
+          "label": "Keep him as the Mysterious Monk.",
+          "outcome": "You give him a bed and forbid the secretary to enter “maker of enchanted stones” as an official profession.",
+          "effects": {
+            "monkRole": "designer"
+          },
+          "next": "monkProphecy"
+        },
+        {
+          "id": "monkDesigner:1",
+          "label": "Permit supervised study, but no court position.",
+          "outcome": "He fills a page with marks which resemble an accountant’s despair. The physician keeps it with his other observations.",
+          "effects": {
+            "iSecrets": 1,
+            "monkFate": "supervised_guest"
+          },
+          "next": null
+        },
+        {
+          "id": "monkDesigner:2",
+          "label": "Dismiss him.",
+          "outcome": "He asks whether you have saved. When you ask what, he cannot explain.",
+          "effects": {
+            "monkFate": "departed"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "monkAccuser",
+      "title": "The Beast Beneath the Purple",
+      "text": "His expression changes as the secretary speaks your titles. He rises, crying that the purple conceals the Beast and that your death will release the City from judgement. A narrow blade appears from the seam of his robe. The guard is already moving. You have less time to decide what to do than it took to admit him.",
+      "requires": "Use existing fencing/health system; death only if resulting health<=0; no new separate assassination dice engine",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkAccuser:0",
+          "label": "Defend myself.",
+          "outcome": "The next report must describe the actual struggle and wounds. The blade is no metaphor, whatever its owner believed.",
+          "effects": {
+            "combat": "existing EmperorCombat.Fight(0)",
+            "monkFate": "attacker_dead_or_captured_by_combat"
+          },
+          "next": null
+        },
+        {
+          "id": "monkAccuser:1",
+          "label": "Let the guards intervene.",
+          "outcome": "They seize him between chair and window. Their intervention reduces the danger; it cannot promise that the first thrust missed.",
+          "effects": {
+            "combat": "existing EmperorCombat.Fight(1)",
+            "monkFate": "captured"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "monkAngel",
+      "title": "The City He Saw Burning",
+      "text": "He says he was sent back after seeing the City fall. You ask by whom. “If I knew how to make you believe the answer, I should perhaps be less necessary.” He describes a broken bell, a woman searching for a red shoe and a dog sleeping through the first gunshot. The details are too small for a useful prophecy. That troubles you more than the large claims.",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkAngel:0",
+          "label": "Keep him, without proclaiming his claim to the people.",
+          "outcome": "He accepts the same narrow bed as before. Whatever he believes himself to be, it has not made him particular about his bedding.",
+          "effects": {
+            "monkRole": "angel"
+          },
+          "next": "monkProphecy"
+        },
+        {
+          "id": "monkAngel:1",
+          "label": "Ask him to serve in the infirmary.",
+          "outcome": "He carries water without complaint. His hands blister like anyone else’s.",
+          "effects": {
+            "fPeopleRep": 0.02,
+            "monkFate": "infirmary_service"
+          },
+          "next": null
+        },
+        {
+          "id": "monkAngel:2",
+          "label": "Ask the clergy to supervise his care.",
+          "outcome": "The priests disagree about the diagnosis. They agree that he should not be allowed to choose his own feast day.",
+          "effects": {
+            "monkFate": "clerical_care"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "monkEmperor",
+      "title": "Constantine, Son of Manuel",
+      "text": "He gives your father’s name, then your own. “I was you,” he says. “At the gate, when there was no longer room to swing the sword.” There is an old scar across his palm. You remember receiving yours; his is on the other hand. When you point this out, he studies it for a long time. “Not everything came back correctly.”",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkEmperor:0",
+          "label": "Keep him under guard, but permit him to serve at the walls.",
+          "outcome": "He asks for an ordinary sword. “I remember the weight of the other one.” Your armourer chooses not to ask which other one.",
+          "effects": {
+            "monkRole": "palaiologos",
+            "flag:monkBreachReady": true
+          },
+          "next": "monkBreach"
+        },
+        {
+          "id": "monkEmperor:1",
+          "label": "Keep him safely away from the fighting.",
+          "outcome": "He obeys. Each evening he asks which gate has suffered most, then apologises for asking.",
+          "effects": {
+            "monkFate": "protected_guest"
+          },
+          "next": null
+        },
+        {
+          "id": "monkEmperor:2",
+          "label": "Dismiss a man who claims my name.",
+          "outcome": "He bows with an awkwardness that is unpleasantly familiar. You decide not to mention it.",
+          "effects": {
+            "monkFate": "departed"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "monkProphecy",
+      "title": "An Unreasonably Precise Warning",
+      "text": "He tells you that a cart’s left wheel will break beside the third cistern. He is wrong about the wheel. At the cistern, however, your men discover sacks concealed beneath damp cloth. He seems more disturbed by the error than pleased by the discovery. “It was the left one,” he insists.",
+      "requires": "7 days after retaining designer/angel; once only initially, no endless secret farming",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkProphecy:0",
+          "label": "Investigate quietly: 100 gold.",
+          "outcome": "The result is saved once: either 150 provisions recovered, one useful secret, or nothing found. The report describes what your men actually found, never confirms his origin.",
+          "effects": {
+            "iMoney": -100,
+            "rollOnce": "prophecyReward: provisions40%, secret30%, noFind30%",
+            "flag:monkProphecyUsed": true
+          },
+          "next": null
+        },
+        {
+          "id": "monkProphecy:1",
+          "label": "Keep the warning between us.",
+          "outcome": "He nods. “Perhaps that changes it.” He cannot say what he means by that.",
+          "effects": {
+            "flag:monkProphecyUsed": true
+          },
+          "next": null
+        },
+        {
+          "id": "monkProphecy:2",
+          "label": "End his place at court.",
+          "outcome": "The servants clear his room. Beneath the bed is a charcoal sketch of the palace, drawn from an angle no window offers.",
+          "effects": {
+            "monkFate": "departed",
+            "flag:monkProphecyUsed": true
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "monkBreach",
+      "title": "The Emperor at the Breach",
+      "text": "Before the order reaches the Varangians, the monk is through the dust. Someone calls him back by the wrong name. He does not turn. His sword moves with the economy of a man who has already discovered which gestures waste time. For a few moments the Janissaries cannot pass him. Your soldiers close behind him, and when the dust thins there is no room left for an enemy—or for the monk to fall except among them.",
+      "requires": "Only retained palaiologos variant, alive and available, at next actual failed wall defence before Varangian choice; not a random daily event",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "monkBreach:0",
+          "label": "Recover his body when the fighting permits.",
+          "outcome": "The breach is held. No Varangians were committed to this intervention. The wall is as broken as it was before, and tomorrow it will still need men and stone. On the dead man’s face, exhaustion has erased whatever resemblance you thought you saw.",
+          "effects": {
+            "flag:monkBreachReady": false,
+            "flag:monkBreachUsed": true,
+            "monkFate": "dead",
+            "combatOverride": "hold current breach once; no wall healing; normal already-incurred losses remain"
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueStatueAmmunition",
+      "title": "The Weight of an Emperor",
+      "text": "Giustiniani has weighed a bronze emperor. He means to weigh two more before evening. The foundry needs metal, and the statues have spent centuries doing nothing useful beyond reminding men that usefulness was not always the highest virtue. “They defended this City in their own time,” he says. “Let them defend it in ours.” A scholar asks which part of an empire remains when it has fired all its ancestors at the enemy.",
+      "requires": "Giustiniani serving/available; foundry working; once only; interpretation is foundry feedstock, not every bronze statue becoming ideal cannon shot",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueStatueAmmunition:0",
+          "label": "Melt the damaged civic bronzes: 500 gold.",
+          "outcome": "The inscriptions are copied before the carts arrive. Your guns receive metal; the empty plinths receive rain.",
+          "effects": {
+            "iMoney": -500,
+            "iAmmunition": 20,
+            "fNobleRep": -0.03,
+            "flag:bronzesMelted": true
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueStatueAmmunition:1",
+          "label": "Collect household bronze instead: 1,000 gold.",
+          "outcome": "Bells, vessels and fittings reach the foundry in smaller loads. The statues survive at a price the treasurer finds quite substantial.",
+          "effects": {
+            "iMoney": -1000,
+            "iAmmunition": 12
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueStatueAmmunition:2",
+          "label": "Preserve the statues.",
+          "outcome": "Giustiniani accepts the order. He asks that the gunners be told which of their necessities has lost the argument.",
+          "effects": {
+            "fTroopRep": -0.02,
+            "flag:bronzesPreserved": true
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueNobleDuel",
+      "title": "Honour Before Breakfast",
+      "text": "Two nobles have chosen the hour before breakfast to settle a dispute over precedence. Their seconds assure you that it concerns honour rather than seats. The servants disagree: the quarrel began when a chair was moved. Both men lead retainers on the walls. Neither has mentioned those retainers while explaining why he must be allowed to die.",
+      "requires": "Two distinct living serving secular nobles selected once; exclude clergy, enemy officers and already unavailable actors; suppress if fewer than 2",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueNobleDuel:0",
+          "label": "Forbid the duel and fine both households 250 gold.",
+          "outcome": "They pay a combined 500 gold. The chairs are returned to their places; the grievance is not.",
+          "effects": {
+            "iMoney": 500,
+            "fNobleRep": -0.03,
+            "flag:duelPrevented": true
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueNobleDuel:1",
+          "label": "Permit first blood under the surgeon’s supervision.",
+          "outcome": "One duellist is wounded and unavailable for 5 days. The wounded man declares himself satisfied; his surgeon declines to endorse the phrase.",
+          "effects": {
+            "randomParticipantWound": 5,
+            "fNobleRep": 0.02
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueNobleDuel:2",
+          "label": "Compel a public reconciliation by hearing both men.",
+          "outcome": "You spend the audience untangling the insult. Both leave dissatisfied enough to suspect you of impartiality.",
+          "effects": {
+            "fNobleRep": -0.01,
+            "fTroopRep": 0.01
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueGateChapel",
+      "title": "A Chapel in the Gate Tower",
+      "text": "The priests ask leave to open a chapel inside the gate tower. Men waiting for the assault would pray beneath its roof; the masons would remove a section of inner masonry to make room. The engineer points at the drawing. “That stone is already engaged in a form of intercession.” The priest replies that stone has never absolved a dying man.",
+      "requires": "Current active wall captured at resolution; never reduce an unrelated already-lost outer wall",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueGateChapel:0",
+          "label": "Approve the chapel.",
+          "outcome": "The candles are lit beneath a newly widened arch. The garrison takes comfort there; the engineer measures the arch again.",
+          "effects": {
+            "fPriestRep": 0.04,
+            "fTroopRep": 0.02,
+            "currentWallIntegrity": -0.05
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueGateChapel:1",
+          "label": "Build a modest chapel beside the tower: 500 gold.",
+          "outcome": "The priest receives a roof, the engineer keeps his masonry, and the treasury bears the cost of agreement.",
+          "effects": {
+            "iMoney": -500,
+            "fPriestRep": 0.02
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueGateChapel:2",
+          "label": "Reserve the tower entirely for defence.",
+          "outcome": "The priest blesses the gate from outside. His blessing is sincere; his opinion of you is less generous.",
+          "effects": {
+            "fPriestRep": -0.02
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueSwordmaster",
+      "title": "The Man Who Watches Your Feet",
+      "text": "The swordmaster scarcely looks at your blade. After three passes he asks whether your enemies have agreed never to move to your left. You remind him that he is addressing the Emperor. “Then Your Majesty should stop leaving the Empire balanced on that heel.” His insolence has the inconvenience of being specific.",
+      "requires": "Emperor health>10%; fencing capped 100; no infinite same-lesson rewards",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueSwordmaster:0",
+          "label": "Hire him for 750 gold.",
+          "outcome": "He bows correctly after the contract is signed. Before the next lesson he makes you carry your own shield.",
+          "effects": {
+            "iMoney": -750,
+            "flag:swordmasterRetained": true
+          },
+          "next": "swordmasterLesson"
+        },
+        {
+          "id": "uniqueSwordmaster:1",
+          "label": "Take one difficult lesson: 250 gold.",
+          "outcome": "You finish with 5 morefencing skill and 5 lesshealth, and a considerably more precise opinion of your balance.",
+          "effects": {
+            "iMoney": -250,
+            "iFencing": 5,
+            "fHealth": -0.05
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueSwordmaster:2",
+          "label": "Decline his services.",
+          "outcome": "He bows. This time you watch his feet.",
+          "effects": {},
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "swordmasterLesson",
+      "title": "The Blow You Do Not Make",
+      "text": "He strikes your sword aside and tells you to stop attempting a beautiful death. “Step back. Breathe. There is no audience worth being buried for.” At the next exchange you see an opening and refuse it. He lowers his blade. “Better. You may now live long enough to become vain again.”",
+      "requires": "7 days after hire; health>10% for training; postpone cannot duplicatecompletedreward",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "swordmasterLesson:0",
+          "label": "Complete the training.",
+          "outcome": "Fencing rises 8 points; the bruises cost 5 health. Future practice remains in the existing training menu.",
+          "effects": {
+            "iFencing": 8,
+            "fHealth": -0.05,
+            "flag:swordmasterCourseDone": true
+          },
+          "next": null
+        },
+        {
+          "id": "swordmasterLesson:1",
+          "label": "Postpone the final lesson until I recover.",
+          "outcome": "He sets down the practice sword. Rest is the first order he has given you which resembles a compliment.",
+          "effects": {
+            "rescheduleDays": 7
+          },
+          "next": null
+        },
+        {
+          "id": "swordmasterLesson:2",
+          "label": "Dismiss him.",
+          "outcome": "The lessons end. He leaves you the wooden sword, which is either a gift or a final criticism.",
+          "effects": {
+            "flag:swordmasterRetained": false
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueKjoldMelancholy",
+      "title": "Snow That Falls Elsewhere",
+      "text": "Kjold sits with his cup untouched. He describes a winter road, a roof bowed beneath snow, and a dog he cannot now remember except by the sound of its claws on wood. When you ask whether he wishes to go home, he laughs. “I have been away long enough, Majesty, that home would first have to forgive me for inventing it.”",
+      "requires": "Kjold must have a registered adult character identity and be in service; do not silently substitute Giustiniani",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueKjoldMelancholy:0",
+          "label": "Stay and listen.",
+          "outcome": "He finishes the story without turning it into a request. His loyalty rises 5; for once an imperial audience has cost only attention.",
+          "effects": {
+            "loyalty:kjold": 5
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueKjoldMelancholy:1",
+          "label": "Give him 400 gold to send to his household.",
+          "outcome": "He accepts, then asks your secretary to write the letter. He supplies the address slowly.",
+          "effects": {
+            "iMoney": -400,
+            "loyalty:kjold": 8,
+            "flag:kjoldFamilySupported": true
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueKjoldMelancholy:2",
+          "label": "Remind him that his men need their officer.",
+          "outcome": "He rises immediately. Duty has restored his posture, though not his ease.",
+          "effects": {
+            "loyalty:kjold": -3,
+            "fTroopRep": 0.01
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueNotarasMeeting",
+      "title": "The Dowry and the Granary",
+      "text": "Notaras requests a private audience. He begins with the grain accounts, then admits that his daughter has asked whether the household intends to remain if the walls fall. “She has noticed,” he says, “that men find it easier to promise the lives of their families than to discuss the arrangements.” He asks for no exemption, only an answer he can repeat without improving it.",
+      "requires": "Notaras alive/inservice; fictional private scene, no fabricated historical quotation or mandatory named daughter",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueNotarasMeeting:0",
+          "label": "Offer places in an organised civilian evacuation.",
+          "outcome": "Notaras asks for the same terms as other households. He seems relieved that he will not have to defend a private privilege.",
+          "effects": {
+            "requiresFlag": "civilianEvacuation",
+            "loyalty:notaras": 5,
+            "flag:notarasFamilyEvacuation": true
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueNotarasMeeting:1",
+          "label": "Contribute 500 gold to secure his household independently.",
+          "outcome": "He accepts the assistance as a personal obligation, not an imperial guarantee that the sea will be safe.",
+          "effects": {
+            "iMoney": -500,
+            "loyalty:notaras": 8,
+            "flag:notarasFamilyFunded": true
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueNotarasMeeting:2",
+          "label": "Ask him to keep the household in the City.",
+          "outcome": "He agrees. The answer is loyal; the silence following it is paternal.",
+          "effects": {
+            "loyalty:notaras": -3,
+            "fNobleRep": 0.01
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueGiustinianiWounded",
+      "title": "The Captain Comes Down the Steps",
+      "text": "Giustiniani comes down from the wall on his own feet because he has forbidden anyone to carry him. Blood has found a way through the cloth pressed beneath his arm. His men watch the stairs rather than the enemy. “Tell them it is nothing,” he says. The surgeon, standing beside him, has the expression of a man who dislikes being handed an impossible order.",
+      "requires": "After at least 1 actualassault; Giustiniani servingandnotalreadywounded; no forced outcome on historic date; preserve Galata promises for epilogue",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueGiustinianiWounded:0",
+          "label": "Send the best surgeon: 750 gold.",
+          "outcome": "He is unavailable for 5 days. You announce that he is wounded and receiving care. His captains keep their stations.",
+          "effects": {
+            "iMoney": -750,
+            "absence:giustiniani": 5,
+            "loyalty:giustiniani": 5
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueGiustinianiWounded:1",
+          "label": "Let the garrison infirmary treat him.",
+          "outcome": "He is unavailable for 9 days. News travels faster than the surgeon; army morale falls 3 points before the first reassuring report.",
+          "effects": {
+            "absence:giustiniani": 9,
+            "fTroopRep": -0.03
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueGiustinianiWounded:2",
+          "label": "Give him leave to depart with his household.",
+          "outcome": "He leaves your service. His men continue under their captains, but the garrison loses his advice and 5 morale points.",
+          "effects": {
+            "fate:giustiniani": "departed",
+            "fTroopRep": -0.05
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueGamblingDen",
+      "title": "The House Where Fortune Still Works",
+      "text": "The watch finds a gaming room behind a shuttered bakery. A captain has lost next month’s wages; a priest insists he came to collect a debt; the proprietor offers to pay a licence fee which nobody has yet invented. The bread ovens are cold. The room, however, has been conducting a lively trade in hope.",
+      "requires": "",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueGamblingDen:0",
+          "label": "Close the den and confiscate the bank.",
+          "outcome": "The treasury receives 600 gold. Soldiers and nobles discover a brief agreement that your concern for morality is highly selective.",
+          "effects": {
+            "iMoney": 600,
+            "fTroopRep": -0.02,
+            "fNobleRep": -0.02
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueGamblingDen:1",
+          "label": "License it for 300 gold; prohibit military wage advances.",
+          "outcome": "The house pays. The watch acquires an institution it can inspect rather than another door it must pretend not to know.",
+          "effects": {
+            "iMoney": 300,
+            "flag:gamblingLicensed": true
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueGamblingDen:2",
+          "label": "Use the proprietor as an informant: Diplomacy.",
+          "outcome": "He agrees to remember who owes whom. One secret enters your service; the debts remain where they were.",
+          "effects": {
+            "requiresFocus": 4,
+            "iSecrets": 1
+          },
+          "next": null
+        }
+      ]
+    },
+    {
+      "id": "uniqueMarketInfighting",
+      "title": "Infighting at the Market",
+      "text": "The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the market square. One of the Italian mercenaries from Genoa tried to seduce a Greek girl and her brother, serving in the city guard, took this as a personal offence. He takes city guard patrol to teach lecherous Italian a lesson, but the Genoese mercenaries misunderstand the nature of the conflict and draw blades. After ensuing brief, but bloody combat, three Italians and four of your Greek city guards lay dead on the pavement. This needs to be addressed immediately.",
+      "requires": "Relevant contingents present; onceonly; preserve original choice wording. Effects/outcomes are new authored completion, not source values.",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueMarketInfighting:0",
+          "label": "Emperor has his duty to his subjects first. Punish all surviving Italians with 30 lashes each.",
+          "outcome": "The Italians endure thirty lashes each. The city watch welcomes your judgement; their mercenary comrades call it the price of being foreign.",
+          "effects": {
+            "fPeopleRep": 0.02,
+            "fTroopRep": -0.03
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueMarketInfighting:1",
+          "label": "Mercenaries are indispensable in our defence of the siege. Punish all surviving city guards with 30 lashes each.",
+          "outcome": "The guards are flogged. The mercenaries return to duty, while the guards’ families count every stroke.",
+          "effects": {
+            "fTroopRep": 0.01,
+            "fPeopleRep": -0.03
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueMarketInfighting:2",
+          "label": "City guard were in the wrong here, we will make them all publicly apologise to the Italian mercenaries and pay the blood tax to the families of the dead",
+          "outcome": "The guards apologise and compensate the bereaved families from their own purses. The Italians accept the payment without forgiving the insult.",
+          "effects": {
+            "fPeopleRep": -0.01,
+            "fTroopRep": 0.01
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueMarketInfighting:3",
+          "label": "Mercenaries were in the wrong here, but we respect them, so they must pay the blood tax to the families of the dead.",
+          "outcome": "The mercenaries pay compensation to the bereaved households. Their captain insists that payment settles the matter; the households make no such promise.",
+          "effects": {
+            "fPeopleRep": 0.02,
+            "fTroopRep": -0.01
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueMarketInfighting:4",
+          "label": "As our Focus is Diplomacy, we need a bigger event to overshadow the bloodshed. Order the Italian mercenary to marry the Greek girl and give them both a generous gift. This will silence angry tongues and please both communities.",
+          "outcome": "You offer a marriage settlement of 750 gold. If both agree, the wedding supplies the City with a happier subject of gossip; neither family mistakes it for a resurrection of the dead.",
+          "effects": {
+            "requiresFocus": 4,
+            "iMoney": -750,
+            "fPeopleRep": 0.02,
+            "fTroopRep": 0.02,
+            "requiresConsent": "Both adults agree; otherwise offer mediation without this reward"
+          },
+          "next": null
+        }
+      ],
+      "sourceId": "design:random30",
+      "sourceRaw": "407: title: random30\n408: ---\n410: <b>Infighting at the Market</b>\n411:  The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the market square. One of the Italian mercenaries from Genoa tried to seduce a Greek girl and her brother, serving in the city guard, took this as a personal offence. He takes city guard patrol to teach lecherous Italian a lesson, but the Genoese mercenaries misunderstand the nature of the conflict and draw blades. After ensuing brief, but bloody combat, three Italians and four of your Greek city guards lay dead on the pavement. This needs to be addressed immediately.\n412: -> Emperor has his duty to his subjects first. Punish all surviving Italians with 30 lashes each.\n413: -> Mercenaries are indispensable in our defence of the siege. Punish all surviving city guards with 30 lashes each.\n414: -> City guard were in the wrong here, we will make them all publicly apologise to the Italian mercenaries and pay the blood tax to the families of the dead \n415: -> Mercenaries were in the wrong here, but we respect them, so they must pay the blood tax to the families of the dead.\n416: -> As our Focus is Diplomacy, we need a bigger event to overshadow the bloodshed. Order the Italian mercenary to marry the Greek girl and give them both a generous gift. This will silence angry tongues and please both communities."
+    },
+    {
+      "id": "uniqueBarracksInfighting",
+      "title": "Infighting at the Barracks",
+      "text": "The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the barracks where Western European volunteers and pilgrims live. Scottish knight made a snide remark about the group of four English longbowmen who came to eat at the same table and they beat him up. French knight stepped in to defend a fellow noble, but was beaten up as well. We must address this.",
+      "requires": "Relevant contingents present; onceonly; preserve original choice wording. Effects/outcomes are new authored completion, not source values.",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueBarracksInfighting:0",
+          "label": "Naturally, commoners must be harshly punished for attacking a noble. Punish the English longbowmen.",
+          "outcome": "The longbowmen submit to punishment. Their comrades admire noble blood less than they did before breakfast.",
+          "effects": {
+            "fNobleRep": 0.03,
+            "fTroopRep": -0.03
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueBarracksInfighting:1",
+          "label": "Scotsman should have known to keep his mouth shut. The longbowmen are indispensable.",
+          "outcome": "The archers keep their places. The nobles ask whether rank has become an inconvenience to be forgiven by common soldiers.",
+          "effects": {
+            "fTroopRep": 0.02,
+            "fNobleRep": -0.03
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueBarracksInfighting:2",
+          "label": "Just blame the French knight for everything. French knights looted our City in 1204, so we might as well blame him.",
+          "outcome": "The Frenchman receives the blame. Your court enjoys the old insult; the man himself gains a very current grievance.",
+          "effects": {
+            "fNobleRep": -0.02,
+            "fPeopleRep": 0.01
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueBarracksInfighting:3",
+          "label": "In defence of our city, everyone is equal. Punish all sides.",
+          "outcome": "Every participant is fined, and the hospital receives 300 gold. The peace is less popular than the quarrel.",
+          "effects": {
+            "iMoney": 300,
+            "fTroopRep": -0.01,
+            "fNobleRep": -0.01
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueBarracksInfighting:4",
+          "label": "This matter is not for me to deal with, ignore it.",
+          "outcome": "The captains decide the matter without you. The resentment costs 2 army morale.",
+          "effects": {
+            "fTroopRep": -0.02
+          },
+          "next": null
+        }
+      ],
+      "sourceId": "design:random31",
+      "sourceRaw": "419: title: random31\n420: ---\n421: <b>Infighting at the Barracks</b>\n422: The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the barracks where Western European volunteers and pilgrims live. Scottish knight made a snide remark about the group of four English longbowmen who came to eat at the same table and they beat him up. French knight stepped in to defend a fellow noble, but was beaten up as well. We must address this.\n423: -> Naturally, commoners must be harshly punished for attacking a noble. Punish the English longbowmen.\n424: -> Scotsman should have known to keep his mouth shut. The longbowmen are indispensable.\n425: -> Just blame the French knight for everything. French knights looted our City in 1204, so we might as well blame him.\n426: -> In defence of our city, everyone is equal. Punish all sides.\n427: -> This matter is not for me to deal with, ignore it."
+    },
+    {
+      "id": "uniqueStablesInfighting",
+      "title": "Infighting at the Stables",
+      "text": "The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the stables among your Armenian cataphracts and Turk defectors serving you under the banner of Prince Orhan, Ottoman prince and rival of Mehmed II. As cavalry is rarely used during the siege, they started a friendly contest of horsemanship. One of the Armenian officers lost a challenge and cursed, referring to how the Prophet was caught having intercourse with swine. Turk defectors, although they serve the Empire now, remain Muslims, so they drew their blades and chopped the offending Armenian officer into pieces. Right now, they are surrounded at the stables by your troops and situation is very tense. How shall you resolve it?",
+      "requires": "Relevant contingents present; onceonly; preserve original choice wording. Effects/outcomes are new authored completion, not source values.",
+      "once": true,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "uniqueStablesInfighting:0",
+          "label": "These Turks risk being impaled for serving me if they would be caught and the Armenian did insult their Prophet. They will be let off with a warning.",
+          "outcome": "The Turks lay down their weapons. The Armenian riders do so only after their officers have counted them.",
+          "effects": {
+            "fTroopRep": -0.03,
+            "loyalty:orhan": 3
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueStablesInfighting:1",
+          "label": "Armenian officer may have cursed, but he was murdered without even have drawn the blade. The Turks have to be punished.",
+          "outcome": "The killers are arrested. Justice satisfies the bereaved household and angers Orhan’s retainers.",
+          "effects": {
+            "fNobleRep": 0.02,
+            "loyalty:orhan": -3
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueStablesInfighting:2",
+          "label": "Allow Prince Orhan to punish the Turks as he sees fit. (IF ORHAN)",
+          "outcome": "Orhan punishes the ringleaders and makes the others attend the burial. The dispute remains painful, but has ceased to be an armed negotiation.",
+          "effects": {
+            "requiresCharacter": "orhan",
+            "loyalty:orhan": 3,
+            "fTroopRep": 0.01
+          },
+          "next": null
+        },
+        {
+          "id": "uniqueStablesInfighting:3",
+          "label": "Let the Turks and Armenians fight it out. They need to get it out of their system.",
+          "outcome": "The fighting leaves 10 cavalrydead. Survivors share the knowledge that the Emperor allowed it.",
+          "effects": {
+            "iCavalry": -10,
+            "fTroopRep": -0.05
+          },
+          "next": null
+        }
+      ],
+      "sourceId": "design:random32",
+      "sourceRaw": "430: title: random32\n431: ---\n433: <b>Infighting at the Stables</b>\n434: The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the stables among your Armenian cataphracts and Turk defectors serving you under the banner of Prince Orhan, Ottoman prince and rival of Mehmed II. As cavalry is rarely used during the siege, they started a friendly contest of horsemanship. One of the Armenian officers lost a challenge and cursed, referring to how the Prophet was caught having intercourse with swine. Turk defectors, although they serve the Empire now, remain Muslims, so they drew their blades and chopped the offending Armenian officer into pieces. Right now, they are surrounded at the stables by your troops and situation is very tense. How shall you resolve it?\n435: -> These Turks risk being impaled for serving me if they would be caught and the Armenian did insult their Prophet. They will be let off with a warning.\n436: -> Armenian officer may have cursed, but he was murdered without even have drawn the blade. The Turks have to be punished.\n437: -> Allow Prince Orhan to punish the Turks as he sees fit. (IF ORHAN)\n438: -> Let the Turks and Armenians fight it out. They need to get it out of their system."
+    },
+    {
+      "id": "recurringLiveAndLetLive",
+      "title": "Live and Let Live",
+      "text": "On a quiet stretch of wall, the men have reached an arrangement with the enemy. They shoot high; the Ottomans shoot wide. At night a basket sometimes crosses the ditch with tobacco, bread or a message inside. The captain calls it a local understanding. His lieutenant calls it the first peaceful night he has had in weeks. Neither has asked whose understanding will survive the next order to attack.",
+      "requires": "Siege active; Ottoman landoperationsnotdelayed; requireavailableofficers; enoughinfantryforraid;30 daycooldown",
+      "once": false,
+      "status": "Authored expansion; pending Unity integration",
+      "choices": [
+        {
+          "id": "recurringLiveAndLetLive:0",
+          "label": "Tolerate the arrangement, but prohibit messages.",
+          "outcome": "The men rest. The quiet sector becomes easier for an enemy courier to study.",
+          "effects": {
+            "fTroopRep": 0.02,
+            "enemyCitySpies": "25% chance add1; saved roll"
+          },
+          "next": null
+        },
+        {
+          "id": "recurringLiveAndLetLive:1",
+          "label": "End it with supervised relief of the watch.",
+          "outcome": "Fresh men take the sector. They inherit the danger without the comfort of a private agreement.",
+          "effects": {
+            "fTroopRep": -0.02
+          },
+          "next": null
+        },
+        {
+          "id": "recurringLiveAndLetLive:2",
+          "label": "Execute the officers responsible.",
+          "outcome": "The executions end the arrangement. The next watch fires at the enemy, and speaks of you only when its captain is out of hearing.",
+          "effects": {
+            "fTroopRep": -0.06,
+            "flag:fraternisationOfficersExecuted": true
+          },
+          "next": null
+        },
+        {
+          "id": "recurringLiveAndLetLive:3",
+          "label": "Giustiniani: prepare a limited ambush.",
+          "outcome": "The sudden attack kills 40–80 enemyirregulars and 10–20 ofourinfantry. All informal traffic stops.",
+          "effects": {
+            "requiresCharacter": "giustiniani",
+            "enemyIrregularLoss": [
+              40,
+              80
+            ],
+            "infantryLoss": [
+              10,
+              20
+            ]
+          },
+          "next": null
+        },
+        {
+          "id": "recurringLiveAndLetLive:4",
+          "label": "Orhan: invite defectors to cross under guard.",
+          "outcome": "A small party arrives after their weapons have been left in the ditch. Gain 15–30 infantry;25%chanceanadditionalenemyagententerswiththem.",
+          "effects": {
+            "requiresCharacter": "orhan",
+            "infantryGain": [
+              15,
+              30
+            ],
+            "enemyCitySpies": "25% add1"
+          },
+          "next": null
+        },
+        {
+          "id": "recurringLiveAndLetLive:5",
+          "label": "Notaras: purchase supplies for 500 gold.",
+          "outcome": "The baskets return with 150 provisions and 3 ammunition. No promise is made about who will be firing tomorrow.",
+          "effects": {
+            "requiresCharacter": "notaras",
+            "iMoney": -500,
+            "iProvisions": 150,
+            "iAmmunition": 3
+          },
+          "next": null
+        }
+      ]
+    }
+  ],
+  "contracts": {
+    "confirmed": "Four hidden monk identities, subtly ambiguous origins. Only Palaiologos saves breach and dies; no magical repair. Kjold name confirmed. Noble Ends His Life is once per campaign; preserve existing story and options.",
+    "origin": "New prose is original historical fiction. Claims of supernatural origins remain claims; never confirmed by narrator. Original infighting text/choices are retained with source provenance, separately from authored outcomes.",
+    "numbers": "All newly assigned numbers/weights provisional for balance agent. Health/reputation use fractional game units; troop counts are individual men. Gates must check costs and actual actor availability before choice and transaction.",
+    "monk": "Identity selected and saved at shelter acceptance,25%eachprovisional. No revelation UI leaksvariant. Dead/departed/imprisonedmonk cannot triggerprophecy orbreach. Breachflag atomicallyconsumed before showing intervention; save/load cannot resurrectmonk. Normal assaults continueuntilactualbreach. Retain losses alreadyincurred; applyheld-breachaftermathonce and never remove anentireJanissaryarmy. NoVarangiancharge, noautomatic wallrepair, nosecondintervention.",
+    "tunnels": "Separate states: unknown/investigating/ambush/surveyed/military/escape/sealed/consumed. Sealing cancels all pendingtunnelbranches and clears bSecretRomanTunnel. Map militaryroute to EXISTING random13 gatedraid; thatraid alreadyconsumestunnel. Escaperoute mustuse verifiedoutsideexit, notjustfindinga cellar. Closeforsafety isguaranteed no further tunnelpenalty; no forcedambushafterclosing. Ambushweights35/40/25 renormalise eligiblebranches ifspieszero orinfantry<4. ScandalusesadultfictionalNPCs. Evidenceuncoversacell, notautomaticguiltforallforeigners.",
+    "patriarch": "The patriarchal-office delegation avoids assuming a historically uncontested named incumbent. Factionpreferences affectpolitics, notsilentconversion. Doctrinechoice remainsplayer-controlled.",
+    "actors": "Register Kjold once beforepersonal event, withstableidentity; biography/recruitment unresolved. Nobleduelneeds2eligibleactors; never duplicateperson. Notarasdaughter scene fictional. Giustinianiwound uses sharedtemporaryabsence, suspendsbonuses, notautomatically removescommander; paidreplacementloyaltyrulesstillapply.",
+    "choices": "Never map original choice effects by position without reviewing label semantics. Require gates for source-specificcharacter/contingentoptions. Journalallchoicesandactualoutcomes; epiloguerespectsrecordeddeaths/departures/monkidentityclaim withoutconfirming supernaturaltruth."
+  }
+}

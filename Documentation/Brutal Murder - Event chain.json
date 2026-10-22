@@ -1,0 +1,254 @@
+{
+  "id": "uniqueBrutalMurder",
+  "title": "The Names Beneath the Wax",
+  "source": "Original Brutal Murder draft, events - random unique.docx",
+  "status": "Implemented in Unity/Yarn; exported preview verified",
+  "culpritVariants": [
+    "Markos (original fictional household chamberlain)",
+    "Notaras (alternate-history fiction)",
+    "Orhan (alternate-history fiction)",
+    "Sphrantzes (alternate-history fiction)"
+  ],
+  "nodes": [
+    {
+      "id": "murder1",
+      "title": "Brutal Murder — The Names Beneath the Wax",
+      "stage": 1,
+      "choices": [
+        {
+          "id": "murder1.0",
+          "label": "I will examine the case myself. Secure the room and protect the widow.",
+          "next": "murder2"
+        },
+        {
+          "id": "murder1.1",
+          "label": "Ask Sphrantzes for an initial inquiry, with independent copies of every statement.",
+          "next": "murder2"
+        },
+        {
+          "id": "murder1.2",
+          "label": "Suppress the rumours and close the affair. (Public morale -2; ends investigation)",
+          "next": null
+        }
+      ],
+      "delayDaysToNext": 2,
+      "description": "<b>Brutal Murder — The Names Beneath the Wax</b>\nThe kitchen boy finds Petros behind the palace ovens, where yesterday's ashes are put out to cool. The petitions clerk's throat has been cut. Someone has damaged his face, then washed his hands with extraordinary care. A little clean wax remains inside one sleeve.\n\nBy noon there is already a monster abroad in the City. Men who never noticed Petros alive explain confidently why he was killed. His widow, Eirene, asks only for the book he carried: people had paid him money, she says, and somebody will have to return it.\n\nMarkos, your household chamberlain, offers to have the passage scrubbed before dinner. The ordinary confidence of the offer troubles you more than the blood.",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    },
+    {
+      "id": "murder2",
+      "title": "The Body and the Bell",
+      "stage": 2,
+      "choices": [
+        {
+          "id": "murder2.0",
+          "label": "Have the surgeon examine the wounds and the wax.",
+          "next": "murder3"
+        },
+        {
+          "id": "murder2.1",
+          "label": "Interview the widow and those who saw him leave; verify their times independently.",
+          "next": "murder3"
+        },
+        {
+          "id": "murder2.2",
+          "label": "Seal the room and let the watch preserve the file for later.",
+          "next": "murder3"
+        }
+      ],
+      "delayDaysToNext": 2,
+      "description": "<b>The Body and the Bell</b>\nThe surgeon has laid out the clerk's belongings as carefully as a merchant setting out cheap wares. The purse is present. The book is not. The wounds to the face were made after the wound that killed him.\n\n'He was not killed like this,' the surgeon says. 'He was arranged like this.'\n\nOutside, a bell rings. The widow corrects the watchman's account of the hour without looking up. Petros always came home before that bell: it was the signal for their daughter's medicine.",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    },
+    {
+      "id": "murder3",
+      "title": "A Place in the Boat",
+      "stage": 3,
+      "choices": [
+        {
+          "id": "murder3.0",
+          "label": "Protect the widow; compare her receipt with the harbour accounts.",
+          "next": "murder4"
+        },
+        {
+          "id": "murder3.1",
+          "label": "Follow the collector quietly and seize his duplicate accounts.",
+          "next": "murder4"
+        },
+        {
+          "id": "murder3.2",
+          "label": "Read the names aloud at the harbour. Someone must recognise them.",
+          "next": "murder4"
+        }
+      ],
+      "delayDaysToNext": 3,
+      "description": "<b>A Place in the Boat</b>\nThe widow brings a scrap of paper sewn into the lining of her husband's coat. It promises passage for three people. There is no destination.\n\n'He said we must be ready,' she tells you. 'I thought that meant we were going to be saved.'\n\nAt the harbour a second woman holds a receipt with the same number. She has brought a cooking pot, two blankets and a child who keeps asking when they will leave. A collector notices your guards and turns towards the warehouses.",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    },
+    {
+      "id": "murder4",
+      "title": "Four Keys, One Door",
+      "stage": 4,
+      "choices": [
+        {
+          "id": "murder4.0",
+          "label": "Authenticate the household records and interview witnesses separately.",
+          "next": "murder5"
+        },
+        {
+          "id": "murder4.1",
+          "label": "Hear the implicated patron privately.",
+          "next": "murder5"
+        },
+        {
+          "id": "murder4.2",
+          "label": "Accept the household explanation without further verification.",
+          "next": "murder5"
+        }
+      ],
+      "delayDaysToNext": 2,
+      "description": "<b>Four Keys, One Door</b>\nThe room behind the kitchens is used by several households. It was chosen for that reason. A Venetian knife, a Turkish coin and a strip of clerical cloth have all been offered as proof by men who arrived with their conclusions prepared.\n\nYou have the access book brought instead. It records visits from several households. The Turkish coin was left during an earlier delivery; the cloth bound a servant's injured hand. The knife has passed through too many hands to name its owner. Such objects accuse more readily than they explain.\n\n",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    },
+    {
+      "id": "murder5",
+      "title": "The Man Who Confessed",
+      "stage": 5,
+      "choices": [
+        {
+          "id": "murder5.0",
+          "label": "Reconstruct the porter's movements against the time of death.",
+          "next": "murder6"
+        },
+        {
+          "id": "murder5.1",
+          "label": "Record his words without the watch captain present, then corroborate them.",
+          "next": "murder6"
+        },
+        {
+          "id": "murder5.2",
+          "label": "Accept the confession and imprison the porter. (Ends investigation)",
+          "next": null
+        }
+      ],
+      "delayDaysToNext": 3,
+      "description": "<b>The Man Who Confessed</b>\nA porter has confessed. He kneels so quickly that a guard has to keep him from striking his head on the floor. He describes a silver knife and a quarrel at midnight. The surgeon found the fatal wound hours earlier. No one had mentioned a silver knife until the watch captain suggested one.\n\nThe porter admits stealing bread from the kitchen. He appears to believe that, if he admits enough things, one of them will finally satisfy you.\n\nThe captain points out that the City needs an answer. He is right about the need. He has said nothing about the answer.",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    },
+    {
+      "id": "murder6",
+      "title": "A Letter Left Unsealed",
+      "stage": 6,
+      "choices": [
+        {
+          "id": "murder6.0",
+          "label": "Guard the widow, plant a copied line and intercept the response.",
+          "next": "murder7"
+        },
+        {
+          "id": "murder6.1",
+          "label": "Announce the accusation publicly and demand the missing papers.",
+          "next": "murder7"
+        },
+        {
+          "id": "murder6.2",
+          "label": "Set no trap. Proceed with the evidence already secured.",
+          "next": "murder7"
+        }
+      ],
+      "delayDaysToNext": 2,
+      "description": "<b>A Letter Left Unsealed</b>\nYou still do not possess the missing register. You can make someone believe that you do. A single copied line, left where a household messenger will see it, may bring an instruction to retrieve the rest.\n\nThe widow asks whether this will put her daughter in danger. It is the first sensible question anyone has asked about the plan. You can place them under guard before sending the letter, or make a public accusation and hope the responsible person blunders.\n\nA third course remains: stop setting traps and judge only what you actually know.",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    },
+    {
+      "id": "murder7",
+      "title": "The Emperor's Account",
+      "stage": 7,
+      "choices": [
+        {
+          "id": "murder7.0",
+          "label": "Accuse {MurderSuspect(0)}. (Imprison if present)",
+          "next": null
+        },
+        {
+          "id": "murder7.1",
+          "label": "Accuse {MurderSuspect(1)}. (Remove from service if present)",
+          "next": null
+        },
+        {
+          "id": "murder7.2",
+          "label": "Accuse {MurderSuspect(2)}. (Remove from service if present)",
+          "next": null
+        },
+        {
+          "id": "murder7.3",
+          "label": "Accuse {MurderSuspect(3)}. (Remove from service if present)",
+          "next": null
+        },
+        {
+          "id": "murder7.4",
+          "label": "Seal the supported case and retain the responsible household. (Public morale -3)",
+          "next": null
+        },
+        {
+          "id": "murder7.5",
+          "label": "Leave the verdict open. Preserve the evidence; remove nobody.",
+          "next": null
+        }
+      ],
+      "delayDaysToNext": 0,
+      "description": "<b>The Emperor's Account</b>\nA clerk has ruled the last page into two columns: finding and sentence. He waits with his pen raised. Outside, somebody is wheeling bread towards the barracks. The City has continued while you have been trying to understand one death.\n\nThe evidence must determine whom you accuse. Access alone is not a verdict. Two independent strands can support one; a convenient confession cannot. You may also leave the case open.\n\nAn accusation removes the named official from service if still present. Sealing a supported case retains the responsible official but sacrifices public confidence. Neither choice will make Petros come home.",
+      "casebook": "Previously acquired clues are shown here, based on the frozen culprit."
+    }
+  ],
+  "caseVariants": {
+    "Markos": {
+      "Physical": "The white wax contains kitchen chalk. Markos's household office stretches its sealing wax this way; its damaged stamp leaves the same broken lower arc on Petros's sleeve. This establishes access, not murder.",
+      "Money": "Three households hold the same berth number. Each paid Markos's collector. Petros's private book lists two refunds made from his own wages: he had begun undoing a fraud in which he had participated.",
+      "Witness": "The widow identifies Markos's collector, not a foreign soldier. She remembers him offering to pay the balance of her husband's wages before anyone had told her Petros was dead. The watch records her words separately from its own questions.",
+      "Order": "Markos sends an instruction to the collector: 'The widow must not possess what her husband kept. Do not repeat the mistake of leaving the book behind.' The collector preserves the earlier order naming Petros and directing his death.",
+      "Defence": "Markos looks at the register as though it were an account still capable of balancing. 'They paid for hope. You give it to them every morning without even promising a boat.' His insolence does not explain the order to kill."
+    },
+    "Notaras": {
+      "Physical": "The wax bears the tiny split in Notaras's private household seal. The public seal is intact. Whoever met Petros was acting through the megas doux's family office, not the harbour administration.",
+      "Money": "The boat's counterfoil reserves places for dependants of Notaras's household. Beside the payment is an additional sum to recover Petros's register. An innocent family precaution had acquired a second, unexplained purpose.",
+      "Witness": "A household steward remembers Notaras ordering that Petros be prevented from speaking again. He will not pretend that the words were kinder. His date agrees with the kitchen watch, whose book he had not seen.",
+      "Order": "Notaras's steward is intercepted carrying a matched pair of counterfoils. The earlier one authorises Petros's death and the recovery of the register. A second hand has added the mutilation; the first order needs no such addition to condemn its author.",
+      "Defence": "Notaras does not ask you to believe he felt nothing. 'The City had an emperor. My household had me.' He admits reserving passage. Whether he also ordered murder must be settled by the documents, not by the ugliness of that admission."
+    },
+    "Orhan": {
+      "Physical": "The wax closed a packet bearing Orhan's household countersign. A guard copies the sign before the packet is opened. His captain verifies that it was used that night, not merely copied from an old order.",
+      "Money": "The ferryman's receipt pays for one outward passenger and one person brought back from an Ottoman-held landing. The money came from Orhan's household. Petros also sold that route to a second customer.",
+      "Witness": "Two attendants separately remember Orhan's messenger returning with blood on a cuff and without the register he had been sent to retrieve. Neither knows the ferryman's testimony; their times nevertheless agree.",
+      "Order": "Orhan's messenger carries a payment instruction which names Petros, the ferryman and the man hired to kill the clerk. It matches the retained half in the household accounts. The prince's private exchange has left a public trail.",
+      "Defence": "Orhan asks whether imperial protection extends beyond the walls. 'You gave me safety. You did not give it to every person whose life could be used against me.' Fear explains the exchange; it does not acquit the killing."
+    },
+    "Sphrantzes": {
+      "Physical": "The wax held a narrow packet folded twice inwards, as Sphrantzes's couriers fold their concealed instructions. A dispatch clerk produces an independently dated example with the same damaged seal.",
+      "Money": "Petros entered the same travellers as paying refugees and as unpaid diplomatic couriers. Both columns lead to Sphrantzes's office. The clerk had started demanding money to keep those two descriptions apart.",
+      "Witness": "A courier remembers Sphrantzes refusing a suggestion that Petros merely be detained: a prisoner could still speak. The witness admits stealing from dispatch funds, a separate offence that makes his account uncomfortable rather than worthless.",
+      "Order": "A courier tries to remove the original instruction from the archive. It names Petros and explicitly rejects detention in favour of killing him. The authentication agrees with both the dispatch record and the copy held by the courier.",
+      "Defence": "Sphrantzes folds his hands with an envoy's patience. 'You ask for intelligence, Majesty. No one asks what the intelligence has survived.' You remind him that a dead clerk is not an argument."
+    }
+  },
+  "statePrefix": "iLifeMurder",
+  "endings": [
+    "Proven public verdict",
+    "Proven case concealed",
+    "Unproven conviction",
+    "Open verdict",
+    "Suppressed investigation"
+  ],
+  "epilogue": "A short campaign-ending recollection reads the saved verdict; no hidden culprit revealed for an unresolved case.",
+  "validation": {
+    "unityBuild": "Succeeded",
+    "exportedPlayerChecks": 119,
+    "visualChecks": [
+      "opening",
+      "interviews",
+      "verdict",
+      "campaign epilogue"
+    ],
+    "releaseStatus": "Standalone MurderPreview verified; published release snapshot is separate"
+  }
+}

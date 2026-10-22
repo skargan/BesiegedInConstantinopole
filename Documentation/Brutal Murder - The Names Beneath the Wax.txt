@@ -1,0 +1,49 @@
+BESIEGED — THE NAMES BENEATH THE WAX
+Expansion of the original unique event “Brutal Murder” (design:random14 / uniqueBrutalMurder).
+Original source: events - random unique.docx, source-audit lines78–83. The old runtime random14 is a different event; do not replace it.
+
+Narrative direction
+Seven investigations over approximately14 siege days, spaced2–3days apart. An apparent serial murder becomes a crime of access, obligation and selective rescue. Every suspect has a genuine secret; only one commissioned the killing. Original prose: philosophical hypocrisy, intimate historical pressure and ordinary objects made unsettling. No quotations or imitation of the named authors.
+
+Petros, a clerk who receives petitions, is found behind the palace kitchens. His throat is cut, his face damaged, his hands carefully washed. In one sleeve is clean white wax. His widow, Eirene, asks why men who cannot remember his name have already decided what sort of death he deserved. Rumours of a prowling killer become a convenient explanation for an inconvenient missing register.
+
+The truth is fixed when the opening occurs and saved. Only officials actually in service at that moment can be selected as the responsible patron. Household chamberlain Markos is an original fictional supporting character introduced in this chain, not an existing recruitable commander. His presence supplies a fallback case. The historical court characters' crimes are alternate-history fiction, not allegations about their real lives.
+
+Four possible underlying cases
+MARKOS — THE PRICE OF A BERTH. The chamberlain sold the same escape places several times, then killed Petros when the clerk began returning deposits. Poverty raises this case's weight. Petros was himself accepting money, but changed his mind. Proof: altered household wax, duplicate numbered receipts, an attempt to buy the widow's silence. His defence: the emperor sells hope every morning and calls it government.
+NOTARAS — THE PRIVATE ARK. The megas doux privately reserved passage for dependants, then authorised a subordinate to silence Petros when he threatened to sell the list to a rival. Low loyalty and dwindling provisions raise this case's weight. The killer exceeded any defensible interpretation of that order; Notaras's preserved instruction nevertheless explicitly authorises permanent silence. Proof: an authentic private seal, family passenger names, a matching counterfoil kept by his steward. His defence: being responsible for a city did not relieve him of responsibility for his children.
+ORHAN — THE EXCHANGE. The prince arranged the quiet transfer of a threatened dependent through an intermediary. Petros sold the route twice, endangering the people involved. Orhan ordered him killed and the register recovered. Low loyalty raises this case's weight. Proof: correct household countersign, a ferry receipt tied to the intended exchange, a surviving payment instruction. His defence: the emperor's protection has a boundary, and his family stood outside it.
+SPHRANTZES — THE NECESSARY LIE. The envoy used the register to conceal couriers among departing households. Petros began extorting the couriers and threatened to expose them. Sphrantzes authorised murder to protect his network, then allowed the public to hunt a fictional monster. Low loyalty or an extensive spy network raises this case's weight. Proof: diplomatic folding pattern, a courier double-entry, an authenticated instruction for killing rather than detention. His defence: the player routinely purchases secrets without asking what the price includes.
+
+These weights affect which story is selected, not a claim that low loyalty proves guilt. All evidence is generated from the frozen case, including when a suspect later leaves service. No mid-investigation reroll. No single generic wax stain proves guilt. Political suspicion is not evidence.
+
+Seven layers
+1. BRUTAL MURDER — The opening. Examine the case personally; ask Sphrantzes to make an initial inquiry if available; or suppress the affair. Delegation never grants the suspected official sole control of subsequent evidence. Suppression closes the chain unresolved with a public confidence loss. The crime already happened; no duplicate population deduction.
+2. THE BODY AND THE BELL — A surgeon distinguishes fatal injury from theatrical mutilation. Interview the widow for a verifiable time, inspect the seal under the fingernails, or let the watch preserve the file. Each serious investigation yields a first category of evidence; minimal handling preserves progress but no proof. The victim's body must never become a spectacle merely to provide gore.
+3. A PLACE IN THE BOAT — A widow produces a receipt for passage. Protect her and compare the receipt; follow the collector quietly; or publish names. Publicity can cause witnesses to hide and destroys one future opportunity. The poor are neither automatically truthful nor disposable suspects.
+4. FOUR KEYS, ONE DOOR — The household access records reveal the responsible office. Authenticate the seal against independent records; hear the patron privately; or accept an explanation without verification. The apparently damning secrets of innocent suspects are explained. A genuine order must be distinguished from a planted seal.
+5. THE MAN WHO CONFESSED — A frightened porter confesses to an impossible detail. Reconstruct his route; separate his testimony from the watch's prompting; or accept the confession and close the case. The easy solution can be wrong. The porter may be guilty of theft without being guilty of murder. No torture-as-magic-truth mechanic.
+6. A LETTER LEFT UNSEALED — Controlled disclosure of one copied line from the register. Protect the original and intercept the response; announce the accusation publicly; or decline the trap and proceed with the evidence already gathered. A corroborated interception supplies the decisive written instruction. A public accusation gives the patron time to destroy it. No random unavoidable failure after correct reasoning.
+7. THE EMPEROR'S ACCOUNT — Review the accumulated casebook and identify the responsible person. Imprison an accused patron, seal the proven case for wartime reasons, or leave the verdict open. A proven correct accusation ends in documented justice; an unsupported or false accusation can still remove an innocent adviser, but is labelled an unproven conviction rather than congratulating the player. Sealing a proven case preserves the adviser at the cost of public confidence. The result and accused identity persist for later epilogues; the campaign-ending screen will read this saved disposition.
+
+Fair-play contract
+- Evidence categories: physical origin, financial route, independent testimony, authenticated killing order. Two independent categories plus correct identity suffice for a supported verdict; the decisive order strengthens certainty but is not mandatory.
+- Every acquired clue is displayed in the casebook at subsequent stages; source provenance is retained.
+- Choices can lose evidence but always leave a route to an open verdict. No forced accusation.
+- The culprit's identity, captured circumstances, stage, choices, due dates, clues and final disposition survive save/load.
+- Do not print the hidden culprit in outcome reports or debug text seen by the player.
+- Confrontation does not resurrect a dead/departed suspect; a verdict can be recorded in absence.
+- Once started, only due follow-ups are eligible; once closed, it never repeats. Scheduled milestones take precedence.
+- Murder stages replace an ordinary daily event. Do not create a separate paid action requirement for reading the case.
+
+Ending recollections for later integration
+Proven public justice: “When the palace asked to be judged by different laws, you refused it.”
+Proven concealment: “The man responsible remained useful. The widow was told that usefulness was a reason.”
+Unproven conviction: “You gave the City a name to blame. The papers you preserved did not establish that it was the right one.”
+Open case: “Petros remained a name without a verdict. At least the register did not call uncertainty justice.”
+Suppression: “A clerk died behind the kitchens. The court learned how quickly a death could become an inconvenience.”
+
+
+Implementation and verification — 22 October2026
+Integrated in the original Desktop Unity project: MurderMystery.cs, Brutal_murder.yarn, RestUI due-event/optional-event hooks and a CampaignHUD ending-text hook. Hidden state uses iLifeMurder-prefixed saved integers so ordinary outcome reports do not reveal it. New campaigns clear these keys through the existing variable reset. The opening joins the optional event pool after ten completed siege days; follow-ups become due after2–3calendar days and respect dated story milestones. No completed case repeats.
+Unity build succeeded.119exported-player checks passed, including all4culprit variants, save/load, early closure, false accusations, absent suspects, all7Yarn stages and their actual choice dispatch, and the campaign-ending recollection. Opening, interviews, verdict and ending were visually inspected at1600x900. A separate playable MurderPreview exists; official numbered release publication is managed separately. The tests use a separate save path and suppress persistent achievement unlocks.

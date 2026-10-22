@@ -146,7 +146,7 @@ public class CampaignHUD : MonoBehaviour
 
         ShowModal("Campaign ended", reason + "\n\nSiege days survived: " + VariableSingleton.CompletedSiegeDays +
 
-            "\nYour next attempt begins with what you learned.", false);
+            MurderMystery.Epilogue()+"\nYour next attempt begins with what you learned.", false);
 
     }
 
