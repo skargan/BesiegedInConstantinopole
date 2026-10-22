@@ -1,0 +1,107 @@
+UNIQUE EVENT SOURCE AUDIT
+Correction: the four entries in the dedicated document were not the complete unique-event inventory.
+16 explicitly Unique-labelled concepts: 3 in the dedicated document, 5 in the general random-events document, 8 in Events.xlsx.
+Live and Let Live is separately labelled Recurring, despite being in the unique-events document.
+
+All six cached original sources, available older mechanics extract, local project documentation and runtime Yarn/C# comparison. Synced sources directory is empty; no claim about unavailable originals or other cloud documents.
+
+The Hidden Chamber — Missing from live Yarn; original draft previously identified
+Source: events - random unique.docx; row/paragraph 29; original record design:random4
+Runtime counterpart: none established
+
+
+Ottoman Shipwreck — Missing from live Yarn; original draft previously identified
+Source: events - random unique.docx; row/paragraph 55; original record design:random6
+Runtime counterpart: none established
+
+
+Brutal Murder — Missing from live Yarn; original draft previously identified
+Source: events - random unique.docx; row/paragraph 78; original record design:random14
+Runtime counterpart: none established
+
+
+Noble ends his life — Implemented but recurrence conflicts with source Unique label
+Source: events - random.docx; row/paragraph 89; original record design:random19
+Runtime counterpart: random16
+Runtime uses LifeSeen cooldown; RecurringEvents.Eligible has no once-only guard for this event.
+
+Fire in the City — Implemented but recurrence conflicts with source Unique label
+Source: events - random.docx; row/paragraph 104; original record design:random22
+Runtime counterpart: random19
+Runtime uses LifeSeen cooldown; RecurringEvents.Eligible has no once-only guard for this event.
+
+Infighting at the Market — Missing distinct event; partial prose and choices available
+Source: events - random.docx; row/paragraph 407; original record design:random30
+Runtime counterpart: random22
+Rising tensions among the soldiers is related but does not contain these three specific incidents.
+
+Infighting at the Barracks — Missing distinct event; partial prose and choices available
+Source: events - random.docx; row/paragraph 419; original record design:random31
+Runtime counterpart: random22
+Rising tensions among the soldiers is related but does not contain these three specific incidents.
+
+Infighting at the Stables — Missing distinct event; partial prose and choices available
+Source: events - random.docx; row/paragraph 430; original record design:random32
+Runtime counterpart: random22
+Rising tensions among the soldiers is related but does not contain these three specific incidents.
+
+Patriarch requests an audience — Catalogue idea; distinct audience not verified
+Source: Events.xlsx; row/paragraph 6; original record catalogue:eve6
+Runtime counterpart: story1
+Union decision exists; do not assume this separate audience is identical.
+
+Master Gunner offers his services — Existing functional counterpart
+Source: Events.xlsx; row/paragraph 7; original record catalogue:eve11
+Runtime counterpart: story3
+Artillery Genius recruits Orban. Avoid duplicating the recruitment event.
+
+Mad monk is demanding an audience with you — Catalogue idea; missing distinct event
+Source: Events.xlsx; row/paragraph 8; original record catalogue:eve12
+Runtime counterpart: sermonPride
+Seven-sermon Gennadius chain is related religious content, not this original unnamed monk encounter.
+
+Venetian Merchants are asking for guarantees — Catalogue idea; possible overlap requiring decision
+Source: Events.xlsx; row/paragraph 11; original record catalogue:eve15
+Runtime counterpart: story12
+Diedo preparation guarantees service, wages and provisions. Original title concerns Venetian merchants; cannot confirm equivalence from a title alone.
+
+Swordmaster offers to train you — Catalogue encounter absent; mechanic exists
+Source: Events.xlsx; row/paragraph 12; original record catalogue:eve16
+Runtime counterpart: none established
+Fencing training is implemented in EmperorCombat.Train. A named swordmaster introduction is not the same as an existing training button.
+
+The Chain — Existing functional counterpart
+Source: Events.xlsx; row/paragraph 31; original record catalogue:eve19
+Runtime counterpart: story19
+Great Chain preparation is already selectable; do not add a duplicate.
+
+Priests demand permission to build a chapel inside the gate tower — Catalogue idea; missing distinct event
+Source: Events.xlsx; row/paragraph 33; original record catalogue:eve23
+Runtime counterpart: none established
+Source explicitly proposes morale benefit in exchange for weaker walls.
+
+Secret tunnel found — Catalogue idea; missing distinct discovery event
+Source: Events.xlsx; row/paragraph 91; original record catalogue:row91
+Runtime counterpart: random13
+Older recurring-source text contains a tunnel raid option; do not count discovery as implemented merely because a dependent idea was written.
+
+ADDITIONAL ORIGINAL IDEAS WITHOUT A UNIQUE TAG
+Kjold feels melancholic
+Kjold feels adventurous
+Kjold feels suspicious
+Loukas Notaras wants to meet
+Giustiniani is wounded
+Cardinal Isidore delivers a sermon
+Prince Orhan gets drunk
+City whores support the military
+Monk distillery found
+Black market food cache found
+Gambling den located
+Giustiniani melts statues into ammunition
+Duel among nobles
+Poisoned well
+News from Pelopponesus
+
+These are source ideas, not newly invented additions and not a claim that each should be once-only.
+Other existing conditional stories: seven Galata outcomes and character crises; mechanics1.3/1.4 also outline nine Sultan offers/endings. These are separate from the16explicitlyUnique-labelled entries.
+Do not reinstate obsolete preparation dates or old variable scales from mechanics documents.

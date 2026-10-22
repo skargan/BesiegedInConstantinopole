@@ -1,0 +1,216 @@
+THE NAMES BENEATH THE WAX
+
+Seven-stage expansion of Brutal Murder
+
+Original prose for Besieged; alternate-history fiction.
+
+
+
+BRUTAL MURDER — THE NAMES BENEATH THE WAX
+
+Brutal Murder — The Names Beneath the Wax
+The kitchen boy finds Petros behind the palace ovens, where yesterday's ashes are put out to cool. The petitions clerk's throat has been cut. Someone has damaged his face, then washed his hands with extraordinary care. A little clean wax remains inside one sleeve.
+
+By noon there is already a monster abroad in the City. Men who never noticed Petros alive explain confidently why he was killed. His widow, Eirene, asks only for the book he carried: people had paid him money, she says, and somebody will have to return it.
+
+Markos, your household chamberlain, offers to have the passage scrubbed before dinner. The ordinary confidence of the offer troubles you more than the blood.
+
+
+
+1. I will examine the case myself. Secure the room and protect the widow.
+
+2. Ask Sphrantzes for an initial inquiry, with independent copies of every statement.
+
+3. Suppress the rumours and close the affair. (Public morale -2; ends investigation)
+
+
+
+THE BODY AND THE BELL
+
+The Body and the Bell
+The surgeon has laid out the clerk's belongings as carefully as a merchant setting out cheap wares. The purse is present. The book is not. The wounds to the face were made after the wound that killed him.
+
+'He was not killed like this,' the surgeon says. 'He was arranged like this.'
+
+Outside, a bell rings. The widow corrects the watchman's account of the hour without looking up. Petros always came home before that bell: it was the signal for their daughter's medicine.
+
+
+
+1. Have the surgeon examine the wounds and the wax.
+
+2. Interview the widow and those who saw him leave; verify their times independently.
+
+3. Seal the room and let the watch preserve the file for later.
+
+
+
+A PLACE IN THE BOAT
+
+A Place in the Boat
+The widow brings a scrap of paper sewn into the lining of her husband's coat. It promises passage for three people. There is no destination.
+
+'He said we must be ready,' she tells you. 'I thought that meant we were going to be saved.'
+
+At the harbour a second woman holds a receipt with the same number. She has brought a cooking pot, two blankets and a child who keeps asking when they will leave. A collector notices your guards and turns towards the warehouses.
+
+
+
+1. Protect the widow; compare her receipt with the harbour accounts.
+
+2. Follow the collector quietly and seize his duplicate accounts.
+
+3. Read the names aloud at the harbour. Someone must recognise them.
+
+
+
+FOUR KEYS, ONE DOOR
+
+Four Keys, One Door
+The room behind the kitchens is used by several households. It was chosen for that reason. A Venetian knife, a Turkish coin and a strip of clerical cloth have all been offered as proof by men who arrived with their conclusions prepared.
+
+You have the access book brought instead. It records visits from several households. The Turkish coin was left during an earlier delivery; the cloth bound a servant's injured hand. The knife has passed through too many hands to name its owner. Such objects accuse more readily than they explain.
+
+
+
+
+
+The private replies depend on which households were present when the case began. An unavailable character is not summoned back into existence.
+
+
+
+1. Authenticate the household records and interview witnesses separately.
+
+2. Hear the implicated patron privately.
+
+3. Accept the household explanation without further verification.
+
+
+
+THE MAN WHO CONFESSED
+
+The Man Who Confessed
+A porter has confessed. He kneels so quickly that a guard has to keep him from striking his head on the floor. He describes a silver knife and a quarrel at midnight. The surgeon found the fatal wound hours earlier. No one had mentioned a silver knife until the watch captain suggested one.
+
+The porter admits stealing bread from the kitchen. He appears to believe that, if he admits enough things, one of them will finally satisfy you.
+
+The captain points out that the City needs an answer. He is right about the need. He has said nothing about the answer.
+
+
+
+1. Reconstruct the porter's movements against the time of death.
+
+2. Record his words without the watch captain present, then corroborate them.
+
+3. Accept the confession and imprison the porter. (Ends investigation)
+
+
+
+A LETTER LEFT UNSEALED
+
+A Letter Left Unsealed
+You still do not possess the missing register. You can make someone believe that you do. A single copied line, left where a household messenger will see it, may bring an instruction to retrieve the rest.
+
+The widow asks whether this will put her daughter in danger. It is the first sensible question anyone has asked about the plan. You can place them under guard before sending the letter, or make a public accusation and hope the responsible person blunders.
+
+A third course remains: stop setting traps and judge only what you actually know.
+
+
+
+1. Guard the widow, plant a copied line and intercept the response.
+
+2. Announce the accusation publicly and demand the missing papers.
+
+3. Set no trap. Proceed with the evidence already secured.
+
+
+
+THE EMPEROR'S ACCOUNT
+
+The Emperor's Account
+A clerk has ruled the last page into two columns: finding and sentence. He waits with his pen raised. Outside, somebody is wheeling bread towards the barracks. The City has continued while you have been trying to understand one death.
+
+The evidence must determine whom you accuse. Access alone is not a verdict. Two independent strands can support one; a convenient confession cannot. You may also leave the case open.
+
+An accusation removes the named official from service if still present. Sealing a supported case retains the responsible official but sacrifices public confidence. Neither choice will make Petros come home.
+
+
+
+1. Accuse {MurderSuspect(0)}. (Imprison if present)
+
+2. Accuse {MurderSuspect(1)}. (Remove from service if present)
+
+3. Accuse {MurderSuspect(2)}. (Remove from service if present)
+
+4. Accuse {MurderSuspect(3)}. (Remove from service if present)
+
+5. Seal the supported case and retain the responsible household. (Public morale -3)
+
+6. Leave the verdict open. Preserve the evidence; remove nobody.
+
+
+
+CULPRIT VARIANTS AND EVIDENCE
+
+The underlying case is fixed at the opening and saved. These are developer-facing spoilers.
+
+
+
+MARKOS
+
+Physical: The white wax contains kitchen chalk. Markos's household office stretches its sealing wax this way; its damaged stamp leaves the same broken lower arc on Petros's sleeve. This establishes access, not murder.
+
+Money: Three households hold the same berth number. Each paid Markos's collector. Petros's private book lists two refunds made from his own wages: he had begun undoing a fraud in which he had participated.
+
+Witness: The widow identifies Markos's collector, not a foreign soldier. She remembers him offering to pay the balance of her husband's wages before anyone had told her Petros was dead. The watch records her words separately from its own questions.
+
+Order: Markos sends an instruction to the collector: 'The widow must not possess what her husband kept. Do not repeat the mistake of leaving the book behind.' The collector preserves the earlier order naming Petros and directing his death.
+
+Defence: Markos looks at the register as though it were an account still capable of balancing. 'They paid for hope. You give it to them every morning without even promising a boat.' His insolence does not explain the order to kill.
+
+
+
+NOTARAS
+
+Physical: The wax bears the tiny split in Notaras's private household seal. The public seal is intact. Whoever met Petros was acting through the megas doux's family office, not the harbour administration.
+
+Money: The boat's counterfoil reserves places for dependants of Notaras's household. Beside the payment is an additional sum to recover Petros's register. An innocent family precaution had acquired a second, unexplained purpose.
+
+Witness: A household steward remembers Notaras ordering that Petros be prevented from speaking again. He will not pretend that the words were kinder. His date agrees with the kitchen watch, whose book he had not seen.
+
+Order: Notaras's steward is intercepted carrying a matched pair of counterfoils. The earlier one authorises Petros's death and the recovery of the register. A second hand has added the mutilation; the first order needs no such addition to condemn its author.
+
+Defence: Notaras does not ask you to believe he felt nothing. 'The City had an emperor. My household had me.' He admits reserving passage. Whether he also ordered murder must be settled by the documents, not by the ugliness of that admission.
+
+
+
+ORHAN
+
+Physical: The wax closed a packet bearing Orhan's household countersign. A guard copies the sign before the packet is opened. His captain verifies that it was used that night, not merely copied from an old order.
+
+Money: The ferryman's receipt pays for one outward passenger and one person brought back from an Ottoman-held landing. The money came from Orhan's household. Petros also sold that route to a second customer.
+
+Witness: Two attendants separately remember Orhan's messenger returning with blood on a cuff and without the register he had been sent to retrieve. Neither knows the ferryman's testimony; their times nevertheless agree.
+
+Order: Orhan's messenger carries a payment instruction which names Petros, the ferryman and the man hired to kill the clerk. It matches the retained half in the household accounts. The prince's private exchange has left a public trail.
+
+Defence: Orhan asks whether imperial protection extends beyond the walls. 'You gave me safety. You did not give it to every person whose life could be used against me.' Fear explains the exchange; it does not acquit the killing.
+
+
+
+SPHRANTZES
+
+Physical: The wax held a narrow packet folded twice inwards, as Sphrantzes's couriers fold their concealed instructions. A dispatch clerk produces an independently dated example with the same damaged seal.
+
+Money: Petros entered the same travellers as paying refugees and as unpaid diplomatic couriers. Both columns lead to Sphrantzes's office. The clerk had started demanding money to keep those two descriptions apart.
+
+Witness: A courier remembers Sphrantzes refusing a suggestion that Petros merely be detained: a prisoner could still speak. The witness admits stealing from dispatch funds, a separate offence that makes his account uncomfortable rather than worthless.
+
+Order: A courier tries to remove the original instruction from the archive. It names Petros and explicitly rejects detention in favour of killing him. The authentication agrees with both the dispatch record and the copy held by the courier.
+
+Defence: Sphrantzes folds his hands with an envoy's patience. 'You ask for intelligence, Majesty. No one asks what the intelligence has survived.' You remind him that a dead clerk is not an argument.
+
+
+
+VERDICTS AND CAMPAIGN MEMORY
+
+A supported public verdict removes the responsible official from service if present. Concealment retains him. An unsupported or false conviction can imprison an innocent official. Open verdict and suppression leave different records. The final campaign screen remembers what was actually decided.
