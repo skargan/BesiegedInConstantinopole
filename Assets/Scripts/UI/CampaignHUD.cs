@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 using UnityEngine.UI;
 
@@ -75,7 +75,8 @@ public class CampaignHUD : MonoBehaviour
 
             card.GetComponent<Image>().color=ImperialTheme.Surface;ImperialTheme.Frame(card);
 
-            resources[i]=Label(card.transform,"",new Vector2(.08f,.03f),new Vector2(.98f,.97f),24);
+            resources[i]=Label(card.transform,"",new Vector2(.04f,.05f),new Vector2(.96f,.95f),24);
+            resources[i].alignment=TextAlignmentOptions.Center;resources[i].enableAutoSizing=true;resources[i].fontSizeMin=16;resources[i].fontSizeMax=24;
 
         }
 
@@ -146,7 +147,7 @@ public class CampaignHUD : MonoBehaviour
 
         ShowModal("Campaign ended", reason + "\n\nSiege days survived: " + VariableSingleton.CompletedSiegeDays +
 
-            "\nYour next attempt begins with what you learned.", false);
+            MurderMystery.Epilogue()+EmperorProfile.Epilogue()+"\nYour next attempt begins with what you learned.", false);
 
     }
 

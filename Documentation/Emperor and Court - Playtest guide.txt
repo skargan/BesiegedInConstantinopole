@@ -1,0 +1,35 @@
+EMPEROR AND COURT - PLAYTEST GUIDE
+
+Launch Builds/EmperorPreview/Besieged.exe. This is a separate preview; the numbered release and desktop shortcut are managed by the release developer.
+
+STARTING THE EMPEROR
+A new campaign opens with What Kind of Emperor Am I? Constantine XI starts at 100% health, with Charisma, Intellect and Martial skill at 3/10. Allocate seven additional points before confirming. Existing saves retain health and decisions; missing Charisma and Intellect default to three, while legacy fencing is migrated to Martial skill. There is no separate active fencing attribute. Existing combat interfaces receive Martial skill multiplied by ten where their formulas use a 0–100 scale.
+
+DEVELOPMENT
+All three qualities use experience. The next level costs 100 + 25 times the current level, with excess XP retained. A normal training session awards 25 XP and uses the major action; sword practice also costs five health percentage points under the existing practice rule. Character instruction uses the same cost and can be declined below 40 loyalty. Quest decisions award 15, 30 and 60 XP for their successive stages, once. The existing personal question awards 15 Charisma XP once. Reading or repeating dialogue grants no XP.
+
+THE MIRROR AND LOCATIONS
+Click the gilded mirror in the Palace to inspect the Emperor's health, qualities and XP. Imperial affairs also offers the sheet, training and court journal. The original palace painting is preserved; the mirror uses a sibling painting. Three standing sprites are installed for Giovanni, Notaras and Kjold. Other visitors retain their portraits until further standing art is produced. An ellipsis beside a visitor indicates available unread material. Each location still hosts at most one visitor.
+
+READING CONVERSATIONS
+Portraits sit on the left; speech and choices are on the right, with scrolling for long passages and topic lists. Gold text and a drawn diamond mark unread topics. Read topics become subdued and move below fresh material. Disabled options sit below usable ones. A newly eligible descendant makes its branch fresh without resetting unrelated read topics. Dynamic reports and assessments become fresh when their text changes; a new day alone does not reset them. Progress is saved when topics are read or decisions made.
+
+Charisma uses an amber imperial seal, Intellect a lapis oil lamp and Martial skill crimson crossed swords. A subdued badge can show an explicit attribute requirement. These reusable UI signs do not disclose success probabilities. Special narrative requirements, including Orban's cannon total, can remain hidden.
+
+FIFTEEN CHARACTER QUESTS
+The current friendly conversation roster has fifteen original fictional three-stage threads. Later stages wait one and two calendar days respectively. Disclosures require five in the relevant quality. Final settlements normally require seven; another character's relevant disclosure can reduce that requirement to five. Each stage permits one decision, records its date and remembers the final arrangement in the epilogue. The conversations create written arrangements and narrative consequences; resource transfers, troop movements and the separate murder verdict remain governed by their own systems.
+
+Structured quest source: Assets/Resources/Court/court-conversations.json.
+Writing proposal: Documentation/The Court beneath the Siege.txt.
+Siege-stage and assault-counter proposals: Documentation/Siege as the Main Plot.txt.
+
+HEALTH EVENTS
+The five new single-choice events enter the daily siege event pool with separate 30-calendar-day cooldowns. Hangover follows drinking with the court and costs 1–10 health points. A stairway fall costs 20–40; food poisoning 10–30; fever 5–75. A rejuvenating morning restores 5–20, capped at 100%. Damage can be fatal and uses the existing Emperor-death ending. These are percentage-point changes, not proportional reductions of remaining health.
+
+DEVELOPER MAP
+Open Tools/BesiegedEventMap/Besieged Event Map.html and select Conversations & quests. It includes the fifteen quest chains, ordinary conversation texts, the personal question's replies, attribute gates and cross-character information routes. Choose a character or search; wheel zooms, drag pans, and clicking a card opens its text. Dotted menu links are navigation, not a gameplay prerequisite. Review notes remain in browser storage and do not edit Unity. The five health events also appear under random events.
+
+VALIDATION BOUNDARY
+The preview has its own automated player checks and screenshots under Builds/EmperorPreview/EmperorCaptures. The final checks.txt states the completed run's result. Development runner: -emperor-capture; it uses a separate test save. Build helper verifies the compiled health nodes before exporting. The event map has structural/data checks; browser security blocked automated viewing of the file URL, so no browser visual QA is claimed for the new tab.
+
+Siege comments after thirty and sixty days are live, but new crusade/restoration milestone events, mobile arrow shields and cannon-avoiding assaults remain design proposals. Do not treat the design notes as implemented battle rules.

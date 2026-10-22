@@ -7,7 +7,7 @@ prefix='next:'
 d['events']=[n for n in d['events'] if not n['id'].startswith(prefix)]
 d['edges']=[e for e in d['edges'] if not e['id'].startswith(prefix)]
 d['flowSections']=[s for s in d['flowSections'] if not s['id'].startswith('next-')]
-d['sources']=[s for s in d['sources'] if s['id']!='next-court-source']
+d['sources']=[s for s in d['sources'] if s['id'] not in ['next-court-source','next-unique-source']]
 nodes=[];edges=[]
 spec=json.loads((B/'planning/next-campaign/court-stories.json').read_text(encoding='utf-8'))
 text=(B/'planning/next-campaign/Court stories for review.txt').read_text(encoding='utf-8')
@@ -30,13 +30,52 @@ for e in spec['events']:
  if e['character']=='damaris' and e['chapter']>3:link(prefix+'courtDamaris'+str(e['chapter']-1),n['id'],'At least15days; scandal continues')
 for root in ['proposal:courtLadyLetters','proposal:courtLadyMarriage']:
  if any(n['id']==root for n in d['events']):link(root,prefix+'courtDamaris3','PLANNED extension · existing Helena renamed Damaris',['15days after existing follow-up'])
+auditPath=B/'planning/next-campaign/Unique event source audit.json'
+if auditPath.exists():
+ audit=json.loads(auditPath.read_text(encoding='utf-8'))
+ existing={n['code'] for n in nodes}
+ for item in audit['events']:
+  code=item['stableId']
+  if code in existing:continue
+  if item['status'].startswith('Existing functional'):continue
+  if item['status'].startswith('Implemented but'):
+   n=next(n for n in d['events'] if n['collection']=='proposal' and n['code']==code)
+   n['notes']='Source audit: originally marked UNIQUE. '+item['note']
+   warning='Original source says once-only; current runtime permits recurrence after cooldown.'
+   if warning not in n['review']:n['review'].append(warning)
+   continue
+  source=next(n for n in d['events'] if n['id']==item['sourceId'])
+  n=copy.deepcopy(source);i=sum(x.get('section')=='next-originals' for x in nodes)
+  n.update(id=prefix+code,code=code,collection='proposal',sourceEventId=source['id'],flowRole='attention',section='next-originals',position={'x':55+i%2*650,'y':70+i//2*230},category='Original unique event · source audit',status=item['status'],implementation='Original source; NOT a verified live encounter',timing='Requires inclusion or overlap decision',notes=item['note'],review=[item['status']],isChain=False,external=True)
+  for j,c in enumerate(n['choices']):c['id']=n['id']+':choice-'+str(j)
+  nodes.append(n)
+expansionPath=B/'planning/next-campaign/Unique stories expansion.json'
+if expansionPath.exists():
+ expansion=json.loads(expansionPath.read_text(encoding='utf-8'))
+ content=(B/'planning/next-campaign/Unique stories for review.txt').read_text(encoding='utf-8')
+ d['sources'].append(dict(id='next-unique-source',name='Under the Stones, Behind the Doors — authored expansion',kind='authored-design',locator='planning/next-campaign/Unique stories expansion.json',sha256=hashlib.sha256(content.encode()).hexdigest(),text=content))
+ for i,e in enumerate(expansion['events']):
+  previous=next((n for n in nodes if n['code']==e['id']),None)
+  if previous:nodes.remove(previous)
+  n=dict(id=prefix+e['id'],code=e['id'],title=e['title'],collection='proposal',category='Unique authored story' if e['once'] else 'Recurring authored story',origin='authored',status='Written · pending Unity integration',sourceId='next-unique-source',sourceLine=0,sourceEventId=previous.get('sourceEventId','') if previous else '',raw=e['text']+('\n\nORIGINAL REFERENCE:\n'+previous['raw'] if previous else ''),description=e['text'],choices=[],effects=[],conditions=[e['requires']],reads=[],writes=[],review=[],notes='New writing and provisional mechanics. '+e['requires'],entry=False,external=True,flowRole='chain',section='next-expansion',position={'x':55+i%4*390,'y':70+i//4*240},timing=e['requires'],implementation='Authored design; NOT in live Unity',isChain=False)
+  for c in e['choices']:
+   choiceId=prefix+c['id']
+   n['choices'].append(dict(id=choiceId,label=c['label'],line=0,extraction='authored',conditions=[k+': '+str(v) for k,v in c['effects'].items() if k.startswith('requires')],effects=[],outcomes=[],text=c['outcome']+'\nProposed changes: '+json.dumps(c['effects'],ensure_ascii=False)))
+   targets=c['next'] if isinstance(c['next'],list) else [c['next']] if c['next'] else []
+   for target in targets:
+    link(n['id'],prefix+target,('One stored hidden variant: ' if len(targets)>1 else '')+c['label'],['Eligibility and timing apply; planned, not runtime'])
+    edges[-1]['choiceId']=choiceId
+  nodes.append(n)
+ for n in nodes:
+  if n.get('section')=='next-expansion':n['isChain']=any(n['id'] in [e['source'],e['target']] for e in edges)
+ d['flowSections'].append(dict(id='next-expansion',title='New unique stories & branches · written, awaiting Unity'))
 d['events']+=nodes;d['edges']+=edges
-d['flowSections'] += [dict(id='next-originals',title='Original unique stories · missing from Unity · review for inclusion'),dict(id='next-romance',title='Next-release court stories · authored, not yet playable')]
+d['flowSections'] += [dict(id='next-originals',title='Original unique stories · recovered drafts & ideas · review'),dict(id='next-romance',title='Next-release court stories · authored, not yet playable')]
 d['revision']='2026-10-21-current-plus-authored-review-v11'
 p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
 (B/'dist/data.js').write_text('window.BESIEGED_DATA = '+json.dumps(d,ensure_ascii=False).replace('</','<\\/')+';\n',encoding='utf-8')
 assert len({n['id'] for n in d['events']})==len(d['events'])
 ids={n['id'] for n in d['events']}
 assert all(e['source'] in ids and e['target'] in ids for e in edges)
-assert len(nodes)==26
-print('Added26clearly labelled review nodes, including4original omissions and22authored court chapters. No runtime nodes changed.')
+assert len(nodes)==(59 if expansionPath.exists() and auditPath.exists() else 35 if auditPath.exists() else 26)
+print('Added',len(nodes),'clearly labelled review nodes. Runtime gameplay unchanged; source classification conflicts annotated.')

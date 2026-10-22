@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -33,6 +33,14 @@ public class ManagerUI : UIWindowFam
             CampaignHUD.MakeButton(siegeUI.transform,"Special actions",new Vector2(.66f,.82f),new Vector2(.94f,.91f),()=>{siegeUI.SetActive(false);CouncilUI.For(this).WallSpecialActions();});
         if(siegeUI.transform.Find("Garrison dispositions")==null)CampaignHUD.MakeButton(siegeUI.transform,"Garrison dispositions",new Vector2(.04f,.82f),new Vector2(.31f,.91f),()=>DefencePosture.Show(this,null));
         ControlSingleton.Instance.LogToEsc(this.gameObject, siegeUI);
+    }
+
+    public void InspectWallFromMap(string wallKey,System.Action returnToMap)
+    {
+        BringUpSiegeUI();
+        var actions=siegeUI.GetComponentInChildren<DefenseActions>(true);
+        if(actions!=null)actions.GetSelection(wallKey);
+        ControlSingleton.Instance.ReturnAction=()=>{siegeUI.SetActive(false);gameObject.SetActive(true);returnToMap?.Invoke();};
     }
 
     [SerializeField] GameObject repairAction;

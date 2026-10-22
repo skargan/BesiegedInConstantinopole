@@ -62,11 +62,41 @@ public static class GardenConversations
         "‘Men defend a place more stubbornly when they can name what they hope to find there tomorrow. Let them hear something besides the count of stones and sacks.’ Review army morale and civic support; promises made to one faction may trouble another.",
         "‘A sortie is not improved merely by calling it bold. Know how the men will return, and what the wall must do while they are outside it.’ Inspect troop availability and the enemy's reported activity before committing a force to an exceptional action."
     };
+    // React to the report shown above, not to an unrelated strategic concern.
+    public static string ReportAssessment(int person,string report)
+    {
+        string r=(report??"").ToLowerInvariant();
+        if(string.IsNullOrWhiteSpace(r))return "‘I have no fresh report to judge, Majesty. Let us hear what happened before deciding what it means.’";
+        if(r.Contains("emperor falls"))return "The report breaks off at the breach. There is no counsel here that can undo what happened.";
+        if(r.Contains("abandoned")||r.Contains("fall back"))return person==3?
+            "‘They have taken ground from us. They will want to turn the withdrawal into a rout. Find out who reached the next line before asking those men to hold it.’":
+            "‘We have lost a defensive line. We must account for the men who withdrew and inspect the next wall. Calling it a withdrawal will not make the losses smaller.’";
+        if(r.Contains("repulsed")||r.Contains("repelled")||r.Contains("holds the breach"))
+        {
+            if(person==3)return "‘They came expecting to break us, and they have been driven back. My kinsman will not welcome that news. But a failed attack tells us nothing certain about his next move. Count our losses and see what remains of the wall.’";
+            if(person==0||person==Kjold||person==100)return "‘The men held. Give the wounded help and replace the exhausted watches. We must inspect the damage before deciding how many reserves we can spare.’";
+            if(person==2)return "‘We still hold the line. Now we must reckon the cost: men to replace, wounds to tend, stone to repair. Victory is easier to announce than to pay for.’";
+            if(person==5||person==6||person==103)return "‘The assault has failed, but the damage remains. Inspect the wall and the approaches while the men can still tell us where the enemy nearly got through.’";
+            if(person==7)return "‘We have been spared another defeat. Let us give thanks, and then see to the wounded. They should not have to wait until the celebrations are over.’";
+            return "‘The attack was beaten back. That is cause for relief, but we must learn what it cost us before promising that we can endure another.’";
+        }
+        if(r.Contains("assemble")||r.Contains("launch an assault"))return "‘They are coming against the wall. See that the men know their posts and that the reserve can reach them. We can discuss their intentions after we have survived them.’";
+        if(r.Contains("delayed"))return "‘Their land operations have been delayed. Use the time for repairs and relief of the watches. Our own stores will still diminish, and the sea has not become safe.’";
+        if(r.Contains("galata"))return "‘The report concerns Galata. We must establish what remains in our hands there before promising troops from the City's walls. A second threatened position can divide us very quickly.’";
+        if(r.Contains("provisions")||r.Contains("resupply")||r.Contains("stores"))return person==3?
+            "‘An army that cannot eat becomes a collection of arguments. This report concerns their supplies; watch whether they resume their attacks. We should not mistake an interruption for their departure.’":
+            "‘Their supply situation has interrupted the usual fighting. Read what the report actually confirms before committing men on the assumption that the enemy is helpless.’";
+        if(r.Contains("bombardment"))return "‘Their guns have struck the wall. Inspect the damage before allocating repairs; we must know what can still withstand another bombardment.’";
+        if(r.Contains("cannon"))return "‘Another gun has reached their lines. Its arrival is not yet a report of damage, but we should check our ammunition and the condition of the wall it may face.’";
+        if(r.Contains("moat"))return "‘They are filling the ditch. That will ease their approach to the wall. Watch the remaining protection; this work matters even on a day when no infantry attack comes.’";
+        if(r.Contains("ramp")||r.Contains("tower")||r.Contains("ram"))return "‘They have advanced their siege works. Our watches must attend to the approaches as well as the battlements. Construction is a warning; it does not tell us when the assault will begin.’";
+        return "‘That is what the report establishes. It gives us no certain account of their next move. Keep the watches alert; I would rather admit what we do not know than invent an intention for the Sultan.’";
+    }
     public static string Siege(int person)
     {
         if(IsVisitor(person)&&!VariableSingleton.HasSiegeStarted())return "The siege has not begun. "+VisitorAdvice[person-100];
         if(!VariableSingleton.HasSiegeStarted())return "The siege has not begun. "+(person==0?"‘Use these months to decide what we shall be able to do when decisions become expensive.’":person==2?"‘Every preparation is a choice against another preparation. Let us at least make those choices deliberately.’":"‘We still have time to prepare. We do not have time to do everything.’");
         string report=AI.Instance==null?"":AI.Instance.LastReport;
-        return "<b>Latest report available to the council</b>\n"+(string.IsNullOrEmpty(report)?"No Ottoman operation has yet been reported.":report)+"\n\n<b>His assessment</b>\n"+Advice(person);
+        return "<b>Latest report available to the council</b>\n"+(string.IsNullOrEmpty(report)?"No Ottoman operation has yet been reported.":report)+"\n\n<b>His assessment</b>\n"+ReportAssessment(person,report);
     }
 }

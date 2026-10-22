@@ -1,0 +1,36 @@
+title: emperorHealth0
+---
+<b>The Morning after the Toasts</b>: <br> Last night there was a clean cup, a fresh jug, and a man at your elbow who had discovered an admirable reason for one more toast. This morning the shutters admit far too much light. Someone has thoughtfully brought you the papers you said could wait until dawn.
+-> Face the morning. Health −1 to −10 percentage points.
+    <<EmperorHealthEvent 0>>
+    <<SetInt iLifeDrankTonight 0>>
+    The cup of water is easier to contemplate than the council. You lose {LifeInt("iLifeEmperorLastHealth")} health percentage points.
+===
+title: emperorHealth1
+---
+<b>The Missing Step</b>: <br> You turn on the stair to answer a question. Your foot finds the worn edge where a step should be. For a moment the palace becomes a confusion of stone, breath and somebody shouting your name. Afterwards, the servant keeps explaining that he should have held the lamp higher.
+-> Call the physician. Health −20 to −40 percentage points.
+    <<EmperorHealthEvent 1>>
+    You tell the servant to stop apologising before you know whether you believe him innocent. Pain is a poor counsellor. You lose {LifeInt("iLifeEmperorLastHealth")} health percentage points.
+===
+title: emperorHealth2
+---
+<b>A Meal Turned Bitter</b>: <br> The discomfort begins before the dishes have been cleared. By midnight you are taking an intimate interest in every basin in the imperial apartments. The cook has offered three explanations and demanded that the taster be questioned. Your physician would first like somebody to bring clean water.
+-> Submit to the physician’s care. Health −10 to −30 percentage points.
+    <<EmperorHealthEvent 2>>
+    No evidence establishes a plot. For now there is an emperor with a sick stomach and a household in which nobody wishes to have prepared his supper. You lose {LifeInt("iLifeEmperorLastHealth")} health percentage points.
+===
+title: emperorHealth3
+---
+<b>A Fever in the Purple</b>: <br> You wake convinced that somebody has moved the door. The room settles into its familiar shape, but the fever does not leave. Outside, a clerk asks whether the Emperor will receive petitions. Your physician closes the curtain before answering. Whatever else the City needs, it cannot be obtained by pretending you are well.
+-> Let the household summon medical help. Health −5 to −75 percentage points; potentially fatal.
+    <<EmperorHealthEvent 3>>
+    Reports accumulate beyond the bed. You lose {LifeInt("iLifeEmperorLastHealth")} health percentage points. The physician watches your breathing before he looks at the papers.
+===
+title: emperorHealth4
+---
+<b>A Morning without Weight</b>: <br> You wake before the servants and discover that nothing hurts. Through the open shutters comes the sound of somebody attempting a song and finding, to his evident surprise, the right note. The City has not been delivered. For a few minutes it does not require you to carry it in your chest.
+-> Take the morning as it comes. Restore 5–20 health percentage points, capped at 100%.
+    <<EmperorHealthEvent 4>>
+    You dress without assistance and walk out before a messenger can find you. The morning offers {LifeInt("iLifeEmperorLastHealth")} health percentage points of recovery, up to full health.
+===

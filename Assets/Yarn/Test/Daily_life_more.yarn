@@ -96,7 +96,7 @@ title: lifeGenerosity
 title: combatAssassin
 ---
 <b>A Blade within Reach</b>: <br> Steel flashes where a petition should have been. The attacker is already inside the guards' reach, close enough that you can see the strain in his jaw. There is time to move, but none to ask why.
--> Draw and fight. Your fencing skill is {Fencing()}; skill improves defence and reduces injuries.
+-> Draw and fight. Your Martial skill is {MartialSkill()} / 10; skill improves defence and reduces injuries.
     <<FightAssassin 0>>
     <<if LifeInt("iCombatAssassinWon") == 1>>
     You turn his blade, force his arm aside and strike. The guards reach you as he falls. You lose {AssassinDamage()} health.

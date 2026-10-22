@@ -190,11 +190,11 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest · major action\nThen hear petitions","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
+        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest · major action\nThen hear petitions","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market","Map of the City"};
 
 
 
-        UnityEngine.Events.UnityAction[] actions={Overview,manager.BringUpTroopsUI,Fleet,Spies,Palace,manager.ContinueToRest,manager.BringUpSiegeUI,Factions,Diplomacy,Technologies,Market};
+        UnityEngine.Events.UnityAction[] actions={Overview,manager.BringUpTroopsUI,Fleet,Spies,Palace,manager.ContinueToRest,manager.BringUpSiegeUI,Factions,Diplomacy,Technologies,Market,()=>CityMapView.Show(manager.transform.root,manager,manager.gameObject)};
 
 
 
@@ -219,6 +219,8 @@ public partial class CouncilUI : MonoBehaviour
             var caption=button.GetComponentInChildren<TMP_Text>();caption.rectTransform.anchorMin=new Vector2(.23f,.03f);caption.rectTransform.anchorMax=new Vector2(.96f,.97f);
 
             if(i==5) button.name="ButtonToContinue";
+            if(i==11){button.name="City map navigation";caption.rectTransform.anchorMin=new Vector2(.04f,.03f);button.GetComponent<RectTransform>().anchorMax=new Vector2(x+.122f,top);
+                CampaignHUD.MakeButton(manager.transform,"Test assault",new Vector2(x+.133f,top-.105f),new Vector2(x+.255f,top),()=>AssaultPractice.Show(manager));}
 
 
 
@@ -226,7 +228,6 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        CampaignHUD.MakeButton(manager.transform,"Test assault",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>AssaultPractice.Show(manager));
     }
 
 
@@ -1661,47 +1662,11 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public void PalaceActions()
-
-
-
-    {
-
-
-
-        Open("The Palace","Review the Emperor's position. Recruitment remains a minor action; a council mission, audience, repair or rest spends the major action.");
-
-
-
-        ControlSingleton.Instance.ReturnAction=Palace;
-        BodyHeight(600);
-
-
-
-        CampaignHUD.Label(body,"Health: "+VariableSingleton.GetPercentFloat("fHealth")+"\nSiege Focus: "+FocusIcon.Names[Mathf.Clamp(CouncilActions.Int("iFocus"),0,4)]+"\nPopulation: "+VariableSingleton.PopulationInPeople()+"\nMerchant favour: "+DailyLifeEvents.I("iMerchantFavor",50)+" / 100\nFencing: "+EmperorCombat.Skill+" / 100"+"\n\n<i>Rest restores health and ends management. Your council will then hear the next event.</i>",new Vector2(.03f,.61f),new Vector2(.97f,.98f),23);
-
-
-
-
-
-
-
-        CampaignHUD.MakeButton(body,"Practise fencing · major action · +5 skill / -5 health",new Vector2(.08f,.27f),new Vector2(.92f,.43f),()=>{bool ok=EmperorCombat.Train(out var report);Finish(ok,report);});
-
-        CampaignHUD.MakeButton(body,"Lead next wall assault / cancel · costs 5 health when fighting",new Vector2(.08f,.46f),new Vector2(.92f,.59f),()=>{notice.text=EmperorCombat.ToggleWall();});
-
-
-
-
-
-        CampaignHUD.MakeButton(body,"Walk in the garden · speak with your court",new Vector2(.08f,.17f),new Vector2(.92f,.26f),Garden);
-
-        CampaignHUD.MakeButton(body,"Rest — use the major action",new Vector2(.08f,.03f),new Vector2(.92f,.16f),()=>{Hide();manager.ContinueToRest();});
-
-
-
-    }
+    public void PalaceActions()=>EmperorAffairs();
 
 
 
 }
+
+
+

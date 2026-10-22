@@ -10,7 +10,7 @@ public partial class CouncilUI
     private void Location(int place)
     {
         string[] titles={"The Palace","The palace garden","Hagia Sophia"};
-        string[] art={"palace-interior","palace-garden","hagia-sophia"};
+        string[] art={"palace-mirror","palace-garden","hagia-sophia"};
         string subtitle=place==2?PalaceLocations.VisitSanctuary():place==0?"Attend to your affairs, or step outside to meet your court.":"A little distance from the council table. Conversation costs no major action.";
         Open(titles[place],subtitle);
         body.parent.gameObject.SetActive(false);
@@ -21,6 +21,7 @@ public partial class CouncilUI
         if(texture!=null){if(locationPaintings[place]==null)locationPaintings[place]=Sprite.Create(texture,new Rect(0,0,texture.width,texture.height),new Vector2(.5f,.5f));picture.sprite=locationPaintings[place];picture.color=Color.white;var fit=holder.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=(float)texture.width/texture.height;}
         picture.preserveAspect=true;
         if(place==0){
+            LocationHotspot.Create(holder.transform,"The Emperor’s mirror",new[]{new Vector2(.075f,.31f),new Vector2(.24f,.31f),new Vector2(.24f,.65f),new Vector2(.20f,.82f),new Vector2(.14f,.84f),new Vector2(.08f,.68f)},EmperorSheet);
             LocationHotspot.Create(holder.transform,"To the garden",GardenDoor(),Garden);
             LocationHotspot.Create(holder.transform,"Hagia Sophia",PalaceCathedral(),HagiaSophia);
             LocationHotspot.Create(holder.transform,"Imperial affairs",new[]{new Vector2(.30f,.43f),new Vector2(.59f,.46f),new Vector2(.90f,.28f),new Vector2(.66f,.14f),new Vector2(.32f,.31f)},PalaceActions);
@@ -32,8 +33,10 @@ public partial class CouncilUI
             LocationButton(holder.transform,"Walk in the garden",.73f,.08f,.97f,.22f,Garden);
         }
         int visitor=PalaceLocations.Visitor(place);
+        if(visitor>=0&&CourtStandingSprites.Has(visitor)){CourtStandingSprites.Draw(holder.transform,visitor,place,()=>{conversationLocation=place;GardenTalk(visitor,0);});return;}
         if(visitor>=0){
-            var speak=CampaignHUD.MakeButton(holder.transform,GardenConversations.Name(visitor)+"\nSpeak",new Vector2(.05f,.07f),new Vector2(.33f,.24f),()=>{conversationLocation=place;GardenTalk(visitor,0);});
+            bool hasSprite=CourtStandingSprites.Has(visitor);
+            var speak=CampaignHUD.MakeButton(holder.transform,GardenConversations.Name(visitor)+(CourtConversationData.SomethingNew(visitor)?" · ◆":"")+"\nSpeak",new Vector2(.05f,.07f),new Vector2(.33f,.24f),()=>{conversationLocation=place;GardenTalk(visitor,0);});
             var label=speak.GetComponentInChildren<TMPro.TMP_Text>();label.rectTransform.anchorMin=new Vector2(.30f,.04f);label.rectTransform.anchorMax=new Vector2(.97f,.96f);label.enableAutoSizing=true;label.fontSizeMin=17;label.fontSizeMax=25;
             CharacterPortraits.Draw(speak.transform,visitor,new Vector2(.02f,.06f),new Vector2(.28f,.94f));
         }
