@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -426,6 +426,8 @@ public class VariableSingleton : MonoBehaviour
         if (QuickStartRequested && HasPreparationPreset)
             RestoreState(JsonUtility.FromJson<CampaignSave>(File.ReadAllText(PreparationPresetPath)));
         else if (ContinueRequested) Load();
+        EmperorProfile.Loaded(!ContinueRequested&&!QuickStartRequested);
+        if(EmperorProfile.NeedsOpening)gameObject.AddComponent<EmperorProfileUI>();
         QuickStartRequested = false;
         ContinueRequested = false;
     }

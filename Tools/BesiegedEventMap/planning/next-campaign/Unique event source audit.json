@@ -1,0 +1,438 @@
+{
+  "scope": "All six cached original sources, available older mechanics extract, local project documentation and runtime Yarn/C# comparison. Synced sources directory is empty; no claim about unavailable originals or other cloud documents.",
+  "explicitUniqueCount": 16,
+  "events": [
+    {
+      "sourceId": "design:random4",
+      "title": "The Hidden Chamber",
+      "stableId": "uniqueHiddenChamber",
+      "status": "Missing from live Yarn; original draft previously identified",
+      "relatedRuntime": "",
+      "sourceFile": "events - random unique.docx",
+      "sourceLine": 29,
+      "raw": "29: title: random4\n30: ---\n31: <b> The Hidden Chamber</b>\n32: Amidst the dwindling resources and desperate circumstances, a legend resurfaces in the Emperor's memory — a tale of a hidden underground chamber left by Constantine himself, rumoured to be filled with gold and treasure reserved for the Empire's most dire moment. While the common belief dismisses this as mere myth, the urgency of the situation prompts the Emperor to consider the possibility that old folktales might hold a kernel of truth. However, chasing after the mythical chamber would waste precious time and resources. Do old folktales have some truth in them after all?\n33: Send a Small Expedition to Investigate (50 troops, 100 gold)\n34: Fueled by the hope that the legend may contain a vital solution, the Emperor decides to send a small expedition to investigate the existence of the hidden chamber. This option balances the need for verification with a cautious approach.\n35: 1. 1 (15%) The expedition discovers an intricate network of tunnels beneath the city, but the hidden chamber remains elusive. While the search consumes valuable time and resources, the newly explored tunnels could provide strategic advantages for future defense.1.2 (15%) The expedition discovers a small tomb of a Roman nobleman. While it is far from the famed riches of Constantine, it contains some golden jewelry and the finding of it lifts the spirits of your people. (1250 gold, +5 morale)1.3 (15%) The expedition disappears in the tunnels and gets lost, to reappear only some days later.  Around half of the men sent died of thirst and never came back, while others tell tales of horror, which demoralise your troops. (-25 troops, -5 morale)1.4 (53%) The expedition returns without anything to report. 1.5 (1%) The expedition at first does not report anything unusual, until unexpectedly one of explorers discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millenium and must be the famous Hidden Room of Constantine! (+25 000 gold)\n37: Send a Large Expedition to Investigate (300 troops, 600 gold)\n38: Fueled by the hope that the legend may contain a vital solution, the Emperor decides to send a large expedition to investigate the existence of the hidden chamber. \n39: 2. 1 (25%) The expedition discovers an intricate network of tunnels beneath the city, but the hidden chamber remains elusive. While the search consumes valuable time and resources, the newly explored tunnels could provide strategic advantages for future defense.2.2 (25%) The expedition discovers a small tomb of a Roman nobleman. While it is far from the famed riches of Constantine, it contains some golden jewelry and the finding of it lifts the spirits of your people. (1250 gold, +5 morale)2.3 (10%) The expedition disappears in the tunnels and gets lost, to reappear only some days later.  Around half of the men sent died of thirst and never came back, while others tell tales of horror, which demoralise your troops. (-150 troops, -10 morale)2.4 (37%) The expedition returns without anything to report. 2.5 (3%) The expedition at first does not report anything unusual, until unexpectedly one of explorers discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millennium and must be the famous Hidden Room of Constantine! (+25 000 gold)\n41: Consult Scholars and Historians for Guidance\n42: To gain insight into the legitimacy of the legend, the Emperor seeks the counsel of scholars and historians familiar with Byzantine lore. Their expertise may help determine if there is any historical basis for the existence of such a chamber.\n43: 3.1 (70%) Scholars and historians remain sceptical about the legend, emphasizing its mythical nature. The Emperor gains a more informed perspective and the search for the hidden chamber is postponed, preserving your resources.3.2 (27%) While debates are fierce, in the end scholars agree that it is quite probable that the hidden room exists, as Constantine the Great has moved the capital of the Empire to the Byzantium from and at least for a time there must have been two treasuries – main Imperial treasury and a smaller treasury which the Emperor must have used while the Constantinople was being rebuilt into the future capital of the Eastern Roman Empire.  However, the scholars collectively agree it would be impossible to find it quickly enough to help with our siege. Nonetheless, they manage to uncover some very interesting writings and technological insights, which could prove to be of use to us. (+2 secrets) 3.3 (3%) Our scholars sift through the ancient tomes until a mysterious note is found, directing our search efforts towards the underground. One of our historians decides to check and discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millennium and must be the famous Hidden Room of Constantine! (+25 000 gold)\n45: Ask the Citizens to Investigate: \n46: Aware of the City's collective knowledge, the Emperor mobilizes citizens to share any folklore or historical accounts that might lead to the Hidden Chamber. This communal approach hopes that the wisdom of common people could potentially unearth valuable information. While the citizens are happy to share various folklore, no conclusive evidence about the hidden chamber emerges. However, the collaborative effort strengthens a sense of unity among the populace, boosting morale in the face of scarcity.\n47: No way, what next, shall we start searching for Troy or Agamemnon’s Mask?\n48: We wisely decide to preserve our resources. \n49:         -> Ask Johannes Grant to investigate Blachernae palace for any clues (IF Johannes Grant)\n50: 5.1 (75%) Johannes Grant investigates the Blachernae palace at our request, however he is unable to find any clues that would lead to the Constantine’s hidden room.\n51: 5.2 (25%) Johannes Grant investigates the Blachernae palace at our request, and realises that in the architectural blueprints there are places where the scheme does not make sense, as if something would be hidden there. Johannes Grant decides to check personally and discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millennium and must be the famous Hidden Room of Constantine! (+25 000 gold)",
+      "note": ""
+    },
+    {
+      "sourceId": "design:random6",
+      "title": "Ottoman Shipwreck",
+      "stableId": "uniqueOttomanShipwreck",
+      "status": "Missing from live Yarn; original draft previously identified",
+      "relatedRuntime": "",
+      "sourceFile": "events - random unique.docx",
+      "sourceLine": 55,
+      "raw": "55: title: random6\n56: ---\n57: <b> Ottoman Shipwreck</b>\n58: Overnight, a Turkish ship sailed too close to the coastline, meeting its fate on the shallow underwater rocks near the city's sea walls. The shipwreck now lies within cannon-shot distance, presenting both a potential opportunity and a strategic challenge. We must decide on the best course of action.\n59: 1. Send a Small Search Party to Check for Any Valuables\n60: The Emperor opts for a cautious approach, sending a small search party to investigate the shipwreck for any valuables or information. This discreet operation aims to minimize risks while potentially gaining insights into the enemy's resources. The small search party discovers some salvageable items and discovers captain’s journal, gathering intelligence about the enemy's naval capabilities. (+1 secret, +500 gold)\n61: 2. Send a Big Search Party to Strip Anything of Value\n62: The Emperor mobilizes a larger search party to thoroughly strip the shipwreck of anything valuable. This option prioritizes maximizing gains from the enemy's misfortune.\n63: 2.1 The big search party retrieves a significant haul of valuables, including supplies, weaponry, and information. However, the operation attracted attention and Turkish fleet opened fire on our ships, killing a number of soldiers.\n64: 2.2 The big search party retrieves a significant haul of valuables, including supplies, weaponry, and information.\n65: 2.3 The big search party discovers that the shipwreck is in a much better condition than it appeared from the shore. They manage to bring it back to shore and with some repairs it soon joins our navy under a new name “Phoenix”.\n66: 3. Order the Cannons to Blast the Shipwreck to Pieces\n67: To eliminate any potential strategic advantage for the Ottomans, the Emperor orders the cannons to blast the shipwreck to pieces. This decisive action aims to prevent the enemy from recovering resources or intelligence.\n68: 3.1 The shipwreck is effectively destroyed, denying the Ottomans any salvageable items. \n69: 3.2 The shipwreck is too far to easily destroy and we waste much more ammunition than intended.\n70: 4. Send an Emissary to the Ottomans and Give Them Permission to Collect Their Dead (If Diplomacy)\n71: 4.1 Choosing a diplomatic approach, the Emperor sends an emissary to the Ottomans, offering permission to collect their dead from the shipwreck. This gesture emphasizes humanity and respect in the midst of conflict. The Sultan is pleased by this (reduce Fury by 10)",
+      "note": ""
+    },
+    {
+      "sourceId": "design:random14",
+      "title": "Brutal Murder",
+      "stableId": "uniqueBrutalMurder",
+      "status": "Missing from live Yarn; original draft previously identified",
+      "relatedRuntime": "",
+      "sourceFile": "events - random unique.docx",
+      "sourceLine": 78,
+      "raw": "78: title: random14\n79: ---\n80: <b> Brutal Murder </b>\n81: Siege is a tense time – thousands of refugees are sharing the walls of the city with its original citizens and stressed mercenaries. Periodically, violence breaks out and someone ends up with their throat slit. Most of the time, nobody cares, but this time the murder is particularly gruesome and rumours spread among the people that a serial killer is on the loose in the city, using the chaos of the siege to cover his tracks…\n82: Mere rumours, ignore them.\n83: Get Sprantzes to investigate these rumours, I trust him to handle it. (IF Sprantzes)",
+      "note": ""
+    },
+    {
+      "sourceId": "design:random19",
+      "title": "Noble ends his life",
+      "stableId": "random16",
+      "status": "Implemented but recurrence conflicts with source Unique label",
+      "relatedRuntime": "random16",
+      "sourceFile": "events - random.docx",
+      "sourceLine": 89,
+      "raw": "88: Noble ends his life\n89: random19\n90: Written\n91: Unique",
+      "note": "Runtime uses LifeSeen cooldown; RecurringEvents.Eligible has no once-only guard for this event."
+    },
+    {
+      "sourceId": "design:random22",
+      "title": "Fire in the City",
+      "stableId": "random19",
+      "status": "Implemented but recurrence conflicts with source Unique label",
+      "relatedRuntime": "random19",
+      "sourceFile": "events - random.docx",
+      "sourceLine": 104,
+      "raw": "103: Fire in the City\n104: random22\n105: Written\n106: Unique",
+      "note": "Runtime uses LifeSeen cooldown; RecurringEvents.Eligible has no once-only guard for this event."
+    },
+    {
+      "sourceId": "design:random30",
+      "title": "Infighting at the Market",
+      "stableId": "uniqueMarketInfighting",
+      "status": "Missing distinct event; partial prose and choices available",
+      "relatedRuntime": "random22",
+      "sourceFile": "events - random.docx",
+      "sourceLine": 407,
+      "raw": "407: title: random30\n408: ---\n410: <b>Infighting at the Market</b>\n411:  The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the market square. One of the Italian mercenaries from Genoa tried to seduce a Greek girl and her brother, serving in the city guard, took this as a personal offence. He takes city guard patrol to teach lecherous Italian a lesson, but the Genoese mercenaries misunderstand the nature of the conflict and draw blades. After ensuing brief, but bloody combat, three Italians and four of your Greek city guards lay dead on the pavement. This needs to be addressed immediately.\n412: -> Emperor has his duty to his subjects first. Punish all surviving Italians with 30 lashes each.\n413: -> Mercenaries are indispensable in our defence of the siege. Punish all surviving city guards with 30 lashes each.\n414: -> City guard were in the wrong here, we will make them all publicly apologise to the Italian mercenaries and pay the blood tax to the families of the dead \n415: -> Mercenaries were in the wrong here, but we respect them, so they must pay the blood tax to the families of the dead.\n416: -> As our Focus is Diplomacy, we need a bigger event to overshadow the bloodshed. Order the Italian mercenary to marry the Greek girl and give them both a generous gift. This will silence angry tongues and please both communities.",
+      "note": "Rising tensions among the soldiers is related but does not contain these three specific incidents."
+    },
+    {
+      "sourceId": "design:random31",
+      "title": "Infighting at the Barracks",
+      "stableId": "uniqueBarracksInfighting",
+      "status": "Missing distinct event; partial prose and choices available",
+      "relatedRuntime": "random22",
+      "sourceFile": "events - random.docx",
+      "sourceLine": 419,
+      "raw": "419: title: random31\n420: ---\n421: <b>Infighting at the Barracks</b>\n422: The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the barracks where Western European volunteers and pilgrims live. Scottish knight made a snide remark about the group of four English longbowmen who came to eat at the same table and they beat him up. French knight stepped in to defend a fellow noble, but was beaten up as well. We must address this.\n423: -> Naturally, commoners must be harshly punished for attacking a noble. Punish the English longbowmen.\n424: -> Scotsman should have known to keep his mouth shut. The longbowmen are indispensable.\n425: -> Just blame the French knight for everything. French knights looted our City in 1204, so we might as well blame him.\n426: -> In defence of our city, everyone is equal. Punish all sides.\n427: -> This matter is not for me to deal with, ignore it.",
+      "note": "Rising tensions among the soldiers is related but does not contain these three specific incidents."
+    },
+    {
+      "sourceId": "design:random32",
+      "title": "Infighting at the Stables",
+      "stableId": "uniqueStablesInfighting",
+      "status": "Missing distinct event; partial prose and choices available",
+      "relatedRuntime": "random22",
+      "sourceFile": "events - random.docx",
+      "sourceLine": 430,
+      "raw": "430: title: random32\n431: ---\n433: <b>Infighting at the Stables</b>\n434: The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the stables among your Armenian cataphracts and Turk defectors serving you under the banner of Prince Orhan, Ottoman prince and rival of Mehmed II. As cavalry is rarely used during the siege, they started a friendly contest of horsemanship. One of the Armenian officers lost a challenge and cursed, referring to how the Prophet was caught having intercourse with swine. Turk defectors, although they serve the Empire now, remain Muslims, so they drew their blades and chopped the offending Armenian officer into pieces. Right now, they are surrounded at the stables by your troops and situation is very tense. How shall you resolve it?\n435: -> These Turks risk being impaled for serving me if they would be caught and the Armenian did insult their Prophet. They will be let off with a warning.\n436: -> Armenian officer may have cursed, but he was murdered without even have drawn the blade. The Turks have to be punished.\n437: -> Allow Prince Orhan to punish the Turks as he sees fit. (IF ORHAN)\n438: -> Let the Turks and Armenians fight it out. They need to get it out of their system.",
+      "note": "Rising tensions among the soldiers is related but does not contain these three specific incidents."
+    },
+    {
+      "sourceId": "catalogue:eve6",
+      "title": "Patriarch requests an audience",
+      "stableId": "uniquePatriarchAudience",
+      "status": "Catalogue idea; distinct audience not verified",
+      "relatedRuntime": "story1",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 6,
+      "raw": "B6=6 | C6=Patriarch requests an audience | D6=eve6 | E6=NA | G6=0.1 | H6=Unique | I6=Pre-siege",
+      "note": "Union decision exists; do not assume this separate audience is identical."
+    },
+    {
+      "sourceId": "catalogue:eve11",
+      "title": "Master Gunner offers his services",
+      "stableId": "story3",
+      "status": "Existing functional counterpart",
+      "relatedRuntime": "story3",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 7,
+      "raw": "B7=11 | C7=Master Gunner offers his services | D7=eve11 | E7=NA | G7=0.1 | H7=Unique | I7=Pre-siege",
+      "note": "Artillery Genius recruits Orban. Avoid duplicating the recruitment event."
+    },
+    {
+      "sourceId": "catalogue:eve12",
+      "title": "Mad monk is demanding an audience with you",
+      "stableId": "uniqueMadMonk",
+      "status": "Catalogue idea; missing distinct event",
+      "relatedRuntime": "sermonPride",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 8,
+      "raw": "B8=12 | C8=Mad monk is demanding an audience with you | D8=eve12 | E8=NA | G8=0.05 | H8=Unique | I8=Siege",
+      "note": "Seven-sermon Gennadius chain is related religious content, not this original unnamed monk encounter."
+    },
+    {
+      "sourceId": "catalogue:eve15",
+      "title": "Venetian Merchants are asking for guarantees",
+      "stableId": "uniqueVenetianGuarantees",
+      "status": "Catalogue idea; possible overlap requiring decision",
+      "relatedRuntime": "story12",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 11,
+      "raw": "B11=15 | C11=Venetian Merchants are asking for guarantees | D11=eve15 | E11=NA | G11=0.05 | H11=Unique | I11=Pre-siege",
+      "note": "Diedo preparation guarantees service, wages and provisions. Original title concerns Venetian merchants; cannot confirm equivalence from a title alone."
+    },
+    {
+      "sourceId": "catalogue:eve16",
+      "title": "Swordmaster offers to train you",
+      "stableId": "uniqueSwordmaster",
+      "status": "Catalogue encounter absent; mechanic exists",
+      "relatedRuntime": "",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 12,
+      "raw": "B12=16 | C12=Swordmaster offers to train you | D12=eve16 | E12=NA | G12=0.05 | H12=Unique | I12=Pre-siege",
+      "note": "Fencing training is implemented in EmperorCombat.Train. A named swordmaster introduction is not the same as an existing training button."
+    },
+    {
+      "sourceId": "catalogue:eve19",
+      "title": "The Chain",
+      "stableId": "story19",
+      "status": "Existing functional counterpart",
+      "relatedRuntime": "story19",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 31,
+      "raw": "B31=19 | C31=The Chain | D31=eve19 | E31=NA | H31=Unique | I31=Pre-siege",
+      "note": "Great Chain preparation is already selectable; do not add a duplicate."
+    },
+    {
+      "sourceId": "catalogue:eve23",
+      "title": "Priests demand permission to build a chapel inside the gate tower",
+      "stableId": "uniqueGateChapel",
+      "status": "Catalogue idea; missing distinct event",
+      "relatedRuntime": "",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 33,
+      "raw": "B33=23 | C33=Priests demand permission to build a chapel inside the gate tower | D33=eve23 | E33=NA | H33=Unique | I33=Siege | J33=bonus morale, weaken walls",
+      "note": "Source explicitly proposes morale benefit in exchange for weaker walls."
+    },
+    {
+      "sourceId": "catalogue:row91",
+      "title": "Secret tunnel found",
+      "stableId": "uniqueSecretTunnel",
+      "status": "Catalogue idea; missing distinct discovery event",
+      "relatedRuntime": "random13",
+      "sourceFile": "Events.xlsx",
+      "sourceLine": 91,
+      "raw": "C91=Secret tunnel found | H91=Unique",
+      "note": "Older recurring-source text contains a tunnel raid option; do not count discovery as implemented merely because a dependent idea was written."
+    }
+  ],
+  "additionalUntypedIdeas": [
+    {
+      "title": "Kjold feels melancholic",
+      "sourceId": "catalogue:row68",
+      "raw": "C68=Kjold feels melancholic | M68=Prince Orhan",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Kjold feels adventurous",
+      "sourceId": "catalogue:row69",
+      "raw": "C69=Kjold feels adventurous | M69=Cardinal Isidore",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Kjold feels suspicious",
+      "sourceId": "catalogue:row70",
+      "raw": "C70=Kjold feels suspicious | M70=Giovanni Giustiniani",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Loukas Notaras wants to meet",
+      "sourceId": "catalogue:row71",
+      "raw": "C71=Loukas Notaras wants to meet | M71=Gunther",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Giustiniani is wounded",
+      "sourceId": "catalogue:row72",
+      "raw": "C72=Giustiniani is wounded",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Cardinal Isidore delivers a sermon",
+      "sourceId": "catalogue:row73",
+      "raw": "C73=Cardinal Isidore delivers a sermon",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Prince Orhan gets drunk",
+      "sourceId": "catalogue:row74",
+      "raw": "C74=Prince Orhan gets drunk",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "City whores support the military",
+      "sourceId": "catalogue:row79",
+      "raw": "C79=City whores support the military",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Monk distillery found",
+      "sourceId": "catalogue:row80",
+      "raw": "C80=Monk distillery found",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Black market food cache found",
+      "sourceId": "catalogue:row81",
+      "raw": "C81=Black market food cache found",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Gambling den located",
+      "sourceId": "catalogue:row83",
+      "raw": "C83=Gambling den located",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Giustiniani melts statues into ammunition",
+      "sourceId": "catalogue:row92",
+      "raw": "C92=Giustiniani melts statues into ammunition",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Duel among nobles",
+      "sourceId": "catalogue:row93",
+      "raw": "C93=Duel among nobles",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "Poisoned well",
+      "sourceId": "catalogue:row94",
+      "raw": "C94=Poisoned well",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    },
+    {
+      "title": "News from Pelopponesus",
+      "sourceId": "catalogue:row100",
+      "raw": "C100=News from Pelopponesus",
+      "classification": "Original idea; NOT explicitly marked Unique. Eligibility/repetition needs a design decision."
+    }
+  ],
+  "documents": [
+    {
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\event-map\\reference-extracts\\Core mechanics 1.4.txt",
+      "sha256": "73d685daf0672ee0d4f1d16e160ce54cb3fbef0531ed0af43a0fba0d05a0ce47",
+      "characters": 28605,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\event-map\\reference-extracts\\events - enemy.txt",
+      "sha256": "b12b84ae7f875790149b271cdef75f69cd03f940dd6cdcda77d758b94921ef90",
+      "characters": 16100,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\event-map\\reference-extracts\\events - random unique.txt",
+      "sha256": "ed47426b95d72b938eaede5ead1aa8047e67598eefa25b677a90c4ac031650c3",
+      "characters": 11978,
+      "uniqueMentions": 3
+    },
+    {
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\event-map\\reference-extracts\\events - random.txt",
+      "sha256": "8a9b91ae613e9b18d330f504191550a51b41335ab9b2e06acc85a3269f40f90d",
+      "characters": 35969,
+      "uniqueMentions": 5
+    },
+    {
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\event-map\\reference-extracts\\events - story.txt",
+      "sha256": "780f7d3460ad0d05f86ddf1a3d7ca1f510fcc376c38cc348784865bc52b294f6",
+      "characters": 70997,
+      "uniqueMentions": 2
+    },
+    {
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\event-map\\reference-extracts\\Events.txt",
+      "sha256": "c8a634bdf5dd1a9bf70c6c800be12498a5899f341dcfb5d0d1689877c1152daf",
+      "characters": 11266,
+      "uniqueMentions": 8
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Action-review-2026-10-21.txt",
+      "sha256": "9d487f5d85164e23e71f40afc7b03c9c578cc92b11d99876b0f6fdb93363b6f0",
+      "characters": 1232,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Council-playtest-notes.txt",
+      "sha256": "904643cf01ffb5b7281adacc9aa4034bbe7274f099e874ce2ea05093e046a401",
+      "characters": 3972,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Current-release-2026-10-21.txt",
+      "sha256": "6724ce8b209c29ccd6ea39e538a38a5d00b0869e710cb14c874d04c292175a68",
+      "characters": 5269,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Design decisions 2026-10-12.txt",
+      "sha256": "e44bfe3ac80403f21ee736c7f093adeda3574d7734fb6837dc612b9102e7536f",
+      "characters": 3971,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Diplomacy-and-events-r9.txt",
+      "sha256": "4f4243142bb5e55d1c736384010d666713a770423337edec2d581d5cc2093ef7",
+      "characters": 4009,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Espionage-update-2026-10-21.txt",
+      "sha256": "cf1b078b8653ebda31555a3a1f04a511461433c1cd224bae1cf08392aea5cdf4",
+      "characters": 1612,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\EventArt-prompts-r11.txt",
+      "sha256": "8e29c96d1e76617a88f142c4e46158ccc2a06b51c55e3bd5367ca48dadc1f222",
+      "characters": 2743,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Experience-review-r5.txt",
+      "sha256": "eb2a12ead3254627b53003d7ee6187b1a636a2eaf244167772ed63c06bf8ee41",
+      "characters": 2663,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Historical-review-and-court.txt",
+      "sha256": "ad42b40b2a7fd367f449705f5f5e149eea03b660b66050023aa4b8afd73b77cf",
+      "characters": 6277,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Interface-r7.txt",
+      "sha256": "2f43cd41708d86bc71efb1eb63035a1355016133f81de11dc0298ebd219df41a",
+      "characters": 1771,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Military-clarity-2026-10-21.txt",
+      "sha256": "e1b0c3cb8267fd32ecab65c0e0b4a5794fbdfbf8ed7cb1c5ad55fa6c0648a53c",
+      "characters": 888,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Politics-and-writing-r6.txt",
+      "sha256": "495db6272f21ef5766dfa750545218ef1aa0a182a7f82f43016ba941d3dc4624",
+      "characters": 2508,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Random_events_recurring-source.txt",
+      "sha256": "ceac4e289fce05d6012f97e3a34c3e3c6ad127247fca43c316e9a6edc7f0dc17",
+      "characters": 58213,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Shaherezade-r10.txt",
+      "sha256": "2d02a484a3867a48b0ea8129789991c66ac422b603e93c6d6cd7a83bbe23eb38",
+      "characters": 2324,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Ten-campaign-audit-r11.txt",
+      "sha256": "7d0b9917a92aa59cad61ccf250a848f9da442735af921978455c2c958eb09fd2",
+      "characters": 7340,
+      "uniqueMentions": 1
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Training-pool-r8.txt",
+      "sha256": "3a83f9f5a5e2a660aaf9ce7f84f6416c08f8f1dcc4010ebd8b9148ad361fe317",
+      "characters": 1502,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\UI-asset-prompts.txt",
+      "sha256": "1f3c65de9f808859e85791ee2bb26ecfbb8b5dd550925e9ba76383fdb563ee4e",
+      "characters": 2192,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\UI-playtest-update.txt",
+      "sha256": "3de6ed14168bf24c8ba45869730a1a1d01178fdf755768bc4f6a1bc9a182f545",
+      "characters": 5614,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\Documentation\\Version-19-release.txt",
+      "sha256": "55d8738f4bb92703e0d45bbbe8f18fecf9d06a33775ce415ef39f3b582a32d22",
+      "characters": 1385,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\work\\Core mechanics 1.3.txt",
+      "sha256": "ced8d1c6beba4082f9a5c99e5f1d0982f553007945debb81e81f14963894d167",
+      "characters": 15398,
+      "uniqueMentions": 0
+    },
+    {
+      "path": "C:\\Users\\Dainius\\Desktop\\BesiegedInConstantinopole-codex-prototype-first-playtest\\work\\event-prose.txt",
+      "sha256": "dc94ac5d44732d4b4c9b46deddfe5ed79e3cbbddb879d067953a8c5b581f231f",
+      "characters": 130832,
+      "uniqueMentions": 1
+    }
+  ]
+}

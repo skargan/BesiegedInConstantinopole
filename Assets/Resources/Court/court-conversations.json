@@ -1,0 +1,696 @@
+{
+  "schema": 1,
+  "status": "Implemented fictional conversation quests; resource and military outcomes remain governed by existing systems.",
+  "characters": [
+    {
+      "person": 0,
+      "name": "Giovanni Giustiniani Longo",
+      "title": "The Names on the Pay Roll",
+      "stat": 2,
+      "likes": 200,
+      "hates": 2,
+      "link": 2,
+      "endingA": "The City acknowledged the families of his dead by name.",
+      "endingB": "His company’s private settlement survived as a debt between two commanders.",
+      "stages": [
+        {
+          "id": "court.0.0",
+          "title": "The Names on the Pay Roll",
+          "text": "Giustiniani has brought two rolls. One lists the men who can still stand a watch; the other lists the men to whom he owes wages. The second is longer. “A widow does not become cheaper because her husband has ceased to be useful.” He asks which roll the treasury should honour.",
+          "choiceA": "Preserve the dead men’s claims beside the living.",
+          "choiceB": "Set the living garrison’s needs first.",
+          "responseA": "He folds the two rolls together. “Then their families will have a document they can hold against us.”",
+          "responseB": "“I shall tell them myself,” he says. “Do not send a clerk to call it an oversight.”",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.0.1",
+          "title": "What you have not told me",
+          "text": "A Genoese sergeant has been collecting the wages of his dead brother. Giovanni knew. He has kept the man on the wall because he is dependable, and because the brother left children. “I can give you an honest roll,” he says. “I cannot promise that it will make an honest man of me.”",
+          "choiceA": "Record the household openly; end the false entry.",
+          "choiceB": "Keep the fiction until the siege is over.",
+          "responseA": "The sergeant must now answer for what he did, but the children cease to depend on a forged signature.",
+          "responseB": "The forged name remains. Giovanni keeps your written order rather than burning it.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.0.2",
+          "title": "What shall we put in writing?",
+          "text": "Notaras can settle the disputed accounts, but Giovanni refuses to let an imperial audit become a public trial of his company. He asks whether you will put your own signature beside his.",
+          "choiceA": "Sign a public settlement that names the obligation.",
+          "choiceB": "Let Giovanni settle his company’s affairs privately.",
+          "responseA": "The arrangement is entered in your court journal. The City acknowledged the families of his dead by name.",
+          "responseB": "The arrangement is entered in your court journal. His company’s private settlement survived as a debt between two commanders.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 1,
+      "name": "Alvise Diedo",
+      "title": "One Place at the Oar",
+      "stat": 1,
+      "likes": 101,
+      "hates": 0,
+      "link": 101,
+      "endingA": "The disputed passage was decided with the risks spoken aloud.",
+      "endingB": "The dispatch took precedence, and the rejected passengers kept the written order.",
+      "stages": [
+        {
+          "id": "court.1.0",
+          "title": "One Place at the Oar",
+          "text": "A boat has been reserved for messengers. Its master has quietly filled the benches with relatives. Diedo has not put them ashore. “The messenger has a seal,” he says. “They have children. Both parties think that should settle it.”",
+          "choiceA": "Draw up a public passenger order.",
+          "choiceB": "Let the master answer for his own boat.",
+          "responseA": "Diedo asks you to specify who must be left on the quay.",
+          "responseB": "“A private decision, then. It will still have public consequences.”",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.1.1",
+          "title": "What you have not told me",
+          "text": "Diedo admits that he had secured a place for a boy from his household. He has spoken against favouritism all morning without mentioning it. Barbaro knows the captain and can establish whether the messenger needs this vessel at all.",
+          "choiceA": "Include your own household’s places in the reckoning.",
+          "choiceB": "Keep military dispatches above every private claim.",
+          "responseA": "Diedo crosses out his reservation first. The gesture does not produce another bench.",
+          "responseB": "The boy remains ashore. Diedo says nothing until the order has been copied.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.1.2",
+          "title": "What shall we put in writing?",
+          "text": "The boat master offers to carry both parties if the messenger travels without his escort. Neither man can guarantee the harbour passage. Diedo wants the risk stated plainly rather than concealed inside a generous order.",
+          "choiceA": "Allow the messenger to volunteer for the smaller escort.",
+          "choiceB": "Keep the dispatch secure; publish who loses passage.",
+          "responseA": "The arrangement is entered in your court journal. The disputed passage was decided with the risks spoken aloud.",
+          "responseB": "The arrangement is entered in your court journal. The dispatch took precedence, and the rejected passengers kept the written order.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 2,
+      "name": "Loukas Notaras",
+      "title": "The House with Two Doors",
+      "stat": 0,
+      "likes": 4,
+      "hates": 0,
+      "link": 4,
+      "endingA": "His household’s preparations became a named public obligation.",
+      "endingB": "His private refuge remained lawful, limited and painfully unequal.",
+      "stages": [
+        {
+          "id": "court.2.0",
+          "title": "The House with Two Doors",
+          "text": "Notaras asks you to witness a household inventory. The silver is ordinary enough; the sealed travel chests are not. “A man may prepare for a fire without intending to burn the house.” He would like your permission before somebody discovers the chests and supplies a less charitable explanation.",
+          "choiceA": "Make the inventory public, including the travel chests.",
+          "choiceB": "Let a household make private provision.",
+          "responseA": "He adds your name to the witnesses. “Then you will be asked what you knew.”",
+          "responseB": "He thanks you, and immediately asks whether the same permission extends to his servants.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.2.1",
+          "title": "What you have not told me",
+          "text": "One chest contains ransom instructions for his family. Another contains copies of public accounts he has been preserving against the possible destruction of the treasury. Sphrantzes has seen both. Neither man agrees which was the original reason for packing.",
+          "choiceA": "Separate public records from the family arrangement.",
+          "choiceB": "Keep them together; either may help save the other.",
+          "responseA": "Notaras places the public papers under a second seal. His relief is not entirely gratitude.",
+          "responseB": "You make a single package of public duty and private hope. He asks you to remember that choice.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.2.2",
+          "title": "What shall we put in writing?",
+          "text": "A servant asks to place his own family’s papers in the chest. Notaras has brought the request to you because he cannot refuse it without explaining the difference between his children and the servant’s.",
+          "choiceA": "Extend the same documented protection to the household.",
+          "choiceB": "Preserve the smaller arrangement; accept responsibility.",
+          "responseA": "The arrangement is entered in your court journal. His household’s preparations became a named public obligation.",
+          "responseB": "The arrangement is entered in your court journal. His private refuge remained lawful, limited and painfully unequal.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 3,
+      "name": "Prince Orhan",
+      "title": "A Prince without a Country",
+      "stat": 0,
+      "likes": 200,
+      "hates": 2,
+      "link": 2,
+      "endingA": "His family’s dangerous correspondence was distinguished from treachery.",
+      "endingB": "His place as an ally was tested publicly rather than left to rumour.",
+      "stages": [
+        {
+          "id": "court.3.0",
+          "title": "A Prince without a Country",
+          "text": "Orhan has been offered a letter to carry across the lines. The sender calls him a useful bridge between two peoples. “A bridge is a fine thing,” he says. “Everyone expects to walk upon it.” He wants to know in whose name you would have him speak.",
+          "choiceA": "Speak as an ally of this City.",
+          "choiceB": "Speak as an Ottoman prince with a claim of his own.",
+          "responseA": "“An ally may refuse a request. Remember that when the answer displeases you.”",
+          "responseB": "He smiles briefly. “Then do not be surprised when my answer contains my interests.”",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.3.1",
+          "title": "What you have not told me",
+          "text": "A servant from Orhan’s household has kin in the opposing camp. The prince has allowed family messages to pass without reporting them. No battle plan is enclosed. He asks whether a besieged man is permitted to have relatives on the wrong side.",
+          "choiceA": "Protect the family correspondence; inspect its route.",
+          "choiceB": "Require every message to pass through the council.",
+          "responseA": "Orhan supplies the route, but keeps the family’s grief out of the copied record.",
+          "responseB": "He brings the first letter himself. You recognise that this obedience will not feel like trust.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.3.2",
+          "title": "What shall we put in writing?",
+          "text": "Notaras wants the route closed; Kjold wants to know who can approach his sentries unseen. Orhan offers to identify the messenger in person, provided he is not made to stand before the council as a suspected prisoner.",
+          "choiceA": "Arrange a private identification with the sentries.",
+          "choiceB": "Hear the matter formally, with Orhan named as an ally.",
+          "responseA": "The arrangement is entered in your court journal. His family’s dangerous correspondence was distinguished from treachery.",
+          "responseB": "The arrangement is entered in your court journal. His place as an ally was tested publicly rather than left to rumour.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 4,
+      "name": "George Sphrantzes",
+      "title": "The Paper beneath the Paper",
+      "stat": 1,
+      "likes": 2,
+      "hates": 3,
+      "link": 2,
+      "endingA": "He preserved uncertainty in the record rather than manufacturing a promise.",
+      "endingB": "The unverified promise remained within the council.",
+      "stages": [
+        {
+          "id": "court.4.0",
+          "title": "The Paper beneath the Paper",
+          "text": "Sphrantzes has left a refusal beneath a more encouraging letter. When you notice, he does not pretend it was an accident. “You had slept two hours. I wanted you to read one thing that did not ask you to surrender something.”",
+          "choiceA": "Bring the urgent truth first, however unwelcome.",
+          "choiceB": "Explain your judgement before changing the order.",
+          "responseA": "He moves the refusal to the top. “I shall rely upon your remembering this instruction.”",
+          "responseB": "He describes the morning in uncomfortable detail, including the moment he decided for you.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.4.1",
+          "title": "What you have not told me",
+          "text": "He has also kept a private list of people whose captivity might be relieved by ransom. His own children are on it. He fears that asking for help will turn every negotiation into an accusation against him. Notaras knows why the list exists.",
+          "choiceA": "Enter family claims openly among the petitions.",
+          "choiceB": "Keep this list private, but record who may act on it.",
+          "responseA": "The list becomes a petition. Other names begin to appear beside his children’s.",
+          "responseB": "He gives you a second copy. Neither of you can now claim not to have known.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.4.2",
+          "title": "What shall we put in writing?",
+          "text": "An envoy offers reassuring words that Sphrantzes cannot verify. He asks whether the City should hear them. There is no concealed favourable dispatch; only the pressure to make uncertainty sound useful.",
+          "choiceA": "Publish the message with its uncertainty intact.",
+          "choiceB": "Keep it within the council until it can be verified.",
+          "responseA": "The arrangement is entered in your court journal. He preserved uncertainty in the record rather than manufacturing a promise.",
+          "responseB": "The arrangement is entered in your court journal. The unverified promise remained within the council.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 5,
+      "name": "Orban",
+      "title": "The Fault in the Casting",
+      "stat": 1,
+      "likes": 103,
+      "hates": 6,
+      "link": 103,
+      "endingA": "His failed casting became a shared test rather than a convenient accusation.",
+      "endingB": "An independent account preserved the fault his ambition had concealed.",
+      "stages": [
+        {
+          "id": "court.5.0",
+          "title": "The Fault in the Casting",
+          "text": "Orban has broken a small casting before anyone could admire it. “It rang beautifully,” he says. “That was the trouble.” He wants time to examine the metal, while a foreman wants the fault called a workman’s error.",
+          "choiceA": "Examine the metal before naming a culprit.",
+          "choiceB": "Hear the workmen and foreman together.",
+          "responseA": "Orban keeps the broken pieces. They are less impressive than the finished gun would have been.",
+          "responseB": "The youngest workman speaks only after the foreman has been sent outside.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.5.1",
+          "title": "What you have not told me",
+          "text": "Orban admits he accepted a doubtful delivery because he wanted to demonstrate a gun before a rival could. Grant suspects poor metal; Fontana can examine the sample without protecting Orban’s reputation. The founder asks you to call it a necessary experiment.",
+          "choiceA": "Record the failed experiment and the doubtful delivery.",
+          "choiceB": "Keep the admission within the workshop.",
+          "responseA": "“Then I shall have to make something that survives being described accurately.”",
+          "responseB": "He agrees too quickly, then asks you not to blame the men who poured it.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.5.2",
+          "title": "What shall we put in writing?",
+          "text": "Fontana offers a slower trial. Orban can accept supervision or abandon the design. He wants you to decide who will stand beside the next casting when it cools.",
+          "choiceA": "Let the rival craftsmen witness the trial together.",
+          "choiceB": "Require an independent report before another trial.",
+          "responseA": "The arrangement is entered in your court journal. His failed casting became a shared test rather than a convenient accusation.",
+          "responseB": "The arrangement is entered in your court journal. An independent account preserved the fault his ambition had concealed.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 6,
+      "name": "Johannes Grant",
+      "title": "Water beneath the Stones",
+      "stat": 1,
+      "likes": 5,
+      "hates": 104,
+      "link": 104,
+      "endingA": "The passage remained watched under a written civilian-access order.",
+      "endingB": "The passage was sealed after its hidden refuge had been accounted for.",
+      "stages": [
+        {
+          "id": "court.6.0",
+          "title": "Water beneath the Stones",
+          "text": "Grant has found running water where a wall account records solid ground. A mason insists it is an old drain. “That may be true,” Grant says. “It is an explanation, not yet an inspection.” He wants permission to lift stones from a chapel floor.",
+          "choiceA": "Ask the chapel’s keeper to witness the inspection.",
+          "choiceB": "Inspect quietly before alarming the neighbourhood.",
+          "responseA": "The keeper demands to know where every stone will be laid. Grant approves of the question.",
+          "responseB": "The first report is reassuring. Grant refuses to sign it until he has been below.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.6.1",
+          "title": "What you have not told me",
+          "text": "The passage serves a small refuge whose inhabitants have been missed by the food lists. Grant has known for two days. Closing it would simplify the defence and strand the people below. Cyriacus recognises a mark that may identify another exit.",
+          "choiceA": "Record the refuge and inspect the second exit.",
+          "choiceB": "Bring its inhabitants into the public reckoning first.",
+          "responseA": "The mark becomes a route to check, not a promise that escape exists.",
+          "responseB": "The refuge acquires names in a register. Its secrecy has bought it no further safety.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.6.2",
+          "title": "What shall we put in writing?",
+          "text": "The second opening can be watched, but the keeper fears that the new sentries will make the chapel look like a prison. Grant wants a defensible arrangement that somebody will still understand when the present guard is replaced.",
+          "choiceA": "Write a watch order that preserves civilian access.",
+          "choiceB": "Seal the approach after recording those who used it.",
+          "responseA": "The arrangement is entered in your court journal. The passage remained watched under a written civilian-access order.",
+          "responseB": "The arrangement is entered in your court journal. The passage was sealed after its hidden refuge had been accounted for.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 7,
+      "name": "Cardinal Isidore",
+      "title": "The Two Lists of the Dead",
+      "stat": 0,
+      "likes": 4,
+      "hates": 104,
+      "link": 4,
+      "endingA": "The prayers were shared without claiming that the doctrinal quarrel had ended.",
+      "endingB": "Separate rites survived beside a common record of the dead.",
+      "stages": [
+        {
+          "id": "court.7.0",
+          "title": "The Two Lists of the Dead",
+          "text": "Two priests have copied the same burial list and omitted different names. Each says the other has confused charity with doctrine. Isidore has brought the sheets himself. “The dead have managed to agree upon being dead. We are less accommodating.”",
+          "choiceA": "Keep one civic record without altering either rite.",
+          "choiceB": "Hear both priests before issuing an order.",
+          "responseA": "Isidore asks you to name a keeper who belongs to neither quarrel.",
+          "responseB": "Neither priest begins with the names. You have to ask for them twice.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.7.1",
+          "title": "What you have not told me",
+          "text": "Isidore has already authorised food for households hostile to the Union and asked the clerk to omit his name. He feared that his charity would make its recipients objects of suspicion. Sphrantzes can certify the distribution without naming the households publicly.",
+          "choiceA": "Protect the recipients and record who authorised relief.",
+          "choiceB": "Publish the principle, while keeping the names private.",
+          "responseA": "“A hidden gift ought not require a hidden account.” He signs the authorisation.",
+          "responseB": "He asks you to include the households that will resent being defended by this principle.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.7.2",
+          "title": "What shall we put in writing?",
+          "text": "A relative requests a joint commemoration. No priest is willing to promise that such a service will settle the dispute. Isidore offers to pray beside the family without calling their grief an agreement about doctrine.",
+          "choiceA": "Attend the prayers without declaring the quarrel resolved.",
+          "choiceB": "Protect separate services and a shared civic register.",
+          "responseA": "The arrangement is entered in your court journal. The prayers were shared without claiming that the doctrinal quarrel had ended.",
+          "responseB": "The arrangement is entered in your court journal. Separate rites survived beside a common record of the dead.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 100,
+      "name": "Stephen of Moldavia",
+      "title": "The Borrowed Banner",
+      "stat": 2,
+      "likes": 200,
+      "hates": 0,
+      "link": 200,
+      "endingA": "His borrowed banner acquired a clear chain of command.",
+      "endingB": "The donor’s nominee had to earn command before the men.",
+      "stages": [
+        {
+          "id": "court.100.0",
+          "title": "The Borrowed Banner",
+          "text": "Stephen has been drilling men beneath a banner borrowed from a noble household. Its owner now wants his name read before every exercise. “The men know who paid for the cloth,” Stephen says. “They are beginning to wonder whether that is the man they must obey.”",
+          "choiceA": "Distinguish the donor’s honour from the officer’s command.",
+          "choiceB": "Ask the men what orders they believe bind them.",
+          "responseA": "Stephen agrees to thank the donor in words precise enough to disappoint him.",
+          "responseB": "Their answers disclose three chains of command where there should have been one.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.100.1",
+          "title": "What you have not told me",
+          "text": "Stephen has let the men believe he has commanded more battles than he has. Kjold noticed during drill and corrected him without an audience. The young prince asks whether inexperience confessed is authority surrendered.",
+          "choiceA": "Let Kjold instruct him openly as a fellow officer.",
+          "choiceB": "Give Stephen responsibility for correcting his own account.",
+          "responseA": "Kjold agrees, provided the prince carries his own equipment to the drill.",
+          "responseB": "Stephen prepares the words. He discards the first version because it still sounds like a victory.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.100.2",
+          "title": "What shall we put in writing?",
+          "text": "The donor offers better equipment in exchange for selecting a captain. Stephen will accept your decision, but asks you to name who will answer when the donor’s man fails.",
+          "choiceA": "Keep appointment separate from the gift.",
+          "choiceB": "Allow the nomination, subject to a witnessed drill.",
+          "responseA": "The arrangement is entered in your court journal. His borrowed banner acquired a clear chain of command.",
+          "responseB": "The arrangement is entered in your court journal. The donor’s nominee had to earn command before the men.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 101,
+      "name": "Giosafat Barbaro",
+      "title": "The Price of a Familiar Name",
+      "stat": 0,
+      "likes": 1,
+      "hates": 2,
+      "link": 1,
+      "endingA": "The contract distinguished a dangerous passage from a guaranteed delivery.",
+      "endingB": "The City refused a venture whose reassurances exceeded its evidence.",
+      "stages": [
+        {
+          "id": "court.101.0",
+          "title": "The Price of a Familiar Name",
+          "text": "Barbaro recognises a shipmaster’s seal on an appeal for payment. The man carried grain honestly on one voyage and sold watered wine on another. “You want to know whether he is trustworthy. I can tell you what he did. The rest is a price you must decide.”",
+          "choiceA": "Write a limited agreement against a witnessed delivery.",
+          "choiceB": "Ask Diedo to examine the proposed passage.",
+          "responseA": "Barbaro removes a friendly assurance from the draft and replaces it with a quantity.",
+          "responseB": "He sends the seal to Diedo without warning the shipmaster first.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.101.1",
+          "title": "What you have not told me",
+          "text": "The shipmaster owes Barbaro money from a private venture. A successful public contract might recover it. Barbaro has come to disclose this before a rival does, and dislikes the fact that this is not quite the same as volunteering.",
+          "choiceA": "Record the interest and appoint another witness.",
+          "choiceB": "Exclude him from negotiating this agreement.",
+          "responseA": "He names the sum precisely. It is smaller than the rumour and harder to excuse.",
+          "responseB": "He hands over the papers. His knowledge remains useful even when he cannot profit from directing it.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.101.2",
+          "title": "What shall we put in writing?",
+          "text": "Diedo confirms that the vessel can sail but refuses to guarantee its return. Barbaro offers to write the risk into the contract. A courtier calls that language discouraging.",
+          "choiceA": "Keep the risk in the agreement.",
+          "choiceB": "Reject the arrangement rather than purchase reassurance.",
+          "responseA": "The arrangement is entered in your court journal. The contract distinguished a dangerous passage from a guaranteed delivery.",
+          "responseB": "The arrangement is entered in your court journal. The City refused a venture whose reassurances exceeded its evidence.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 102,
+      "name": "Bertrandon de la Broquière",
+      "title": "The Road Remembered Wrong",
+      "stat": 1,
+      "likes": 3,
+      "hates": 105,
+      "link": 3,
+      "endingA": "His remembered road became a conditional route rather than a certainty.",
+      "endingB": "The safer route prevailed over a traveller’s unverified memory.",
+      "stages": [
+        {
+          "id": "court.102.0",
+          "title": "The Road Remembered Wrong",
+          "text": "Bertrandon corrects a road on the council’s map, then stops. “It was a ford when I crossed it. A map has the discourtesy to remain certain after the traveller has grown doubtful.” He wants the correction marked as a memory rather than a report.",
+          "choiceA": "Mark its age and uncertainty.",
+          "choiceB": "Ask what could verify the route now.",
+          "responseA": "He writes the year beside his line. The map looks less impressive and becomes more useful.",
+          "responseB": "He names travellers, a mill and a village whose existence he cannot promise.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.102.1",
+          "title": "What you have not told me",
+          "text": "He once depended upon an Ottoman guide whom his account barely mentions. Orhan recognises the family name. Bertrandon fears that acknowledging the debt will make the court doubt every observation he brought back.",
+          "choiceA": "Name the guide as a source rather than erase the debt.",
+          "choiceB": "Keep the source private while recording its limitations.",
+          "responseA": "“He saved me from a road I had chosen with great confidence.” Bertrandon leaves the admission in the copy.",
+          "responseB": "The council receives a qualified account, and the guide’s family remains outside it.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.102.2",
+          "title": "What shall we put in writing?",
+          "text": "A messenger asks which of two accounts to trust: the confident map or the qualified witness. Bertrandon wants to know whether you can issue an order while admitting that part of its premise may be wrong.",
+          "choiceA": "State the uncertainty and the condition for turning back.",
+          "choiceB": "Choose the safer known route despite the delay.",
+          "responseA": "The arrangement is entered in your court journal. His remembered road became a conditional route rather than a certainty.",
+          "responseB": "The arrangement is entered in your court journal. The safer route prevailed over a traveller’s unverified memory.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 103,
+      "name": "Giovanni Fontana",
+      "title": "The Machine That Must Not Work",
+      "stat": 1,
+      "likes": 6,
+      "hates": 5,
+      "link": 5,
+      "endingA": "The failed rescue test remained part of the design’s record.",
+      "endingB": "His commission ended without disguising its failure as success.",
+      "stages": [
+        {
+          "id": "court.103.0",
+          "title": "The Machine That Must Not Work",
+          "text": "Fontana shows you a device for lifting wounded men from a ditch. The workshop wants to demonstrate it with a sack of stones. He wants a man to test it, and insists that the man should be himself.",
+          "choiceA": "Test the load first, then hear the volunteer.",
+          "choiceB": "Require the workshop to record what would make it fail.",
+          "responseA": "Fontana accepts the sequence with the impatience of a man who has already imagined the successful demonstration.",
+          "responseB": "The drawing acquires several ugly notes. It begins to resemble a useful drawing.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.103.1",
+          "title": "What you have not told me",
+          "text": "The same mechanism could tip burning material onto men below. Fontana drew that version first and has not shown it to the infirmary staff. Orban has seen the omitted sheet. “Would you have approved the rescue device if I had begun with this?”",
+          "choiceA": "Keep the two designs and their purposes explicit.",
+          "choiceB": "Withdraw the military version from this commission.",
+          "responseA": "He lays both sheets upon the table. Neither cancels the existence of the other.",
+          "responseB": "He marks the withdrawn sheet rather than pretending it was never made.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.103.2",
+          "title": "What shall we put in writing?",
+          "text": "The rescue test fails without injuring anyone. A patron offers to sponsor a second attempt if the failure disappears from the account. Fontana wants another trial badly enough that he has brought you the offer.",
+          "choiceA": "Preserve the failed test and seek another sponsor.",
+          "choiceB": "End this commission with an honest account.",
+          "responseA": "The arrangement is entered in your court journal. The failed rescue test remained part of the design’s record.",
+          "responseB": "The arrangement is entered in your court journal. His commission ended without disguising its failure as success.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 104,
+      "name": "Cyriacus of Ancona",
+      "title": "A Stone Worth More Than Bread",
+      "stat": 1,
+      "likes": 7,
+      "hates": 5,
+      "link": 6,
+      "endingA": "His account preserved a refuge’s inhabitants beside its ancient benefactor.",
+      "endingB": "The monument’s words and setting survived in a careful copy.",
+      "stages": [
+        {
+          "id": "court.104.0",
+          "title": "A Stone Worth More Than Bread",
+          "text": "Cyriacus asks the masons to spare an inscribed stone. They ask him which wall should remain unrepaired in its honour. He has brought a tracing, but the last line is incomplete. “Tomorrow may be too late for the letters. It may also be too late for the wall.”",
+          "choiceA": "Copy what can be copied before the stone is used.",
+          "choiceB": "Ask the masons whether another stone will serve.",
+          "responseA": "He works beside the masons instead of asking them to wait out of sight.",
+          "responseB": "The foreman brings you the price of an alternative, which makes everyone less eloquent.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.104.1",
+          "title": "What you have not told me",
+          "text": "The inscription records a benefaction to a refuge beneath a chapel. Grant’s discovery would make it a practical document, not merely a relic. Cyriacus admits he nearly omitted that reading because it would place the stone at the centre of another quarrel.",
+          "choiceA": "Share the reading with Grant and the chapel keeper.",
+          "choiceB": "Preserve the text first, with the disputed reading marked.",
+          "responseA": "He reads it aloud to people who need something from it besides antiquity.",
+          "responseB": "He brackets the uncertain word. The brackets offend his pride more than the damaged stone.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.104.2",
+          "title": "What shall we put in writing?",
+          "text": "The stone can be moved, but its setting will be lost. Cyriacus offers to record the place as carefully as the words. He asks whether saving an object is enough if nobody remembers what it once belonged to.",
+          "choiceA": "Record the refuge and the people who used it.",
+          "choiceB": "Record the monument and its setting.",
+          "responseA": "The arrangement is entered in your court journal. His account preserved a refuge’s inhabitants beside its ancient benefactor.",
+          "responseB": "The arrangement is entered in your court journal. The monument’s words and setting survived in a careful copy.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 105,
+      "name": "Pero Tafur",
+      "title": "The Host’s Empty Chair",
+      "stat": 2,
+      "likes": 0,
+      "hates": 101,
+      "link": 0,
+      "endingA": "He kept the widow’s letter without turning it into a vow to abandon the City.",
+      "endingB": "The widow’s message acquired a carrier beyond the hospitality owed to one traveller.",
+      "stages": [
+        {
+          "id": "court.105.0",
+          "title": "The Host’s Empty Chair",
+          "text": "Tafur recognises the house that sheltered him on his earlier visit. Its owner has died; the widow is renting rooms to soldiers. She has offered him the old guest chamber, which would displace a wounded man. “She insists it is an honour. I cannot tell whether she means it.”",
+          "choiceA": "Let the wounded man keep the chamber.",
+          "choiceB": "Ask the widow what help she actually needs.",
+          "responseA": "Tafur sends his baggage elsewhere before anybody can turn his refusal into another ceremony.",
+          "responseB": "She asks for rent paid on time. He looks almost relieved by the smallness of the answer.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.105.1",
+          "title": "What you have not told me",
+          "text": "Tafur once embellished the household’s welcome in his account of the City. The widow has heard the story and thinks he remembers a grander house than the one she has left. Giovanni can recognise the wounded lodger whose presence makes the old story inconvenient.",
+          "choiceA": "Tell her what was embellished and why.",
+          "choiceB": "Leave the old account alone; describe the house honestly now.",
+          "responseA": "She laughs at the invented silver cups. It is not quite forgiveness.",
+          "responseB": "He opens a new page without crossing out the old one.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.105.2",
+          "title": "What shall we put in writing?",
+          "text": "The widow asks him to carry a letter if he leaves. He would rather promise to remain. She says that a man who may travel is more useful to her than a man who makes beautiful vows beside her table.",
+          "choiceA": "Carry the letter without promising a departure.",
+          "choiceB": "Witness the letter and arrange another lawful carrier.",
+          "responseA": "The arrangement is entered in your court journal. He kept the widow’s letter without turning it into a vow to abandon the City.",
+          "responseB": "The arrangement is entered in your court journal. The widow’s message acquired a carrier beyond the hospitality owed to one traveller.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    },
+    {
+      "person": 200,
+      "name": "Kjold",
+      "title": "The Sword Left Clean",
+      "stat": 2,
+      "likes": 0,
+      "hates": 3,
+      "link": 0,
+      "endingA": "He remembered an Emperor who could receive correction without demanding an audience.",
+      "endingB": "The guard’s disputed service was brought to another commander rather than left to rumour.",
+      "stages": [
+        {
+          "id": "court.200.0",
+          "title": "The Sword Left Clean",
+          "text": "Kjold has laid out a dead guardsman’s equipment for return. His sword is spotless. Someone has suggested that this proves cowardice. “It proves he cleaned it,” Kjold says. He asks whether you will let the remark stand beside the man’s name.",
+          "choiceA": "Require evidence before dishonouring the dead.",
+          "choiceB": "Ask the surviving watch what happened.",
+          "responseA": "Kjold covers the blade. “A small order. I shall be glad if it survives the next frightened rumour.”",
+          "responseB": "The witnesses disagree about the last minutes and agree about years of service.",
+          "minStat": 0,
+          "delayDays": 0
+        },
+        {
+          "id": "court.200.1",
+          "title": "What you have not told me",
+          "text": "Kjold once let a frightened soldier leave his post and returned him to the roll the next morning. The man later died on duty. Kjold has concealed the first night because the dead man cannot explain it, and because neither can he without describing his own fear.",
+          "choiceA": "Record both nights without calling either the whole man.",
+          "choiceB": "Keep the old failure private; record the later service.",
+          "responseA": "He asks to write the first account himself. It takes longer than the report of the death.",
+          "responseB": "He accepts your decision without pretending that secrecy has settled his conscience.",
+          "minStat": 5,
+          "delayDays": 1
+        },
+        {
+          "id": "court.200.2",
+          "title": "What shall we put in writing?",
+          "text": "Giovanni has heard an accusation against the guard. Kjold offers to spar with you before speaking to him: not as a demonstration for the court, but to discover whether either of you can receive a correction without an audience. He will not do it merely to flatter an emperor.",
+          "choiceA": "Meet him as a pupil, and take the correction.",
+          "choiceB": "Ask him to bring the account to Giovanni instead.",
+          "responseA": "The arrangement is entered in your court journal. He remembered an Emperor who could receive correction without demanding an audience.",
+          "responseB": "The arrangement is entered in your court journal. The guard’s disputed service was brought to another commander rather than left to rumour.",
+          "minStat": 7,
+          "delayDays": 2
+        }
+      ]
+    }
+  ]
+}

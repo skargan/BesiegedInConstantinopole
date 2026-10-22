@@ -27,3 +27,5 @@
 .library-foot{display:none}.map-legend{font-size:11px;gap:10px}.node .code{font-size:11px}
 
 .map-legend{display:flex;flex-direction:row;flex-wrap:wrap;max-width:95%;padding:7px 10px;top:8px;left:10px;pointer-events:none}.map-legend span{font-size:10px}.inspect-section>summary{cursor:pointer;color:var(--muted)}
+
+body.conversation-mode .workspace{grid-template-columns:1fr}body.conversation-mode .library,body.conversation-mode #inspector{display:none}body.conversation-mode main{min-width:0}

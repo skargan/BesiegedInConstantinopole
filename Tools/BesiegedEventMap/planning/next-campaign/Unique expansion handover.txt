@@ -1,0 +1,25 @@
+BESIEGED — UNIQUE STORY EXPANSION HANDOVER
+21 October 2026
+
+STATUS
+34 authored scenes in Unique stories expansion.json, readable prose in Unique stories for review.txt. Map section: New unique stories & branches. These are specifications, NOT executable Yarn or a Unity-tested implementation. New values and random weights are provisional. Version 19 does not include this package.
+
+USER CONFIRMATIONS
+Four hidden monk variants, fixed once and saved. Origins remain ambiguous with very subtle supernatural hints. Only the monk claiming to be Emperor Palaiologos can intercept a real breach, hold it and die. No wall repair, no invented assault, no automatic Janissary army destruction. Do not spend Varangians on this intervention. Kjold is the confirmed name.
+
+INTEGRATION
+Use existing combat and temporary character absence systems. Check resources and eligible actors before showing choices and again when resolving. Persist rolls, delayed branches and one-time rewards. All new once-only entries must be excluded from recurring selection after resolution. Live and Let Live remains recurring with a 30-day cooldown. Noble Ends His Life must become once-only while retaining its existing story/options. Existing source audit also flags Fire in the City as marked unique in the original; preserve that review issue.
+The JSON effects are a design vocabulary, not verified engine variable mappings. Translate them into the actual resource API. Population is individual people in prose; current population storage conversion must be respected. Do not parse arbitrary effects directly as runtime commands.
+Market infighting has five source choices, each now matched explicitly to its own outcome; do not reuse positional effects from another dispute. Original references remain in map inspector raw text.
+Kjold requires a stable roster identity and recruitment/availability rule before his personal event can fire. Noble duel needs two distinct eligible secular nobles. Giustiniani's wound suspends benefits during absence; ordinary replacement costs still apply.
+
+SPY SOURCE AUDIT
+Events spreadsheet cached extract: Our Spy Discovered. This concerns our agent being discovered; do not present it as a new Turkish infiltration encounter.
+events - enemy cached extract: Spy infiltration / Attempt infiltration; associated ideas include opened gates, fire/sabotage, poisoned troops, rumours and poisoning the Emperor. These are source ideas, not fully written separate playable events.
+Core mechanics 1.4 cached extract: separate Byzantine and Turkish secret tunnel flags. Discovery and enemy infiltration must not share one undifferentiated flag.
+Current recurring Yarn random13 already has a raid gated by bSecretRomanTunnel and 100 infantry. It consumes the tunnel on success or failure. New tunnel discovery should unlock that existing route, not duplicate its reward.
+Current random15 Hunt for the Traitor and existing Shaherezade branches already cover spy-related content. Preserve them. Noble death text blaming Turkish spies is not proof of a separate spy encounter.
+The new Turkish Spy Network branch is authored development of these ideas. It requires actual enemy agents; remove no more agents than exist. If unavailable, exclude that ambush result and renormalise the remaining eligible outcomes. Closing the tunnel cancels pending branches and clears access. A cellar alone does not unlock escape; the outside exit must be verified first.
+
+VALIDATION
+34 unique event IDs; branch targets resolve. All 18 current-flow tests pass. No Unity runtime compilation or playtest of these new stories yet. Review writing and integration separately from balancing.

@@ -1,0 +1,21 @@
+THE SIEGE IS THE MAIN PLOT
+22 October 2026 · design direction and proposed extensions
+
+IMPLEMENTED IN THE CURRENT COURT PASS
+Characters can discuss their own part of the defence using live facts: Diedo and Barbaro distinguish an intact Golden Horn chain from actual naval superiority and surviving ships; Grant and Fontana inspect the active wall's remaining integrity; Orban responds to gun and ammunition stocks; Isidore distinguishes the Union, an accepted appeal, an expedition under way and aid actually arrived. Generic prolonged-siege comments change after thirty and sixty siege days. These are commentary thresholds, not newly scheduled story events.
+
+Orban's personal conversation first asks how many guns a city needs. A visible follow-up remains disabled while he is unsatisfied; it does not publish its numerical requirement. Its private developer threshold is 112 ready cannons, excluding queued construction and the separate Grand Cannon. The answer reveals an invented family account-book joke, not a purported historical fact. Current scene price is 500 gold per cannon, construction ten calendar days, initial stock three. Reaching 112 therefore costs 54,500 gold for the additional 109 pieces before discounts or later losses: extravagant, but below the initial 100,000 treasury. No combat buff or achievement is awarded for meeting this dialogue target.
+
+PROPOSED DRAMATIC STAGES — NOT YET SCHEDULED EVENTS
+Opening: the preparations are tested. A failed assumption about the walls, the fleet or relief becomes the first organising crisis; victory in an assault buys time but does not settle the campaign.
+Prolonged siege: after the historical window has passed, survival changes the political bargain. Reconfirm obligations, confront exhaustion and renegotiate who bears the continuing cost. Date alone should open a stage, not force its particular outcome.
+Late siege: external powers must decide whether this is a doomed city to pity or a strategic opening worth supporting. Pair a material state with a political decision. A strong fleet and accepted Western commitments could open a proposed relief coalition; an intact fighting force and secured territory could open a proposed restoration charter. Neither the Union nor mere survival should automatically grant a crusade or proclaim a restored empire.
+Resolution: siege victory, surrender, flight, deposition or death should settle the main campaign. The epilogue then remembers what those outcomes meant for the people and obligations the player chose to preserve.
+
+ASSAULT COUNTERS — PLANNING ONLY, NO NEW TROOP TYPES
+Mobile arrow screens: a preparation applied to a limited portion of existing attackers. Reduce arrow effectiveness against the covered portion during approach; do not apply a blanket reduction to uncovered troops, melee damage or every later assault. Telegraph carpenters, hides, mantlets and reconnaissance observations. Possible answers: artillery against screens, a risky sortie against their crews, or conserving arrows until the men emerge. Costs, durability and reduction need balance tests.
+Covered or low-visibility approach: a special assault plan using existing troops, favouring terrain, smoke, darkness or a previously prepared covered way. It should reduce the time or exposure available to wall cannon, rather than make an army categorically immune to artillery. Require prior Ottoman preparation and warn the player when intelligence is sufficient. Archers, close defence, sentries and reserves must remain useful. Never create a hidden arbitrary punishment merely because the player bought many cannons.
+The cannon-heavy strategy should remain powerful on an open approach. The enemy's answer should be an intelligible change of method that the player can recognise and counter. Ratios, ammunition pressure and force allocations remain the responsibility of the assault/balance pass.
+
+WRITING CONTRACT
+Each court quest should intersect one of these siege pressures, while retaining a private motive. The player should hear a captain talk about the sea he can see, not deliver an interchangeable monologue about duty. Character dialogue must distinguish reported fact, personal interpretation and political hope. Secrets may complicate a companion; they should not turn every person into another agent of the same conspiracy.

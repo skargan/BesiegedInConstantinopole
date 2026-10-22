@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 using System.Collections.Generic;
 
@@ -32,13 +32,14 @@ public class MainMenuUI : UIWindowFam
         var quick=CampaignHUD.MakeButton(transform,VariableSingleton.HasPreparationPreset?"Repeat preparation":"Repeat preparation\n<size=65%>Reach the siege to unlock</size>",Vector2.zero,Vector2.one,QuickStart);quick.interactable=VariableSingleton.HasPreparationPreset;
         var achievement=CampaignHUD.MakeButton(transform,"Achievements",Vector2.zero,Vector2.one,()=>Achievements.Show(transform.root));
         var settingsButton=CampaignHUD.MakeButton(transform,"Settings",Vector2.zero,Vector2.one,()=>AudioSettingsUI.Show(transform.root));
+        var mapButton=CampaignHUD.MakeButton(transform,"Map of the City",Vector2.zero,Vector2.one,()=>CityMapView.Show(transform.root,null,gameObject));mapButton.name="City map navigation";
         var ordered=new System.Collections.Generic.List<UnityEngine.UI.Button>();foreach(var item in original)if(item.transform.parent==transform)ordered.Add(item);
-        ordered.Insert(Mathf.Min(2,ordered.Count),quick);ordered.Insert(Mathf.Max(0,ordered.Count-1),achievement);ordered.Insert(Mathf.Max(0,ordered.Count-1),settingsButton);
+        ordered.Insert(Mathf.Min(2,ordered.Count),quick);ordered.Insert(Mathf.Max(0,ordered.Count-1),achievement);ordered.Insert(Mathf.Max(0,ordered.Count-1),settingsButton);ordered.Insert(Mathf.Min(3,ordered.Count),mapButton);
         for(int i=0;i<ordered.Count;i++) {
-            var button=ordered[i];float top=.66f-i*.081f;var rect=button.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.09f,top-.065f);rect.anchorMax=new Vector2(.91f,top);rect.offsetMin=rect.offsetMax=Vector2.zero;
+            var button=ordered[i];float step=.56f/Mathf.Max(1,ordered.Count);float top=.66f-i*step;var rect=button.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.09f,top-step*.80f);rect.anchorMax=new Vector2(.91f,top);rect.offsetMin=rect.offsetMax=Vector2.zero;
             var background=button.GetComponent<UnityEngine.UI.Image>();if(background!=null){ImperialTheme.Button(button);}
             var outline=button.GetComponent<UnityEngine.UI.Outline>()??button.gameObject.AddComponent<UnityEngine.UI.Outline>();outline.effectColor=new Color(.64f,.49f,.25f,.8f);outline.effectDistance=new Vector2(1,-1);
-            var caption=button.GetComponentInChildren<TMPro.TMP_Text>();if(caption!=null){caption.font=font;caption.fontSize=32;caption.fontSizeMin=23;caption.fontSizeMax=32;caption.enableAutoSizing=true;caption.color=new Color(.94f,.88f,.73f);}
+            var caption=button.GetComponentInChildren<TMPro.TMP_Text>();if(caption!=null){caption.font=font;caption.fontSize=32;caption.fontSizeMin=20;caption.fontSizeMax=32;caption.enableAutoSizing=true;caption.color=new Color(.94f,.88f,.73f);}
             if(button.name=="ButtonContinue")button.interactable=VariableSingleton.HasSave();
         }
         var version=CampaignHUD.Label(transform,CouncilUI.BuildLabel,new Vector2(.06f,.025f),new Vector2(.94f,.08f),17);version.alignment=TMPro.TextAlignmentOptions.Center;

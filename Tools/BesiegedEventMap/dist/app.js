@@ -36,6 +36,7 @@
     return filtered.filter(n=>!allowed||allowed.has(n.id));
   }
   function render(){
+    document.body.classList.toggle('conversation-mode',view==='conversations');
     if(!node(selected)||node(selected).collection!==collection)selected=data.events.find(n=>n.collection===collection)?.id||'';
     analysis=G.analyze(data,collection);filtered=analysis.nodes.filter(matches);
     $('#collection-note').textContent=collectionNote[collection];$('#dataset-caption').textContent=collectionText[collection];
@@ -45,7 +46,7 @@
     $('#event-list').innerHTML=filtered.map(n=>{const errs=analysis.findings.filter(f=>f.node===n.id&&f.severity==='error').length;return`<button class="event-row ${n.id===selected?'selected':''}" data-select="${esc(n.id)}" role="listitem"><span class="event-code">${esc(n.code)}<span>${errs?'⚠ '+errs:n.entry?'ENTRY':n.isChain?'CHAIN':''}</span></span><strong>${esc(n.title)}</strong><span class="sub"><span class="dot ${esc(n.origin)}"></span>${esc(n.flowRole==='slot'?'Choose from the pool →':n.flowRole==='fixed'?n.timing:n.category)}${n.choices.length?' · '+n.choices.length+' choices':''}${n.edited?' · edited':''}</span></button>`;}).join('')||'<p class="muted small">No matching events. Clear filters to see the full collection.</p>';
     $('#undo').disabled=!history.length;$('#redo').disabled=!future.length;
     $$('.view-bar [data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
-    for(const v of ['map','table','checks','sources','plan','diplomacy'])$('#'+v+'-view').hidden=v!==view;
+    for(const v of ['map','table','checks','sources','plan','diplomacy','conversations'])$('#'+v+'-view').hidden=v!==view;
     $('#map-options').hidden=view!=='map';
     $('#flow-section').hidden=collection!=='proposal';if(view==='map')renderGraph();if(view==='table')renderTable();if(view==='checks')renderChecks();if(view==='sources')renderSources();if(view==='plan')renderPlan();if(view==='diplomacy')renderDiplomacy();
     renderInspector();

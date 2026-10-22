@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,7 +40,12 @@ public class RestUI : UIWindowFam
             PreparationMenu.Show(transform,node=>{eventPhaseUI.GetComponent<EventUI>().SetStartNode(node);SwitchPhase(eventPhaseUI);});return;
         }
         string nodeSelection;
-        if (DailyLifeEvents.DueNode != null)
+        if (MurderMystery.DueNode != null && !VariableSingleton.Instance.StoryScheduled())
+        {
+            nodeSelection=MurderMystery.DueNode;
+            eventPhaseUI.GetComponent<EventUI>().SetStartNode(nodeSelection);
+        }
+        else if (DailyLifeEvents.DueNode != null)
         {
             nodeSelection=DailyLifeEvents.DueNode;
             eventPhaseUI.GetComponent<EventUI>().SetStartNode(nodeSelection);
@@ -64,10 +69,10 @@ public class RestUI : UIWindowFam
         {
             int eventId = VariableSingleton.Instance.RandomEventID();
             nodeSelection = eventId < 0 ? "quietDay" : "random" + eventId;
-            var daily=DailyLifeEvents.Available().Concat(SiegeHardships.Available()).ToArray();
+            var daily=DailyLifeEvents.Available().Concat(SiegeHardships.Available()).Concat(EmperorProfile.HealthEvents()).ToArray();
             int originalCount=Enumerable.Range(0,24).Count(RecurringEvents.Eligible);
             if(daily.Length>0 && UnityEngine.Random.Range(0,originalCount+daily.Length)<daily.Length)nodeSelection=daily[UnityEngine.Random.Range(0,daily.Length)];
-            var optional=PreparationCampaign.OptionalNodes().Concat(CourtIntrigue.OptionalNodes()).ToArray();
+            var optional=PreparationCampaign.OptionalNodes().Concat(CourtIntrigue.OptionalNodes()).Concat(MurderMystery.OptionalNodes()).ToArray();
             if(optional.Length>0&&UnityEngine.Random.Range(0,100)<25)nodeSelection=optional[UnityEngine.Random.Range(0,optional.Length)];
             eventPhaseUI.GetComponent<EventUI>().SetStartNode(nodeSelection);
         }
