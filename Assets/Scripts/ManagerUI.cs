@@ -34,6 +34,14 @@ public class ManagerUI : UIWindowFam
         ControlSingleton.Instance.LogToEsc(this.gameObject, siegeUI);
     }
 
+    public void InspectWallFromMap(string wallKey,System.Action returnToMap)
+    {
+        BringUpSiegeUI();
+        var actions=siegeUI.GetComponentInChildren<DefenseActions>(true);
+        if(actions!=null)actions.GetSelection(wallKey);
+        ControlSingleton.Instance.ReturnAction=()=>{siegeUI.SetActive(false);gameObject.SetActive(true);returnToMap?.Invoke();};
+    }
+
     [SerializeField] GameObject repairAction;
     public void OrderRepairs()
     {
