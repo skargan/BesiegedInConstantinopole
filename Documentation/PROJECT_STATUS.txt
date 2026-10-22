@@ -1,3 +1,12 @@
+CURRENT RELEASE - Version 30 - 23 October 2026
+
+Version 30 adds individual resident accounting, migration from campaign schema 1 to 2, nearest-thousand daily food rounding (half up), the supplied Europe1450 reference map in Diplomacy, full-resolution zoom and drag navigation. All 12 legacy population event commands converted; six already-individual AddResidents commands preserved. Three-day food cost uses FoodNeed rather than population. Taxes retain existing rate and fractional carry.
+
+Includes Version29 portable saves, Normal/Ironman mode selection and one rolling Ironman save, stable Steam achievement bridge (SDK not connected), 14 technology illustrations and full-screen default with remembered preference. Exported Windows checks cover archive persistence, corruption rejection, completed-event and battle resumption, population migration and food rounding. Editor checks: 38 save/art/population,1129 assault,201 particles; active Yarn validated. No all-event-branch or full-campaign certification.
+
+Release source is Documents/Codex/Besieged-release18. Other agent's separate court/profile/map-city work remains in shared Desktop source; it is not included in this numbered release. Integrate those changes through review, preserving profile setup hooks and the new archive boundary.
+
+Previous architecture status follows for reference:
 CURRENT PROJECT STATUS - Version28 consolidation - 22 October 2026
 
 Desktop releases: Version27 preserved; Version28 verified consolidation preview published in Builds/Version-28 with dedicated Besieged-Version28.lnk. Build number visible in game. The isolated release does not include the other agent's separate profile/conversation features; those remain preserved in shared Desktop source.

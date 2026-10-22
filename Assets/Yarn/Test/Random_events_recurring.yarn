@@ -1,4 +1,4 @@
-﻿title: random0
+title: random0
 ---
 <<LifeSeen random0>>
 <b>An Uneventful Day</b>: <br> There's a saying that no news is good news. You have come to appreciate it since the siege began. Today the guns are quiet. Men sleep beside their posts, shops open their shutters, and for a few hours the City remembers what an ordinary day felt like.
@@ -474,13 +474,13 @@ title: random19
     <<ChangeFraction fTroopRep -0.05>>
 -> Enlist citizens for the bucket brigades
     As the call to action rings throughout the Phanar district, able-bodied citizens rally to form an impromptu human chain. Armed with buckets filled from available water sources, they combat the encroaching flames threatening their homes and community. The bucket brigade, composed of determined individuals from all walks of life, proves to be a formidable force against the fire. With each passing bucket, they create a continuous stream of water directed at the heart of the blaze. The citizens, working together with shared determination, manage to contain and extinguish smaller outbreaks, preventing the fire from spreading further. However, these people are not trained to deal with something like this and casualties among them are severe.
-    <<Change iPopulation -3>>
+    <<Change iPopulation -3000>>
     <<ChangeFraction fPeopleRep -0.04>>
 -> Sacrifice the district and use demolition to stop the fires from spreading <<if GetInt("iProvisions") >= 150 && GetInt("iMaterials") >= 50>>
     With a heavy heart, the decision is made to sacrifice certain sections of the Phanar district by implementing controlled demolitions. Your engineers, guided by a strategic plan, initiate precise demolitions to create firebreaks, effectively cutting off the path of the encroaching flames. As buildings crumble and controlled fires are set to consume predetermined areas, the sacrifice of these sections proves successful in halting the spread of the main inferno. The demolition strategy, while severe, prevents the fire from advancing further into other residential areas and critical infrastructure. Unfortunately among the sacrificed parts of the dockyard district were the warehouses and a lot of materials and provisions were destroyed in the fire. Your merchants are greatly displeased.
     <<Change iProvisions -150>>
     <<Change iMaterials -50>>
-    <<Change iPopulation -1>>
+    <<Change iPopulation -1000>>
     <<ChangeFraction fNobleRep -0.04>>
 -> Order the priests to pray in support of our firefighters <<if GetInt("iFocus") == 3>>
     A solemn decree is issued to the clergy, urging them to organise processions and prayers in support of the valiant firefighters. The streets reverberate with the echoes of religious chants as priests lead processions through the district, invoking divine intervention to aid those combating the encroaching flames. The collective prayers resonate through the air, creating an atmosphere of spiritual unity among the citizens and the courageous individuals battling the inferno. While the fires take a massive toll, the wind suddenly changes direction and fires seem to dissipate on their own. Was it divine intervention? It seems that all we suffer in the end is some minor damage.
@@ -516,7 +516,7 @@ title: random21
     The cooks discard the worst grain and stretch the rest through the soup kitchens. No outbreak is reported, and the threatened stores are saved.
     <<else>>
     By morning, the infirmaries are crowded. A thousand civilians die; the garrison also loses men. You order the remaining spoiled grain burned.
-    <<Change iPopulation -1>>
+    <<Change iPopulation -1000>>
     <<Change iInfantry -73>>
     <<Change iArchers -24>>
     <<Change iCavalry -11>>
@@ -526,7 +526,7 @@ title: random21
     <<endif>>
 -> The poor will eat anything, order your cooks to sell the rotten food on the black market, somebody will buy it anyway. <<if GetInt("iProvisions") >= 150>>
     The grain finds buyers among those who cannot afford better. Your treasury receives 150 gold. Then reports of illness arrive from the poorer quarters: three thousand residents die in the outbreak. The palace kitchens and barracks remain untouched.
-    <<Change iPopulation -3>>
+    <<Change iPopulation -3000>>
     <<Change iMoney +150>>
     <<Change iProvisions -150>>
 -> Admiral Diedo, after he hears about your issue, suggests an alternative method. <<if GetBool("bCharAdmiral1") && GetInt("iProvisions") >= 75>>

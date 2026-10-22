@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -32,13 +32,13 @@ public class DailyLifeSmokeProbe:MonoBehaviour
         foreach(var n in DailyLifeEvents.Roots.Concat(new[]{"lifeFalseHope","lifeMorea","lifeMercenaries","lifeRefugees","lifeBarrelOwner","lifeSurprise","lifeSaintsDebate","lifeSaintsQuestion","combatAssassin","lifeGunnerResult"}))Check(runner.yarnProject.NodeNames.Contains(n),"Compiled "+n);
         var counts=Enumerable.Range(0,100).GroupBy(DailyLifeEvents.SailsOutcome).ToDictionary(g=>g.Key,g=>g.Count());
         Check(counts[0]==55&&counts[1]==15&&counts[2]==15&&counts[3]==15,"Exact 55/15/15/15 distribution");
-        Set("iPopulation",100);Set("iPopulationRemainder",0);Set("iPopulationFoodCarry",0);Set("iPopulationTaxCarry",0);
+        Set("iPopulation",100000);Set("iPopulationRemainder",0);Set("iPopulationFoodCarry",0);Set("iPopulationTaxCarry",0);
         var before=VariableSingleton.Instance.CaptureState();PopulationAccounting.Add(200);
         Check(PopulationAccounting.People==100200,"Exactly 200 refugees");
         Check(EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState()).Contains("+200"),"Outcome shows +200 residents");
-        Check(Enumerable.Range(0,5).Sum(_=>PopulationAccounting.Food(true))==501,"200 extra residents consume one provision over five days");
+        Check(Enumerable.Range(0,5).Sum(_=>PopulationAccounting.Food(true))==500,"Daily food rounds to the nearest thousand without accumulating fractions");
         Check(Enumerable.Range(0,5).Sum(_=>PopulationAccounting.Tax())==1503,"Fractional population tax carries correctly");
-        PopulationAccounting.Add(800);Check(I("iPopulation")==101&&I("iPopulationRemainder")==0,"Population remainder normalises");
+        PopulationAccounting.Add(800);Check(I("iPopulation")==101000,"Population stores individual people");
         DailyLifeEvents.Merchant(-15);Check(DailyLifeEvents.I("iMerchantFavor")==35,"Merchant favour defaults to50 then deducts15");
         DailyLifeEvents.Sails(1);Check(DailyLifeEvents.DueNode==null,"Sails not resolved same day");
         Set("iLifeSailsDue",TrainingPool.Day(VariableSingleton.GetDate()));Check(DailyLifeEvents.DueNode!=null,"Sails due deterministically");

@@ -1,0 +1,26 @@
+SAVE AND ACHIEVEMENT DESIGN - VERSION29
+
+Player contract
+Normal campaigns allow named saves at the council, earlier-save loading and automatic recovery checkpoints. They cannot earn achievements. Ironman campaigns have one rolling archive per campaign and no manual slots. Completed orders, completed event decisions, resolved Ottoman operations and new management turns are checkpoints. The current assault can be replayed after a crash from its preceding stable checkpoint; in-progress reaction inputs are not serialised. No mid-minigame manual save is offered. Automated practice and test runs cannot grant achievements.
+
+Files and updates
+Default: Saves/ beside the game executable (Unity editor: project/Saves/). If the installation is not writable, use the user-data Saves folder and display that exact location in the archive UI. Open save folder is the export/import route: copy .besieged.json files, or put an archive there. Do not delete diagnostic files automatically. .bak is the previous good recovery file; .tmp is a pending write. Local checksums detect accidental corruption/edits, not deliberate cheating. Ironman is a play rule, not a tamper-proof or server-authoritative security claim.
+
+Archive envelope format2 wraps campaign schema1. Header: game build, save format, campaign ID, mode, sequence, saved UTC time, in-game date and continuation phase. A checksum covers the full envelope except the checksum itself. Future envelope/campaign schemas are rejected with a visible explanation, not silently loaded. A different build with a supported schema is labelled as such; it is not automatically certified compatible in every balance/content detail. Legacy playtest checkpoints import as Normal only. Old local playtest achievement flags remain untouched but do not become verified Ironman/Steam achievements.
+
+Validate entire archive before mutating live state: versions, resource keys, duplicate keys, finite numbers, wall, training entries, continuation, identity and checksum. Write to same-folder temporary file, flush, and use File.Replace with backup. Error messages preserve the source file. Campaign snapshots own their event lists. Saves occur at stable resumable boundaries: action report -> next petition; completed event outcome -> next followup/Ottoman phase; committed assault report -> one turn advance. Never rerun a paid decision on reload.
+
+Ironman
+Mode is chosen before campaign creation, never switched on an existing Normal/legacy run. One rolling archive per campaign; recovery backup is not exposed as a selectable older slot. A locally known older sequence is rejected for Ironman. Portable offline files can still be deliberately modified or copied; do not claim anti-cheat. Ended Ironman campaigns remain accessible files but do not resume as playable saves. Preparation presets create Normal campaigns and are not created from Ironman progress.
+
+Steam integration boundary
+AchievementPlatform.Ids defines permanent API names corresponding one-to-one with the in-game catalogue. Do not rename these when prose changes. Achievements.Unlock owns the Ironman eligibility check; a single catalogue feeds local display and the future Steam adapter. IAchievementPlatform supplies Ready, IsUnlocked, SetAchievement and StoreStats. Register an adapter after Steam initialisation; Sync submits queued eligible local unlocks. ConfirmStored is called only after a successful Steam UserStatsStored_t callback. Offline or failed uploads stay pending. Normal campaigns do not add new earned flags, but previously earned account achievements may display in any mode.
+
+Current implementation contains no Steam SDK or AppID and has not connected to Steam. A fake adapter tests offline/retry/confirmation semantics. Future work: install the selected Unity Steamworks binding, configure the same API names and icons in Steam App Admin, implement startup/callback/shutdown ownership, register the adapter, sync Steam-earned status, and verify real offline/reconnect and Steam overlay behaviour in a Steam test build. No game-rule rewrite is needed.
+Official documentation checked22 October2026:
+https://partner.steamgames.com/doc/features/achievements
+https://partner.steamgames.com/doc/api/ISteamUserStats
+SetAchievement changes in-memory state; StoreStats uploads; confirmation arrives through UserStatsStored_t. Current ISteamUserStats documentation labels RequestCurrentStats deprecated; follow the installed SDK version rather than blindly implementing old startup examples. Cloud saves are a separate future task and are not implied by this achievement bridge.
+
+Technology images
+Integrated the 14-image v28.1 handoff after manifest SHA256 verification. Stable technology keys choose art; thumbnails fit the complete image and open enlarged views. Escape/click closes the enlargement before leaving the technology page. Only the technology method and preview hook were merged; unrelated council code retained. In-engine mapping and screen captures are required before claiming presentation verification.

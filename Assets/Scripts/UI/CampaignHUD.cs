@@ -142,6 +142,7 @@ public class CampaignHUD : MonoBehaviour
         if (reason == null) return;
 
         if(reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.") { PreparationCampaign.HonourVictory(); Achievements.Unlock(0); Achievements.Victory(); }
+        SaveGames.End("Campaign ended",reason+"\n\nSiege days survived: "+VariableSingleton.CompletedSiegeDays);
         ended = true;
 
         ShowModal("Campaign ended", reason + "\n\nSiege days survived: " + VariableSingleton.CompletedSiegeDays +
@@ -172,7 +173,7 @@ public class CampaignHUD : MonoBehaviour
 
         if (modal != null) { pausedReport = modal; pausedReport.SetActive(false); modal = null; }
 
-        ShowModal("Campaign menu", "Continue resumes from the start of your latest management turn.\nUnfinished choices this turn are not included in that checkpoint.", true);
+        ShowModal("Campaign menu", (SaveGames.Ironman?"Ironman · one rolling save. Completed decisions and turns are saved automatically. Achievements enabled.":"Normal campaign · named saves available at the council. Achievements disabled.")+"\nLocal archives: "+SaveGames.Root, true);
 
     }
 
@@ -244,16 +245,13 @@ public class CampaignHUD : MonoBehaviour
 
         if (resume) MakeButton(modal.transform, "Resume", new Vector2(.3f,.3f), new Vector2(.7f,.39f), TogglePause);
 
-        else MakeButton(modal.transform, "Start a new campaign", new Vector2(.3f,.3f), new Vector2(.7f,.39f), () => {
+        else MakeButton(modal.transform,"Start a new campaign",new Vector2(.3f,.3f),new Vector2(.7f,.39f),()=>SaveMenu.NewCampaign(canvas.transform));
 
-            VariableSingleton.ContinueRequested = false;
-
-            SceneManager.LoadScene("Continue Game");
-
-        });
-
-        if(resume) MakeButton(modal.transform,"Settings",new Vector2(.3f,.04f),new Vector2(.7f,.13f),()=>AudioSettingsUI.Show(canvas.transform));
-        MakeButton(modal.transform, "Return to main menu", new Vector2(.3f,.17f), new Vector2(.7f,.26f), () => SceneManager.LoadScene("Menu"));
+        if(resume){
+            MakeButton(modal.transform,"Save / load",new Vector2(.08f,.04f),new Vector2(.48f,.13f),()=>SaveMenu.Show(canvas.transform));
+            MakeButton(modal.transform,"Settings",new Vector2(.52f,.04f),new Vector2(.92f,.13f),()=>AudioSettingsUI.Show(canvas.transform));
+        }
+        MakeButton(modal.transform, "Return to main menu", new Vector2(.3f,.17f), new Vector2(.7f,.26f), () => {if(SaveGames.CanCheckpointCouncil)VariableSingleton.Instance.Save();SceneManager.LoadScene("Menu");});
 
     }
 

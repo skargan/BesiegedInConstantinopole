@@ -1,0 +1,9 @@
+VERSION 30: INDIVIDUAL POPULATION AND WORLD MAP
+
+iPopulation now stores individual residents. Starting population is 100,000. AddResidents and Change iPopulation both use people. All 12 legacy population commands in active Yarn story/recurring events were converted from thousands to individuals. Six existing AddResidents commands already used individuals and retain their amounts. Random refugee ranges now allow every individual count within the same endpoints. The event costing three days of provisions uses FoodNeed()*3, not raw population.
+
+Daily base food consumption rounds population to the nearest thousand, half up: 100,499 -> 100; 100,500 -> 101. No fractional food debt accumulates. Existing faction consumption modifiers apply afterwards. Provisions remain an undefined game quantity. Taxes retain three gold per thousand with fractional tax carry. Recruitment percentages use individual population.
+
+Campaign schema 2 stores people directly. Schema 1 loads as thousands*1000 + remainder, once, at the restore boundary. New saves carry schema 2, preventing double conversion. Envelope remains format 2; older Version 29 rejects unknown campaign schema 2. Source saves remain untouched when read. Original food carry is retired; tax carry is retained.
+
+Diplomacy offers Map of the world: Europe, c.1450. The supplied 15216.png is copied unchanged to Resources/UI/Maps/Europe1450.png. Preserve the World History Encyclopedia credit embedded in the source. This is historical reference, not a live diplomacy overlay. Fit / zoom / drag / Escape navigation. Review asset publication rights before a commercial release; user supplied image is integrated for the current playtest.

@@ -8,8 +8,8 @@ public static class Achievements
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if(!string.IsNullOrEmpty(VariableSingleton.TestSavePath))return;
 #endif
-        if(index<0 || index>=Names.Length || PlayerPrefs.GetInt("BesiegedAchievement"+index,0)==1)return;
-        PlayerPrefs.SetInt("BesiegedAchievement"+index,1);PlayerPrefs.Save();
+        if(index<0 || index>=Names.Length || !SaveGames.AchievementEligible)return;
+        AchievementPlatform.Unlock(index);
     }
     static int I(string key)=>DailyLifeEvents.I(key);
     public static void BeginCampaign() { VariableSingleton.SetInt("iAchievementRepairTracked",1); }
@@ -43,13 +43,13 @@ public static class Achievements
         CheckCampaign();
         var panel=CampaignHUD.Panel(parent,"Achievements",new Vector2(.02f,.02f),new Vector2(.98f,.98f));
         ImperialTheme.Panel(panel);panel.transform.SetAsLastSibling();
-        CampaignHUD.Label(panel.transform,"Achievements",new Vector2(.04f,.91f),new Vector2(.96f,.99f),33);
+        CampaignHUD.Label(panel.transform,"Achievements · Ironman campaigns only",new Vector2(.04f,.91f),new Vector2(.96f,.99f),33);
         var viewport=CampaignHUD.Panel(panel.transform,"Achievement list",new Vector2(.04f,.14f),new Vector2(.94f,.90f));viewport.AddComponent<RectMask2D>();
         var content=new GameObject("Achievement entries",typeof(RectTransform));content.transform.SetParent(viewport.transform,false);
         var r=content.GetComponent<RectTransform>();r.anchorMin=new Vector2(0,1);r.anchorMax=Vector2.one;r.pivot=new Vector2(.5f,1);r.sizeDelta=new Vector2(0,Names.Length*100);
         for(int i=0;i<Names.Length;i++) {
             float top=1f-(float)i/Names.Length, bottom=top-1f/Names.Length;
-            bool earned=PlayerPrefs.GetInt("BesiegedAchievement"+i,0)==1;
+            bool earned=AchievementPlatform.Earned(i);
             var colour=earned?new Color(.91f,.79f,.49f):new Color(.52f,.54f,.56f);
             var box=CampaignHUD.Panel(content.transform,"Checkbox "+i,new Vector2(.012f,bottom+.018f),new Vector2(.043f,top-.018f));
             box.GetComponent<Image>().color=colour;

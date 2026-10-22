@@ -84,6 +84,7 @@ public class AI: MonoBehaviour
         RecordEnemyLosses(r.EnemyDead,b.Type);VariableSingleton.ChangeFloat("fMoat",-.1f);
         VariableSingleton.ChangeBool("bSiegeTower",r.Tower);VariableSingleton.ChangeBool("bBatteringRam",r.Ram);
         if(!r.Held&&r.Health>0){VariableSingleton.Instance.EnduringWall.Abandon();VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));}
+        SaveGames.Checkpoint("advance",null,"Assault aftermath",r.Ledger);
         LastReport=r.Summary;AwaitingBreachDecision=false;assaultUI.SetAssaultResultButton(r.Held);
         assaultSystem.SetPhasedReport(r.Ledger,"Enemy dead: "+r.EnemyDead+"\nEnemy survivors: "+r.EnemySurvivors+"\nInfantry lost: "+(-r.InfantryDelta)+"\nArchers lost: "+(-r.ArcherDelta)+"\nCavalry lost: "+(-r.CavalryDelta)+"\nGuards lost: "+(-r.GuardDelta)+"\nAmmunition spent: "+r.AmmoSpent+"\n\n"+r.Summary);
     }

@@ -44,7 +44,7 @@ public static class TechnologySystem
 
         new Technology("Grapeshot","Anti-personnel cannon shot",2,"Cannon lethality increases by 250% (3.5 times the base).", "Gunners replace the heavy ball with smaller shot. At close range, each discharge will sweep the ground before the breach."),
 
-        new Technology("RomanTaxation","Emergency fiscal administration",3,"Daily siege income: 3 gold per population unit (1,000 residents).", "The treasury opens a new register. Collectors receive their districts, exemptions are reviewed and overdue revenues are called into the defence of the City."),
+        new Technology("RomanTaxation","Emergency fiscal administration",3,"Daily siege income: 3 gold per 1,000 residents; fractional revenue carries forward.", "The treasury opens a new register. Collectors receive their districts, exemptions are reviewed and overdue revenues are called into the defence of the City."),
 
         new Technology("RomanArchitecture","Defensive engineering",2,"All defensive lines gain +5 wall defence bonus.","Engineers walk the defensive lines with chalk and measuring cords. Reinforced approaches and new firing positions give the garrison better ground to hold."),
 

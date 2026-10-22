@@ -1,4 +1,4 @@
-﻿title: story0
+title: story0
 ---
 <<declare $chance = 100>>
 <b>Messenger arrives</b>: <br> A dusty messenger stumbles into your courtroom, clearly after riding many miles. Loukas Notaras, your megas doux and chief minister, takes the scroll from the messenger's shaking hand and unfolds it. You can see how the colour drains from the face of your trusted adviser. He reads it and you realise that peace has come to an end. Sultan Mehmed the Second, Lord of the Turks, Master of the Ottoman Empire, is gathering armies in the city of Adrianople. His criers are spreading the call of Jihad across Anatolia and the Balkans, his engineers are improving roads and bridges leading to Constantinople and there are rumours of massive cannons being forged. A massive army is being gathered and there can be only one target for it - the last piece of the Eastern Roman Empire, the Holy City of Constantinople, your home. Although you have suspected that this attack will come, you hoped for more time. But now, you realise that you have mere months to prepare. Notaras asks: 'Imperator, what shall be your orders? How do we prepare for this?' <br><br> <color=\#B8CFDA><i>\[This is an extremely important decision that will shape the rest of our preparations. Your Siege Focus unlocks special choices marked with its emblem. Choose carefully: this commitment will guide the campaign.\] This focus will unlock special decisions throughout the game.</i></color> 
@@ -121,14 +121,14 @@ title: story4
 <b>Hungry Mouths</b>: <br> As the rumours about the coming Turkish invasion spread, people from the countryside start trickling into the City. At first they come in small numbers, a family here or a merchant there, but soon whole villages start flocking towards the mirage of safety in the Capital. Loukas Notaras, your Mesazon, chief minister, comes to you with concern in his eyes, arguing that a decision needs to be taken as to what course of action should be taken regarding these refugees. As the Emperor, you have to consider a few factors. These are your subjects and as many of them as possible should be saved. However, Constantinople already houses {GetPopulation()} people, and all of them need to eat. Once the siege begins, the stores must feed everyone sheltered within the walls. Additional people will mean higher food consumption, but greater population will also provide more taxes, recruits and manpower for labour. This is one of the most important decisions to take before the siege.
 <color=\#B8CFDA><i>\[City's food supplies and basic necessities, or Provisions, are consumed by the population daily. Every 1,000 residents consume 1 unit of Provisions per day after the siege begins. For example, 87,000 residents consume 87 units of Provisions each day. When provisions run out, hunger brings urgent appeals to the council. Buy supplies, requisition private stores or bear the loss of morale. Provisions cost 2 gold each during preparations and 10 during the siege. Food planning is an essential part of siege strategy. However Population is not merely a burden, it also provides your recruitment pool, taxation base and can play an important role in some events. Also, these are your subjects and as their Imperator, you swore to protect them in front of the Almighty himself. Good luck!\]</i></color>
 -> The City is the final bastion of the Roman civilisation and everyone is welcome, open the gates!
-    <<RndChange iPopulation 20 50>>
+    <<RndChange iPopulation 20000 50000>>
     <<Change fPeopleRep 0.3>> 
     <<Change fNobleRep 0.05>> 
     <<Change fTroopRep 0.1>> 
     <<Change fPriestRep 0.1>>  
     Thousands upon thousands of people flock through the gate of St.Romanus. You come to inspect the crowds yourself and thousands of cheering, happy faces greet you. Everyone, even the nobles, feels that this is the right thing to do. For the time being you feel that you are doing your duty as the saviour of your people. What effect it will have, only time will tell. <br> <color=\#B8CFDA><i>\[Noble Support +5\]</i></color> <br> <color=\#B8CFDA><i>\[Priest Support +10\]</i></color> <br> <color=\#B8CFDA><i>\[Troop Morale +10\]</i></color> <br> <color=\#B8CFDA><i>\[Public Morale +30\]</i></color> <br> <color=\#B8CFDA><i>\[City Population is now {GetPopulation()} \]</i></color>
 -> We need to save the flower of the nation, but leave the peasants beyond the gate. Tax those who enter - everyone needs to contribute to the defence!
-    <<RndChange iPopulation 5 10>>
+    <<RndChange iPopulation 5000 10000>>
     <<Change fPeopleRep -0.1>>
     <<Change fNobleRep -0.1>> 
     <<Change fTroopRep -0.1>> 
@@ -144,7 +144,7 @@ title: story4
 -> <color=\#B8CFDA><i>\[Focus - Mobilisation\]</i></color> Allow everyone in, but press all the able bodied refugees to serve in our armed forces. Send the peasants to train with the spears and the hunters shall become archers. <<if GetInt("iFocus") == 1>> #focus:1
     Their quality is poor, but these men know that they owe their lives to you, they shall fight like beasts when the Turks come, so the morale of your army improves. You gain 2000 infantry and 500 archers. <br> <color=\#B8CFDA><i>\[Public Morale +20\]</i></color> <br> <color=\#B8CFDA><i>\[Troop Morale +10\]</i></color> <br> <color=\#B8CFDA><i>\[Infantry +2000\]</i></color> <br> <color=\#B8CFDA><i>\[Archers +500\]</i></color> 
     <<Change fPeopleRep 0.2>>
-    <<RndChange iPopulation 20 40>> //PROBLEM: post-choice display
+    <<RndChange iPopulation 20000 40000>> //PROBLEM: post-choice display
     <<Change iInfantry 2000>>
     <<Change iArchers 500>>
     <<Change fTroopRep 0.1>> 
@@ -152,10 +152,10 @@ title: story4
     <<Change fArchersQuality -0.2>> //PROBLEM: quality steps - REDUCTION
 -> <color=\#B8CFDA><i>\[Focus - Diplomacy and Spycraft\]</i></color> Order our agents to divert as many refugees away from the city by spreading rumours. <<if GetInt("iFocus") == 4 && GetInt("iMoney") >= 2500>> #focus:4
     The plan works, our agents manage to successfully divert the majority of the refugees away from Constantinople by spreading rumours among the refugees about the awful conditions in the City, while mentioning that Peloponnese is very nice this time of year and not as far as it seems, so they should consider going there instead. <br> <color=\#B8CFDA><i>\[Money -2500\]</i></color>
-    <<RndChange iPopulation 3 7>> //PROBLEM: post-choice display
+    <<RndChange iPopulation 3000 7000>> //PROBLEM: post-choice display
     <<Change iMoney -2500>> 
 -> <color=\#B8CFDA><i>\[Focus - Fortifications and Artillery\]</i></color> Let us turn this mass of people into a labour force to gather materials to better prepare for the siege. <<if GetInt("iFocus") == 0>> #focus:0
-    <<RndChange iPopulation 15 30>> //PROBLEM: post-choice display
+    <<RndChange iPopulation 15000 30000>> //PROBLEM: post-choice display
     <<RndChange iMaterials 600 1200>> //PROBLEM: post-choice display
     <<Change fPeopleRep -0.1>>
     Your taskmasters soon organise labour camps outside of the gate of St. Romanos where the refugees are used to cut down timber from the neighbouring Veligrádio forest. Anyone who wants to enter through the gate, must also bring some timber or stone from the local quarry. Not everyone is physically fit enough to participate in this labour and many thousands of refugees instead choose to depart elsewhere. The people feel that this is a harsh decision, but nobles, priests and soldiers understand that this is a necessary measure for the safety of the City. <br> <color=\#B8CFDA><i>\[Public Morale -10\]</i></color> <br> <color=\#B8CFDA><i>\[Materials are now {GetInt("iMaterials")} \]</i></color> <br> <color=\#B8CFDA><i>\[City Population is now {GetPopulation()} \]</i></color>   
@@ -258,7 +258,7 @@ title: story8
     <<Change iArchers 4000>>
     <<Change iCavalry 800>>
     <<Change fTroopRep 0.4>>
-    <<Change iPopulation 15>>
+    <<Change iPopulation 15000>>
     <<elseif $chance <= 80>> 
     While the Christian kingdoms are not yet ready to commit to a full crusade, many send their volunteers to help you. Venetian and Genoese mercenaries also soon arrive, bringing 600 infantry and 600 archers to support the defence of your city.
     <<Change iInfantry 600>>
@@ -275,7 +275,7 @@ title: story8
     <<Change iArchers 2500>>
     <<Change iCavalry 1200>>
     <<Change fTroopRep 0.5>>
-    <<Change iPopulation 15>>
+    <<Change iPopulation 15000>>
     <<elseif $chance <= 80>> 
     In our days, Orthodox realms are few and weak, and there is no will among them for a crusade, but some nonetheless answer the call. Georgian nobility sends 100 young knights and soon a ship of volunteers from Ruthenia arrives, adding another 400 infantry. Also 200 Armenian archers join your cause as well.
     <<Change iInfantry 400>>
@@ -731,7 +731,7 @@ title: story22
     <<Change iMoney 7500>>
 -> It is not for the speeches that we have gathered here! Let everyone feast and enjoy themselves for one last time before the siege begins! Let us celebrate, for tomorrow we may die!
     On your orders, the guards roll in barrels of wine and start handing out bread, while musicians strike up uplifting tunes. The priests are unhappy about their temple becoming a feast hall, but they cannot do anything. People who moments ago were sullen and concerned, soon relax, drink and laugh. You can only hope that this last proper feast will help them withstand the coming months of trials and deprivation.
-    <<Change iProvisions {-(GetInt("iPopulation")*3)}>>
+    <<Change iProvisions {-(FoodNeed()*3)}>>
     <<Change iMoney -2500>>
     <<Change fPeopleRep 0.2>>
     <<Change fNobleRep 0.2>> 
@@ -791,7 +791,7 @@ title: story24
 -> Open the gates: rescue 1,000–3,000 people, gain 5 troop morale points, lose 30 moat integrity points.
     The gates open under covering fire. Prisoners run towards the City while Ottoman archers shoot into the fleeing crowd. You bring survivors inside, but enemy labourers fill another stretch of the moat. Moat integrity -30 points.
     <<Change fTroopRep 0.05>>
-    <<RndChange iPopulation 1 3>>
+    <<RndChange iPopulation 1000 3000>>
     <<Change fMoat -0.3>>
 -> Emperor cannot abandon his people. Sally out!
     <<set $chance = dice(100)>>

@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+using UnityEditor;
 
 using UnityEditor.SceneManagement;
 
@@ -248,7 +248,7 @@ public static class ConfigurePlaytest
 
         PlayerSettings.defaultScreenHeight = 900;
 
-        PlayerSettings.fullScreenMode = FullScreenMode.Windowed;
+        PlayerSettings.fullScreenMode = FullScreenMode.FullScreenWindow;
 
         AssetDatabase.SaveAssets();
 
@@ -268,7 +268,7 @@ public static class ConfigurePlaytest
 
             scenes = new[] { "Assets/Scenes/Menu.unity", "Assets/Scenes/Continue Game.unity" },
 
-            locationPathName = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-disruption-build") >= 0 ? "Builds/Version-28/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-current-build") >= 0 ? "Builds/Windows-MidnightMosaic/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-military-build") >= 0 ? "Builds/Windows-MilitaryClarity/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-review-build") >= 0 ? "Builds/Windows-ActionReview/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-spy-build") >= 0 ? "Builds/Windows-Espionage/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-typography-build") >= 0
+            locationPathName = System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-disruption-build") >= 0 ? "Builds/Version-30/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-current-build") >= 0 ? "Builds/Windows-MidnightMosaic/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-military-build") >= 0 ? "Builds/Windows-MilitaryClarity/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-review-build") >= 0 ? "Builds/Windows-ActionReview/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-spy-build") >= 0 ? "Builds/Windows-Espionage/Besieged.exe" : System.Array.IndexOf(System.Environment.GetCommandLineArgs(), "-typography-build") >= 0
                 ? "Builds/Windows-Typography/Besieged.exe" : "Builds/Windows-MidnightMosaic/Besieged.exe",
 
             target = BuildTarget.StandaloneWindows64,

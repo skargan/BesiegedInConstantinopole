@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 28 · Architecture consolidation · 22 October 2026";
+    public const string BuildLabel="Version 30 · People and the wider world · 23 October 2026";
 
 
 
@@ -1069,7 +1069,7 @@ public partial class CouncilUI : MonoBehaviour
 
         Open("Diplomacy and court","Receive your advisers, send envoys abroad or exchange messages with the Sultan.");
 
-        var links=Row(0,255);
+        var links=Row(0,340);
 
         var incoming=new System.Collections.Generic.List<string>();
 
@@ -1079,19 +1079,20 @@ public partial class CouncilUI : MonoBehaviour
 
         float summaryHeight=System.Math.Max(130,70+incoming.Count*35);
 
-        var summary=Row(0,summaryHeight);var sr=summary.GetComponent<RectTransform>();sr.anchoredPosition+=new Vector2(0,-255);
+        var summary=Row(0,summaryHeight);var sr=summary.GetComponent<RectTransform>();sr.anchoredPosition+=new Vector2(0,-340);
 
-        BodyHeight(255+summaryHeight);
+        BodyHeight(340+summaryHeight);
 
         CampaignHUD.Label(summary.transform,incoming.Count==0?"No foreign expeditions are currently committed.":"Committed reinforcements\n"+string.Join("\n",incoming),new Vector2(.03f,.06f),new Vector2(.97f,.94f),25);
 
-        CampaignHUD.MakeButton(links.transform,"Diplomatic relations · "+CouncilActions.Allies.Length+" powers",new Vector2(.04f,.69f),new Vector2(.96f,.96f),DiplomaticRelations);
+        CampaignHUD.MakeButton(links.transform,"Diplomatic relations · "+CouncilActions.Allies.Length+" powers",new Vector2(.04f,.77f),new Vector2(.96f,.97f),DiplomaticRelations);
 
-        CampaignHUD.MakeButton(links.transform,"Negotiate with the Sultan",new Vector2(.04f,.37f),new Vector2(.96f,.64f),Sultan);
+        CampaignHUD.MakeButton(links.transform,"Negotiate with the Sultan",new Vector2(.04f,.53f),new Vector2(.96f,.73f),Sultan);
 
-        CampaignHUD.MakeButton(links.transform,"Court and characters",new Vector2(.04f,.05f),new Vector2(.48f,.32f),Court);
+        CampaignHUD.MakeButton(links.transform,"Court and characters",new Vector2(.04f,.29f),new Vector2(.48f,.49f),Court);
 
-        CampaignHUD.MakeButton(links.transform,"Galatan diplomacy",new Vector2(.52f,.05f),new Vector2(.96f,.32f),Galata);
+        CampaignHUD.MakeButton(links.transform,"Galatan diplomacy",new Vector2(.52f,.29f),new Vector2(.96f,.49f),Galata);
+        CampaignHUD.MakeButton(links.transform,"Map of the world · Europe, c. 1450",new Vector2(.04f,.05f),new Vector2(.96f,.25f),WorldMapUI.Show);
 
     }
 
@@ -1477,7 +1478,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        BodyHeight(TechnologySystem.All.Length*180);
+        BodyHeight(TechnologySystem.All.Length*240);
 
 
 
@@ -1489,22 +1490,24 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-            int choice=i;var technology=TechnologySystem.All[i];var row=Row(i,180);
+            int choice=i;var technology=TechnologySystem.All[i];var row=Row(i,240);
 
 
 
+            TechnologyArtwork.Attach(row.transform,technology.Key);
             bool active=VariableSingleton.GetBoolVariable(technology.Key);
 
 
 
-            CampaignHUD.Label(row.transform,technology.Name+(active?" — active":""),new Vector2(.02f,.72f),new Vector2(.72f,.98f),27);
+            CampaignHUD.Label(row.transform,technology.Name+(active?" — active":""),new Vector2(.255f,.72f),new Vector2(.72f,.98f),27);
 
 
 
-            CampaignHUD.Explanation(row.transform,technology.Effect+"\n<color=#B8CFDA><i>"+technology.History+"</i></color>",new Vector2(.02f,.05f),new Vector2(.72f,.70f),21);
+            var technologyDescription=CampaignHUD.Explanation(row.transform,technology.Effect+"\n<color=#B8CFDA><i>"+technology.History+"</i></color>",new Vector2(.255f,.05f),new Vector2(.72f,.70f),21);
 
 
 
+            technologyDescription.enableAutoSizing=true; technologyDescription.fontSizeMin=16; technologyDescription.fontSizeMax=21;
             var button=CampaignHUD.MakeButton(row.transform,active?"Active":technology.Cost+" secrets\nResearch",new Vector2(.76f,.18f),new Vector2(.98f,.82f),()=>{bool ok=TechnologySystem.Unlock(choice,out var report);Finish(ok,report);});
 
 
@@ -1617,7 +1620,7 @@ public partial class CouncilUI : MonoBehaviour
 
             long cost=SupplyEconomy.Cost(resource,purchaseAmounts[i]);
 
-            var buy=CampaignHUD.MakeButton(row.transform,"Buy\n"+cost.ToString("N0")+" gold",new Vector2(.71f,.17f),new Vector2(.97f,.83f),()=>{SupplyEconomy.Buy(resource,purchaseAmounts[index],out var report);Market();notice.text=report;});buy.interactable=cost<=CouncilActions.Int("iMoney");
+            var buy=CampaignHUD.MakeButton(row.transform,"Buy\n"+cost.ToString("N0")+" gold",new Vector2(.71f,.17f),new Vector2(.97f,.83f),()=>{if(SupplyEconomy.Buy(resource,purchaseAmounts[index],out var report))VariableSingleton.Instance.Save();Market();notice.text=report;});buy.interactable=cost<=CouncilActions.Int("iMoney");
 
         }
 

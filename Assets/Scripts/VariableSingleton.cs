@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -51,7 +51,7 @@ public class VariableSingleton : MonoBehaviour
     [SerializeField] int turnsToSiege;
 
     public static bool QuickStartRequested;
-    public static string PreparationPresetPath => SavePath + ".preparation";
+    public static string PreparationPresetPath => Path.Combine(SaveGames.Root,"preparation-preset-v1.json");
     public static bool HasPreparationPreset => File.Exists(PreparationPresetPath);
     public static int EffectiveSiegeTurn => PreparationCampaign.Active?PreparationCampaign.SiegeTurn:_instance.turnsToSiege;
     public static int CompletedSiegeDays => _instance == null ? 0 : Mathf.Max(0, turn - EffectiveSiegeTurn);
@@ -235,7 +235,7 @@ public class VariableSingleton : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             if (!string.IsNullOrEmpty(TestSavePath)) return TestSavePath;
 #endif
-            return Path.Combine(Application.persistentDataPath, "campaign-v1.json");
+            return SaveGames.CurrentPath;
         }
     }
 
@@ -337,7 +337,7 @@ public class VariableSingleton : MonoBehaviour
     [Serializable] public class FloatValue { public string key; public float value; }
     [Serializable] public class CampaignSave
     {
-        public int version = 1;
+        public int version = 2;
         public List<TrainingPool.Order> training = new List<TrainingPool.Order>();
         public int turn;
         public string wall;
@@ -350,17 +350,7 @@ public class VariableSingleton : MonoBehaviour
         public List<FloatValue> floats = new List<FloatValue>();
     }
 
-    public static bool HasSave()
-    {
-        try
-        {
-            if (!File.Exists(SavePath)) return false;
-            var data = JsonUtility.FromJson<CampaignSave>(File.ReadAllText(SavePath));
-            return data != null && data.version == 1 && data.ints != null &&
-                data.ints.Count > 0 && data.wall != null;
-        }
-        catch (Exception) { return false; }
-    }
+    public static bool HasSave(){try {return SaveGames.LatestPath()!=null;}catch(Exception){return false;}}
 
     // Checkpoints are made at the start of management, never halfway through an event.
     public CampaignSave CaptureState()
@@ -368,7 +358,7 @@ public class VariableSingleton : MonoBehaviour
         var data = new CampaignSave {
             turn = turn, wall = EnduringWall.GetCodeName(), cityLost = EnduringWall.CityLost,
             randomState = UnityEngine.Random.state,
-            story = possibleStory, randomEvents = possibleRandom
+            story = new List<int>(possibleStory), randomEvents = new List<int>(possibleRandom)
         };
         foreach(var order in TrainingOrders) data.training.Add(order.Copy());
         foreach (var pair in bDict) data.bools.Add(new BoolValue { key = pair.Key, value = pair.Value });
@@ -377,23 +367,14 @@ public class VariableSingleton : MonoBehaviour
         return data;
     }
 
-    public string Save()
-    {
-        string json = JsonUtility.ToJson(CaptureState(), true);
-        Directory.CreateDirectory(Application.persistentDataPath);
-        File.WriteAllText(SavePath + ".tmp", json);
-        if (File.Exists(SavePath)) File.Copy(SavePath, SavePath + ".bak", true);
-        File.Copy(SavePath + ".tmp", SavePath, true);
-        if(turn == EffectiveSiegeTurn) File.WriteAllText(PreparationPresetPath, json);
-        LastCheckpointTurn = turn;
+    public string Save(){
+        if(!SaveGames.Checkpoint())return "";
+        string json=JsonUtility.ToJson(CaptureState(),true);
+        if(!SaveGames.Ironman&&turn==EffectiveSiegeTurn)SaveGames.AtomicWrite(PreparationPresetPath,json);
         return json;
     }
-
-    public void Load()
-    {
-        if (!HasSave()) return;
-        RestoreState(JsonUtility.FromJson<CampaignSave>(File.ReadAllText(SavePath)));
-    }
+    public void Load(){string path=SaveGames.RequestedFile??SaveGames.LatestPath();if(path!=null)SaveGames.Load(path,out var error);}
+    public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
         DefencePosture.Initialise();
@@ -412,6 +393,9 @@ public class VariableSingleton : MonoBehaviour
         if(!data.ints.Any(p=>p.key=="iTurkShips")) iDict["iTurkShips"]=bDict["bTurkFleet"]?NavalState.StartingShips:0;
         iDict["iCampAlert"] = 0; // Saves from before the alert system start at zero.
         foreach (var pair in data.ints) iDict[pair.key] = pair.value;
+        iDict["iPopulation"] = checked((int)PopulationAccounting.Count(data));
+        iDict.Remove("iPopulationRemainder");
+        iDict.Remove("iPopulationFoodCarry");
         iDict["iCampAlert"] = Mathf.Clamp(iDict["iCampAlert"],0,100);
         foreach (var pair in data.floats) fDict[pair.key] = pair.key.EndsWith("Quality")?Mathf.Max(0,pair.value):Mathf.Clamp01(pair.value);
         possibleStory = data.story ?? possibleStory;
@@ -422,6 +406,7 @@ public class VariableSingleton : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        SaveGames.BeginNew();
         InitializeVariables();
         if (QuickStartRequested && HasPreparationPreset)
             RestoreState(JsonUtility.FromJson<CampaignSave>(File.ReadAllText(PreparationPresetPath)));

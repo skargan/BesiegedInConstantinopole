@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using System.Linq;
 
@@ -75,7 +75,7 @@ public static class EventOutcome
             if(v.key=="iReligion") {report.AppendLine("Religious policy: "+new[]{"Orthodoxy retained","Full Union","Partial Union"}[Mathf.Clamp(v.value,0,2)]);continue;}
 
             if(v.key=="iHarvestDay") {report.AppendLine(v.value==0?"The garden harvest has been collected.":"First garden harvest expected "+new System.DateTime((long)v.value*System.TimeSpan.TicksPerDay).ToString("d MMM yyyy")+".");continue;}
-            long factor=v.key=="iPopulation" ? 1000 : 1;
+            long factor=1;
 
             long change=(v.value-(long)old)*factor;
 

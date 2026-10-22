@@ -93,6 +93,7 @@ public class AssaultUI : UIWindowFam
         assaultAftermathMessage.SetActive(false);
         procedeToAssaultResult.gameObject.SetActive(true);
         AI.Instance.TakeAIAction();
+        if(!AI.Instance.HasPendingPhased&&!AI.Instance.AwaitingBreachDecision)SaveGames.Checkpoint("advance",null,"Ottoman siege activity",AI.Instance.LastReport);
         RefreshReport();
     }
 }

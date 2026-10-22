@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
@@ -32,8 +32,8 @@ public class Settings : MonoBehaviour
         MusicVolume=PlayerPrefs.GetFloat("Besieged.MusicVolume",MusicVolume);
         // Explicit capture/window arguments take precedence over saved display preferences.
         var args=System.Environment.GetCommandLineArgs();
-        if(!args.Contains("-besieged-capture")&&!args.Contains("-screen-fullscreen")&&PlayerPrefs.HasKey("Besieged.Fullscreen"))
-            Screen.fullScreenMode=PlayerPrefs.GetInt("Besieged.Fullscreen")==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
+        if(!args.Contains("-besieged-capture")&&!args.Contains("-screen-fullscreen"))
+            Screen.fullScreenMode=PlayerPrefs.GetInt("Besieged.Fullscreen",1)==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += ConnectSettings;
     }

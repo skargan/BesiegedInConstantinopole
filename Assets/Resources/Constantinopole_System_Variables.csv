@@ -1,4 +1,4 @@
-﻿fHealth,1
+fHealth,1
 fMoat,1
 fOuterWall,0.8
 fMiddleWall,0.2
@@ -8,7 +8,7 @@ fTroopRep,0.5
 fPriestRep,0.55
 fPeopleRep,0.5
 fGalataRep,0.75
-iPopulation,100
+iPopulation,100000
 iMaterials,1000
 iMoney,100000
 iAmmunition,20

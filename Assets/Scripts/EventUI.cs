@@ -14,9 +14,10 @@ public class EventUI : UIWindowFam
     private string decision="";
     private string narrative="";
     private bool chose;
+    private bool resumed;
     public void BeginEvent(string node)
     {
-        Node=node;
+        resumed=false;Node=node;
         before=VariableSingleton.Instance.CaptureState();completed=false;title="Council decision";decision="";narrative="";chose=false;
     }
     public void ObserveLine(string text)
@@ -33,8 +34,11 @@ public class EventUI : UIWindowFam
         completed=true;
         PreparationCampaign.Complete(Node);
         string changes=EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState());
-        CampaignHUD.Instance.ShowReport(title+" — outcome",(decision.Length>0 ? "<i>"+decision+"</i>\n\n" : "")+(narrative.Length>0 ? narrative+"\n\n" : "")+changes,ContinueToAssault);
+        string body=(decision.Length>0?"<i>"+decision+"</i>\n\n":"")+(narrative.Length>0?narrative+"\n\n":"")+changes;
+        SaveGames.Checkpoint("event",Node,title+" — outcome",body);
+        CampaignHUD.Instance.ShowReport(title+" — outcome",body,ContinueToAssault);
     }
+    public void ResumeCheckpoint(string node,string heading,string body){Node=node;completed=true;resumed=true;CampaignHUD.Instance.ShowReport(heading,body,ContinueToAssault);}
     public void ContinueToAssault()
     {
         var runner=GetComponentInChildren<DialogueRunner>(true);
@@ -48,7 +52,7 @@ public class EventUI : UIWindowFam
         CampaignHUD.Instance.CheckEnding();
         if(CampaignHUD.Instance.HasModal) return;
         string followup=PreparationCampaign.Followup(Node) ?? SupplyEconomy.PendingNode ?? PoliticalDemands.PendingNode ?? SultanGifts.PendingNode;
-        if(followup!=null && runner!=null) {BeginEvent(followup);runner.StartDialogue(followup);return;}
+        if(followup!=null && runner!=null) {if(resumed){resumed=false;SetStartNode(followup);gameObject.SetActive(true);}else{BeginEvent(followup);runner.StartDialogue(followup);}return;}
         if(VariableSingleton.HasSiegeStarted()) SwitchPhase(assaultUI);
         else {VariableSingleton.IncrementTurn();SwitchPhase(managerUI);}
     }

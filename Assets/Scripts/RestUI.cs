@@ -14,6 +14,7 @@ public class RestUI : UIWindowFam
     private GameObject resultPanel;
     private void OnEnable()
     {
+        SaveGames.Checkpoint("action",null,"Order carried out",ActionResults.Instance.GetActionText());
         // Hide the legacy illustration, report and unbound 100% placeholder.
         foreach(Transform child in transform) child.gameObject.SetActive(false);
         if(resultPanel!=null) Destroy(resultPanel);

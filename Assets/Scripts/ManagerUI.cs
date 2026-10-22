@@ -159,7 +159,7 @@ public class ManagerUI : UIWindowFam
         date.text = VariableSingleton.GetDate().ToString("d MMM yyyy");
         if (VariableSingleton.IsInitialized)
         {
-            if (VariableSingleton.LastCheckpointTurn != VariableSingleton.Turn) VariableSingleton.Instance.Save();
+            if (SaveGames.PendingResume==null && !AssaultPractice.Active && string.IsNullOrEmpty(SaveGames.LastError)) VariableSingleton.Instance.Save();
             if (CampaignHUD.Instance != null)
             {
                 CampaignHUD.Instance.CheckEnding();

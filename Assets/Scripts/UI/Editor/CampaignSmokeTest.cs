@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -74,7 +74,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         Check(VariableSingleton.Turn == 0, "New game resets turn");
         Check(Find<DialogueRunner>().yarnProject.NodeNames.Contains("story0"), "Story project contains opening event");
         Check(VariableSingleton.GetIntVariable("iMoney") == 100000, "New game loads resources");
-        Check(VariableSingleton.GetIntVariable("iPopulation") == 100, "Population represents 100,000 residents");
+        Check(VariableSingleton.GetIntVariable("iPopulation") == 100000, "Population represents 100,000 residents");
         Check(VariableSingleton.HasSave(), "Management checkpoint written");
         VariableSingleton.ChangeInt("iMoney", -123);
         VariableSingleton.Instance.Load();
@@ -311,7 +311,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         yield return EventChoice("story5","every blade");
         Check(VariableSingleton.GetIntVariable("iInfantry")==3500 && VariableSingleton.GetIntVariable("iArchers")==2200,"Genoese acceptance adds 500 infantry and 200 archers");
         var beforePopulation=VariableSingleton.Instance.CaptureState();
-        VariableSingleton.ChangeInt("iPopulation",9);
+        VariableSingleton.ChangeInt("iPopulation",9000);
         var populationReport=EventOutcome.Describe(beforePopulation,VariableSingleton.Instance.CaptureState());
         Check(populationReport.Contains("9,000") && populationReport.Contains("109,000"),"Population report shows delta and total in people");
 
@@ -326,7 +326,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         yield return EventChoice("story21","Receive him courteously");
         Check(CampaignHUD.Instance.HasModal,"Envoy intelligence choice produces an outcome");
         yield return EventChoice("story24","Open the gates");
-        Check(CouncilActions.Int("iPopulation")>=101 && CouncilActions.Int("iPopulation")<=103,"Opening gates saves 1000 to 3000 people");
+        Check(CouncilActions.Int("iPopulation")>=101000 && CouncilActions.Int("iPopulation")<=103000,"Opening gates saves 1000 to 3000 people");
         Check(Mathf.Abs(VariableSingleton.GetFloatVariable("fMoat")-.7f)<.001f,"Opening gates costs 30 moat points");
 
         VariableSingleton.ContinueRequested=false;SceneManager.LoadScene("Continue Game");yield return Frames(10);
@@ -381,7 +381,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         Check(TechnologySystem.CounterBattery(out technologyReport) && CouncilActions.Int("iAmmunition")==oldAmmo-3 && CouncilActions.Int("iTurkCannons")<oldCannons,"Counterbattery spends ammunition and destroys actual cannons");
         VariableSingleton.ChangeBool("bTechRomanTaxation",true);int treasuryBefore=CouncilActions.Int("iMoney");
         VariableSingleton.IncrementTurn();
-        Check(CouncilActions.Int("iMoney")==treasuryBefore+CouncilActions.Int("iPopulation")*3,"Taxation adds one daily siege income");
+        Check(CouncilActions.Int("iMoney")==treasuryBefore+CouncilActions.Int("iPopulation")*3/1000,"Taxation adds one daily siege income");
         yield return EventChoice("story7","Sell the collection");
         Check(VariableSingleton.GetBoolVariable("bCharDiplomat4"),"Wardrobe audience introduces Sphrantzes to court");
 

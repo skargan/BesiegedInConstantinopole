@@ -23,10 +23,12 @@ public static class DailyLifeEvents
 }
 public static class PopulationAccounting
 {
-    public static long People=>DailyLifeEvents.I("iPopulation")*1000L+DailyLifeEvents.I("iPopulationRemainder");
-    [YarnCommand("AddResidents")] public static void Add(int people){long total=System.Math.Max(0,People+people);VariableSingleton.SetInt("iPopulation",(int)(total/1000));VariableSingleton.SetInt("iPopulationRemainder",(int)(total%1000));}
-    public static int Food(bool advance){int thousandths=DailyLifeEvents.I("iPopulationRemainder")+DailyLifeEvents.I("iPopulationFoodCarry");if(advance)VariableSingleton.SetInt("iPopulationFoodCarry",thousandths%1000);return DailyLifeEvents.I("iPopulation")+thousandths/1000;}
-    public static int Tax(){int fraction=DailyLifeEvents.I("iPopulationRemainder")*3+DailyLifeEvents.I("iPopulationTaxCarry");VariableSingleton.SetInt("iPopulationTaxCarry",fraction%1000);return DailyLifeEvents.I("iPopulation")*3+fraction/1000;}
-    public static string Report(VariableSingleton.CampaignSave before,VariableSingleton.CampaignSave after){long a=Count(before),b=Count(after);int ma=before.ints.FirstOrDefault(v=>v.key=="iMerchantFavor")?.value??50,mb=after.ints.FirstOrDefault(v=>v.key=="iMerchantFavor")?.value??50;return(a==b?"":"City population: "+(b>a?"+":"")+(b-a).ToString("N0")+" → now "+b.ToString("N0")+"\n")+(ma==mb?"":"Merchant favour: "+(mb>ma?"+":"")+(mb-ma)+" → now "+mb+"\n");}
-    static long Count(VariableSingleton.CampaignSave s)=>(s.ints.FirstOrDefault(v=>v.key=="iPopulation")?.value??0)*1000L+(s.ints.FirstOrDefault(v=>v.key=="iPopulationRemainder")?.value??0);
+    public static long People=>DailyLifeEvents.I("iPopulation");
+    [YarnCommand("AddResidents")] public static void Add(int people)=>VariableSingleton.SetInt("iPopulation",(int)System.Math.Min(int.MaxValue,System.Math.Max(0,People+people)));
+    public static int RoundedFood(long people)=>(int)((System.Math.Max(0,people)+500)/1000);
+    public static int Food(bool advance)=>RoundedFood(People);
+    // Preserve the existing three-gold-per-thousand tax rate and fractional carry.
+    public static int Tax(){long amount=People*3+DailyLifeEvents.I("iPopulationTaxCarry");VariableSingleton.SetInt("iPopulationTaxCarry",(int)(amount%1000));return (int)(amount/1000);}
+    public static long Count(VariableSingleton.CampaignSave s){long population=s.ints.FirstOrDefault(v=>v!=null&&v.key=="iPopulation")?.value??0;return s.version<2?population*1000+(s.ints.FirstOrDefault(v=>v!=null&&v.key=="iPopulationRemainder")?.value??0):population;}
+    public static string Report(VariableSingleton.CampaignSave before,VariableSingleton.CampaignSave after){long a=Count(before),b=Count(after);int ma=before.ints.FirstOrDefault(v=>v!=null&&v.key=="iMerchantFavor")?.value??50,mb=after.ints.FirstOrDefault(v=>v!=null&&v.key=="iMerchantFavor")?.value??50;return(a==b?"":"City population: "+(b>a?"+":"")+(b-a).ToString("N0")+" → now "+b.ToString("N0")+"\n")+(ma==mb?"":"Merchant favour: "+(mb>ma?"+":"")+(mb-ma)+" → now "+mb+"\n");}
 }

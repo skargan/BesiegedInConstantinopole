@@ -2,7 +2,7 @@
 using TMPro;
 public static class AssaultPractice {
  static AssaultPractice(){UnityEngine.SceneManagement.SceneManager.sceneUnloaded+=scene=>{practising=false;manager=null;council=null;};}
- static ManagerUI manager;static CouncilUI council;static bool practising;static UnityEngine.Random.State savedRandom;public static int ForcedIncident=-1;
+ static ManagerUI manager;static CouncilUI council;static bool practising;static UnityEngine.Random.State savedRandom;public static int ForcedIncident=-1;public static bool Active=>practising;
  public static void Show(ManagerUI owner){if(!practising){savedRandom=UnityEngine.Random.state;practising=true;}manager=owner;council=CouncilUI.For(owner);council.AssaultPracticeMenu();}
  public static void Launch(int kind){
   council.Hide();manager.gameObject.SetActive(false);string condition=ForcedIncident>=0?AssaultIncidents.All[ForcedIncident].Condition:"";var random=new System.Random();var b=new PhasedAssault(random.Next());
