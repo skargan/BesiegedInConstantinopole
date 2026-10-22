@@ -1,0 +1,20 @@
+MAP OF THE CITY - INTEGRATION
+
+Open Map of the City from the title menu to browse, or from the Imperial Council during a campaign to inspect and repair defences.
+
+The supplied image is preserved unchanged. Four painted hover regions use gold outlines; the two western ramparts lead to the same Theodosian Wall inspector. The middle and eastern defensive lines lead to the Constantinian and Severan Wall inspectors. These labels map to the game's existing three defensive layers, rather than claiming this illustration is an archaeological reconstruction.
+
+Campaign selection uses the existing DefenseActions inspector. Repair prices, improvement, affordability checks and major-action costs remain governed by the existing game rules. Browsing the title-menu map does not initialise or alter a campaign. Return leads back to the originating menu or map.
+
+Source image: ChatGPT Image Oct 22, 2026, 02_18_43 AM.png, supplied by Dainius.
+Runtime asset: Assets/Resources/UI/MidnightMosaic/Locations/city-map.png
+Implementation: CityMapView.cs; narrow navigation additions in MainMenuUI.cs, CouncilUI.cs and ManagerUI.cs.
+
+VALIDATION
+Unity Windows build succeeded. 28 exported-player checks passed: both entry points, original art, four hover regions, three wall selections, inspector return, no browsing cost, resize behaviour, full-wall and insufficient-gold guards, and an actual repair spending gold and completing the normal major action.
+Captured screens visually reviewed at 1600 x 900: title and council entries, map, gold wall traces and repair inspector.
+Development verification: CityMapCapture.cs, enabled only by -city-map-capture in a development build. Build helper: BuildCityMapPreview.Build.
+
+PLAYABLE PREVIEW
+Builds/CityMapPreview/Besieged.exe
+The numbered release and desktop shortcut are managed separately by the release developer. The presence of this source and preview does not establish inclusion in a numbered release.

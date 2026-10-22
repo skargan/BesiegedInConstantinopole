@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 
 
@@ -190,11 +190,11 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest · major action\nThen hear petitions","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
+        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest · major action\nThen hear petitions","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market","Map of the City"};
 
 
 
-        UnityEngine.Events.UnityAction[] actions={Overview,manager.BringUpTroopsUI,Fleet,Spies,Palace,manager.ContinueToRest,manager.BringUpSiegeUI,Factions,Diplomacy,Technologies,Market};
+        UnityEngine.Events.UnityAction[] actions={Overview,manager.BringUpTroopsUI,Fleet,Spies,Palace,manager.ContinueToRest,manager.BringUpSiegeUI,Factions,Diplomacy,Technologies,Market,()=>CityMapView.Show(manager.transform.root,manager,manager.gameObject)};
 
 
 
@@ -219,6 +219,7 @@ public partial class CouncilUI : MonoBehaviour
             var caption=button.GetComponentInChildren<TMP_Text>();caption.rectTransform.anchorMin=new Vector2(.23f,.03f);caption.rectTransform.anchorMax=new Vector2(.96f,.97f);
 
             if(i==5) button.name="ButtonToContinue";
+            if(i==11){button.name="City map navigation";caption.rectTransform.anchorMin=new Vector2(.04f,.03f);}
 
 
 
