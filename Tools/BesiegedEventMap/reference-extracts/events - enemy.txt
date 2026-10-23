@@ -1,0 +1,195 @@
+1: Enemy events (as per Decision matrix): 9
+2: Writen events: 9Coded events: 0Tested events: 0
+4: Event name
+5: Code
+6: Status (written/coded)
+7: Notes
+8: 1
+9: Ottomans try to fill the Moat
+10: enemy0
+11: Written
+12: Float value decrease
+13: 2
+14: Ottomans construct a Siege Tower
+15: enemy1
+16: Written
+17: Bool value change
+18: 3
+19: Ottomans construct a Battering Ram
+20: enemy2
+21: Written
+22: Bool value change
+23: 4
+24: Ottomans construct a Siege Ramp
+25: enemy3
+26: Written
+27: Float value increase
+28: 5
+29: Ottomans bring additional cannons
+30: enemy4
+31: Written
+32: Integ value increase
+33: 6
+34: Ottomans bombard the walls
+35: enemy5
+36: Written
+37: Float value decrease
+38: 7
+39: Ottomans launch a Balkan Subject Assault!
+40: enemy6
+41: Written
+42: Assault type 1
+43: 8
+44: Ottomans launch a Bashi-Bazouk Irregular Assault!
+45: enemy7
+46: Written
+47: Assault type 2
+48: 9
+49: Ottomans launch a Janissary Assault!
+50: enemy8
+51: Written
+52: Assault type 3
+59: title: enemy0
+60: ---
+61: </b> Ottomans try to fill the Moat </b> 
+62: The moat protecting the Theodosian Walls is a serious issue for the Ottoman war machine and they have to deal with it before they can hope to breach the walls themselves. <br>
+63: Turkish engineers are brilliant in their craft and soon devise a plan on how to fill the moat. They bring forth massive wheeled palisades, which are used to shield their soldiers from the arrows of your archers. These structures are wheeled close to the edge of the moat with careful precision. Within the protection of the palisades, Ottoman soldiers toil relentlessly to deliver soil, rocks, and debris into the moat, forming long human chains, passing basket after basket of dirt into the moat. <br>
+64: Your troops don’t stand still – the marksmen pick off any labourer or engineer who unwisely pokes his head outside of the protection, while your cannons, although few in number, destroy some of the palisades and kill those who tried to hide behind them. However, bodies of the dead also soon end up as part of the material used to fill the moat. <br>
+65: However despite all of this, at the end of the day, the moat is more full than it was in the morning and the Turks are one step closer to getting into your City.
+66: ###
+67: Moat remains X% effective.
+68: ===
+69: ///
+70: title: enemy1
+71: ---
+72: </b> Ottomans construct a Siege Tower </b> 
+73: The Ottoman forces, relentless in their pursuit of Constantinople's conquest, embark on the construction of a colossal siege tower — a towering behemoth designed to pierce the city's defenses. <br>
+74: Rising amidst the Ottoman encampment, the siege tower becomes a looming symbol of their determination. Crafted from thick wooden planks, reinforced with metal, and adorned with protective coverings of animal skins to protect it from fire, this war machine represents a clear threat to the City's walls. <br>
+75: Skilled Turkish engineers and artisans toil ceaselessly, assembling the intricate components of the siege tower with meticulous precision. As the tower takes shape, you can see that its sturdy base sits on sixteen massive wheels and supports a platform large enough to carry an infantry contingent. At the top of the tower there is a shield-bridge to protect the soldiers from the arrows while approaching the city and then to act as a bridge and allow the attackers to cross the gap between the siege tower and the battlements. Ladders are attached to its sides, offering a means for Ottoman soldiers to quickly swarm over the city walls once the tower reaches its destination. <br>
+76: As the Ottoman siege tower reaches completion, it is clear that it will be used in the next assault and that we should be ready for it. <br>
+77: ###
+78: Ottomans now have a Siege Tower.
+79: ===
+80: ///
+81: title: enemy2
+82: ---
+83: </b> Ottomans construct a Battering Ram </b> 
+85: You notice a serious commotion in the centre of the Ottoman camp. Their engineers and artisans are clearly busy with some sinister project, so you order your troops to watch out. Soon, a colossal structure takes form in the besieging camp — a battering ram, a formidable siege instrument designed to smash the gates of Constantine’s City to pieces. <br>
+86: Turks have used a giant thousand-year-old oak for its basis and then reinforced it with layers of metal and planks. Skilled craftsmen labor tirelessly, fashioning the ram's head into a menacing shape, a prelude to the impending assault on the city's formidable gates. <br>
+87: The battering ram is housed within a palisade structure which will protect the soldiers pushing it forward and the large wheels will provide mobility, allowing it to be maneuvered to the Gates of St Romanus. <br>
+88: Some ask why Ottomans don’t simply rely on their cannons to break down the gates, it is clear that they cannot ensure necessary accuracy over such distances, as our brave archers and counter-cannons will not allow the enemy to approach close enough and give them enough time to break down our gates using gunpowder. In contrast to the artillery, the battering ram is a focused weapon, designed for a singular purpose — to deliver blunt force upon the city gates, powered by muscles and determination of the soldiers who will bring it forth. <br>
+89: The air is charged with an aura of impending conflict as the battering ram nears completion. Ottoman soldiers are clearly eager to make use of it in the coming assault and we must be ready for it. 
+92: ###
+93: Ottomans now have a Battering Ram.
+94: ===
+95: ///
+97: title: enemy3
+98: ---
+99: </b> Ottomans construct a Siege Ramp</b> 
+100: The Ottoman forces introduce a new element into their siege tactics — the construction of a siege ramp. Rising gradually from the besieging camp, this massive earthwork will soon become a road that leads to the very top of the walls defending Constantinople. <br>
+101: Crafted from a structure of wooden supports, compacted earth, and reinforced with layers of bricks and stones, the siege ramp takes shape. Ottoman engineers, skilled in the arts of siege warfare, oversee the construction with meticulous precision, ensuring the ramp's stability and gradual ascent. <br>
+102: Unlike other siege devices, the ramp is a gradual incline that aims to provide a direct pathway over the city walls. Once it reaches a height sufficient to challenge the fortifications, Ottoman soldiers will be able to simply walk up to the top of the walls. Its greatest strength is that once the ramp is already built, destroying it is very complicated and it will support every subsequent attack. <br>
+103: We should prepare to deal with waves of enemies that it will surely bring to our doorstep. <br>
+106: ###
+107: Ottomans now have Siege Ramp (% complete).
+108: ===
+109: ///
+113: title: enemy4
+114: ---
+115: </b> Ottomans bring additional cannons </b> 
+116: As the siege of Constantinople escalates, the Ottoman forces, recognizing the necessity for an intensified assault, decide to bolster their artillery capabilities and deploy additional cannons. In a meticulously orchestrated operation, engineers and laborers are mobilized to transport a formidable array of additional cannons to the front lines. <br>
+117: Teams of oxen and masses of slaves strain against the weight of the newly forged cannons, navigating treacherous terrain to position them strategically along the perimeter facing Constantinople's formidable walls. Ottoman soldiers, hardened in many previous sieges, work in unison to hoist the cannons into position, securing them for the impending bombardment. <br>
+118: As the sun dips below the horizon, the additional cannons stand ready to unleash their deadly fire on the walls of your City. Ottoman commanders, observing the preparations with satisfaction, raise flags to signal that one more artillery battery is ready. Soon, these guns will support a new assault and you have to be ready for it. <br>
+119: ###
+120: Ottomans have brought [[+X]] guns. Now they have [[Y]] guns ready for their next bombardment.
+122: ===
+124: title: enemy5
+125: ---
+126: </b> Ottomans bombard the walls </b> 
+127: The Ottoman forces unleash a relentless barrage of cannon fire on Constantinople's walls. Deafening explosions echo through the air as stone crumbles under the impact. Dust clouds rise, obscuring the defenders' view and causing panic within the besieged city.
+128: Ottoman artillery, strategically positioned, unleashes a barrage that targets the weakest sections of the walls, corners of the towers and cracks in the battlements, where they hope that damage will be the greatest.
+129: The defenders atop the battlements scramble to respond, their ears filled with the deafening roar of exploding mortar shells. The once formidable walls, weathered by the trials of siege, shudder under the impact of each cannonball, sending cascades of stone and debris into the moat below.
+130: As the bombardment continues, the fate of Constantinople hangs in the balance, with the once-proud walls now bearing the scars of a formidable siege.
+131: ###
+132: Ottomans have used  [[Z – turk cannons] to destroy [[X%]] of the [[name - current walls]] walls. Now our walls maintain [[Y%]] integrity.
+134: ===
+136: title: enemy6
+137: ---
+138: </b> Ottomans launch a Balkan Subject Assault! </b> 
+139: Hundred battle horns sound and the air is filled with battle drums, as the Sultan orders his Balkan subjects, Christians living under the boot of the Turk, to charge. Serbs, Bulgars, Albanians, Wallachians, Greeks and many more nationalities live in the territories conquered by the Ottoman empire of the past century and they are obliged to serve their harsh masters. Sultan knows that these men serve him only because they are forced to and their battle morale is low, so he doesn’t spare them and will use them as cannon fodder to soften our defences before sending his more formidable troops.
+140: As Balkan subjects surge towards your walls, their orders are clear – fight or your families back home will pay the ultimate price. As their ladders start to scale our battlements, it is quite surreal to hear them pray in Greek or Slavic languages. Our archers pray too, asking forgiveness for killing their brothers in Christ who through cruel twist of faith ended up on the other side of the battlefield. But killed they must be for our City to stand and this is where our Latin mercenaries prove their usefulness, as they are much less bothered about fighting other Orthodox believers. 
+141: Bloody battle ensues, Christians killing Christians, as it has unfortunately happened so often in history.
+142: ###
+143: Assault Outcome:- Ottomans generated X Assault Value- Defenders generated Y Defence Value- XXX Balkan Subjects attacked- XXX Balkan Subjects died- XXX defending [troop type] died ((and XXX defending [troop type] died))
+144: [Assault was SUCCESSFUL///UNSUCCESSFUL]If successful -> open Deploy Varangians option
+146: ===
+147: title: enemy7
+148: ---
+150: </b> Ottomans launch a Minor Assault! </b> 
+151: This time the Sultan sends his Bashi-Bazouks, irregulars from the fringes of the Ottoman Empire, forces drawn from diverse backgrounds, united under the banner of Jihad for the great siege.  
+152: The name of these troops literally means “crazy heads”, they are not part of a standing army and usually tend to be bandits, caravan guards, mercenaries or anything in between during the times of peace. However, when a Sultan announces a war, they come in thousands to support him and in hopes of getting rich. They have a reputation for being undisciplined and brutal, notorious for looting and preying on civilians as a result of a lack of regulation and of the expectation that they would support themselves off the land.
+153: The rhythmic tramp of boots echoes through the Ottoman camp as Bashi-Bazouks, seasoned in various wars, start organising themselves for the impending assault. The air is charged with a palpable anticipation as their chieftains deliver stirring speeches, invoking Jihad, promise of paradise and if they are lucky - the riches to be plundered within the legendary city.
+154: The Bashi-Bazouks fueled by a desire for conquest and plunder, surge forward, their determination visible in their faces and battle cries. Our defenders unleash a hail of arrows, rocks and spears, killing many, but even more follow in their wake. Soon, a brutal struggle engulfs the walls of your City as Bashi-Bazouks try to break your defences. 
+155: ###
+156: Assault Outcome:- Ottomans generated X Assault Value- Defenders generated Y Defence Value- XXX Bashi-Bazouks attacked- XXX Bashi-Bazouks died- XXX defending [troop type] died ((and XXX defending [troop type] died))
+157: [Assault was SUCCESSFUL///UNSUCCESSFUL]If successful -> open Deploy Varangians option
+159: ===
+161: title: enemy8
+162: ---
+164: </b> Ottomans Launch a Janissary Assault! </b> 
+165: Finally, the time has come - the Ottoman commanders unleash a formidable force that strikes fear into the hearts of Constantinople's defenders – the Janissaries. With unwavering discipline and battle-hardened prowess, the elite Ottoman infantry advance towards the besieged city, their iconic helmets and distinctive uniforms marking their presence on the battlefield.
+166: A century ago, the Ottomans instituted a tax of one-fifth on all slaves taken in war, and from this pool of manpower the Sultans first constructed the Janissary corps as a personal army loyal only to the sultan – perfect elite slave-soldiers who are from young age raised as devout warriors of the Ottoman empire.
+167: The rhythmic cadence of Janissary boots reverberates through the air as the formidable force forms ranks, preparing for the assault. The clink of chainmail and the glint of polished weapons create an imposing spectacle as the Janissaries, drawn from diverse backgrounds and molded into a singular force, move with synchronized precision.
+168: The defenders atop Constantinople's walls brace for the impending clash as the Janissaries surge forward, their battle cries echoing across the battlefield. As the warriors reach the City's fortifications, a fierce melee ensues. Constantinople's defenders, facing a relentless onslaught, must confront the strongest soldiers of the Sultan’s army and their pressure can be felt.The outcome of this Janissary assault becomes a pivotal moment in the siege, as the fate of the City hangs in the balance.
+169: ###
+170: Assault Outcome:- Ottomans generated X Assault Value- Defenders generated Y Defence Value- XXX Janissaries attacked- XXX Janissaries died- XXX defending [troop type] died ((and XXX defending [troop type] died))
+171: [Assault was SUCCESSFUL///UNSUCCESSFUL]If successful -> open Deploy Varangians option
+187: NOT IMPLEMENTED
+189: ===
+191: title: enemy5
+192: ---
+194: </b> Ottomans launch a General Assault! </b> 
+195: ===
+204: ////
+212: title: enemy3
+213: ---
+214: </b> Ottomans try to bribe your troops </b> 
+216: ===
+218: title: enemy4
+219: ---
+220: </b> Ottomans execute prisoners </b> 
+222: ===
+224: title: enemy5
+225: ---
+226: </b> Ottomans forage </b> 
+228: ===
+238: Ottomans construct trebuchetsOttomans try to undermine towersOttomans try to dig tunnels
+240: Disease bombardmentIncendiary bombardmentSeawall AssaultOttoman SnipersFill the Moat with Greek prisonersSpy infiltrationJanissary storm
+241: Terrorize the troopsTerrorize the popOttomans execute prisonersOttomans forageOttomans try to bribe your troops
+243: Possible enemy actions (ENEMY EVENTS)
+244: Subtypes
+245: Effects
+246: Notes
+247: Fill the Moat
+251: Bombard the walls
+255: Assault the Walls
+256: Probing AssaultMinor AssaultFull AssaultMajor Assault
+259: Attempt infiltration
+260: The Gate opened!
+261: Fire inside the Walls!Sabotage!Poisoned troopsSpread rumoursPoison the Emperor
+264: Bring additional cannons
+266: +1
+268: Terrorize the troops
+269: Execute prisoners
+270: Desecrate relics
+271: Impale priests
+272: Night raids
+275: Foraging
+277: +Food
+278: Must happen if food is low
+279: Engineering attack
+280: Tunnelling
+281: Siege Tower
+285: Naval Attack
+286: Amphibious Landing
+287: Naval bombardment

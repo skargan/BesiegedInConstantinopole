@@ -1,0 +1,30 @@
+PLAYER EXPERIENCE REVIEW — COUNCIL r5
+
+Verdict
+The prototype has useful decisions but still needs a more coherent campaign arc. The player's task should be to recognise a threat, make a costly choice, observe its consequence and reconsider the plan. Navigation must not be the difficulty.
+
+Implemented in this pass
+- Council briefing: weakest of four internal support measures, nearest committed relief, secrets and ammunition; explains inspection versus the major action.
+- Rest explicitly labelled as a major action.
+- Visible scroll controls on long council screens and outcome reports.
+- Spy buttons explain missing agents, payment or targets. Technology buttons explain secret requirements and where to obtain secrets.
+- Pending technology effects no longer described as active just because an event sets their flags.
+- Court returns to Palace; Escape respects open modal screens first.
+- Campaign menu preserves an unresolved outcome and its Continue callback.
+- Army morale label distinguished from public morale.
+- Consistent gold button outlines and highlighted/pressed/disabled states.
+
+Remaining design work, proposed for discussion
+1. Preparation pacing: reconcile the approved monthly 1452 preparation direction with the existing event calendar; avoid simply compressing every authored event onto consecutive clicks.
+2. Characters: give each a small specialist benefit and a stronger command appointment benefit, with explicit numbers and trade-offs. Present historical background separately from game effects.
+3. Major-event promises: track obligations such as the apprentice's rescue and consequences of forged orders; proposed prose is not yet a working event chain.
+4. Genoese politics: distinguish Giustiniani, Galata, Genoa and overseas interests. Conquest should resolve territorial control while creating diplomatic costs.
+5. Negotiated endings: design the promised surrender milestones and explain why the terms improve. Keep personal survival distinct from the City's outcome.
+6. Resource collapse and food: audit actual consumption and crisis rules before showing forecasts. Do not display a reassuring food-duration estimate without a verified consumption model.
+7. Territorial map: attach events and intelligence to places before treating the supplied illustration as a functional strategic map.
+
+Scope
+No balance, randomness, campaign-duration or ending rules changed. No new illustrated atlas assets or territorial map integrated in this pass.
+
+Validation
+195 automated checks passed. Windows development build compiled. Visual inspection covers selected 1600x900 screens; no claim of exhaustive campaign balance or all-resolution QA.

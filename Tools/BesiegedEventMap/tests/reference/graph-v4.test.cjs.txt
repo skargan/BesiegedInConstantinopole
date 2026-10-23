@@ -1,0 +1,87 @@
+const assert=require('node:assert/strict');
+const test=require('node:test');
+const fs=require('node:fs');
+const path=require('node:path');
+const G=require('../dist/graph-core.js');
+const data=JSON.parse(fs.readFileSync(path.join(__dirname,'../dist/data.json'),'utf8'));
+const copy=()=>JSON.parse(JSON.stringify(data));
+const P=require('../dist/preparation-core.js');
+test('Imported evidence and authored proposal validate with separate provenance',()=>{assert.deepEqual(G.validate(data),[]);assert.equal(data.events.filter(n=>n.origin==='sample').length,0);assert.equal(data.events.filter(n=>n.origin==='imported').length,208);assert(data.events.filter(n=>n.collection==='proposal').every(n=>n.origin==='authored'));});
+test('Fleet victory resolves to the existing node without a missing target',()=>{const a=G.analyze(data,'runtime');assert(!a.findings.some(f=>f.type==='Missing target'&&f.node==='runtime:story18'));assert(data.edges.some(e=>e.source==='runtime:story18'&&e.target==='runtime:story18a'&&e.kind==='jump'));assert(!data.events.some(n=>n.id==='runtime:story9a'));});
+test('Runtime scene schedule is separate from explicit Yarn jumps',()=>{assert.equal(data.edges.filter(e=>e.kind==='schedule').length,19);assert(data.edges.some(e=>e.source==='runtime:story18'&&e.target==='runtime:story19'&&e.kind==='schedule'));assert(!data.edges.some(e=>e.source==='runtime:story18'&&e.target==='runtime:story19'&&e.kind==='jump'));});
+test('Scheduled nodes are externally reachable; unscheduled nodes require inspection',()=>{const a=G.analyze(data,'runtime');assert(!a.findings.some(f=>f.type==='Unreached'&&f.node==='runtime:story7'));assert(a.findings.some(f=>f.type==='Unreached'&&f.node==='runtime:story20'));});
+test('Fork and narrative story IDs remain separate and have different content',()=>{const a=data.events.find(n=>n.id==='runtime:story3'),b=data.events.find(n=>n.id==='design:story3');assert.notEqual(a.title,b.title);assert.notEqual(a.sourceId,b.sourceId);});
+test('Prose random23 jump stays associated with its actual choice',()=>{const n=data.events.find(n=>n.id==='design:random23'),e=data.edges.find(e=>e.source===n.id);assert.equal(n.choices.length,3);assert.equal(e.choiceId,n.choices[2].id);assert.equal(e.target,'design:random4');});
+test('Fleet jump retains chance guard and choice context',()=>{const e=data.edges.find(e=>e.source==='runtime:story18'&&e.kind==='jump');assert(e.choiceId);assert(e.conditions.some(c=>c.includes('chance')));});
+test('Source duplicate enemy codes survive without ID collisions',()=>{assert.equal(new Set(data.events.map(n=>n.id)).size,data.events.length);assert(data.events.filter(n=>n.collection==='design'&&n.code==='enemy5').length>1);assert(G.analyze(data,'design').findings.some(f=>f.type==='Duplicate code'));});
+test('99 percent draft outcome is flagged, not silently normalised',()=>{const n=data.events.find(n=>n.id==='design:random4');assert.equal(n.choices[0].outcomes.reduce((a,b)=>a+b.probability,0),99);assert(G.analyze(data,'design').findings.some(f=>f.type==='Probability total'&&f.node===n.id));});
+test('Imported numeric bonuses remain attached to choice, not all event choices',()=>{const n=data.events.find(n=>n.id==='runtime:story2');assert(n.choices[0].effects.some(e=>e.variable==='iMaterials'&&e.value==='-60'));assert(!n.choices[1].effects.some(e=>e.variable==='iMaterials'&&e.value==='-60'));});
+test('Variable correlation is labelled as a possible state link',()=>{const links=G.correlations(data.events.filter(n=>n.collection==='runtime'),'runtime:story0');assert(links.some(e=>e.label==='iFocus'));assert(links.every(e=>e.kind==='state'&&e.note.includes('not proven')));});
+test('Imported source excerpts and authored specification hashes remain portable',()=>{assert.equal(data.sources.filter(s=>s.kind!=='authored-proposal').length,12);assert(data.sources.every(s=>s.text.length&&/^[0-9a-f]{64}$/.test(s.sha256)));assert(data.sources.some(s=>s.name==='Core mechanics 1.4.docx'));});
+test('Unknown schema, duplicate IDs, malformed effects and invalid probability rejected',()=>{let d=copy();d.schemaVersion=2;assert(G.validate(d).length);d=copy();d.events.push(d.events[0]);assert(G.validate(d).some(e=>e.includes('Duplicate')));d=copy();d.events[0].choices[0].effects=[{}];assert(G.validate(d).some(e=>e.includes('effect')));d=copy();d.events[0].choices[0].outcomes=[{probability:120,text:'bad'}];assert(G.validate(d).some(e=>e.includes('probability')));});
+test('Dangling link sources and stale choice IDs are rejected; missing targets remain diagnosable',()=>{let d=copy();d.edges[0].source='absent';assert(G.validate(d).some(e=>e.includes('source does not exist')));d=copy();d.edges[0].choiceId='absent-choice';assert(G.validate(d).some(e=>e.includes('missing choice')));d=copy();d.edges[0].target='deliberately_missing';assert.deepEqual(G.validate(d),[]);});
+test('Reachability terminates on cycles and reverse traversal works',()=>{const links=[{source:'a',target:'b'},{source:'b',target:'c'},{source:'c',target:'a'}];assert.equal(G.walk('a',links).size,3);assert.equal(G.walk('c',links,'up').size,3);assert.equal(G.cycles([{id:'a'},{id:'b'},{id:'c'}],links).length,1);});
+test('Saved positions override deterministic layout',()=>{const n=data.events[0];const positioned={...n,position:{x:999,y:-200}};assert.deepEqual(G.layout([positioned],[])[n.id],positioned.position);assert.deepEqual(G.layout(data.events.slice(0,8),[]),G.layout(data.events.slice(0,8),[]));});
+test('Export/import JSON round trip preserves all source data and graph IDs',()=>{const round=JSON.parse(JSON.stringify(data));assert.deepEqual(round,data);assert.deepEqual(G.validate(round),[]);});
+test('Editing choices recomputes state dependencies without stale write variables',()=>{const n=JSON.parse(JSON.stringify(data.events.find(n=>n.id==='runtime:story0')));n.choices.forEach(c=>c.effects=[]);n.choices[0].effects=[{variable:'newFlag',command:'set $newFlag = 1',operation:'set',value:'1',guards:['$anotherFlag == 0']}];G.refreshDerived(n);assert.deepEqual(n.writes,['chance','newFlag']);assert(n.reads.includes('anotherFlag'));assert(!n.writes.includes('iFocus'));});
+test('Scratch chance rolls are excluded from cross-event state correlations',()=>{assert(G.correlations(data.events.filter(n=>n.collection==='runtime'),'runtime:story0').every(e=>e.label!=='chance'));});
+test('Narrative text on the title paragraph is retained',()=>{const n=data.events.find(n=>n.id==='runtime:story18');assert(n.description.includes('Our fleet is currently'));});
+test('Both fleet mission menus gate the Crimea route on open straits',()=>{for(const id of ['runtime:story18','runtime:story18a']){const n=data.events.find(n=>n.id===id);assert(n.choices[2].conditions.some(g=>g.includes('bStraitsOpen')));}});
+test('Proposed preparation inventory is explicit, with one main event in every 1452 month',()=>{assert.equal(data.preparation.months.filter(m=>m.date.includes('1452')).length,12);assert.equal(data.events.filter(n=>n.collection==='proposal'&&n.countGroup==='preparation').length,21);assert.equal(data.events.filter(n=>n.collection==='proposal'&&n.countGroup==='empty shell').length,5);});
+test('Fixed milestones and castle consequences are connected without modifying the source schedule',()=>{const es=data.edges.filter(e=>e.source.startsWith('proposal:'));const reachable=G.walk('proposal:story0',es);for(const k of ['story1','story20','story22','story23','story24','story18a','galata-charter','giovanni-crisis'])assert(reachable.has('proposal:'+k),k);assert(es.every(e=>e.kind==='manual'&&e.origin==='authored'));assert(!G.analyze(data,'proposal').findings.some(f=>f.type==='Missing target'));assert(data.events.find(n=>n.id==='runtime:story20').timing.includes('No direct'));});
+test('Political gifts, takeover and grants can occur successively; loss of Giovanni is conditional',()=>{const reach=G.walk('proposal:story20',data.edges);assert(reach.has('proposal:galata-favour'));assert(reach.has('proposal:galata-charter'));assert(reach.has('proposal:giovanni-crisis'));assert(data.events.find(n=>n.id==='proposal:giovanni-crisis').conditions.some(c=>c.includes('alive')));});
+test('Proposal choices carry decisions without silently inventing executable castle effects',()=>{const n=data.events.find(n=>n.id==='proposal:story20');assert(n.choices[1].text.includes('5–9'));assert(n.choices[1].text.includes('−5'));assert(n.choices[3].text.includes('zero delay'));assert(n.choices.every(c=>c.effects.length===0));assert(n.raw.includes('PROBLEM'));});
+
+test('Giovanni throne challenge has explicit power and grievance gates',()=>{const n=data.events.find(n=>n.id==='proposal:giovanni-throne');assert(n.conditions.some(c=>c.includes('Galata')));assert(n.conditions.some(c=>c.includes('broken promise')));assert(data.edges.some(e=>e.source==='proposal:giovanni-crisis'&&e.target===n.id));});
+
+test('Career unlocks come only from the persistent profile, never from campaign achievements',()=>{const p=data.preparation;assert.equal(p.profileUnlocks.scope,'profile');assert.equal(p.months.filter(m=>m.type.startsWith('Flexible')).length,9);assert.equal(p.baseProjectPool.length,10);assert.equal(p.unlockedProjectPool.length,3);for(const k of p.unlockedProjectPool){const n=data.events.find(n=>n.id==='proposal:'+k);assert.equal(n.access.kind,'career-achievements');assert.equal(n.access.minimumAchievements,null);const unlocks=data.edges.filter(e=>e.target===n.id&&e.relation?.includes('unlock'));assert.equal(unlocks.length,1);assert.equal(unlocks[0].source,'proposal:career-unlocks');}});
+test('Selectable names are consistent and invented advanced projects are parked',()=>{for(const k of data.preparation.projectPool)assert(data.events.find(n=>n.id==='proposal:'+k).title.startsWith('Siege Preparation — '));for(const k of ['countermines','master-gunners','black-sea-compact','fire-flotilla']){assert(!data.preparation.projectPool.includes(k));assert.equal(data.events.find(n=>n.id==='proposal:'+k).countGroup,'parked concept');}});
+test('Calendar keeps requested fixed months, January arrivals and selectable February 1453',()=>{const m=data.preparation.months;assert.deepEqual(m.filter(x=>x.date.includes('1452')&&x.type==='Fixed core').flatMap(x=>x.events),['story0','rumeli-warning','story3','story1']);assert.deepEqual(m.find(x=>x.date==='January 1453').events,['story5','story4']);assert(m.find(x=>x.date==='February 1453').type.startsWith('Flexible'));assert(!m.some(x=>x.events.includes('story6')||x.events.includes('story15')||x.events.includes('galata-charter')));});
+test('Governance can be reached only through confirmed capture, not routine diplomacy',()=>{const incoming=data.edges.filter(e=>e.target==='proposal:galata-charter');assert.equal(incoming.length,1);assert.equal(incoming[0].source,'proposal:galata-capture');const captures=data.edges.filter(e=>e.target==='proposal:galata-capture');assert.equal(captures.length,2);assert(captures.every(e=>e.source==='proposal:story15'&&e.conditions.some(c=>c.includes('succeeded'))));assert(data.events.find(n=>n.id==='proposal:galata-charter').conditions.some(c=>c.includes('pending')));});
+test('Galata has exactly four distinct states and diplomacy has no capture actions',()=>{const p=data.preparation.politics;assert.deepEqual(p.states.map(s=>s.id),['neutral','imperial','giovanni','ottoman']);assert(!p.actions.some(a=>/seize|takeover|capture/.test(a.id)));assert.equal(p.actions.filter(a=>a.states.includes('ottoman')).length,1);assert(p.characterLoyalty.perCharacter);assert.equal(p.characterLoyalty.initialValue,null);});
+test('April fortress draft and imported grain mission are explicit creative proposals',()=>{const n=data.events.find(n=>n.id==='proposal:rumeli-warning');assert(n.description.includes('morning bells'));assert.equal(n.choices.length,4);assert(n.choices[2].text.includes('No career unlock'));const grain=data.events.find(n=>n.id==='proposal:grain-missions');assert.equal(grain.origin,'authored');assert.equal(grain.access.scope,'profile');assert(grain.notes.includes('No instant food'));});
+
+test('Monthly commitments reject a second event, duplicate topic and fixed month',()=>{
+  const p=data.preparation,s=P.commit(p,P.fresh(),'story19','February 1452');
+  assert.throws(()=>P.commit(p,s,'story18','February 1452'));
+  assert.throws(()=>P.commit(p,s,'story19','March 1452'));
+  assert.throws(()=>P.commit(p,s,'story18','April 1452'));
+  assert.equal(P.commit(p,s,'story18','March 1452').bookings['March 1452'],'story18');
+  assert.equal(P.commit(p,s,'pass','March 1452').bookings['March 1452'],'pass');
+});
+test('Profile rehearsal honours locked thresholds and Rumeli timing independently',()=>{
+  const p=data.preparation,s={...P.fresh(),achievementCount:6};
+  assert(!P.availability(p,'story17','February 1452',s).available);
+  s.useSuggestedThresholds=true;assert(P.availability(p,'story17','February 1452',s).available);
+  assert(!P.availability(p,'story16','August 1452',s).available);
+  assert(P.availability(p,'story16','September 1452',s).available);
+  s.achievementCount=1;assert(!P.availability(p,'grain-missions','February 1453',s).available);
+});
+test('Ottoman Galata attacks respect sovereignty, siege and castle land-delay gates',()=>{
+  for(const galataState of ['neutral','imperial','giovanni','ottoman'])for(const siegeActive of [true,false])for(const landDelayDays of [0,5,9]){
+    const a=P.attackEligibility(data.preparation,{galataState,siegeActive,landDelayDays});
+    assert.equal(a.available,['imperial','giovanni'].includes(galataState)&&siegeActive&&landDelayDays===0);
+  }
+});
+test('Governance cannot grant rewards without capture, on failure, twice, or without Giovanni',()=>{
+  const p=data.preparation,s={captureConfirmed:true,governancePending:true,captureRoute:'varangians',giovanniPresent:true};
+  assert.throws(()=>P.governance(p,{...s,captureConfirmed:false},'now'));
+  assert.throws(()=>P.governance(p,{...s,captureRoute:'bribe'},'now'));
+  assert.throws(()=>P.governance(p,{...s,giovanniPresent:false},'now'));
+  const now=P.governance(p,s,'now');assert.equal(now.galataState,'giovanni');assert.equal(now.giovanniLoyaltyDelta,30);assert(now.defenceIncreasePending);
+  assert.throws(()=>P.governance(p,now,'now'));
+  const later=P.governance(p,s,'fief');assert.equal(later.galataState,'imperial');assert.equal(later.giovanniLoyaltyDelta,15);assert(later.galataPostwarPromise);assert(!later.defenceIncreasePending);
+  assert.equal(P.governance(p,s,'neutral').galataState,'neutral');
+});
+test('Galata retains six choices and only seizure choices lead to capture',()=>{
+  const n=data.events.find(n=>n.id==='proposal:story15');assert.equal(n.choices.length,6);
+  const capture=data.edges.filter(e=>e.target==='proposal:galata-capture');assert.deepEqual(capture.map(e=>e.choiceId).sort(),[n.choices[2].id,n.choices[4].id].sort());
+  assert(n.choices[3].text.includes('7,500'));assert(n.choices[3].text.includes('not control'));
+  assert(n.choices[5].text.includes('+30'));assert(n.choices[4].conditions.includes('Diplomacy focus'));
+});
+test('Chain fleet and commander are selectable, and every commander choice adds support',()=>{
+  const p=data.preparation;for(const k of ['story19','story18','story14']){assert(p.baseProjectPool.includes(k));assert(!p.months.some(m=>m.events.includes(k)));}
+  const commander=p.events.find(e=>e.key==='story14');assert.equal(commander.commonOutcome.delta,10);assert(commander.choices.every(c=>c.designEffects.some(e=>e.stat==='armySupport'&&e.delta===10)));
+  assert.equal(p.events.find(e=>e.key==='naval-warfare').status,'New creative draft');
+  assert.equal(p.events.find(e=>e.key==='galata-favour').group,'system interface');
+});

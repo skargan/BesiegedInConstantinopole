@@ -1,0 +1,12 @@
+Council r10 — The Sultan's Return Gift
+
+Paid gifts to Mehmed may prompt a return gift. History, poetry and theology remain pure narrative and do not roll for gifts.
+Provisional distribution per paid gift: 65% no return; 10% Shaherezade if never encountered, otherwise provisions; 8% provisions; 9% manuscript intelligence; 8% silver. Ordinary packages give 40 provisions, 1 secret, or 300 gold.
+Shaherezade is an adult fictional character. Her hidden identity is drawn once on arrival (50% agent, 50% innocent) and saved. She can only be introduced once per campaign. Her status is listed separately in Court and Characters, without commander bonuses or disclosure of hidden identity.
+Three encounters: arrival, suspicious letter, resolution. Later encounters become due two calendar days after the preceding choice. They follow the day's normal event, preserving story scheduling and the turn count. Rejection or departure closes the chain permanently.
+Investigation costs 1 secret and prevents an attack. Continued guard also prevents it. Private, unsupervised access is explicitly marked as dangerous; an uninvestigated agent inflicts 35 health points, once. Low health can make the attack fatal under the existing ending rules. An innocent woman never attacks.
+An exposed agent may be turned if the player previously freed her or obtained evidence; she grants 2 secrets. An innocent character can join as a free court storyteller and grant 1 secret. Custody and departure are available alternatives. Whether Mehmed personally ordered the attempt remains uncertain within the fiction.
+Quest counters, dates and identity are excluded from player-facing outcome summaries. Actual resources and health changes are still shown.
+QA: see Logs/shah-smoke.log, Logs/shah-build.log, Logs/shah-capture.log. Tests exercise both identities, guarded and unguarded outcomes, investigation, recruitment, rejection, save/load, no duplicate gifts, one-time injury, hidden information, and follow-up scheduling without skipping the normal event.
+
+VERIFIED: 464 automated checks passed, zero failures. Windows build completed. Inspected court entry, arrival, letter, and both resolution layouts at 1600 x 900. Capture run logged no runtime errors or exceptions. Two final prose corrections were included in the subsequent successful build.

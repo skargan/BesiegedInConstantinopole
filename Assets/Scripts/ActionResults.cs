@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,11 +37,12 @@ public class ActionResults : MonoBehaviour
      * 2 - upgrade troops
      */
     private int _lastAction;
+    public string Message = "You allow the city a moment of rest. The council will hear the next petition.";
     public int LastAction { set => _lastAction = value; }
 
     public string GetActionText()
     {
-        return actionTextStorage[_lastAction];
+        return Message;
     }
     
 

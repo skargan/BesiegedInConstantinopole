@@ -1,0 +1,552 @@
+﻿title: hardCistern
+---
+<<LifeSeen hardCistern>>
+<b>Filth in the Cistern</b>: <br> A woman draws a bucket of water and finds a greasy skin upon it. The keeper insists it is harmless. Then a second bucket brings up something which ends the argument. Somewhere above the cistern, a drain has failed.
+-> Close the inlet and repair the drain. Lose 20 materials; public morale +1. <<if GetInt("iMaterials") >= 20>>
+    <<Change iMaterials -20>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    Workmen trace the leak and divert it. The water must be drawn elsewhere while the cistern is cleaned, but the neighbourhood accepts the inconvenience.
+-> Organise rationed water from another district. Lose 50 provisions to support the carriers.
+    <<Change iProvisions -50>>
+    Carriers form a slow procession through the streets. The clean water arrives with complaints from the district supplying it. If the stores are short, they receive what remains.
+-> Keep drawing water and hope the filth settles. Risk an outbreak.
+    <<set $chance = dice(100)>>
+    <<if $chance <= 40>>
+    <<AddResidents -100>>
+    <<ChangeFraction fPeopleRep -0.04>>
+    The keeper's reassurance proves worthless. One hundred residents die before the cistern is finally closed.
+    <<else>>
+    <<ChangeFraction fPeopleRep -0.01>>
+    No great outbreak follows, but people carry their buckets farther rather than drink what you have declared acceptable.
+    <<endif>>
+===
+title: hardHorse
+---
+<<LifeSeen hardHorse>>
+<b>Dead Horse in the Alley</b>: <br> A dead cart horse blocks a narrow street. The owner has disappeared; the flies have not. Neighbours argue whether the carcass is a nuisance, a danger or several days of dinners.
+-> Pay labourers to remove it. Lose 50 gold; public morale +1. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    Ropes, a cart and several inventive curses clear the street before evening.
+-> Have the watch clear the alley. Army morale -1.
+    <<ChangeFraction fTroopRep -0.01>>
+    The soldiers discover a use for their strength which none of them discussed with the recruiting officer.
+-> Let the hungry butcher it. Gain 15 provisions; risk illness.
+    <<Change iProvisions 15>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 25>>
+    <<AddResidents -20>>
+    <<ChangeFraction fPeopleRep -0.02>>
+    The meat fills bowls that were empty. Within days, twenty of those who ate it are dead.
+    <<else>>
+    The carcass disappears quickly. People ask few questions about the stew.
+    <<endif>>
+===
+title: hardRats
+---
+<<LifeSeen hardRats>>
+<b>Rats in the Flour</b>: <br> The storekeeper opens a sack and finds droppings among the flour. A rat watches him from the next shelf, apparently confident that the stores belong to it.
+-> Destroy the affected sacks. Lose up to 100 provisions.
+    <<Change iProvisions -100>>
+    The contaminated stock is removed. The storekeeper starts inspecting the next row with considerably less confidence.
+-> Pay for sorting and pest control. Lose 75 gold and up to 25 provisions. <<if GetInt("iMoney") >= 75>>
+    <<Change iMoney -75>>
+    <<Change iProvisions -25>>
+    Workers separate sound sacks from spoiled ones and seal the holes beneath the shelves. The cats are pleased with the new arrangements.
+-> Issue the flour anyway. Public morale -2; risk losing 30 residents.
+    <<ChangeFraction fPeopleRep -0.02>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 30>>
+    <<AddResidents -30>>
+    Thirty residents die in the sickness that follows. The remaining flour is withdrawn too late for them.
+    <<else>>
+    There is no recorded outbreak, but the bakers have no intention of forgetting the order.
+    <<endif>>
+===
+title: hardDead
+---
+<<LifeSeen hardDead>>
+<b>A Cart of Unburied Dead</b>: <br> A burial cart waits outside a church. The men pulling it have worked since dawn, and the priest has run out of clean cloth. A little girl asks which of the covered shapes is her father. Nobody answers quickly enough.
+-> Supply cloth and pay relief workers. Lose 100 gold; public morale +2. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    Fresh hands take the ropes. Names are recorded before the bodies leave, so that their families have somewhere to bring their grief.
+-> Ask the parishes for volunteers. Clergy support +1; army morale -1 as soldiers assist.
+    <<ChangeFraction fPriestRep 0.01>>
+    <<ChangeFraction fTroopRep -0.01>>
+    The priest divides the work among volunteers and a few reluctant soldiers. The cart moves before sunset.
+-> Leave the burial party to manage. Public morale -3.
+    <<ChangeFraction fPeopleRep -0.03>>
+    The cart is still there when the church lamps are lit.
+===
+title: hardGrave
+---
+<<LifeSeen hardGrave>>
+<b>A Grave Robbed Twice</b>: <br> A widow reports that her husband's grave has been opened and his burial clothes taken. She bought another shroud. This morning that too was gone. The sexton suggests dogs, until she lays a cut length of grave-rope upon your clerk's desk.
+-> Investigate the burial trade. Spend 100 gold; an inquiry follows in three days. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<HardNext Grave 1 3>>
+    Quiet questions begin among shroud sellers, porters and those who work after the church doors close.
+-> Pay for a guarded reburial. Lose 50 gold; public morale +1. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    The widow accepts your help. The man cutting grave-ropes remains unknown.
+-> Dismiss the petition. Public morale -2.
+    <<ChangeFraction fPeopleRep -0.02>>
+    She takes the rope away. It is shown to other people before the day is over.
+===
+title: hardGrave1
+---
+<b>The Shroud with the Blue Stitch</b>: <br> Your investigator finds a shroud for sale bearing the widow's distinctive blue stitch. The dealer names a porter. The porter names a sexton. The sexton says the dead have less need of linen than the living.
+-> Follow the payments to their buyer. Spend 50 gold; continue the inquiry. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<HardNext Grave 2 3>>
+    Marked coins pass through the dealer's hands. Your men wait to see where they go next.
+-> Punish the thieves and restore what can be identified. Public morale +2; clergy support -1.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<ChangeFraction fPriestRep -0.01>>
+    <<HardNext Grave 99 0>>
+    The sexton's public disgrace angers his protectors, but the stolen linen goes back to the families.
+-> Stop the inquiry quietly. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<HardNext Grave 99 0>>
+    The dealer closes his stall for a few days. Nobody mistakes this for a conviction.
+===
+title: hardGrave2
+---
+<b>The Dead Man's Linen</b>: <br> The money leads to a hospital contractor. He has been billing the palace for new linen while buying cloth stripped from graves. His accounts name a minor official who approved every delivery. Both insist that exposing them will interrupt care for the wounded.
+-> Seize the profits and appoint a replacement. Gain 300 gold; noble support -3; public morale +2.
+    <<Change iMoney 300>>
+    <<ChangeFraction fNobleRep -0.03>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<HardNext Grave 99 0>>
+    The wards remain open. Only the signatures on the invoices change, to the disappointment of those who expected indispensability to protect them.
+-> Keep the evidence as leverage. Gain 1 secret; public morale -1.
+    <<Change iSecrets 1>>
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<HardNext Grave 99 0>>
+    The official now answers your letters promptly. The widow never learns why the inquiry ended.
+-> Order restitution without a public trial. Public morale +1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    <<HardNext Grave 99 0>>
+    Families receive payment and the contractor loses his position. The arrangement leaves fewer enemies and fewer answers.
+===
+title: hardItch
+---
+<<LifeSeen hardItch>>
+<b>The Itch after Leave</b>: <br> Several soldiers arrive at the infirmary with burning, sores and identical claims never to have visited the same tavern. The physician requests privacy, clean linen and fewer jokes from the guards outside his door.
+-> Fund discreet treatment. Lose 100 gold; army morale +1. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<ChangeFraction fTroopRep 0.01>>
+    The physician treats what he can. The men learn that reporting illness need not mean becoming the company's entertainment.
+-> Suspend leave and order medical inspection. Army morale -2.
+    <<ChangeFraction fTroopRep -0.02>>
+    The order produces resentment, then a surprisingly long queue outside the infirmary.
+-> Ignore the complaints. Lose 5 infantry; army morale -1.
+    <<Change iInfantry -5>>
+    <<ChangeFraction fTroopRep -0.01>>
+    Five men become too ill for duty and leave the fighting roster. Their complaints are harder to dismiss when they cannot climb the stairs.
+===
+title: hardBrothel
+---
+<<LifeSeen hardBrothel>>
+<b>The Brothel's Complaint</b>: <br> The keeper of a brothel brings a list of soldiers who took services at sword-point and refused payment. She has written their company badges beside the sums. "If your men mean to requisition us, Majesty, perhaps they could issue receipts."
+-> Require payment and punish threats. Public morale +2; army morale -1.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<ChangeFraction fTroopRep -0.01>>
+    Officers collect the debts. The offenders discover that carrying a weapon does not place every civilian account beneath them.
+-> Pay the debts from the treasury. Lose 100 gold; public morale +1. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    The keeper is paid. She asks whether she should send the next bill directly to the palace.
+-> Refuse to intervene. Public morale -3.
+    <<ChangeFraction fPeopleRep -0.03>>
+    She folds the list carefully. Other businesses begin closing when the soldiers come off watch.
+===
+title: hardWoman
+---
+<<LifeSeen hardWoman>>
+<b>A Woman at the Barracks Gate</b>: <br> Theodora, an adult courtesan known for remembering both faces and indiscretions, waits at the barracks gate. She names two soldiers who beat her when she refused an officer's demand. She has witnesses, and no intention of being paid to forget them.
+-> Hear her witnesses and investigate. Public morale +1; army morale -1. A report follows.
+    <<ChangeFraction fPeopleRep 0.01>>
+    <<ChangeFraction fTroopRep -0.01>>
+    <<HardNext Woman 1 3>>
+    A clerk records each account separately. Theodora gives dates and names without once asking what you think of her profession.
+-> Put her under civilian protection while local magistrates hear the case. Lose 50 gold. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<HardNext Woman 1 5>>
+    She receives safe lodgings and a hearing beyond the accused men's barracks. The investigation will take longer, but it can proceed.
+-> Protect the soldiers from inquiry. Public morale -4.
+    <<ChangeFraction fPeopleRep -0.04>>
+    <<HardNext Woman 99 0>>
+    "Then I know what your protection is worth," she says. The gate closes behind her.
+===
+title: hardWoman1
+---
+<<HardNext Woman 99 0>>
+<b>Theodora Remembers</b>: <br> The witnesses confirm her account. The guilty men are punished. Afterwards Theodora mentions a different name: a visitor who pays well, asks about harbour watches and believes she cannot follow his Italian. She will discuss intelligence work, she says, but only as paid employment of her own choosing.
+-> Offer a paid intelligence position and protection. Spend 1,000 gold; gain 1 agent. <<if GetInt("iMoney") >= 1000 && LifeInt("iHardWomanSpy") == 0>>
+    <<HardSpy>>
+    You arrange payment, a handler and a safe means of contact. She accepts the work after asking questions your intelligence officers should have anticipated.
+-> Ask her to give a statement about the visitor. Gain 1 secret; she remains a civilian.
+    <<Change iSecrets 1>>
+    Her description includes a ring, a shipping mark and a habit of mispronouncing a Greek street name. It is enough to begin an inquiry.
+-> Thank her and leave her in peace. Public morale +1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    The case is finished. For once, protection from the Emperor has required nothing further in return.
+===
+title: hardFavourite
+---
+<<LifeSeen hardFavourite>>
+<b>The Captain's Favourite</b>: <br> A captain has installed his lover in military lodgings. Six soldiers sleep outside while her trunks occupy their room. He argues that a man defending the City deserves some comfort. His men agree, but differ about which man.
+-> Return the room to the soldiers. Army morale +2; noble support -1.
+    <<ChangeFraction fTroopRep 0.02>>
+    <<ChangeFraction fNobleRep -0.01>>
+    The trunks leave by the back stair. The captain salutes with the exact amount of enthusiasm regulations require.
+-> Pay for separate lodgings. Lose 100 gold; army morale +1. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<ChangeFraction fTroopRep 0.01>>
+    Everyone sleeps indoors. The treasury has subsidised a romance it was never consulted about.
+-> Overlook it. Army morale -3.
+    <<ChangeFraction fTroopRep -0.03>>
+    The soldiers make room beneath the awning and remember who was entitled to comfort.
+===
+title: hardChild
+---
+<<LifeSeen hardChild>>
+<b>A Child Left at the Tavern</b>: <br> A baby has been left in a basket beside a tavern hearth. The keeper knows who the mother might be; three men loudly explain why they cannot be the father. The child ignores all four and cries.
+-> Pay a household to provide care. Lose 50 gold; public morale +2. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    A woman with milk and space takes the basket. Your clerk records the arrangement so the payment does not vanish into somebody else's account.
+-> Ask the parish to arrange care. Clergy support +1.
+    <<ChangeFraction fPriestRep 0.01>>
+    The priest finds a household willing to help. The argument about the father continues without its smallest participant.
+-> Leave the matter to the tavern keeper. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    He moves the basket farther from the draught. Somebody has to.
+===
+title: hardCoin
+---
+<<LifeSeen hardCoin>>
+<b>Pay in Clipped Coin</b>: <br> Mercenaries lay their wages on a table beside a balance. Too many coins have lost silver from their edges. Their captain asks whether imperial loyalty is also to be measured at less than its stated weight.
+-> Replace the shortfall. Lose 250 gold; army morale +2. <<if GetInt("iMoney") >= 250>>
+    <<Change iMoney -250>>
+    <<ChangeFraction fTroopRep 0.02>>
+    Good coin settles the immediate dispute. The treasury clerk is told to find out where the bad money entered the pay chest.
+-> Offer rations instead. Lose 100 provisions; army morale -1. <<if GetInt("iProvisions") >= 100>>
+    <<Change iProvisions -100>>
+    <<ChangeFraction fTroopRep -0.01>>
+    They accept food they can weigh, though the captain makes clear that supper is not the same as wages.
+-> Refuse compensation. Army morale -4.
+    <<ChangeFraction fTroopRep -0.04>>
+    The men take back the coins. Their arithmetic now includes the value of continuing to serve you.
+===
+title: hardSand
+---
+<<LifeSeen hardSand>>
+<b>A Sack Full of Sand</b>: <br> The baker empties a sack marked as fine grain. Sand and small stones pour across the table. The merchant blames his supplier; the supplier's signature belongs to a man nobody has seen in months.
+-> Follow the invoices. Spend 100 gold; investigate in three days. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<HardNext Sand 1 3>>
+    Your clerk keeps the sack, the seal and the invoice. None can be explained away separately now.
+-> Accept replacement stock and close the matter. Gain 50 provisions.
+    <<Change iProvisions 50>>
+    The replacement grain is inspected carefully. The false signature remains unexplained.
+-> Confiscate the dealer's remaining stock. Gain 100 provisions; merchant favour -5.
+    <<Change iProvisions 100>>
+    <<MerchantFavor -5>>
+    Other merchants complain about punishment without inquiry. The dealer says very little.
+===
+title: hardSand1
+---
+<b>Three Seals, One Warehouse</b>: <br> Three supposedly independent suppliers share a warehouse and the same clerk. A Levantine broker named Yusuf keeps their accounts. His porter offers to show your men the books, provided they can protect him afterwards.
+-> Protect the porter and inspect the ledgers. Spend 100 gold; continue the investigation. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<HardNext Sand 2 3>>
+    The porter is moved to safe lodgings. His directions lead to a second set of books hidden beneath an ordinary floorboard.
+-> Raid the warehouse immediately. Gain 150 provisions; merchant favour -5.
+    <<Change iProvisions 150>>
+    <<MerchantFavor -5>>
+    <<HardNext Sand 99 0>>
+    You recover sound grain. By the time the clerks arrive, the more interesting papers are ash.
+-> Close the investigation. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<HardNext Sand 99 0>>
+    The porter disappears into another district. The warehouse changes its sign.
+===
+title: hardSand2
+---
+<b>The Levantine Merchant Scheme</b>: <br> Yusuf's private ledger records a small ring of brokers, warehousemen and an imperial purchasing official. They sold the same good grain twice, replacing one delivery with sand. The signatures are clear enough to act upon.
+-> Prosecute the ring and recover the stock. Gain 300 provisions; noble support -3; public morale +3.
+    <<Change iProvisions 300>>
+    <<ChangeFraction fNobleRep -0.03>>
+    <<ChangeFraction fPeopleRep 0.03>>
+    <<HardNext Sand 99 0>>
+    The purchasing official's relatives protest. Honest traders quietly bring your clerks further evidence.
+-> Demand restitution and continuing supplies. Gain 500 gold and 100 provisions; merchant favour -5.
+    <<Change iMoney 500>>
+    <<Change iProvisions 100>>
+    <<MerchantFavor -5>>
+    <<HardNext Sand 99 0>>
+    The ring buys its survival on terms favourable to the treasury. Whether anyone has learned honesty is another question.
+-> Keep the ledger as political leverage. Gain 2 secrets; public morale -2.
+    <<Change iSecrets 2>>
+    <<ChangeFraction fPeopleRep -0.02>>
+    <<HardNext Sand 99 0>>
+    The accused remain useful and frightened. The bakers receive no explanation for the inquiry's sudden end.
+===
+title: hardHead
+---
+<<LifeSeen hardHead>>
+<b>A Head beneath the Wall</b>: <br> Ottoman soldiers raise a severed head on a spear and call it your missing envoy. A torn strip of embroidered cloth hangs below it. From the parapet, the face is too damaged to recognise. Men begin repeating the claim as though distance has made them certain.
+-> Ask the envoy's attendant to examine the clothing. Spend 50 gold on a protected inspection. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<ChangeFraction fTroopRep 0.02>>
+    The attendant recognises a cheap imitation of the household badge. You can expose the deception without pretending to know who the dead man was.
+    <<else>>
+    <<ChangeFraction fTroopRep -0.01>>
+    He identifies the envoy's clasp, but cannot swear to the face. You announce the evidence honestly and order prayers for the missing man.
+    <<endif>>
+-> Honour the dead without accepting the enemy's claim. Clergy support +1.
+    <<ChangeFraction fPriestRep 0.01>>
+    A priest prays from the wall for a man whose name is unknown. The garrison receives an answer more dignified than the spectacle below.
+-> Forbid discussion of the display. Army morale -2.
+    <<ChangeFraction fTroopRep -0.02>>
+    The men lower their voices. They do not stop looking.
+===
+title: hardScreams
+---
+<<LifeSeen hardScreams>>
+<b>Screaming beyond the Gate</b>: <br> Voices call from beyond the gate after dark. One begs in Greek; another cries that he is wounded. The officer at the wicket hears armour moving where nobody ought to be standing.
+-> Send a guarded rescue party. Risk 10 infantry; possible rescue of 40 residents. <<if GetInt("iInfantry") >= 10>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<AddResidents 40>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    Forty fugitives are brought inside, some supporting the wounded. The officer keeps his party together until the last gate-bar is down.
+    <<else>>
+    <<Change iInfantry -10>>
+    <<ChangeFraction fTroopRep -0.02>>
+    The cries draw the rescuers into an ambush. Ten men do not return. At dawn the enemy has removed both bodies and evidence.
+    <<endif>>
+-> Answer from the wall and lower a rope only where the guards can see. Gain 5 residents.
+    <<AddResidents 5>>
+    Five people reach the rope. Others disappear into the darkness before your men can find a safe way to help them.
+-> Keep the gate closed and order silence. Public morale -2.
+    <<ChangeFraction fPeopleRep -0.02>>
+    The voices eventually stop. Nobody asks the officer whether that is good news.
+===
+title: hardMissing
+---
+<<LifeSeen hardMissing>>
+<<Change iInfantry -12>>
+<b>Missing Men at Roll Call</b>: <br> Twelve infantrymen fail to report. Their sergeant says desertion; their messmates say they went looking for missing wages. Until they are found, twelve places on the wall must be filled by someone else.
+-> Search the city before passing judgment. Spend 50 gold; inquiry follows. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<HardNext Missing 1 3>>
+    The search begins with pay clerks and taverns, rather than a list of punishments.
+-> Offer an amnesty for immediate return. Recover 6 infantry; army morale -1.
+    <<Change iInfantry 6>>
+    <<ChangeFraction fTroopRep -0.01>>
+    <<HardNext Missing 99 0>>
+    Six men return before dawn. The others have gone beyond the reach of the proclamation.
+-> Declare them deserters. Army morale -2.
+    <<ChangeFraction fTroopRep -0.02>>
+    <<HardNext Missing 99 0>>
+    Their names are struck from the rolls. The sergeant has his answer; the City still lacks twelve defenders.
+===
+title: hardMissing1
+---
+<b>The Tavern with the Shuttered Door</b>: <br> A tavern keeper admits hiding the missing men. A paymaster pocketed their wages, then threatened to call them deserters if they complained. Eight remain in the city. Four have approached a boatman offering passage through the blockade.
+-> Recover the eight and pursue the boatman's connection. Gain 8 infantry; continue in three days.
+    <<Change iInfantry 8>>
+    <<HardNext Missing 2 3>>
+    The eight return under your protection. Your investigators follow the boatman's promises towards the harbour.
+-> Pay the eight and end the inquiry. Spend 150 gold; gain 8 infantry and 2 army morale. <<if GetInt("iMoney") >= 150>>
+    <<Change iMoney -150>>
+    <<Change iInfantry 8>>
+    <<ChangeFraction fTroopRep 0.02>>
+    <<HardNext Missing 99 0>>
+    They take their places on the wall. The paymaster learns that somebody else will cover his debts.
+-> Arrest everyone involved and close the case. Army morale -3.
+    <<ChangeFraction fTroopRep -0.03>>
+    <<HardNext Missing 99 0>>
+    The cells fill, the watch remains short, and the boatman hears that questions have stopped.
+===
+title: hardMissing2
+---
+<b>Passage for Four</b>: <br> The boatman has been selling fugitives to an Ottoman intermediary. Your men recover the four soldiers before departure and seize a list of planned crossings. The paymaster's name appears beside a payment.
+-> Return the men and expose the paymaster. Gain 4 infantry; army morale +3; noble support -2.
+    <<Change iInfantry 4>>
+    <<ChangeFraction fTroopRep 0.03>>
+    <<ChangeFraction fNobleRep -0.02>>
+    <<HardNext Missing 99 0>>
+    All twelve missing soldiers have been accounted for. The paymaster's family discovers an urgent interest in procedural mercy.
+-> Return the men and use the crossing list. Gain 4 infantry and 1 secret.
+    <<Change iInfantry 4>>
+    <<Change iSecrets 1>>
+    <<HardNext Missing 99 0>>
+    Your spies inherit the boatman's appointments. The four men return knowing exactly what passage would have cost them.
+-> Imprison the four and seize the passage money. Gain 200 gold; army morale -2.
+    <<Change iMoney 200>>
+    <<ChangeFraction fTroopRep -0.02>>
+    <<HardNext Missing 99 0>>
+    The treasury gains their fares. Their comrades see that returning alive has not necessarily improved their position.
+===
+
+title: sermonPride
+---
+<<LifeSeen sermonPride>>
+<<SermonPressure 8>>
+<<HardNext Sermon 2 7>>
+<b>Sermon against the Palace: Pride</b>: <br> Gennadius Scholarius, the monk and outspoken opponent of Church Union, has gathered a crowd beside a damaged church. He paraphrases the warning that those who exalt themselves will be humbled. "The palace calls every order wisdom because a crowned man gave it. Our dead are asked to prove their loyalty; when will the Emperor prove his humility?" A few listeners applaud. More stay to hear what comes next.<br><i>Scriptural theme: Luke 18:14.</i>
+-> Hold an open hearing for complaints. Public morale +2; noble support -1; reduce his influence.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<ChangeFraction fNobleRep -0.01>>
+    <<SermonPressure -12>>
+    You hear petitions without promising to grant every one. Gennadius calls the gesture theatrical, but some of his listeners have already joined your queue.
+-> Faith and Unity: answer that authority also stands under judgment. Clergy support +1; reduce his influence. <<if GetInt("iFocus") == 3>>
+    <<ChangeFraction fPriestRep 0.01>>
+    <<SermonPressure -10>>
+    Your reply distinguishes authority from innocence. Several priests repeat it, depriving Gennadius of the claim that the palace has no answer.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+===
+
+title: sermonGreed
+---
+<<SermonPressure 8>>
+<<HardNext Sermon 3 7>>
+<b>Sermon against the Palace: Greed</b>: <br> The next sermon draws traders as well as labourers. Gennadius invokes the impossibility of serving both God and wealth. "The treasury asks another sacrifice. The tax collector eats. The paymaster eats. Only the man who paid them is told to tighten his belt." He demands that imperial accounts be opened to scrutiny.<br><i>Scriptural theme: Matthew 6:24.</i>
+-> Fund an independent audit and relief. Spend 150 gold; public morale +2; reduce his influence. <<if GetInt("iMoney") >= 150>>
+    <<Change iMoney -150>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<SermonPressure -12>>
+    The audit does not make the City rich, but it puts names beside missing money. Gennadius finds it harder to claim that nobody will examine the accounts.
+-> Defend the war treasury without offering an audit. Noble support +1; public morale -1.
+    <<ChangeFraction fNobleRep 0.01>>
+    <<ChangeFraction fPeopleRep -0.01>>
+    You explain what the walls cost. He answers that an expense can be necessary and still conceal a thief.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+===
+
+title: sermonLust
+---
+<<SermonPressure 8>>
+<<HardNext Sermon 4 7>>
+<b>Sermon against the Palace: Lust</b>: <br> Gennadius turns from money to desire, paraphrasing the teaching that lust begins before the outward act. He has acquired an audience eager for less abstract sins. "Must the City guard its walls while the palace guards its bedchambers?" His accusations are allegations, but his listeners do not all insist upon the distinction.<br><i>Scriptural theme: Matthew 5:28.</i>
+<<if LifeInt("iLadyRoute") == 1>>
+Your involvement with the court lady gives the accusation a recognisable target, though his account includes claims nobody has established.
+<<else>>
+No known affair supplies his story. Instead he points to rumours, favourites and the company kept by lesser officials.
+<<endif>>
+-> Order an inquiry into coercion and misuse of office. Public morale +2; noble support -2; reduce his influence.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<ChangeFraction fNobleRep -0.02>>
+    <<SermonPressure -12>>
+    You distinguish private conduct from abuse of power and investigate the latter. Courtiers resent the questions; several households welcome them.
+-> Demand evidence for accusations against named people. Clergy support -1; reduce his influence slightly.
+    <<ChangeFraction fPriestRep -0.01>>
+    <<SermonPressure -5>>
+    The court asks for testimony rather than innuendo. Gennadius says a ruler should fear sin more than slander, but some listeners begin asking whom he actually means.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+===
+
+title: sermonEnvy
+---
+<<SermonPressure 8>>
+<<HardNext Sermon 5 7>>
+<b>Sermon against the Palace: Envy</b>: <br> Petitions now circulate after his sermons. Gennadius invokes the disorder born of envy and selfish ambition, then accuses the palace of feeding both. "One household receives a title. Another gives its last son. We are told to love our neighbour while watching him buy what we must bleed to earn."<br><i>Scriptural theme: James 3:16.</i>
+-> Review recent favours and publish the reasons for appointments. Public morale +2; noble support -2; reduce his influence.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<ChangeFraction fNobleRep -0.02>>
+    <<SermonPressure -12>>
+    Some appointments withstand scrutiny better than others. The review creates enemies, but it also gives disappointed men an answer more substantial than silence.
+-> Faith and Unity: challenge him to condemn envy in his own following. Clergy support +1; reduce his influence. <<if GetInt("iFocus") == 3>>
+    <<ChangeFraction fPriestRep 0.01>>
+    <<SermonPressure -10>>
+    You ask whether righteous anger excuses coveting a neighbour's office. The question divides his audience without denying its grievances.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+===
+
+title: sermonGluttony
+---
+<<SermonPressure 8>>
+<<HardNext Sermon 6 7>>
+<b>Sermon against the Palace: Gluttony</b>: <br> Gennadius tells the story of the rich man and Lazarus, placing the palace where his listeners expect to find the rich man's house. Empty bowls are raised above the crowd. "If there is enough for ceremony, there is enough for mercy. Let the imperial table be inspected as closely as the poor man's ration."<br><i>Scriptural theme: Luke 16:19–21.</i>
+-> Distribute food and reduce court hospitality. Spend 200 provisions; public morale +3; reduce his influence. <<if GetInt("iProvisions") >= 200>>
+    <<Change iProvisions -200>>
+    <<ChangeFraction fPeopleRep 0.03>>
+    <<SermonPressure -15>>
+    Food carts leave the palace under public supervision. Gennadius says charity extracted by shame is still charity. Some families care less about the motive than the bread.
+-> Open the palace accounts and explain rationing. Public morale -1; reduce his influence slightly.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure -4>>
+    The figures reveal how little a cancelled feast would feed the City. They do not make hunger easier to bear.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+===
+
+title: sermonWrath
+---
+<<SermonPressure 8>>
+<<HardNext Sermon 7 7>>
+<b>Sermon against the Palace: Wrath</b>: <br> The crowd has begun blocking streets after the sermons. Gennadius invokes the warning that human anger does not produce divine righteousness. "The Emperor calls his own rage justice and our hunger rebellion. Will he answer us with a reason, or with the men who carry his weapons?" Guards wait within sight of the church.<br><i>Scriptural theme: James 1:20.</i>
+-> Meet a small delegation without armed ceremony. Public morale +2; reduce his influence.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<SermonPressure -12>>
+    The delegates must turn slogans into demands. Some prove reasonable; others contradict one another. Gennadius can no longer speak for all of them without disagreement.
+-> Arrest Gennadius for obstructing the defence. Clergy support -10; public morale -3. Ends the sermon chain.
+    <<ChangeFraction fPriestRep -0.10>>
+    <<ChangeFraction fPeopleRep -0.03>>
+    <<HardNext Sermon 99 0>>
+    The guards take him through a silent crowd. The streets clear, but his supporters acquire a story that imprisonment will not easily erase.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+===
+
+title: sermonSloth
+---
+<<SermonPressure 8>>
+<<HardNext Sermon 99 0>>
+<b>Sermon against the Palace: Sloth</b>: <br> For his seventh sermon, Gennadius lists unanswered petitions rather than spectacular crimes. He paraphrases the warning that knowing the good and failing to do it is itself a sin. "You will answer not only for the hand you raised, but for the hand you would not lift." What follows now depends on whether his previous charges have found answers.<br><i>Scriptural theme: James 4:17.</i>
+-> Commit to a funded programme of repairs and hearings. Spend 200 gold; public morale +2; sharply reduce his influence. <<if GetInt("iMoney") >= 200>>
+    <<Change iMoney -200>>
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<SermonPressure -20>>
+    You name officials, allocate money and set dates. The promises can be checked. Several parish leaders agree to oversee the work.
+-> Invite parish elders to supervise existing relief without new spending. Noble support -2; reduce his influence.
+    <<ChangeFraction fNobleRep -0.02>>
+    <<SermonPressure -10>>
+    The palace yields some control to men who will have to answer to their neighbours. Gennadius must decide whether to welcome the arrangement or reveal how much he needs a quarrel.
+-> Ignore the sermon. Public morale -1; his following grows.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<SermonPressure 5>>
+    The palace offers no reply. His listeners supply their own explanation.
+<<SermonClose>>
+<<if SermonPressure() >= 50>>
+His following leaves the church in an angry procession. Shops close and officers report bitter exchanges at the posts. Public morale -8; clergy support -5.
+<<elseif SermonPressure() <= 15>>
+The parish elders publicly acknowledge the changes. Gennadius still has critics to offer, but no united movement behind him. Public morale +3.
+<<else>>
+The movement remains an uneasy pressure upon the palace, but the feared confrontation does not materialise.
+<<endif>>
+===

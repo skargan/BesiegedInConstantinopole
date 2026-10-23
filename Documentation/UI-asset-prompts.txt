@@ -1,0 +1,13 @@
+MIDNIGHT MOSAIC ASSETS — built-in image generation, 21 October 2026
+
+Reference: supplied Besieged_ Byzantine icon comparison sheet.png, row 5 Carved Ivory. Other supplied Midnight Mosaic sheets guide layout, palette and ornament.
+
+Asset: Assets/Resources/UI/MidnightMosaic/ivory-focus.png
+Prompt: Create a production game asset sheet for Besieged in Constantinople: five carved aged ivory relief miniatures with subtle gold, matching row 5 CARVED IVORY of the supplied icon comparison reference. Exactly five icons in ONE evenly spaced horizontal row, each centered in its own equal-width square cell; clear transparent padding around each. Left to right: open imperial treasury chest with coins; three Byzantine soldiers with shields and spears; ornate sword crossed over rolled scroll; Byzantine cross between soldier and bishop; Theodosian tower with cannon and cannonballs. Ivory monochrome material, beautifully sculpted high relief, warm highlights, dark carved recesses, readable silhouettes. No letters, no labels, no borders, no background, no shadows outside objects. Transparent background. Wide 5:1 canvas. These are separate module icons for a dark navy and gold Midnight Mosaic interface.
+Runtime reads five atlas regions; source PNG retained intact with alpha.
+
+Asset: Assets/Resources/UI/MidnightMosaic/mosaic.png
+Prompt: Production UI texture asset for a Byzantine imperial strategy game, Midnight Mosaic style. Single rectangular dark lapis blue mosaic material filling the entire canvas edge to edge. Tiny irregular deep navy and muted sapphire glass tesserae, subtle age and occasional very fine gold hairline between stones, restrained luxurious glow. Center very dark and quiet to allow ivory text overlay. No objects, no icons, NO letters, no border, no frame, no typography, no gradient to transparent. Flat front-facing seamless-looking material, not a scene. Wide landscape canvas. Main reference style is Midnight Mosaic dark navy and gold game UI.
+Runtime crops by control aspect ratio. Borders and gilt corner ornaments are native scalable UI geometry. No text is baked into assets.
+
+Typography: Crimson Text, SIL OFL 1.1. Licence Assets/Resources/Fonts/OFL.txt.

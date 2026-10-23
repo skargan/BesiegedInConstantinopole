@@ -1,0 +1,79 @@
+2: Event name
+3: Code
+4: Status (written/coded)
+5: Notes
+6: 5
+7: The Hidden Chamber
+8: random4
+9: Written
+10: Unique
+11: 7
+12: Ottoman Shipwreck
+13: random6
+14: Written
+15: Unique
+16: 15
+17: Brutal Murder
+18: random14
+19: Part-Written
+20: Unique
+21: 16
+22: Live and let Live
+23: random15
+24: Part-Written
+25: Recurring
+29: title: random4
+30: ---
+31: <b> The Hidden Chamber</b>
+32: Amidst the dwindling resources and desperate circumstances, a legend resurfaces in the Emperor's memory — a tale of a hidden underground chamber left by Constantine himself, rumoured to be filled with gold and treasure reserved for the Empire's most dire moment. While the common belief dismisses this as mere myth, the urgency of the situation prompts the Emperor to consider the possibility that old folktales might hold a kernel of truth. However, chasing after the mythical chamber would waste precious time and resources. Do old folktales have some truth in them after all?
+33: Send a Small Expedition to Investigate (50 troops, 100 gold)
+34: Fueled by the hope that the legend may contain a vital solution, the Emperor decides to send a small expedition to investigate the existence of the hidden chamber. This option balances the need for verification with a cautious approach.
+35: 1. 1 (15%) The expedition discovers an intricate network of tunnels beneath the city, but the hidden chamber remains elusive. While the search consumes valuable time and resources, the newly explored tunnels could provide strategic advantages for future defense.1.2 (15%) The expedition discovers a small tomb of a Roman nobleman. While it is far from the famed riches of Constantine, it contains some golden jewelry and the finding of it lifts the spirits of your people. (1250 gold, +5 morale)1.3 (15%) The expedition disappears in the tunnels and gets lost, to reappear only some days later.  Around half of the men sent died of thirst and never came back, while others tell tales of horror, which demoralise your troops. (-25 troops, -5 morale)1.4 (53%) The expedition returns without anything to report. 1.5 (1%) The expedition at first does not report anything unusual, until unexpectedly one of explorers discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millenium and must be the famous Hidden Room of Constantine! (+25 000 gold)
+37: Send a Large Expedition to Investigate (300 troops, 600 gold)
+38: Fueled by the hope that the legend may contain a vital solution, the Emperor decides to send a large expedition to investigate the existence of the hidden chamber. 
+39: 2. 1 (25%) The expedition discovers an intricate network of tunnels beneath the city, but the hidden chamber remains elusive. While the search consumes valuable time and resources, the newly explored tunnels could provide strategic advantages for future defense.2.2 (25%) The expedition discovers a small tomb of a Roman nobleman. While it is far from the famed riches of Constantine, it contains some golden jewelry and the finding of it lifts the spirits of your people. (1250 gold, +5 morale)2.3 (10%) The expedition disappears in the tunnels and gets lost, to reappear only some days later.  Around half of the men sent died of thirst and never came back, while others tell tales of horror, which demoralise your troops. (-150 troops, -10 morale)2.4 (37%) The expedition returns without anything to report. 2.5 (3%) The expedition at first does not report anything unusual, until unexpectedly one of explorers discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millennium and must be the famous Hidden Room of Constantine! (+25 000 gold)
+41: Consult Scholars and Historians for Guidance
+42: To gain insight into the legitimacy of the legend, the Emperor seeks the counsel of scholars and historians familiar with Byzantine lore. Their expertise may help determine if there is any historical basis for the existence of such a chamber.
+43: 3.1 (70%) Scholars and historians remain sceptical about the legend, emphasizing its mythical nature. The Emperor gains a more informed perspective and the search for the hidden chamber is postponed, preserving your resources.3.2 (27%) While debates are fierce, in the end scholars agree that it is quite probable that the hidden room exists, as Constantine the Great has moved the capital of the Empire to the Byzantium from and at least for a time there must have been two treasuries – main Imperial treasury and a smaller treasury which the Emperor must have used while the Constantinople was being rebuilt into the future capital of the Eastern Roman Empire.  However, the scholars collectively agree it would be impossible to find it quickly enough to help with our siege. Nonetheless, they manage to uncover some very interesting writings and technological insights, which could prove to be of use to us. (+2 secrets) 3.3 (3%) Our scholars sift through the ancient tomes until a mysterious note is found, directing our search efforts towards the underground. One of our historians decides to check and discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millennium and must be the famous Hidden Room of Constantine! (+25 000 gold)
+45: Ask the Citizens to Investigate: 
+46: Aware of the City's collective knowledge, the Emperor mobilizes citizens to share any folklore or historical accounts that might lead to the Hidden Chamber. This communal approach hopes that the wisdom of common people could potentially unearth valuable information. While the citizens are happy to share various folklore, no conclusive evidence about the hidden chamber emerges. However, the collaborative effort strengthens a sense of unity among the populace, boosting morale in the face of scarcity.
+47: No way, what next, shall we start searching for Troy or Agamemnon’s Mask?
+48: We wisely decide to preserve our resources. 
+49:         -> Ask Johannes Grant to investigate Blachernae palace for any clues (IF Johannes Grant)
+50: 5.1 (75%) Johannes Grant investigates the Blachernae palace at our request, however he is unable to find any clues that would lead to the Constantine’s hidden room.
+51: 5.2 (25%) Johannes Grant investigates the Blachernae palace at our request, and realises that in the architectural blueprints there are places where the scheme does not make sense, as if something would be hidden there. Johannes Grant decides to check personally and discovers a strange statue in one of the underground water cisterns. The statue has been under water for centuries, but recent siege has greatly increased water usage, making the waterline descend enough that the statue of what appears to be Christ holding Roman eagle becomes visible. Behind the statue is an entry in to a small sealed room, where you find a buried noble family of unclear origin and a great treasure. This room has been sealed for more than a millennium and must be the famous Hidden Room of Constantine! (+25 000 gold)
+54: ===
+55: title: random6
+56: ---
+57: <b> Ottoman Shipwreck</b>
+58: Overnight, a Turkish ship sailed too close to the coastline, meeting its fate on the shallow underwater rocks near the city's sea walls. The shipwreck now lies within cannon-shot distance, presenting both a potential opportunity and a strategic challenge. We must decide on the best course of action.
+59: 1. Send a Small Search Party to Check for Any Valuables
+60: The Emperor opts for a cautious approach, sending a small search party to investigate the shipwreck for any valuables or information. This discreet operation aims to minimize risks while potentially gaining insights into the enemy's resources. The small search party discovers some salvageable items and discovers captain’s journal, gathering intelligence about the enemy's naval capabilities. (+1 secret, +500 gold)
+61: 2. Send a Big Search Party to Strip Anything of Value
+62: The Emperor mobilizes a larger search party to thoroughly strip the shipwreck of anything valuable. This option prioritizes maximizing gains from the enemy's misfortune.
+63: 2.1 The big search party retrieves a significant haul of valuables, including supplies, weaponry, and information. However, the operation attracted attention and Turkish fleet opened fire on our ships, killing a number of soldiers.
+64: 2.2 The big search party retrieves a significant haul of valuables, including supplies, weaponry, and information.
+65: 2.3 The big search party discovers that the shipwreck is in a much better condition than it appeared from the shore. They manage to bring it back to shore and with some repairs it soon joins our navy under a new name “Phoenix”.
+66: 3. Order the Cannons to Blast the Shipwreck to Pieces
+67: To eliminate any potential strategic advantage for the Ottomans, the Emperor orders the cannons to blast the shipwreck to pieces. This decisive action aims to prevent the enemy from recovering resources or intelligence.
+68: 3.1 The shipwreck is effectively destroyed, denying the Ottomans any salvageable items. 
+69: 3.2 The shipwreck is too far to easily destroy and we waste much more ammunition than intended.
+70: 4. Send an Emissary to the Ottomans and Give Them Permission to Collect Their Dead (If Diplomacy)
+71: 4.1 Choosing a diplomatic approach, the Emperor sends an emissary to the Ottomans, offering permission to collect their dead from the shipwreck. This gesture emphasizes humanity and respect in the midst of conflict. The Sultan is pleased by this (reduce Fury by 10)
+77: ===
+78: title: random14
+79: ---
+80: <b> Brutal Murder </b>
+81: Siege is a tense time – thousands of refugees are sharing the walls of the city with its original citizens and stressed mercenaries. Periodically, violence breaks out and someone ends up with their throat slit. Most of the time, nobody cares, but this time the murder is particularly gruesome and rumours spread among the people that a serial killer is on the loose in the city, using the chaos of the siege to cover his tracks…
+82: Mere rumours, ignore them.
+83: Get Sprantzes to investigate these rumours, I trust him to handle it. (IF Sprantzes)
+85: ===
+86: title: random15
+87: ---
+88: <b> Live and let Live </b>
+89: While at some sections of the wall battle is extremely intense, in areas of secondary importance “live and let live” situation has developed with Turks and your soldiers not trying to kill each other too hard. Secret trade transactions occur at night and both sides seem to be happy with the state of affairs remaining as it is. What shall be your orders?
+90: Find officers of the wall section in question and behead them.
+91: This might be useful to us later. Don’t do anything.
+92: Create a trap for the Turks and kill them (IF Giovanni)
+93: Use this opportunity to urge Turks to defect (If Orhan)
+94: Buy food and ammunition from the Turks (if Loukas Notaras)

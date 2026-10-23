@@ -1,0 +1,71 @@
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+public class Save29Capture:MonoBehaviour {
+    string root;int checks;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-save29-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
+    void Check(bool v,string label){if(!v)throw new Exception("SAVE29 PLAYER: "+label);checks++;}
+    private IEnumerator Shot(string name)
+    {
+        yield return new WaitForSeconds(1);
+        yield return null;
+        File.WriteAllLines(Path.Combine(root,name+"-text.txt"),FindObjectsOfType<TMPro.TMP_Text>().Select(t=>t.name+" | "+t.rectTransform.rect+" | "+t.maxVisibleCharacters+" | "+string.Join(",",t.GetComponentsInParent<CanvasGroup>().Select(g=>g.name+":"+g.alpha))+" | "+t.text));
+        // Render explicitly: a hidden Windows player can otherwise return a black back buffer.
+        var cameraObject = new GameObject("Capture camera",typeof(Camera));
+        var camera = cameraObject.GetComponent<Camera>();
+        camera.orthographic=true; camera.clearFlags=CameraClearFlags.SolidColor;
+        camera.backgroundColor=new Color(.06f,.07f,.08f); camera.nearClipPlane=.1f; camera.farClipPlane=100;
+        var canvases=FindObjectsOfType<Canvas>().Where(c=>c.isRootCanvas).ToArray();
+        var modes=canvases.Select(c=>c.renderMode).ToArray();
+        var cameras=canvases.Select(c=>c.worldCamera).ToArray();
+        var distances=canvases.Select(c=>c.planeDistance).ToArray();
+        var target=new RenderTexture(1600,900,24);
+        camera.targetTexture=target;
+        foreach(var canvas in canvases) {canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=10;}
+        Canvas.ForceUpdateCanvases();
+        camera.Render();
+        var previous=RenderTexture.active; RenderTexture.active=target;
+        var shot=new Texture2D(1600,900,TextureFormat.RGB24,false);
+        shot.ReadPixels(new Rect(0,0,1600,900),0,0);shot.Apply();
+        File.WriteAllBytes(Path.Combine(root,name+".png"),shot.EncodeToPNG());
+        RenderTexture.active=previous;
+        for(int i=0;i<canvases.Length;i++){canvases[i].renderMode=modes[i];canvases[i].worldCamera=cameras[i];canvases[i].planeDistance=distances[i];}
+        camera.targetTexture=null;target.Release();Destroy(target);Destroy(shot);Destroy(cameraObject);
+        yield return new WaitForSeconds(.3f);
+    }
+    IEnumerator Loaded(){yield return null;yield return new WaitForSecondsRealtime(.35f);Check(VariableSingleton.Instance!=null,"campaign scene loaded");var profile=typeof(VariableSingleton).Assembly.GetType("EmperorProfile");if(profile!=null&&(bool)profile.GetField("NeedsOpening").GetValue(null)){profile.GetMethod("Allocate").Invoke(null,new object[]{new int[]{6,5,5}});var opening=GameObject.Find("What kind of Emperor am I?");if(opening!=null)Destroy(opening);VariableSingleton.Instance.Save();}}
+    void Click(string text){var b=FindObjectsOfType<Button>().FirstOrDefault(x=>x.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith(text)==true);if(b==null||!b.interactable)throw new Exception("Missing button "+text);b.onClick.Invoke();}
+    void Reload(string path){SaveGames.RequestedFile=path;VariableSingleton.ContinueRequested=true;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");}
+    IEnumerator Start(){
+        Application.runInBackground=true;root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Save29"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        SaveMenu.NewCampaign(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("01-mode-selection");SaveMenu.Close();yield return Shot("00-main-menu");
+        bool hadDisplay=PlayerPrefs.HasKey("Besieged.Fullscreen");int previousDisplay=PlayerPrefs.GetInt("Besieged.Fullscreen",1);AudioSettingsUI.Show(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("09-settings-display");Click("Windowed");yield return new WaitForSecondsRealtime(1);Check(!Screen.fullScreen,"windowed display applied");Click("Fullscreen");yield return new WaitForSecondsRealtime(1);Check(Screen.fullScreen,"fullscreen display applied");Click("Windowed");yield return new WaitForSecondsRealtime(.5f);AudioSettingsUI.Close();if(hadDisplay)PlayerPrefs.SetInt("Besieged.Fullscreen",previousDisplay);else PlayerPrefs.DeleteKey("Besieged.Fullscreen");PlayerPrefs.Save();
+        SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;SceneManager.LoadScene("Continue Game");yield return Loaded();
+        Check(!SaveGames.Ironman&&SaveGames.CanManualSave,"Normal allows council saves");Check(SaveGames.Named("Test council",out var message),"named save written");
+        var file=SaveGames.Entries().First(e=>e.archive?.name=="Test council").path;int money=CouncilActions.Int("iMoney");VariableSingleton.ChangeInt("iMoney",-123);Reload(file);yield return Loaded();Check(CouncilActions.Int("iMoney")==money&&!SaveGames.Ironman,"Normal named save reloads without mode promotion");
+        SaveMenu.Show(FindObjectOfType<ManagerUI>().transform.parent);yield return Shot("02-archive-browser");SaveMenu.Close();
+        var manager=FindObjectOfType<ManagerUI>();CouncilUI.For(manager).Technologies();yield return Shot("03-technology-art");var thumbnail=FindObjectsOfType<Button>().First(b=>b.name.StartsWith("Technology artwork "));thumbnail.onClick.Invoke();yield return Shot("04-technology-enlarged");Check(TechnologyArtwork.ClosePreview()&&!TechnologyArtwork.ClosePreview(),"image preview closes once");ControlSingleton.Instance.GoBack();yield return null;
+        if(Environment.GetCommandLineArgs().Contains("-polish31-capture")){Debug.Log("POLISH31_PLAYER_CHECKS display switching, archives, technology thumbnails and enlargement passed");Application.Quit();yield break;}
+        WorldMapUI.Show();yield return Shot("07-world-map");Check(GameObject.Find("World map viewer")!=null,"world map opens");Click("+");yield return Shot("08-world-map-zoom");Click("Fit");WorldMapUI.Close();
+        var legacy=VariableSingleton.Instance.CaptureState();legacy.version=1;legacy.ints.First(v=>v.key=="iPopulation").value=100;legacy.ints.Add(new VariableSingleton.IntValue{key="iPopulationRemainder",value=499});VariableSingleton.Instance.RestoreValidated(legacy);Check(PopulationAccounting.People==100499,"legacy save migrates in live state");var modern=VariableSingleton.Instance.CaptureState();VariableSingleton.Instance.RestoreValidated(modern);Check(PopulationAccounting.People==100499&&modern.version==2,"new save reload does not multiply population");
+        VariableSingleton.SetInt("iPopulation",100499);Check(PopulationAccounting.Food(false)==100,"100499 needs 100 provisions");PopulationAccounting.Add(1);Check(PopulationAccounting.Food(false)==101,"100500 needs 101 provisions");
+        var saved=VariableSingleton.Instance.CaptureState();int storyCount=saved.story.Count;if(storyCount>0)VariableSingleton.Instance.RemovePossibleEvent("story",saved.story[0]);Check(saved.story.Count==storyCount,"snapshot owns story list");
+        var invalid=SaveGames.Read(file);invalid.campaign.ints.First(v=>v.key=="iMoney").value=999999;string bad=Path.Combine(SaveGames.Root,"damaged.besieged.json");File.WriteAllText(bad,JsonUtility.ToJson(invalid));Check(!SaveGames.Load(bad,out var error)&&CouncilActions.Int("iMoney")==money,"invalid save rejected before live mutation");
+        SaveGames.PrepareNew(true);VariableSingleton.ContinueRequested=false;SceneManager.LoadScene("Continue Game");yield return Loaded();Check(SaveGames.Ironman&&!SaveGames.CanManualSave&&!SaveGames.Named("blocked",out message),"Ironman forbids manual slots");
+        Check(!SaveGames.AchievementEligible,"automated gameplay never awards real achievements");
+        // A paid completed event must resume its report without rerunning the choice.
+        VariableSingleton.ChangeInt("iMoney",-5000);int after=CouncilActions.Int("iMoney"),spies=CouncilActions.Int("iSpies");VariableSingleton.ChangeInt("iSpies",2);SaveGames.Checkpoint("event","story23","Recorded decision","A test decision has completed. Gold and agents must not change on reload.");
+        string rolling=VariableSingleton.TestSavePath;Reload(rolling);yield return Loaded();Check(SaveGames.Ironman&&CampaignHUD.Instance.HasModal&&CouncilActions.Int("iMoney")==after&&CouncilActions.Int("iSpies")==spies+2,"Ironman resumes paid event outcome without duplicate reward");yield return Shot("05-ironman-resume");
+        // A committed assault resumes its result; Continue advances exactly one turn.
+        SaveGames.Checkpoint("advance",null,"Recorded assault","The assault has already resolved.");int turn=VariableSingleton.Turn;Reload(rolling);yield return Loaded();Check(VariableSingleton.Turn==turn&&CampaignHUD.Instance.HasModal,"completed battle resumes before calendar advance");Click("Continue");yield return null;Check(VariableSingleton.Turn==turn+1,"battle continuation advances once");
+        Check(SaveGames.Checkpoint(),"rolling checkpoint writes");var a=SaveGames.Read(rolling);Check(a.ironman&&a.saveFormat==SaveGames.Format&&a.build==CouncilUI.BuildLabel,"mode and versions persist");Check(File.Exists(rolling+".bak"),"automatic recovery backup exists");
+        SaveMenu.Show(FindObjectOfType<ManagerUI>().transform.parent);yield return Shot("06-ironman-archives");SaveMenu.Close();
+        Debug.Log("SAVE29_PLAYER_CHECKS "+checks+" passed: portable slots, mode gate, corruption rejection, event resume, assault resume, technology art");Application.Quit();
+    }
+}
+#endif

@@ -1,0 +1,148 @@
+BESIEGED - 200-CAMPAIGN REVIEW - VERSION31 -23 OCTOBER2026
+
+FROZEN BASELINE:4acf796. All200 runs finished through a campaign ending. Gameplay was not patched during the sweep.
+Method:10 groups x20 seeded campaigns.80 start at the opening;120 are siege-start scenarios using default state without preparation rewards. Scarcity starts with500gold and200provisions. Choices are automated random available options, with a group-specific council policy. Fade animations are disabled for speed; event commands,turn flow and resource rules are real game code. Phased assaults use the authoritative model with neutral,+25percent or-25percent timing. This is not200 human play sessions or a controlled policy comparison.
+A single additional diagnostic replay is separate from the200 and uses its own output folder. Test saves and achievements are isolated. The audit baseline excludes the other agent's unintegrated consolidation and PR4 court/profile work.
+
+Coverage:19586 campaign-turn observations;24162 option-selection attempts;122 event roots with choices;127 phased assaults;715 archive reload operations.
+
+GROUP RESULTS (20 runs each;median siege days |assaults |zero-assault runs |victories)
+mixed: 113.5 |8 |14 |1
+scarcity: 44.0 |4 |16 |0
+training: 88.5 |8 |14 |0
+naval: 89.0 |6 |14 |0
+espionage: 88.0 |10 |16 |0
+politics: 97.5 |5 |16 |0
+diplomacy: 89.5 |13 |14 |0
+defence: 150.0 |61 |4 |0
+poor-timing: 96.5 |9 |14 |0
+archives: 101.0 |3 |18 |2
+
+Observed endings:96 noble collapse;49 army morale;28 public collapse;17 generic Emperor death;5 poison assassinations;2 clergy collapse;3 endurance victories.0 wall-loss endings. These proportions reflect the automated policy mix, not a player win-rate estimate.
+
+PRIORITISED DECISION LIST
+
+1. P0 - AI tactic tables silently stop operations
+Status:Runtime pattern plus scene-source confirmation
+Evidence:140/200 campaigns had no phased assault;46 of these lasted at least100 siege days. Three tactic tables are empty: TestWall,AttackWall,SendAssault. Advance contains a null action.
+A. Populate and validate the existing tables; fail the build for empty/null actions. RECOMMENDED.
+B. Replace tables with a small explicit, data-driven tactic catalogue.
+C. Add a fallback bombardment/assault while gradually migrating the tables.
+Implementation note:Repair legal actions first; choose their weights after a new sweep.
+
+2. P1 - Victory can occur without defending an assault
+Status:Observed
+Evidence:All3 victories reached240 days with0 phased assaults (runs16,195,200).
+A. Keep240-day victory, but restore credible Ottoman pressure first. RECOMMENDED.
+B. Require a final major assault or relief event before victory.
+C. Offer negotiated or supply-collapse victory paths with visible prerequisites.
+Implementation note:Do not infer a1.5percent human win rate from these automated policies.
+
+3. P1 - Casualty asymmetry remains extreme
+Status:Observed
+Evidence:Four runs exceeded100 attackers killed per defender in at least one assault:45/310044=5000:9;121/310120=5000:39;133/310132=5000:48;134/310133=5000:25.
+A. Cap exposure/lethality per phase and preserve a larger retreating attacker fraction. RECOMMENDED for prototype.
+B. Retain lethal defence but make repulse primarily morale and retreat, separating routed from killed.
+C. Raise defender attrition/counterfire while retaining current attacker lethality.
+Implementation note:Retest identical assault states and seeds; do not multiply all casualties globally.
+
+4. P1 - Political approval dominates campaign endings
+Status:Observed design signal
+Evidence:175/200 ended through support or morale collapse:96 noble,49 army,28 public,2 clergy. No city-wall-loss ending occurred.
+A. Use warning thresholds and a recoverable political crisis before defeat. RECOMMENDED.
+B. Keep instant defeat atzero but expose forecasts and stronger recovery tools.
+C. Differentiate consequences: noble obstruction, clergy unrest, desertion, then eventual collapse.
+Implementation note:Random event choices are not skilled political management; counts diagnose the current failure mix, not optimal-play difficulty.
+
+5. P1 - Food-shortage events repeat excessively
+Status:Observed
+Evidence:166/200 runs encountered foodShortage;4112 distinct run/turn encounters;one run encountered it63 times.
+A. Persistent rationing policy with a daily consequence and occasional new escalation. RECOMMENDED.
+B. Keep daily shortage choice, add opt-in repeat-last-policy and compact reporting.
+C. Multi-stage starvation chain with escalating, distinct decisions and a clear terminal condition.
+Implementation note:Preserve food pressure; reduce repeated identical interaction.
+
+6. P1 - Fleet rewards arrive unpredictably and too far apart
+Status:Observed plus source confirmation
+Evidence:276 fleet-report encounters across152 runs. Repeat intervals ranged30-105 turns,median45. Reports share a random narrative pool and cooldown.
+A. Fixed fortnightly reports outside the narrative lottery. RECOMMENDED; other agent has an unintegrated candidate.
+B. Accumulate mission progress daily and resolve at a visible threshold.
+C. Retain random reports but guarantee a maximum wait.
+Implementation note:Rebalance report rewards after changing frequency; unchanged rewards every14days increase economic output.
+
+7. P1 - Achievement-based preparation unlocks read obsolete flags
+Status:Source-confirmed integration defect
+Evidence:PreparationCampaign.CareerCount reads BesiegedAchievement+index; current Ironman awards use Besieged.IronAchievement+API_ID. The200 runs never earned account achievements because tests are intentionally ineligible.
+A. Read the same AchievementPlatform catalogue used by the achievement screen. RECOMMENDED.
+B. Use an independent campaign experience/unlock system, separate from Steam achievements.
+C. Remove career locks and gate preparation by date/resources/characters.
+Implementation note:Explicitly choose whether Normal play should progress content unlocks while achievements remain Ironman-only.
+
+8. P1 - Repair technology promises an unused discount
+Status:Source-confirmed integration defect
+Evidence:RomanConcrete advertises25percent lower repair gold cost. TechnologySystem.RepairMultiplier has no consumer; DefenseActions.GetSelection calculates cost without it.
+A. Apply the modifier in one shared repair-cost calculation used by preview and payment. RECOMMENDED.
+B. Change the technology into a clearly implemented integrity/material bonus.
+C. Remove the benefit and refund existing research until redesigned.
+Implementation note:Add a behavioural price/payment regression; checking that the multiplier property exists is insufficient.
+
+9. P1 - Commander preparation rewards an unused support variable
+Status:Source-confirmed integration defect
+Evidence:PreparationCampaign.Complete(story14) adds10 to iArmySupport; actual army morale is fTroopRep. No active gameplay consumer for iArmySupport found.
+A. Grant10 army morale points once. RECOMMENDED; supplied consolidation candidate already does this.
+B. Define Army Support as a separate, visible institution mechanic.
+C. Replace it with a commander-specific military bonus.
+Implementation note:Reconcile existing saves and descriptions; do not add an invisible second morale meter.
+
+10. P2 - Save equality check flags default-field normalisation
+Status:Observed; single-seed replay diagnosed
+Evidence:715 archive reload operations;all20 archive runs logged a raw snapshot difference. Replay310180 changed only absent defaults into iMerchantFavor50,iFencing25,iAchievementPerson2=0,iAchievementPerson200=0. No failed load or corruption observed.
+A. Initialise canonical defaults on new campaigns and compare semantic state. RECOMMENDED.
+B. Allow missing defaults and document migration; make QA ignore equivalent absent/default fields.
+C. Version every such normalisation as a formal migration.
+Implementation note:Do not report this as lost population,gold or campaign progress. Full Ironman rollback/security was not exercised by this sweep.
+
+11. P2 - Technology prose disagrees with naval damage formula
+Status:Source-confirmed
+Evidence:ArtilleryShips description says100 becomes200 casualties; RecurringEvents uses ship count*4, doubled by technology.
+A. Show the actual current ship-dependent damage and modifier. RECOMMENDED.
+B. Make the rule a fixed100/200 effect as advertised.
+C. Move to capped damage scaling with ships and enemy exposure.
+Implementation note:Choose the rule first, then use one calculation for preview and outcome.
+
+12. P2 - Naval reinforcement balance is structurally asymmetric
+Status:Source-confirmed design question; cohort is not a controlled balance experiment
+Evidence:Ottomans gain1 ship/day; a new player ship takes30days. The naval cohort pursued construction when outnumbered and ended0/20 victories, but politics,resources and random choices confound this.
+A. Keep the asymmetry; add convoy interception, repair recovery and bounded enemy reinforcements. RECOMMENDED direction.
+B. Allow affordable batch construction and allied warship commitments.
+C. Use a finite Ottoman replacement pool rather than permanent daily growth.
+Implementation note:Run matched prepared naval campaigns after tactics and fleet reporting are fixed.
+
+13. P2 - Coverage is broad but leaves important paths unproven
+Status:Coverage limit
+Evidence:122 event roots with selectable choices;127 authoritative model assaults. No stalls,turn caps,runtime-error endings,negative-resource alerts or nonfinite-state alerts. Assault incidents,duel/ladder input and Ironman lifecycle are not end-to-end automated by these200 campaigns.
+A. Add targeted branch/incident and paired-seed assault tests next. RECOMMENDED.
+B. Run a further stratified campaign set with explicit rare-event prerequisites.
+C. Use a short director playtest checklist for presentation and perceived fairness alongside automated checks.
+Implementation note:Do not claim every event branch,device resolution or human minigame performance was tested.
+
+WHAT HELD UP
+No captured runtime exception/error endings;no observed UI stalls;no campaigns hit the turn/step safety caps. Political shares remained100percent and the numeric guards detected no invalid state. All expected fixed preparation roots were reached in eligible opening-start runs. Population values remained individual counts. These are observed results within the stated coverage, not a whole-game certificate.
+
+RECOMMENDED ORDER
+1.Repair and validate Ottoman tactic content.
+2.Unify misleading rewards and modifiers:career unlocks,repair discount,commander reward,naval prose.
+3.Integrate/review existing consolidation candidate on a separate branch,especially fortnightly fleet economics.
+4.Repeat a matched baseline sweep before adjusting casualties or changing defeat thresholds.
+5.Then decide political crises,starvation interaction and naval recovery.
+6.Playtest active controls and rare tactical branches separately.
+
+FILES
+runs.csv:one row per campaign,seed,group,end state.
+issues.csv:unmodified raw anomaly records;save-mismatch rows include benign normalisation.
+trace.csv:turns,event choices,preparations,actions and assault ledgers.
+summary.json:group statistics and reproducible issues.
+run-NNN-final.json:final state for each campaign.
+Campaign200Diagnostic/before.json and after.json:single-seed save comparison.
+method.txt:runner assumptions.
+No balance changes were made during this assessment.

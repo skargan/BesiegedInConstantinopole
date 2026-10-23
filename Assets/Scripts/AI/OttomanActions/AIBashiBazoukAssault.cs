@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class AIBashiBazoukAssault : OttomanAction
 {
     public override bool IsRestricted()
     {
-        return VariableSingleton.GetFloatVariable("iBazouks") == 0;
+        return VariableSingleton.GetIntVariable("iBazouks") == 0;
     }
 
     public override void Execute()

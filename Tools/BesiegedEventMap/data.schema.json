@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:besieged:event-map:v1",
+  "title": "Besieged Event Map interchange format",
+  "type": "object",
+  "required": ["schemaVersion", "events", "edges", "sources"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "title": {"type": "string"},
+    "revision": {"type": "string"},
+    "repositoryCommit": {"type": ["string", "null"]},
+    "events": {"type": "array", "maxItems": 5000, "items": {"$ref": "#/$defs/event"}},
+    "edges": {"type": "array", "maxItems": 20000, "items": {"$ref": "#/$defs/edge"}},
+    "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+  },
+  "$defs": {
+    "strings": {"type": "array", "items": {"type": "string"}},
+    "effect": {
+      "type": "object", "required": ["command", "variable", "operation", "value", "guards"],
+      "properties": {
+        "command": {"type": "string"}, "variable": {"type": "string"},
+        "operation": {"type": "string"}, "value": {"type": "string"},
+        "guards": {"$ref": "#/$defs/strings"}, "line": {"type": "integer"}
+      }
+    },
+    "choice": {
+      "type": "object", "required": ["id", "label", "text", "conditions", "effects", "outcomes"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1}, "label": {"type": "string"}, "text": {"type": "string"},
+        "extraction": {"enum": ["explicit", "prose-review", "authored"]},
+        "conditions": {"$ref": "#/$defs/strings"},
+        "effects": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "outcomes": {"type": "array", "items": {
+          "type": "object", "required": ["probability", "text"],
+          "properties": {"probability": {"type": "number", "minimum": 0, "maximum": 100}, "text": {"type": "string"}}
+        }}
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": ["id", "code", "title", "collection", "category", "origin", "status", "description", "notes", "raw", "choices", "effects", "conditions", "reads", "writes", "review"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1}, "code": {"type": "string"}, "title": {"type": "string"},
+        "collection": {"enum": ["runtime", "design", "catalogue", "proposal"]}, "category": {"type": "string"},
+        "origin": {"enum": ["imported", "authored", "sample"]}, "status": {"type": "string"},
+        "description": {"type": "string"}, "notes": {"type": "string"}, "raw": {"type": "string"},
+        "sourceId": {"type": "string"}, "sourceLine": {"type": "integer"}, "edited": {"type": "boolean"},
+        "entry": {"type": "boolean"}, "external": {"type": "boolean"},
+        "conditions": {"$ref": "#/$defs/strings"}, "reads": {"$ref": "#/$defs/strings"},
+        "writes": {"$ref": "#/$defs/strings"}, "review": {"$ref": "#/$defs/strings"},
+        "choices": {"type": "array", "items": {"$ref": "#/$defs/choice"}},
+        "effects": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "position": {"type": "object", "required": ["x", "y"], "properties": {"x": {"type": "number"}, "y": {"type": "number"}}}
+      }
+    },
+    "edge": {
+      "type": "object", "required": ["id", "source", "target", "label", "kind", "choiceId", "note", "origin", "conditions"],
+      "properties": {
+        "id": {"type": "string"}, "source": {"type": "string"}, "target": {"type": "string"},
+        "label": {"type": "string"}, "kind": {"enum": ["jump", "schedule", "manual"]},
+        "choiceId": {"type": "string"}, "note": {"type": "string"}, "origin": {"type": "string"},
+        "conditions": {"$ref": "#/$defs/strings"}
+      }
+    },
+    "source": {
+      "type": "object", "required": ["id", "name", "text"],
+      "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "text": {"type": "string"}, "kind": {"type": "string"}, "locator": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+    }
+  }
+}

@@ -1,0 +1,162 @@
+title: lifeStones
+---
+<<LifeSeen lifeStones>>
+<b>The Old Woman and the Stones</b>: <br> Every morning an old woman brings rubble to the wall in a wicker basket. Her sons are dead, she tells the foreman. This is what remains for her to do. Today the basket is heavier than she can lift.
+-> Thank her before the workers. Public morale +1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    You take one handle and help her carry it. Nobody cheers until the stones are safely down.
+-> Organise a working party around her. Lose 10 provisions; gain 10 materials. <<if GetInt("iProvisions") >= 10>>
+    <<Change iProvisions -10>>
+    <<Change iMaterials 10>>
+    By noon there are twenty baskets moving through the street. She refuses a lighter one, but accepts someone to carry the other handle.
+===
+title: lifeSaints
+---
+<<LifeSeen lifeSaints>>
+<b>Two Saints upon the Wall</b>: <br> Niketas, a Greek from Patras in the Morea, credits Saint Andrew with every deliverance worth mentioning. Leon, born within sight of the Holy Apostles, replies that Saint Constantine built the City which Andrew is now being asked to save. Neither man has noticed that the water they were heating has boiled away.
+-> Leave them to their debate.
+    "Andrew was called first," Niketas insists. "And Constantine knew when to build a wall," says Leon. Their companions put another pot on.
+-> Join the debate.
+    <<jump lifeSaintsDebate>>
+===
+title: lifeSaintsDebate
+---
+<b>An Imperial Opinion</b>: <br> Leon straightens. "His Majesty bears the saint's name. There is our answer." Niketas bows, but cannot quite leave it there. "Surely an apostle outranks an emperor before Heaven?" They look at you with the alarming confidence of men who believe rulers must know everything.
+-> Saints intercede; they do not compete for command. Let us ask both to pray for us. Clergy support +1.
+    <<ChangeFraction fPriestRep 0.01>>
+    Niketas considers this. Leon nods as though it was what he meant all along. For a moment, the two men are satisfied.
+-> An emperor's judgment should settle the matter. Noble support +1; public morale -1.
+    <<ChangeFraction fNobleRep 0.01>>
+    <<ChangeFraction fPeopleRep -0.01>>
+    They defer immediately. The silence is impeccable and distinctly less friendly.
+-> Ask what troubles them beneath the argument.
+    <<jump lifeSaintsQuestion>>
+===
+title: lifeSaintsQuestion
+---
+<b>What Prayer Can Promise</b>: <br> Niketas lowers his voice. "My brother prayed before the village burned. What did he lack?" Leon stops smiling. The question has ceased to be about which saint belongs to which city.
+-> Prayer is no bargain that purchases safety. We can honour your brother by protecting those still living. Public morale +2; clergy support +1.
+    <<ChangeFraction fPeopleRep 0.02>>
+    <<ChangeFraction fPriestRep 0.01>>
+    Niketas looks towards the crowded roofs. "Then I had better return to my watch." Leon goes with him.
+-> Promise that sufficient faith will guarantee victory. Army morale +2; clergy support -2.
+    <<ChangeFraction fTroopRep 0.02>>
+    <<ChangeFraction fPriestRep -0.02>>
+    Some men cheer. The priest listening by the stair does not. You have made a promise that neither saint put in your mouth.
+-> Admit that you do not know, and pray with them. Public morale +1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    The three of you stand together until the bell marks the changing watch. Nobody has won the argument.
+===
+title: lifeRoof
+---
+<<LifeSeen lifeRoof>>
+<b>Rain through the Roof</b>: <br> Water drips through the roof of a crowded shelter. A woman holds a bowl above a sleeping child while her husband moves their bedding towards a patch of floor which is merely damp.
+-> Send materials to repair it. Lose 10 materials; public morale +1. <<if GetInt("iMaterials") >= 10>>
+    <<Change iMaterials -10>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    The carpenters complain about the old beams, then set to work. By nightfall the bowls can return to the kitchen.
+-> Move the families into a noble residence. Public morale +1; noble support -1.
+    <<ChangeFraction fPeopleRep 0.01>>
+    <<ChangeFraction fNobleRep -0.01>>
+    A steward protests that the rooms were never intended for such numbers. You observe that the rain had made the same objection to their previous accommodation.
+-> Leave the repairs to the householders. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    They stretch blankets beneath the rafters. The rain comes through more slowly.
+===
+title: lifeSong
+---
+<<LifeSeen lifeSong>>
+<b>A Song from Home</b>: <br> After sunset, foreign soldiers sing softly beside their cooking fire. You understand none of the words, but recognise the way one man stops before a verse the others know. Local defenders gather at the edge of the light.
+-> Send wine to the fire. Lose 50 gold; army morale +2. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<ChangeFraction fTroopRep 0.02>>
+    The cups pass between men who share few words. Someone begins a Greek song, and this time the foreigners listen.
+-> Stay and listen. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    They make room on a bench. For the length of the song, you are another man far from an easier life.
+===
+title: lifeGenerosity
+---
+<<LifeSeen lifeGenerosity>>
+<b>A Merchant's Generosity</b>: <br> A merchant presents carts carrying a hundred provisions. His clerks have painted his name on every board. He insists that he seeks no payment, then mentions a distant ancestor who may have held a court dignity.
+-> Accept the donation with public thanks. Gain 100 provisions.
+    <<Change iProvisions 100>>
+    The carts are unloaded beneath the merchant's approving eye. His name is repeated often enough to satisfy a less ambitious man.
+-> Grant him a minor noble dignity and receive him personally. Gain 100 provisions; noble support +1.
+    <<Change iProvisions 100>>
+    <<ChangeFraction fNobleRep 0.01>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 10>>
+    As he kneels before you, his hand closes around something beneath his sleeve.
+    <<jump combatAssassin>>
+    <<else>>
+    He bows so deeply that his chain strikes the floor. The older nobles welcome another household willing to pay for the City's survival.
+    <<endif>>
+===
+title: combatAssassin
+---
+<b>A Blade within Reach</b>: <br> Steel flashes where a petition should have been. The attacker is already inside the guards' reach, close enough that you can see the strain in his jaw. There is time to move, but none to ask why.
+-> Draw and fight. Your fencing skill is {Fencing()}; skill improves defence and reduces injuries.
+    <<FightAssassin 0>>
+    <<if LifeInt("iCombatAssassinWon") == 1>>
+    You turn his blade, force his arm aside and strike. The guards reach you as he falls. You lose {AssassinDamage()} health.
+    <<else>>
+    His first cut gets through. You stumble against the table before the guards drag him down. You lose {AssassinDamage()} health.
+    <<endif>>
+-> Throw furniture between you and call the guards. Lose 10–25 health in the struggle.
+    <<FightAssassin 1>>
+    The table buys a heartbeat. His blade finds you as the guards seize his arms. You lose {AssassinDamage()} health.
+===
+title: lifeGunner
+---
+<<LifeSeen lifeGunner>>
+<b>The Apprentice Gunner</b>: <br> During your inspection, an infantryman steps out and declares that he has always wanted to serve the guns. He has watched the crews carefully, he says. The nearest engineer closes his eyes at the word "watched."
+-> Assign an engineer for five days. Mentor and soldier temporarily unavailable; 80% chance of gaining an engineer when they return. <<if GetInt("iEngineers") >= 1 && GetInt("iInfantry") >= 1>>
+    <<LifeMentor>>
+    The engineer takes the soldier aside before he can touch a powder measure. For five days they will work away from their regular posts. The first lesson is how to recognise what he does not yet know.
+-> Give him powder to practise alone. Spend 2 ammunition. 30% chance of gaining an engineer; otherwise he and 10 other infantry die. <<if GetInt("iAmmunition") >= 2 && GetInt("iInfantry") >= 11>>
+    <<Change iAmmunition -2>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 30>>
+    <<Change iInfantry -1>>
+    <<Change iEngineers 1>>
+    Against the engineer's expectations, the young man proves a careful student. He earns a place with the gun crews and joins the engineer roster.
+    <<else>>
+    <<Change iInfantry -11>>
+    A flash runs into the loose powder. When the smoke clears, the would-be gunner and ten other soldiers are dead.
+    <<endif>>
+-> Deny permission. He remains in the infantry.
+    You tell him the wall still needs a man who knows which end of a spear to hold. The engineer opens his eyes again.
+===
+title: lifeLights
+---
+<<LifeSeen lifeLights>>
+<b>Lights across the Water</b>: <br> Three lights appear on the opposite shore: two together, one apart. They vanish when the harbour bell rings and return farther east. A boatman swears there is no path along that bank. By dawn, everyone who saw them remembers a different number.
+-> Pay a boatman to investigate discreetly. Spend 50 gold. <<if GetInt("iMoney") >= 50>>
+    <<Change iMoney -50>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 25>>
+    <<Change iSecrets 1>>
+    He returns with mud on his sleeves and a scrap of sailcloth bearing a merchant's mark. Someone has been landing cargo where no cargo should be landed. The lights themselves remain unexplained.
+    <<else>>
+    He finds cold ashes, a length of wet cord and footprints ending at the water. He asks not to be sent again. You cannot tell whether he fears what he found or what he failed to find.
+    <<endif>>
+-> Record the pattern and keep watching.
+    Your clerk draws three dots in the margin. The following night there are no lights. Somehow this reassures nobody.
+===
+
+title: lifeGunnerResult
+---
+<<SetInt iLifeMentorDue 0>>
+<<Change iEngineers 1>>
+<b>The Gunner's Examination</b>: <br> The engineer returns from his five days of instruction and presents his pupil for examination.
+<<if LifeInt("iLifeMentorSuccess") == 1>>
+<<Change iEngineers 1>>
+The apprentice measures the charge, checks the barrel and explains every precaution. His mentor nods. Both enter your available engineer roster: the returning instructor and one newly qualified man.
+<<else>>
+<<Change iInfantry 1>>
+The apprentice has learned enough to understand why he should remain an infantryman. The engineer returns to duty; the soldier rejoins his company, considerably less certain that gunnery is easy.
+<<endif>>
+-> Thank the instructor and return them to duty.
+    The engineer asks that the next volunteer be sent to him before being given powder.
+===

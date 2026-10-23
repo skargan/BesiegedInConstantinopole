@@ -1,0 +1,43 @@
+Forty unpleasant recurring siege events — proposals, not implemented
+Each root should have a 30-day cooldown. Consequences and amounts remain to be balanced.
+
+1. The Overflowing Latrine — A blocked drain floods a barracks yard with shit. Pay labourers; divert soldiers from duty; leave it and risk illness.
+2. A Bucket from Above — A chamber pot empties onto a passing patrol. Demand compensation; order an apology; dismiss it as an accident.
+3. The Cesspit beneath the Bakery — Sewage seeps beneath a bread shop. Close it and lose food; pay for repairs; move the ovens.
+4. Filth in the Cistern — A bucket returns foul-smelling water. Isolate the cistern; send workers to inspect it; continue drawing at a health risk.
+5. The Night-Soil Strike — Waste collectors refuse to work without overdue pay. Pay them; negotiate rations; requisition a work gang.
+6. Dead Horse in the Alley — A carcass blocks a street and draws flies. Pay for removal; assign soldiers; butcher it under inspection for limited food.
+7. Rats in the Flour — Droppings appear in opened sacks. Discard the affected flour; pay for sorting and pest control; risk using it.
+8. A Cart of Unburied Dead — Burial workers have run out of cloth and strength. Supply them; call for volunteers; delay burial and lose public morale.
+9. A Grave Robbed Twice — A family finds its dead relative stripped of clothes. Investigate; compensate them; ignore the petition.
+10. The Shroud Seller — A trader raises burial-cloth prices after a bombardment. Buy stock for public use; impose a price ceiling; leave the market alone.
+11. Lice in the Blankets — A company scratches through its watch. Replace bedding; organise washing and boiling; tolerate falling morale.
+12. The Itch after Leave — Several soldiers report burning and sores after visiting a brothel. Arrange discreet treatment; suspend leave; ignore worsening illness.
+13. The Brothel's Complaint — Armed customers are refusing to pay. Enforce payment; close the premises temporarily; ignore it and lose public trust.
+14. A Woman at the Barracks Gate — A sex worker names soldiers who assaulted her. Investigate and punish the culprits; negotiate compensation; protect the accused and risk unrest.
+15. The Captain's Favourite — An officer uses military lodging to house his lover while soldiers sleep outside. Order fair allocation; charge him for private quarters; overlook it.
+16. A Child Left at the Tavern — A baby is abandoned while adults trade accusations about its father. Fund care; ask a parish household to help; assign the matter to local elders.
+17. The Physician's Discretion — A senior courtier requests secret treatment for an intimate complaint. Respect privacy; demand payment for scarce medicine; exploit the information at a loyalty cost.
+18. A Lover at the Sentry Post — A guard abandons his station for a rendezvous. Punish him; replace him with a warning; conceal it and risk repetition.
+19. The Knife beneath the Dice — A gambling dispute ends in a stabbing. Arrest the attacker; permit a company tribunal; force an uneasy settlement.
+20. An Officer's Missing Purse — An officer accuses a whole squad of theft. Investigate; reimburse him; forbid collective punishment and lose his favour.
+21. Pay in Clipped Coin — Mercenaries discover short-weight wages. Replace the money; negotiate a deferred balance; refuse and lose army morale.
+22. Boots Taken from the Wounded — Injured men find their equipment issued to others without consent. Pay compensation; reverse the transfers; defend military necessity.
+23. The False Ration Token — Counterfeit tokens reach the kitchens. Replace the tokens; investigate quietly; suspend distribution and provoke anger.
+24. A Sack Full of Sand — A grain delivery contains stones and sand. Seize the trader's stock; demand restitution; accept a partial repayment.
+25. The Locked Granary — A wealthy household refuses an inspection while neighbours go hungry. Obtain cooperation; force entry; withdraw.
+26. A Fire in the Bedding — A lamp overturns in crowded lodgings. Spend water and labour; pull down a partition to contain it; prioritise evacuation over possessions.
+27. Sparks in the Powder Room — A worker is caught carrying an uncovered flame. Dismiss him; impose supervised handling; punish the foreman as well.
+28. The Cracked Ladder — A supply ladder breaks under two men. Replace it; repair it cheaply; restrict its use and slow deliveries.
+29. A Bell Cut Short — A cannon shot kills the bell-ringer during an alarm. Find a replacement; establish horn signals; leave the tower silent.
+30. The Water Carrier Falls — Enemy fire strikes someone bringing water to the walls. Send an armed escort; move deliveries to darkness; requisition covered containers.
+31. Arrows in the Washing — Enemy arrows reach a courtyard where families wash clothes. Relocate the washing place; build screens; accept the risk.
+32. A Head beneath the Wall — The enemy displays a severed head and claims it belongs to an envoy. Verify the identity; organise a dignified response; suppress the rumour.
+33. Screaming beyond the Gate — Defenders hear prisoners calling from darkness. Send a cautious patrol; answer from the wall; forbid a sortie that may be an ambush.
+34. The White Cloth — Approaching men carry a white rag, but one appears armed. Receive them under guard; demand they disarm at a distance; turn them away.
+35. A Loose Stone in the Dark — A sentry hears movement below an unlit stair. Investigate with guards; seal the passage until morning; dismiss the alarm.
+36. A Door Left Unbarred — A service entrance is found open after curfew. Inspect and reset the watch; punish the gatekeeper; conceal the lapse.
+37. Missing Men at Roll Call — A squad is absent and nobody agrees why. Search the city; offer an amnesty for return; declare them deserters.
+38. The Wrong Man Arrested — A frightened crowd accuses a foreign resident of spying. Examine the evidence; place him in protective custody; surrender to the crowd's demand at a reputation cost.
+39. A Sermon against the Palace — A preacher calls shortages punishment for imperial sins. Answer publicly; seek private mediation; arrest him and anger his supporters.
+40. The Survivor's Silence — A soldier returns alone from a patrol and refuses to speak. Give him rest and a physician; question him gently; force an immediate account and risk his loyalty.

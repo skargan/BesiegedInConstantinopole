@@ -1,0 +1,4 @@
+BESIEGED PROJECT BRIEF
+Unity historical narrative-strategy game about governing and defending Constantinople in1452-1453. The main plot is the siege. Player experience: constrained rulership, credible military pressure, diplomacy and political obligations, persistent consequences, characterful historical and alternative-history paths. Midnight Mosaic is the visual direction.
+Current production target: a coherent playable campaign and bounded assault prototypes that can be tested early. Reliability and consequential systems precede more minigames. Optional active timing modifies ordinary combat within explicit limits; assisted mode keeps ordinary timing effects neutral.
+Operating doctrine: AI_GAME_STUDIO.txt. Current implementation: ARCHITECTURE_MAP.txt and PROJECT_STATUS.txt. Creative backlog: Development priorities and design philosophy.txt. Documented history, interpretation and deliberate alternatives remain distinguished internally.

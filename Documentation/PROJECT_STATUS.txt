@@ -1,0 +1,21 @@
+CURRENT RELEASE - Version31 -23 October2026
+Assault clarity pass: cover cue alignment and timeout exposure, volley input ordering, duplicate-ready-input protection, concise live prompt. Explicit saved Fullscreen/Windowed controls. Technology images preserve native resolution with uncompressed trilinear mipmaps. See Assault design review Version31.txt for assessment, prioritised next work and verification limits.
+
+CURRENT RELEASE - Version 30 - 23 October 2026
+
+Version 30 adds individual resident accounting, migration from campaign schema 1 to 2, nearest-thousand daily food rounding (half up), the supplied Europe1450 reference map in Diplomacy, full-resolution zoom and drag navigation. All 12 legacy population event commands converted; six already-individual AddResidents commands preserved. Three-day food cost uses FoodNeed rather than population. Taxes retain existing rate and fractional carry.
+
+Includes Version29 portable saves, Normal/Ironman mode selection and one rolling Ironman save, stable Steam achievement bridge (SDK not connected), 14 technology illustrations and full-screen default with remembered preference. Exported Windows checks cover archive persistence, corruption rejection, completed-event and battle resumption, population migration and food rounding. Editor checks: 38 save/art/population,1129 assault,201 particles; active Yarn validated. No all-event-branch or full-campaign certification.
+
+Release source is Documents/Codex/Besieged-release18. Other agent's separate court/profile/map-city work remains in shared Desktop source; it is not included in this numbered release. Integrate those changes through review, preserving profile setup hooks and the new archive boundary.
+
+Previous architecture status follows for reference:
+CURRENT PROJECT STATUS - Version28 consolidation - 22 October 2026
+
+Desktop releases: Version27 preserved; Version28 verified consolidation preview published in Builds/Version-28 with dedicated Besieged-Version28.lnk. Build number visible in game. The isolated release does not include the other agent's separate profile/conversation features; those remain preserved in shared Desktop source.
+Completed architecture: guarded Approach/Contact/Aftermath states; once-only emergencies/incident responses/commits; frozen result shared by campaign adapter and report; cosmetic RNG separated; garrison recalculation avoids battle creation; one validated JSON incident catalogue with structured character prerequisite instead of prose matching; no intended numerical balance or save-schema changes.
+Confirmed infiltration failure fixed: raw $openingAgents numeric argument caused FormatException. Corrected Yarn interpolation and escaped cost markup. Exported branch test passed for visible choice/outcome, exact5000gold payment and valid recruitment. Original failure evidence retained in Logs/infiltration-original-failure.log. Validator catches raw Change-variable arguments and unescaped Cost markup in active Yarn source, not archived obsolete scripts.
+Verification:1129 assault/model/content checks and201 particle checks passed in isolated build AND integrated Desktop source. Yarn validation passed; exported Windows build succeeded. Final exported practice checks passed for assisted neutrality, campaign isolation, controls, pause, bounded volleys, cannon and duel. Actual infiltration choice exercised through Yarn.OptionButton; representative outcome screenshot inspected. Active assault screenshot inspected. No full-campaign balance, all-event branches or save/resume certification claimed.
+Remaining staged migrations: explicit orchestration outside the main UI; full action/snapshot replay and in-progress encounter persistence; typed campaign transactions and audited units; ordered turn resolver; legacy instant-assault retirement after parity evidence. Keep existing narrative Yarn and CampaignSave v1 while migrating incrementally.
+Unfinished gameplay: ladder interaction not connected; balance/whole-campaign QA; further art/animation/audio. Creative backlog stays in Development priorities and design philosophy.txt. Do not hold routine previews for all backlog items.
+Project references: AI_GAME_STUDIO.txt, PROJECT_BRIEF.txt, ARCHITECTURE_MAP.txt, ART_BIBLE.txt and DECISIONS.txt.

@@ -1,0 +1,46 @@
+BESIEGED — COUNCIL r11: TEN-CAMPAIGN AUDIT
+13 October 2026
+
+Verified run set
+Ten automated full campaigns in the Windows development build: two seeded campaigns for each siege focus. Actual Unity phase components, Yarn choices, recruitment queues, council actions and Ottoman combat were exercised. No health, morale, troops or money were injected to keep these campaigns alive. Purchases, recruitment and major actions used the game APIs.
+Two policies: a larger grain buffer and conventional defence; a smaller grain buffer with periodic supply sabotage. Both try to maintain weak civic support, repair weakened walls, recruit within their treasury and request foreign aid. These policies are competent automated samples, not ten human play sessions.
+Each campaign began with the preparation events and continued to a real ending. Seed IDs and complete decision traces are in Logs/ten-campaigns/report-final.json. Earlier baseline and intermediate economy runs are preserved separately.
+
+FINAL CAMPAIGNS
+Focus | Seed | Completed siege days | Outcome | Gold remaining | Food remaining
+Fortifications and Artillery | 145300 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 5413 | 0
+Fortifications and Artillery | 145317 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 1479 | 838
+Mobilisation | 145401 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 4468 | 238
+Mobilisation | 145418 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 454 | 524
+War Economy | 145502 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 182218 | 2637
+War Economy | 145519 | 0 | The nobility has withdrawn its support. | 80322 | 23240
+Faith and Unity | 145603 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 8684 | 0
+Faith and Unity | 145620 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 498 | 846
+Diplomacy and Spycraft | 145704 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 3108 | 55
+Diplomacy and Spycraft | 145721 | 240 | After 240 days, the Ottoman siege collapses. Constantinople endures. | 973 | 616
+
+FIXED
+1. Reputation and other percentage fractions could exceed 100%. Raw changes and checkpoint restoration now clamp them. Equipment quality keeps its independent lethality multiplier scale; 1.2 is legitimate quality, not 120% civic support.
+2. City provisions never fell with daily population consumption. Food now decreases once per completed siege day; preparation weeks consume no siege rations. The hunger state is saved.
+3. Treasury and market navigation was missing. The council now offers provisions, materials and ammunition with quantity controls, total costs and affordability checks. Documented prices: provisions 2 gold before the siege / 10 during it; materials 10; ammunition 50. Emergency levy: 100 gold per population unit, public morale -15 points, major action.
+4. Empty stores now produce a recoverable shortage encounter after the normal event. Emergency purchase supplies three days; private requisition supplies two days with noble support -5; reserve rations supply one day with army morale -5 / public morale +2; enduring hunger costs public morale -3 / army morale -2. These shortage effects are provisional values. Buying in the market can avert the encounter.
+5. Five advertised charges were absent: Orban ordinary hire 20,000 gold; focus hire 10,000; fortress sabotage 3,000; Grand Cannon 5,000; the counterbattery workshop outcome stated a 3,000 cost. All now deduct their price once. Workshop eligibility and choice text now show its expense before commitment. Galata choices show bribe and troop/ship/secret costs.
+6. Ending detection could be followed by an arrival report. Management now leaves the ending modal intact when a daily report is pending.
+7. Fleet orders and Grand Cannon possession now use named states in outcome reports. Equipment quality is reported as a lethality multiplier, and a vacant command is reported correctly.
+
+WRITING AND ART
+160 tracked spelling/grammar/wording corrections, plus additional contextual corrections. Edited 21 recurring-event introductions and six generic outcome paragraphs, retaining the grim humour, political attitudes, violence and dilemmas. Editorial corrections preserved event commands and conditions; mechanical changes above are recorded separately. The original supplied recurring-event file remains unchanged.
+Three built-in generated illustrations: military, civic and intrigue. Integrated into event-card headers, with subject-aware cropping, purple choices, gold edging, readable narrative panels and independent scrolling. These are shared category illustrations, not a unique painting for every event.
+Final files: Assets/Resources/EventArt/military-r11.png, civic-r11.png, intrigue-r11.png. Full prompts: Documentation/EventArt-prompts-r11.txt. Phrase log: Documentation/Text-corrections-r11.json. Introduction text: Documentation/Introduction-edits-r11.json.
+
+VALIDATION
+510 focused automated checks passed with zero failures (Logs/r11-smoke.log). Windows build completed (Logs/r11-build.log). The final ten Windows campaigns reported zero runtime/invariant/progression failures (Logs/ten-campaigns-final.log). Visual capture run reported no runtime errors or exceptions (Logs/r11-capture-final.log).
+Inspected 1600x900 captures of the market, military card, civic card, intrigue card, shortage card and long-event choices. Narrative scrolling remains necessary for long existing introductions; the provided art is cropped dynamically into headers. No claim of exhaustive visual QA at all resolutions or testing every event branch.
+
+BALANCE AND REMAINING GAPS
+Nine of ten final campaigns survived 240 days. One War Economy campaign lost during preparations when noble support reached zero. This is substantially more forgiving than the intended rare victory rate; bug-free completion does not establish satisfactory balance.
+Cheap repeated repairs, strong early reinforcements, repeatable emergency levies and requisitions, and a limited Ottoman pressure model merit a dedicated balance pass. The emergency grain sources currently pay a political/morale cost rather than drawing from finite private inventories. A reserve/debt model would make that trade-off more durable.
+The Ottoman AI still cannot use all naval and Grand Cannon ownership flags as distinct threats. The Grand Cannon and harbour-chain variables can be set by events but do not have a complete dedicated combat/action loop. These are feature gaps, not resolved by the editorial or economy pass.
+The current zero-support ending remains immediate, including during preparation. The earlier recoverable political-crisis direction requires reconciliation with those ending rules. Hunger itself is recoverable; zero provisions alone is not an ending.
+Preparation still uses the existing weekly calendar. Monthly preparation, fuller Genoese politics and richer negotiated endings remain further design work.
+The next useful balance experiment is to make repeated defence and emergency funding create cumulative costs while letting Ottoman pressure escalate. This report does not silently alter assault probabilities or existing victory/defeat rules.

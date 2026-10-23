@@ -1,0 +1,40 @@
+BESIEGED - DESIGN DECISIONS, 12 OCTOBER 2026
+Status: agreed direction and implementation requirements; not a claim of completed features.
+
+Confirmed by the designer
+- Endurance victory requires surviving 240 siege days. Preparation events do not count.
+- Add a separate achievement for exceeding historical survival.
+- Provide accurate city information and substantial enemy information. Intelligence about enemy intentions improves with spies in the enemy camp.
+- Resource collapse creates severe, escalating but potentially recoverable crises, rather than automatically ending a run.
+- Construction duration varies by project. Emergency repairs can have immediate effects.
+- Several conditional event paths can lead to Mehmed's death, ending the siege. No permanent assassination button. Paths may involve spies, character branches or opportunities arising after prolonged resistance without spies.
+- Defeat should feel good but unsatisfying: recognise specific exceptional accomplishments and leave the player wanting to try again.
+
+Historical basis and proposed counting convention
+- Oxford Cabinet and Koc University library references date the siege from 6 April to 29 May 1453.
+- Sources: https://www.cabinet.ox.ac.uk/fall-constantinople-1453 and https://libguides.ku.edu.tr/byzantineconstantinople/fallofconstantinople-1453
+- Those dates are 53 elapsed days apart, spanning 54 calendar dates when counted inclusively. Earlier investment dates also appear in histories; use an explicit convention.
+- Proposed achievement: reach 30 May with the city still holding. With 6 April as displayed siege day 1, that is the start of day 55, after 54 completed daily turns. This avoids equating a day just started with a day survived.
+- Endurance victory must check 240 completed siege days, not merely arrival at displayed day 240.
+
+Proposed ending-screen design, awaiting content and implementation
+- Record actual campaign milestones as they happen, preserving them across save/load.
+- Display outcome and immediate cause, completed siege days, historical comparison, and up to three distinctive accomplishments grounded in recorded events.
+- Example categories: exceptional defence, recovery from a crisis, successful relief, people rescued, and character outcomes. Only show categories the game actually measures; do not infer people saved from population alone.
+- Include a short factual account of the collapse and one useful clue grounded in known information. Do not invent an inevitable alternative victory or reveal hidden event branches.
+
+Verified implementation gaps on 12 October
+- CampaignHUD currently ends campaigns immediately at zero faction reputation; this conflicts with the newly approved crisis model.
+- SiegeDay is a one-based current-day counter; using it directly for days survived and the 240-day victory requires correction and boundary tests.
+- Existing date calculation needs alignment with the agreed siege start.
+- This document records decisions only. Crisis chains, richer endings, historical achievement and assassination branches are not implemented by this update.
+
+Earlier decisions still apply
+- Recruitment remains unlimited by action count until playtesting; resource costs still apply.
+- One major action plus minor actions is provisional. Do not introduce a three-minor-action cap without further discussion.
+- Common sense takes priority, then the mechanics document, then existing code; prefer historical plausibility between equally good alternatives.
+- Rarity estimates for victory express intended difficulty, not predetermined win probabilities.
+
+Implemented later in the UI update
+- Siege date now begins on 6 April; CompletedSiegeDays counts finished days and the 240-day ending uses that count. Day-one quick-start date is covered by the gameplay checks.
+- Faith and Unity wartime compact is implemented; persuasion alternative was declined. Isidore is retained by partial Union and compact, lost through explicit exile.
