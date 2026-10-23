@@ -1007,7 +1007,7 @@ public partial class CouncilUI : MonoBehaviour
 
         FleetText(mission.transform,ships==0?"No ships available. New warships take 30 days to build.":effects[order],.03f,.37f,.97f,.68f,24);
 
-        FleetText(mission.transform,"Rewards arrive through fleet-report events, not every day. Changing mission uses your major action.",.03f,.05f,.97f,.35f,20);
+        FleetText(mission.transform,"Routine report in "+FleetOperations.DaysRemaining+" active siege days. Reports follow a 14-day cycle; changing mission uses your major action and starts a new cycle.",.03f,.05f,.97f,.35f,20);
 
         var harbour=SpyPanel("Harbour and command",482,250);
 
@@ -1102,7 +1102,7 @@ public partial class CouncilUI : MonoBehaviour
 
     {
 
-        Open("Diplomatic relations","One appeal per ally per campaign. Appeal: 1,000 gold and an available ship. Expedite: 1,000 gold, up to 5 days sooner. Both use the major action. Scroll for all allies.");
+        Open("Diplomatic relations","One appeal per ally per campaign. Appeal: 1,000 gold; sea routes also require an available ship. Expedite: 1,000 gold, up to 5 days sooner. Both use the major action. Scroll for all allies.");
 
 
 
@@ -1136,7 +1136,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-            CampaignHUD.Explanation(row.transform,ally.Description+"\nPromised package: "+ally.Cargo,new Vector2(.02f,.07f),new Vector2(.57f,.68f),20);
+            CampaignHUD.Explanation(row.transform,ally.Description+"\n"+AidRouting.Route(i)+" · Package: "+AidRouting.Cargo(i),new Vector2(.02f,.07f),new Vector2(.57f,.68f),20);
 
 
 
@@ -1156,7 +1156,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-            button.interactable=(state==0 || state==1) && CouncilActions.Int("iMoney")>=1000 && (state==1 || CouncilActions.Int("iShips")>0) && (state!=1 || CouncilActions.Int("iAidDays"+i)>1);
+            button.interactable=(state==0 || state==1) && CouncilActions.Int("iMoney")>=1000 && (state==1 || !AidRouting.BySea(i) || CouncilActions.Int("iShips")>0) && (state!=1 || CouncilActions.Int("iAidDays"+i)>1);
 
 
 

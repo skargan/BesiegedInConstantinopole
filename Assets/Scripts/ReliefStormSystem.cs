@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 public static class ReliefStormSystem {
@@ -6,7 +6,7 @@ public static class ReliefStormSystem {
     public static bool Exposed(int mission)=>mission==0||mission==1||mission==2||mission==4;
     public static List<int> Incoming() {
         var result=new List<int>();
-        for(int i=0;i<CouncilActions.Allies.Length;i++) if(CouncilActions.Allies[i].Ships>0 && CouncilActions.Int("iAidState"+i)==1)result.Add(i);
+        for(int i=0;i<CouncilActions.Allies.Length;i++) if(AidRouting.BySea(i) && CouncilActions.Int("iAidState"+i)==1)result.Add(i);
         return result;
     }
     [YarnCommand("ReliefStorm")]public static void Resolve(int severity) {
@@ -15,7 +15,7 @@ public static class ReliefStormSystem {
     }
     public static void Apply(int severity,int target,int enemyRoll,int ourRoll) {
         var lines=new List<string>();
-        if(target>=0 && target<CouncilActions.Allies.Length && CouncilActions.Allies[target].Ships>0 && CouncilActions.Int("iAidState"+target)==1) {
+        if(target>=0 && target<CouncilActions.Allies.Length && AidRouting.BySea(target) && CouncilActions.Int("iAidState"+target)==1) {
             string name=CouncilActions.Allies[target].Name;
             if(severity==1){VariableSingleton.ChangeInt("iAidDays"+target,10);lines.Add(name+"'s relief fleet takes shelter far off its course. Arrival is delayed by 10 days; "+CouncilActions.Int("iAidDays"+target)+" days now remain.");}
             else {VariableSingleton.SetInt("iAidState"+target,4);VariableSingleton.SetInt("iAidDays"+target,0);lines.Add(name+"'s relief fleet is lost at sea. Its promised troops, ships and cargo will not arrive.");}

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +10,7 @@ public static class PreparationCampaign
     public const int SiegeTurn=16;
     public static readonly string[] Nodes={"story2","story8","story10","story11","story6","story15","story19","story18","story14","prepIntelligence","prepNaval","prepGrain","story16","story17","prepScorched","story13","story12","story9","prepAdventurers","story7","story20"};
     public static readonly string[] Titles={"Walls","Call on a Major Christian Power","Recruitment","Morean Orders","Provisions Planning","Galata","The Great Chain of the Golden Horn","Orders for the Fleet","Commander","Intelligence","Naval Warfare","Overseas Grain Missions","Assault on the Straitcutter Fortress","Greek Fire","Scorched Earth","Our Turks","Should We Trust the Venetians?","Mind over Matter","Call on Adventurers","Lord of the Imperial Wardrobe","Fate of Stadia and Therapia"};
-    public static readonly string[] Summaries={"Strengthen the City's walls.","Ask foreign powers for aid.","Raise troops for the defence.","Decide what the Morea should contribute.","Build a reserve before prices rise.","Support, neutrality, gifts or control of Galata.","Keep, sell or repurpose the harbour chain.","Prepare the fleet's first mission; routine orders remain in the Fleet menu.","Appoint an available commander and gain 10 army support.","Plant agents in the approaching Ottoman army.","Invest in ships, recovery, stores, a hidden anchorage or pilots.","Dispatch merchant agents; grain arrives later.","Act against the fortress on the Bosphorus.","Seek the lost incendiary weapon.","Deny the advancing army food, routes and materiel.","Decide the place of Turkish households and soldiers in our service.","Hear Captain Diedo and weigh Venetian service against old wounds.","Receive Johannes Grant and his proposal for an engineering workshop.","Invite one traveller, inventor or dispossessed prince to your court.","Hear Sphrantzes and decide the fate of the imperial treasures.","Withdraw, sacrifice or reinforce the outpost garrisons."};
+    public static readonly string[] Summaries={"Strengthen the City's walls.","Ask foreign powers for aid.","Raise troops for the defence.","Decide what the Morea should contribute.","Build a reserve before prices rise.","Support, neutrality, gifts or control of Galata.","Keep, sell or repurpose the harbour chain.","Prepare the fleet's first mission; routine orders remain in the Fleet menu.","Appoint an available commander and gain 10 army morale points.","Plant agents in the approaching Ottoman army.","Invest in ships, recovery, stores, a hidden anchorage or pilots.","Dispatch merchant agents; grain arrives later.","Act against the fortress on the Bosphorus.","Seek the lost incendiary weapon.","Deny the advancing army food, routes and materiel.","Decide the place of Turkish households and soldiers in our service.","Hear Captain Diedo and weigh Venetian service against old wounds.","Receive Johannes Grant and his proposal for an engineering workshop.","Invite one traveller, inventor or dispossessed prince to your court.","Hear Sphrantzes and decide the fate of the imperial treasures.","Withdraw, sacrifice or reinforce the outpost garrisons."};
     // Provisional unlock counts use the three implemented career achievements, not event flags.
     public static readonly int[] UnlockCounts={0,0,0,0,0,0,0,0,0,0,0,1,2,3,2,0,0,0,0,0,0};
     static int I(string key)=>VariableSingleton.GetIntVariable(key);
@@ -40,7 +40,7 @@ public static class PreparationCampaign
     public static void Complete(string node)
     {
         int index=Array.IndexOf(Nodes,node);
-        if(index>=0&&I("iPrepDone"+index)==0){VariableSingleton.SetInt("iPrepDone"+index,1);if(node=="story14" && I("iCommander")>=0)Add("iArmySupport",10);}
+        if(index>=0&&I("iPrepDone"+index)==0){VariableSingleton.SetInt("iPrepDone"+index,1);if(node=="story14" && I("iCommander")>=0)VariableSingleton.ChangePercentFloat("fTroopRep",.10f);}
         if(node.StartsWith("galata")&&node.Length==8&&int.TryParse(node.Substring(6),out int id)&&id>=26&&id<=32)VariableSingleton.SetInt("iGalataEvent"+id,1);
     }
     public static void InitializeDefaults(bool legacy=false)
@@ -121,9 +121,9 @@ public static class PreparationCampaign
     {
         report="A fleet and an available route are required.";if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))return false;
         if(I("iFleet")==mission){report="The fleet already has those orders.";return false;}
-        VariableSingleton.SetInt("iFleet",mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. This uses the major action; no preparation bonus is renewed.";return true;
+        VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. This uses the major action; no preparation bonus is renewed.";return true;
     }
-    [YarnCommand("PrepFleet")] public static void PrepareFleet(int mission){if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))throw new InvalidOperationException("Fleet mission unavailable");VariableSingleton.SetInt("iFleet",mission);VariableSingleton.SetInt("iFleetPrepared",1);}
+    [YarnCommand("PrepFleet")] public static void PrepareFleet(int mission){if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))throw new InvalidOperationException("Fleet mission unavailable");VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",1);}
     [YarnCommand("FleetRetreat")] public static void Retreat(){int sailed=I("iShips"),survived=(sailed+1)/2;VariableSingleton.SetInt("iShips",survived);Add("iDamagedShips",(sailed-survived)/2);VariableSingleton.SetInt("iFleet",3);VariableSingleton.SetInt("iFleetPrepared",0);}
     [YarnCommand("PrepGrain")] public static void Grain(int route)
     {
@@ -176,7 +176,7 @@ public static class PreparationCampaign
         report=GalataActionUnavailable(action);if(report!=null)return false;report="";
         if(action==0){if(I("iMoney")<7500||GalataState!=0)return false;Add("iMoney",-7500);VariableSingleton.ChangeFloat("fGalataRep",.3f);report="The podesta receives 7,500 gold. Galata goodwill +30; control is unchanged.";}
         else if(action==1){if(I("iMoney")<2000)return false;Add("iMoney",-2000);int goodwill=I("iFocus")==3?30:10;VariableSingleton.ChangeFloat("fGalataRep",goodwill/100f);report="Gifts and negotiations: −2,000 gold; +"+goodwill+" goodwill.";}
-        else if(action>=2&&action<=5){if(I("iGalataClaims")<1)return false;Add("iGalataClaims",-1);if(action==2){Add("iProvisions",1000);report="One diplomatic claim redeemed for 1,000 provisions.";}else if(action==3){Add("iMoney",5000);Add("iGalataDebt",5000);report="One claim secures a 5,000-gold loan. Debt recorded for settlement after victory.";}else if(action==4){Add("iInfantry",150);Add("iArchers",100);report="One claim brings 150 infantry and 100 archers.";}else{Add("iGalataDefences",10);report="One claim strengthens the harbour anchorage: Galata defences +10.";}}
+        else if(action>=2&&action<=5){if(I("iGalataClaims")<1)return false;Add("iGalataClaims",-1);if(action==2){Add("iProvisions",1000);report="One diplomatic claim redeemed for 1,000 provisions.";}else if(action==3){Add("iMoney",5000);Add("iGalataDebt",5000);report="One claim secures a 5,000-gold, ten-year loan. No repayment falls due during this siege.";}else if(action==4){Add("iInfantry",150);Add("iArchers",100);report="One claim brings 150 infantry and 100 archers.";}else{Add("iGalataDefences",10);report="One claim strengthens the harbour anchorage: Galata defences +10.";}}
         else if(action==6){if(!B("bCharWarrior0")||I("iMoney")<3000)return false;Add("iMoney",-3000);Loyalty(0,10);report="Pay Giovanni's men: −3,000 gold; personal loyalty +10.";}
         else if(action==7){if(GalataState!=2)return false;Add("iMoney",3000);Loyalty(0,-20);report="Requisition autonomous Galata's revenues: +3,000 gold; Giovanni loyalty −20. Repeated demands may provoke a political crisis.";}
         else if(action==8){VariableSingleton.SetInt("iGalataSupportRequested",1);VariableSingleton.ChangeFloat("fGalataRep",-.2f);Add("iInfantry",300);Add("iArchers",300);Add("iMoney",4500);Add("iProvisions",500);report="The podestà sends immediate support under protest: 300 infantry, 300 archers, 4,500 gold and 500 provisions. Goodwill −20. Galata remains neutral.";}

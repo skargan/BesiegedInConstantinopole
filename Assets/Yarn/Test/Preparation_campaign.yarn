@@ -165,11 +165,11 @@ title: galata28
 ===
 title: galata29
 ---
-<b>Galata Offers a Loan</b>: Merchants offer credit, with repayment expected after victory.
--> Borrow 5,000 gold; record 5,000 debt.
+<b>Galata Offers a Loan</b>: Merchants offer a ten-year loan. The treasury receives the gold now; no repayment falls due during this siege.
+-> Accept 5,000 gold on ten-year terms.
     <<Change iMoney 5000>>
     <<Change iGalataDebt 5000>>
-    The loan is entered in the imperial accounts.
+    The ten-year agreement is entered in the imperial accounts. For now, the money can pay for the defence.
 -> Decline the loan.
     No obligation is incurred.
 ===

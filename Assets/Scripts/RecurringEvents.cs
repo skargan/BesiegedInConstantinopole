@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Yarn.Unity;
 public static class RecurringEvents
 {
@@ -8,6 +8,7 @@ public static class RecurringEvents
     {
         if(VariableSingleton.CompletedSiegeDays<=0 || TrainingPool.Day(VariableSingleton.GetDate())<DailyLifeEvents.I("iLifeCooldownrandom"+id)) return false;
         switch(id) {
+            case 18: return false; // Replaced by the independent fleet operation clock.
             case 23: return VariableSingleton.CompletedSiegeDays>=7 && CouncilActions.Int("iArtilleryConvoy")==0;
             case 1: return CouncilActions.Int("iInfantry")>=100 && CouncilActions.Int("iArchers")>=50;
             case 5: return CouncilActions.Int("iCannons")>0;

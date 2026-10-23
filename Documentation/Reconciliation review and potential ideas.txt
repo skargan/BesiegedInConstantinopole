@@ -1,0 +1,135 @@
+BESIEGED — RECONCILIATION REVIEW AND POTENTIAL IDEAS
+23 October 2026. Source audit, not a full-campaign playtest.
+
+SCOPE AND EVIDENCE
+Reviewed the Version30 release checkout's event selection/completion, 13 Yarn files, preparation calendar, intelligence, aid, naval state/reports/storms, supply economy, political factions, character availability/recruitment, technologies/training, Ottoman action sequence, surrender and victory handling. Considered these against the approved expansion and separately staged PR4 Emperor/court systems. Version31 assault/input/settings work is owned by the other developer and was not edited.
+Static catalogue scan:139 node declarations,139 unique names,8 literal jump commands, no missing literal jump targets. This does NOT prove every node is reachable: most roots and continuations are selected by C# conditions. No fresh Unity build, Monte Carlo balance run or all-branch playtest was performed for this review.
+Labels below: CONFIRMED = visible source behaviour; RISK = plausible interaction requiring a reproduction/test; DESIGN = proposal requiring a rule decision. All recommendations are unimplemented unless separately recorded.
+
+AUTHORITATIVE MAP CORRECTION — USER CONFIRMED
+The supplied historical map is reference/placeholder material only. Generate a separate geopolitical GAME map, in the Midnight Mosaic visual language, for draggable envoys, armies, allies, fronts, contested areas and campaign-dependent control. A corner button labelled Historical map opens the supplied reference in its own viewer. Return restores the game map's zoom, selection and state. Do not place live pieces or control colours on the historical bitmap. The reference is never the source of gameplay borders or troop positions.
+The city map is a third, distinct scale: local walls and sites. Use three explicit labels: City map; Geopolitical map; Historical reference. On the geopolitical map, overlays for Diplomacy and War can share the same underlying territories without becoming two contradictory maps. Visual clarity: faction colour describes actual campaign control; hatching describes contest; envoy symbols describe assignments, never ownership. Unknown enemy strength stays uncertain. Map art should be generated after region/anchor layout is agreed; keep interactable geometry independent of painted detail.
+
+PRIORITY A — RECONCILE BEFORE ADDING MORE SYSTEMS
+
+R01 CONFIRMED / Commander reward writes a different statistic.
+PreparationCampaign.Complete(story14) adds10 to iArmySupport. Initial value50. The search found no active consumer of iArmySupport beyond this write/initialisation and its test. Army morale in council/combat uses fTroopRep. A passing test of '+10 iArmySupport' does not prove the player receives a useful bonus.
+Recommendation: decide whether the approved army-support bonus means existing army morale (+.10) or a genuinely distinct support mechanic. Prefer existing morale, with explicit migration preventing duplicate grants. Do not silently add another meter. Source:PreparationCampaign.cs Complete/InitializeDefaults; CouncilActions.FactionKeys; PreparationSmokeTest.
+
+R02 CONFIRMED / Events can compete with fixed milestones.
+RestUI checks DailyLifeEvents.DueNode and SiegeHardships.DueNode before StoryScheduled, whereas harvest explicitly yields to story. A follow-up on a fixed date can take its place; fixed preparation nodes are keyed to a turn rather than a persistent undelivered flag. Current natural eligibility may limit collisions, but the architecture becomes unsafe as new preparation chains are added.
+Recommendation: fixed dated milestones get a delivered record; due continuations remain queued and ordered by due date. Critical immediate consequences can interrupt, ordinary follow-ups cannot erase a milestone. Test a queued event at Union/Genoese arrival/siege opening.
+
+R03 CONFIRMED / Content volume changes gameplay frequency.
+RestUI mixes daily/hardship roots proportionally with original recurring events, then may override at25% with optional Galata/court roots. Adding harmless flavour therefore changes fleet report frequency and every other recurring outcome. DailyLifeEvents prioritises sails over barrel over mentor rather than oldest due across all chains.
+Recommendation: separate operational reports from narrative selection; select event category before its eligible member. Preserve promised continuations, and use a bounded due queue. The earlier narrative continuity package's weights are proposals, not adopted balance. Ask the balance agent to measure long gaps, overdue chains and recurring droughts rather than only total event count.
+
+R04 CONFIRMED / Morea is already paying for a diversion.
+story11 directly removes12,500 iBazouks and sets bMoreanDistraction. Other choices give money or transfer troops immediately. The flag has no further active source consumer found beyond presentation. A future front must not deduct the same force again or let extracted garrisons also campaign in Greece.
+Recommendation: create a remembered Morean commitment from the chosen existing branch. Treat the12,500 as an already accounted diversion, not a fresh regional victory. Historical force scale is a separate research/balance question.
+
+R05 CONFIRMED / Crusade and Athos rewards already exist.
+story8 grants Western/Orthodox aid; story17 grants bTechGreekFire via Athos among other routes. New coalitions and archival chains must recognise delivered rewards. An envoy arriving later should be able to discuss the past agreement, not sell it twice.
+Recommendation: one commitment/contingent identity, with promised, travelling, delivered, diverted and lost states. Technology discovery checks the existing flag. Do not rewrite current outcomes until migration and intended replacements are reviewed.
+
+R06 CONFIRMED / There are two currently distinct implementation baselines.
+Version30 contains archive/population updates; PR4 has Emperor XP, dialogue read states and quests. Release EmperorCombat still uses standalone iFencing while PR4 unifies it with Martial. New skill-gated events built against the wrong source would revive the rejected system.
+Recommendation: integrate and test the two before expanding dialogue/stat requirements. Loading never reallocates starting points. Keep existing XP, population and portable save semantics. Source:PROJECT_STATUS; EmperorCombat; PR4 integration contract.
+
+R07 CONFIRMED / Single-visitor recruitment cannot support multiple selections.
+CharacterPreparations has one iAdventurerChoice/due/arrived/loyalty. Many bonus and commander helpers derive from that one choice.
+Recommendation: stable individual roster records and migration of the existing invite; individual travel, illness, death, loyalty, appointment and quest eligibility. Buying several invitations is one transaction with a preview total, not several chances to overwrite the last choice.
+
+R08 CONFIRMED / Monks are not yet a functional medical service.
+iHealers was found only as an outcome label in the searched active assets. TrainingPool has unit/quantity/readyDay but no treatment identity. User approved one workforce called Monks, retaining the old key.
+Recommendation: expose specialist counts first; implement recovery from a committed casualty record, with per-day capacity, unit identity,15-day due date and once-only return. Do not let each battle separately claim the same day's full capacity. Proposed1/3/5 capacity and provision ratios remain provisional.
+
+PRIORITY B — RULES THAT CURRENTLY TELL DIFFERENT STORIES
+
+R09 CONFIRMED / Fleet reports are random narrative events.
+random18 invokes FleetReport; its eligibility shares the recurring pool and30-day cooldown. Fleet defence scales with ships; several other missions give fixed returns. The preparation multiplier may alter the actual reward but FleetReportPreview reports base effects. TechnologySystem's ArtilleryShips prose still says100/200 casualties, while RecurringEvents computes ships*4*(technology?2:1).
+Recommendation: mission progress on a calendar/operation timer, narrative report on completion, preview using the exact same reward calculation. Preserve uncertainty through mission results and interruptions, not accidental dilution by wedding events. Clarify whether standing fleet defence and occasional fleet report are separate contributions.
+
+R10 CONFIRMED / Sea control is an absolute label for a numerical comparison.
+NavalState.Uncontested is simply our ships>enemy ships. One more ship labels the seas 'Uncontested', regardless of mission, harbour chain, damaged ships or route. Enemy fleet grows by exactlyone ship every completed siege day.
+Recommendation: call the comparison numerical superiority unless it truly confers unrestricted access. Model route access/blockade separately only where required. Make new Ottoman vessels a visible reinforcement process which the future logistics layer can affect; avoid another hidden ship-growth mechanic beside it.
+
+R11 CONFIRMED / Storm eligibility confuses transport and reward.
+ReliefStormSystem.Incoming includes an expedition only when its aid package awards Ships>0. A transport may deliver troops without remaining in the player's fleet. Such a sea expedition is currently immune to storm loss. Conversely, awarding a ship does not by itself prove the whole journey is maritime. lastReport is a static string rather than stored campaign state; the final event report is checkpointed, so this is a pre-completion resume risk, not proof of lost completed reports.
+Recommendation: route and transport mode are separate metadata from awarded warships. Save the chosen storm target/outcome once. A storm report must not select another ally on resume. Keep land reinforcements exempt.
+
+R12 CONFIRMED / Ottoman supplies have no regional arrival schedule yet.
+ResolveEnemySupplies reduces one food day and automatically refills15 on exhaustion with1% irregular desertion. AI calls this before checking iEnemyDelay, so supply replenishment and a reserved delay day can coincide.
+Recommendation: explicitly decide whether overlapping disruption days are consumed concurrently (current behaviour) or serially. Show that choice in reports. Regional rebellion effects should modify this single supply authority, not add a second timer. A one-agent repeated delay strategy also needs stress testing for indefinite land-operation suppression; do not change it without balance review.
+
+R13 CONFIRMED / Food units and population units need an explanation.
+PopulationAccounting counts individuals but rounds daily food to the nearestthousand (approved). Small population changes often have no immediate food effect. EmergencyTax uses DailyNeed*100, meaning the Orthodox food-saving passive can also reduce tax proceeds indirectly.
+Recommendation: retain approved food rounding; describe a provision as an abstract supply unit. Calculate emergency tax from its intended tax base, not a food value altered by unrelated religious policy. Treat this as a rule decision before correction, since it changes income. Test the100,499/100,500 boundary and passive on/off.
+
+R14 DESIGN / Money can substitute for the blockade too easily.
+SupplyEconomy.Buy permits food purchases at the siege price without a stock or route limit. Meanwhile much of the naval/diplomatic story concerns getting food through the blockade.
+Recommendation: clarify the distinction between limited internal stocks/requisition and imported supplies. Candidate: a market replenishment allowance affected by routes, with emergency reserves as explicit costly events. Do not add stock scarcity silently: assess whether the present economy relies on unlimited purchases to remain playable.
+
+R15 CONFIRMED / Diplomatic rejection is permanently terminal.
+RequestAid allows only iAidState0; rejection sets3 and cannot be appealed again. Dramatically, later Union, a resident envoy, dynastic guarantees or a changed war should be capable of changing the answer.
+Recommendation: preserve one ordinary appeal, but let a genuinely new concession/state unlock a distinct reconsideration. No repeated clicking at identical odds. Keep individual aid separate from deeper negotiations, as now approved. Replace ally-index-based Western classification with explicit actor metadata when adding actors.
+
+R16 CONFIRMED / Travel and aid are inconsistently narrated.
+Regular aid advances by actual calendar days; adventurers take30days; some preparation Yarn rewards appear instantly despite wording about future months or arriving ships. Monthly preparation time can justify some abstraction, but a siege-time repeat cannot.
+Recommendation: event text says immediate muster or promised arrival accurately. Use dated commitments for siege-time arrivals. Expediting aid should reduce mobilisation/waiting, with a minimum transit duration; repeated five-day reductions should not make England adjacent to the Golden Horn.
+
+R17 CONFIRMED / Religious policy, focus, faction influence and personal loyalty are separate axes.
+PoliticalSystem has four influence blocs, civic support has five relations, religion has its own state, and focus has five values. Athos/Roman restoration/Union are narrative directions, not replacements. Allegiance/banishment currently handle only base characters0–7.
+Recommendation: one concise guide explaining each axis, with relevant interactions shown where choices are made. Extend allegiance to new roster identities before visitors can be faction leaders. Do not infer an Orthodox character's loyalty merely from Orthodox policy. Political drift currently occurs per turn, including monthly preparation; review whether the intended rate is per decision or per calendar interval.
+
+R18 RISK / Galata coercion can become a replenishable treasury.
+DiplomaticAction7 grants3000gold and removes20Giovanni loyalty, with no local cooldown or finite treasury. The coup warning/crisis is sampled through optional events rather than immediately enforcing a debt/consequence. This can create a window of repeated requisitions after loyalty reaches its minimum, depending on action timing.
+Recommendation: finite available revenues or an escalating unresolved demand, and a guaranteed due reaction after a threshold. Keep dramatic grace periods, but avoid allowing the random-event pool to postpone all consequences indefinitely. Test against actual council action cost before assigning severity.
+
+R19 CONFIRMED / Galata debt is recorded, but settlement needs an owner.
+The loan writes iGalataDebt; HonourVictory handles the territorial promise only. No repayment consumer was found in the reviewed release source. Granting territory and owing money should both be visible in the final settlement.
+Recommendation: the journal records creditor, amount, conditions and status. Epilogue may report unpaid debt without silently deleting treasury money; an actual payment/renegotiation choice is preferable. Handle neutral/imperial/Giovanni/Ottoman control distinctly and do not demand repayment to a fictional surviving institution.
+
+R20 CONFIRMED / Surrender pressure ignores which wall is active.
+SurrenderTerms uses current wall health percentage, fury and camp alert. A fresh inner line can therefore look stronger in this calculation than a battered outer line despite the loss of territory. This is a design mismatch, not necessarily a code error.
+Recommendation: include defensive depth and surviving force in bargaining strength, preserving clear previewed terms. Espionage alert should influence suspicion/hostility, not substitute for strategic military strength. Test outer20% versus lastline100% before tuning coefficients.
+
+R21 CONFIRMED / Endings depend partly on exact report wording.
+CampaignHUD identifies victory by matching two English strings, then honours promises and achievements. New military, coalition, negotiated or exile outcomes could fail to trigger the intended settlement or accidentally inherit the wrong one.
+Recommendation: explicit ending identity plus a frozen outcome snapshot. Text renders that result; it does not determine it. Character fate follows recorded death, departure, capture or survival, never a new epilogue die roll. The240-day victory also needs to be explained in advance as the current campaign horizon, with late-stage narrative supporting it.
+
+R22 DESIGN / Hidden rare death versus long-form character investment.
+The approved poisoned bread, severe illness and assassination branches can end a long campaign suddenly. Preserve the authored risk, but review how it feels once the player has invested in quests, marriage and succession.
+Recommendation: distinguish untelegraphed fatal chance, warned danger and preventable risk. Candidates: physician/monk examination, suspicion clues, survival via health/skill, or contextual gating. Do not silently remove the approved poison ending. Ask the balance agent to report causes and timing of deaths, not merely winrate.
+
+R23 DESIGN / One commander currently improves unrelated specialities.
+CourtRoster gives stronger diplomatic or repair bonuses when those specialists become siege commander. New wall/fleet/treasury offices could multiply the same person's benefits or make an unrelated appointment optimal for an aid request.
+Recommendation: job-specific active bonuses with retained ordinary expertise; mutually exclusive assignments where work conflicts. Office changes preserve the approved loyalty loss/free preparation exception. Avoid creating several independent bonuses for the same source of influence.
+
+R24 DESIGN / Recovery, recruits, population and workforce require declared denominators.
+Recruitment adds active soldiers but population food demand is based on residents. It is unclear to the player whether soldiers are included in that population and whether a local levy moves people between categories or creates extra mouths. External soldiers/refugees must be treated consistently; recovered wounded cannot be counted twice.
+Recommendation: define total mouths separately from combat availability only if needed; first document the intended inclusion rule. Audit every recruitment/arrival/casualty event against it before adding any new population deduction. Preserve individual-person save schema.
+
+R25 RISK / Historical certainty is leaking through dramatic prose.
+Source events contain strong historical assertions alongside overt counterfactuals, including the treatment of1204 and the three defensive lines. These require a separate historical fact pass; the game map's layers are already an abstraction. A decorative map or chatbot summary is not sufficient evidence.
+Recommendation: keep evocative voice in events, but reserve History for sourced distinctions: documented, disputed, legend, deliberate divergence. Verify dates/identities before adding Mara, Theodora, Pierre or named Cretans. No new historical claims were certified in this source-only review.
+
+USEFUL IDEAS TO KEEP, NOT IMPLEMENT AUTOMATICALLY
+I01 Shared dispatch journal: record promises, reports and decisions with date, actor, subject and whether confirmed/rumour. Garden dialogue reads relevant recent entries rather than pairing any report with generic advice. A character can disagree with an interpretation without contradicting a recorded fact.
+I02 Opportunity with a real price: Athos monk support, regional intelligence and an envoy's absence compete for existing finite people/time. More currencies are unnecessary.
+I03 Event consequences become intelligence: a changed convoy date appears in an agent's report; later shortages corroborate or disprove it. The player learns through the siege rather than watching an omniscient empire dashboard.
+I04 Commitments screen, not homework list: show only promises pending action, arrivals and consequences approaching. Resolved entries live in the journal. Do not flood the council with every stored boolean.
+I05 Each counter to a dominant strategy gets warning and response: mass cannon investment meets covered approaches with advance intelligence and countermeasures, not sudden immunity. New troop types remain deferred.
+I06 Late siege chapters emerge from conditions: relief promised but overdue, first defensive line lost, foreign coalition forming, Ottoman command under strain. Stage labels follow events and can coexist; elapsed day alone does not assert a crusade exists.
+I07 Character quests connect to existing mechanics once: a gunfounder's defective casting can affect an actual commission; a pay dispute changes an existing contingent's commitment. A quest should not create an unrelated hidden army or duplicate a research bonus.
+I08 Geopolitical map art brief: midnight-blue sea, parchment/stone land, restrained gold routes and frame; readable silhouettes at ordinary zoom. Active pieces and overlays remain code-driven. Historical reference is a separate corner link. Generate clean geography without baked-in labels or troops so changing political states remain possible.
+
+ORDER OF WORK
+First resolve R01 (support mismatch), R02/R03 (event scheduling), R06 (integration), and R04/R05 (reward ownership) before broad expansion. Then a single regional operation with observable supply effects, monks/recovery and envoys. Coalition fronts, dynastic concessions and richer map animation follow proved accounting. Existing other-agent Version31 work remains untouched.
+Balance-agent handoff: test infinite-delay attempts, recurring fleet droughts, Galata requisition loops, aid-expediting floors, recovery conservation, preparation opportunity cost and causes of early death. Report seed/version and a reproduction, not a speculative numerical fix.
+
+Audit limitations: static source inspection and catalogue consistency only. Prefab-driven restrictions, every Yarn branch, long campaign behaviour, PR4 merged behaviour and Version31 changes remain to be exercised. Findings should be reproduced before being marked fixed. This document records potential ideas as well as confirmed mismatches; it is not a declaration that all25items are bugs.
+
+
+23 OCTOBER CONSOLIDATION UPDATE
+The approved narrow fixes are implemented in codex/event-consolidation, based on Version31; see Consolidation candidate - 2026-10-23.txt for exact scope, 40-check verification and remaining limitations. They are not yet in the published build. All other proposed expansion remains design work.

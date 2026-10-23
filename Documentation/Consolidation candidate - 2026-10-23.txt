@@ -1,0 +1,27 @@
+CONSOLIDATION CANDIDATE — 23 October 2026
+Base: Version31 commit 4acf796. Branch: codex/event-consolidation.
+Status: source candidate with 40 passing runtime checks; not a published Unity export.
+
+APPROVED RULES AND IMPLEMENTATION
+1. Fixed milestones run before due narrative follow-ups; deferred follow-ups keep their pending state. Ordinary narrative selection remains one main event per day; existing immediate linked consequences remain possible. This is not a new general-purpose event queue.
+2. Fleet income/report runs every 14 active siege days, independently of random narrative selection. Changing missions restarts that cycle. Harbour defence and urgent reports keep their existing immediate behaviour. Fourteen days is a gameplay decision, not an asserted historical reporting rule. Existing reward amounts have not been rebalanced; send this cadence change to balance testing.
+3. Aid has explicit sea/land routing. Storms target only incoming sea aid. Land appeals no longer require a ship; sea appeals retain the existing available-ship requirement.
+4. New ordinary aid appeals promise zero player warships. Transports go home. Explicit saved iAidWarshipsN commitments are delivered exactly once. Legacy pending aid without that field honours its old ship pledge. A separate explicit warship negotiation interface is still to be designed; data support is not a claim that it exists.
+5. Commander preparation adds ten actual army morale points once when a commander is appointed, rather than writing an unused support stat. Existing completed saves are not retrospectively compensated.
+6. Galata credit is a ten-year loan: gold now, no repayment during this siege. Old bookkeeping values remain compatible; labels no longer imply a current repayment obligation.
+7. Surrender pressure uses lost defensive depth: (100 per lost line + damage to the current line) / 3. Fury and camp alert keep their previous separate weights. Losing a wall and reaching a fresh next wall cannot reduce pressure.
+
+DEFAULT ROUTES
+Land: Hungary, Albania, Holy Roman Empire, Poland-Lithuania, Teutonic Order.
+Sea: the remaining current aid actors, including Naples, Georgia, Trebizond and Karaman.
+These are authored expedition routes, not universal claims about a country's geography. Future negotiated routes should store the route on each expedition.
+
+VERIFICATION
+All non-Editor C# source compiled with Unity 2022.3.15f1 Roslyn against Version31 managed dependencies, with zero compiler errors.
+A copied Version31 player ran the candidate assembly using isolated TestSaves: 40 runtime checks passed. Checks cover commander reward/idempotence, defensive-depth progression, sea/land storm eligibility, ten-day storm delay, ordinary/legacy/explicit ship delivery and save restore, land versus sea appeal requirements, 14-day fleet cadence and no same-day duplicate, mission reset, no-fleet behaviour, removal from random pool, and a real RestUI milestone/follow-up collision.
+This is not a fresh Unity export. Changed Yarn text still requires Unity import and the final release build; UI copy and layouts need the release owner's visual smoke check. The test-only bootstrap is outside the repository and must not be shipped.
+
+INTEGRATION / NEXT WORK
+Cherry-pick this narrow branch onto the release checkout after reviewing concurrent changes. Run Unity import, preparation smoke tests, and a fresh export before publication. PR4 court/emperor/schema integration remains separate and is not included here.
+Open design work: Morea diplomacy must consume the existing diversion commitment without awarding it twice; Athos should supply the existing healer workforce renamed Monks; resident envoys unlock deeper negotiation while messengers retain ordinary appeals. Explicit warship gifts need a negotiation choice. General oldest-due chapter ordering, event category weights, Galata requisition exploitation, expedition expediting floors and unlimited market food remain review items.
+Balance review: compare the new fortnightly fleet income against previous random report frequency; quantify the preparation morale bonus and full-depth surrender bands without replacing the approved rules.

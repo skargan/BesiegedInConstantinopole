@@ -1,0 +1,131 @@
+BESIEGED — THE WAR BEYOND THE WALLS
+Additive integration plan, 23 October 2026
+Status: source-audited design; new expansion mechanics are NOT implemented by this document.
+
+AUTHORITY AND OWNERSHIP
+Original dictation takes precedence over the interpreted brief. Both supplied attachments remain untouched. The interpreted brief's 21 sections are covered below. Existing narrative continuity plans remain in force; this package does not replace them.
+Numbered baseline: Version 30, release checkout Documents/Codex/Besieged-release18, reported published commit db011b0. PROJECT_STATUS confirms population schema 2, portable saves, Ironman, technology illustrations and the diplomacy reference map. Court/profile/XP and city-map work remains a separate PR4 candidate, not part of this release. Do not copy its older VariableSingleton or CouncilUI wholesale onto the release.
+Other developer confirmed ownership of Version31 assault input/timing, fullscreen/settings and technology-image import quality. This chat owns additive expansion research/design/data and reconciliation of PR4. No new runtime changes are included here. Balance testing should consume a versioned implementation, not infer approval of these provisional values.
+
+USER DECISIONS CONFIRMED THIS TURN
+1. Existing healers and proposed monks are ONE workforce. Player-facing name: Monks. Preserve iHealers as the compatibility key; no duplicated iMonks pool. A historical explanation can acknowledge that the service includes lay medical assistants.
+2. Resident envoys unlock deeper negotiations. Ordinary aid requests remain available through messengers. Three envoys remains the proposed starting number.
+3. Foment rebellions is the intended dictation. Promethean Fire is the working title; Promethean Spirit remains an alternative.
+
+SOURCE FINDINGS THAT CHANGE THE PLAN
+PreparationCampaign.cs contains 21 selectable preparations, stable existing array positions, career-achievement gates, a fixed calendar and one-time completion flags. Append new entries; do not reorder indices saved as iPrepDoneN. Ten flexible months currently exist across 1452 and early1453. New content competes for those slots rather than silently creating more months.
+Story_events_YARN_11.yarn already has Morean Orders (story11), Western and Orthodox crusade outcomes (story8), and a Faith-route Athos expedition granting Greek Fire (story17). Extend these; never grant their contingent/technology a second time from a parallel chain.
+CouncilActions.cs has 17 aid actors, including Athens, Naples, Georgia, Trebizond, Cyprus, Poland and Lithuania, Hospitallers and Karaman. Serbia, Crimea, Athos and Candar are absent from that array. Preserve existing indices and iAidStateN/iAidDaysN save meaning.
+CouncilActions.ResolveEnemySupplies currently subtracts one food day; on exhaustion it removes 1% of irregulars, refills 15 food days and reports a supply day. This is not yet a regional convoy schedule. External disruption must extend this one authority instead of adding an independent daily supply calculation.
+EspionageSystem and several CouncilUI displays directly read iSpies. Seven agents minus one provincial assignment must show SIX camp agents, including reduced intelligence visibility. All direct consumers need an audit, not just the new screen.
+CharacterPreparations currently stores ONE adventurer choice and one arrival date, with a 30-day journey. Multi-select recruitment needs per-person state and migration of the old single visitor. Merely changing buttons would lose arrivals, abilities and loyalties.
+TrainingPool.Order contains unit, quantity and readyDay. It supports troops, ships and cannons, but has no recovery category. Extending its presentation is sensible; feeding every combat loss straight back into it would be incorrect.
+TechnologySystem contains 14 stable bTech flags and secret costs. Most technologies have no dependency tree. RomanConcrete unlock is explicitly unavailable at index2. A tree must preserve that state unless separately changed. ArtilleryShips description says fixed100/200 casualties while FleetDefence actually scales with ships: reconcile wording against the active combat consumer before expanding.
+A search across active Assets C#, Yarn, scenes and assets found iHealers only in EventOutcome's display-name mapping. No working healer treatment routine was found. Do not promise that renaming the label activates medicine.
+Engineers already participate in fortress mining, apprentice mentoring and event requirements/losses. Do not invent an ongoing repair-speed bonus merely to make the new Specialists panel more impressive.
+SaveGames archive format2 and campaign population schema2 are distinct contracts. New queues and assignments must survive both checkpoint and portable archive restoration.
+
+DESIGN SPINE
+The city remains the place where consequences arrive. A successful provincial operation should produce a readable report: a convoy delayed, a reinforcement reduced, an Ottoman detachment sent away. No compulsory daily order for every ally.
+One agent ledger; one aid/contingent ledger; one casualty ledger; one commitment record per exclusive promise. Each outcome is applied once and saved before its report can be reopened. A report is never a second source of rewards.
+Use four broad intelligence theatres: Thrace, wider Balkans, Greece, Anatolia. Under these use a small set of operational fronts for campaigns: Thrace; Danube/Balkan approaches; Macedonia/Thessaloniki; central Greece; western Anatolia; eastern/northern Anatolian approaches. These are proposed gameplay corridors, not claims of uniform Ottoman ownership. Morea is a friendly base with its own politics. Unconquered states remain separate actors, not Ottoman provinces painted into the map.
+Imperial stability should first be a derived overview of regional control/disruption, not a spendable currency or a second camp-morale value. Display sources and observed siege consequences. Camp alert, troop morale and Sultan fury keep their existing meanings. If independent stability inertia is later needed, add it explicitly after simulation.
+
+TRACEABLE BACKLOG — SECTIONS 1–21
+
+01 / Baseline and audit — PRESENT + INTEGRATION WORK
+Reconcile PR4 into an isolated branch based on the numbered release. Preserve schema2 population, archive resumption, world-map button, technology layout and achievement eligibility. Verify profile allocation only on genuinely new games; loading a campaign must never reroll the Emperor. Then run court and release checks together. No expansion should be built on an ambiguous fork.
+
+02 / Provincial intelligence — EXTEND + SMALL FIRST SLICE
+Add Promethean Fire and Rekindle the Recent Flames to the established preparation pool with achievement-count gates (counts TBD). They establish contacts/readiness; they do not instantly cause universal revolt. During siege, assign a camp agent, show travel, then offer local operations. Recall takes time. A killed agent is removed once from its assignment, not also from the camp. Initial implementation: Macedonia/Thessaloniki only, with the other theatre entries clearly marked planned. One stored success/failure, one concrete convoy consequence, one continuation. Reuse gold/secrets; no rebellion currency.
+
+03 / Stability and logistics — LARGER ADDITION
+Derive imperial disruption from active regional conditions. Give regions differing supply/manpower relevance in data, initially qualitative until balance tests. Replace the automatic refill only through a documented adaptation of ResolveEnemySupplies. Resolve a due convoy once, record its original amount, delay and delivered amount. Clamp reductions; failed rebellions do not conjure fresh Ottoman troops. Detachments must come from a named existing pool or explicitly modelled reserve. Never remove all siege forces because one distant village revolts. Ottoman Mobilization Tracker: DOCUMENTATION ONLY, no implementation authorised in this package.
+
+04 / Allied fronts — LARGER, AFTER LOGISTICS
+Four persistent postures: Defend, Harass, Steady advance, Deep march. Orders remain until changed; reports only when something consequential occurs. Use the same regions as rebellions. Separate each ally's commitment from a shared front display: Trebizond and Georgia can contribute together without becoming one diplomatic state. Reinforcements to the City cannot simultaneously be in the field. Existing diversion flags must be translated into, or explicitly excluded from, the new system. Balance cadence, force caps and formulas before activation.
+
+05 / Imperial claims — CONNECTED EVENT CHAIN
+Final Settlement of the Imperial Claims opens negotiation, not an instant marriage/payment button. Trebizond offers alternative marriage/betrothal and succession bargains. Morean concessions need the brothers' response. Existing spouse, designated successor, romances and promised territories must be checked. Identity/age of Theodora and exact ruler chronology remain research gates. Do not print an unverified age or invent a completed historical agreement.
+
+06 / Offices and privileges — EXTEND ROSTER
+Commander of the Walls reuses current commander consequences, including the preparation-event exemption. Fleet commander, treasury office and patriarchal appointment require separate scoped benefits and eligibility. Imperial spouse and successor are relationships, not ordinary job slots. Patriarch requires an ecclesiastical negotiation, not appointing any soldier with enough loyalty.
+Proposed three concession types: reduced customs dues for a named merchant community; exclusive provisioning contract for a specified commodity; settlement/warehouse rights in an imperial-controlled district. These are design candidates pending historical scope verification. Galata rights require actual authority; neutral Genoese Galata is not spare imperial property. Regranting an exclusive right first resolves the former holder's claim. Capture damages Genoese relations and can benefit Venice, but does not erase Giovanni/Galata autonomy distinctions.
+
+07 / Morea politics — EXTEND story11
+Keep original protection, extraction, reinforcement and diversion outcomes. Add a record of which resources have already been committed. Thomas and Demetrios receive different interests; no good-brother/bad-brother shortcut. Three scenes: competing instructions; dispute over revenue/garrison responsibility; settlement or break. Charisma can mediate; titles/succession/concessions provide other approaches. Morean loyalty summarises compliance, not ownership of every local person. Taking one brother's side risks losing effective control; successful unification can produce a new claimant. Exact historical disagreements need research before prose is labelled factual.
+
+08 / Hexamilion and revolt — EXTEND MOREA CHAIN
+Restoration strengthens the Morean defensive posture, consumes local resources and reduces freedom to send them to Constantinople. The prophecy is reported belief, not a guaranteed effect. Later Albanian revolt is a distinct Morean event, not Skanderbeg's campaign. Use the documented date once verified; bringing it earlier is an explicit divergence. Existing troop extraction must make restoration/field action harder. No invulnerable wall.
+
+09 / Athos — NEW SPECIAL DESTINATION + EXISTING LINKS
+The Guidance from the Mountain starts a resident-envoy route. Contributions: monks, manuscript interpretation, secrets and contacts. Mine the Secrets is a limited archive sequence with discoveries exhausted once, not infinite secret income. Greek Fire uses the existing bTech flag and acknowledges previous discovery. Orthodox crusade develops from story8, religion and actual commitments. Pillage Athos is exceptional, available after a severe rupture and a fleet commitment; store the raid as consumed and expose clergy/political consequences. Three religious/cultural directions coexist with the five gameplay focuses.
+
+10 / Envoys and map — NEW GAME MAP; SEPARATE HISTORICAL REFERENCE
+User correction: generate a separate geopolitical gameplay map for envoys, armies, fronts and changing control. The uploaded historical map remains a separate reference viewer reached through a corner button; never overlay live gameplay on its bitmap. Reuse useful navigation controls, not the historical image as the game board. The local city map remains a distinct scale.
+Three proposed pieces, each At court / Travelling / Resident / Returning. Destination and arrival day persist. Drag-and-drop plus select-envoy/select-destination/confirm alternative. Show travel and current duties before commitment. Deep negotiations require residence; ordinary aid stays available. Residence may improve goodwill modestly toward a cap, with no per-day infinite rewards or automatic military aid. Existing accepted aid keeps its promised delivery even if envoy departs. Capitals/courts need verified coordinates and date-appropriate names; do not assume every coloured enclave in the reference establishes sovereignty.
+
+11 / Specialists and recovery — APPROVED WORKFORCE, NEW RECOVERY
+Specialists panel: Engineers, Monks, Agents, Envoys; each shows available, assigned and returning, with an explanation of current use. Monks reuse iHealers. Proposed medical capacity1/3/5 per monk; proposed return15days. Take a bounded recoverable portion of recorded casualties, randomly weighted by actual unit losses. Preserve infantry/archer/cavalry/Varangian identities. Subtract losses once, enqueue saved wounded once, return survivors once. A frozen assault result must not re-treat casualties on reload. Show Training and Recovery together but retain category labels. Civilian disease uses the same workforce without duplicating it. Treatment provision cost remains unresolved: provisional base1per5, improved1per10; aggregate before rounding to avoid small-batch exploits. The dictated 'one point' has no defined meaning: no new resource added.
+
+12 / Technology tree — PRESENT TECHNOLOGIES + NEW MEDICAL BRANCH
+Preserve all14 existing flags, secret costs and artwork. Initially group existing technologies by function without imposing new prerequisites on already independent purchases. Add real edges only where approved. Medical proposal: organised baseline care -> Teachings of Galen -> Teachings of Avicenna, interpreted as dissemination/application. Parallel nursing/logistics improvements can reduce recovery time/cost later. Existing unavailable workshop stays unavailable. Grandfather acquired flags on load; never remove a paid technology because new layout would lock it. Numeric costs/prerequisites await balance review.
+
+13 / Cretans — NEW THREE-SCENE CHAIN
+Invite the Cretan Archers: advanced preparation; smaller ordinary Venice route. Both write one contingent identity so they cannot deliver the same men twice. Scenes: terms of service and captain's arrival; disagreement over harbour duty versus land-wall duty; final-line intervention. Last stand requires the contingent still available and is consumed once; it can stabilise a breach, not repair every wall or resurrect the dead. Named leader remains unverified; use an explicitly fictional composite if no sound identification is found.
+
+14 / Recruitment — EXTEND, REQUIRES MIGRATION
+Multi-select Call on Adventurers: individual prices, running total, confirm once, then distinct journeys/arrival states. Existing one visitor migrates to one roster entry. Add Vlad and Pierre d'Aubusson only with stable new IDs, unique availability and researched dossiers. Pierre's later Grand Master title cannot be used in1452/53. Do not overwrite the current six visitors or their quests. Audit all singleton Ability/Bonus/Commander accessors when converting.
+
+15 / Known biography — EXTEND PR4
+Known Biography displays encountered facts, revealed ambitions, relationships and current political liabilities. Spend one Secret once to reveal the current gameplay dossier, including hidden campaign traits; this does not predict future random outcomes. Historical Biography remains separate and sourced. Newly learned facts can unlock existing dialogue branches; use PR4's read-state refresh rather than resetting all conversations. Historical enmity is person-specific, not nationality-wide. Secrets spent and reveals survive save/load.
+
+16 / Serbia and Hungary — NEW ACTOR + BRANCHES
+Serbia negotiates through Đurađ, with Hungarian guarantee OR Mara marriage route. Mara has a response of her own. Successful agreement can remove a defined Serbian contingent from existing Ottoman Balkan troops; clamp to actual eligible force and prevent overlap with the existing500-man scorched-earth defection. Sabotage and joining an external front are later consequences, not four copies of the same reward. Hungary's current5000infantry/500cavalry gift is not deleted by this proposal. Offer money/guarantee/field participation as mutually accounted alternatives after balance review.
+
+17 / Vlad — CONNECTED RECRUITMENT/PRETENDER BRANCH
+One Vlad identity. Hosting him and funding a Wallachian campaign are incompatible concurrent locations. Working parameters:5000gold, roughly50/50, eligible aroundsiegeday60 if not at court; all provisional. Success changes Wallachian government alignment and opens negotiation/front participation; it does not also award the same army to Constantinople. Failure persists. Research Vladislav II, Hungary and Vlad's actual1452position before writing the historical dossier.
+
+18 / Northern route and Trakai — EXTEND + NEW CRIMEA
+Keep existing Poland and Lithuania actor; display Poland–Lithuania, with Crimea separate. Polish–Lithuanian backing can facilitate Crimean negotiations, not command Hacı Giray. Isidore can provide a route through Ruthenian contacts. Different confessional interests produce approaches, not homogeneous population caricatures.
+The Emperor's Gift to Trakai: proposed new imperial gift invoking an older tradition, not moving a claimed medieval donation into1452. Choice between retaining a cherished court icon and sending it with an appeal can carry a personal cost and a diplomatic introduction. Avoid a guaranteed fleet from a gift. Black Sea benefits require actual naval/logistical commitments.
+
+19 / Other actors and Western coalition — EXTEND
+Expand existing Naples/Hospitallers/Cyprus/Georgia/Athens/Karaman rather than append duplicates. Mamluks and Candar require researched new profiles; eastern confederations remain individual candidates, not an invented homogeneous ally. Crusade commitments and immediate aid are separate allocations drawn from the same actor budget. Gradual coalition assembly, launch decision, travel and route (land via Hungary or smaller sea relief) extend story8 and its already awarded forces. Keep the siege's pressure during mobilisation. No modern unified Spain/centralised HRE assumptions.
+
+20 / History and research — RESEARCH BACKLOG
+Use History consistently for optional explanations; Known Biography remains campaign-specific. Distinguish documented, disputed, legend and deliberate divergence. Priority checks: marriage candidate identity/age; Mara's own position;1452Athens regency; Candar alignment; Morea revolt chronology; Hexamilion prophecy wording; Cretan captain; Varna enclaves; early Pierre/Vlad careers. No full historical audit has been completed in this pass.
+Verified leads this turn:
+- Order of Malta lists Pierre d'Aubusson as Grand Master1476–1503: https://www.orderofmalta.org.uk/history/the-grand-masters/
+- University of Birmingham collection gives his entry to the Order in1453: https://mimsy.bham.ac.uk/detail.php?f=firstmid_name&record=1&s=Pierre&t=people&type=browse . Treat this as a lead to reconcile before a1452recruitment biography.
+- Orbis Lituaniae discusses the Trakai image's legendary imperial-gift tradition: https://www.ldkistorija.lt/the-image-of-our-lady-in-the-church-of-trakai-the-most-famous-miraculous-painting-in-the-grand-duchy-of-lithuania/
+- Candar research entry: Yaşar Yücel, TDV İslâm Ansiklopedisi, https://islamansiklopedisi.org.tr/candarogullari . Needs focused translation/read before final character alignment.
+The dictated 'Calderelli's2026 study' was not identified by searches for Calderelli/Caldarelli+Constantinople. Retain as unresolved; request title/link before summarising. Assess individual Turkish scholarship by evidence/method, not by a blanket national quality score. The brief's bare publisher names are leads, not completed citations.
+
+21 / IMPLEMENTATION ORDER AND ACCEPTANCE
+Batch0: reconcile PR4 against schema2/archive baseline; compile and replay both release and court checks. Separate preview until other developer reviews; do not overwrite their Version31 work.
+Batch1: visible Specialists inventory and one complete Thessaloniki intelligence chain, after confirming logistics contract. This proves assignment/travel, opportunity cost, follow-up, report and persistence.
+Batch2: recovery queue + medical branch, using battle result identity and population-safe semantics; generated presentation can follow proven mechanics.
+Batch3: resident envoys + Athos/Morea, including one full negotiation with its consequence at the walls.
+Batch4: multi-invite, dossiers, offices and dynastic commitments; then Serbia/Vlad/Cretans/northern route.
+Batch5: allied fronts and coalition mobilisation once regional supply accounting is tested. Expand regions only after one corridor works.
+Keep Ottoman Mobilization Tracker in documentation. No new troop types under this package.
+
+Mandatory checks per slice:
+- Old normal/Ironman archives restore identical population, troops, achievements, technologies and pending aid; no fresh Emperor allocation.
+- Seven campagents -> oneassigned -> sixcamp; travel/recall/death/reload never duplicate or lose unrelated agents.
+- A stored outcome cannot reroll by reopening the event; confirmation spends once.
+- Due follow-ups coexist with dated events; dialogue decline leaves a reachable exit.
+- One soldier cannot be active, recovering and in an allied campaign at once. Multiple battles in one turn cannot each claim the full same medical capacity unless explicitly intended.
+- One ally promise cannot become immediate aid AND a field army AND crusade strength.
+- Morea extraction and existing crusade/GreekFire results are recognised before later rewards.
+- Invalid, dead, absent or already committed characters cannot fill incompatible roles; existing characters keep stable IDs.
+- Recovery and envoy time use calendar days, not preparation turns.
+- Every new map entry states design/prototype/live status and source version. Additive design nodes must not appear as imported originals or currently playable content.
+
+NEXT REVIEW QUESTIONS (NONBLOCKING DESIGN BACKLOG)
+Exact treatment provision costs and recovery-time upgrade; what 'one point' meant; new preparation achievement thresholds; whether imperial stability needs its own persistence after a derived first pass; which dynastic route to write first; identity of the2026study. These do not block baseline integration or accounting design.
+
+
+23 OCTOBER CONSOLIDATION UPDATE
+The approved narrow fixes are implemented in codex/event-consolidation, based on Version31; see Consolidation candidate - 2026-10-23.txt for exact scope, 40-check verification and remaining limitations. They are not yet in the published build. All other proposed expansion remains design work.

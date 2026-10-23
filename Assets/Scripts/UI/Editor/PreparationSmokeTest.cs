@@ -47,7 +47,8 @@ public class PreparationSmokeProbe:MonoBehaviour
         VariableSingleton.IncrementTurn();Check(PreparationCampaign.Flexible(VariableSingleton.Turn),"February selectable");
         Check(PreparationCampaign.Unavailable(1,0)==null,"Christian power is base selectable");
         Check(PreparationCampaign.Unavailable(11,0)!=null&&PreparationCampaign.Unavailable(11,1)==null,"Career count unlocks grain missions");
-        int army=I("iArmySupport");PreparationCampaign.Complete("story14");PreparationCampaign.Complete("story14");Check(I("iArmySupport")==army+10&&PreparationCampaign.Unavailable(8,3)!=null,"Commander support awarded once");
+        VariableSingleton.SetInt("iCommander",0);VariableSingleton.ChangePercentFloat("fTroopRep",.5f-VariableSingleton.GetFloatVariable("fTroopRep"));
+        PreparationCampaign.Complete("story14");PreparationCampaign.Complete("story14");Check(Mathf.Abs(VariableSingleton.GetFloatVariable("fTroopRep")-.6f)<.001f&&PreparationCampaign.Unavailable(8,3)!=null,"Commander grants actual army morale once");
         Set("iVarangians",50);Set("iSecrets",0);PreparationCampaign.Recon("varangians",false);Check(I("iVarangians")==45&&I("iRumeliRecon")==0,"Failed guard recon loses exactly five");
         Set("iSpies",3);PreparationCampaign.Recon("spy",false);Check(I("iSpies")==2,"Failed spy recon loses one");
         PreparationCampaign.Recon("spy",true);Check(I("iSpies")==2&&I("iSecrets")==1&&PreparationCampaign.RumeliChance()==75,"Successful recon returns agent and adds secret and 30 percentage points");

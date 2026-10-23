@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using UnityEngine;
 
@@ -36,7 +36,7 @@ public static class TechnologySystem
 
         new Technology("RomanTraining","Roman Tactics",3,"Infantry trained lethality +25%.","Veterans take charge of the drill yards. By evening, recruits hold formation through the press of shields and the noise of shouted orders."),
 
-        new Technology("ArtilleryShips","Artillery Ships",2,"Defensive fleet reports inflict 200 enemy casualties instead of 100.","Shipwrights reinforce the gun platforms. Captains bring their vessels into position to cover the harbour approaches."),
+        new Technology("ArtilleryShips","Artillery Ships",2,"Doubles ship-based damage in defensive fleet reports.","Shipwrights reinforce the gun platforms. Captains bring their vessels into position to cover the harbour approaches."),
 
         new Technology("Grenades","Incendiary grenades",2,"Infantry lethality +0.25.","Clay vessels arrive from the workshops, packed and sealed. Selected troops learn to light their fuses and cast them into a crowded approach."),
 

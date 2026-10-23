@@ -10,12 +10,13 @@ public static class SurrenderTerms
     public static int Fate(int group)=>CouncilActions.Int("iTermsFate"+group);
     public static bool Severe(int group)=>Fate(group)==2 || Fate(group)==3;
     public static int AssassinationRisk=>(Severe(0)?10:0)+(Severe(1)?50:0)+(Severe(3)?20:0);
+    public static float DefensiveLoss(string wall,int health) {int lost=wall=="InnerWall"?2:wall=="MiddleWall"?1:0;return (lost*100f+100-Mathf.Clamp(health,0,100))/3f;}
     public static void Request()
     {
         if(Valid)return;
         int fury=Mathf.RoundToInt(VariableSingleton.GetFloatVariable("fSultanRage")*100),alert=EspionageSystem.Alert;
         int walls=Mathf.RoundToInt(VariableSingleton.Instance.EnduringWall.GetHealth()*100);
-        int pressure=Mathf.RoundToInt(fury*.4f+alert*.2f+(100-walls)*.4f);
+        int pressure=Mathf.RoundToInt(fury*.4f+alert*.2f+DefensiveLoss(VariableSingleton.Instance.EnduringWall.GetCodeName(),walls)*.4f);
         int[] fates;
         if(pressure<25) fates=new[]{0,4,4,1,4,0,0};
         else if(pressure<50) fates=new[]{fury>=50?1:0,1,1,1,1,1,1};

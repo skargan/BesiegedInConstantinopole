@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +37,12 @@ public class RestUI : UIWindowFam
 
     public void ContinueToEvent()
     {
+        // Dated milestones cannot be displaced by due narrative continuations.
+        if(VariableSingleton.Instance.StoryScheduled()) {
+            string milestone=PreparationCampaign.Active?PreparationCampaign.FixedNode(VariableSingleton.Turn):"story"+VariableSingleton.Turn;
+            eventPhaseUI.GetComponent<EventUI>().SetStartNode(milestone);
+            SwitchPhase(eventPhaseUI);return;
+        }
         if(PreparationCampaign.Active&&PreparationCampaign.Flexible(VariableSingleton.Turn)) {
             PreparationMenu.Show(transform,node=>{eventPhaseUI.GetComponent<EventUI>().SetStartNode(node);SwitchPhase(eventPhaseUI);});return;
         }

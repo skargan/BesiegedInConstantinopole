@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using System.Text;
 
@@ -32,12 +32,13 @@ public static class CouncilActions
 
         }
 
-        public string Cargo { get {
+        public string Cargo => CargoFor(0);
+        public string CargoFor(int warships) {
             var items=new System.Collections.Generic.List<string>();
-            int[] counts={Infantry,Archers,Cavalry,Ships,Gold,Provisions};string[] names={"infantry","archers","cavalry","ships","gold","provisions"};
+            int[] counts={Infantry,Archers,Cavalry,warships,Gold,Provisions};string[] names={"infantry","archers","cavalry","ships","gold","provisions"};
             for(int i=0;i<counts.Length;i++) if(counts[i]>0) items.Add(counts[i].ToString("N0")+" "+(i==3 && counts[i]==1?"ship":names[i]));
             return string.Join(", ",items);
-        }}
+        }
 
     }
 
@@ -222,7 +223,7 @@ public static class CouncilActions
 
         if(Int("iAidState"+index)!=0) {report="This ally has already answered your appeal this campaign.";return false;}
 
-        if(Int("iMoney")<1000 || Int("iShips")<1) {report="An appeal requires 1,000 gold and one available ship; the ship is not consumed.";return false;}
+        if(Int("iMoney")<1000 || (AidRouting.BySea(index) && Int("iShips")<1)) {report="An appeal requires 1,000 gold. Sea appeals also require an available ship; it is not consumed.";return false;}
 
         var before=VariableSingleton.Instance.CaptureState();
 
@@ -230,11 +231,12 @@ public static class CouncilActions
 
         bool accepted=UnityEngine.Random.Range(0,100)<AidChance(index);
 
+        VariableSingleton.SetInt("iAidWarships"+index,0);
         VariableSingleton.SetInt("iAidState"+index,accepted?1:3);
 
         if(accepted) VariableSingleton.SetInt("iAidDays"+index,Allies[index].Days);
 
-        report=Report(before,accepted?$"{Allies[index].Name} commits aid. Expected in {Allies[index].Days} calendar days.\nPromised: {Allies[index].Cargo}.":$"{Allies[index].Name} declines your appeal. No reinforcements are promised.");
+        report=Report(before,accepted?$"{Allies[index].Name} commits aid. Expected in {Allies[index].Days} calendar days.\nPromised: {Allies[index].Cargo}. {AidRouting.Route(index)}; transports do not join our fleet.":$"{Allies[index].Name} declines your appeal. No reinforcements are promised.");
         report+=DiplomaticReplies.Format(Allies[index].Name,accepted,Int("iReligion"),index+VariableSingleton.Turn);
 
         return true;
@@ -285,11 +287,12 @@ public static class CouncilActions
 
             var ally=Allies[i];
 
+            int promisedWarships=AidRouting.Warships(i);
             VariableSingleton.SetInt("iAidState"+i,2);
 
             string[] keys={"iInfantry","iArchers","iCavalry","iShips","iMoney","iProvisions"};
 
-            int[] values={ally.Infantry,ally.Archers,ally.Cavalry,ally.Ships,ally.Gold,ally.Provisions};
+            int[] values={ally.Infantry,ally.Archers,ally.Cavalry,promisedWarships,ally.Gold,ally.Provisions};
 
             for(int j=0;j<keys.Length;j++) VariableSingleton.ChangeInt(keys[j],values[j]);
 
