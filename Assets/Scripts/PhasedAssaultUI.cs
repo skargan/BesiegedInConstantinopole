@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,7 @@ public class PhasedAssaultUI : MonoBehaviour
     public PhasedAssault Battle;public int CurrentIncident=-1;
     GameObject panel,choices,arena; TMP_Text title,description,ledger,timer,phaseText;RectTransform marker;
     float elapsed,deadline; RectTransform formation,hourglass; int lastEnemyDead,lastOurDead;Action timeout; bool active,paused,waiting;string activity="";int sortieStrength;
-    BattleCrowdView crowd;TMP_Text cue;RectTransform aim;Vector2 aimPoint=new Vector2(.5f,.45f);bool loaded,drawn;float drawAge;int firedWindow=-1;Button loadButton,drawButton,fireButton;bool contactsRunning,approachIncident,contactIncident,cannonOffered;
+    BattleCrowdView crowd;TMP_Text cue;RectTransform aim;Vector2 aimPoint=new Vector2(.5f,.45f);bool loaded,drawn;float drawAge,feedbackUntil;int firedWindow=-1;Button loadButton,drawButton,fireButton;bool contactsRunning,approachIncident,contactIncident,cannonOffered;
     public static void Open(PhasedAssault battle,Transform parent) {
         if(Current!=null)return;
         var go=new GameObject("Phased assault controller");var ui=go.AddComponent<PhasedAssaultUI>();Current=ui;ui.Battle=battle;ui.active=ActiveMode;ui.Build(parent);ui.Briefing();
@@ -78,8 +78,8 @@ public class PhasedAssaultUI : MonoBehaviour
     void BeginTimer(string kind,float seconds,Action onTimeout) {
         activity=kind;elapsed=0;deadline=seconds;timeout=onTimeout;waiting=true;Battle.TimedMoments++;
         var track=CampaignHUD.Panel(arena.transform,"Timing track",new Vector2(.08f,.10f),new Vector2(.92f,.21f));track.GetComponent<Image>().color=ImperialTheme.Navy;
-        var zone=CampaignHUD.Panel(track.transform,"Effective range",new Vector2(.30f,0),new Vector2(.70f,1));zone.GetComponent<Image>().color=new Color(.22f,.40f,.36f);
-        var centre=CampaignHUD.Panel(track.transform,"Ideal range",new Vector2(.45f,0),new Vector2(.55f,1));centre.GetComponent<Image>().color=new Color(.8f,.64f,.3f);
+        var zone=CampaignHUD.Panel(track.transform,"Effective range",new Vector2(kind=="cover"?.45f:.30f,0),new Vector2(kind=="cover"?.80f:.70f,1));zone.GetComponent<Image>().color=new Color(.22f,.40f,.36f);
+        var centre=CampaignHUD.Panel(track.transform,"Ideal range",new Vector2(kind=="cover"?.57f:.36f,0),new Vector2(kind=="cover"?.68f:.64f,1));centre.GetComponent<Image>().color=new Color(.8f,.64f,.3f);
         marker=CampaignHUD.Panel(track.transform,"Enemy advance",new Vector2(0,0),new Vector2(.015f,1)).GetComponent<RectTransform>();marker.GetComponent<Image>().color=Color.white;
     }
     void PrepareApproach(){if(!approachIncident){approachIncident=true;Incident(0,Cover);}else Cover();}
@@ -94,7 +94,7 @@ public class PhasedAssaultUI : MonoBehaviour
         Screen("Watch the Ottoman gun crews","The fuse is lit. Order cover as the gun crews pull back. Green/gold means safe timing; waiting through the blast risks archers. Read first, then start the three-second challenge.",1);
         Order("Start cover drill · 3 seconds",0,1,()=>{
             OrderLive("Take cover [Space]",()=>{Battle.Shelter(Mathf.Clamp01(elapsed/CoverDuration));Volley();});
-            BeginTimer("cover",CoverDuration,()=>{Battle.Shelter(.2f);Volley();});
+            BeginTimer("cover",CoverDuration,()=>{Battle.Shelter(1f);Volley();});
         });
     }
     public void Volley() {
@@ -106,13 +106,14 @@ public class PhasedAssaultUI : MonoBehaviour
     }
     void OrderLive(string label,Action action){foreach(Transform t in choices.transform)Destroy(t.gameObject);Order(label,0,1,action);}
     void StartVolleys(){
+        description.text="A: load → W: draw → D: loose. Aim at the advancing rank. Gold marks the best timing. Three volleys; seven seconds.";feedbackUntil=0;
         foreach(Transform t in choices.transform)Destroy(t.gameObject);loaded=drawn=false;firedWindow=-1;drawAge=0;aim.gameObject.SetActive(true);
         loadButton=LiveButton("A · Load",0,LoadBow);drawButton=LiveButton("W · Draw",1,DrawBow);fireButton=LiveButton("D · Fire",2,Fire);
         BeginTimer("volley",VolleyDuration,()=>{while(Battle.Shots<3)Battle.Volley(-.25f);AfterVolley();});
     }
     Button LiveButton(string text,int n,Action action){Order(text,n,3,action);return choices.transform.GetChild(choices.transform.childCount-1).GetComponent<Button>();}
-    void LoadBow(){if(activity!="volley"||!waiting)return;int window=Mathf.Min(2,(int)(elapsed/(VolleyDuration/3)));if(firedWindow==window)return;loaded=true;drawn=false;drawAge=0;}
-    void DrawBow(){if(loaded){drawn=true;drawAge=0;}}
+    void LoadBow(){if(activity!="volley"||!waiting)return;int window=Mathf.Min(2,(int)(elapsed/(VolleyDuration/3)));if(firedWindow==window||loaded)return;loaded=true;drawn=false;drawAge=0;}
+    void DrawBow(){if(activity=="volley"&&waiting&&loaded&&!drawn){drawn=true;drawAge=0;}}
 
     void Fire() {
         if(activity!="volley"||!waiting||!loaded||!drawn||drawAge<.16f)return;
@@ -120,7 +121,7 @@ public class PhasedAssaultUI : MonoBehaviour
         while(Battle.Shots<window)Battle.Volley(-.25f);
         float progress=(elapsed-window*slice)/slice;Vector2 target=new Vector2(Mathf.Lerp(.83f,.20f,progress),Mathf.Lerp(.64f,.16f,progress));
         float aimPenalty=Mathf.Clamp(Vector2.Distance(aimPoint,target)-.14f,0,.5f)*.5f;
-        float score=Mathf.Clamp(PhasedAssault.VolleyScore(progress)-aimPenalty,-.25f,.25f);Battle.Volley(score);firedWindow=window;loaded=drawn=false;
+        float score=Mathf.Clamp(PhasedAssault.VolleyScore(progress)-aimPenalty,-.25f,.25f);Battle.Volley(score);firedWindow=window;loaded=drawn=false;feedbackUntil=elapsed+.45f;
         Arrows();RefreshLedger();cue.text="Volley "+(window+1)+"/3 · "+score.ToString("+0%;-0%;0%")+" · reloading";
     }
     void AfterVolley() {
@@ -209,6 +210,7 @@ public class PhasedAssaultUI : MonoBehaviour
         if(hourglass!=null)hourglass.localRotation=Quaternion.Euler(0,0,waiting&&!paused?Mathf.Sin(elapsed*2)*12:0);
         if(!waiting||paused)return;
         elapsed+=Time.unscaledDeltaTime;
+        if(activity!="cannon"&&elapsed>=deadline){waiting=false;var expired=timeout;timeout=null;expired?.Invoke();return;}
         if(activity=="cannon"){
             Vector2 point;var frame=arena.GetComponent<RectTransform>();if(RectTransformUtility.ScreenPointToLocalPointInRectangle(frame,Input.mousePosition,null,out point)&&frame.rect.Contains(point))aimPoint=new Vector2((point.x-frame.rect.xMin)/frame.rect.width,(point.y-frame.rect.yMin)/frame.rect.height);
             aim.anchorMin=aimPoint-new Vector2(.065f,.035f);aim.anchorMax=aimPoint+new Vector2(.065f,.035f);timer.text="Aim · D to fire";if(Input.GetKeyDown(KeyCode.D))CannonShot();return;
@@ -217,24 +219,25 @@ public class PhasedAssaultUI : MonoBehaviour
         float pos=activity=="volley"?(elapsed-window*slice)/slice:elapsed/deadline;
         if(crowd!=null)crowd.Advance(activity=="volley"?pos:.2f+pos*.2f,activity=="volley");
         if(marker!=null){marker.anchorMin=new Vector2(Mathf.Clamp01(pos)*.985f,0);marker.anchorMax=new Vector2(Mathf.Clamp01(pos)*.985f+.015f,1);}
-        timer.text=Mathf.Max(0,deadline-elapsed).ToString("0.0")+"s";
+        timer.text=(activity=="volley"?"Volley "+(window+1)+"/3 · ":"")+Mathf.Max(0,deadline-elapsed).ToString("0.0")+"s";
         if(activity=="cover"){
             cue.text=pos<.45f?"FUSE LIT · WAIT":pos<=.8f?"GUN CREW WITHDRAWS · COVER NOW":"GUN FLASH · TAKE COVER";
             if(Input.GetKeyDown(KeyCode.Space)){Battle.Shelter(pos);Volley();return;}
         }
         if(activity=="volley"){
             if(drawn)drawAge+=Time.unscaledDeltaTime;
-            if(Input.GetKeyDown(KeyCode.A))LoadBow();if(Input.GetKeyDown(KeyCode.W))DrawBow();if(Input.GetKeyDown(KeyCode.D))Fire();
+            // Settle an expired volley before accepting controls for the new rank.
+            if(window>Battle.Shots){while(Battle.Shots<window)Battle.Volley(-.25f);Arrows();loaded=drawn=false;RefreshLedger();}
             Vector2 local;var rect=arena.GetComponent<RectTransform>();
             if(RectTransformUtility.ScreenPointToLocalPointInRectangle(rect,Input.mousePosition,null,out local)&&rect.rect.Contains(local))aimPoint=new Vector2((local.x-rect.rect.xMin)/rect.rect.width,(local.y-rect.rect.yMin)/rect.rect.height);
             aim.anchorMin=aimPoint-new Vector2(.09f,.045f);aim.anchorMax=aimPoint+new Vector2(.09f,.045f);
-            if(firedWindow!=window){
+            if(Input.GetKeyDown(KeyCode.A))LoadBow();if(Input.GetKeyDown(KeyCode.W))DrawBow();if(Input.GetKeyDown(KeyCode.D))Fire();
+            if(firedWindow!=window&&elapsed>=feedbackUntil){
                 if(!loaded)cue.text="VOLLEY "+(window+1)+"/3 · A: LOAD";
                 else if(!drawn)cue.text="W: DRAW · enemy approaching";
                 else cue.text=pos<.3f?"DRAWN · WAIT":pos<=.7f?"EFFECTIVE RANGE · D: LOOSE":"TOO CLOSE · D: RELEASE";
             }
             loadButton.interactable=firedWindow!=window;drawButton.interactable=loaded&&!drawn;fireButton.interactable=drawn&&drawAge>=.16f&&firedWindow!=window;
-            if(window>Battle.Shots){while(Battle.Shots<window)Battle.Volley(-.25f);Arrows();loaded=drawn=false;RefreshLedger();}
         }
         if(elapsed>=deadline){waiting=false;var call=timeout;timeout=null;call?.Invoke();}
     }

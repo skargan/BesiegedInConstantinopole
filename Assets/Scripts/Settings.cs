@@ -19,7 +19,8 @@ public class Settings : MonoBehaviour
     public void SetFullscreen(bool enabled)
     {
         PlayerPrefs.SetInt("Besieged.Fullscreen",enabled?1:0);PlayerPrefs.Save();
-        Screen.fullScreenMode=enabled?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
+        if(enabled)Screen.SetResolution(Display.main.systemWidth,Display.main.systemHeight,FullScreenMode.FullScreenWindow);
+        else {int width=Mathf.Min(1600,Mathf.RoundToInt(Display.main.systemWidth*.85f));int height=Mathf.Min(900,Mathf.RoundToInt(Display.main.systemHeight*.85f));Screen.SetResolution(width,height,FullScreenMode.Windowed);}
     }
 
     private void OnValidate() { ApplyVolume(); }

@@ -1,3 +1,6 @@
+CURRENT RELEASE - Version31 -23 October2026
+Assault clarity pass: cover cue alignment and timeout exposure, volley input ordering, duplicate-ready-input protection, concise live prompt. Explicit saved Fullscreen/Windowed controls. Technology images preserve native resolution with uncompressed trilinear mipmaps. See Assault design review Version31.txt for assessment, prioritised next work and verification limits.
+
 CURRENT RELEASE - Version 30 - 23 October 2026
 
 Version 30 adds individual resident accounting, migration from campaign schema 1 to 2, nearest-thousand daily food rounding (half up), the supplied Europe1450 reference map in Diplomacy, full-resolution zoom and drag navigation. All 12 legacy population event commands converted; six already-individual AddResidents commands preserved. Three-day food cost uses FoodNeed rather than population. Taxes retain existing rate and fractional carry.

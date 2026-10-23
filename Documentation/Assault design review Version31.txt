@@ -1,0 +1,23 @@
+ASSAULT EXPERIENCE REVIEW - VERSION31 - 23 OCTOBER2026
+
+Basis: AI GAME STUDIO.docx supplied by the director; current runtime, model and exported player tests. Guiding priorities: experience before implementation; depth before breadth; explicit authoritative rules; verification before completion. This is an engineering and design assessment, not a claim of measured player enjoyment.
+
+Implemented this pass
+1. Cover cue track now matches actual safe timing45-80%; timeout resolves as late exposure, not an early safe withdrawal. Existing casualty limits preserved.
+2. Expired volley resolved before new-rank input; aim sampled before keyboard fire; expired challenge rejects further input. Repeated Load/Draw cannot reset an already ready bow. Successful feedback held briefly. Current volley number appears beside countdown.
+3. Separate Fullscreen/Windowed buttons, saved preferences, window size constrained below desktop dimensions.
+4. Technology imports preserve native1254x1254 dimensions, disable lossy block compression, add mipmaps and trilinear filtering for minified thumbnails. Original mosaic texture is part of supplied art and remains. This increases texture memory versus compression; assess on target hardware before blanket application to all scenery.
+
+Assessment and next priorities
+P0 Fairness and legibility: visual cues must match rules; prevent duplicate actions, boundary losses and silent penalties. Regression guards cover these. Keep seven-second volleys and three-second cover; all reading occurs before timer starts. Preserve neutral minigames-off mode.
+P1 Consequential judgement: emphasise visible enemy density, gun crews and approaching engines. Aimed cannon damage is bounded by campaign allocation. Sortie should expose reward/withdrawal tradeoff through readable reinforcements, not merely a generic meter. Do not increase enemy randomness to manufacture difficulty.
+P1 Learnable control: seven seconds for nine input actions plus aim is cognitively demanding. Test current sequence with director before adding automation. Candidate alternative: automatic nocking after each shot with player-controlled draw/release. Compare missed volleys, perceived control and repeat interest, not only win rate. Not yet implemented.
+P1 Art/readability: preserve image space, readable countdown, strong silhouettes and feedback after successful strike. Next meaningful asset work: animated gun-crew withdrawal and crossbow loading, using the same geometry as timing cues. Avoid decorative particles obscuring target/clock.
+P2 Encounter variety:24 incident definitions exist; these are narrative/tactical choices, not24 unique dexterity games. Ladder defence remains disconnected and is not advertised as playable in this release. Finish and test its full loop only after current volley/duel feedback is reviewed.
+P2 Duel: exposed areas and weapon cues need to follow sprite pose; current pose/crop changes and abstract marker need a dedicated animation pass. Distinct readable opponent tactics would add more value than faster attacks. Do not treat current mouse-sword prototype as finished sword combat.
+P2 Performance: profile active encounter, not just briefing. Cosmetic rendering remains separate from seeded combat RNG. Existing pause/focus and practice isolation tests retained. Report frame samples as a local automated sample, never a minimum-spec guarantee.
+
+Suggested director playtest: one assisted assault, two active assaults. Record whether losses felt explainable, whether successful timing was visible, and whether a third run feels inviting. Human preference is required to establish which is more fun.
+
+VERSION31 VERIFICATION
+Unity build succeeded.52 save/art/import checks,1132 assault/model checks,201 particle checks passed. Exported assault test passed assisted neutrality, practice isolation, active controls, duplicate draw/fire guards, pause, cannon and duel. Active local frame sample180frames: median0.48ms,p95 0.64ms (RTX4060Ti, automated hidden player; not a normal-display or minimum-spec guarantee). Exported focused test confirmed Windowed->Fullscreen->Windowed, archive and technology preview. Screenshots inspected for assault controls, technology list and settings. An initial broader visual run exited before its completion marker; it is not counted as a completed save regression. The final focused test completed successfully. Version30 save/migration certification remains documented separately.

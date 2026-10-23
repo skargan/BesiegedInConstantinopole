@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR || DEVELOPMENT_BUILD
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
 using System;
 using System.Collections;
 using System.IO;
@@ -66,7 +66,7 @@ public class PlaytestCapture : MonoBehaviour
             if(FindObjectsOfType<Button>().Any(x=>x.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith("Start cover")==true)){AssaultClick("Start cover");yield return null;var ef=typeof(PhasedAssaultUI).GetField("elapsed",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);ef.SetValue(ui,1.7f);AssaultClick("Take cover");yield return null;}
             AssaultClick("Start volleys");yield return Capture("27-active-controls");
             var flags=System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance;var elapsed=typeof(PhasedAssaultUI).GetField("elapsed",flags);elapsed.SetValue(ui,.4f);CampaignHUD.Instance.TogglePause();yield return Frames(8);if((float)elapsed.GetValue(ui)!=.4f)throw new Exception("Pause clock");CampaignHUD.Instance.TogglePause();yield return null;
-            for(int i=0;i<3;i++){elapsed.SetValue(ui,i*PhasedAssaultUI.VolleyDuration/3+PhasedAssaultUI.VolleyDuration/6);ui.SendMessage("LoadBow");ui.SendMessage("DrawBow");typeof(PhasedAssaultUI).GetField("drawAge",flags).SetValue(ui,.3f);typeof(PhasedAssaultUI).GetField("aimPoint",flags).SetValue(ui,new Vector2(.515f,.4f));ui.SendMessage("Fire");int shots=ui.Battle.Shots;ui.SendMessage("Fire");if(ui.Battle.Shots!=shots)throw new Exception("Double volley");}
+            for(int i=0;i<3;i++){elapsed.SetValue(ui,i*PhasedAssaultUI.VolleyDuration/3+PhasedAssaultUI.VolleyDuration/6);ui.SendMessage("LoadBow");ui.SendMessage("DrawBow");typeof(PhasedAssaultUI).GetField("drawAge",flags).SetValue(ui,.3f);typeof(PhasedAssaultUI).GetField("aimPoint",flags).SetValue(ui,new Vector2(.515f,.4f));ui.SendMessage("DrawBow");if((float)typeof(PhasedAssaultUI).GetField("drawAge",flags).GetValue(ui)<.3f)throw new Exception("Repeated draw reset ready bow");ui.SendMessage("Fire");int shots=ui.Battle.Shots;ui.SendMessage("Fire");if(ui.Battle.Shots!=shots)throw new Exception("Double volley");}
             if(ui.Battle.VolleyMultiplier!=1.25f)throw new Exception("Perfect volley bound");Destroy(ui.gameObject);yield return null;
             AssaultPractice.Launch(3);yield return null;ui=PhasedAssaultUI.Current;ui.Volley();yield return null;AssaultClick("Take the gun");yield return Capture("27-cannon-aim");
             typeof(PhasedAssaultUI).GetField("aimPoint",flags).SetValue(ui,new Vector2(.515f,.4f));AssaultClick("Fire the cannon");yield return Capture("27-cannon-blast");if(!ui.Battle.GunResolved||ui.Battle.Dead<=0)throw new Exception("Gun minigame");
@@ -74,8 +74,9 @@ public class PlaytestCapture : MonoBehaviour
             AssaultPractice.Duel();yield return Capture("27-duel");var d=AssaultDuelUI.Current;AssaultClick("Start duel");yield return new WaitForSecondsRealtime(.25f);
             d.Stroke(new Vector2(.4f,.5f),new Vector2(.6f,.5f));yield return Capture("27-armour-deflection");AssaultClick("Let the guard intervene");yield return null;
             var frameSamples=new System.Collections.Generic.List<float>();AssaultPractice.Launch(0);yield return null;
+            ui=PhasedAssaultUI.Current;ui.Volley();yield return null;AssaultClick("Start volleys");
             for(int i=0;i<180;i++){frameSamples.Add(Time.unscaledDeltaTime*1000);yield return null;}frameSamples.Sort();
-            Debug.Log("ASSAULT27_FRAME_MS median="+frameSamples[90].ToString("0.00")+" p95="+frameSamples[171].ToString("0.00"));
+            Debug.Log("ASSAULT_ACTIVE_FRAME_MS median="+frameSamples[90].ToString("0.00")+" p95="+frameSamples[171].ToString("0.00"));
             PhasedAssaultUI.ActiveMode=previous;Debug.Log("ASSAULT27_PLAYER_CHECKS neutral OFF, practice isolation, controls, pause, bounded volleys, cannon and duel passed");Application.Quit();yield break;
         }
         if(Environment.GetCommandLineArgs().Contains("-assault-capture")) {

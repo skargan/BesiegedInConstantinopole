@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -28,9 +28,10 @@ public static class AudioSettingsUI
         slider.onValueChanged.AddListener(v=>{settings.SetMusicVolume(v);value.text="Music volume: "+Mathf.RoundToInt(v*100)+"%";});
         var effects=CampaignHUD.MakeButton(panel.transform,settings.SfxEnabled?"Sound effects: On":"Sound effects: Off",new Vector2(.30f,.24f),new Vector2(.70f,.33f),()=>{});
         effects.onClick.AddListener(()=>{settings.SetSfxEnabled(!settings.SfxEnabled);effects.GetComponentInChildren<TMP_Text>().text=settings.SfxEnabled?"Sound effects: On":"Sound effects: Off";});
-        var display=CampaignHUD.MakeButton(panel.transform,Screen.fullScreen?"Fullscreen: On":"Fullscreen: Off",new Vector2(.30f,.13f),new Vector2(.70f,.22f),()=>{});
-        bool fullscreen=Screen.fullScreen;
-        display.onClick.AddListener(()=>{fullscreen=!fullscreen;settings.SetFullscreen(fullscreen);display.GetComponentInChildren<TMP_Text>().text=fullscreen?"Fullscreen: On":"Fullscreen: Off";});
+        Button full=null,window=null;
+        System.Action refresh=()=>{bool on=Screen.fullScreen;full.GetComponentInChildren<TMP_Text>().text=on?"Fullscreen · selected":"Fullscreen";window.GetComponentInChildren<TMP_Text>().text=on?"Windowed":"Windowed · selected";};
+        full=CampaignHUD.MakeButton(panel.transform,"Fullscreen",new Vector2(.15f,.13f),new Vector2(.49f,.22f),()=>{settings.SetFullscreen(true);full.GetComponentInChildren<TMP_Text>().text="Fullscreen · selected";window.GetComponentInChildren<TMP_Text>().text="Windowed";});
+        window=CampaignHUD.MakeButton(panel.transform,"Windowed",new Vector2(.51f,.13f),new Vector2(.85f,.22f),()=>{settings.SetFullscreen(false);full.GetComponentInChildren<TMP_Text>().text="Fullscreen";window.GetComponentInChildren<TMP_Text>().text="Windowed · selected";});refresh();
         var help=CampaignHUD.Explanation(panel.transform,"Audio and display preferences are saved.",new Vector2(.15f,.085f),new Vector2(.85f,.12f),18);help.alignment=TextAlignmentOptions.Center;
         CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.35f,.015f),new Vector2(.65f,.08f),Close);
     }

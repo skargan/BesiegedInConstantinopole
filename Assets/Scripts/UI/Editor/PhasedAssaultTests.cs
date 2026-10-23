@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 public static class PhasedAssaultTests {
  static int checks;
@@ -7,6 +7,7 @@ public static class PhasedAssaultTests {
  public static void Run(){
   Check(PhasedAssault.VolleyScore(.5f)==.25f,"perfect volley");Check(PhasedAssault.VolleyScore(0)==-.25f,"early volley");
   var perfect=Make(1);for(int i=0;i<5;i++)perfect.Volley(.25f);Check(perfect.Shots==3&&perfect.VolleyMultiplier==1.25f,"three volleys average, bounded and repeat safe");
+  var safeCover=Make(3);safeCover.Shelter(.45f);Check(safeCover.Archers==2000&&safeCover.Cover==1,"safe cover window begins at45percent");var lastSafe=Make(3);lastSafe.Shelter(.8f);Check(lastSafe.Archers==2000,"safe cover includes80percent");var missedCover=Make(3);missedCover.Shelter(1);Check(missedCover.Archers==1970,"missed cover receives bounded exposure casualties");
   var ordinary=Make(1);ordinary.Volley(0);ordinary.Volley(0);ordinary.Volley(0);ordinary.Approach(0,0);perfect.Approach(0,0);Check(perfect.Dead-ordinary.Dead>=247&&perfect.Dead-ordinary.Dead<=250,"modifier applies only to archer budget");
   int dead=ordinary.Dead;ordinary.Approach(0,0);Check(dead==ordinary.Dead,"approach resolves once");
   for(int seed=0;seed<300;seed++){
