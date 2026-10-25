@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 using System.Collections.Generic;
 
@@ -33,9 +33,10 @@ public class MainMenuUI : UIWindowFam
         var quick=CampaignHUD.MakeButton(transform,VariableSingleton.HasPreparationPreset?"Repeat preparation":"Repeat preparation\n<size=65%>Reach the siege to unlock</size>",Vector2.zero,Vector2.one,QuickStart);quick.interactable=VariableSingleton.HasPreparationPreset;
         var achievement=CampaignHUD.MakeButton(transform,"Achievements",Vector2.zero,Vector2.one,()=>Achievements.Show(transform.root));
         var settingsButton=CampaignHUD.MakeButton(transform,"Settings",Vector2.zero,Vector2.one,()=>AudioSettingsUI.Show(transform.root));
+        var trial=CampaignHUD.MakeButton(transform,"Test assaults",Vector2.zero,Vector2.one,()=>AlbaniaWarTrialUI.TestMenu(transform.root));
         var archives=CampaignHUD.MakeButton(transform,"Saved campaigns",Vector2.zero,Vector2.one,()=>SaveMenu.Show(transform.root));
         var ordered=new System.Collections.Generic.List<UnityEngine.UI.Button>();foreach(var item in original)if(item.transform.parent==transform)ordered.Add(item);
-        ordered.Insert(Mathf.Min(2,ordered.Count),archives);ordered.Insert(Mathf.Min(3,ordered.Count),quick);ordered.Insert(Mathf.Max(0,ordered.Count-1),achievement);ordered.Insert(Mathf.Max(0,ordered.Count-1),settingsButton);
+        ordered.Insert(Mathf.Min(2,ordered.Count),trial);ordered.Insert(Mathf.Min(2,ordered.Count),archives);ordered.Insert(Mathf.Min(3,ordered.Count),quick);ordered.Insert(Mathf.Max(0,ordered.Count-1),achievement);ordered.Insert(Mathf.Max(0,ordered.Count-1),settingsButton);
         for(int i=0;i<ordered.Count;i++) {
             var button=ordered[i];float step=.56f/Mathf.Max(1,ordered.Count);float top=.66f-i*step;var rect=button.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.09f,top-step*.80f);rect.anchorMax=new Vector2(.91f,top);rect.offsetMin=rect.offsetMax=Vector2.zero;
             var background=button.GetComponent<UnityEngine.UI.Image>();if(background!=null){ImperialTheme.Button(button);}

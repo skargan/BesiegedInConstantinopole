@@ -1,0 +1,35 @@
+VERSION35 — ALBANIA REGIONAL WAR TRIAL
+Access: main menu > Test assaults > Albania regional war trial; also Imperial Council assault practice.
+
+BOUNDED TEST — NOT A LIVE CAMPAIGN WAR
+30 days; one order per day. Seeded results; restart repeats the same scenario. Fictional balance strengths: 10,000 Albanians and 15,000 Ottomans. Front 0 = Ottoman breakthrough; 100 = Albanian breakthrough. At day 30, 35/65 mark territorial advantage; otherwise stalemate.
+
+SUPPLY AND CHOICES
+Each army uses one local food-day daily. Every seven days Albania receives four, Ottomans five if their province is neither rebelling nor liberated. Hungry armies operate at 60% strength. Ottoman foraging gains three food-days but concedes pressure. Ottoman pressure contributes one point daily. Advance gains pressure but increases losses; raid destroys three enemy food-days, reduced to one against escorted convoys. For three days after a raid, Ottomans prioritise escorts: two local food-days gained; counterattacks continue when Albanian pressure reaches 60; holding limits losses. Three aid packages each add eight resistance and remove three authority; aid yields ground.
+
+REVOLT AND WAR HELP EACH OTHER
+An active revolt diverts Ottoman troops (+1 Albanian pressure) and interrupts local deliveries. An Albanian advance during revolt adds two authority damage and reduces resistance losses by one, minimum one. Ottomans prioritise suppression at resistance 35+, adding two resistance losses. Base rebellion losses remain independently 1–5 each day; simultaneous collapse favours Ottomans. Liberation shifts the front +8; suppression shifts it −8, once.
+
+BOUNDARIES
+One abstract Macedonia/Thessaly frontier, not conquest of the entire province. No naval intervention, terrain subregions, relief army, diplomacy or second front. No campaign time, money, troops, agents, saves, achievements or random state are changed. Future integration must route reinforcements through the existing finite supply ledger and apply provincial neighbour effects exactly once.
+
+EXACT STARTING PRESETS
+All: frontier50; Albanian troops10,000; Ottoman troops15,000; three aid packages. These are fictional test quantities.
+No revolt: authority65, resistance0, Albanian food24, Ottoman food30.
+Strong revolt: authority45, resistance60, open rebellion; food24/30.
+Fragile revolt: authority45, resistance20, open rebellion; food24/30.
+Supply crisis: authority50, resistance35, no initial rebellion; food8/12.
+
+RESOLUTION DETAILS
+Intent selected before the player's action resolves; the test deliberately reveals intent without intelligence requirements. Enemy order priority: escorts for three days after raiding; foraging below6 food; suppression during revolt with resistance35+; counterattack at frontier60+; otherwise frontier pressure.
+Strength is surviving fraction of each army's initial strength, multiplied by0.6 when hungry. Frontier change: random integer−2..2, minus1 baseline Ottoman pressure, plus rounded5*(Albanian strength−Ottoman strength); advance+3, raid+1, rebel aid−1, hold0. Counterattack−2; foraging+2; escorted supply also retains counterattack−2 at frontier60+. Active revolt+1; liberated province+1. Clamp0–100.
+Daily Albanian losses random30–90; advance adds70; hold subtracts20; starvation adds40. Ottoman losses random40–110; raid adds35; active revolt adds35; starvation adds60. Troop totals never negative. These are provisional abstract daily attrition rules, not historical casualty estimates.
+Revolt losses resolve simultaneously after frontier movement. A new revolt begins at authority45 or below; an advance outside rebellion reduces authority2. A revolt with no organised resistance can collapse immediately on its first fighting day. Suppression and liberation are terminal provincial states for this30-day trial. No repeat rebellions or province gift events are simulated here.
+End-state priority: reaching either frontier endpoint or exhausting an army ends immediately; otherwise day30 resolves advantage/stalemate. The prototype permits no action after conclusion. Restart and scenario changes create a fresh local model with seed1453.
+
+INTEGRATION CONTRACT FOR LATER CAMPAIGN WORK
+Share the provincial rebellion state rather than duplicating it. Route actual war troops and supplies through the Ottoman finite ledger. Decide what percentage of troops are diverted from the siege. Apply neighbour authority effects only through the provincial outcome resolver. Use one campaign-day clock. Distinguish local frontier advantage from province liberation. Add diplomacy, intelligence uncertainty, peace terms and war termination before enabling ordinary campaign wars.
+
+VERIFICATION
+1,600 bounded simulations:4 presets x4 automated policies x100 seeds. Policies: hold; advance; raid every third day otherwise advance; aid while resistance<65 and packages remain, otherwise advance. Checked seeded replay, legal actions,30-day bound, non-negative state, terminal immutability, Ottoman tie victory, escort response and preservation of Unity campaign RNG. Main-menu buttons and rules/battlefield navigation exercised; screenshots inspected. This is not1,600 full campaigns or human playtests.
+Balance CSV accompanies this document. Known design limits: holding has no recovery objective yet; the frontier abstracts geography; no cinematic battle art or sound has been added. Use this build to assess strategic choices before expanding presentation or campaign integration.
