@@ -21,7 +21,7 @@ public static class OttomanSiegeOperations
             case OttomanDirector.Operation.IrregularAssault:OttomanDirector.MarkAssault();ai.AIBashiBazoukAssault();break;
             case OttomanDirector.Operation.JanissaryAssault:OttomanDirector.MarkAssault();ai.AIJanissaryAssault();break;
             case OttomanDirector.Operation.Reinforce:
-                ai.AIMoarCannons();OttomanDirector.AddAmmo(8);VariableSingleton.ChangeInt("iBazouks",150);if(VariableSingleton.CompletedSiegeDays>=21&&I("iOttGrandCannon")==0){VariableSingleton.SetInt("iOttGrandCannon",1);return "A heavy bombard convoy reaches the siege from the imperial foundries. The great cannon adds three percentage points to subsequent wall bombardments. Ammunition +8;150 irregulars arrive.";}return "Imperial convoy: one cannon,8 ammunition and150 irregulars reach the camp.";
+                return "The siege command organises its scheduled reinforcements. Provincial shipments arrive according to their existing timetable.";
             case OttomanDirector.Operation.ArrowScreens:VariableSingleton.SetInt("iOttArrowScreens",1);return "Ottoman carpenters assemble mantlets: movable timber arrow shields. Protected ranks suffer25% less arrow damage until your artillery breaks the screens.";
             case OttomanDirector.Operation.OverlandShips:
                 VariableSingleton.ChangeInt("iOttHornWorks",UnityEngine.Random.Range(20,36));if(I("iOttHornWorks")>=100){DefencePosture.SetHornAccess();VariableSingleton.SetInt("iOttHornShips",Mathf.Min(I("iTurkShips"),10));return "Overland slipways are complete. Ottoman vessels enter the Golden Horn behind the chain; review the sea-wall garrison.";}return "Ottoman crews extend the overland slipways. Progress "+I("iOttHornWorks")+"%.";

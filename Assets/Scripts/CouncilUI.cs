@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 33 · War Beyond the Walls · 25 October 2026";
+    public const string BuildLabel="Version 34 · War Beyond the Walls · 25 October 2026";
 
 
 

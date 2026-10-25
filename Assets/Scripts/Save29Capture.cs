@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Save29Capture:MonoBehaviour {
     string root;int checks;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")||Environment.GetCommandLineArgs().Contains("-theatre33-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-province34-capture")||Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")||Environment.GetCommandLineArgs().Contains("-theatre33-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
     void Check(bool v,string label){if(!v)throw new Exception("SAVE29 PLAYER: "+label);checks++;}
     private IEnumerator Shot(string name)
     {
@@ -43,6 +43,7 @@ public class Save29Capture:MonoBehaviour {
     void Reload(string path){SaveGames.RequestedFile=path;VariableSingleton.ContinueRequested=true;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");}
     IEnumerator Start(){
         Application.runInBackground=true;root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Save29"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        if(Environment.GetCommandLineArgs().Contains("-province34-capture")){yield return Province34Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-theatre33-capture")){yield return Theatre33Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-ai32-capture")){yield return AI32Run();yield break;}
         SaveMenu.NewCampaign(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("01-mode-selection");SaveMenu.Close();yield return Shot("00-main-menu");
@@ -69,6 +70,47 @@ public class Save29Capture:MonoBehaviour {
         SaveMenu.Show(FindObjectOfType<ManagerUI>().transform.parent);yield return Shot("06-ironman-archives");SaveMenu.Close();
         Debug.Log("SAVE29_PLAYER_CHECKS "+checks+" passed: portable slots, mode gate, corruption rejection, event resume, assault resume, technology art");Application.Quit();
     }
+    IEnumerator Province34Run(){
+        root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Province34"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=true;SceneManager.LoadScene("Continue Game");yield return Loaded();
+        var turn=typeof(VariableSingleton).GetField("turn",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);
+        turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn);
+        ProvincialIntelligence.ResetForRestore();ProvinceCampaign.Ensure();
+        Check(CouncilActions.Int("iFood")==90,"initial food 90");Check(WarTheatre.ProvinceIds.Sum(id=>ProvinceCampaign.PendingFood(id))==150,"scheduled food 150");
+        Check(CouncilActions.Int("iTurkCannons")==12,"initial cannon count");
+        var initial=VariableSingleton.Instance.CaptureState();int initialMen=CouncilActions.Int("iBalkans")+CouncilActions.Int("iBazouks")+CouncilActions.Int("iJanissaries");
+        for(int day=0;day<230;day++){turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn+day);ProvinceCampaign.SupplyDay();int food=CouncilActions.Int("iFood");ProvinceCampaign.SupplyDay();Check(CouncilActions.Int("iFood")==food,"same-day supply idempotent "+day);}
+        Check(CouncilActions.Int("iFood")==10,"240 total less 230 daily consumption");Check(CouncilActions.Int("iBalkans")+CouncilActions.Int("iBazouks")+CouncilActions.Int("iJanissaries")==initialMen*2,"initial contingent exactly half total");Check(CouncilActions.Int("iTurkCannons")==22,"finite cannon schedule");Check(DailyLifeEvents.I("iOttAmmo")==150,"finite ammunition schedule");
+        turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn);VariableSingleton.Instance.RestoreValidated(initial);
+        VariableSingleton.SetInt("iMoney",50000);VariableSingleton.SetInt("iSpies",12);
+        Check(ProvinceCampaign.Dispatch("thrace",out var msg)&&ProvinceCampaign.Dispatch("bulgaria",out msg),"independent province assignments");Check(ProvinceCampaign.Assigned==2,"two assigned agents");
+        Check(!ProvinceCampaign.Dispatch("thrace",out msg),"duplicate rejected");
+        var date=VariableSingleton.GetDate();ProvinceCampaign.Advance(date.AddDays(7));Check(ProvinceCampaign.Agent("thrace")==2&&ProvinceCampaign.Agent("bulgaria")==2,"both agents arrive");
+        int authority=ProvinceCampaign.Authority("thrace");ProvinceCampaign.Advance(date.AddDays(7));Check(ProvinceCampaign.Authority("thrace")==authority,"daily agent tick idempotent");
+        ProvinceCampaign.Authority("thrace",100);ProvinceCampaign.Mode("thrace",1);ProvinceCampaign.Advance(date.AddDays(8));Check(ProvinceCampaign.Resistance("thrace")>0&&ProvinceCampaign.Authority("thrace")==100,"resistance organising above70");
+        ProvinceCampaign.Authority("thrace",86);Check(ProvinceCampaign.Reason("thrace",1)!=null,"convoy locked86");ProvinceCampaign.Authority("thrace",85);int pending=ProvinceCampaign.PendingFood("thrace");Check(ProvinceCampaign.Act("thrace",1,out msg),"convoy unlocked85");int destroyed=pending-ProvinceCampaign.PendingFood("thrace");Check(destroyed>=3&&destroyed<=7,"actual scheduled stores destroyed");
+        ProvinceCampaign.Authority("thrace",71);Check(ProvinceCampaign.Reason("thrace",2)!=null,"finance locked71");ProvinceCampaign.Authority("thrace",70);Check(ProvinceCampaign.Act("thrace",2,out msg),"finance unlocked70");
+        ProvinceCampaign.Authority("thrace",46);ProvinceCampaign.Set("R_thrace",80);Check(ProvinceCampaign.Act("thrace",0,out msg)&&ProvinceCampaign.Rebellion("thrace"),"rebellion threshold45");
+        ProvinceCampaign.Authority("bulgaria",50);ProvinceCampaign.Authority("aydin",50);ProvinceCampaign.Resolve("thrace",false,ProvinceCampaign.Day);Check(ProvinceCampaign.Authority("bulgaria")==70&&ProvinceCampaign.Authority("aydin")==60,"suppression neighbour replaces global");Check(ProvinceCampaign.Agent("thrace")==0&&ProvinceCampaign.Get("Blocked_thrace")==ProvinceCampaign.Day+100,"agent killed100day ban");
+        Check(ProvinceCampaign.Resolve("thrace",false,ProvinceCampaign.Day)==""&&ProvinceCampaign.Authority("bulgaria")==70,"outcome applies once");
+        ProvinceCampaign.Set("Battle_thrace",1);ProvinceCampaign.Authority("thrace",1);ProvinceCampaign.Set("R_thrace",1);ProvinceCampaign.Advance(date.AddDays(9));Check(!ProvinceCampaign.Free("thrace")&&!ProvinceCampaign.Rebellion("thrace"),"simultaneous zero Ottoman victory");
+        ProvinceCampaign.Set("Battle_bulgaria",1);ProvinceCampaign.Authority("thrace",80);ProvinceCampaign.Authority("aydin",80);ProvinceCampaign.Resolve("bulgaria",true,ProvinceCampaign.Day);Check(ProvinceCampaign.Authority("thrace")==70&&ProvinceCampaign.Authority("aydin")==75,"liberation neighbour replaces global");
+        var saved=VariableSingleton.Instance.CaptureState();VariableSingleton.Instance.RestoreValidated(saved);Check(ProvinceCampaign.Free("bulgaria")&&ProvinceCampaign.Get("Ready")==1,"province state survives save restore");
+        for(int seed=0;seed<30;seed++){
+            VariableSingleton.Instance.RestoreValidated(initial);ProvincialIntelligence.ResetForRestore();UnityEngine.Random.InitState(34000+seed);ProvinceCampaign.Ensure();
+            Check(WarTheatre.ProvinceIds.Sum(id=>ProvinceCampaign.PendingFood(id))==150,"seeded food budget "+seed);
+            for(int i=0;i<11;i++)for(int w=0;w<5;w++)Check(ProvinceCampaign.Get("Due"+i+"_"+w)>=15+w*30&&ProvinceCampaign.Get("Due"+i+"_"+w)<=35+w*30+(w==4?10:0),"delivery window");
+        }
+        VariableSingleton.Instance.RestoreValidated(initial);ProvinceCampaign.Set("Battle_thrace",1);ProvinceCampaign.Set("R_thrace",100);
+        for(int day=0;day<230;day++){turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn+day);ProvinceCampaign.SupplyDay();}
+        Check(CouncilActions.Int("iFood")==0,"rebellious province cannot export its24food-days");
+        VariableSingleton.Instance.RestoreValidated(initial);turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn);
+        ProvinceCampaign.Set("Battle_bulgaria",1);ProvinceCampaign.Resolve("bulgaria",true,ProvinceCampaign.Day);ProvinceCampaign.Set("Gift_bulgaria",ProvinceCampaign.Day+1);int goldBefore=CouncilActions.Int("iMoney");ProvinceCampaign.Advance(VariableSingleton.GetDate().AddDays(1));int gift=CouncilActions.Int("iMoney")-goldBefore;Check(gift>=300&&gift<=900,"liberation gift arrives");ProvinceCampaign.Advance(VariableSingleton.GetDate().AddDays(1));Check(CouncilActions.Int("iMoney")==goldBefore+gift,"gift not repeated");
+        VariableSingleton.Instance.RestoreValidated(saved);
+        FindObjectOfType<CouncilUI>(true).ProvincialOperationsFor("thrace");yield return Shot("01-province-suppressed");FindObjectOfType<CouncilUI>(true).ProvincialOperationsFor("bulgaria");yield return Shot("02-province-liberated");WarTheatreUI.Show();yield return Shot("03-province-map");
+        Debug.Log("PROVINCE34_CHECKS "+checks+" passed");Application.Quit();
+    }
+
     IEnumerator Theatre33Run(){
         root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Theatre33"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
         SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=true;SceneManager.LoadScene("Continue Game");yield return Loaded();yield return new WaitForSecondsRealtime(1);

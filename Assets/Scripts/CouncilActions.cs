@@ -308,28 +308,7 @@ public static class CouncilActions
 
     // Resolve before the day's tactic so a resupply day cannot also produce an assault.
 
-    public static string ResolveEnemySupplies()
-
-    {
-
-        VariableSingleton.ChangeInt("iFood",-1);
-
-        if(Int("iFood")>0) return "";
-
-        var before=VariableSingleton.Instance.CaptureState();
-
-        int deserters=Mathf.CeilToInt(Int("iBazouks")*.01f);
-
-        VariableSingleton.ChangeInt("iBazouks",-deserters);
-
-        int delivered=ImperialSupply.Deliver(15,out var provincialReport);
-        VariableSingleton.SetInt("iFood",delivered);
-
-        return Report(before,"Ottoman stores run out. The army spends today securing provisions instead of attacking. Hunger and disrupted pay drive away "+deserters.ToString("N0")+" irregulars. The new convoy brings "+delivered+" days of stores. "+provincialReport+"");
-
-    }
-
-
+    public static string ResolveEnemySupplies()=>ProvinceCampaign.SupplyDay();
 
     public static string Intelligence()
 

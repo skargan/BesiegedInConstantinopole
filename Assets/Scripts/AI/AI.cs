@@ -156,8 +156,8 @@ public class AI: MonoBehaviour
     public void AIMoarCannons()
     {
         Debug.Log("*Enemy is bringing more cannons!");
-        VariableSingleton.ChangeInt("iTurkCannons", 1);
-        LastReport = "Another Ottoman cannon has reached the siege lines.";
+        ProvinceCampaign.Ensure();
+        LastReport = "The siege command awaits its scheduled provincial artillery shipment.";
     }
 
 

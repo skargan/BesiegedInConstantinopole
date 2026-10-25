@@ -15,29 +15,22 @@ public partial class CouncilUI
     public void ProvincialOperationsFor(string province){provincialSelection=province;ProvincialOperations();}
     public void ProvincialOperations()
     {
-        if(ProvincialIntelligence.Assigned>0)provincialSelection=ProvincialIntelligence.ProvinceId;
-        Open("War Beyond the Walls",WarTheatre.Find(provincialSelection).name+" · Send a camp agent beyond the siege lines. Travel and operations continue while the siege goes on. Each order uses your major action.");
-        ControlSingleton.Instance.ReturnAction=WarTheatreUI.Show;BodyHeight(1010);
-        var status=SpyPanel("Provincial assignment",0,180);
-        CampaignHUD.Label(status.transform,ProvincialIntelligence.Status,new Vector2(.03f,.69f),new Vector2(.97f,.97f),27);
-        CampaignHUD.Explanation(status.transform,"Camp agents: "+CouncilActions.Int("iSpies")+" · Provincial assignment: "+ProvincialIntelligence.Assigned+"\nPending convoy disruption: "+ProvincialIntelligence.GetSupplyPressure()+" days of stores. This changes the next delivery, not today's food consumption.",new Vector2(.03f,.10f),new Vector2(.97f,.66f),23);
-        var report=SpyPanel("Provincial correspondence",192,210);
-        CampaignHUD.Explanation(report.transform,ProvincialIntelligence.LastReport,new Vector2(.03f,.10f),new Vector2(.97f,.91f),24);
-        var travel=SpyPanel("Travel orders",414,150);
-        CampaignHUD.Explanation(travel.transform,"One agent, seven days each way. An agent abroad no longer contributes to your knowledge of the Ottoman camp.",new Vector2(.03f,.44f),new Vector2(.97f,.96f),22);
-        var dispatch=CampaignHUD.MakeButton(travel.transform,"Send agent · 500 gold",new Vector2(.03f,.06f),new Vector2(.49f,.40f),()=>{bool ok=ProvincialIntelligence.Dispatch(provincialSelection,out var text);Finish(ok,text);});
-        Availability(dispatch,ProvincialIntelligence.DispatchUnavailable);
-        var recall=CampaignHUD.MakeButton(travel.transform,"Recall agent · 7 days",new Vector2(.51f,.06f),new Vector2(.97f,.40f),()=>{bool ok=ProvincialIntelligence.Recall(out var text);Finish(ok,text);});
-        recall.interactable=ProvincialIntelligence.State==ProvincialIntelligence.CellState.Resident;
-        string[] titles={"The clerk's second ledger","Fire in the forwarding yard"};
-        string[] prose={"A clerk keeps two accounts: one for the Sultan and one to protect himself. Buy a copy before fear closes his mouth. Success reveals one secret and makes the later depot operation safer.","A forwarding depot feeds the siege army. Pay local contacts to destroy its grain before it is loaded. Success removes three days of stores from the next convoy; it cannot stop all imperial supply."};
-        for(int i=0;i<2;i++) {
-            int operation=i;var row=SpyPanel(titles[i],576+i*210,198);
-            CampaignHUD.Label(row.transform,titles[i],new Vector2(.025f,.76f),new Vector2(.975f,.99f),26);
-            CampaignHUD.Explanation(row.transform,prose[i]+" Failed operations may lose the agent.",new Vector2(.025f,.30f),new Vector2(.975f,.74f),22);
-            var button=CampaignHUD.MakeButton(row.transform,i==0?"Obtain ledger · 1,000 gold · 3 days":"Sabotage depot · 1,500 gold · 4 days",new Vector2(.025f,.04f),new Vector2(.975f,.27f),()=>{bool ok=ProvincialIntelligence.Begin(operation,out var text);Finish(ok,text);});
-            Availability(button,ProvincialIntelligence.OperationUnavailable(i));
-        }
+        ProvinceCampaign.Ensure();string id=provincialSelection;
+        Open("War Beyond the Walls",WarTheatre.Find(id).name+" · Provincial networks and supplies");
+        ControlSingleton.Instance.ReturnAction=WarTheatreUI.Show;BodyHeight(1080);
+        var status=SpyPanel("Province",0,170);
+        CampaignHUD.Label(status.transform,"Authority "+ProvinceCampaign.Authority(id)+"% · Resistance "+ProvinceCampaign.Resistance(id)+"%",new Vector2(.03f,.65f),new Vector2(.97f,.97f),27);
+        CampaignHUD.Explanation(status.transform,ProvinceCampaign.Status(id)+"\nRebellion begins at 45% authority. Rebellions and liberated provinces stop exporting supplies.",new Vector2(.03f,.05f),new Vector2(.97f,.62f),23);
+        var travel=SpyPanel("Agent orders",182,150);
+        CampaignHUD.Explanation(travel.transform,"One agent per province · seven days of travel · camp agents available: "+CouncilActions.Int("iSpies"),new Vector2(.03f,.5f),new Vector2(.97f,.95f),22);
+        var send=CampaignHUD.MakeButton(travel.transform,"Send agent · 500 gold",new Vector2(.03f,.05f),new Vector2(.49f,.44f),()=>{bool ok=ProvinceCampaign.Dispatch(id,out var text);Finish(ok,text);});Availability(send,ProvinceCampaign.DispatchReason(id));
+        var recall=CampaignHUD.MakeButton(travel.transform,"Recall agent · seven days",new Vector2(.51f,.05f),new Vector2(.97f,.44f),()=>{bool ok=ProvinceCampaign.Recall(id,out var text);Finish(ok,text);});recall.interactable=ProvinceCampaign.Agent(id)==2&&!ProvinceCampaign.Rebellion(id);
+        var mode=SpyPanel("Standing instructions",344,150);
+        CampaignHUD.Explanation(mode.transform,"Free standing instruction · 1–2 points daily. Resistance organising is available at any authority.",new Vector2(.03f,.5f),new Vector2(.97f,.95f),22);
+        for(int i=0;i<2;i++){int m=i;var button=CampaignHUD.MakeButton(mode.transform,(ProvinceCampaign.Get("Mode_"+id)==m?"Selected · ":"")+(m==0?"Weaken authority":"Build resistance"),new Vector2(.03f+i*.48f,.05f),new Vector2(.49f+i*.48f,.44f),()=>{ProvinceCampaign.Mode(id,m);ProvincialOperations();});button.interactable=ProvinceCampaign.Agent(id)==2&&!ProvinceCampaign.Rebellion(id)&&!ProvinceCampaign.Free(id);}
+        string[] titles={"Weaken Ottoman authority","Attack provision convoys","Finance resistance"};
+        string[] descriptions={"Undermine the officials and their local supporters. Authority falls by 1–10 points.","Destroy 3–7 days of scheduled provisions. Requires authority at 85% or below; losses are limited to remaining shipments.","Arm and organise willing fighters. Resistance increases by 1–10 points. Requires authority at 70% or below."};
+        for(int i=0;i<3;i++){int op=i;var row=SpyPanel(titles[i],506+i*180,168);CampaignHUD.Explanation(row.transform,descriptions[i],new Vector2(.03f,.4f),new Vector2(.97f,.94f),22);var button=CampaignHUD.MakeButton(row.transform,titles[i]+" · "+(i==0?"500":"1,000")+" gold · major action",new Vector2(.03f,.05f),new Vector2(.97f,.35f),()=>{bool ok=ProvinceCampaign.Act(id,op,out var text);Finish(ok,text);});Availability(button,ProvinceCampaign.Reason(id,op));}
     }
     static void Availability(UnityEngine.UI.Button button,string reason)
     {
@@ -48,7 +41,7 @@ public partial class CouncilUI
         Open("Specialists","Your people have different duties. An agent sent abroad cannot also work in the Ottoman camp.");BodyHeight(620);
         string[] names={"Engineers","Monks","Agents","Envoys"};
         int mentor=DailyLifeEvents.I("iLifeMentorDue")>0?1:0;
-        string[] detail={CouncilActions.Int("iEngineers")+" available · "+mentor+" temporarily mentoring an apprentice.\nEngineers support construction and specialised assignments.",DailyLifeEvents.I("iHealers")+" in the medical service.\nWounded recovery is not available yet.",CouncilActions.Int("iSpies")+" in the Ottoman camp · "+ProvincialIntelligence.Assigned+" assigned abroad.\n"+ProvincialIntelligence.Status,"Resident-envoy assignments are not available yet.\nOrdinary diplomatic appeals remain available through messengers."};
+        string[] detail={CouncilActions.Int("iEngineers")+" available · "+mentor+" temporarily mentoring an apprentice.\nEngineers support construction and specialised assignments.",DailyLifeEvents.I("iHealers")+" in the medical service.\nWounded recovery is not available yet.",CouncilActions.Int("iSpies")+" in the Ottoman camp · "+ProvinceCampaign.Assigned+" assigned abroad.\n"+"Agents develop separate local networks in each province.","Resident-envoy assignments are not available yet.\nOrdinary diplomatic appeals remain available through messengers."};
         for(int i=0;i<4;i++){var row=SpyPanel(names[i],i*145,133);CampaignHUD.Label(row.transform,names[i],new Vector2(.03f,.68f),new Vector2(.97f,.98f),26);CampaignHUD.Explanation(row.transform,detail[i],new Vector2(.03f,.08f),new Vector2(.97f,.66f),22);}
     }
 }

@@ -35,10 +35,11 @@ public class VariableSingleton : MonoBehaviour
             ArrivalNotice="Fiscal administration: +"+income.ToString("N0")+" gold. Treasury now "+GetIntVariable("iMoney").ToString("N0")+".\n\n";
         }
         else ArrivalNotice="";
+        ArrivalNotice+=ProvinceCampaign.TakeDeliveryReport();
         if(completedSiegeDay) { ArrivalNotice+=SupplyEconomy.CompleteDay(); NavalState.CompleteDay(); ArrivalNotice+=FleetOperations.CompleteDay(); }
         if(CompletedSiegeDays>0 && GetIntVariable("iIncome")>0) {int income=GetIntVariable("iIncome");ChangeInt("iMoney",income);ArrivalNotice+="Merchant levy: +"+income+" gold.\n\n";}
         if(completedSiegeDay)ArrivalNotice+=DefencePosture.Advance();
-        ArrivalNotice+=ProvincialIntelligence.Advance(GetDate());
+        ArrivalNotice+=ProvinceCampaign.Advance(GetDate());
         ArrivalNotice+=CouncilActions.AdvanceAid(Math.Max(0,(GetDate()-previousDate).Days));
         ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
         ArrivalNotice+=TroopTraining.Complete(GetDate());

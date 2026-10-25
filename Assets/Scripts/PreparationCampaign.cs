@@ -14,7 +14,7 @@ public static class PreparationCampaign
     // Provisional unlock counts use the three implemented career achievements, not event flags.
     public static readonly int[] UnlockCounts={0,0,0,0,0,0,0,0,0,0,0,1,2,3,2,0,0,0,0,0,0};
     static int I(string key)=>VariableSingleton.GetIntVariable(key);
-    static void Add(string key,int value)=>VariableSingleton.ChangeInt(key,value);
+    static void Add(string key,int value){if(value<0&&ProvinceCampaign.Get("Ready")==0){if(key=="iFood")ProvinceCampaign.Set("PreparationFoodLoss",ProvinceCampaign.Get("PreparationFoodLoss")-value);if(key=="iTurkCannons")ProvinceCampaign.Set("PreparationGunLoss",ProvinceCampaign.Get("PreparationGunLoss")-value);}VariableSingleton.ChangeInt(key,value);}
     static bool B(string key)=>VariableSingleton.GetBoolVariable(key);
     public static bool Active=>I("iPreparationVersion")==2;
     public static int CareerCount=>Enumerable.Range(0,Achievements.Names.Length).Count(i=>AchievementPlatform.Earned(i));

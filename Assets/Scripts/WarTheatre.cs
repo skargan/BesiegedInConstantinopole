@@ -15,7 +15,7 @@ public static class WarTheatre
     public static string CanonicalProvince(string id)=>id=="saruhan"?"aydin":id;
     public static Region Find(string id)=>Data.regions.FirstOrDefault(r=>r.id==CanonicalProvince(id));
     public static int Control(Region r)=>Mathf.Clamp(100-DailyLifeEvents.I("iWbwControlLoss_"+r.id),0,100);
-    public static int Resistance(Region r)=>Mathf.Clamp(DailyLifeEvents.I("iWbwResistance_"+r.id),0,3);
+    public static int Resistance(Region r)=>ProvinceCampaign.Rebellion(r.id)?2:ProvinceCampaign.Resistance(r.id)>0?1:0;
     public static bool Captured(Region r)=>DailyLifeEvents.I("iWbwCaptured_"+r.id)>0;
     public static bool AtWar(Region r)=>DailyLifeEvents.I("iWbwWar_"+r.group)>0;
     public static string Status(Region r)=>Captured(r)?"Under imperial control":Resistance(r)>=2?"Armed insurrection":Resistance(r)==1?"Resistance network":Control(r)<60?"Ottoman authority weakened":"Ottoman administration";

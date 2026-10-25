@@ -37,7 +37,7 @@ public static class OttomanDirector
     }
     public static void PrepareTurn()
     {
-        if(!VariableSingleton.HasSiegeStarted())return;Ensure();if(I("PlanTurn",-1)==VariableSingleton.Turn)return;
+        if(!VariableSingleton.HasSiegeStarted())return;Ensure();ProvinceCampaign.Ensure();if(I("PlanTurn",-1)==VariableSingleton.Turn)return;
         Observe(false);
         int day=VariableSingleton.CompletedSiegeDays;
         if(day>=I("Reassess")||(CurrentStrategy==Strategy.GoldenHorn&&DefencePosture.HornOpen&&day>I("StrategyStart")+7))Reassess();
