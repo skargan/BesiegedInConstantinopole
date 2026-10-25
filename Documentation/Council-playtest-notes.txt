@@ -1,0 +1,33 @@
+COUNCIL PLAYTEST — 12 OCTOBER 2026
+
+Implemented in the existing Unity/C#/Yarn structure. No replacement engine or web port.
+
+Playable council actions
+- Faction audiences: 300 gold, +3 percentage points capped at 100%, one major action. Five existing measures retained. The Galata gift uses the same provisional cost because the draft leaves its price open.
+- Spies: recruitment, cannon sabotage and gathering secrets; each costs 1,000 gold OR one secret and consumes the major action. More agents reveal the existing enemy statistics. Sabotage destroys 1–3 actual cannons, reducing future bombardment. Secret gathering gives 0/1/2 at 25/25/50 percent.
+- Food sabotage now burns 1–10 days of stores. Following the user decision to combine delay with attrition, the enemy consumes one store per siege day; at zero it spends the operation resupplying, loses 1% of remaining irregulars (rounded up), and receives 15 days of supplies. These exact values are provisional. Counterespionage remains visibly disabled pending infiltration consequences; no charge for inert operations.
+- Diplomacy: eight potential allies, visible acceptance chances, aid packages and travel time. One appeal per ally costs 1,000 gold, requires an available ship (not consumed), and uses the major action. Accepted aid arrives after calendar days, adds its actual resources and troops once, and survives save/load. Expediting costs 1,000 gold for up to five days; cannot expedite below one day. Refusals are final for the run in this prototype.
+- Aid costs, one-appeal limit, ship requirement, chances, packages, and focus/diplomat bonuses are PROVISIONAL tuning values, not historical probabilities. Most package values derive from the drafts. Religious policy influences papal aid; no guaranteed diplomatic victory is introduced.
+
+Castle decision
+- Withdraw: +100 archers, as previously implemented.
+- Leave: six days of delayed enemy operations, following the draft's six-day delay.
+- Reinforce: provisional 200 infantry and 100 materials for nine delayed operations.
+- Genoese transfer: provisional +100 archers and +10 Galata points.
+- Delay pauses enemy operations, not the calendar or the 240-day survival count. This is an explicit prototype interpretation; the draft does not specify how its delay interacts with the historical siege date.
+
+Opening the gates in the prisoner/moat event retains its existing mechanics: +1,000–3,000 residents, +5 troop morale points, -30 moat integrity points. Text now explains this trade-off. Refugees do not automatically become troops.
+
+Historical basis and limits
+The five measures are overlapping constituencies, not unified political parties. Religious opposition is not automatically disloyalty, and Genoese volunteers, Galata and Genoa are separate actors. No automatic betrayal mechanic has been added.
+
+Anthony Kaldellis, 1453: The Conquest and Tragedy of Constantinople, The Outbreak of War, chapter abstract: division over Union and appeals for aid; these rifts did not undermine the final defence.
+https://academic.oup.com/book/62441/chapter-abstract/556204590
+The Strategy of the Defenders, chapter abstract: mixed defensive leadership, Giustiniani, Venetian galleys and the chain.
+https://academic.oup.com/book/62441/chapter-abstract/556204753
+Charles A. Frazee, Catholics and Sultans, Cambridge publisher excerpts: Latin religious participants, Galata's neutral merchants and Giustiniani's fighters did not form one bloc.
+https://www.cambridge.org/core/books/catholics-and-sultans/3E39BD2EB4EA8C06260EC7D166D8B6E4/listing
+Sources were consulted as abstracts/excerpts, not claimed as full-book readings. Game costs and percentage bars are design abstractions.
+
+Still outside this iteration
+Full faction crisis/recovery chains, construction, technologies, infiltration, assassination trees and additional endings. The existing zero-support defeat conditions remain for now and need replacement with the previously discussed recoverable crises.

@@ -1,0 +1,519 @@
+title: random0
+---
+<b>An Uneventful Day</b>: <br> There's a saying that no news is good news. You only came to really appreciate it when the siege began. Today is a calm day and both you and everyone in the city can just relax for today. Everyone knows that this is calm before the storm, but you appreciate it nonetheless.
+<<declare $chance = 100>>
+-> I will take a walk in the palace garden. One needs to appreciate beauty around us even at times like this.
+ People and soldiers are grateful for a calm day of rest and you are more recovered as well.
+ <<RndChangeFloat fPeopleRep 1 3>>
+ <<RndChangeFloat fNobleRep 1 3>>
+ <<RndChangeFloat fPriestRep 1 3>>
+ <<RndChangeFloat fTroopRep 1 3>> 
+-> I will catch up on sleep. My sleeping pattern has been horrible lately.
+ People and soldiers are grateful for a calm day of rest and you are more recovered as well.
+ <<RndChangeFloat fPeopleRep 1 3>>
+ <<RndChangeFloat fNobleRep 1 3>>
+ <<RndChangeFloat fPriestRep 1 3>>
+ <<RndChangeFloat fTroopRep 1 3>> 
+-> I will read Marcus Aurelius' Meditations. It is a goldmine of great thoughts.
+ People and soldiers are grateful for a calm day of rest and you are more recovered as well.
+ <<RndChangeFloat fPeopleRep 1 3>>
+ <<RndChangeFloat fNobleRep 1 3>>
+ <<RndChangeFloat fPriestRep 1 3>>
+ <<RndChangeFloat fTroopRep 1 3>> 
+-> I will go for a swim. I often forget that I live by the sea, I should make use of it more often.
+ People and soldiers are grateful for a calm day of rest and you are more recovered as well.
+ <<RndChangeFloat fPeopleRep 1 3>>
+ <<RndChangeFloat fNobleRep 1 3>>
+ <<RndChangeFloat fPriestRep 1 3>>
+ <<RndChangeFloat fTroopRep 1 3>> 
+-> I will go talk to my friends about something else than war. Sometimes it is good to be together in silence.
+ People and soldiers are grateful for a calm day of rest and you are more recovered as well.
+ <<RndChangeFloat fPeopleRep 1 3>>
+ <<RndChangeFloat fNobleRep 1 3>>
+ <<RndChangeFloat fPriestRep 1 3>>
+ <<RndChangeFloat fTroopRep 1 3>> 
+ 
+===
+title: random1
+---
+<b> Desertion to the Monasteries </b>: <br> As the siege wears on, a disheartening trend emerges as some defenders abandon their posts and seek refuge in the city monasteries. The allure of spiritual sanctuary becomes a potent force, drawing away defenders from the city's walls by giving them false hope that this way they will save themselves. By now some 150 men, primarily archers and infantrymen have sought to hide from their duty. If we let this continue, morale among our troops will fall and many more will follow them in the false hope that they can hide from the horrors of the siege. How shall we deal with this?
+ <<Change iInfantry -100>>
+ <<Change iArchers -50>>
+-> I shall talk to them in person and call upon their sense of duty to return.
+ You go to the two biggest monasteries and talk to the deserters, urging them to return to your service, stressing the need for their strength to protect the City. Some deserters are touched by your passionate speech and agree to return. However, others remain sceptical and continue to hide within the safety of the monasteries.
+ <<Change iInfantry +50>>
+ <<Change iArchers +25>>
+-> Send the Varangian Guard to drag back the deserters and punish them publicly. \[Lose morale\]
+ The Varangian Guard, known for their loyalty and fearsome reputation, carries out the order with ruthless efficiency. Deserters are forcefully brought back to their posts, and a public punishment spectacle – a mass whipping - is orchestrated to deter further acts of desertion. While this approach instils fear, it may also breed resentment among the defenders, as some sympathize with the harsh treatment of their comrades.
+ <<Change iInfantry +100>>
+ <<Change iArchers +50>>
+ <<Change fTroopRep -0.05>>
+-> Offer rewards to all troops who remained on the walls. \[Cost - 1000 gold\]
+ Troops on the walls receive commendations, extra rations, and additional privileges. This approach fosters a sense of unity and encourages defenders to persevere. Some deserters are also incentivised to return to their posts, although very few.
+ <<Change iMoney -1000>>
+ <<Change fTroopRep 0.05>>
+ <<Change iInfantry +10>>
+ <<Change iArchers +5>>
+-> Request the monks to shame and kick out the deserters. \[Focus - Faith OR Leader - Cardinal\] <<if GetInt("iFocus") == 3 || GetInt("iCommander") == 7 >>
+ Monks agree to support you and deserters face public shame and expulsion from the monasteries, impacting their reputation and standing within the community. This approach is not only effective in dissuading others from deserting, but also brings back essentially all deserters back to their posts.
+ <<Change iInfantry +100>>
+ <<Change iArchers +50>>
+ <<Change fPriestRep 0.05>>
+-> Declare that members of the families of those who deserted will be called up in their stead. \[Focus - Mobilisation\] <<if GetInt("iFocus") == 1>>
+ As families of deserters now face the burden of military service, placing pressure on them to ensure their kin fulfil their duties, there’s some public outcry, but soon absolute majority of the deserters come back to their posts to ensure that their families don’t have to suffer in their stead.
+ <<Change iInfantry +90>>
+ <<Change iArchers +45>>
+
+===
+title: random2
+---
+<b> Food Riots in the Merchant Quarter</b>: <br> As the siege persists, the Merchant Quarter erupts in food riots fuelled by soaring prices and bread shortages. The populace is outraged, demanding immediate action from the Emperor to alleviate their suffering.
+-> Implement Price Controls for All Food Sales
+ The Emperor decides to impose strict price controls on all food items, aiming to make them more accessible to the populace. This move prioritizes affordability but may have consequences for merchants and the overall economy. Short-term relief is provided as prices stabilize, calming the riots. However, soon merchants will reduce their stocks, hiding them or seeking to sell them on the black market, exacerbating existing shortages and effectively reducing the amount of remaining food. The masses do not understand the cause and effect of your policy decisions and love you for your perceived wise decision. Meanwhile the nobility and merchants see the results of your actions and disapprove of them.
+ <<Change iFood -500>>
+ <<Change fPeopleRep 0.06>>
+ <<Change fNobleRep -0.03>>
+-> Use Force to Disperse Rioters and Restore Order
+ As a show of authority, the Emperor deploys city guard to forcefully disperse the rioters and restore order. This approach emphasizes maintaining law and order but the people feel that the Emperor is taking side of the rich merchants profiting from the siege. Immediate order is restored, but the use of force does not address underlying issues of food scarcity and high prices, causing anger among the people, although the merchants and the nobility are pleased that even during the siege city’s economy functions as normal.
+ <<Change fPeopleRep -0.12>>
+ <<Change fNobleRep 0.06>>
+-> Hand Out Some Food to Appease the Masses
+ To quell the unrest, the Emperor orders the distribution of limited food supplies among the rioters. This gesture is intended to provide immediate relief and demonstrate empathy for the citizens' plight. The distribution of food temporarily appeases the masses and eases tensions. However, this approach does not address the root causes of the food shortages.
+ <<Change iFood -100>>
+ <<Change fPeopleRep 0.03>>
+-> Order the most powerful merchants to form a food price cartel and control the rise of prices. \[Focus - Economy\] <<if GetInt("iFocus") == 2>>
+ The Emperor engages in negotiations with influential merchants to collaboratively control the rise of prices. This option seeks a cooperative approach between the ruling authority and the economic elite, potentially benefiting both parties. Prices are stabilized through a collaborative effort, providing a middle ground for merchants and citizens. This approach may lead to accusations of favouritism and deepen the divide between the powerful and the people, but we do not care, because the cartel is now easily taxable and will bring in additional taxes every turn.
+ <<Change iIncome 150>>
+ <<Change fPeopleRep -0.1>>
+ <<Change fNobleRep 0.05>>
+
+===
+title: random3
+---
+<b> Sudden Storm Hits the City </b>: <br> A powerful storm unexpectedly descends upon Constantinople, shrouding the city in darkness and torrential rain. As the nature’s fury sweeps through the city, we must quickly decide whether we can make use of it for our advantage. 
+->	Use the Storm as Cover for Surprise Assault - Send Out the Cavalry
+        Seeing an opportunity in the storm's cover, the Emperor orders a swift and surprise assault by sending out the cavalry to exploit the disorientation it may cause among the enemy forces. The surprise assault catches the enemy off guard, causing confusion and inflicting casualties. However, the storm also poses challenges for the cavalry, as many riders get lost in the storm and fail to return.
+        <<Change iCavalry -10>>
+        <<Change iBazouks -100>>
+->	Use the Storm as Cover for Covert Operations - Send a Spy to Infiltrate Enemy Camp
+        Recognizing the storm's potential for concealment, the Emperor dispatches a skilled spy to infiltrate the enemy camp. The goal is to gather critical intelligence or disrupt enemy plans without direct confrontation. Under the cover of the storm the spy successfully infiltrates the enemy camp, he will now work there for your cause.
+        <<Change iSpies 1>>
+->	 Use the Storm as an Opportunity to Let Your Troops Rest 
+        Acknowledging the toll of the prolonged siege on the troops, the Emperor opts to let them rest during the storm, providing an opportunity for recuperation and regaining strength, as there is little chance of any major attack by the enemy tonight. Troops appreciate the respite, and their overall morale improves. 
+        <<Change fTroopRep 0.1>>
+->	Deploy Fire Ships in the Storm to Confuse the Enemy Fleet 
+        Taking advantage of the storm's chaos, the Emperor orders the deployment of fire ships to confuse and disrupt the enemy fleet. The storm provides additional cover for the Byzantine naval forces to execute this maneuver. The fire ships create confusion among the enemy fleet, causing some vessels to scatter. 
+        // Missing
+->	Use the cover of the storm to scout out enemy positions and take prisoners
+        Recognizing the storm's potential to obscure activities, the Emperor initiates a scouting operation, aiming to better understand the enemy positions and take prisoners. Soon your soldiers return with a few blindfolded captives, whom they squeeze until they have all the information about the current situation in the enemy camp. This increases our available intelligence.
+        <<Change iSecrets 1>>
+        
+===
+title: random4
+---
+<b> Ottoman propaganda spreads within the City!</b>: <br> Turkish spies are spreading rumours in the alehouses, claiming that the Sultan has offered very generous terms of surrender and that the Emperor has gone mad and rejected them in pursuit of personal glory and greed. Such foul rumours are very damaging to your reputation and morale of the defenders. How shall we deal with this?
+-> Launch our own propaganda campaign!
+                We order our own agents to spread counter-propaganda, emphasizing the enslavement for all citizens that awaits them if the city falls. Your rumours outline that the Sultan's terms were unacceptable, and that the Emperor acts in the best interest of the people. This scares the people slightly, but motivates our troops - they know that there is no way out but victory for them.
+                <<Change fTroopRep 0.05>>
+                <<Change fPeopleRep -0.05>>
+-> Crack down on alehouses and inns to stop the rumours 
+                To stem the spread of rumours, we decide to implement a crackdown on alehouses and inns where the propaganda is gaining traction. This approach will suppress the dissemination of false information by targeting key locations. However, the population is still slightly displeased about the fact that their favourite places to relax and have a cup of wine are now closed and you lose some money.
+                <<Change fPeopleRep -0.02>>
+                <<Change iMoney -350>>
+-> Order our spies to find and eliminate source of these rumours \[Focus - Diplomacy\] <<if GetInt("iFocus") == 4 >>
+                Our spies quickly identify the people paid by the Ottomans to spread these defeatist rumours. Soon they end up at the bottom of the harbour with sacks of stones tied to their necks and all the rumours end.
+                <<Change fPeopleRep 0.03>>
+-> Request the priests to calm the people \[Focus - Faith\] <<if GetInt("iFocus") == 3 >>
+                At your request, priests address the rumours at their sermons and encourage people to avoid them like sin. While the rumours don’t completely disappear, the authority of the Mother Church and confident preaching minimise their effects. 
+                <<Change fPeopleRep 0.02>>
+                <<Change fPriestRep 0.01>>
+-> Ignore the rumours, may your actions speak louder than words
+                Do not dignify the enemy's lies with a response. Focus on strengthening the city's defences and maintaining order. 
+                <<Change fPeopleRep -0.04>>
+===
+title: random5
+---
+<b> Cannon Explodes</b>: <br> In a thunderous roar that shakes the walls of Constantinople, disaster strikes as one of our mighty cannons explodes during a routine firing. The acrid scent of burnt powder lingers in the air as smoke billows from the wreckage. Panic sets in among the artillery crews and the surrounding defenders, sowing chaos on the besieged walls. Christ protect us…
+---
+-> Execute the artilleryman responsible for the cannon which exploded
+                This kind of negligence will not be tolerated! Incompetent gunner is stripped naked and his head is cut off in front of his whole detachment. Discipline will be maintained at all costs!
+                <<Change iEngineers -1>>
+                <<Change iCannons -1>>
+                <<Change iTroopRep -0.02>>
+-> It's only a bad dream... Since we hired Orban as our Master Gunner, his practices prevent all accidents.<<if GetBool("bCharArtillerist5")>>
+                Hiring him was a valuable investment - our artillery force is possibly the most professional in Europe right now. Also, we receive news that Orban has managed to create some additional ammunition at no cost to us! 
+                <<Change iAmmunition 5>>
+-> This is war, accidents happen. Do nothing.
+                The men feel unsafe around our cannons, morale drops.
+                <<Change iTroopRep -0.05>>
+                <<Change iCannons -1>>
+===
+title: random6
+---
+<b> Nightly Vigils at Religious Sites </b>: <br> As the siege persists, citizens, desperate for solace and divine protection, spontaneously organize nightly vigils at prominent religious sites scattered across the city. The flickering glow of candlelight illuminates tear-streaked faces as people gather in hushed reverence. The air is thick with whispered prayers, echoing the collective plea for mercy in the face of adversity. Religious leaders, clad in ceremonial robes, lead the gatherings, offering words of comfort and encouragement.
+-> Let them pray for us
+                This outpouring of faith will fortify the morale our people, we welcome it!
+                <<Change iTroopRep 0.02>>
+                <<Change iPeopleRep 0.02>>
+                <<Change iNobleRep 0.02>>
+                <<Change iPriestRep 0.02>>
+-> Join them in person, Emperor is with you!
+                Your decision to join the crowds is greeted by loud cheers - people rejoyce that the Emperor walks among them! However the priests don't like this decision as it turns a solemn vigil into a happy celebration.
+                <<Change iPeopleRep 0.1>>
+                <<Change iPriestRep -0.05>>
+-> Use this opportunity to identify and grab more recruits for the military
+                As some young men have been evading their chance to serve the Emperor, gathering of crowds in the streets offers a fertile ground for your recruiting officers. While people will not be happy about this, additional recruits will defend our walls better than their prayers.
+                <<Change iPeopleRep -0.05>>
+                <<Change iRecruits 750>>
+===
+title: random7
+---
+<b> Food Thief Captured </b>: <br> The siege causes desperation among our citizens. One of them brazenly breaks into one of the city's warehouses in search of food. Hungry thief navigates through the shadows, driven by the primal instinct for survival. As the thief fumbles with the lock, the metallic click echoes in the stillness of the night, but suddenly, a vigilant guard patrolling nearby detects the intrusion. The pursuit is swift, and the thief is apprehended. Unexpectedly this case becomes well known and the decision comes down to the Emperor himself.
+-> Execute the thief, make him a lesson to others
+                The thief is executed publicly, the harshness of the punishment intended to deter others from similar crimes - nobles and merchants strongly approve of enforcing law and order. While this decision enforces discipline and order, some people are not happy with your decision - they think that it's too harsh for mere food theft.
+                <<Change iPeopleRep -0.05>>
+                <<Change iNobleRep 0.05>>
+-> Give him 10 lashes and a fine of 3 gold pieces.
+                The punishment is seen as a balance between justice and mercy. While some citizens believe the thief got what he deserved, others question how a starving man is expected to pay such a fine. This response maintains law and order but may exacerbate underlying social tensions as people grapple with the perception of fairness.
+                <<Change iPeopleRep 0.01>>
+                <<Change iNobleRep 0.03>>  
+                <<Change iMoney 3>>
+-> Let the poor man go, this won’t change anything.
+                Releasing the thief without punishment may be interpreted as a gesture of compassion but also risks undermining the authority of the Emperor. Other desperate citizens might be emboldened to steal, thinking there are no severe consequences for such acts. Indeed, over the following weeks, more cases of food theft are reported across the city, but people think of you as a merciful ruler.
+                <<Change iPeopleRep 0.05>>
+                <<Change iNobleRep -0.05>>
+                <<Change iProvisions -50>>   
+-> Do what Jesus would do - invite the man to your table, dine and talk with him. \[Focus - Faith\] <<if GetInt("iFocus") == 3 >>
+                The Emperor personally engages with the thief, learning about the plight of the city’s most desperate. This act of magnanimity inspires loyalty and admiration among the populace. However the nobility are outraged by this act. Also, the thief does know a certain secret that he shares with you...
+                <<Change iPeopleRep 0.1>>
+                <<Change iNobleRep -0.05>>
+                <<Change iSecrets 1>>
+-> Make use of this thief \[Focus - Diplomacy\] <<if GetInt("iFocus") == 4 >>
+                This thief appears to be a talented infiltrator - let us train him to become our spy.
+                <<Change iSpies 1>>      
+===
+title: random8
+---
+<b> Fledgling Agricultural Initiatives </b>: <br> In a collective effort to supplement scarce food supplies, citizens embark on fledgling gardening initiatives within the city walls, transforming small pockets into makeshift vegetable plots. While most likely their produce will take a few months to mature and will not be produced in time to actually feed the people, it at least gives people something to do and something to look forward to, alleviating the stress of the siege.
+-> Well done, let's wait for the harvest.
+                If all goes well, eventually they will see the fruits of their labour.
+                <<Change iPeopleRep 0.01>>
+-> This is a waste of time. Direct those people to collect materials for the wall repair instead.
+                You order the people who were trying to plant vegetables to instead go and help with deconstruction of some old buildings. People are not pleased, but this is more important.
+                <<Change iMaterials 50>>
+===
+title: random8a
+--- // SOLVE HOW TO CREATE 20-30 day time delay, must fire after random8
+<b> Harvest! </b>: <br> Against all odds, citizens' agricultural initiatives finally bear fruit. The vegetable of choice - radishes, are extremely fast-growing, taking sometimes less than a month to mature, they are nutrient-rich and easy to cultivate in small spaces or poor soil.
+-> Wonderful, harvest everything and carefully ration the food.
+                Your food stores increase, people are somewhat happy, although less than they would be without rationing.
+                <<Change iProvisions 500>>
+                <<Change iPeopleRep 0.3>>
+-> Let the people enjoy the fruits of their labour, they deserve it.
+                Most of the food is either immediately eaten or sold on the black market, but the people are happy.
+                <<Change iPeopleRep 10>>
+-> Immediatelly sell the harvest, we need the money.
+                Your soldiers turn up during the harvest and confiscate all of the vegetables. People try to protest, but are quickly silenced and told that this is for the good of the City. By your order the harvest is sold to rich merchants and your treasury gets a quick influx of cash.
+                <<Change iMoney 2500>>
+                <<Change iPeopleRep -0.08>>
+===
+title: random9
+---
+<b> Street Poet </b>: <br> A street poet spontaneously appears in the Grand Market, reciting verses that praise the collective strength, resilience, and determination of the City's inhabitants. He is quite talented and people love him, however he often criticises Emperor’s conduct and that is not acceptable. What shall we do?
+-> Bribe him to sing us praises instead
+                The poet accepts the bribe and begins crafting verses that extol the Emperor’s virtues, weaving tales of his leadership and wisdom. The public, however, grows suspicious of the sudden shift in tone, causing some to question his authenticity.
+                <<Change iPeopleRep 0.1>>
+                <<Change iMoney -1000>>
+-> Allow the freedom of expression – it costs nothing and remains one of the few joys for our citizens.
+                You decide to demonstrate your magnanimity by tolerating criticism, allowing the poet to continue his recitations. Unfortunately your soldiers really like one of his lewd songs about the Emperor ordering a Turkish whore and instead getting a Wallachian donkey. Paradoxically your soldiers love you more because of it, but the priesthood and the nobles are furious.
+                <<Change iTroopRep 0.1>>
+                <<Change iNobleRep -0.06>>
+                <<Change iPriestRep -0.06>>
+-> Throw him into the dungeon
+                The poet is swiftly apprehended and imprisoned, sending a clear message that dissent will not be tolerated. While this silences the critical verses, it also dampens public morale, as citizens perceive the Emperor as overly harsh. 
+                <<Change iPeopleRep -0.1>>
+-> Recruit him for the military \[Focus - Mobilisation\] <<if GetInt("iFocus") == 1 >>
+                If he wants to sing, let him sing on the walls about the Sultan's arse! You order the poet to be apprehended and enlisted in the military. The poet, reluctant at first, finds himself inspiring troops through rousing chants and battle songs. 
+                <<Change iTroopRep 0.07>>
+===
+title: random10
+---
+<b> Citizens assist repairing the Walls </b>: <br> The citizens organise themselves to help repair the damaged City walls, using whatever materials are at hand to mend cannon damage, reinforce fortifications, and bring supplies to the workers. Their actions not only bolster our defences but also inspire the troops to fight harder for their fellow citizens.
+-> This is what true citizenship is - praise them!
+                Praising their efforts publicly, you let the citizens continue their work independently, fostering a strong sense of pride and morale. While the repairs might not be as efficient as those overseen by professionals, their efforts have a noticeable impact.
+                <<Change iTroopRep 0.01>>
+                <<Change iPeopleRep 0.01>>
+                <<Change fOuterWall 0.03>>
+                <<Change fMiddleWall 0.03>>
+                <<Change fInnerWall 0.03>>
+-> Send some engineers to direct them. \[Focus - Fortification\] <<if GetInt("iFocus") == 0 >>
+                A team of skilled engineers is sent to guide the citizens' efforts, ensuring their work strengthens the walls more effectively and efficiently. Under professional supervision, the repairs hold up better against future cannon fire, reinforcing critical defensive points.
+                <<Change fOuterWall 0.07>>
+                <<Change fMiddleWall 0.07>>
+                <<Change fInnerWall 0.07>>
+-> See if any of them are talented and if so - promote them. \[Focus - Mobilisation\] <<if GetInt("iFocus") == 1 >>
+                You soon notice that a few of the citizen's leading the informal effort to repair the walls clearly have some talent for engineering. While repairing the walls if important, there are other tasks you would like to use them for, so you promote them to full engineers. Unfortunately, it means that the ongoing attempt to repair the walls does not produce much utility.
+                <<Change fOuterWall 0.01>>
+                <<Change fMiddleWall 0.01>>
+                <<Change fInnerWall 0.01>>
+                <<Change iEngineers 2>>
+-> Reward the most industrious workers with rations.\[Cost - 50 Provisions\] <<if GetInt("iProvisions") >= 50 >>
+                Recognising the extraordinary efforts of key individuals, you distribute extra food to them as a reward. This gesture encourages others to contribute to communal defence efforts and improves the quality of labour.
+                <<Change iProvisions -50>>
+                <<Change fOuterWall 0.06>>
+                <<Change fMiddleWall 0.06>>
+                <<Change fInnerWall 0.06>>
+===
+title: random11
+---
+<b> Rumours of Reinforcements </b> <br> Periodic rumors circulate about potential reinforcements arriving, igniting fleeting sparks of hope among the city's defenders and inhabitants. Some say that Hungarian king is gathering an army, others claim that a massive crusade will come from the West, but everyone suspects that these rumours were simply made up by someone at the alehouse. Nonetheless, they spread...
+-> Let’s hope these rumours turn out to be true…
+                You do not comment on the rumours.
+                <<Change iPeopleRep 0.01>>
+===
+title: random12
+---
+<b> Rumours that no one is coming </b> <br> Periodic rumors circulate that all of our allies have failed us and no one else is coming, but everyone suspects that these rumours were simply made up by someone at the alehouse. Nonetheless, they spread...
+-> Let’s hope these rumours turn out not to be true…
+                You do not comment on the rumours.
+                <<Change iPeopleRep -0.02>>
+===
+title: random13
+--- // populate outcomes
+<b> Surprise Assault Proposal </b> <br> Amidst the prolonged siege, a daring proposal is made within the war council – some advocate a clandestine plan to launch a surprise assault on the besieging Ottoman forces. The proposal is simple - it suggests exploiting the fact that enemy believes us to be cornered and attack enemy’s encampment directly. The war council gathers in a dimly lit chamber, whispers filling the tense room as skeptical glances are exchanged among its members. Each weighs the risks and rewards of such a bold manoeuvre. The question remains - if we launch this assault, how shall we proceed?
+-> Launch a night attack to surprise the enemy and cause chaos in their camp.
+                <<set $chance = dice(100)>>
+                <<if $chance <= 50>>
+                The attack catches the Ottomans off guard, causing confusion and heavy casualties in their camp. Morale in the city surges as the enemy struggles to recover.
+                //
+                <<else>>
+                Unfortunately our poor coordination in the dark leads to heavy losses. The Ottomans quickly regroup and retaliate, leaving your forces weakened and morale shaken.
+                //
+                <<endif>>
+-> Send the cavalry out at dawn, with the sun behind us.
+                <<set $chance = dice(100)>>
+                <<if $chance <= 50>>
+                At sunrise, the cavalry charges from the gates, using the blinding light to confuse the enemy. This bold move inspires our troops and creates panic in the Ottoman ranks.
+                //
+                <<else>>
+                Unfortunately the Turk spies catch wind of our plan and anticipate the charge with a formation of spearmen hidden among their tents. The cavalry suffers devastating losses, leaving the city with fewer resources for future battles.
+                //
+                <<endif>>                
+-> Send Turkish defectors to sneak into their camp and kill the guards. <<if GetBool("bCharNomad3")>>
+                <<set $chance = dice(100)>>
+                <<if $chance <= 90>>
+                Orhan's hand-picked Turkish defectors blend into the Ottoman camp, taking out key guards and sabotaging supplies before escaping. This is a great victory for us, sowing chaos and terror among our enemies.
+                //
+                <<else>>
+                Unfortunately Orhan's infiltrators are caught and executed - their screams wake the City in the morning as they are tortured to death in front of the Walls. Even worse, some among our own are whispering that maybe Orhan is only pretending to be on our side and he made our plan fail. While you know that this is nonsense and Prince Orhan would be the first one to lose his head if Mehmet would take the city, these rumours lower morale of the troops.
+                <<Change iTroopRep -0.05>>
+                <<endif>>   
+-> Attack the area where our soldiers and the Turks have a truce. //if live and let live
+                <<set $chance = dice(100)>>
+                <<if $chance <= 75>>
+                In a spot where neither side usually attacks, we launch a surprise strike. The Turks are taken completely by surprise, allowing us to break through their lines, burn their food stores and inflict significant damage to their forces. 
+                //
+                <<else>>
+                Unfortunately the Turk spies catch wind of our plan and anticipate the attack. We don't manage to achieve our goals, but neither do we suffer any serious casualties ourselves.
+                //
+                <<endif>>  
+-> Use hidden tunnels to send elite troops behind enemy lines. //if secret tunnels
+                <<set $chance = dice(100)>>
+                <<if $chance <= 90>>
+                Using secret passages, our best soldiers attack the Ottoman camp from the rear, targeting supplies, cannons and sleeping soldiers. This is a devastating attack, that significantly weakens our enemies. In the aftermath of the attack the tunnels collapse, so unfortunately we will not be able to use them again.
+                // eliminate tunnels
+                <<else>>
+                Unfortunately the Turk spies catch wind of our plan and anticipate the attack. The tunnels are discovered, and your elite troops are trapped and slaughtered, a serious loss for us. In the aftermath of the attack the tunnels collapse, so unfortunately we will not be able to use them again.
+                // eliminate tunnels
+                <<endif>>   
+-> This is too risky, we cannot afford soldiers for this plan, abort this plan!
+                As instructed, our war council abandons the idea of attacking the enemy directly.
+===
+title: random14
+--- // only if outer wall is used (or maybe in the current wall?)
+<b> Cracks in the Outer Wall </b> <br> During routine inspections of the outer fortifications, vigilant guards notice troubling signs of structural weakness. Large cracks have appeared along sections of the outer wall, posing a serious threat to the city's defences. The cause of these cracks remains uncertain, but urgency to address them is undeniable.
+-> Order Immediate Repairs \[Cost - 25 Materials\]
+                You prioritize the allocation of resources and manpower to swiftly repair the damaged sections of the outer wall. While this addresses the immediate threat, it strains already limited resources.
+                <<Change iMaterials -25>>
+-> Ignore the warning \[Wall deteriorates\]
+                These are mere surface cracks, ignore them.
+                <<Change fOuterWall -0.07>>
+-> Ask Johannes Grant, our chief architect, to look into this <<if GetBool("bCharArchitect6")>>
+                Johannes goes to inspect the wall in person. After carefully analysing the issue he is happy to announce that the cracks are merely cosmetic - only the outer brick layer seems to be affect and the inner wall is as strong as ever, so we don't need to take any further action. While he is there, Johannes even improves the wall slightly.
+                <<Change fOuterWall 0.05>>
+-> We are already aware of this problem \[Focus - Fortification\] <<if GetInt("iFocus") == 0 >>
+                Our focus on Fortification has allowed us to send additional engineers to inspect our walls. After carefully analysing the issue they happily announce that the cracks are merely cosmetic - only the outer brick layer seems to be affect and the inner wall is as strong as ever, so we don't need to take any further action.
+===
+title: random15
+---
+<b> Hunt for the Traitor </b>: <br> Dark shadow falls over your palace as rumours spread of a traitor within your ranks. You suspected that there will be traitors from the very first day of the siege, so you are not surprised. Loukas Notaras, as your chief minister also handles most of matters related to the intelligence efforts. Your intelligence network has {GetInt("iSpies")} spies, so he suggests that your agents could look into the rumours. A few days later he reports to you that suspected enemy spy has been identified among the lower ranks of servants of your palace, he is acting strange and has been reported leaving the palace at night. Loukas Notaras asks for your orders on how to deal with the suspected traitor.
+-> Verify the evidence against the suspect and catch him in the act, we must avoid any possibility of falsely accusing an innocent
+                <<set $chance = dice(100)>>
+                <<if $chance <= 80>>
+                After a deeper investigation we find out that the servant appears to be visiting a brothel in secret. While it is a sin, he seems to be no traitor. We are lucky that we have not sentenced an innocent man to death.
+                <<elseif $chance <= 40>>
+                After a deeper investigation we find out that the servant is indeed a traitor - he was pretending to go to a brothel, but in fact, he was sending messages to the Turks, informing them of our food situation and troop morale. As we have witnesses and a proper investigation has been conducted, the spy is brought forward, publicly tried and executed on the walls of the City. While betrayal is a horrible thing, you are glad to be rid of this traitor and that you know for sure that you don't have blood of innocents on your hands.
+                <<Change iTurkSpies -1>>
+                <<else>>  
+                After a deeper investigation we find out that the servant is indeed a traitor - he was pretending to go to a brothel, but in fact, he was sending messages to the Turks, informing them of our food situation and troop morale. Unfortunately, the traitor notices our agents following him and escapes the next night after setting our food stores on fire. We manage to put out the fire, but many barrels of grain were burnt to cinders. This is an unfortunate turn of events, but at least the traitor is no longer reporting from our ranks.
+                <<Change iTurkSpies -1>>
+                <<Change iProvisions -50>>
+                <<endif>>
+->  There's no time to waste, arrest the traitor and publicly execute him to deter others.
+The accused traitor is apprehended, shackled, and brought forth before you and your court. The atmosphere is thick with solemnity as the crowd gathers to witness the judgment. A hushed tension pervades the air, marking the gravity of the moment. With a voice that carries both authority and a somber acknowledgment of duty, the pronouncement is made by the herald. The traitor shouts out that he is innocent and all of this is a mistake, but executioner's axe cuts his justifications short, together with his head. The people are concerned, both because of the betrayal and because of how quickly and without second thought you dealt with the suspected person. Some start to murmur - what if you were wrong? What if the person in question was actually innocent?
+                <<RndChange iTurkSpies 0 -1>>
+                <<Change fPeopleRep -0.04>>
+-> Ask George Sprantzes to make him disappear. <<if GetBool("bCharDiplomat4")>>
+                We are not completely sure if he's really a traitor, but we don't have the luxury of investigating. George Sprantzes is a man of many talents and while most know him as our foremost diplomat, he also moonlights as our spymaster. After receiving your request, he simply nods - where there is no man, there is no problem. The next time suspected traitor goes for a walk, he simply never returns. Unfortunately you will also never know whether he was a real traitor or merely an unlucky servant, but that doesn't really matter. Sprantzes also notes that he did find a cache of jewelry in the servants' quarters, most likely stolen from the palace nobles and he will not need them anyway, so they are added to our treasury.
+                <<RndChange iTurkSpies 0 -1>>
+                <<Change iMoney 575>>
+-> We could confront the suspected spy and offer him to work for us instead, promising him a better reward and harsher punishment if he would refuse. \[Focus - Diplomacy\] << if GetInt(Focus) = 4>>
+                In the dimly lit chamber, the suspected spy is brought before you, the air heavy with tension and suspicion. As you confront the shadow lurking within your ranks, your offer is simple - great reward or even greater punishment. The spy for a moment considers trying to lie, but your unflinching tone forces him to drop this idea. The traitor drops to his knees and accepts your offer, begging for mercy and simultaneously promising his undying loyalty. While you have little trust for his words, you know that under close supervision of your other agents, this spy could be of great use to you. Now you have a double agent who will be very useful for your future schemes...
+                <<Change iTurkSpies -1>>
+                <<Change iSpies 1>>
+                <<Change iSecrets 1>>
+
+===
+title: random16
+---
+</b> Noble ends his life</b>: <br> In the shadowed corridors of Constantinople's grand palace, a tragic event transpires as a noble from Doukas family, burdened by undisclosed sorrows, chooses to end his own life, a most un-Christian thing to do. Even worse, he jumped from one of the towers, splattering his brains across half the street below. The news of the noble's demise sends ripples through the court, and the weight of the event falls upon your plate to deal with. Rumour is that he did this because of a rejection by a lady, but the people may associate this death with conduct of the siege and it could affect the morale negatively if the commoners start thinking that things are so bad that even aristocracy are killing themselves. As the ruler, you are faced with decision on how to address the tragedy and its aftermath.
+ <<Change iCavalry -1>>
+-> Announce that heir of Doukas family had an unfortunate accident and declare public mourning,
+                We need to allow Doukas family to save face and prevent any rumours. Because of this, you choose to publicly acknowledge the noble's passing, holding a grand mourning ceremony to honor his memory. This option emphasizes empathy and solidarity, offering the court and the citizens an opportunity to collectively grieve and find solace. Doukas family is grateful for this interpretation of his death, as it saves them from dishonour and the noble can be buried together with the rest of his family line.
+                <<RndChange fNobleRep -0.03 -0.01>>
+                <<RndChange fPeopleRep -0.03 -0.01>>
+-> Announce that noble was possessed and commited a mortal sin of killing himself. His assets will be confiscated by the Emperor and he will be denied Christian burial.
+                You decide that telling the truth is the best course of action, however this means that you need to take all the official secular and religious measures to punish the sinner. People who committed the ultimate sin of killing themselves cannot be buried along other good Christians on hallowed ground, so his body is wrapped in rags and left in the catacombs beneath the City without any ceremony. While seizure of his assets is substantial enough to compensate our efforts, the rest of the nobility is shaken by this event. However the common people are less worried than they otherwise would be - it is clear to them, that its merely nobles being sinful, a an unwelcome, but not an unusual occurence.
+                <<RndChange iMoney 1500 3000>>
+                <<RndChange fNobleRep -0.07 -0.15>>
+-> This is a private matter and the Emperor has more pressing issues.
+                You decide to leave this matter unaddressed, allowing the people and the nobles to think what they may. While this choice emphasizes maintaining the semblance of stability and shielding the court from having to deal with the problem directly, the rumours spread and mood of both nobles and commoners alike sours.
+                <<RndChange fPeopleRep -0.03 -0.09>>
+                <<RndChange fNobleRep -0.03 -0.09>>
+-> Ask George Sprantzes how could this situation be used to our advantage. <<if GetBool("bCharDiplomat4")>>
+                Our spymaster is quick on his feet and soon a new rumour goes through the palace - poor noble was assassinated by foul Turkish spies! George Sprantzes launches an immediate investigation of your nobles and their servants - everyone is too worried about the mysterious Turkish assassin that the fact of suicide is soon swept under rug. Finally, Sprantzes announces that the assassin was caught while trying to poison Emperor's breakfast and unfortunately imperial kitchen stores had to be purged avoid any other poisoned food. Noble families were invited to send some of their food as a sign of support for the Emperor, which both allows them to feel useful and slighly increases our stores of provisions.
+                <<Change iProvisions 50>>
+===
+title: random17
+---
+</b> Enemy cannon explodes</b>: <br> Loud as a thunderstrike, sudden explosion reverberates through the enemy's encampment. Your keen-eyed wall lookouts report witnessing a catastrophic mishap — an Ottoman cannon was prepared to start bombarding your walls, but has instead exploded, sending debris and chaos rippling through their ranks. The unexpected disaster presents a gift to our cause.
+-> Thank the Lord, there’s one fewer of those damned cannons…
+                We warn our own artillerists to be careful and avoid something like this.
+                //
+-> Prince Orhan urges you to use the opportunity and let him launch a swift raid with his Turkish lancers! <<if GetBool("bCharNomad3")>>
+                Prince Orhan's Turkish blood can be clearly seen to give him an edge of nomadic warlike insights, so you listen to him. Seizing the moment, you order a swift raid, capitalizing on the enemy's confusion to inflict further damage and send out a small party of Turkish riders to cut down deafened and confused enemies. They strike swiftly and within minutes turn back, having reaped a bloody harvest, prince Orhan rides in front of the pack, waving a cut-off head of an Ottoman gunner.
+                //add
+===
+title: random18
+---
+</b> News from the Fleet </b>: <br> Under the cover of night, a small boat reaches the City with news from our fleet.
+-> Wonderful, let the messenger in.
+                << if GetInt("Fleet") == 0>>
+                We have good news from the fleet - the raiding of the Ottoman shores was successful. While the Ottomans have concentrated their fleet around Constantinople, their coastlines are unprotected. Our brave sailors raided a number of villages and captured a few merchant ships. The plunder was sold to Genoese merchant outpost in Morea and your credit with Genoese banks has been extended. Galata, Genoese colony across the Golden Horn, has in secret informed you that this has been confirmed and they are transferring you the money earned by the actions of your fleet.
+                ///
+                <<elseif if GetInt("Fleet") == 1>>
+                We have good news from the fleet - your ships have managed to secure food supplies to feed defenders of Constantinople. Getting the food through the Ottoman blockade is a hard task, but a few ships managed to bring in some food under the cover of the night.
+                //
+                <<elseif if GetInt("Fleet") == 2>>
+                Some of the ships guarding the Golden Horn have managed to score a few accurate cannon shots on the enemy force that was trying to approach the walls via the coast and inflict serious casualties.
+                //
+                <<elseif if GetInt("Fleet") == 3>>
+                We have good news from the fleet - your ships have managed to visit some of the friendly ports around the Mediterranean Sea and have brought home volunteers who are eager to join defence of our City.
+                //
+                <<endif>>
+-> Wait, I thought our fleet was been destroyed... Let me talk to him. << if GetInt("Fleet") == 5>>
+                The messenger enters your presence humbly, but then springs towards you screaming 'Your fleet is destroyed, infidel!' and stabs you through the heart. With your last breath you can barely comprehend how could you have been so stupid...
+                // jump to death event
+-> Cut off the messenger's head. << if GetInt("Fleet") == 5>>
+                I am not falling for this assassin's trick.
+===
+title: random19
+---
+</b> Fire in the City </b>: <br> A fierce fire erupts in the heart of the Phanar district near the docks, threatening to consume vast swaths of the City. Dry weather and gusty winds exacerbate the situation, putting both residential areas and crucial infrastructure in danger and we must act fast.
+->  Dispatch Troops to quell the fires << if GetInt("iInfantry") >= 150>>
+                You decide to dispatch well-trained troops equipped with water-soaked blankets and rudimentary firefighting tools to respond to the fire in the Phanar district. Disciplined troops swiftly move to the forefront, forming an efficient line to combat the encroaching flames. The soldiers manage to contain the blaze effectively, preventing further devastation to residential areas and key structures, however the casualties are primarily concentrated among our troops and they resent being used like this.
+                <<Change iInfantry -150>>
+                <<Change fTroopRep -0.05>>
+-> Enlist citizens for the bucket brigades
+                As the call to action rings throughout the Phanar district, able-bodied citizens rally to form an impromptu human chain. Armed with buckets filled from available water sources, they combat the encroaching flames threatening their homes and community. The bucket brigade, composed of determined individuals from all walks of life, proves to be a formidable force against the fire. With each passing bucket, they create a continuous stream of water directed at the heart of the blaze. The citizens, working together with shared determination, manage to contain and extinguish smaller outbreaks, preventing the fire from spreading further. However, these people are not trained to deal with something like this and casualties among them are severe.
+                <<Change iPopulation -3>>
+                <<Change fPeopleRep -0.04>>
+-> Sacrifice the district and use demolition to stop the fires from spreading
+                With a heavy heart, the decision is made to sacrifice certain sections of the Phanar district by implementing controlled demolitions. Your engineers, guided by a strategic plan, initiate precise demolitions to create firebreaks, effectively cutting off the path of the encroaching flames. As buildings crumble and controlled fires are set to consume predetermined areas, the sacrifice of these sections proves successful in halting the spread of the main inferno. The demolition strategy, while severe, prevents the fire from advancing further into other residential areas and critical infrastructure. Unfortunately among the sacrificed parts of the dockyard district were the warehouses and a lot of materials and provisions were destroyed in the fire. Your merchants are greatly displeased.
+                <<Change iProvisions -150>>
+                <<Change iMaterials -50>>
+                <<Change iPopulation -1>>
+                <<Change fNobleRep -0.04>>
+-> Order the priests to pray in support of our firefighters <<if GetInt("Focus") == 3>>
+                A solemn decree is issued to the clergy, urging them to organize processions and prayers in support of the valiant firefighters. The streets reverberate with the echoes of religious chants as priests lead processions through the district, invoking divine intervention to aid those combating the encroaching flames. The collective prayers resonate through the air, creating an atmosphere of spiritual unity among the citizens and the courageous individuals battling the inferno. While the fires take a massive toll, the wind suddenly changes direction and fires seem to dissipate on their own. Was it divine intervention? It seems that all we suffer in the end is some minor damage.
+                <<Change fPriestRep 0.03>>
+-> Alviso Diedo, our Venetian Admiral, rapidly reacts by deploying his sailors to fight the fires! <<if GetBool("bCharAdmiral1")>>
+                Alviso Diedo, drawing on his experience as a captain, knows well that uncontrolled fire is nowhere more dangerous than on a ship or a dock, where one is trapped between the two elements. As soon as smoke appeared in the sky, Diedo acted without waiting for orders and quickly organised a firefighting response, successfully extinguishing the flames before they could spread further. Grateful merchants of Phanar repay him by gifting him a beautiful war horse, which he donates to your war treasury, claiming that he needs no reward, because what he did, any good Christian would do. On the other hand, it may also be due to reason that he feels himself much more comfortable on ship's deck than on a horse.
+                <<Change iMoney 500>>
+===
+title: random20
+---
+<b>Engineer falls to his death</b>: <br> Amidst the fervent efforts to fortify the city's defenses, a dedicated engineer ascends a series of ladders to repair a section of the towering walls. Unfortunately, a misstep occurs, causing the engineer to lose balance and fall to his death. 
+-> Very unfortunate, but such is life.
+                We shall remember his sacrifice.
+                <<Change iEngineers -1>>
+-> Send his family a small compensation.
+                Engineer's family will receive a compensation from you for his service. While it will not bring their husband and father back, it will help them to endure his loss easier.
+                <<Change iMoney -150>>
+                <<else>>
+                <<Change fPeopleRep 0.02>>
+-> This is merely a bad dream, Johannes Grant would not allow this... <<if GetInt("iCommander") == 6>>
+                Johannes Grant is our siege commander and as an experienced architect he ensures that your ladders and scaffoldings are always well maintained and no such stupid accidents occur.
+===
+title: random21
+---
+<b>Food spoils</b>: <br> An unfortunate event befalls us as a significant portion of the stored food supplies intended to sustain the city during the siege is discovered to have spoiled. The cause of the spoilage remains unclear, but the implications are immediate and dire - food will soon be worth its weight in gold.
+-> A little bit of rot is nothing. Put spoiled food into soups and feed it first, hopefully nothing will happen.
+                <<set $chance = dice(100)>>
+                <<if $chance <= 80>>
+                The people who ate the slightly spoiled food seem to be fine... Indeed, when one knows how to make a good soup, nothing goes to waste!
+                <<else>>
+                Unfortunately there's a break out of food poisoning - thousands of people are vomiting their guts out on the sidewalks and a few hundred even die. It seems that sometimes running a kitchen might require more skill than running an Empire... The rest of the spoiled food we burn.
+                <<Change iPopulation -1>>
+                <<Change iInfantry -73>>
+                <<Change iArchers -24>>
+                <<Change iCavalry -11>>
+                <<Change iEngineers -2>>
+                <<Change fPeopleRep -0.03>>
+                <<Change iProvisions -150>>
+                <<endif>>
+-> The poor will eat anything, order your cooks to sell the rotten food on the black market, somebody will buy it anyway.
+                You are correct, the impoverished underclass don't care about the quality of the food and while you lose the food, at least you are compensated with money. Later you may learn about the food poisoning outbreak, but at least it doesn't affect your own servants or troops.
+                <<Change iPopulation -3>>
+                <<Change iMoney +150>>
+                <<Change iProvisions -150>>
+-> Admiral Diedo, after he hears about your issue, suggests an alternative method. <<if GetBool("bCharAdmiral1")>>
+                Admiral Diedo mentions that while at sea, sailors often have to deal with the problem of rotten food. The solution he suggests is to boil it in sea water and mix spoiled and good food, thus reducing concentration of the blight. You decide to listen to him and surprisingly, it seems to work out. While people complain that food is barely edible, there are no news of anyone being seriously poisoned apart from maybe a few infants and elderly, but they are weaker anyway. You thank the Venetian for helping you navigate this dilemma - it seems old sailor managed to save your city quite a bit of food which would have otherwise gone to waste.
+-> Get rid of the spoiled food, it could lead to disease.
+                While it is unpleasant to throw away food while being under siege, it is better than having sickness inside the walls.
+                <<Change iProvisions -150>>
+===
+title: random22
+---
+<b> Rising tensions among the soldiers</b>: <br> Tensions simmer within the barracks of Constantinople as soldiers grapple with the pressures of the conflict and prolonged siege conditions. Frustrations mount due to cramped living quarters, dwindling supplies, and the constant threat of enemy attack. Without intervention, these tensions risk boiling over into unrest and insubordination. Maybe we could distract them some how?
+-> Increase food rations - hungry soldiers are angry soldiers.
+                You decide to allocate additional provisions to the barracks to alleviate food shortages and ensure soldiers are adequately nourished for the challenges ahead. Boosting rations improves morale among soldiers, as it is always easier to concentrate on the defense of the city when your stomach is not growling.
+                <<Change iProvisions -50>>
+-> Relax the rules on whoring and drinking while on leave.
+                While normally military discipline needs to be quite strict in order to ensure that everyone is on their best behaviour, you realise that under current conditions, you need to motivate your men by relaxing these rules a bit. You announce that every 7th day part of the soldiers are allowed to leave their posts and go enjoy the drinks and whores, no questions asked, as long as they report back in the morning. While this policy quickly reduces tensions, unfortunately the rate of desertions increases, as some soldiers don't really want to return to the walls after tasting once more what freedom can offer...
+                <<Change iInfantry -24>>
+                <<Change iArchers -12>>
+                <<Change iCavalry -3>>
+-> Organise more recreation and entertainment.
+                You order your commanders to ensure adequate entertainment activities within the barracks to offer soldiers a much-needed respite from the rigors of military life. Soon, one of the detachments organizes a drinking competition, while another one throws a comedy play. These activities improve morale and camaraderie among soldiers, serving as a valuable outlet for stress, although they cost some money.
+                <<Change iMoney -500>>
+-> Ask Giovanni Giustiniani to intervene.  <<if GetBool("bCharWarrior0")>>
+                The old condottiero over his life has spent more time with his soldiers than with his wife, so he knows them inside out. He goes straight to the barracks, has a stern talk with the Catholic mercenaries, then goes to the military chapel to pray with the Orthodox troops and finally goes and spends a night drinking with the detachment leaders. By morning all and any tensions among the troops are gone and everything is back to normal, at least for now.
+-> Ignore the issue.
+                They are soldiers, they will get over it.
+                <<Change fTroopRep -0.07>>
+===
+
+
+
+

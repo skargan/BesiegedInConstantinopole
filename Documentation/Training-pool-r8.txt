@@ -1,0 +1,11 @@
+Training pool — revision 8
+
+Recruitment spends gold immediately and creates a separate order. Infantry take 5 days; archers and cannons 10; cavalry 15; Varangians 20; warships 30. Orders run concurrently, with no new capacity limit or cancellation/refund rule. Existing recruitment price rules remain unchanged.
+
+Completion dates are calendar dates. Preparation currently advances seven days per turn: all orders due during that interval are delivered at the next management turn. Siege turns advance one day. This also supports a later preparation calendar change without converting duration into numbers of turns.
+
+Military and recruitment has a Training pool button. Each order shows its unit, quantity, completion date and remaining days, sorted by date. The recruitment preview shows the delay before purchase. A confirmation shows the order and gold paid. Newly completed units are listed in the council arrival report with their new force total.
+
+Pending orders are included in checkpoints and quick-start preparation presets. Old saves without a training field load an empty pool. Event troops and foreign relief use their existing arrival rules; equipment-quality technologies remain immediate.
+
+Validation: 252 smoke checks passed, including all six completion delays, no early or duplicate delivery, persistence, weekly calendar progression, report generation, independent save snapshots and rejected oversized orders. See training-build.log and training-capture.log for release validation.

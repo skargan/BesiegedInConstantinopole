@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +11,13 @@ public class HoverTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	float timePointed = 0;
 	[SerializeField] float hoverThresholdTime;
 
+
+    private void Awake()
+    {
+        if (objectTriggered == null) return;
+        foreach (var label in objectTriggered.GetComponentsInChildren<TMPro.TMP_Text>(true))
+            label.fontStyle |= TMPro.FontStyles.Italic;
+    }
 
 	public void OnPointerEnter(PointerEventData eventData)
     {

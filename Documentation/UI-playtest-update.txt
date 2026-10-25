@@ -1,0 +1,53 @@
+UI PLAYTEST UPDATE - 12 OCTOBER 2026
+
+Changed
+- Persistent Return control appears whenever a submenu can be left; campaign menu remains available during turn phases without undoing committed choices.
+- Recruitment now closes its overlay correctly, and returning reaches management.
+- Conscription divides troops by population in people. Initial 100 population units = 100,000 people; initial 5,200 counted troops = 5.2%.
+- Resource cards replace the plain status text, with full population and grouped numeric values.
+- Larger management buttons, readable sans-serif text, enlarged event layout, mouse continuation and explicit recruitment/training labels.
+- Repair preview shows cost, expected percentage-point gain, final integrity range and major-action usage.
+- Five vector focus emblems with distinct colours and text labels identify initial focus choices and focus-gated event choices.
+- Notaras focus warning, Schism wording and wall-description wording updated. Bracketed system text uses contrasting colour and italic style; redundant Explanation labels removed.
+- Orban imprisonment option exposes 60% escape / 35% imprisonment / 5% fatal explosion. Fatal branch now applies death rather than only describing it. Rejection exposes 85% joining Mehmed / 15% execution.
+
+Validation
+- Unity scene update completed.
+- Expanded gameplay checks cover population display, two-soldier recruitment, exact payment, no recruitment turn cost, overlay return, repair effects, 27 turn transitions, loss and restart.
+- New Windows output is Builds/Windows-Playtest2, keeping the running older output intact.
+
+Scope
+- Training remains unavailable; labelled accordingly rather than implying a working action.
+- Focus changes remain unimplemented, clearly disclosed at the initial focus decision.
+- No new balance formula or historical population estimate is imposed; 100,000 is the designer's chosen starting population.
+
+Event playtest additions
+- Faith and Unity receives ONLY the approved wartime compact. Orthodoxy stays, Isidore remains, clergy support falls 5 points, full-Union aid is not unlocked. The persuasion alternative was not added.
+- Partial Union retains Isidore; the exile choice explicitly warns that he becomes unavailable.
+- Completed events automatically show the selected decision, actual resource/troop changes, new totals and character availability. Population uses people, not thousands, in reports.
+- Event choices have individual text-based heights in a scrollable panel. Focus names use one shared vocabulary.
+- Arrival of the Genoese adds 500 infantry and 200 archers when accepted. This 700-man gameplay split is provisional, not a historical unit-type claim.
+- Four previously empty headings now contain small DRAFT choices: Imperial Wardrobe (4000/6000 gold sale, noble support -5); Mind over Matter (Grant costs 3000 gold, +10 engineers, chance of +40 materials); Venetians (2500 gold for +200 infantry, +2 ships and Diedo); Our Turks (+300 infantry and Orhan, noble support -5).
+- Sultan's Envoy also receives draft refusal responses instead of an empty event.
+- Wardrobe sale and Grant's discovery provide limited preparation variation. A full random-event pool and shuffled preparation are not implemented.
+- Quick start unlocks on reaching the siege and repeats the last preparation checkpoint, including decisions and resources. It does not invent an opaque preset for first-time players.
+- Siege begins at story23, on 6 April 1453. Galata no longer triggers premature Ottoman attacks. 240-day victory counts completed siege days.
+- Assault reports replace placeholder titles/descriptions with the enemy action; non-assault days skip the misleading casualty/funeral screen.
+
+Remaining scope
+- Draft event numbers need playtesting and designer tuning. No claim that all branches or difficulty are balanced.
+- Existing faction-collapse endings remain basic; recoverable crises and richer ending stories are still future work.
+- Changes in this folder are local; no GitHub publication is implied.
+
+Source reconciliation after receiving recovered design drafts
+- Core Mechanics 1.4 was compared with the repository's 1.3. The recovered files remain untouched.
+- Story events - final identifies Imperial Wardrobe as the Sphrantzes introduction. The current provisional sale-only event does not yet deliver that intended character role.
+- The recovered Orhan event calls for 50 cavalry; the provisional +300 infantry needs reconciliation with the designer before finalising content.
+- Core 1.4 uses a January start and 14 preparation weeks; the final story tracker has an October start and more than 20 scenes. Current executable retains the existing scene sequence, with siege beginning on 6 April; final preparation calendar is a design question.
+- The recovered recruit-pool rule is not applied because the designer has explicitly retained unlimited recruitment until playtesting.
+- Inner-wall reconstruction is an intentional historical departure documented in the recovered notes, not an accidental implementation error.
+
+Verification
+- events-smoke4.log: 99 checks passed, zero failures, including 27 turn transitions, partial Union/compact/exile, Genoese troop additions, population delta and total, quick-start day/date, loss and restart.
+- Windows development build succeeded. Runtime captures reviewed for menu, major-powers choices, event outcomes and Schism choices; earlier captures covered repair and recruitment.
+- Visual verification is of selected screens at 1600x900, not all event branches or display sizes. Balance and full 240-day campaign outcomes remain unverified.

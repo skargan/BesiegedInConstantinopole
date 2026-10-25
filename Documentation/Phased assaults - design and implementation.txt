@@ -1,0 +1,40 @@
+PHASED ASSAULTS — VERSION 26
+
+This is the first playable implementation of the approved assault design. The campaign siege continues after an assault. An assault may repel the enemy, force a defensive fallback, or kill the Emperor following an explicitly dangerous personal choice.
+
+FLOW
+Command → approach → optional siege-engine sortie → up to three contact waves → threatened-position reserves and breach → aftermath.
+
+Cover appears when Ottoman cannons are present. A sortie appears when a ram or tower is in play. A reserve decision appears only when surviving attackers threaten a breach. A frontline Emperor can face an explicitly signalled emergency at that breach. Unneeded stages are skipped.
+
+ACTIVE AND ASSISTED PLAY
+Assisted is the default and is selectable in Settings and at the start of an assault. It gives ordinary automatic archer accuracy and retains untimed tactical choices. Active play enables a 30-second three-volley sequence and at most one other timed activity. If cover and volleys have used both timed activities, the sortie uses untimed exposure choices.
+
+The volley marker crosses the effective range once per shot. Three scores are averaged, not multiplied; archer output can range from 75% to 125%. The centre gives +25%, the edges −25%. Unfired volleys score −25%. Sheltering, pausing and losing application focus stop or resolve only the relevant activity; the campaign clock does not advance during an assault.
+
+Cover: ordinary captain-managed cover in assisted mode is neutral. Keeping archers firing longer yields +10% output and costs 1.5% of their number. In active mode, early cover reduces output 10%; middle timing is neutral; late timing gains that firing output at the casualty cost. On timeout, the default is early cover.
+
+Sortie: choose up to 100 or 300 infantry. Exposure improves success from a low starting chance but increases the loss fraction quadratically. A heavy sortie adds 15 percentage points to success. Success removes the ram/tower and reduces breach pressure by 12. The party withdraws automatically on timeout. Exact figures are provisional and require campaign balance playtests.
+
+RESERVES AND THE EMPEROR
+A gate/curtain split can reduce or increase breach pressure by six points. The visual narrative clue identifies the main attack with 75% reliability; the remainder are feints. This represents disposition of an existing reserve, not the creation of extra troops.
+
+Frontline command adds 8% melee output and five percentage points of defender exposure. A threatened frontline position can force an emergency: escort costs 3–10 health but cannot kill; a countercharge costs 15–40 health and can kill, reducing breach pressure by eight. Shelter command carries no personal combat risk in this first version.
+
+ACCOUNTING
+One approach budget and one melee budget are created from the committed wave and current defenders. Archer quality, equipment, commander benefits, naval archer support, cannon lethality, infantry quality, cavalry and guard lethality are read from the game. One-third shares distribute melee across up to three contact rounds. Enemy exposure also has one bounded contact budget; repeat rounds do not repeatedly apply the full attacking force. Surviving infantry/cavalry reduce their remaining contributions.
+
+Defender artillery spends up to three ammunition for the assault, with proportional gun output if ammunition is short. A completed battle consumes ten percentage points of moat, capped at zero. Successful sorties can eliminate engines. Guard deployment and fallback retain the game's existing defensive-line structure, but the timing/attrition calculation is a newly authorised model rather than a claim of unchanged legacy balance.
+
+A single casualty ledger caps deaths at committed strength. Campaign resources are settled once at the aftermath; survivors stay in the Ottoman army. Repeated result calls cannot charge casualties twice. The main HUD updates at settlement, while the battle ledger shows the evolving committed-force totals. Saving/resuming uses the game's existing management checkpoints; an unfinished assault is not a mid-battle save.
+
+PACING AND VISUALS
+Three to five minutes is the intended first-read duration for a major assault, not an enforced delay. No artificial waiting is added to untimed decisions or resolved contact rounds. Real-player timing and difficulty still need feedback.
+
+Generated assets: assault-battlefield.png, assault-formation.png and assault-hourglass.png under Resources/UI/MidnightMosaic/Scenes. Built-in image generation was used. Prompts requested painterly realistic Constantinople fortifications at dusk, a transparent Ottoman infantry formation and a transparent antique-gold hourglass, in the established midnight-navy, gold and crimson palette. The assets are presentation art, not archaeological reconstructions. Formation sprites represent groups; individual figures do not equal literal soldier counts. Arrow trails, advancing formations, impact particles and hourglass motion are rendered by the interface.
+
+DESIGN REVIEW
+An independent agent reviewed the phase loop and code. Its recommendations led to bounded per-assault damage budgets, averaged volley scores, neutral assisted cover, survivor-scaled cavalry damage, non-fatal escort handling and safe timed defaults. This is an agent design review, not a claim that outside commercial designers were consulted.
+
+FUTURE DEVELOPMENT
+Additional Ottoman tactics can use the same phase/ledger structure: countermining, fire containment, naval landing contact and counter-battery windows. These additional minigames are proposals, not implemented features. The current pass integrates the existing Ottoman assault troop types, cannon warning, ram/tower sorties, feints and breach decisions. No continuous siege-wide real-time simulation has been introduced.

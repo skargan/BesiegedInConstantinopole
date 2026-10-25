@@ -1,0 +1,976 @@
+1: Core mechanics (v1.4)
+2: Changes:
+3: Added new value: iRecruits
+4: Added new value: iGrandCannon
+5: Added new value: bGalataIndependence
+6: Many minor changes
+7: Commander bonuses sketch included
+10: Focus
+11: 0
+12: Fortifications and artillery
+13: Reconstruction action discount
+15: 1
+16: Mobilisation & leadership
+17: Recruitment discount
+19: 2
+20: War Taxation & economy
+21: + taxation money
+23: 3
+24: Faith
+25: Gain support
+27: 4
+28: Diplomacy & Spycraft
+29: Bonus to spy ops
+31: Religion
+32: 0
+33: Orthodox
+35: 1
+36: Catholix
+38: 2
+39: Symbolic
+41: Focus options tracker (not updated)
+43: Mobilisation
+44: 3
+45: Economy
+46: 3
+47: Faith + Unity
+48: 3
+49: Diplomacy + spycraft
+50: 4
+51: Fortifications + artillery
+52: 1
+55: Name
+56: Effect
+58: Fleet Orders
+59: 0
+60: Raid the Ottomans
+61: Brings gold, reduces Ottoman food supply
+64: 1
+65: Smuggle Food
+66: Brings food
+67: NB: Rumeli castle needs to be destroyed/captured
+69: 2
+70: Defend the City
+71: Adds bonus during assaults
+74: 3
+75: Bring Volunteers
+76: Brings troops
+79: 4
+80: Seek Battle
+81: Leads to battle event which either destroys your or Turkish fleet
+84: 5 
+85: Fleet is Destroyed
+91: Stages
+92: Pre-Siege
+93: Takes place from 3 January 1453,
+94: [14 weeks/turns] – Monday dates to be shown 
+95: Prep events
+96: Pre-siege events
+97: 1<b>Messenger arrives</b>:
+98: 2<b>Mending the Schism</b>:
+99: 3<b>Siege Preparation - Walls</b>:
+100: 4 <b>Decision regarding Morea</b>:
+101: 5 <b>Siege Preparation - Raising an Army</b>:
+102: 6 <b>Hungry Mouths</b>:
+103: 7 <b>Preparing Provisions</b>:
+104: 8 <b>Call of Christendom - Major Powers</b>:
+105: 9 <b>Orders for the Fleet</b>: 
+106: 10<b>Easter Speech</b>:
+107: 11
+108: 12
+109: 13
+110: 14 <b>Siege Begins</b>:
+116: Optional:
+117: 9a<b>Victorious Fleet</b>:
+119: To be implemented
+120: Urban
+121: Chain
+122: Galata
+123: Greek Fire
+124: Genoese
+125: Commander
+128: Siege
+129: Starts 6 April (Day 1)
+130: Main game
+142: Victory outcomes (days)
+143: Sultan’s Offers:
+144: Ending Achievement (if accepted)
+145: Major Events Timeline (after offer of surrender)
+146: 1 day
+147: Convert to Islam and become Sultan’s personal slave
+148: Slave Ending
+149: Nothing
+150: 45 days
+151: Stop the suffering of your people, surrender the city, keep Peloponnesus
+152: Honourable Ending
+153: Major Assault
+154: 60 days
+155: Surrender immediately and go into exile or everyone will be slaughtered
+156: Exile Ending
+157: Reinforcements
+158: 90 days
+159: Surrender, or I will execute 10,000 of your subjects in front of the city walls
+160: Merciful Ending
+161: Major Assault
+162: 120 days
+163: You impressed me, keep your city, but kiss Sultan’s boots and become his servant
+164: Pragmatic Ending
+165: Reinforcements
+166: 150 days
+167: Give me your head and I will leave the City alone
+168: Martyr Ending
+169: Major Assault
+170: 180 days
+171: Let us settle this in a duel
+172: Warrior’s Ending
+173: Reinforcements
+174: 210 days
+175: Let us agree on a truce – allow me into the city for a symbolic victory
+176: Heroic Ending
+177: Super Assault
+178: 240 days
+179: Please, allow me to retreat
+180: Ultimate Ending
+181: Ottomans collapse
+184: Style guidelines: event look example
+186: Mending the Schism
+187:  For years there have been attempts to mend the Great Schism between the Rome and Constantinople. Both churches proclaim themselves to be the rightful inheritors of the temple of Jesus on Earth. Cardinal Isidore of Kiev, one of the most prominent priests of our Empire, has worked for many years to secure so called "Union of Florence" between Constantinople and Rome and he strongly advocates that we accept it in order so that we can secure aid from the Pope and other Catholic nations. Meanwhile Loukas Notaras, our chief minister, stresses that the people and most clergy are opposed to this, as accursed Latins have once already been the reason of our downfall, when they took the City and almost destroyed the Empire in 1204. We need to consider the political and religious implications, should we stick with our tradition or consider converting to the Catholic faith, hoping to secure additional assistance?
+188: -> We shall support Orthodox Church unto death.
+190: Damned be those heretics, war or peace, we shall remain Orthodox. Your decision causes a brief celebration among your elites, but will reduce the likelihood that Catholic nations will aid us.
+191: +++Church Support is now X.
+201: List of menus:
+203: Name
+204: Visual UI layout (prototypes – not being updated)
+205: 1
+206: Opening menu
+208: 2
+209: General menu
+211: 3
+212: Options Menu
+214: 4
+215: Siege Overview Menu
+217: 5
+218: Factions and Politics Menu
+220: 6
+221: Defence of the Walls
+223: 7
+224: Diplomacy
+228: 8
+229: Military & Fleet
+232: 9
+233: Treasury & Market
+235: 10
+236: Siege Planning
+238: 11
+239: The Palace
+241: 12
+242: Technologies
+253: General/Emperor’s Menu
+256: Menu items
+257: Info Items
+258: Day Actions
+259: Action cost
+260: Effects
+261: Other/notes
+262: 1.
+263: Siege Overview
+264: Date/Day of Siege
+268: How many spies do you need to get access to this info?
+271: Enemy soldiers
+275: 1
+278: Cannons ready to bombard
+282: 2
+285: Food
+289: 3
+292: Food consumption
+296: 4
+299: Sultan’s Fury 
+303: 5
+306: Spies in the City 
+310: 6
+313: Ottoman Morale
+317: 7
+320: Next enemy action (based on decision Matrix)
+324: 8 
+331: siege map to be included
+332: 2.
+333: Defence of the Walls
+336: Cost materials
+337: Cost money
+338: Effect
+341: Theodosian Walls (%)
+342: Repair 1st wall
+343: 30
+344: 500g
+345: +7+1d4
+348: Constantinian Wall (%)
+349: Repair 2nd wall
+350: 20
+351: 500g
+352: +7+1d4
+355: Severan Wall (%)
+356: Repair 3rd wall
+357: 10
+358: 500g
+359: +7+1d4
+362: Defensive Moat (%)
+363: Fire the Grand Cannon [If GrandCannon = Byzantine (2)]
+364: 3 ammo
+366: Destroys 1d5 Ottoman cannons
+381: 3.
+382: Factions and politics
+383: Army Morale (%)
+384: Visit the Troops on the Walls and hand out awards for bravery
+386: 300 gold
+387: +3 troop_rep
+390: City Morale (%)
+391: Hand-out gold to the Crowds
+393: 300 gold
+394: +3 people_rep
+397: Noble Support (%)
+398: Hold a Feast for the Aristocracy
+400: 300 gold
+401: +3 noble_rep
+404: Church Support (%)
+405: Commission beautiful icons for the Hagia Sophia
+407: 300 gold
+408: +3 priest_rep
+411: Galata’s Loyalty
+437: 4.
+438: Diplomacy
+439: Main ally: [name]
+440: Send out diplomatic mission to hurry reinforcements
+442: 1000 gold
+443: -5 days
+446: Time until reinforcements arrive (X days)
+447: Offer your surrender to the Sultan
+454: Negotiate with the Sultan
+457: Reduces Sultan’s fury
+493: 5.
+494: Military & Fleet
+495: Infantry (number)
+496: Quality: Infantry
+498: Raise additional troops
+499: Opens troop hiring sub-menu 
+502: Archers (number)
+503: Quality: Archers
+505: Buy better weapons and armour
+506: Opens troop quality sub-menu
+509: Cavalry (number)
+510: Quality: Cavalry
+512: Order a Sally!
+513: Opens Sally sub-menu
+516: Ships (number)
+517: Fleet’s Current Mission (words)
+519: Change Orders to Fleet
+520: See fleet mission table below.
+523: Varangians (number)
+556: 6.
+557: Treasury & Market
+558: Money
+559: Collect taxes
+560: -15 people_rep
+561: +100 gold per 1 Population
+565: Provisions
+572: Population (and food consumption)
+579: Days until Provisions end
+586: Materials
+587: Deconstruct ancient buildings
+589: +50 materials
+593: Ammunition
+594: Make ammunition
+605: 7.
+606: Siege Planning
+607: Sentries(number)
+608: Reorganise sentries 
+609: (transfer between sentries and infantry)
+610: X infantry becomes Y sentries or vice versa
+614: Spies (number)
+615: Spy Mission 
+616: 1000 gold or 1 secret
+618: Spy sub-menu:
+619: - Recruit a new spy (+1)- Try to kill Mehmet (X%, where X=secrets)- Destroy cannons (d3)- Burn enemy food stores (-d10)
+620: - Hunt enemy spies (50% chance)
+621: - gain secrets (0,1,2,2=25%)
+624: Healers (number)
+625: Train additional Healers
+626: 200g per healer (up to 5)
+631: Engineers (number)
+632: Train additional Engineers
+633: 300g per engineer (up to 5)
+638: Siege Focus
+639: Engineer Orders (toggle between options, passive effect)
+642: - Repair Walls
+643: - Make ammunition
+644: - Deconstruct old buildings to get building materials
+653: 8. 
+654: The Palace
+655: Health
+656: Rest
+658: +1d10%
+662: Dynamic - Wise Quote (Marcus Aurelius, etc)
+663: Pray
+665: +1d5%, +1 reputation to all groups
+669: Calm Music
+670: Fight on the walls
+671: -1d75%
+672: +5 reputation to all groups
+677: Scheme
+679: +1 Secret
+684: Plan Defence
+686: Reduce enemy AV by -10.
+695: 9.
+696: Technologies
+697: Greek Fire (y/n)
+699: 3 secrets
+700: (possibly available only through event?)
+701: Increases Blood Tax by 5%. Gives event options.
+705: Counter Cannons
+707: 3 secrets
+708: Unlocks ‘Counter-bombardment’ action
+712: Roman Concrete
+714: 3 secrets
+715: Decreases cost of rebuilding walls
+719: Roman Training
+721: 3 secrets
+722: Increases infantry quality by +1
+726: Artillery Ships
+728: 2 secrets
+729: Increases fleet bonus by (x2)
+733: Grenades
+735: 2 secrets
+736: Increases infantry lethality by +0.25
+740: Handcannons 
+742: 2 secrets
+743: Increases archer lethality by +0.5
+747: Grapeshot 
+749: 2 secrets
+750: Increases Cannon lethality by 250%
+754: Roman Taxation 
+756: 3 secrets
+757: Gain daily income equal to Population x3.
+761: Roman Architecture 
+763: 2 secrets
+764: Wall bonus +5 to all.
+768: Upgraded Crossbows
+770: 2 secrets
+771: Increases archer quality by +1
+775: Plate Armour
+777: 2 secrets
+778: Increases cavalry quality by +1
+805: Name
+806: Effect
+808: Fleet Orders
+809: 0
+810: Raid the Ottomans
+811: Brings gold, reduces Ottoman food supply
+814: 1
+815: Smuggle Food
+816: Brings food
+817: NB: Rumeli castle needs to be destroyed/captured
+819: 2
+820: Defend the City
+821: Adds bonus during assaults
+824: 3
+825: Bring Volunteers
+826: Brings troops
+829: 4
+830: Seek Battle
+831: Leads to battle event which either destroys your or Turkish fleet
+834: 5 
+835: Fleet is Destroyed
+848: If Turkish fleet is not destroyed, every turn there is 5% сhance of them catching our fleet, causing Naval Encounter event.
+869: Focus
+870: 0
+871: Fortifications and artillery
+872: Reconstruction action discount
+874: 1
+875: Mobilisation & leadership
+876: Recruitment discount
+878: 2
+879: War Taxation & economy
+880: + taxation money
+882: 3
+883: Faith
+884: Gain support
+886: 4
+887: Diplomacy & Spycraft
+888: Bonus to spy ops
+890: Religion
+891: 0
+892: Orthodox
+894: 1
+895: Catholix
+897: 2
+898: Symbolic
+903: Emperor’s stats
+905: Stat
+906: Value Type
+907: Starting Value
+908: Randomisation range (optional)
+909: Purpose
+910: Cost per unit
+911: Health
+912: 1-100%
+913: 80%
+914: 70-90%
+915: Dead at 0%.
+917: Hard Defence stats
+919: Defensive Moat
+920: 1-100%
+923: Slows the assault
+925: Theodosian Wall (Ist)
+926: 1-100%
+927: 80%
+928: 70-90%
+929: Has to be breached for besieger to assault
+930: 1% = 3 mat+50g
+931: Constantinian Wall (IInd)
+932: 1-100%
+933: 20%
+934: 70-90%
+935: Has to be breached for besieger to assault
+936: 1% = 2 mat+50g
+937: Severan Wall (IIIrd)
+938: 1-100%
+939: 20%
+940: 40-60%
+941: Has to be breached for besieger to assault and win
+942: 1% = 1 mat+50g
+943: Galata’s Loyalty
+944: 1-100%
+945: 75%
+946: 80-100%
+947: Event Trigger
+949: Soft Defence stats
+951: Morale (Population)
+952: 1-100%
+953: 50%
+954: 40-60%
+955: Negative events from 50% down, at 0% - game over
+956: 1% = 100g
+957: Morale (Troops)
+958: 1-100%
+959: 50%
+960: 40-60%
+961: Negative events from 50% down, at 0% - game over
+962: 1% = 100g
+963: Support (Nobility)
+964: 1-100%
+965: 50%
+966: 40-60%
+967: Negative events from 50% down, at 0% - game over
+968: 1% = 100g
+969: Support (Church)
+970: 1-100%
+971: 50%
+972: 40-60%
+973: Negative events from 50% down, at 0% - game over
+974: 1% = 100g
+975: Provisions
+976: X units
+977: 3000
+978: 1500 - 6000
+979: Negative events when 0.
+980: 1 = 2g pre-siege/10g post
+981: Materials
+982: X units
+983: 1000
+984: 500 – 1500
+986: 1 = 10g
+987: Money
+988: X 
+989: 100 000
+990: 50k – 150k
+992: 1 = 1
+993: Ammunition
+994: X units
+995: 20
+996: 10 – 30
+998: 1 = 50g
+999: Army stats
+1001: Infantry
+1002: X soldiers
+1003: 3000
+1004: 2000 – 4000
+1005: Pushes back enemy assaults
+1006: 1 = 10g
+1007: Archers
+1008: X archers
+1009: 2000
+1010: 1500 - 2500
+1011: Inflicts damage on the enemy troops
+1012: 1 = 20g
+1013: Cavalry
+1014: X knights
+1015: 200
+1016: 100 - 300
+1017: Can be used outside the walls
+1018: 1 = 100g
+1019: Cannons
+1020: X cannons
+1021: 3
+1022: 1-5
+1023: 1.Inflicts damage on the enemy troops
+1024: 2. Counter-battery fire
+1025: 1000g
+1026: Infantry Quality
+1027: Untrained [x0.1]Poor [x0.25]Medium [x0.5]Good [x0.75]Elite [x1]
+1028: Medium
+1029: Medium
+1030: Increases attacker casualties
+1031: 1 = 5000g
+1032: Archers Quality
+1033: Untrained [x0.25]Poor [x0.5]Medium [x1]Good [x1.5]Elite [x3]
+1034: Medium
+1035: Medium
+1036: Increases attacker casualties
+1037: 1 = 5000g
+1038: Cavalry Quality
+1039: Untrained [x0.25]Poor [x0.5]Medium [x1]Good [x1.5]Elite [x3]
+1040: Medium
+1041: Medium
+1042: Increases enemy casualties
+1043: 1 = 5000g
+1044: Varangian Guard
+1045: X Guards
+1046: 150
+1047: 200 - 300
+1048: Deal high damage, irreplaceable. Deployment requires separate decision.
+1049: 1 = 500g
+1050: Fleet
+1051: X ships
+1052: 26
+1053: 13 - 39
+1054: Important before the siege
+1055: 1 = 2000g
+1056: Special personnel stats
+1058: Engineers
+1059: X engineers
+1060: 30
+1061: 20 – 40
+1062: Used for construction and repairs
+1063: 300g
+1064: Spies
+1065: X spies
+1066: 10
+1067: 5 – 15
+1068: Enemy information screen detail; Events
+1069: 1000g
+1070: Healers
+1071: X healers
+1072: 50
+1073: 30 – 70
+1074: Reduce casualties 
+1075: 200g
+1076: Sentries
+1077: X sentries
+1078: 100
+1079: 50 - 150
+1080: Reduce enemy stealth action chance up to 90%.
+1081: ///
+1082: 10 sentries = 1% reduction to enemy stealth actions
+1083: Converted from infantry / 10g
+1084: Secrets
+1089: 1000g
+1114: Other stats
+1116: City Population
+1117: X thousand
+1118: 100 thousand
+1119: 50 -200 thousand
+1120: X1 Consumes 1 unit of Food Supplies per day during the siege.
+1122: Recruits
+1123: X
+1124: 1000
+1125: 500 - 1500
+1126: When recruiting soldiers (-1) per 1.
+1127: Generated from population by action ‘gather recruits’
+1128: Focus
+1129: (priorities)
+1134: Religion
+1135: (decision re orthodox or catholic direction)
+1140: Fleet Mission
+1142: (mission of the fleet)
+1151: Event Trigger Values
+1152: Name
+1153: Value
+1154: Starting Value
+1155: Randomisation range (optional)
+1156: Purpose
+1157: Events where relevant
+1158: The Chain
+1159: golden_horn_chain
+1160: Yes
+1161: Yes
+1162: Yes – ExistsNo - Doesn’t Exist
+1164: Secret Byzantine Tunnels
+1165: secret_tunnel_emperor
+1166: No
+1167: No
+1168: Yes – ExistsNo - Doesn’t Exist
+1170: Secret Turk Tunnels
+1171: secret_tunnel_turks
+1172: No
+1173: No
+1174: Yes – ExistsNo - Doesn’t Exist
+1176: Serial Killer
+1177: serial_killer
+1178: Yes
+1179: Yes
+1180: Yes – ActiveNo - Inactive
+1181: Brutal Murder
+1182: Live and Let Live
+1183: live_and_let_live
+1184: No
+1185: No
+1186: Yes – ActiveNo - Inactive
+1187: Live and Let Live
+1188: Rumeli Fortress
+1189: bStraitsOpen
+1190: No
+1191: No
+1192: Yes – Straits open
+1193: No -  Straits closed
+1195: Siege Commander
+1196: siege_commander = X
+1197: char_administrator
+1198: char_administrator
+1200: Bonuses
+1201: Giovanni Giustiniani
+1202: char_warrior
+1203: No
+1204: No
+1205: Yes – ActiveNo – Inactive
+1206: -5 enemy assault value
+1207: Alviso Diedo
+1208: char_captain
+1209: No
+1210: No
+1211: Yes – ActiveNo – Inactive
+1212: +5 Naval bonus
+1213: Loukas Notaras
+1214: char_administrator
+1215: Yes
+1216: Yes
+1217: Yes – ActiveNo – Inactive
+1218: +100 gold per day
+1219: Prince Orhan
+1220: char_nomad
+1221: No
+1222: No
+1223: Yes – ActiveNo – Inactive
+1224: +5% blood tax
+1225: George Sprantzes
+1226: char_diplomat
+1227: No
+1228: No
+1229: Yes – ActiveNo – Inactive
+1230: +X% chance of help
+1231: Urban
+1232: char_artillerist
+1233: No
+1234: No
+1235: Yes – ActiveNo – Inactive
+1236: Cannons cost reduced 50%
+1237: Johannes Grant
+1238: char_architect
+1239: No
+1240: No
+1241: Yes – ActiveNo – Inactive
+1242: +2% all walls per day
+1243: Cardinal Isidore
+1244: char_priest
+1245: No
+1246: No
+1247: Yes – ActiveNo – Inactive
+1248: +1 morale to all groups per day
+1249: Hasan the Jannisary
+1250: char_enemy
+1251: Yes
+1252: Yes
+1253: Yes – ActiveNo - Inactive
+1254: N/A
+1256: Personalities
+1259: Events where they act as modifiers
+1260: Special events
+1261: Hired through event
+1262: Archetype
+1263: Giovanni Giustiniani
+1266: Giustiniani
+1267: Warrior, Commander
+1268: Alviso Diedo
+1271: Diedo
+1272: Captain
+1273: Loukas Notaras
+1276: N/A
+1277: Administrator
+1278: Prince Orhan
+1281: Orhan
+1282: Cavalry, Turk
+1283: George Sprantzeshttps://en.wikipedia.org/wiki/George_Sphrantzes
+1284: Brutal Murder
+1286: Sprantzes
+1287: Spy, Diplomat, Scholar
+1288: Urban
+1289: Chain
+1290: Queen of the Battlefield
+1291: Modern Greek Fire
+1292: Urban
+1293: Artillery
+1294: German Johann Grant
+1295: Hidden Chamber
+1297: Johan
+1298: Architect
+1299: Hasan the Jannisary
+1302: Enemy: Hasan Arrives
+1303: Enemy
+1304: Cardinal Isidore
+1308: Priest
+1316: Ottoman Decision matrix
+1317: Condition
+1318: Value
+1319: Prob%
+1320: Event
+1321: Event code
+1322: Effect
+1341: If moat 
+1342: >=[current walls]
+1343: 60%
+1344: Ottomans try to fill the Moat
+1349: 10%
+1350: Ottomans construct a Siege Tower
+1352: If Siege Tower = exists, then reroll
+1355: 10%
+1356: Ottomans construct a Battering Ram
+1358: If Battering Ram = exists, then reroll
+1361: 10%
+1362: Ottomans construct a Siege Ramp
+1364: Siege Ramp increases by +25%. Siege Ramp gives bonus only when it reaches 100%. If Siege Ramp is already at 100%, then reroll.
+1367: 10%
+1368: Ottomans bring additional cannons
+1370: +1 Turk cannon
+1398: Bombardment Tactic
+1401: If [current] walls = 
+1402: 75-100%
+1403: 40%
+1404: Ottomans bring additional cannons
+1405: enemy0
+1406: +1 Turk cannon
+1409: 40%
+1410: Ottomans bombard the walls
+1411: enemy1
+1412: Reduce wall by X%; X= turk cannons
+1415: 3%
+1416: Ottomans launch a Balkan Subject Assault!
+1417: enemy2
+1421: 1%
+1422: Ottomans launch a Bashi-Bazouk Irregular Assault!
+1423: enemy3
+1427: 1%
+1428: Ottomans launch a Janissary Assault!
+1429: enemy4
+1433: 5%
+1434: Ottomans construct a Siege Tower
+1439: 5%
+1440: Ottomans construct a Battering Ram
+1445: 5%
+1446: Ottomans construct a Siege Ramp
+1464: Attack Tactic
+1468: 50%-75%
+1469: 30%
+1470: Ottomans bring additional cannons
+1471: enemy0
+1472: +1 Turk cannon
+1475: 40%
+1476: Ottomans bombard the walls
+1477: enemy1
+1478: Reduce wall by X%; X= turk cannons
+1481: 12%
+1482: Ottomans launch a Balkan Subject Assault!
+1483: enemy2
+1487: 5%
+1488: Ottomans launch a Bashi-Bazouk Irregular Assault!
+1489: enemy3
+1493: 3%
+1494: Ottomans launch a Janissary Assault!
+1495: enemy4
+1499: 3%
+1500: Ottomans construct a Siege Tower
+1505: 3%
+1506: Ottomans construct a Battering Ram
+1511: 4%
+1512: Ottomans construct a Siege Ramp
+1524: Test Tactic
+1528: 25%-50%
+1529: 20%
+1530: Ottomans bring additional cannons
+1531: enemy0
+1532: +1 Turk cannon
+1535: 45%
+1536: Ottomans bombard the walls
+1537: enemy1
+1538: Reduce wall by X%; X= turk cannons
+1541: 11%
+1542: Ottomans launch a Balkan Subject Assault!
+1543: enemy2
+1544: Probing Assault
+1547: 17%
+1548: Ottomans launch a Bashi-Bazouk Irregular Assault!
+1549: enemy3
+1550: Minor Assault
+1553: 7%
+1554: Ottomans launch a Janissary Assault!
+1555: enemy4
+1556: Major Assault
+1566: Send Assault Tactic
+1570: 0%-25%
+1571: 10%
+1572: Ottomans bring additional cannons
+1573: enemy0
+1574: +1 Turk cannon
+1577: 30%
+1578: Ottomans bombard the walls
+1579: enemy1
+1580: Reduce wall by X%; X= turk cannons
+1583: 10%
+1584: Ottomans launch a Balkan Subject Assault!
+1585: enemy2
+1586: Probing Assault
+1589: 20%
+1590: Ottomans launch a Bashi-Bazouk Irregular Assault!
+1591: enemy3
+1592: Minor Assault
+1595: 30%
+1596: Ottomans launch a Janissary Assault!
+1597: enemy4
+1598: Major Assault
+1608: Advance Tactic
+1612: 0%-
+1613: 0%
+1614: Ottomans bring additional cannons
+1615: enemy0
+1616: +1 Turk cannon
+1619: 0%
+1620: Ottomans bombard the walls
+1621: enemy1
+1622: Reduce wall by X%; X= turk cannons
+1625: 5%
+1626: Ottomans launch a Balkan Subject Assault!
+1627: enemy2
+1628: Probing Assault
+1631: 45%
+1632: Ottomans launch a Bashi-Bazouk Irregular Assault!
+1633: enemy3
+1634: Minor Assault
+1637: 50%
+1638: Ottomans launch a Janissary Assault!
+1639: enemy4
+1640: Major Assault
+1657: Assault System
+1658: 0
+1659: Apply modifiers
+1660: Notes
+1663: Other notes
+1664: 0.1
+1665: Prior modifiers:- If enemy has siege engines (created via events earlier) - Sultan’s Fury
+1669: Theo wall bonus = +20 
+1675: Const wall bonus = +10 
+1677: Ramp [+20 AV]
+1681: Sever wall bonus = +0
+1683: Siege Tower [+10 AV]
+1687: Moat bonus = up to +10 (10% = +1). If Theo wall is abandoned, Moat is permanently reduced to 0.
+1689: Battering Ram [+5 AV]
+1695: Sultan’s Fury [+X]
+1701: Grand Cannon [+15 AV]
+1706: 1
+1707: Generate assault value [AV]
+1718: 1.1
+1719:  Add assault type AV
+1720: (up to)
+1724: AV1=75
+1725: Christian Balkan Subject Assault
+1726: 5000 strong
+1727: Blood tax 500
+1728: Reduces Moat -10%
+1729: 5000 baseline
+1730: AV1=100
+1731: Bashi-Bazouk Irregulars Assault
+1732: 10 000 strong 
+1733: Blood tax 1000
+1734: Reduces Moat -10%
+1735: 70 000 baseline
+1736: AV1=125
+1737: Janissary Assault
+1738: 8000 strong
+1739: Blood tax 800
+1740: Reduces Moat -10%
+1741: 8000 baseline
+1748: 1.2
+1749: Net AV = (AV size(prior modifiers + assault type AV)-(remaining walls %)-(troop morale)-(wall bonus))
+1760: 1.4
+1761: If AV>100, choice to deploy Varangians
+1767: Varangians cover the difference (X), but they lose (X) as well
+1772: 1.5 
+1773: Deploy rearguard and retreat, abandoning the wall :a) 200 infantryb) 50% of the difference Varangians(TBT)
+1774: (minimises losses that would occur if the wall would be lost)
+1779: 1.6
+1780: If AV>100, lose the wall
+1803: 2
+1804: Generate attacker casualties
+1809: 2.1
+1810: Archers (number) X Quality Ratio = AC1
+1814: Very Poor [x0.25]Poor [x0.5]Medium [x1]Good [x1.5]Excellent [x3]
+1815: 2.2
+1816: Infantry (number) X Quality Ratio = AC 2
+1820: Very Poor [x0.1]Poor [x0.25]Medium [x0.5]Good [x0.75]Excellent [x1]
+1821: 2.21
+1822: Cannons x 20 
+1826: Optional choice:
+1827: Commit vs siege engines or inflict casualties
+1828: 2.3
+1829: Blood Tax 10% = AC3
+1834: 2.4
+1835: If Varangian Guard was deployed, generate AC4 = (Varangian guard x 5)
+1840: 2.5
+1841: Randomiser (+/- 1d50) = AC5
+1846: 2.6
+1847: Total = AC1+AC2+AC3+AC4+AC5
+1858: 2.7
+1859: AC casualty allocation – according to assault type.
+1870: 3
+1871: Generate defender casualties(DC)
+1876: 3.1
+1877: Jannisaries  X 0.3 = DC1
+1883: Other Infantry x 0.1 = DC2
+1889: Randomiser (+/- 1d50) = DC3
+1895: DC4 = DC1+DC2+DC3
+1900: 3.2
+1901: DC4 x missing walls(0.1)% (if held) = final DC
+1906: 3.3
+1907: If the wall is abandoned, full DC is inflicted. If it is held, your healers can come to rescue the wounded and reduce DC by (Healers x 1d5) 
+1918: 3.4
+1919: DC casualty allocation is done according to this principle: 3 infantry to 1 archer. If no infantry left = then take archers. If no archers left = then take cavalry.
+1921: For example if enemy inflicted 440 casualties, defenders will lose 330 infantry and 110 archers.
+1924: 3.5
+1925: If the assault failed, remove following modifiers:- siege tower- battering ram(if it failed, they are destroyed, if it succeeded, they can be brought to the next wall)if the assault succeeded, remove following modifiers:
+1926: -siege ramp(it cannot be brought to the next wall, but also cannot be destroyed if the assault fails)
+1939: Ottoman information screen
+1941: Starting Value
+1944: Christian Balkan Subjects
+1945: 10 000
+1948: Bashi-Bazouk Irregulars 
+1949: 70 000
+1952: Janissaries
+1953: 8000
+1956: Turk Cannons
+1957: 5
+1968: Spies in the City
+1969: 5
+1972: Morale
+1973: 100
+1976: Food
+1977: 75 (days)
+1980: Sultan’s Fury (max 50)
+1981: +1 per failure / day
+1982: When max – kills his commander, morale falls. 
+COMMENTS <ns0:comments xmlns:ns0="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:ns1="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ns2="http://schemas.microsoft.com/office/word/2010/wordml" ns1:Ignorable="w14 w15 w16se w16cid w16 w16cex w16sdtdh w16sdtfl w16du wp14"><ns0:comment ns0:id="0" ns0:author="Dainius" ns0:date="2024-12-03T10:45:00Z" ns0:initials="D"><ns0:p ns2:paraId="175B197E" ns2:textId="77777777" ns0:rsidR="002F4E09" ns0:rsidRDefault="002F4E09" ns0:rsidP="002F4E09"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Special bonuses to be implemented</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="1" ns0:author="Dainius" ns0:date="2024-11-05T15:37:00Z" ns0:initials="D"><ns0:p ns2:paraId="7739F879" ns2:textId="4AC3867F" ns0:rsidR="002405F8" ns0:rsidRDefault="002405F8"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Preliminary, not tested, not finished</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="2" ns0:author="Dainius" ns0:date="2024-11-11T14:52:00Z" ns0:initials="D"><ns0:p ns2:paraId="498B0D4D" ns2:textId="2A4B91FA" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>title</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="3" ns0:author="Dainius" ns0:date="2024-11-11T14:52:00Z" ns0:initials="D"><ns0:p ns2:paraId="4C697509" ns2:textId="77777777" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t xml:space="preserve">text. </ns0:t></ns0:r><ns0:r><ns0:br /><ns0:t>Font: Calibri</ns0:t></ns0:r></ns0:p><ns0:p ns2:paraId="6E45D561" ns2:textId="77777777" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:t>Person: 2</ns0:t></ns0:r><ns0:r ns0:rsidRPr="005457F1"><ns0:rPr><ns0:vertAlign ns0:val="superscript" /></ns0:rPr><ns0:t>nd</ns0:t></ns0:r><ns0:r><ns0:t xml:space="preserve"> (what are your orders, Emperor?)</ns0:t></ns0:r></ns0:p><ns0:p ns2:paraId="302BE409" ns2:textId="0409A736" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr></ns0:p></ns0:comment><ns0:comment ns0:id="4" ns0:author="Dainius" ns0:date="2024-11-11T14:54:00Z" ns0:initials="D"><ns0:p ns2:paraId="0817CBA6" ns2:textId="468F7D8C" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Event option. Followed by [cost / reward].</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="5" ns0:author="Dainius" ns0:date="2024-11-11T14:55:00Z" ns0:initials="D"><ns0:p ns2:paraId="09D03BC1" ns2:textId="4968701E" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Outcome, appears after clicking</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="6" ns0:author="Dainius" ns0:date="2024-11-11T14:57:00Z" ns0:initials="D"><ns0:p ns2:paraId="27FA802B" ns2:textId="4F54A288" ns0:rsidR="005457F1" ns0:rsidRDefault="005457F1"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Updated new values as a result of the event.</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="7" ns0:author="Dainius" ns0:date="2024-12-03T16:20:00Z" ns0:initials="D"><ns0:p ns2:paraId="47D3261D" ns2:textId="2B4E909C" ns0:rsidR="005974E4" ns0:rsidRDefault="005974E4"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Not implemented</ns0:t></ns0:r></ns0:p></ns0:comment><ns0:comment ns0:id="8" ns0:author="Dainius" ns0:date="2024-12-03T10:45:00Z" ns0:initials="D"><ns0:p ns2:paraId="7C33E061" ns2:textId="08D88466" ns0:rsidR="00A676B7" ns0:rsidRDefault="00A676B7"><ns0:pPr><ns0:pStyle ns0:val="CommentText" /></ns0:pPr><ns0:r><ns0:rPr><ns0:rStyle ns0:val="CommentReference" /></ns0:rPr><ns0:annotationRef /></ns0:r><ns0:r><ns0:t>Special bonuses to be implemented</ns0:t></ns0:r></ns0:p></ns0:comment></ns0:comments>

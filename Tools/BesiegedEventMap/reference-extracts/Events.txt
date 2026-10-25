@@ -1,0 +1,103 @@
+<ns0:workbook xmlns:ns0="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:ns1="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ns2="http://schemas.microsoft.com/office/spreadsheetml/2014/revision" xmlns:ns3="http://schemas.microsoft.com/office/spreadsheetml/2016/revision6" xmlns:ns4="http://schemas.microsoft.com/office/spreadsheetml/2016/revision10" xmlns:ns5="http://schemas.microsoft.com/office/spreadsheetml/2015/revision2" xmlns:ns6="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:ns7="http://schemas.microsoft.com/office/spreadsheetml/2010/11/main" xmlns:ns8="http://schemas.microsoft.com/office/spreadsheetml/2018/calcfeatures" ns1:Ignorable="x15 xr xr6 xr10 xr2"><ns0:fileVersion appName="xl" lastEdited="7" lowestEdited="6" rupBuild="27328" /><ns0:workbookPr filterPrivacy="1" /><ns2:revisionPtr revIDLastSave="0" documentId="13_ncr:1_{34910E88-C976-47DF-B4E2-C0718B9564CC}" ns3:coauthVersionLast="47" ns3:coauthVersionMax="47" ns4:uidLastSave="{00000000-0000-0000-0000-000000000000}" /><ns0:bookViews><ns0:workbookView xWindow="19185" yWindow="0" windowWidth="19215" windowHeight="21000" ns5:uid="{00000000-000D-0000-FFFF-FFFF00000000}" /></ns0:bookViews><ns0:sheets><ns0:sheet name="Sheet1" sheetId="1" ns6:id="rId1" /><ns0:sheet name="Sheet2" sheetId="2" ns6:id="rId2" /></ns0:sheets><ns0:definedNames><ns0:definedName name="_xlnm._FilterDatabase" localSheetId="0" hidden="1">Sheet1!$B$3:$J$100</ns0:definedName></ns0:definedNames><ns0:calcPr calcId="191029" /><ns0:extLst><ns0:ext uri="{140A7094-0E35-4892-8432-C4D2E57EDEB5}"><ns7:workbookPr chartTrackingRefBase="1" /></ns0:ext><ns0:ext uri="{B58B0392-4F1F-4190-BB64-5DF3571DCE5F}"><ns8:calcFeatures><ns8:feature name="microsoft.com:RD" /><ns8:feature name="microsoft.com:Single" /><ns8:feature name="microsoft.com:FV" /><ns8:feature name="microsoft.com:CNMTM" /><ns8:feature name="microsoft.com:LET_WF" /></ns8:calcFeatures></ns0:ext></ns0:extLst></ns0:workbook>
+SHEET xl/worksheets/sheet1.xml
+B3=No | C3=Event Name | D3=ID | E3=Timing | F3=Conditions | G3=Firing | H3=Type | I3=Stage | J3=Description
+B4=4 | C4=War council meeting | D4=eve4 | E4=Every 7th day | G4=1 | H4=Recurring | I4=Siege
+B5=1 | C5=Uneventful day | D5=eve1 | E5=NA | G5=0.1 | H5=Recurring | I5=Pre-siege
+B6=6 | C6=Patriarch requests an audience | D6=eve6 | E6=NA | G6=0.1 | H6=Unique | I6=Pre-siege
+B7=11 | C7=Master Gunner offers his services | D7=eve11 | E7=NA | G7=0.1 | H7=Unique | I7=Pre-siege
+B8=12 | C8=Mad monk is demanding an audience with you | D8=eve12 | E8=NA | G8=0.05 | H8=Unique | I8=Siege
+B9=13 | C9=Cuman mercenary company offers their services | D9=eve13 | E9=NA | G9=0.05 | H9=Story | I9=Pre-siege
+B10=14 | C10=Repairing the Walls | D10=eve14 | E10=NA | G10=0.1 | H10=Recurring | I10=Siege
+B11=15 | C11=Venetian Merchants are asking for guarantees | D11=eve15 | E11=NA | G11=0.05 | H11=Unique | I11=Pre-siege
+B12=16 | C12=Swordmaster offers to train you | D12=eve16 | E12=NA | G12=0.05 | H12=Unique | I12=Pre-siege
+B13=18 | C13=Repairing the Gate | D13=eve18 | E13=NA | G13=0.1 | H13=Recurring | I13=Siege
+B14=21 | C14=Decision on the Burning of the Fields | D14=eve21 | E14=NA | G14=1 | H14=Story | I14=Pre-siege | J14=Decision on whether to burn the fields (negative morale or more food for the ottomans)
+B15=22 | C15=Skirmishing on the Walls | D15=eve22 | E15=NA | G15=0.05 | H15=Recurring | I15=Siege | J15=Lose 1d50 archers, inflict 1d300 casualties.
+B16=3 | C16=Messenger arrives | D16=1 | E16=Week 01 | F16=NA | G16=1 | H16=Story | I16=Pre-siege | J16=Information about the coming siege, main strategy decision - rebuilding campaign (walls focus), mobilisation (army focus), taxation (resources), prayer (morale) or diplomatic (aid).
+B17=32 | C17=Mending the Schism | D17=2 | E17=Week 01 | F17=NA | G17=1 | H17=Story | I17=Pre-siege | J17=Choose:  Hard Orthodoxy, Symbolic Union, Convert to Catholicism
+B18=10 | C18=Send orders to Peloponessus | D18=eve10 | E18=Week 02 | F18=NA | G18=1 | H18=Story | I18=Pre-siege | J18=Order - call to aid or engage turks down south
+B19=28 | C19=Restore the Theodosian Walls | D19=eve28 | E19=Week 02 | F19=NA | G19=1 | H19=Story | I19=Pre-siege | J19=Pay 2X thousand [money]. Restore Theodosian Walls by X%.
+B20=39 | C20=Arrival of Giovanni Giustiniani | D20=eve39 | E20=Week 02 | F20=NA | G20=1 | H20=Story | I20=Pre-siege | J20=Promise him your daughter's hand / turn him away / put under command of your strategos. +700 infantry
+B21=17 | C21=Orders for the Fleet | D21=eve17 | E21=Week 03 | F21=NA | G21=1 | H21=Story | I21=Pre-siege | J21=Decision - engage Ottoman fleet, bring volunteers, bring food, raid enemy shores, defensive posture
+B22=40 | C22=Strategos: Who will command the defence? | D22=eve40 | E22=Week 03 | F22=NA | G22=1 | H22=Story | I22=Pre-siege | J22=Choose Loukas Notaras or Giovanni Giustiniani or Alviso Diedo
+B23=24 | C23=Diplomatic Envoys I | D23=eve24 | E23=Week 04 | F23=NA | G23=1 | H23=Story | I23=Pre-siege | J23=Choose an ally and request aid motivating with: faith, glory, self-interest, plead
+B24=31 | C24=Raise War Taxes | D24=eve31 | E24=Week 04 | F24=NA | G24=1 | H24=Story | I24=Pre-siege | J24=Decision: nobility, the poor or both (loss of morale), + money (50 for nob, X for pop)
+B25=36 | C25=Buy shipment of Gennoese crossbows and train civilians | D25=eve36 | E25=Week 04 | F25=NA | G25=1 | H25=Story | I25=Pre-siege | J25=Train 500 crossbowmen, cost 10k.
+B26=38 | C26=Organise city's population into a militia | D26=eve38 | E26=Week 04 | F26=IF Mobilisation Focus | G26=1 | H26=Story | I26=Pre-siege | J26=Generate 40 infantry + 10 archers per 1 thousand pop. Reduce infantry and archer quality.
+B27=41 | C27=Giustiniani reorganises defences of the city | D27=eve41 | E27=Week 04 | F27=IF Giustiniani | G27=1 | H27=Story | I27=Pre-siege | J27=Raise quality of infantry and archers. +5% all walls
+B28=42 | C28=Diedo summons Venetian reinforcements | D28=eve42 | E28=Week 04 | F28=IF Diedo | G28=1 | H28=Story | I28=Pre-siege | J28=Add 1000 archers and 5 ships
+B29=43 | C29=Notaras establishes political unity | D29=eve43 | E29=Week 04 | F29=IF Notaras | G29=1 | H29=Story | I29=Pre-siege | J29=Increase nobility, political, troop and population morale, also get 25k money and 100 knights
+B30=7 | C30=Fate of Stadia Castle | D30=eve7 | E30=Week 05 | F30=NA | G30=1 | H30=Story | I30=Pre-siege | J30=Order troops to: defend at all costs /retreat
+B31=19 | C31=The Chain | D31=eve19 | E31=NA | H31=Unique | I31=Pre-siege
+B32=20 | C32=Wine Merchant from Adrianople | D32=eve20 | E32=NA | H32=Story | I32=Pre-siege | J32=Info about the Ottoman army OR action against them
+B33=23 | C33=Priests demand permission to build a chapel inside the gate tower | D33=eve23 | E33=NA | H33=Unique | I33=Siege | J33=bonus morale, weaken walls
+B34=33 | C34=Annull all tax exemptions for the foreign merchants | D34=eve33 | E34=Week 05 | F34=IF Taxation Focus | G34=1 | H34=Story | I34=Pre-siege | J34=Reduce Galata's Loyalty by -30. Gain 100 money.
+B35=25 | C35=Diplomatic Envoys II | D35=eve25 | E35=Week 06 | F35=NA | G35=1 | H35=Story | I35=Pre-siege | J35=Choose an ally and request aid motivating with: faith, glory, money, plead
+B36=37 | C36=Press healthy refugees, deserters and criminals into service | D36=eve37 | E36=Week 06 | F36=IF Mobilisation Focus | G36=1 | H36=Story | I36=Pre-siege | J36=Loss troop and pop morale, infantry quality, +3000
+B37=26 | C37=Diplomatic Envoys III | D37=eve26 | E37=Week 07 | F37=IF Diplomatic Focus | G37=1 | H37=Story | I37=Pre-siege | J37=Choose an ally and request aid motivating with: faith, glory, money, plead
+B38=29 | C38=Restore the Constantinian Walls | D38=eve29 | E38=Week 07 | F38=IF Rebuilding Focus | G38=1 | H38=Story | I38=Pre-siege | J38=Pay X thousand [money]. Restore Constantinian Walls by X%.
+B39=34 | C39=Confiscate and melt the Church valuables | D39=eve34 | E39=Week 07 | F39=IF Taxation Focus | G39=1 | H39=Story | I39=Pre-siege | J39=Lose -20% Church support. Gain 50k money.
+B40=35 | C40=Mercenaries hear your summons | D40=eve35 | E40=Week 08 | F40=NA | G40=1 | H40=Story | I40=Pre-siege | J40=Hire Italian mercenaries: up to 2000 infantry (30k), 1000 archers (30k), 200 knights (30k) or all of them for 80k.
+B41=27 | C41=Diplomatic Envoys IV | D41=eve27 | E41=Week 09 | F41=IF Diplomatic Focus | G41=1 | H41=Story | I41=Pre-siege | J41=Choose an ally and request aid motivating with: faith, glory, money, plead
+B42=30 | C42=Restore the Severan Walls | D42=eve30 | E42=Week 09 | F42=IF Rebuilding Focus | G42=1 | H42=Story | I42=Pre-siege | J42=Pay X thousand [money]. Restore Severan Walls by X%.
+B43=8 | C43=Fate of Therapia Fortress | D43=eve8 | E43=Week 10 | F43=NA | G43=1 | H43=Story | I43=Pre-siege | J43=Order troops to: defend at all costs /retreat
+B44=9 | C44=Fate of Demonesi Islands | D44=eve9 | E44=Week 12 | F44=NA | G44=1 | H44=Story | I44=Pre-siege | J44=Order troops to: defend at all costs /retreat
+B45=5 | C45=Easter Sunday | D45=eve5 | E45=Week 14 | F45=NA | G45=1 | H45=Story | I45=Pre-siege | J45=Speech to improve pop or troop or nobility morale
+B46=44 | C46=Siege Begins | D46=eve44 | E46=Week 14 | F46=NA | G46=1 | H46=Story | I46=Pre-siege | J46=Information event, explains rules changes.
+B47=45 | C47=Rumours Are Spreading | D47=eve45 | E47=NA | H47=Recurring | I47=Siege
+B48=46 | C48=Ladders! | D48=eve46 | E48=NA | H48=Recurring | I48=Siege
+B49=47 | C49=Disease Outbreak | D49=eve47 | E49=NA | H49=Recurring | I49=Siege
+B50=48 | C50=Food Wasted | D50=eve48 | E50=NA | H50=Recurring | I50=Siege
+B51=49 | C51=Corruption Uncovered | D51=eve49 | E51=NA | H51=Recurring | I51=Siege
+B52=50 | C52=Sentries killed | D52=eve50 | G52=0.15 | H52=Recurring | I52=Siege
+B53=51 | C53=Healer dies from an infected wound | D53=eve51 | G53=0.1 | H53=Recurring | I53=Siege
+B54=52 | D54=eve52
+B55=53 | D55=eve53
+B56=54 | D56=eve54
+B57=55 | D57=eve55
+B58=56 | D58=eve56
+B59=57 | D59=eve57
+B60=58 | D60=eve58
+B61=59 | D61=eve59
+B62=60 | D62=eve60
+B63=61 | D63=eve61
+C64=Engineer falls down from the ladders
+C65=Cannon crew take a good shot | M65=Characters
+C66=Black market flourishes | M66=Kjold
+C67=Infighting between mercenaries and Greeks | M67=Loukas Notaras
+C68=Kjold feels melancholic | M68=Prince Orhan
+C69=Kjold feels adventurous | M69=Cardinal Isidore
+C70=Kjold feels suspicious | M70=Giovanni Giustiniani
+C71=Loukas Notaras wants to meet | M71=Gunther
+C72=Giustiniani is wounded
+C73=Cardinal Isidore delivers a sermon
+C74=Prince Orhan gets drunk
+C75=Volunteers from Galata arrive
+C76=Ottoman atrocities
+C77=Prisoners caught
+C78=Fire in the city
+C79=City whores support the military
+C80=Monk distillery found
+C81=Black market food cache found
+C82=Brutal clash on the walls
+C83=Gambling den located
+C84=Bulgarian defectors
+C85=Serb defectors
+C86=Greek defectors
+C87=Romanian defectors
+C88=Armenian defectors
+C89=Turk defectors
+C90=Our spy discovered
+C91=Secret tunnel found | H91=Unique
+C92=Giustiniani melts statues into ammunition
+C93=Duel among nobles
+C94=Poisoned well
+C95=Graffiti 
+C96=Youth gangs
+C97=Public execution
+C98=Enemy commander killed
+C99=Siege tower destroyed
+C100=News from Pelopponesus
+C102=eat the horses // cavalry to provisions
+SHEET xl/worksheets/sheet2.xml
+B2=Allies

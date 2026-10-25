@@ -1,28 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
+using System.Text.RegularExpressions;
 
 public class EventUI : UIWindowFam
 {
     [SerializeField] GameObject assaultUI;
     [SerializeField] GameObject managerUI;
     [SerializeField] DialogueController dialogueController;
-
+    private VariableSingleton.CampaignSave before;
+    private bool completed;
+    public string Node {get;private set;}
+    private string title="Council decision";
+    private string decision="";
+    private string narrative="";
+    private bool chose;
+    private bool resumed;
+    public void BeginEvent(string node)
+    {
+        resumed=false;Node=node;
+        before=VariableSingleton.Instance.CaptureState();completed=false;title="Council decision";decision="";narrative="";chose=false;
+    }
+    public void ObserveLine(string text)
+    {
+        narrative+=(narrative.Length>0 ? "\n\n" : "")+text;
+        var match=Regex.Match(text,@"<b>\s*(.*?)\s*</b>");
+        if(match.Success) title=match.Groups[1].Value;
+    }
+    public void RecordChoice(string text) { decision=Regex.Replace(text,"<[^>]+>",""); narrative="";chose=true; }
+    public void PresentChoices() { if(chose) narrative=""; }
+    public void FinishEvent()
+    {
+        if(completed || before==null) return;
+        completed=true;
+        PreparationCampaign.Complete(Node);
+        string changes=EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState());
+        string body=(decision.Length>0?"<i>"+decision+"</i>\n\n":"")+(narrative.Length>0?narrative+"\n\n":"")+changes;
+        SaveGames.Checkpoint("event",Node,title+" — outcome",body);
+        CampaignHUD.Instance.ShowReport(title+" — outcome",body,ContinueToAssault);
+    }
+    public void ResumeCheckpoint(string node,string heading,string body){Node=node;completed=true;resumed=true;CampaignHUD.Instance.ShowReport(heading,body,ContinueToAssault);}
     public void ContinueToAssault()
     {
-        if (VariableSingleton.HasSiegeStarted()) SwitchPhase(assaultUI);
-        else
+        var runner=GetComponentInChildren<DialogueRunner>(true);
+        if(runner!=null && runner.IsDialogueRunning)
         {
-            VariableSingleton.IncrementTurn();
-            SwitchPhase(managerUI);
+            // The visible Continue control advances text; Enter is never required to unlock it.
+            foreach(var line in GetComponentsInChildren<LineView>()) line.OnContinueClicked();
+            return;
         }
-
+        CampaignHUD.Instance.DismissReport();
+        CampaignHUD.Instance.CheckEnding();
+        if(CampaignHUD.Instance.HasModal) return;
+        string followup=PreparationCampaign.Followup(Node) ?? SupplyEconomy.PendingNode ?? PoliticalDemands.PendingNode ?? SultanGifts.PendingNode;
+        if(followup!=null && runner!=null) {if(resumed){resumed=false;SetStartNode(followup);gameObject.SetActive(true);}else{BeginEvent(followup);runner.StartDialogue(followup);}return;}
+        if(VariableSingleton.HasSiegeStarted()) SwitchPhase(assaultUI);
+        else {VariableSingleton.IncrementTurn();SwitchPhase(managerUI);}
     }
-
-    public void SetStartNode(string NodeName) 
-    { 
-        dialogueController.SetStartNode(NodeName);
-    }
-
+    public void SetStartNode(string nodeName) { dialogueController.SetStartNode(nodeName); }
 }

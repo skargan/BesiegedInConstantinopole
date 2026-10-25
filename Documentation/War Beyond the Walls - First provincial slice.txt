@@ -1,0 +1,24 @@
+WAR BEYOND THE WALLS — FIRST PROVINCIAL SLICE
+25 October 2026. Source modules ready for integration; not a published build.
+
+Scope: Thessaloniki cell, ledger investigation, forwarding-depot sabotage, assignment/travel/recall, saved outcome and convoy reduction. New Specialists inventory shows engineers, existing healer workforce as Monks, agent locations and unavailable resident envoys. Larger rebellions, regional fronts, medical recovery, envoys, Athos and Morea diplomacy remain unimplemented.
+
+Base: a092612 plus rebased consolidation commit47b7316 (equivalent9725e02, already integrated by main as5c095ea). Cherry-pick ONLY new provincial module commit; do not replay consolidation.
+
+SHARED HOOKS — MAIN DEVELOPER OWNS THESE
+1. VariableSingleton.IncrementTurn after date advances: ArrivalNotice += ProvincialIntelligence.Advance(GetDate());
+2. At start of RestoreState before applying saved values: ProvincialIntelligence.ResetForRestore(); This prevents newer assignments leaking into old saves loaded in the same process.
+3. At end of CouncilUI.Spies: AddProvincialNavigation(578+CouncilActions.SpyOrders.Length*238); adjust top to your new intelligence layout. Helper builds navigation and extends scroll body.
+4. CouncilActions.ResolveEnemySupplies: replace fixed15 replenishment with int delivered=ImperialSupply.Deliver(15,out var provincialReport); SetInt("iFood",delivered). Report actual delivered quantity and append provincialReport. Keep existing sole food-consumption tick. No new naval increment.
+5. EventOutcome: omit integer keys beginning iWbw from generic resource deltas. Human-readable reports already explain changes.
+6. Run ProvincialChecks.Run() in an initialized development campaign. It restores original state and RNG. Run complete turn/save/UI smoke checks after connecting hooks.
+
+CONTRACTS
+ProvincialIntelligence.Advance(DateTime): resolves due arrival/operation/recall once and returns readable report. GetSupplyPressure(): read-only queued delivery reduction. ImperialSupply.Deliver(int,out string): consumes queued reduction once per actual delivery, returns remaining shipment. Caller owns delivery scheduling and setting camp stocks. Empty delivery does not consume disruption; positive delivery retains at least one store-day. Do not call for forecasts.
+Existing dictionaries store iWbw* fields. Operation success/loss is rolled and saved when ordered, not when report opened. iSpies remains agents in enemy camp; dispatch subtracts one, recall returns one, death never subtracts a second camp agent.
+
+PROVISIONAL BALANCE
+Dispatch500gold/7calendar days. Ledger1000gold/3days,75%success,one secret once and +15percentage points to depot success. Depot1500gold/4days,65%base success,3store-days removed from next convoy. Failure25%conditional agent-loss chance. Thirty-day shared operation cooldown from order;7day recall. Queue cap6store-days. These authored mechanics do not assert historical missions or travel precision.
+
+VERIFICATION
+76 runtime checks passed (40consolidation plus36provincial), using Unity Roslyn-compiled source in copied Version31 player and isolated saves. No runtime errors found. Includes duplicate orders/results, calendar arrival, JSON save roundtrip, retained rolls, old-save reset contract, losses, recall, cooldown, delivery bounds and no second food tick. Two rendered screens inspected at1600x900. Changed text after inspection is wording only. Shared hooks were deliberately left to main developer; full integrated campaign/export not yet verified. Test harness/bootstrap stays outside repository.

@@ -1,0 +1,20 @@
+title: politicalDemand
+---
+<b>A Favour Remembered</b>
+The petition bears the seal of {PoliticalCreditor()}. Their spokesman recalls the help once placed at your disposal. The City needed them then; now they ask the Emperor to honour his obligation.
+Choose how to settle one favour. Refusal suspends this faction's passive benefit and special action for fifteen days; the debt remains.
+-> Pay {PoliticalPayment()} gold from the treasury. <<if PoliticalCanPay()>>
+    <<ResolvePoliticalDemand pay>>
+    The sum is counted before witnesses. One obligation is discharged.
+-> {PoliticalConcession()}
+    <<ResolvePoliticalDemand concede>>
+    The concession is proclaimed. One obligation is discharged, though others at court resent its price.
+-> Give them greater authority at court. Faction influence +5 points. <<if PoliticalCanEmpower()>>
+    <<ResolvePoliticalDemand empower>>
+    <<if true>>
+        Their place at council is strengthened. One obligation is discharged.
+    <<endif>>
+-> Refuse. Their passive benefit and special action are suspended for 15 days; the favour remains owed.
+    <<ResolvePoliticalDemand refuse>>
+    The delegation withdraws without satisfaction. For fifteen days their assistance is withheld. Their claim against the throne remains.
+===

@@ -1,0 +1,899 @@
+{
+  "version": 1,
+  "status": "Authored integration package; not live game content",
+  "characters": [
+    {
+      "id": "helena",
+      "name": "Lady Helena",
+      "age": 32,
+      "role": "Widowed noblewoman; survival, travel and an alternative life"
+    },
+    {
+      "id": "anna",
+      "name": "Anna Synadene",
+      "age": 29,
+      "role": "Devout laywoman; mercy, public commitment and duty"
+    },
+    {
+      "id": "theodora",
+      "name": "Theodora",
+      "age": 31,
+      "role": "Courtesan; intelligence, independence and public recognition"
+    },
+    {
+      "id": "damaris",
+      "name": "Lady Damaris",
+      "age": 32,
+      "role": "Existing scandal character, renamed to distinguish her from Helena"
+    }
+  ],
+  "rules": {
+    "historicity": "All four are fictional adults. Theodora is a deliberate literary callback, not the historical sixth-century empress. No fabricated historical quotations.",
+    "meetings": "Meet all three new leads and converse before committing. One relationship event occupies the daily event slot. Routine conversations in Court do not farm trust or resources.",
+    "commitment": "Chapter4 offers commitment or friendship. Accepting requires trust>=4. Anna also requires an honest end to any existing commitment. For others, an existing commitment must be explicitly ended or betrayed via a labelled confirmation; never silently replaced.",
+    "jealousy": "Breaking a commitment honestly costs4trust with the former partner. Concealed overlapping commitment records betrayal; on the next chapter it is disclosed, costs6trust, and permits apology or separation. No arbitrary daily jealousy rolls.",
+    "timing": "First encounters eligible from siege day7. Chapter2through6 each due at least15calendar days after previous chapter completion. Due scenes are queued, not subjected to a fresh25percent optional roll. Closed/departed/dead routes stop scheduling. Friendship branches remain meaningful.",
+    "trust": "Integer per character, starts0, clamped -10to10. No romance acceptance below threshold; a visible friendship/decline fallback always exists. All costs require sufficient resources and are checked again on confirmation.",
+    "pregnancy": "Optional and only after explicit intimacy between adults. One stored15percent conception roll per relationship, provisional balance. Never reroll on load or inspection. Reveal no sooner than30days after intimacy. Birth no sooner than270days after conception; a75day chain cannot produce a newborn. Anna intimacy is an optional post-marriage choice, never automatic. Unconfirmed pregnancy and paternity remain qualified.",
+    "legacy": "Preserve courtLady/courtLadyLetters/courtLadyMarriage stable IDs and prior choices. Display Damaris for the old scandal, retaining old-name alias in source provenance. Ch3scheduled15days after eitherexistingfollowup; chapters3–6completeeachinitialbranchto6encounters. Existing ignore/agent/secret routes stay closed unless a later explicit authored branch is added.",
+    "effects": "Effects are a design contract, NOT existing engine commands. requires* fields are gates, trust: is additive, flag: setsboolean, fate:/resolve/close are transitions. Costs and changes are atomic. Resource/faction keys use existing game units. +1secret/agent can happen once per chapter only."
+  },
+  "events": [
+    {
+      "id": "romHelena1",
+      "title": "A Map with No Walls",
+      "character": "helena",
+      "chapter": 1,
+      "status": "Authored; not integrated into Unity",
+      "text": "Helena has spread a sea chart across a table intended for petitions. The islands are weighted with silver spoons. “Every map in this palace ends at the walls,” she says. “That is a habit of mind, not a fact of geography.” She is a widow of thirty-two, accustomed to negotiating with captains who mistake courtesy for agreement. She moves a spoon away from Constantinople. “You may need to know what lies beyond your duty.”",
+      "choices": [
+        {
+          "id": "romHelena1:1",
+          "label": "Ask her to explain the routes.",
+          "outcome": "She draws you a passage through the islands. For an hour you speak as two people who might have futures, rather than an emperor and his petitioner.",
+          "effects": {
+            "trust:helena": 2,
+            "flag:helenaRoutes": true
+          }
+        },
+        {
+          "id": "romHelena1:2",
+          "label": "Tell her survival begins with holding the City.",
+          "outcome": "“Then hold it,” she answers, “but do not pretend there is nowhere else to stand.” She leaves the chart open.",
+          "effects": {
+            "trust:helena": 0
+          }
+        },
+        {
+          "id": "romHelena1:3",
+          "label": "Decline further private audiences.",
+          "outcome": "She gathers the spoons before the chart. “Of course, Majesty. The sea will remain where it is.”",
+          "effects": {
+            "close:helena": "declined"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 0
+    },
+    {
+      "id": "romHelena2",
+      "title": "Names on a Passenger List",
+      "character": "helena",
+      "chapter": 2,
+      "status": "Authored; not integrated into Unity",
+      "text": "Helena brings a list of civilians for a departing merchantman. Wealthy families have paid for passage; the captain claims there is no room for the servants who helped pack their luggage. She points to a girl carrying two children. “He has room for three chests of plate. I counted them.” She asks for your intervention, not a declaration of affection.",
+      "choices": [
+        {
+          "id": "romHelena2:1",
+          "label": "Pay 400 gold to secure passage for the servants.",
+          "outcome": "The captain discovers space. Helena stays on the quay until the last child has crossed the gangplank.",
+          "effects": {
+            "iMoney": -400,
+            "trust:helena": 3,
+            "flag:helenaEvacuation": true
+          }
+        },
+        {
+          "id": "romHelena2:2",
+          "label": "Require the families to give up their cargo space.",
+          "outcome": "Some trunks return to shore. Helena thanks you; their owners begin composing a less grateful account of the morning.",
+          "effects": {
+            "fNobleRep": -0.03,
+            "trust:helena": 2,
+            "flag:helenaEvacuation": true
+          }
+        },
+        {
+          "id": "romHelena2:3",
+          "label": "Leave the passenger arrangements to the captain.",
+          "outcome": "“Then let us call this a purchase,” she says, “and stop calling it deliverance.”",
+          "effects": {
+            "trust:helena": -2
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romHelena3",
+      "title": "The Captain Wants His Price",
+      "character": "helena",
+      "chapter": 3,
+      "status": "Authored; not integrated into Unity",
+      "text": "A captain will reserve a small vessel for an emergency departure. His price includes silence, provisions and a crew willing to sail without asking who is beneath the cloak. Helena has not paid him. “I can make the arrangement. I will not make your decision for you.” Beyond her composure is something less easily negotiated: she wants you to remain alive.",
+      "choices": [
+        {
+          "id": "romHelena3:1",
+          "label": "Reserve the passage for 1,000 gold.",
+          "outcome": "The captain accepts a deposit. Helena folds the receipt into the chart. A route exists; no order to depart has been given.",
+          "effects": {
+            "iMoney": -1000,
+            "flag:escapePassage": true,
+            "trust:helena": 2
+          }
+        },
+        {
+          "id": "romHelena3:2",
+          "label": "Ask her to stay, without promising to leave.",
+          "outcome": "She sits beside you. “That is an honest answer. An inconvenient one, but honest.”",
+          "effects": {
+            "trust:helena": 2
+          }
+        },
+        {
+          "id": "romHelena3:3",
+          "label": "Order her to stop discussing departure.",
+          "outcome": "She closes the chart. Her next conversation with you concerns the weather.",
+          "effects": {
+            "trust:helena": -3
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romHelena4",
+      "title": "A Life That Is Not an Office",
+      "character": "helena",
+      "chapter": 4,
+      "status": "Authored; not integrated into Unity",
+      "text": "Helena finds you asleep over a dispatch. She takes the pen before it stains your sleeve. When you wake, she has no petition. “I have spent enough years being useful to men who would not name what I was to them.” She asks whether your private kindness means a shared future, or merely shelter from a difficult evening.",
+      "choices": [
+        {
+          "id": "romHelena4:1",
+          "label": "Offer an acknowledged courtship.",
+          "outcome": "You ask her to remain as the woman you are courting. She accepts if your earlier conduct has earned her trust; a title alone cannot answer her question.",
+          "effects": {
+            "commit": "helena",
+            "requiresTrust": 4
+          }
+        },
+        {
+          "id": "romHelena4:2",
+          "label": "Ask her to share your bed, without a public promise.",
+          "outcome": "She agrees only if she trusts you. The door closes on a freely chosen intimacy, not an agreement about tomorrow.",
+          "effects": {
+            "intimacy": "helena",
+            "requiresTrust": 4,
+            "fNobleRep": -0.02
+          }
+        },
+        {
+          "id": "romHelena4:3",
+          "label": "Offer friendship and no romantic expectation.",
+          "outcome": "“Then we can at least stop mistranslating one another.” She keeps her place at the table.",
+          "effects": {
+            "friendship": "helena"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romHelena5",
+      "title": "What Might Come After",
+      "character": "helena",
+      "chapter": 5,
+      "status": "Authored; not integrated into Unity",
+      "text": "If you have been lovers and the stored pregnancy roll succeeded, Helena tells you that she may be carrying your child. She has waited for a physician's opinion before speaking. Otherwise, she brings news that her family can shelter her abroad. In either case she asks the same question: will she be expected to remain here because leaving would embarrass you?",
+      "choices": [
+        {
+          "id": "romHelena5:1",
+          "label": "Support her departure; pay 500 gold for her household.",
+          "outcome": "You give her the means to travel independently. Whatever passes between you, her future will not depend on waiting outside your door.",
+          "effects": {
+            "iMoney": -500,
+            "trust:helena": 3,
+            "fate:helena": "departed_safely"
+          }
+        },
+        {
+          "id": "romHelena5:2",
+          "label": "Ask her to remain, while leaving the choice to her.",
+          "outcome": "She stays if trust is sufficient. Otherwise she takes her leave without asking your permission a second time.",
+          "effects": {
+            "conditionalStay": "helena",
+            "requiresTrustForStay": 5
+          }
+        },
+        {
+          "id": "romHelena5:3",
+          "label": "Prepare to leave together when I give the order.",
+          "outcome": "She begins practical arrangements. This records your intention; it does not end the campaign or guarantee escape.",
+          "effects": {
+            "flag:escapeCompanionHelena": true,
+            "flag:escapeIntention": true
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romHelena6",
+      "title": "The Last Light on the Quay",
+      "character": "helena",
+      "chapter": 6,
+      "status": "Authored; not integrated into Unity",
+      "text": "A lantern burns beneath the harbour wall. Helena has heard that the captain may sail before dawn. “You can stay,” she says. “You can come. What you cannot do is ask the boat to wait forever because you cannot bear to choose.” The distant guns supply no answer. Neither does she.",
+      "choices": [
+        {
+          "id": "romHelena6:1",
+          "label": "Review an escape attempt together.",
+          "outcome": "She takes out the chart. You review the route, costs and current risk before giving any irreversible order.",
+          "effects": {
+            "open": "escapeReview",
+            "companion": "helena"
+          }
+        },
+        {
+          "id": "romHelena6:2",
+          "label": "Remain at my post and release her from the promise.",
+          "outcome": "You tell her you will stay. She may go without being called faithless. If she chooses to remain, it will be for you, not because you trapped her with your own vow.",
+          "effects": {
+            "resolve": "helena",
+            "ending": "honest_separation_or_shared_defence"
+          }
+        },
+        {
+          "id": "romHelena6:3",
+          "label": "End the relationship and let her sail.",
+          "outcome": "She returns a small gift you had forgotten giving her. The departure is quiet enough to hurt.",
+          "effects": {
+            "resolve": "helena",
+            "fate:helena": "departed",
+            "relationship:helena": "separated"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romAnna1",
+      "title": "The Lamp in the Infirmary",
+      "character": "anna",
+      "chapter": 1,
+      "status": "Authored; not integrated into Unity",
+      "text": "Anna Synadene is washing a bowl when you enter the infirmary. A devout laywoman of twenty-nine, she has organised linen, meals and volunteers with a competence that makes the palace inventories look theatrical. She finishes with the bowl before greeting you. “If you have come for a blessing, Majesty, the priest is upstairs. If you have come to help, hold this.”",
+      "choices": [
+        {
+          "id": "romAnna1:1",
+          "label": "Help her carry water and speak with the wounded.",
+          "outcome": "She gives you work before conversation. By the time you leave, she has stopped addressing every sentence to the crown.",
+          "effects": {
+            "trust:anna": 2
+          }
+        },
+        {
+          "id": "romAnna1:2",
+          "label": "Send 100 provisions to the infirmary.",
+          "outcome": "She checks the delivery herself. Gratitude is written in a ledger beside the number of mouths it will feed.",
+          "effects": {
+            "iProvisions": -100,
+            "trust:anna": 2,
+            "flag:annaInfirmary": true
+          }
+        },
+        {
+          "id": "romAnna1:3",
+          "label": "Leave the infirmary to its attendants.",
+          "outcome": "She returns to work. There are patients who cannot wait for the Emperor to decide whether to care.",
+          "effects": {
+            "close:anna": "declined"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 0
+    },
+    {
+      "id": "romAnna2",
+      "title": "Mercy Has an Inventory",
+      "character": "anna",
+      "chapter": 2,
+      "status": "Authored; not integrated into Unity",
+      "text": "A wounded Ottoman prisoner has been carried into the infirmary. A Greek soldier wants his bed for a cousin arriving from the walls. Anna has already stopped the bleeding. “I will not pretend the bed is empty,” she says. “Nor will I pretend your soldier's cousin is an abstraction.” She asks for resources to treat both, knowing exactly how scarce they are.",
+      "choices": [
+        {
+          "id": "romAnna2:1",
+          "label": "Provide 150 provisions and treat both men.",
+          "outcome": "Two beds are made. Neither patient becomes an argument anyone has won.",
+          "effects": {
+            "iProvisions": -150,
+            "trust:anna": 3
+          }
+        },
+        {
+          "id": "romAnna2:2",
+          "label": "Treat the prisoner under guard; use the existing stores.",
+          "outcome": "Anna accepts the guard. Some soldiers resent sharing their supplies with an enemy, though the wounded man never hears their complaints.",
+          "effects": {
+            "fTroopRep": -0.02,
+            "trust:anna": 1
+          }
+        },
+        {
+          "id": "romAnna2:3",
+          "label": "Reserve the infirmary for our own people.",
+          "outcome": "Anna obeys the order to move him. She does not agree to call it merciful.",
+          "effects": {
+            "trust:anna": -3,
+            "fTroopRep": 0.01
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romAnna3",
+      "title": "No Miracle Promised",
+      "character": "anna",
+      "chapter": 3,
+      "status": "Authored; not integrated into Unity",
+      "text": "A frightened crowd wants Anna to proclaim that the City cannot fall while its relics remain within the walls. She refuses. “Faith is not a contract obliging God to spare us consequences.” A priest accuses her of weakening hope. She asks whether you want her to comfort the City with a certainty she does not possess.",
+      "choices": [
+        {
+          "id": "romAnna3:1",
+          "label": "Support her honesty in public.",
+          "outcome": "You ask the people to pray and prepare. Anna watches as you resist a promise that would have been easy to make.",
+          "effects": {
+            "trust:anna": 3,
+            "fPeopleRep": -0.01,
+            "flag:annaHonesty": true
+          }
+        },
+        {
+          "id": "romAnna3:2",
+          "label": "Ask her to speak of courage, without predicting victory.",
+          "outcome": "She speaks of the duties still within reach of every listener. The crowd leaves quieter, with work to do.",
+          "effects": {
+            "trust:anna": 1
+          }
+        },
+        {
+          "id": "romAnna3:3",
+          "label": "Allow the reassuring story to circulate.",
+          "outcome": "She refuses to lend it her voice. Your officials find another speaker.",
+          "effects": {
+            "trust:anna": -3,
+            "fPeopleRep": 0.02
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romAnna4",
+      "title": "A Promise Before Witnesses",
+      "character": "anna",
+      "chapter": 4,
+      "status": "Authored; not integrated into Unity",
+      "text": "Anna meets you after vespers. Away from the infirmary, she seems younger and less certain what to do with her hands. “I know the difference between being needed and being loved,” she says. “I should like not to confuse them.” She will consider courtship. She will not become a secret kept between campaigns of repentance.",
+      "choices": [
+        {
+          "id": "romAnna4:1",
+          "label": "Offer an acknowledged, faithful courtship.",
+          "outcome": "She accepts if your conduct has earned her trust and you have no unresolved commitment to another woman. For once, she allows someone else to carry the lamp.",
+          "effects": {
+            "commit": "anna",
+            "requiresTrust": 4,
+            "requiresNoOtherCommitment": true
+          }
+        },
+        {
+          "id": "romAnna4:2",
+          "label": "Ask for friendship and counsel.",
+          "outcome": "She takes the offer seriously. Her advice will not become less demanding because it is no longer romantic.",
+          "effects": {
+            "friendship": "anna"
+          }
+        },
+        {
+          "id": "romAnna4:3",
+          "label": "Suggest a discreet affair.",
+          "outcome": "“Then you have mistaken me.” She leaves without a scene. You have made a quieter, more durable mistake.",
+          "effects": {
+            "trust:anna": -5,
+            "close:anna": "romance_declined"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romAnna5",
+      "title": "The Marriage Without a Feast",
+      "character": "anna",
+      "chapter": 5,
+      "status": "Authored; not integrated into Unity",
+      "text": "If you are courting Anna, a priest can solemnise the marriage with a handful of witnesses. There will be no banquet while the infirmary measures its bread. If you chose friendship, she instead asks you to protect the infirmary's stores by a public charter. Either proposal turns a private assurance into something others can hold you to.",
+      "choices": [
+        {
+          "id": "romAnna5:1",
+          "label": "Marry her and endow the infirmary with 200 provisions.",
+          "outcome": "The service is brief. Afterwards Anna removes the ceremonial cloth from a table so the attendants can lay out clean dressings.",
+          "effects": {
+            "requiresCommitment": "anna",
+            "iProvisions": -200,
+            "marry": "anna"
+          }
+        },
+        {
+          "id": "romAnna5:2",
+          "label": "Issue the infirmary charter without a marriage.",
+          "outcome": "You place the institution under imperial protection. Anna receives a commitment she can use on behalf of people who have never met you.",
+          "effects": {
+            "flag:infirmaryCharter": true,
+            "trust:anna": 1
+          }
+        },
+        {
+          "id": "romAnna5:3",
+          "label": "Postpone any formal commitment.",
+          "outcome": "She accepts the uncertainty. She will judge it by what you do next.",
+          "effects": {
+            "trust:anna": -1
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romAnna6",
+      "title": "Where She Will Remain",
+      "character": "anna",
+      "chapter": 6,
+      "status": "Authored; not integrated into Unity",
+      "text": "Anna has prepared a shelter beneath the infirmary. She intends to remain with the wounded if the walls fall. If you married and later chose intimacy, a pregnancy may now be known; it changes whom she must consider, not the courage she owes a playwright. “I will hear your reasons,” she tells you. “I will not obey fear merely because it speaks in your voice.”",
+      "choices": [
+        {
+          "id": "romAnna6:1",
+          "label": "Support the shelter with 300 gold.",
+          "outcome": "She buys water jars, locks and bedding. The refuge improves their chance of survival; it does not make the City invulnerable.",
+          "effects": {
+            "iMoney": -300,
+            "flag:annaShelter": true,
+            "resolve": "anna"
+          }
+        },
+        {
+          "id": "romAnna6:2",
+          "label": "Ask her to evacuate with the patients who can travel.",
+          "outcome": "She agrees only if transport for the patients is actually arranged. She will not board a private escape boat and call it an evacuation.",
+          "effects": {
+            "requiresFlag": "civilianEvacuation",
+            "fate:anna": "evacuated_with_patients",
+            "resolve": "anna"
+          }
+        },
+        {
+          "id": "romAnna6:3",
+          "label": "Respect her decision and remain beside her when duty permits.",
+          "outcome": "You leave knowing where to find her. The answer is neither a victory nor an escape, but it is an answer.",
+          "effects": {
+            "resolve": "anna",
+            "ending": "shared_duty"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romTheodora1",
+      "title": "The Woman Who Knows the Door",
+      "character": "theodora",
+      "chapter": 1,
+      "status": "Authored; not integrated into Unity",
+      "text": "Theodora, a courtesan of thirty-one, has been stopped at three palace doors and admitted through the fourth. She tells you this with professional amusement. A captain has paid her in a promissory note bearing your seal. “I thought you should know what the Empire is purchasing on credit.” When you ask her name, she catches the association before you speak. “Yes. But I charge extra for saving an emperor's reign.”",
+      "choices": [
+        {
+          "id": "romTheodora1:1",
+          "label": "Hear her account and investigate the forged promise.",
+          "outcome": "She names the captain and keeps the note. “You may borrow my evidence. You may not lose it.”",
+          "effects": {
+            "trust:theodora": 2,
+            "flag:forgedCourtCredit": true
+          }
+        },
+        {
+          "id": "romTheodora1:2",
+          "label": "Pay the 250 gold owed, then dismiss the claim.",
+          "outcome": "She counts it in front of you. Courtesy, she explains, is no reason to abandon arithmetic.",
+          "effects": {
+            "iMoney": -250,
+            "trust:theodora": 1
+          }
+        },
+        {
+          "id": "romTheodora1:3",
+          "label": "Refuse further audiences.",
+          "outcome": "She leaves through the same door, less impressed by the furniture than the guards had expected.",
+          "effects": {
+            "close:theodora": "declined"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 0
+    },
+    {
+      "id": "romTheodora2",
+      "title": "The Price of a Name",
+      "character": "theodora",
+      "chapter": 2,
+      "status": "Authored; not integrated into Unity",
+      "text": "Theodora has heard where a clerk sells copies of provisioning orders. She will give you the name, but asks that the women who told her not be swept up in the arrests. “Men tell us things because they think listening is part of the furniture. Do not punish my friends for proving otherwise.”",
+      "choices": [
+        {
+          "id": "romTheodora2:1",
+          "label": "Protect the witnesses and pay 300 gold for the information.",
+          "outcome": "The clerk is caught with a second set of accounts. The witnesses remain witnesses.",
+          "effects": {
+            "iMoney": -300,
+            "iSecrets": 1,
+            "trust:theodora": 3
+          }
+        },
+        {
+          "id": "romTheodora2:2",
+          "label": "Diplomacy: establish a paid, discreet channel for her informants.",
+          "outcome": "She chooses the contact and the meeting place. Your intelligence office acquires one useful agent, not ownership of every woman in the district.",
+          "effects": {
+            "requiresFocus": 4,
+            "iMoney": -500,
+            "iSpies": 1,
+            "trust:theodora": 2
+          }
+        },
+        {
+          "id": "romTheodora2:3",
+          "label": "Demand the name without conditions.",
+          "outcome": "She tells you nothing. The next rumour reaches someone who knows how to ask.",
+          "effects": {
+            "trust:theodora": -3
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romTheodora3",
+      "title": "Silk at the Council Door",
+      "character": "theodora",
+      "chapter": 3,
+      "status": "Authored; not integrated into Unity",
+      "text": "A noble refuses to discuss a grain contract while Theodora is in the room. She has supplied the evidence of his supplier's fraud. “Then perhaps he would prefer the grain,” she says, “which is equally adulterated and considerably less well dressed.” The room waits to discover whether your favour survives an audience.",
+      "choices": [
+        {
+          "id": "romTheodora3:1",
+          "label": "Let her present the evidence.",
+          "outcome": "She names the figures without ornament. The noble hears her out and resents you for making him do it.",
+          "effects": {
+            "fNobleRep": -0.03,
+            "trust:theodora": 3
+          }
+        },
+        {
+          "id": "romTheodora3:2",
+          "label": "Hear her privately, then present the case yourself.",
+          "outcome": "The fraud is exposed. She understands the tactic and notices whose name is absent from the account.",
+          "effects": {
+            "trust:theodora": -1
+          }
+        },
+        {
+          "id": "romTheodora3:3",
+          "label": "Send her away to preserve decorum.",
+          "outcome": "She leaves the papers behind. They contain every fact except the one the room has just demonstrated.",
+          "effects": {
+            "trust:theodora": -4
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romTheodora4",
+      "title": "No Patron in the Bedchamber",
+      "character": "theodora",
+      "chapter": 4,
+      "status": "Authored; not integrated into Unity",
+      "text": "Theodora refuses a purse you have sent with a private invitation. “If this is business, say so. If it is affection, stop arranging it through your treasurer.” Her wit has gone. She asks what you want from her, and whether you can bear to hear an answer you did not purchase.",
+      "choices": [
+        {
+          "id": "romTheodora4:1",
+          "label": "Offer an acknowledged relationship.",
+          "outcome": "She accepts only if trust has survived your public conduct. The next morning she enters by the principal door.",
+          "effects": {
+            "commit": "theodora",
+            "requiresTrust": 4,
+            "fNobleRep": -0.03,
+            "fPriestRep": -0.03
+          }
+        },
+        {
+          "id": "romTheodora4:2",
+          "label": "Ask for freely chosen intimacy, with no promise of exclusivity.",
+          "outcome": "She may accept if she trusts you. Neither of you mistakes the night for a charter governing the rest of her life.",
+          "effects": {
+            "intimacy": "theodora",
+            "requiresTrust": 4
+          }
+        },
+        {
+          "id": "romTheodora4:3",
+          "label": "Keep the relationship professional.",
+          "outcome": "She takes back the purse only when you specify the work it pays for. The distinction improves both your accounts.",
+          "effects": {
+            "friendship": "theodora"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romTheodora5",
+      "title": "A Name for Tomorrow",
+      "character": "theodora",
+      "chapter": 5,
+      "status": "Authored; not integrated into Unity",
+      "text": "If intimacy has led to pregnancy, Theodora asks what protection a child will have when the court begins counting ancestors. Otherwise, she asks for the same protection for her household: property that cannot be reclaimed by a resentful official after your favour passes. “A gift that vanishes when you do is a loan with poor terms.”",
+      "choices": [
+        {
+          "id": "romTheodora5:1",
+          "label": "Settle 750 gold on her independent household.",
+          "outcome": "The deed names her, not a guardian appointed to speak for her. She reads it twice before thanking you.",
+          "effects": {
+            "iMoney": -750,
+            "flag:theodoraHousehold": true,
+            "trust:theodora": 3
+          }
+        },
+        {
+          "id": "romTheodora5:2",
+          "label": "If there is a child, acknowledge responsibility publicly.",
+          "outcome": "You acknowledge responsibility without declaring an unconfirmed child an heir. The court finds sufficient scandal in the truth.",
+          "effects": {
+            "requiresPregnancy": "theodora",
+            "flag:acknowledgedTheodoraChild": true,
+            "fNobleRep": -0.04,
+            "trust:theodora": 2
+          }
+        },
+        {
+          "id": "romTheodora5:3",
+          "label": "Offer private reassurance without a settlement.",
+          "outcome": "“Then we still have the same question.” She folds her hands and waits for the audience to end.",
+          "effects": {
+            "trust:theodora": -2
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "romTheodora6",
+      "title": "Purple Is an Expensive Shroud",
+      "character": "theodora",
+      "chapter": 6,
+      "status": "Authored; not integrated into Unity",
+      "text": "Someone at dinner repeats the old saying about imperial purple making a fine shroud. Theodora sets down her cup. “Very fine. Expensive. Useless to the person wearing it.” She would fight for a City that gave her a place in it; she will not pretend a theatrical death is the only proof of love. She asks what you intend to save: the throne, its people, or merely the story told about you.",
+      "choices": [
+        {
+          "id": "romTheodora6:1",
+          "label": "Entrust her household with a civilian evacuation.",
+          "outcome": "She puts her contacts to work, provided you have actually secured transport. Those who board will remember her name as well as yours.",
+          "effects": {
+            "requiresFlag": "civilianEvacuation",
+            "fate:theodora": "evacuated_with_household",
+            "resolve": "theodora"
+          }
+        },
+        {
+          "id": "romTheodora6:2",
+          "label": "Ask her to review an escape with you.",
+          "outcome": "If she trusts you, she joins the preparations. You must still accept the risks and decide who else receives a place.",
+          "effects": {
+            "requiresTrust": 5,
+            "open": "escapeReview",
+            "companion": "theodora"
+          }
+        },
+        {
+          "id": "romTheodora6:3",
+          "label": "Stay, and ask her to choose her own part in the defence.",
+          "outcome": "She remains if your conduct has given her reason to. Affection does not erase the accounts she has kept.",
+          "effects": {
+            "conditionalStay": "theodora",
+            "requiresTrustForStay": 5,
+            "resolve": "theodora"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "courtDamaris3",
+      "title": "An Account in Another Hand",
+      "character": "damaris",
+      "chapter": 3,
+      "status": "Authored; not integrated into Unity",
+      "text": "Damaris brings a household account altered to make her husband—or you, if the affair continued—appear to have diverted military pay. She recognises the handwriting. The writer once believed her affection entitled him to decide her future.",
+      "choices": [
+        {
+          "id": "courtDamaris3:1",
+          "label": "Let her identify the forger under protection.",
+          "outcome": "She gives evidence before witnesses. The inquiry begins without treating her reputation as a substitute for proof.",
+          "effects": {
+            "flag:damarisEvidence": true
+          }
+        },
+        {
+          "id": "courtDamaris3:2",
+          "label": "Pay 500 gold to recover the original ledger.",
+          "outcome": "The genuine account returns. The thief remains unnamed, but the immediate accusation can be answered.",
+          "effects": {
+            "iMoney": -500,
+            "flag:damarisLedger": true
+          }
+        },
+        {
+          "id": "courtDamaris3:3",
+          "label": "Refuse to intervene.",
+          "outcome": "The false account circulates. Those affected remember how little an imperial association protected them.",
+          "effects": {
+            "fNobleRep": -0.03,
+            "flag:damarisAbandoned": true
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "courtDamaris4",
+      "title": "The Men Who Believe Her Owed",
+      "character": "damaris",
+      "chapter": 4,
+      "status": "Authored; not integrated into Unity",
+      "text": "The man behind the forgery sends an intermediary. He will stop if Damaris leaves her household and resumes their former arrangement. She asks you to hear the demand so there can be no polite misunderstanding about what he wants.",
+      "choices": [
+        {
+          "id": "courtDamaris4:1",
+          "label": "Prosecute him using the evidence already gathered.",
+          "outcome": "The forged accounts become the centre of the case. Damaris is a witness, not the charge.",
+          "effects": {
+            "requiresAnyFlag": [
+              "damarisEvidence",
+              "damarisLedger"
+            ],
+            "flag:damarisProtected": true
+          }
+        },
+        {
+          "id": "courtDamaris4:2",
+          "label": "Buy time with 300 gold and arrange a guarded household.",
+          "outcome": "She gains security while the threat remains unresolved. She knows precisely what the money has and has not purchased.",
+          "effects": {
+            "iMoney": -300,
+            "flag:damarisGuard": true
+          }
+        },
+        {
+          "id": "courtDamaris4:3",
+          "label": "Withdraw imperial protection.",
+          "outcome": "She begins arranging her own departure. The person you once called troublesome now has a practical reason to distrust you.",
+          "effects": {
+            "flag:damarisAbandoned": true
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "courtDamaris5",
+      "title": "A Rumour with a Cradle",
+      "character": "damaris",
+      "chapter": 5,
+      "status": "Authored; not integrated into Unity",
+      "text": "If Damaris has been your lover, a stored pregnancy result may now be disclosed. On the marriage route, gossip instead claims the marriage has concealed another man’s child; the narration does not certify the allegation. In either case, courtiers have found a new way to make her private life public property.",
+      "choices": [
+        {
+          "id": "courtDamaris5:1",
+          "label": "Protect her household without claiming facts you do not know.",
+          "outcome": "You forbid harassment and pay for proper medical care. A household receives protection; a rumour receives no imperial endorsement.",
+          "effects": {
+            "iMoney": -200,
+            "flag:damarisCare": true
+          }
+        },
+        {
+          "id": "courtDamaris5:2",
+          "label": "Make a private provision of 600 gold.",
+          "outcome": "She accepts a settlement she can use, though it does little to quiet the corridors.",
+          "effects": {
+            "iMoney": -600,
+            "flag:damarisSettlement": true
+          }
+        },
+        {
+          "id": "courtDamaris5:3",
+          "label": "Leave the matter to her household.",
+          "outcome": "She will find her own help. Your name becomes less welcome there.",
+          "effects": {
+            "flag:damarisAbandoned": true
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    },
+    {
+      "id": "courtDamaris6",
+      "title": "The Door She Chooses",
+      "character": "damaris",
+      "chapter": 6,
+      "status": "Authored; not integrated into Unity",
+      "text": "Damaris has decided where she will live when the siege ends. Your decisions have helped determine whether that place includes you, her husband, an independent household or a passage abroad. She comes to tell you, rather than ask which ending you prefer.",
+      "choices": [
+        {
+          "id": "courtDamaris6:1",
+          "label": "Honour the protection and settlement already offered.",
+          "outcome": "Promises already funded remain in force. A protected Damaris remains a friend of the household; an abandoned one departs when a route opens.",
+          "effects": {
+            "resolve": "damaris",
+            "ending": "state_based"
+          }
+        },
+        {
+          "id": "courtDamaris6:2",
+          "label": "Offer 500 gold for safe independent passage.",
+          "outcome": "She takes the means to leave. Marriage and romance do not turn this into an order for her husband or the Emperor to follow.",
+          "effects": {
+            "iMoney": -500,
+            "fate:damaris": "departed",
+            "resolve": "damaris"
+          }
+        }
+      ],
+      "once": true,
+      "minDaysAfterPrevious": 15
+    }
+  ]
+}

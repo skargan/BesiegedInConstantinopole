@@ -1,0 +1,11 @@
+PARTICLE ART DIRECTION - designer request, 22 October 2026
+
+Use environmental movement throughout the game where the scene supports it: falling leaves outdoors in peace; embers and smoke around visible fires or battle; dust at impacts; sparks and debris from struck timber, stone and metal. Effects should reinforce the existing muted navy, bronze and warm fire palette.
+
+Implemented first pass: fixed pools of 24 decorative UI motes behind screen content, selected by the existing backdrop key. Leaves: peaceful market and walls. Smoke: wartime market. Embers: assault, ladder and wartime walls. Candle dust: intelligence. Unrelated interiors and sea views do not get arbitrary fire or leaves. Existing combat arrow and impact effects remain.
+
+Settings includes a saved Particles On/Off preference for these environmental motes. No campaign random numbers, damage or timers depend on decorative effects. Pause with battle animation and focus loss; do not intercept input. Reuse the pool rather than instantiate objects every frame.
+
+Further development: local emitters matched to visible brazier/fire positions; occasional foliage in garden scenes; splinters on ladder collapse; grounded stone chips and mortar dust at cannon impacts; smoke trails that dissipate before the next volley. Reserve the strongest short bursts for successful hits and collapsing engines. Tie combat debris to actual resolved outcomes, never imply extra casualties with decorative bodies. Do not put persistent effects over text, crosshairs, countdowns or choice buttons. Keep future scene-specific emitter placement separate from global atmosphere. Future richer effects must share the same reduced-effects setting.
+
+Review targets: readability at the smallest supported window, screenshot appearance, pooled object count during repeated practice, scene cleanup, focus/pause behaviour and readability of aim targets. Current first pass requires runtime visual review before release; compilation alone is not visual QA.

@@ -1,0 +1,36 @@
+VERSION 33 — WAR BEYOND THE WALLS
+
+Implemented
+Interactive painted geographical map, independent polygon overlays, gold hover outlines, zoom/pan, historical reference atlas, Constantinople-to-Palace shortcut, province intelligence entry points, transparent status-symbol atlas.
+Three Ottoman personalities: Aggressive, Cautious, Balanced. Legacy Rash saves map to Aggressive. Four siege strategies remain unchanged.
+One provincial agent assignment uses the existing travel, ledger and depot-disruption rules. Destination persists through saves. Viewing the map consumes no campaign randomness.
+
+Cartography revision
+Eleven Ottoman gameplay districts: Thrace; Moesia; Macedonia & Thessaly; Bithynia; Opsikion; Thrakesion (including Lydia); Cibyrrhaeot Coast; Phrygia; Anatolikon; Armeniakon; Paphlagonia.
+Lydia merged into Thrakesion. The former Anatolikon–Armeniakon region split into two. Save indices are append-only: legacy Lydia assignments and ledgers resolve to Thrakesion; existing Anatolia assignments remain Anatolikon; Armeniakon receives a new slot.
+Opsikion restricted to the Asian shore of Marmara. Coast-facing polygons traced from the displayed artwork, including Karaman's southern coast and northern Anatolian coastal segments. By explicit design decision, Candar/Paphlagonia is treated as fully Ottoman-controlled in this gameplay version. Historically independent in 1453, it is deliberately simplified here; revise its extent and status together if a later design needs it. It uses the same province selection, authority and spy-operation rules as other Ottoman districts. Its save slot is appended, preserving existing assignments.
+Constantinople placed at the European Bosporus entrance. Morea follows the Peloponnese coastline. Genoese Gazaria represents the southern Crimean coastal belt. Island outlines include Euboea and Venetian/Genoese associated possessions. Mount Athos is not marked.
+Names follow a Byzantine perspective; these are composite gameplay districts, not claims to exact Byzantine theme or Ottoman administrative boundaries. The painted map is stylised and is not a GIS projection. Inland frontiers remain approximate.
+
+Historical references
+https://etc.usf.edu/maps/pages/1700/1787/1787.htm
+https://etc.usf.edu/maps/pages/3600/3658/3658.htm
+https://whc.unesco.org/fr/listesindicatives/7030/
+https://whc.unesco.org/fr/listesindicatives/5575/
+https://islamansiklopedisi.org.tr/sinop
+https://islamansiklopedisi.org.tr/kastamonu
+
+Art
+Generated with the built-in image generator: unlabeled geographical relief from Italy to western Caspian, southern Ukraine to below Crete; ochre/olive terrain, blue-teal seas, restrained painted aesthetic. Separate transparent 4x4 atlas contains agent, network, revolt, imperial control, land/naval battle, army, galley, grain, cannon, garrison, treasury, burning depot, messenger, broken chain and order symbols. Imported without texture compression, with mipmaps and trilinear filtering. Original generated files retained.
+
+Next development, in dependency order
+1. Regional production and supply adapter driven by one campaign clock.
+2. Provincial authority, grievances, garrisons and rebellion progression.
+3. Actual foreign-war commitments, land fronts and naval fronts. Aid must not imply war automatically.
+4. Intelligence uncertainty and dated reports.
+5. Regional travel differences and multiple independent cells.
+6. Further historical border refinement against better period references.
+7. Pooled movement/particles for convoys, revolts and front activity.
+
+Scope boundary
+Map selection and provincial intelligence are functional. Production roles are descriptive. Control/rebellion/war markers are prepared state readers, not a completed regional economic or foreign-war simulation. No fabricated battle strength is displayed.

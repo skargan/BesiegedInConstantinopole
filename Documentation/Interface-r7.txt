@@ -1,0 +1,9 @@
+Interface revision 7
+
+Events open with narrative and choices together. The project choices view now collects all consecutive paragraphs, replacing the click-through line view in the runner. Third-party Yarn package code remains unchanged. Both narrative and choices can scroll when needed. Event completion shows the response narrative and actual state changes in one report, with one Continue control.
+
+Buttons: shared click feedback for Unity buttons and Yarn choices. A short, synthesised wooden thud uses the existing master and effects volume values and survives scene changes. Disabled UI controls do not receive normal clicks. Audio waveform is generated locally; no external asset or licence dependency. Auditory quality has not been independently listened to in this tool session.
+
+Placement and readability: phase Continue buttons use inset footers; event Continue duplicates are hidden; recruitment quantity controls run from -100 to +100, with Cancel beside Recruit and an opaque backdrop. Shared button labels have centred alignment and padding, and legacy buttons use the council colours. Existing council lists retain their fixed Return footer and scrollable actions.
+
+Validation: Unity smoke run completed 226 checks with zero failures, including immediate choices without line-advance input and absent duplicate event Continue controls. Windows build succeeded. Exported-player captures cover menu, management, civic and internal politics, spies, diplomacy, court, technologies, palace, recruitment, wall repair and several event branches/outcomes at 1600x900. Selected captures inspected visually; no claim of exhaustive event-branch or all-resolution testing. Final recruitment footer placement correction was built and checked in the exported player.

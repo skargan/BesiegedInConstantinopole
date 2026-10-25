@@ -229,8 +229,8 @@ title: story5
   <<set $troop_rep = $troop_rep  +10>>
   <<set $infantry_quality = $infantry_quality -1>>
   <<set $archers_quality = $archers_quality  -1>>
--> As our Focus is diplomacy, could order our agents to spread rumours among refugees about the awful conditions in the City, while mentioning that Pelopponesus is very nice this time of year and not as far as it seems, so they should consider going there instead. \[Cost; 2500, accept a few thousand refugees\] <<if $Focus is "4" and $money >= 2500>> #line:0bca10c 
-    The plan works, our agents manage to successfuly divert majority of the refugees away from Constantinople.  #line:06dacca 
+-> As our Focus is diplomacy, could order our agents to spread rumours among refugees about the awful conditions in the City, while mentioning that Peloponnese is very nice this time of year and not as far as it seems, so they should consider going there instead. \[Cost; 2500, accept a few thousand refugees\] <<if $Focus is "4" and $money >= 2500>> #line:0bca10c 
+    The plan works, our agents manage to successfully divert majority of the refugees away from Constantinople.  #line:06dacca 
     <<set $population = $population +round(random_range(3,7))>>
     <<set $money = $money  -2500>> 
 
@@ -280,7 +280,7 @@ title: story7
 -> As we have accepted Catholicism fully and our focus is diplomacy, send our envoy to the Pope and request him to launch a new crusade to help us! \[Chance: 30% major aid, 50% minor aid, 20% no aid\] <<if $Religion is "1" and $Focus is "4">> #line:078bdb8  
  <<set $chance = dice(100)>>
  <<if $chance <= 30>> 
- Tireless work of your diplomats and the wise decision to mend the Schism create conditions which allow the Pope to call the Xth crusade, this time to protect Constantinople and repay the sins of the IVth crusade! Soon, pilgrim warriors flock to your cause, Italians, French, English, Scotish, Spanish, Portuguese, Hungarians, Polish and even a few Lithuanians. Over the coming months some 3000 infantry, 4000 archers and 800 cavalry arrive, along with maybe 15 000 pilgrims and camp followers who join your general population. #line:0e70ee0 
+ Tireless work of your diplomats and the wise decision to mend the Schism create conditions which allow the Pope to call the Xth crusade, this time to protect Constantinople and repay the sins of the IVth crusade! Soon, pilgrim warriors flock to your cause, Italians, French, English, Scottish, Spanish, Portuguese, Hungarians, Polish and even a few Lithuanians. Over the coming months some 3000 infantry, 4000 archers and 800 cavalry arrive, along with maybe 15 000 pilgrims and camp followers who join your general population. #line:0e70ee0 
  <<elseif $chance <= 80>> 
  While the Christian kingdoms are not yet ready to commit to a full crusade, many send their volunteers to help you. Venetian and Genoese mercenaries soon arrive, bringing 600 infantry and 600 archers to support the defence of your city. #line:0f0d8d9 
  <<else>>
@@ -318,7 +318,7 @@ title: story8
  <<set $Fleet = "2">>
 -> Order the fleet to remain in the Golden Horn, protecting the city and shooting their cannons at the attackers. #line:08b46ac 
  <<set $Fleet = "3">>
--> Order the fleet to visit various ports around the Meditteranean Sea and bring volunteers, supplies and donations to help the siege. #line:04d4c5c 
+-> Order the fleet to visit various ports around the Mediterranean Sea and bring volunteers, supplies and donations to help the siege. #line:04d4c5c 
  <<set $Fleet = "4">>
 -> Order the fleet to engage the Ottoman fleet in direct battle and destroy them. \[Chance: 10% + number of ships\] #line:0b3882b 
  <<set $chance = dice(100)>>
@@ -337,8 +337,8 @@ title: story8
 
 title: story9
 ---
-<b>Easter Speech</b>: As you gaze out over the majestic City below you, you contemplate the dire situation facing your beloved empire. With the mighty Ottoman forces encircling the city, you realise that siege will begin in mere hours, a couple of days at most. Heavy responsibility lies on your shoulders. While everyone knows about the impending siege, you are on your way to Hagia Sophia to rally the spirits of your people for the impending battle. Everyone will be there, from the lowest whores to the most esteemed nobles. What will you focus on in your speech? #line:0377497 
--> Citizens of the Roman Empire! We are the defenders of a legacy that spans millenia. Let every heart beat as one, for it is our resilience and unwavering spirit... #line:02434d0 
+<b>Easter Speech</b>: As you gaze out over the majestic City below you, you contemplate the dire situation facing your beloved Empire. With the mighty Ottoman forces encircling the city, you realise that siege will begin in mere hours, a couple of days at most. Heavy responsibility lies on your shoulders. While everyone knows about the impending siege, you are on your way to Hagia Sophia to rally the spirits of your people for the impending battle. Everyone will be there, from the lowest whores to the most esteemed nobles. What will you focus on in your speech? #line:0377497 
+-> Citizens of the Roman Empire! We are the defenders of a legacy that spans millennia. Let every heart beat as one, for it is our resilience and unwavering spirit... #line:02434d0 
  Your speech leaves a generally good impression on everyone gathered at the Hagia Sophia, but the nobles and the general population love it more than the rest. #line:0f04328 
  <<set $people_rep = $people_rep +15>>
   <<set $noble_rep = $noble_rep +15>>
@@ -386,7 +386,7 @@ title: story10
  <<set $Fleet = "2">>
 -> Order the fleet to remain in the Golden Horn, protecting the city and shooting their cannons at the attackers. #line:0fbc026 
  <<set $Fleet = "3">>
--> Order the fleet to visit various ports around the Meditteranean Sea and bring volunteers, supplies and donations to help the siege. #line:06c9228 
+-> Order the fleet to visit various ports around the Mediterranean Sea and bring volunteers, supplies and donations to help the siege. #line:06c9228 
  <<set $Fleet = "4">>
 
 <<jump story11>>
@@ -397,7 +397,7 @@ title: story11
 ---
 <b>Siege Begins</b>: So the time has come. You can see Mehmeds army marching in the distance, sky in their direction is marked by plumes of black smoke from the villages they set on fire while coming here. The siege of Constantinople has begun. #line:0fe54f7 
 \[You have now entered siege phase. Please note that while in the early game turns marked passing weeks, currently each turn takes a day. Furthermore, as food will now stop coming into the city, your provisions will start decreasing at a rate based on your population size. Enemy will be attacking your walls daily and when they will be reduced enough, they will launch an assault, trying to take your head. Good luck.\] #line:04a5c90 
--> Greet our guests - send the cavalry to harrass their forward formations, but avoid serious engagements. #line:0e06480 
+-> Greet our guests - send the cavalry to harass their forward formations, but avoid serious engagements. #line:0e06480 
  <<set $chance = dice(100)>>
  <<if $chance <= ($cavalry/10+10)>> 
  Your cavalry, adept at hit-and-run tactics, successfully disrupts the Ottoman vanguard, overrunning surprised column of slaves, engineers and cooks and inflicting notable damage without being drawn into a decisive battle. One of your knights even manages to set a gunpowder wagon on fire, exploding it and destroying a few enemy cannons.The maneuver not only sets the stage for a more fortified defense but also instills a renewed sense of confidence among your ranks. #line:03d2fcd 

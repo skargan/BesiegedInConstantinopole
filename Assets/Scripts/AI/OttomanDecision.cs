@@ -1,7 +1,6 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -34,14 +33,16 @@ public class OttomanDecision : MonoBehaviour
     
     public void EliminateRedundant() 
     { 
-        foreach (possibility option in tacticalOptions) 
-        { 
-            if(option.IsRestricted()) tacticalOptions.Remove(option);
+        // Iterate backwards so removing an option does not invalidate iteration.
+        for (int i = tacticalOptions.Count - 1; i >= 0; i--)
+        {
+            if (tacticalOptions[i].IsRestricted()) tacticalOptions.RemoveAt(i);
         }
     }
 
     public int SelectRandomAction() 
     {
+        if (tacticalOptions.Count == 0) return -1;
         float totalChance = 0;
         foreach (possibility option in tacticalOptions) { totalChance += option.Chance; }
 
@@ -69,7 +70,8 @@ public class OttomanDecision : MonoBehaviour
 
     public void ExecuteRandomAction() 
     {
-        tacticalOptions[SelectRandomAction()].ExecuteAction();
+        int selection = SelectRandomAction();
+        if (selection >= 0) tacticalOptions[selection].ExecuteAction();
     }
 
     //DEBUG
@@ -90,7 +92,8 @@ public class OttomanDecision : MonoBehaviour
         int[] results = new int[tacticalOptions.Count];
         for (int i = DebugNumberOfRolls; i>0; i--) 
         {
-            results[SelectRandomAction()]++;
+            int selection = SelectRandomAction();
+            if (selection >= 0) results[selection]++;
         }
 
         for(int i = 0; i < results.Length; i++) 

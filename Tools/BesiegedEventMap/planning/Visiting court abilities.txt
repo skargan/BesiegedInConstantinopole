@@ -1,0 +1,14 @@
+Visiting court implementation — 21 October 2026
+Six invited visitors use existing combat/diplomacy modifiers, not decorative attributes.
+All start loyalty50/100, persisted. Benefits require arrival. One commander at a time; command benefit replaces own passive benefit, other serving advisers retain passive benefits.
+Stephen of Moldavia: infantry lethality+4% / +12% ascommander.
+Giosafat Barbaro: aid acceptance+5 / +12 percentagepoints.
+Bertrandon de la Broquiere: wall defence+1 / +4 points.
+Giovanni Fontana: cannon lethality+4% / +12%.
+Cyriacus of Ancona: effective army morale in breach tests+2 / +6 points.
+Pero Tafur: enemy casualties in assaults+3% / +9%.
+Values provisionalgamebalance; notclaimsabout historically measuredpersonalabilities.
+Commander IDs100–105 preserveexisting0–7IDs. CourtRoster.Bonus includesinvitedvisitor contribution; originalspecialists continueworking. Overview/outcome use CommanderName mapping.
+Appointthroughstory14 preparation (+10army support existingone-timeeventrule) or Courtmajoraction (noextraarmy support).
+Courtshowsactivefriendlyofficers0–7only, arrivedvisitor, andemployedShaherezade(storyteller/spy). Noenemychampion, dead/departed/prisoners/unresolvedofficers. Incomingvisitorremainsanarrivalnotice.
+Implementation applied to Unity source; release owner has the files for the next validation/build, withfocusedtests forarrivalgating/all6bonuses/combatintegration/savepersistence/courtfilter.

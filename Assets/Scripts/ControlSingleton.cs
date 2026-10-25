@@ -17,6 +17,8 @@ public class ControlSingleton : MonoBehaviour
     // GO BACK functionality
 
     bool escActive;
+    public bool CanGoBack => escActive;
+    public System.Action ReturnAction;
 
     public GameObject returnFrom;
     public GameObject returnTo;
@@ -40,8 +42,20 @@ public class ControlSingleton : MonoBehaviour
 
 
 
+    public void ClearHistory()
+    {
+        ReturnAction = null;
+        backHistory.Clear();
+        returnFrom = null;
+        returnTo = null;
+        escActive = false;
+    }
+
     public void GoBack()
     {
+        if(WorldMapUI.Close()||WarTheatreUI.Close()||TechnologyArtwork.ClosePreview())return;
+        if (ReturnAction != null) { var action=ReturnAction; ClearHistory(); action(); return; }
+        if (returnTo == null || returnFrom == null) { ClearHistory(); return; }
         returnTo.SetActive(true);
         returnFrom.SetActive(false);
 
@@ -72,6 +86,8 @@ public class ControlSingleton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if(AudioSettingsUI.Close()||WorldMapUI.Close()||WarTheatreUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
+            if (CampaignHUD.Instance != null && CampaignHUD.Instance.HasModal) { CampaignHUD.Instance.TogglePause(); return; }
             if (escActive)
             {
                 GoBack();
@@ -79,8 +95,7 @@ public class ControlSingleton : MonoBehaviour
 
             else
             {
-                VariableSingleton.Instance.Save();
-                SceneManager.LoadScene(0);
+                CampaignHUD.Instance.TogglePause();
             }
         }
     }

@@ -1,0 +1,44 @@
+BESIEGED ARCHITECTURE MAP - consolidation pass 22 October 2026
+
+AUTHORITIES
+Campaign: Assets/Scripts/VariableSingleton.cs dictionaries and CampaignSave version2 (individual population). Legacy string keys are compatibility interfaces for Yarn, not permission to create a parallel state store. Preserve key names and units during migration.
+Encounter: PhasedAssault owns the temporary assault snapshot, seeded RNG, permitted phase transitions and once-only actions. Phase = Approach / Contact / Aftermath. The six screen breadcrumbs are presentation subdivisions, not six independent simulations.
+Resolved encounter: AssaultResult is a frozen snapshot. AI.CommitPhased is the campaign adapter. TryCommit permits one application, and practice exits before campaign mutation. Report and campaign deltas read this same snapshot. Public legacy model fields remain a staged encapsulation debt, not a second authoritative result.
+Content: Assets/Resources/Content/AssaultIncidents.json is the sole assault incident definition source, schema1. Each incident has stable Id, phase, condition, prose and choices with costs/effects. Loader checks schema, unique IDs, conditions, choices and a resource-free fallback. Documentation/Assault incident catalogue.json is a pointer only. Yarn remains authoritative for narrative events; do not migrate everything to another format.
+Presentation: PhasedAssaultUI, BattleCrowdView, AssaultDuelUI, LadderDefenceUI and SceneParticles render/input. PresentationRandom and local System.Random instances sample cosmetics; they do not advance Unity's saved campaign random stream.
+Time: campaign turn/calendar lives in VariableSingleton; simulated fighting seconds in PhasedAssault are distinct from UI countdown/animation seconds. Reading and pausing do not create simulated casualties.
+
+INTERFACES
+AI.BeginPhased -> snapshot + PopulateDisposition -> PhasedAssaultUI.
+UI combat intents -> model actions or AssaultIncidents.Choose -> model changes.
+Model Resolve -> frozen Outcome + Resolved notification -> AI.CommitPhased -> campaign updates + report.
+AssaultPractice creates disposable snapshots and returns without campaign updates. Resource and calendar isolation is tested in exported-player smoke tests.
+DefencePosture calculates land/sea allocation from the current campaign totals. RefreshDisposition now recalculates existing snapshot fields directly before combat; it does not create another battle, alter UI or consume a new seed.
+
+OWNERSHIP
+This release checkout isolates assault/consolidation work from the Desktop agent's profile, conversation and event work. Shared hooks must be merged narrowly. Do not overwrite Desktop EmperorCombat, VariableSingleton.Awake, GardenConversations, CampaignHUD or City map navigation with an isolated older copy. Frozen Version27 remains available during this migration.
+
+CONFIRMED COLLISIONS ADDRESSED
+Impact animation sampled Unity RNG: separated cosmetic stream.
+Garrison review called BeginPhased: removed encounter creation and its RNG/UI side effects.
+Finished battle accepted some actions / repeated emergencies: guarded by model phase and once-only resolution.
+UI alone prevented repeated incident choice: moved guard into the gameplay content adapter.
+Commit read mutable encounter fields after finish: frozen result now feeds commits and reports.
+Incident definitions duplicated in C# and JSON documentation: moved to one validated Resources catalogue.
+Old regression casualty assertions predated simulated attrition: updated expectations to include existing simulation rules.
+
+REMAINING MIGRATIONS
+1. Old instant-assault path still exists behind PhasedAssaultUI.Enabled. Preserve it until save/scene/serialized callers are audited; do not allow both paths to commit one encounter. Retire only with parity evidence.
+2. Main assault UI still sequences some subphases and input timers. Model-level major transitions are now guarded; extracting remaining orchestration is subsequent bounded work.
+3. Campaign turn advancement directly calls many subsystems. Freeze/document order before extracting a TurnResolver and typed results. Do not casually reorder food, fleet, deadlines or politics.
+4. Campaign state setters remain widely accessible and string-named. Add narrow domain operations incrementally for repeated validated transactions; preserve Yarn bindings and save schema. Resource units need explicit audit, including population thousands and fractions versus percentage points.
+5. Seeded model tests exist; full replay needs initial snapshot, campaign incident context and recorded player intents. Do not claim full campaign deterministic replay yet. In-progress battle persistence is not added in this pass.
+6. Enemy-breach calculation uses existing AssaultSystem plus current garrison inputs. Audit strength/readiness meaning before changing formulas. No intentional balance changes in consolidation.
+7. story23 camp-infiltration blank screen confirmed in Player-prev.log: FormatException in VariableSingleton.Change after raw $openingAgents command argument. Corrected to Yarn interpolated {$openingAgents}; validator rejects this raw Change-variable pattern. Exact branch exported regression added; final result recorded in PROJECT_STATUS. Numeric recruitment promise separately removed per approved presentation policy.
+8. Assets/Scripts/SwordDuel and LadderDefence are encounter models; ladders are not connected to battle/practice yet. No new content or effects during consolidation.
+
+
+VERSION32 AUTHORITIES
+OttomanDirector owns saved strategic intent,personality,estimates and next operation. OttomanStrategies.json is its validated static rule catalogue;the old scene decision tables no longer select operations. OttomanSiegeOperations adapts planned intents to existing AI/combat/sea-wall methods. AI.TakeAIAction guards once-per-turn execution and calls the sole enemy-food resolver. Frozen AssaultResult includes remaining mantlets.
+Regional hook:ProvincialIntelligence.Advance resolves travel/operations on calendar progression;ImperialSupply.Deliver consumes queued convoy disruption. Neither adds a second food or ship tick. RestoreState resets provincial metadata before applying old saves. Future imperial wars and production must use this supply contract and the director's persistent state rather than creating another independent siege AI.
+WallRepairRules owns material/labour preview and payment. AchievementPlatform owns permanent achievement identity/earned state;career menu gating reads it. FleetOperations owns the saved14–21day operational cadence,independent of narrative selection.

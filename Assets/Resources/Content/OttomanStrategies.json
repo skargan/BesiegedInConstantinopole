@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "strategies": [
+    {
+      "strategy": "RapidAssault",
+      "buildup": [
+        {
+          "action": "Reinforce",
+          "weight": 35
+        },
+        {
+          "action": "Bombard",
+          "weight": 35
+        },
+        {
+          "action": "FillMoat",
+          "weight": 20
+        },
+        {
+          "action": "ArrowScreens",
+          "weight": 10
+        }
+      ],
+      "operations": [
+        {
+          "action": "Bombard",
+          "weight": 40
+        },
+        {
+          "action": "FillMoat",
+          "weight": 10
+        },
+        {
+          "action": "Ramp",
+          "weight": 5
+        },
+        {
+          "action": "IrregularAssault",
+          "weight": 18
+        },
+        {
+          "action": "BalkanAssault",
+          "weight": 12
+        },
+        {
+          "action": "JanissaryAssault",
+          "weight": 5
+        },
+        {
+          "action": "Reinforce",
+          "weight": 7
+        },
+        {
+          "action": "Reconnaissance",
+          "weight": 3
+        }
+      ]
+    },
+    {
+      "strategy": "MethodicalAssault",
+      "buildup": [
+        {
+          "action": "Reinforce",
+          "weight": 20
+        },
+        {
+          "action": "Ramp",
+          "weight": 25
+        },
+        {
+          "action": "Tower",
+          "weight": 20
+        },
+        {
+          "action": "Ram",
+          "weight": 15
+        },
+        {
+          "action": "ArrowScreens",
+          "weight": 10
+        },
+        {
+          "action": "FillMoat",
+          "weight": 10
+        }
+      ],
+      "operations": [
+        {
+          "action": "Bombard",
+          "weight": 25
+        },
+        {
+          "action": "Ramp",
+          "weight": 15
+        },
+        {
+          "action": "Tower",
+          "weight": 8
+        },
+        {
+          "action": "Ram",
+          "weight": 8
+        },
+        {
+          "action": "ArrowScreens",
+          "weight": 7
+        },
+        {
+          "action": "BalkanAssault",
+          "weight": 12
+        },
+        {
+          "action": "IrregularAssault",
+          "weight": 10
+        },
+        {
+          "action": "JanissaryAssault",
+          "weight": 10
+        },
+        {
+          "action": "Reconnaissance",
+          "weight": 5
+        },
+        {
+          "action": "GalataAttack",
+          "weight": 5
+        },
+        {
+          "action": "Infiltrate",
+          "weight": 4
+        }
+      ]
+    },
+    {
+      "strategy": "GoldenHorn",
+      "buildup": [
+        {
+          "action": "Reinforce",
+          "weight": 25
+        },
+        {
+          "action": "OverlandShips",
+          "weight": 40
+        },
+        {
+          "action": "ChainBattery",
+          "weight": 20
+        },
+        {
+          "action": "Reconnaissance",
+          "weight": 15
+        }
+      ],
+      "operations": [
+        {
+          "action": "OverlandShips",
+          "weight": 35
+        },
+        {
+          "action": "ChainBattery",
+          "weight": 25
+        },
+        {
+          "action": "NavalAssault",
+          "weight": 25
+        },
+        {
+          "action": "Bombard",
+          "weight": 10
+        },
+        {
+          "action": "Reinforce",
+          "weight": 5
+        }
+      ]
+    },
+    {
+      "strategy": "Strangulation",
+      "buildup": [
+        {
+          "action": "Reinforce",
+          "weight": 30
+        },
+        {
+          "action": "Reconnaissance",
+          "weight": 25
+        },
+        {
+          "action": "ArrowScreens",
+          "weight": 15
+        },
+        {
+          "action": "Bombard",
+          "weight": 10
+        },
+        {
+          "action": "SabotageFood",
+          "weight": 20
+        },
+        {
+          "action": "Infiltrate",
+          "weight": 15
+        }
+      ],
+      "operations": [
+        {
+          "action": "SabotageFood",
+          "weight": 35
+        },
+        {
+          "action": "Carcasses",
+          "weight": 20
+        },
+        {
+          "action": "NavalAssault",
+          "weight": 10
+        },
+        {
+          "action": "Bombard",
+          "weight": 10
+        },
+        {
+          "action": "Reinforce",
+          "weight": 10
+        },
+        {
+          "action": "Reconnaissance",
+          "weight": 15
+        },
+        {
+          "action": "GalataAttack",
+          "weight": 5
+        },
+        {
+          "action": "Infiltrate",
+          "weight": 12
+        }
+      ]
+    }
+  ]
+}

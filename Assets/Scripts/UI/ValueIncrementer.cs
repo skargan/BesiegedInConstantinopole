@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -45,7 +45,7 @@ public class ValueIncrementer : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(newNumberText)) 
         {
-            numberHeld = int.Parse(newNumberText);
+            numberHeld = int.TryParse(newNumberText, out int parsed) ? parsed : 0;
         }
         else numberHeld = 0;
     }

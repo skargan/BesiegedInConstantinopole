@@ -1,0 +1,18 @@
+Besieged Version 23 - character portrait art
+
+The original nine-character sheet is preserved byte-for-byte. The ordered identities are Giustiniani, Diedo, Notaras, Orhan, Sphrantzes, Orban, Grant, Isidore, Hasan. Atlas crops use the actual panel boundaries instead of equal thirds.
+
+Generated with the built-in image generation tool, 22 October 2026. These are artistic fictional likenesses; the artwork is not historical portrait evidence. Availability and recruitment are unchanged.
+
+Shared prompt: historical-scene; chest-up three-quarter painted realistic historical strategy portrait, complete head within frame, warm directional light, textured midnight navy backdrop, believable skin and rich period cloth, restrained gold, no text, no border or watermark. Character-specific prompts:
+100: Stephen of Moldavia, a young clean-shaven Moldavian claimant in his early twenties, long chestnut hair, alert distrustful eyes, modest crimson princely coat and mail collar
+101: Giosafat Barbaro, a Venetian merchant traveller about forty, lean weathered face, short dark beard threaded grey, practical indigo wool cap, fur-trimmed dark travelling robe
+102: Bertrandon de la Broquiere, Burgundian traveller about fifty, long narrow face, greying brown beard, dark chaperon and travel-worn Burgundian doublet, observant eyes
+103: Giovanni Fontana, Italian physician and inventor about fifty-seven, thoughtful broad forehead, thinning grey curls, neatly trimmed beard, muted rust scholar cap, dark scholar robe, small rolled engineering sketch
+104: Cyriacus of Ancona, Italian antiquarian about sixty, lean aquiline face, expressive dark eyes, greying close beard, black soft scholar cap, restrained rich brown robe, small inscribed stone held low
+105: Pero Tafur, Castilian knight traveller about forty, composed angular face, cropped dark beard, dark red doublet and understated steel gorget, no crown
+200: Kjold, fictional half-Greek captain of the Varangian Guard, broad weathered face aged forty-five, grey-blue eyes, dark blond beard, scar at eyebrow, Byzantine lamellar armour over midnight blue cloth, practical soldier without horned helmet
+201: Shaherezade, adult fictional cultivated Ottoman household storyteller, watchful dark eyes, dark hair with cream veil, emerald silk and gold embroidery.
+202: Mehmed II in 1453, young Sultan aged21, curved nose, short beard, composed intelligent gaze, white turban with red cap, burgundy kaftan.
+
+Files: Assets/Resources/UI/Identity/Characters/{id}.png. Original sheet: Assets/Resources/UI/Identity/court-portraits.png. These assets contain no gameplay effects or unlocks.

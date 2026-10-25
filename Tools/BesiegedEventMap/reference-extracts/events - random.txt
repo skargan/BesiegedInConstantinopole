@@ -1,0 +1,464 @@
+1: Version 1.0 unreleased
+3: Random events 37
+4: Written events: 6Coded events: 0Tested events: 0
+6: To do: 43
+8: Event name
+9: Code
+10: Status (written/coded)
+11: Notes
+12: 1
+13: An Uneventful Day
+14: random0
+15: Coded
+16: Recurring
+17: 2
+18: Desertion to the Monasteries
+19: random1
+20: Coded
+21: Recurring
+22: 3
+23: Food Riots in the Merchant Quarter
+24: random2
+25: Coded
+26: Recurring
+27: 4
+28: Sudden Storm Hits the City
+29: random3
+30: Coded
+31: Recurring
+32: 6
+33: Ottoman Propaganda Spreads Within the City
+34: random5
+35: Coded
+36: Recurring
+37: 8
+38: Cannon Explodes
+39: random7
+40: Coded
+41: Recurring
+42: 9
+43: Nightly Vigils at Religious Sites
+44: random8
+45: Coded
+46: Recurring
+47: 10
+48: Food Thief Captured
+49: random9
+50: Coded
+51: Recurring
+52: 11
+53: Fledgling Agricultural Initiatives
+54: random10
+55: Coded
+56: Recurring
+57: 12
+58: Emergence of a Street Poet
+59: random11
+60: Coded
+61: Recurring
+62: 13
+63: Citizens Assist Wall Repairs
+64: random12
+65: Coded
+66: Recurring
+67: 14
+68: Rumors of Reinforcements
+69: random13
+70: Coded
+71: Recurring
+72: 17
+73: Surprise Assault Proposal
+74: random16
+75: Part-Written
+76: Recurring
+77: 18
+78: Cracks in the Outer Wall
+79: random17
+80: Written
+81: Recurring
+82: 19
+83: Hunt for the Traitor
+84: random18
+85: Written
+86: Recurring
+87: 20
+88: Noble ends his life
+89: random19
+90: Written
+91: Unique
+92: 21
+93: Enemy cannon explodes
+94: random20
+95: Written
+96: Recurring
+97: 22
+98: News from the Fleet
+99: random21
+100: Part-Written
+101: Recurring
+102: 23
+103: Fire in the City
+104: random22
+105: Written
+106: Unique
+107: 24
+108: People desire to see the Emperor
+109: random23
+110: Written
+111: Recurring
+112: 25
+113: Support from the People
+114: random24
+115: Written
+116: Recurring
+117: 26
+118: Support from the Nobles
+119: random25
+120: Written
+121: Recurring
+122: 27
+123: Support from the Priests
+124: random26
+125: Written
+126: Recurring
+127: 28
+128: Street Assassination
+129: random27
+130: Written
+131: Recurring
+132: 29
+133: New enemy cannon battery
+134: random28
+135: Written
+136: Recurring
+137: 30
+138: Engineer falls to his death
+139: random29
+140: Written
+141: Recurring
+142: 31
+143: Infighting at the Market
+144: random30
+145: Part-Written
+146: Unique
+147: 32
+148: Infighting at the Barracks
+149: random31
+150: Part-Written
+151: Unique
+152: 33
+153: Infighting at the Stables
+154: random32
+155: Part-Written
+156: Unique
+157: 34
+158: Disease Outbreak
+159: random33
+160: Part-Written
+161: Recurring
+162: 35
+163: Food spoils
+164: random34
+165: Part-Written
+166: Recurring
+167: 36
+168: Skirmishing at the Walls
+169: random35
+170: Part-Written
+171: Recurring
+172: 37
+173: Night boats arrive from Galata
+174: random36
+175: Part-Written
+176: Recurring
+177: 38
+178: Unruly Tavern Brawl
+179: random37
+180: Part-Written
+181: Recurring
+182: 39
+183: Rising Tensions among the Soldiers
+184: random38
+185: Written
+186: Recurring
+187: 40
+189: random39
+192: 41
+194: random40
+197: 42
+199: random41
+202: 43
+204: random42
+214: ===
+215: title: random23
+216: ---
+217: <b>People desire to see the Emperor</b>
+218: The people of the City have not seen you for some time.<br>  Some foul tongues have started a rumour that you are either sick or possibly even dead! While for now these rumours are being dismissed, this will not last for long and panic could spread. How would you wish to deal with this?
+219: Rumours of the common rabble are nothing to me. Ignore them.
+220: Amidst the tumult of the siege, disconcerting rumors swirl through the city like an unsettling breeze. Whispers of your purported illness or demise have taken root, casting a shadow of uncertainty over Constantinople. While skepticism shields some from the weight of these tales, a pervasive undercurrent of worry courses through the populace.
+221:      <<set $people_rep = $people_rep-5>>
+222: The people deserve to see their Emperor. I shall appear on my balcony to give a short speech.
+223:      As the sun hovers on the brink of noon, you emerge onto the balcony, greeted by the expectant faces of the gathered crowd below. A wave of palpable relief washes over the people as they catch sight of you, their leader. The air is charged with anticipation, and a collective murmur of approval ripples through the assembly. In this pivotal moment, the city finds solace in your presence, and the shared optimism radiates from the balcony, creating a momentary respite from the looming challenges that surround Constantinople.
+224:      <<set $people_rep = $people_rep-5>>
+225: The time has come to walk among my people and inspire them with my presence. I believe that this is the correct course of action and people will appreciate it!
+226:      Descending from the imperial quarters, you, the emperor, embark on a deliberate stroll down the bustling main market street. The vibrant marketplace, typically filled with the harmonious cadence of commerce, hushes momentarily as the crowd catches sight of your imposing figure. All rumours are dispelled immediately, but you notice suspicious shadows in the crowd...
+227:      <<jump random4>>
+229: ===
+230: title: random24
+231: ---
+232: <b>Support from the People</b>
+233: My people are the source of our strength. While there have always been various complaints and issues, as the siege begins, they pull together, understanding that if Mehmed's beasts will breach the gate, all of them will end up as slaves or worse. While times are not easy for them we can always turn to the community leaders and ask for their aid. How could we use our people?
+234: -> Organise chariot racing fans into demolition brigades and send them to tear down old Roman buildings to gather more materials. <<if $people_rep >50>>
+235:   Chariot racing hoolingans are a tough crowd, deconstructing buildings fits them just right. Soon beautiful columns and ancient aqueducts are torn down into piles of bricks. You gain 200 materials.
+236:     <<set $materials = $materials+200>>
+237:     <<set $people_rep = $people_rep-5>>
+238: -> Organise chariot racing fans into construction brigades and send them to restore the walls. <<if $people_rep >60 and $materials >60 >>
+239:   The masses of people are quick to deliver materials to the walls and help rebuilding them. Turkish archers however use the opportunity to kill and wound many of the civilians who expose themselves.
+240:     <<set $Outer_wall = $Outer_wall +10>>
+241:     <<set $Middle_wall = $Middle_wall +10>>
+242:     <<set $Inner_wall = $Inner_wall +10>> 
+243:     <<set $materials = $materials -60>>
+244:     <<set $people_rep = $people_rep -10>>
+245:     <<set $population = $population -1>>
+246: -> Call for additional volunteers from the people for military service.  <<if $people_rep >70>>
+247:   We can always use more men on the walls. Few want to go there, but your people love you, so they will serve. This however will decrease morale both among the people and the troops.
+248:     <<set $infantry = $infantry+1000>>
+249:     <<set $people_rep = $people_rep-10>>
+250:     <<set $troop_rep = $troop_rep-5>>
+251:     <<set $population = $population -1>>
+252: -> You feel that your people deserve a break. Hold chariot races and a feast! [Cost: 1000 gold, 3 days worth of food] <<if $money >1000 and $provisions >= $provisions-($population*3) >>
+253:   Massive feast and chariot races will improve the mood of the population. But is it wise to do so during a siege..?
+254:     <<set $people_rep = $people_rep+10>>
+255:     <<set $money = $money-1000>>
+256:     <<set $provisions = $provisions-($population*3)>>
+257: -> You don't feel that your people love you enough to make further sacrifices.
+258:   It is a sad day, when the Imperator cannot rely on the citizens of the Empire.
+260: ===
+261: title: random25
+262: ---
+263:   <b>Support from the Nobles</b>: 
+264: Nobles are the most powerful and influential class in Constantinople. They serve you and are vital to the defence of the City, but their support depends on how much they trust your leadership. How can we make use of their resources?
+265: -> Ask the nobles to share food from their cellars to feed the people.  <<if $noble_rep >50>>
+266:   Nobles provide you with food as requested, sending you 500 crates of provisions.
+267:   <<set $provisions = $provisions+500>>
+268:   <<set $noble_rep = $noble_rep-5>>
+269: -> Our treasury is suffering. Ask the nobles to provide you with additional gold. <<if $noble_rep >60>>
+270:   Nobles are happy to provide you with money to fund the siege. Soon, a coffer with 5000 gold pieces arrives to your palace.
+271:     <<set $money = $money+5000>>
+272:     <<set $noble_rep = $noble_rep-5>>
+273: -> Ask the nobles to send their personal guards to serve on the city walls. <<if $noble_rep >70>> 
+274:   While nobles are worried about leaving their mansions unguarded, they gather a force of 100 infantry, 100 archers and 20 cavalry to send to the walls.
+275:   <<set $infantry = $infantry+100>>
+276:   <<set $archers = $archers+100>>
+277:   <<set $cavalry = $cavalry+20>>
+278:   <<set $noble_rep = $noble_rep-5>>
+279: -> Ask the nobles to replace the fallen Varangian guards with their sons, as they are well trained. They won't like this, but it is necessary. <<if $noble_rep >80>> 
+280:     Varangian Guard is an elite unit of Northern warriors. While we cannot summon any more of them during the siege, noble youths trained from birth are the best fighters in the city and with some training could potentially fill the gaps left by your fallen Guards. However, nobles are worried about their offspring and while they comply with your request, they are very unhappy about it.
+281:     <<set $varangians = $varangians+100>>
+282:     <<set $noble_rep = $noble_rep-25>>
+283: -> I feel that our relationship with the nobility could be better. Let us throw them a banquet. [Cost: 50 provisions, 1000 gold] <<if $money >=1000 and $provisions >=50>>
+284:   In a display of gratitude and camaraderie, you host an opulent banquet to honor the nobles who have tirelessly supported your reign. As you extend a heartfelt expression of appreciation, the nobles, resplendent in their finest attire, are visibly pleased by the recognition bestowed upon them. A gracious atmosphere envelops the banquet hall as the sounds of clinking goblets and joyous laughter resonate through the air.
+285:     <<set $noble_rep = $noble_rep+25>>
+286:     <<set $money = $money-1000>>
+287:     <<set $provisions = $provisions-50>>
+288: -> As our focus is diplomacy and I feel that our relationship with the nobility could be better, I am going to create new titles and award them to various noble families. It costs nothing and nobles love their titles. <<if $Focus is "4">>
+289:  In order to avoid any confusion with any existing titles within your weakened Empire, you hand out promisory titles for cities which have been under the Ottoman control for decades, such as Adrianople, Thessaloniki and Bursa. You feel like a Venetian merchant who is selling chickens while claiming that they are horses. This is nothing more than paper promises if such reconquest would ever happen, but half of aristocratic traditions stand on pure symbolism anyway, so while many nobles see through your symbolic gesture, they don't care and are happy to get one more title to brag about. Also, this gives them something to believe in and they love you for it.
+290:  <<set $noble_rep = $noble_rep+15>>
+291: -> Our nobility distrusts us, we cannot ask anything of them right now.
+292:     It is a sad day, when Imperator cannot rely on his nobles.
+294: ===
+295: title: random26
+296: ---
+297: <b>Support from the Priests</b>: 
+298: Priests have always played a crucial role in the Eastern Roman Empire and today their role is especially crucial, as they inspire your people, legitimise your rule and directly pray to God for your health and safety. However, they are quite independent and their support depends on your dedication to the faith and Mother Church. How can we make use of their resources?
+299: -> Ask our priests to organise a procession to raise morale for everyone in the City. [Cost: 1000 gold] <<if $priest_rep >50 and $money >=1000>> 
+300:  In an effort to uplift the spirits of the beleaguered citizens and defenders of Constantinople, you decide to call upon the wisdom and spiritual guidance of the city's priests. They lead a grand procession that weaves through the labyrinthine streets, connecting all the neighborhoods of Constantinople. The priests, adorned in ceremonial robes, lead the way, carrying sacred relics and chanting solemn hymns. Behind them, a diverse assembly of citizens — rich and poor, soldiers and civilians, joins the procession, each person carrying a symbolic light to illuminate the path. As the procession winds through the streets, the collective energy of the participants becomes palpable. Residents peer out from windows and balconies, their wearied faces momentarily transformed by a flicker of hope. The rhythmic sounds of drums and melodic chants fill the air, creating a reverent atmosphere that transcends the challenges besieging the city. By the time the procession completes its circuit through the city, a subtle but profound shift has occurred - a sense of shared purpose resonates among the people. The procession strengthened the resolve of Constantinople's defenders but has also sown the seeds of hope that may yet withstand the impending storm.
+301:   <<set $noble_rep = $noble_rep+10>>
+302:   <<set $priest_rep = $priest_rep+5>>
+303:   <<set $troop_rep = $troop_rep+10>>
+304:   <<set $people_rep = $people_rep+10>>
+305: -> Ask priests to donate some of their precious golden Icons to fund the defence of the siege.
+306:  It is quite clear that most of the priesthood is strongly opposed to your request, but under the guidance of Cardinal Isidore they follow through and bring their precious valuables and church decorations to be melted and minted into brand new coins bearing your image. <<if $priest_rep >60>> 
+307:   <<set $priest_rep = $priest_rep-20>>
+308:   <<set $money = $money+7500>>
+309: -> Ask our priests to organise a sermon on the towers of our walls to inspire the troops and demoralise accursed Muslim invaders. [75% success, 25% failure. 100%+bonus if Faith focus] <<if $priest_rep >70>> 
+310:  <<set $chance = dice(100)>>
+311:  <<if $Focus is "3">>
+312:   While some of the priests are quite fearful for their lives, others see it as their sacred duty and volunteer to lead this drastic ceremony. Turks keep firing arrows in the direction of priests who defiantly carry icons and wave banners with the face of Christ himself. A few hit, you see one of the old men crumble with an arrow in his throat. A young archer runs towards him and grabs the icon in time to save it from falling over the wall. A shout of righteous erupts from his throat as he raises the icon high above his head, inspiring other troops to start shouting throughout the rest of the wall as well. Soon, shouting turns to united chanting "Christos! Christos! Christos!". <br> Turks are astonished at such display of unity from infidels whom they consider to be doomed and it places seeds of doubt in their dark hearts.
+313:  <<set $troop_rep = $troop_rep+30>>
+314:  <<set $turk_morale = $turk_morale-15>>
+315:  <<elseif $chance <= 75>>
+316:  While some of the priests are quite fearful for their lives, others see it as their sacred duty and volunteer to lead this drastic ceremony. Turks keep firing arrows in the direction of priests who defiantly carry icons and wave banners with the face of Christ himself. A few hit, you see one of the old men crumble with an arrow in his throat. A young archer runs towards him and grabs the icon in time to save it from falling over the wall. A shout of righteous erupts from his throat as he raises the icon high above his head, inspiring other troops to start shouting throughout the rest of the wall as well. Soon, shouting turns to united chanting "Christos! Christos! Christos!"
+317:   <<set $troop_rep = $troop_rep+20>>
+318:  <<set $turk_morale = $turk_morale-10>>
+319:  <<else>> 
+320:  While some of the priests are quite fearful for their lives, others see it as their sacred duty and volunteer to lead this drastic ceremony. Turks keep firing arrows in the direction of priests who defiantly carry icons and wave banners with the face of Christ himself. A few hit, you see one of the old men crumble with an arrow in his throat. A young archer runs towards him and tries to grab the icon from his hands, but he is too slow and the icon falls over the wall, landing in a ditch, among the corpses. This is a depressing sign. Your troops will later recover the icon under the cover of night, but the morale falls.
+321:  <<set $troop_rep = $troop_rep-10>>
+322:   <<set $priest_rep = $priest_rep-10>>
+323:  <<endif>>
+324: -> I feel that priests doubt my faith. I will prove myself by ordering to build a new chapel to Theotokos, blessed mother of our God.[Cost: 1000 gold, 75 materials] <<if $materials >=75 and $money >=1250>>
+325:  Priests rejoice and consecrate the new chapel in your name.
+326:  <<set $priest_rep = $priest_rep+30>>
+327: -> Our priests whisper among themselves that Imperator is dabbling in heresy, we cannot ask anything of them right now.
+328:     It is a sad day, when Imperator cannot rely on his priests.
+330: ===
+332: title: random27
+333: ---
+334: <b>Street Assassination</b>
+335: Finally, insidious enemy has managed to find an opening and send an assassin after you. A sudden shift in the atmosphere draws your attention. A figure darts towards you, moving with purpose and a glint of danger in their eyes. The unmistakable flash of a drawn knife cuts through the air, signaling an imminent threat. All sounds fade into the background as you need to decide what to do...
+336: -> Guards! To me! <<if $troops_rep >=50>>
+337:  Varangian Guards rush into assassins way. Undeterred by the Varangians' formidable reputation, the assassin displays remarkable skill, swiftly incapacitating two guards in a flurry of calculated strikes. He is extremely skilled, but in the end he must pass Kjold, head of your guards, to reach you. With unparalleled speed, the assassin attempts to evade Kjold's axe, but the seasoned Varangian anticipates every move. In a decisive swing, Kjold's axe descends with unstoppable force, crushing the assassin's skull with a single, devastating blow. The abrupt silence that follows is punctuated by the lifeless thud of the fallen assailant. Northman smiles, cleaning his axe. You are safe now.
+338:  <<set $varangians = $varangians-2>>
+339:  <<set $turk_spies = $turk_spies-1>>
+340: -> Draw your sword and face the attacker personally. [Chance: 20% major success, 45% success, 35% failure]
+341:  <<set $chance = dice(100)>>
+342:  <<if $chance <= 20>>
+343:  You draw the sword and turn to face your enemy. The assassin has been trained since childhood to play dirty and tries to kick you in the groin, but you evade him and slice with your sword, cutting off his sword hand. As the incapacitated assailant recoils, you deliver a punishing blow with the armored glove of your other hand, shattering his teeth. You then order your guards to take your wounded assailant to the dungeons and squeeze out all the information they can, by any means necessary.
+344:  <<set $turk_spies = $turk_spies-1>>
+345:  <<set $secrets = $secrets+2>>
+346:  <<elseif $chance <= 45>>
+347:  You draw the sword and turn to face your enemy. The assassin has been trained since childhood to play dirty and tries to kick you in the groin, but you evade him and slice with your sword, cutting off his sword hand. As the incapacitated assailant recoils, you deliver a punishing blow with the armored glove of your other hand, hitting him in the temple and killing him on the spot. Unfortunately, you won't be able to interrogate him, but you can still mount his head on the spike to send Mehmed a message that his plot has failed. He will be furious and his troops will be intimidated.
+348:   <<set $turk_spies = $turk_spies-1>>
+349:   <<set $fury = $fury+3>>
+350:   <<set $turk_morale = $turk_morale-5>>
+351:  <<else>> 
+352:  You draw the sword and turn to face your enemy. The problem is that the assassin has been trained since childhood to play dirty and is not intent on dueling you like another knight. He kicks you in the groin and plunges the blade straight into your heart. As darkness edges in, all you can think about is what will become of your City.[GAME OVER]
+353:  <<endif>>
+354: -> Run! This is not the time for bravery! [Chance: 75% success]
+355:  <<set $chance = dice(100)>>
+356:  <<if $chance <= 75>>
+357:  In a sudden burst of adrenaline, you react instinctively as the assassin strikes with lethal intent. Realizing the imminent danger, you abandon any semblance of dignity, opting for swift evasion to save your own life. The assassin, although unsuccessful, manages to evade your guards and vanish, leaving an air of uncertainty in his wake. The knowledge that the assailant  is still out there and may strike again worries you deeply.
+358:  <<else>>
+359:  In a sudden burst of adrenaline, you react instinctively as the assassin strikes with lethal intent. Realizing the imminent danger, you abandon any semblance of dignity, opting for swift evasion to save your own life. However, you are too slow and die a coward's death as assassin plunges the blade straight into your back. As darkness edges in, all you can think about is what will become of your City.
+360:  <<endif>>
+361: -> Have faith - brace yourself and pray to the Lord in Heaven for salvation.
+362:  <<if $Focus is "3">>
+363:  Something above hears your prayer and in the last moment assassin slips and falls face-flat in front of you. Your Varangian Guards gallantly help him get up, with the help of a few gut punches and kicks. You are not concerned about the assassin much; he will be now taken to the dungeons to be tortured until he gives up any information he has.
+364:  <<set $turk_spies = $turk_spies-1>>
+365:  <<set $secrets = $secrets+2>>
+366:  <<elseif $people_rep >=65 >>
+367:  Something above hears your prayer and in the last moment one of your servants throws himself under the assassin's blade. The moments he buys with his life are enough for the Varangian Guards to finish him.
+368:  <<set $turk_spies = $turk_spies-1>>
+369:  <<elseif $noble_rep >=75 >>
+370:  Something above hears your prayer and in the last moment one of your noble retainers throws himself under the assassin's blade. The moments he buys with his life are enough for the Varangian Guards to finish him.
+371:  <<set $turk_spies = $turk_spies-1>>
+372:  <<else>>
+373:   God helps only those who help themselves. Assassin plunges the blade straight into your heart. As darkness edges in, all you can think about is what will become of your City and why has your God forsaken you, failing to see your own fault in your fate.
+374:   <<endif>>
+375: -> Accept your Fate.
+376:   Assassin plunges the blade straight into your heart. As darkness edges in, all you can think about is what will become of your City. [GAME OVER]
+378: ===
+380: title: random28
+381: ---
+382: <b> New enemy cannon battery </b>
+383: Since the siege began, you often ascend the walls of your city to inspect the situation and talk to your frontline officers. During one of your visits of the city walls, you spot a concerning development – the Turks are setting up a cannon battery uncomfortably close to your defenses. Despite not being an artillery expert, your gut tells you they might be within striking distance. Quickly grasping the gravity of the situation, you consult with frontline officers. The imminent threat demands swift action to counter the enemy's strategic move, what shall you do?
+384: -> Order small cavalry detachment to sally out of the fortress and destroy the cannon battery before the enemy manages to dig in.
+385:     A small light cavalry detachment made up of Armenians serving in your forces is ordered to sally forth from the fortress and intercept the imminent threat before the enemy can fully establish their position. Riders charge out of the fortress gates with speed and determination. The clatter of hooves on the ground echoes through the air as they maneuver towards the nascent cannon battery. The swift cavalry approach takes the enemy by surprise and a skirmish ensues as the cavalry engages the Turks in a short, but brutal assault. Riders set the gunpowder kegs on fire and depart as the battery explodes behind them. You lose a few of them, but their sacrifice is well worth it - enemy cannons are the greatest danger to your walls.
+386:     <<set $cavalry = $cavalry-15>>
+387:     <<set $turk_cannons = $turk_cannons-5>>
+388: -> They have miscalculated and placed themselves too close to our walls. Direct three of our wall cannons to unleash a simultaneous barrage of the new battery.
+389:     Exploiting the enemy's positioning error, you order three wall cannons to simultaneously unleash a barrage directly at the Turkish battery. The massive projectiles hurtle towards their miscalculated position, disrupting their attempts to entrench and inflicting significant damage. The thunderous roar of the cannons sends a powerful message, showcasing the strategic prowess of your defenses and deterring further advances.
+390:     <<set $ammunition = $ammunition-9>>
+391:     <<set $turk_cannons = $turk_cannons-5>>
+392: -> They are so close to the walls, so how about we send a spy under the cover of darkness to bribe their officers to buy their ammunition and cannons? [Cost - 3500]
+393:     As night descends, the spy slips through the shadows, navigating the no-man's land stretching between your walls and the Turkish encampment. Under the cover of darkness, with utmost stealth, the spy approaches the officers, presenting a tempting offer that could weaken the enemy from within. 
+394:     <<set $money = $money-3500>>
+395:     <<set $ammunition = $ammunition+10>>
+396:     <<set $turk_cannons = $turk_cannons-5>>
+397: -> As our Focus is Fortifications, we have made preparations for such case and pre-targetted our cannons before the arrival of our enemy. Let us destroy it with a single accurate cannon shot.
+398:     Because of our previous preparation, we know the exact range and how much gunpowder we need to hit the battery directly. Our artillerists carefully aim and then launch a single cannonball, which lands directly in the middle of enemy gunpowder keg pile, destroying the whole battery in a massive ball of fire.
+399:     <<set $ammunition = $ammunition-1>>
+400:     <<set $turk_cannons = $turk_cannons-5>>
+401: -> Let them be, this is too dangerous.
+402:  No action will be taken.
+405: ===
+407: title: random30
+408: ---
+410: <b>Infighting at the Market</b>
+411:  The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the market square. One of the Italian mercenaries from Genoa tried to seduce a Greek girl and her brother, serving in the city guard, took this as a personal offence. He takes city guard patrol to teach lecherous Italian a lesson, but the Genoese mercenaries misunderstand the nature of the conflict and draw blades. After ensuing brief, but bloody combat, three Italians and four of your Greek city guards lay dead on the pavement. This needs to be addressed immediately.
+412: -> Emperor has his duty to his subjects first. Punish all surviving Italians with 30 lashes each.
+413: -> Mercenaries are indispensable in our defence of the siege. Punish all surviving city guards with 30 lashes each.
+414: -> City guard were in the wrong here, we will make them all publicly apologise to the Italian mercenaries and pay the blood tax to the families of the dead 
+415: -> Mercenaries were in the wrong here, but we respect them, so they must pay the blood tax to the families of the dead.
+416: -> As our Focus is Diplomacy, we need a bigger event to overshadow the bloodshed. Order the Italian mercenary to marry the Greek girl and give them both a generous gift. This will silence angry tongues and please both communities.
+418: ===
+419: title: random31
+420: ---
+421: <b>Infighting at the Barracks</b>
+422: The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the barracks where Western European volunteers and pilgrims live. Scottish knight made a snide remark about the group of four English longbowmen who came to eat at the same table and they beat him up. French knight stepped in to defend a fellow noble, but was beaten up as well. We must address this.
+423: -> Naturally, commoners must be harshly punished for attacking a noble. Punish the English longbowmen.
+424: -> Scotsman should have known to keep his mouth shut. The longbowmen are indispensable.
+425: -> Just blame the French knight for everything. French knights looted our City in 1204, so we might as well blame him.
+426: -> In defence of our city, everyone is equal. Punish all sides.
+427: -> This matter is not for me to deal with, ignore it.
+429: ===
+430: title: random32
+431: ---
+433: <b>Infighting at the Stables</b>
+434: The force defending Constantinople is made up from many nationalities and many faiths and unfortunately tensions simmer beneath the surface, threatening the unity required to face the besieging enemy. In this instance, a clash erupts at the stables among your Armenian cataphracts and Turk defectors serving you under the banner of Prince Orhan, Ottoman prince and rival of Mehmed II. As cavalry is rarely used during the siege, they started a friendly contest of horsemanship. One of the Armenian officers lost a challenge and cursed, referring to how the Prophet was caught having intercourse with swine. Turk defectors, although they serve the Empire now, remain Muslims, so they drew their blades and chopped the offending Armenian officer into pieces. Right now, they are surrounded at the stables by your troops and situation is very tense. How shall you resolve it?
+435: -> These Turks risk being impaled for serving me if they would be caught and the Armenian did insult their Prophet. They will be let off with a warning.
+436: -> Armenian officer may have cursed, but he was murdered without even have drawn the blade. The Turks have to be punished.
+437: -> Allow Prince Orhan to punish the Turks as he sees fit. (IF ORHAN)
+438: -> Let the Turks and Armenians fight it out. They need to get it out of their system.
+440: ===
+441: title: random33
+442: ---
+443: <b>Disease Outbreak</b>
+444: There are reports that some of the refugees who snuck into the city before the gates closed brought in some sort of virulent disease. A couple of bodies have been found on the street near the docks with dark spots on their faces. They must have been refugee beggars who caught it first, but it may soon spread to the general population. The crowded conditions within the city walls and the stress of the ongoing siege provide fertile ground for the rapid transmission of the illness and while for now it seems that these are only isolated cases, we may have a disease outbreak on our hands if serious measures are not taken. What shall we do?
+445: -> Disease must be stopped at all costs! Close down all markets and inns, also put the whole dock district under quarantine, isolating everyone there until we are sure that disease has run its course.
+446: -> Take the reasonable approach - send healers to seek and provide treatment and care for the afflicted. Burn the bodies of the dead and isolate the victims, but otherwise let the life continue.
+447: -> Beggars can die from any number of reasons. For the time being there's no proof that this is disease and siege is not the time to take harsh measures, people have it hard as it is.
+448: -> As our Focus is faith, we know that disease shall punish the wicked, but will leave the faithful unharmed. Send the priests to preach in the afflicted communities to explain to them how they themselves are to blame for the disaster. Furthermore, once disease gets rid of the sinners, there will be less mouths left to feed...
+453: ===
+454: title: random35
+455: ---
+456: <b>Skirmishing at the Walls</b>
+457: Today Janissaries are especially tenacious, skirmishing along your walls and firing at anyone they see. Someone guesses that there's some reward or punishment they were promised. Our archers return fire, killing many of them, but we suffer casualties as well.
+458: -> Let field commanders decide how to deal with this.
+459: -> Promise our own reward - we shall pay 5 gold for every dead Janissary.
+460: -> Promise our own punishments - unless our archers can kill 100 Janissaries, everyone on that section of the wall will receive 10 lashes.
+461: -> Send the cavalry to charge the Janissaries!
+462: ===
+463: title: random36
+464: ---
+465: <b>Night boats arrive from Galata</b> 
+466: Under the cover of darkness a group of volunteers arrives from Galata, neighbouring neutral city from across the Golden Horn. It is under Genoese control and Mehmed has left it untouched so far, but the people of the city support our struggle. They come in a few rowboats painted black and bring supplies, as well as fighting men and adventurers who have arrived from abroad after hearing about the brave resistance being mounted here against the Ottoman tyranny. Let's see, what aid did we receive this time?
+467: -> Mostly volunteers, which will join our military.
+468: -> Mostly food, which will help feed our people.
+469: -> Mostly ammunition and gunpowder for our guns.
+470: -> Mostly construction materials to help fix our defences.
+471: -> They brought a bit of everything.
+478: ===
+479: title: random37
+480: ---
+481: <b> Unruly Tavern Brawl</b>
+482: In one of the city's taverns, a minor disagreement among the off-duty soldiers quickly escalates into a full-blown brawl. Tables are overturned, tankards fly through the air, and voices roar with anger as fists are thrown. City guards are summoned to quell the disturbance, but the brawl only escalates as drunk soldiers fight the enforcers. Brawl ends only once a few dead bodies lay on the floor in a chaotic mess. Local people are outraged about the soldiers bringing violence to their doorstep, while the tavern keeper complains that his business is ruined. Once this matter is brought to your attention, how would you like to react to it?
+483: Compensate the tavern keeper for the brawl. (+people rep, - money)
+484: Punish surviving soldiers for disturbing the peace. (-troop rep, + people rep)
+485: Offer tavern keeper a contract which would benefit both of you. (if War Economy) (+money)
+486: Ignore the matter. (- people rep)
+489: ===
+490: title: random38
+491: ---
+492: <b> Patriarch Requests an Audience</b>
+493: The Patriarch of Constantinople, spiritual leader of the city's Orthodox Christian community, requests an audience with the Emperor or his council. The reasons for this request
+498: <b> Corruption Uncovered</b>
+500: Healer dies from an infected wound
+501: Mad monk is demanding an audience with you
+502: Patriarch requests an audience
+503: Cavalry to ProvisionsSentries killed
+504: Repairing the GateLadders! Train with your Swordmaster
+505: Rumours are Spreading
+507: Blessed Gate
+508: Priests demand permission to build a chapel inside the gate tower
+509: Drunken Varagians
+510: Cardinal Isidore delivers a sermon
+511: - Refugees arrive- Trade ship arrives- Turk scouting party sighted- help from your people
+512: The Hidden Heir:
+513: Defection – Greeks, Serbians, Bulgarians
+514: Expel beggars
+515: Ottoman food spoils
+516: Disease in the ottoman camp
+517: Infighting in the Ottoman camp
+518: Dead janissary commander on a horse near our walls
+519: Refugees at the gate

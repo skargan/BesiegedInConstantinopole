@@ -1,0 +1,30 @@
+21 October 2026 — UI, intelligence, Galata and storm handover
+
+SOURCE PROJECT
+C:/Users/Dainius/Desktop/BesiegedInConstantinopole-codex-prototype-first-playtest
+Release owner: Assess BesiegedInConstantinopole (01a0a8e2-b837-7953-bbb3-acf52c000d0c).
+This chat owns no further Unity launch without explicit slot release.
+
+IMPLEMENTED
+- Independent persisted music and sound-effects toggles (click audio obeys SfxEnabled).
+- Four-page CampaignGuide; repeat-preparation confirmation explains siege snapshot.
+- SiegeOpeningIntelligence weights1/2/3/5=50/30/17/3 percent, story23cost5000.
+- Explicit enemy camp alert labels, active gold research, Research wording.
+- Generated nine portraits and three faith medallions in Resources/UI/Identity; artistic interpretations.
+- Court portrait/status/role/ability columns. About uses a continuous content-sized article; Hospitaller history expanded and every realm has concrete game-role information.
+- Karaman appended index16, 17 matching profiles; modest provisional aid20%,25days,3000gold300provisions. CouncilActions.Int safely initialises absent aidkeys on old saves.
+- Briefing shows next aid, committed count, lowest support, food, alert and sourced Marcus Aurelius quote.
+- Gennadius Scholarius replaces fictional Brother Gennadios; actual seven-sermon speeches remain authored fiction (see historicalsourcesfile).
+- Galata has10diplomaticactions: immediate support/neutrality addedoncepercampaign; preparationchoices mark sameflags. Faith giftoption+30goodwill. Missingfunds/claims/state reasonsvisible.
+- Palace duplicatecounterbatteryremoved; wall specialactions remain.
+- ReliefStormSystem+Relief_storms.yarn: hardStorm delays one incoming maritime expedition10days; hardCatastrophicStorm destroysone, state4lost. OnlyShips>0 expeditioneligible; landaid unaffected. Noaidmessage; openwatermissions0/1/2/4 exposed0–5loss, harbour3protected; Ottoman1–10loss limitedfleet. Both30dayrootcooldown. Allactualships bounded; no arriving cargo from lostfleet.
+- Map146nodes52links;15tests passed. Includes current navalfunctions/artilleryconvoy and bothstorms.
+
+VALIDATION AND REMAINING RELEASE WORK
+- My focusedUI/eventrun93checks0failures, Logs/ui-hardship-smoke.log.
+- Otheragentcombinednaval/eventrun160checks0failures, Logs/version19-systems-smoke.log (BEFORE lateststorms/Galata additions).
+- Added tests for stormmissionexposure, exactdelay, lossbounds, lostcargo nonarrival/savepersistence, cooldown, andonceGalatabenefits. Await finalrun by releaseowner.
+- Earlier broad CampaignSmokeTest621checks13failures; navalreportmissingkey was fixedbyotheragent afterwards. Other failures/cascades and oldstaticfleetdamage expectation need clean rerun byreleaseowner. Do not claim broadsuitepassed.
+- Assembled UI screenshot review pending; generated atlas images inspected.
+- Overviewtexturedmeters owned byreleaseagent; userrequestedgold/mosaictheme ratherthanflatbars.
+- Finalbuild/GitHubpublication belongsreleaseowner; thischat hasnotclaimed release.
