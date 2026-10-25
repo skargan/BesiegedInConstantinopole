@@ -16,8 +16,13 @@ Map edits and monthly reservations are developer notes; they do not write back t
 
 ## Regenerate from the actual project
 
-Run scripts/import_sources.py with --repo pointing to the desktop Unity root; then scripts/current_flow.py; then node scripts/package.mjs --repo <Unity root>. The curated schedule/dispatch relationships are explicit in current_flow.py; review that mapping when the game's scheduling code changes. Ordinary Yarn jumps are imported automatically.
+Run scripts/import_sources.py with --repo pointing to the desktop Unity root; then scripts/current_flow.py; then scripts/next_campaign_review.py and scripts/apply_murder.py to reapply authored story overlays; then node scripts/package.mjs --repo <Unity root>. The curated schedule/dispatch relationships are explicit in current_flow.py; review that mapping when the game's scheduling code changes. Ordinary Yarn jumps are imported automatically.
 
-Validation: node --test tests/current-flow.test.cjs. The eight current checks cover graph integrity, calendar/pool separation, persistent achievement gates, chain classification, governance follow-ups, review flags and reference retention. Historical v4 assertions are retained as reference text under tests/reference.
+Validation: node --test tests/current-flow.test.cjs. The current checks cover graph integrity, calendar/pool separation, persistent achievement gates, chain classification, governance follow-ups, review flags and reference retention. Historical v4 assertions are retained as reference text under tests/reference.
 
 The Unity preparation integration separately passed 52 checks. This map is a snapshot and structural review tool, not a simulation or proof that every narrative branch has been played.
+
+
+## Brutal Murder investigation
+
+The Names Beneath the Wax adds seven stable murder1–murder7 nodes, four culprit variants and saved evidence/verdicts. The original draft remains an archive reference. Full authored data is in planning/next-campaign/Brutal Murder chain.json; reapply it with scripts/apply_murder.py after rebuilding the base flow. The Unity MurderPreview passed119 exported-player checks, including every dialogue stage and the campaign-ending recollection. Preview verification does not mean the chain is included in a published numbered release.

@@ -1,0 +1,107 @@
+title: murder1
+---
+<<MurderStart>>
+{MurderText(1)}
+-> I will examine the case myself. Secure the room and protect the widow.
+    <<MurderChoose 1 0>>
+    {MurderResult()}
+-> Ask Sphrantzes for an initial inquiry, with independent copies of every statement. <<if MurderCanDelegate()>>
+    <<MurderChoose 1 1>>
+    {MurderResult()}
+-> Suppress the rumours and close the affair. (Public morale -2; ends investigation)
+    <<MurderChoose 1 2>>
+    {MurderResult()}
+===
+
+title: murder2
+---
+{MurderText(2)}
+-> Have the surgeon examine the wounds and the wax.
+    <<MurderChoose 2 0>>
+    {MurderResult()}
+-> Interview the widow and those who saw him leave; verify their times independently.
+    <<MurderChoose 2 1>>
+    {MurderResult()}
+-> Seal the room and let the watch preserve the file for later.
+    <<MurderChoose 2 2>>
+    {MurderResult()}
+===
+
+title: murder3
+---
+{MurderText(3)}
+-> Protect the widow; compare her receipt with the harbour accounts.
+    <<MurderChoose 3 0>>
+    {MurderResult()}
+-> Follow the collector quietly and seize his duplicate accounts.
+    <<MurderChoose 3 1>>
+    {MurderResult()}
+-> Read the names aloud at the harbour. Someone must recognise them.
+    <<MurderChoose 3 2>>
+    {MurderResult()}
+===
+
+title: murder4
+---
+{MurderText(4)}
+-> Authenticate the household records and interview witnesses separately.
+    <<MurderChoose 4 0>>
+    {MurderResult()}
+-> Hear the implicated patron privately.
+    <<MurderChoose 4 1>>
+    {MurderResult()}
+-> Accept the household explanation without further verification.
+    <<MurderChoose 4 2>>
+    {MurderResult()}
+===
+
+title: murder5
+---
+{MurderText(5)}
+-> Reconstruct the porter's movements against the time of death.
+    <<MurderChoose 5 0>>
+    {MurderResult()}
+-> Record his words without the watch captain present, then corroborate them.
+    <<MurderChoose 5 1>>
+    {MurderResult()}
+-> Accept the confession and imprison the porter. (Ends investigation)
+    <<MurderChoose 5 2>>
+    {MurderResult()}
+===
+
+title: murder6
+---
+{MurderText(6)}
+-> Guard the widow, plant a copied line and intercept the response.
+    <<MurderChoose 6 0>>
+    {MurderResult()}
+-> Announce the accusation publicly and demand the missing papers.
+    <<MurderChoose 6 1>>
+    {MurderResult()}
+-> Set no trap. Proceed with the evidence already secured.
+    <<MurderChoose 6 2>>
+    {MurderResult()}
+===
+
+title: murder7
+---
+{MurderText(7)}
+-> Accuse {MurderSuspect(0)}. (Imprison if present)
+    <<MurderChoose 7 0>>
+    {MurderResult()}
+-> Accuse {MurderSuspect(1)}. (Remove from service if present) <<if MurderAvailable(1)>>
+    <<MurderChoose 7 1>>
+    {MurderResult()}
+-> Accuse {MurderSuspect(2)}. (Remove from service if present) <<if MurderAvailable(2)>>
+    <<MurderChoose 7 2>>
+    {MurderResult()}
+-> Accuse {MurderSuspect(3)}. (Remove from service if present) <<if MurderAvailable(3)>>
+    <<MurderChoose 7 3>>
+    {MurderResult()}
+-> Seal the supported case and retain the responsible household. (Public morale -3) <<if MurderCanSeal()>>
+    <<MurderChoose 7 4>>
+    {MurderResult()}
+-> Leave the verdict open. Preserve the evidence; remove nobody.
+    <<MurderChoose 7 5>>
+    {MurderResult()}
+===
