@@ -38,6 +38,7 @@ public class VariableSingleton : MonoBehaviour
         if(completedSiegeDay) { ArrivalNotice+=SupplyEconomy.CompleteDay(); NavalState.CompleteDay(); ArrivalNotice+=FleetOperations.CompleteDay(); }
         if(CompletedSiegeDays>0 && GetIntVariable("iIncome")>0) {int income=GetIntVariable("iIncome");ChangeInt("iMoney",income);ArrivalNotice+="Merchant levy: +"+income+" gold.\n\n";}
         if(completedSiegeDay)ArrivalNotice+=DefencePosture.Advance();
+        ArrivalNotice+=ProvincialIntelligence.Advance(GetDate());
         ArrivalNotice+=CouncilActions.AdvanceAid(Math.Max(0,(GetDate()-previousDate).Days));
         ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
         ArrivalNotice+=TroopTraining.Complete(GetDate());
@@ -267,6 +268,7 @@ public class VariableSingleton : MonoBehaviour
         PreparationCampaign.InitializeDefaults();
         DefencePosture.Initialise();
         IsInitialized = true;
+        OttomanDirector.Ensure();
         Achievements.BeginCampaign();
     }
 
@@ -377,6 +379,7 @@ public class VariableSingleton : MonoBehaviour
     public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
+        ProvincialIntelligence.ResetForRestore();
         DefencePosture.Initialise();
         PreparationCampaign.InitializeDefaults(legacy: true);
         // New systems also reset when loading an older checkpoint in the same session.
@@ -393,6 +396,7 @@ public class VariableSingleton : MonoBehaviour
         if(!data.ints.Any(p=>p.key=="iTurkShips")) iDict["iTurkShips"]=bDict["bTurkFleet"]?NavalState.StartingShips:0;
         iDict["iCampAlert"] = 0; // Saves from before the alert system start at zero.
         foreach (var pair in data.ints) iDict[pair.key] = pair.value;
+        if(!data.ints.Any(v=>v.key=="iOttDirectorVersion"))iDict["iOttDirectorVersion"]=0;
         iDict["iPopulation"] = checked((int)PopulationAccounting.Count(data));
         iDict.Remove("iPopulationRemainder");
         iDict.Remove("iPopulationFoodCarry");

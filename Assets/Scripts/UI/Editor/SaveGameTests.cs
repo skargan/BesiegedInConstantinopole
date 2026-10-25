@@ -35,6 +35,7 @@ public static class SaveGameTests {
         Check(PopulationAccounting.Count(old)==100499,"legacy count preserves individual remainder");old.version=2;old.ints.First(v=>v.key=="iPopulation").value=100499;Check(PopulationAccounting.Count(old)==100499,"new count never multiplies twice");
         Check(Resources.Load<Texture2D>("UI/Maps/Europe1450")!=null,"world map asset imported");
         foreach(var tech in TechnologySystem.All){var tex=TechnologyArtwork.Load(tech.Key);Check(tex.width==1254&&tex.mipmapCount>1,"native resolution and filtered thumbnail "+tech.Key);}
+        OttomanDirector.Validate(OttomanDirector.Rules);Check(true,"Ottoman catalogue validates before export");
         PlatformRetry();Debug.Log("SAVE_AND_TECH_CHECKS "+checks+" passed");
     }
     class FakePlatform:IAchievementPlatform {public bool ready,unlocked;public int stores;public bool Ready=>ready;public bool IsUnlocked(string id)=>id==AchievementPlatform.Ids[17]&&unlocked;public bool SetAchievement(string id){if(id!=AchievementPlatform.Ids[17])return false;unlocked=true;return true;}public bool StoreStats(){stores++;return false;}}

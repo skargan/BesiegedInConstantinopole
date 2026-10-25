@@ -8,7 +8,7 @@ public partial class CouncilUI
         if(!GardenConversations.Available(person)){Location(conversationLocation);return;}
         Open(GardenConversations.Name(person),new[]{"In the Palace","In the palace garden","In Hagia Sophia"}[conversationLocation]);ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);FitConversation();
         CharacterPortraits.Draw(body,person,new Vector2(.025f,.35f),new Vector2(.29f,.97f));
-        string text=topic==0?GardenConversations.Personal(person):topic==1?GardenConversations.Siege(person):GardenConversations.Advice(person);
+        string text=topic==0?GardenConversations.Introduction(person):topic==1?GardenConversations.Siege(person):GardenConversations.Advice(person);
         ConversationText(text,new Vector2(.32f,.32f),new Vector2(.97f,.96f));
         string[] topics={"Tell me about yourself","What do you make of the siege?","What should I attend to?","Was there something you wished to ask me?"};
         for(int i=0;i<4;i++){int selected=i;float left=i%2==0?.03f:.515f,top=i<2?.27f:.14f;CampaignHUD.MakeButton(body,topics[i],new Vector2(left,top-.11f),new Vector2(left+.455f,top),()=>{if(selected==3)PersonalQuestion(person);else GardenTalk(person,selected);});}

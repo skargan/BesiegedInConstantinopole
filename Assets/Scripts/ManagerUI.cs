@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -159,6 +159,7 @@ public class ManagerUI : UIWindowFam
         date.text = VariableSingleton.GetDate().ToString("d MMM yyyy");
         if (VariableSingleton.IsInitialized)
         {
+            OttomanDirector.PrepareTurn();
             if (SaveGames.PendingResume==null && !AssaultPractice.Active && string.IsNullOrEmpty(SaveGames.LastError)) VariableSingleton.Instance.Save();
             if (CampaignHUD.Instance != null)
             {

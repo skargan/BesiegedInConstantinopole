@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Save29Capture:MonoBehaviour {
     string root;int checks;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-save29-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
     void Check(bool v,string label){if(!v)throw new Exception("SAVE29 PLAYER: "+label);checks++;}
     private IEnumerator Shot(string name)
     {
@@ -43,6 +43,7 @@ public class Save29Capture:MonoBehaviour {
     void Reload(string path){SaveGames.RequestedFile=path;VariableSingleton.ContinueRequested=true;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");}
     IEnumerator Start(){
         Application.runInBackground=true;root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Save29"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        if(Environment.GetCommandLineArgs().Contains("-ai32-capture")){yield return AI32Run();yield break;}
         SaveMenu.NewCampaign(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("01-mode-selection");SaveMenu.Close();yield return Shot("00-main-menu");
         bool hadDisplay=PlayerPrefs.HasKey("Besieged.Fullscreen");int previousDisplay=PlayerPrefs.GetInt("Besieged.Fullscreen",1);AudioSettingsUI.Show(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("09-settings-display");Click("Windowed");yield return new WaitForSecondsRealtime(1);Check(!Screen.fullScreen,"windowed display applied");Click("Fullscreen");yield return new WaitForSecondsRealtime(1);Check(Screen.fullScreen,"fullscreen display applied");Click("Windowed");yield return new WaitForSecondsRealtime(.5f);AudioSettingsUI.Close();if(hadDisplay)PlayerPrefs.SetInt("Besieged.Fullscreen",previousDisplay);else PlayerPrefs.DeleteKey("Besieged.Fullscreen");PlayerPrefs.Save();
         SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;SceneManager.LoadScene("Continue Game");yield return Loaded();
@@ -67,5 +68,34 @@ public class Save29Capture:MonoBehaviour {
         SaveMenu.Show(FindObjectOfType<ManagerUI>().transform.parent);yield return Shot("06-ironman-archives");SaveMenu.Close();
         Debug.Log("SAVE29_PLAYER_CHECKS "+checks+" passed: portable slots, mode gate, corruption rejection, event resume, assault resume, technology art");Application.Quit();
     }
+    void PointerClick(string prefix){
+        var b=FindObjectsOfType<Button>().First(x=>x.interactable&&x.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith(prefix)==true);
+        var r=b.GetComponent<RectTransform>();Vector2 point=RectTransformUtility.WorldToScreenPoint(null,r.TransformPoint(r.rect.center));
+        var e=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=point,button=UnityEngine.EventSystems.PointerEventData.InputButton.Left};
+        var hits=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(e,hits);Check(hits.Count>0&&hits[0].gameObject.GetComponentInParent<Button>()==b,"unobstructed pointer target "+prefix);
+        UnityEngine.EventSystems.ExecuteEvents.Execute(b.gameObject,e,UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);
+    }
+    IEnumerator AI32Run(){
+        root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/AI32"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"check.besieged.json");
+        SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;SceneManager.LoadScene("Continue Game");yield return Loaded();
+        int consolidation=ConsolidationChecks.Run();SceneManager.LoadScene("Continue Game");yield return Loaded();
+        int provincial=ProvincialChecks.Run();int core=AI32Checks.Run();int exercises=AI32Exercise.Run();Debug.Log("AI32_CHECKS core="+core+" consolidation="+consolidation+" provincial="+provincial);
+        SaveGames.PrepareNew(false);SceneManager.LoadScene("Continue Game");yield return Loaded();
+        var setup=VariableSingleton.Instance.CaptureState();setup.turn=16;VariableSingleton.Instance.RestoreValidated(setup);OttomanDirector.PrepareTurn();VariableSingleton.SetInt("iSpies",10);
+        var manager=FindObjectOfType<ManagerUI>();CouncilUI.For(manager).Spies();yield return Shot("01-intelligence");
+        // Inspect the intelligence report grid without the operation list hiding its later rows.
+        var viewport=GameObject.Find("Intelligence reports");if(viewport!=null)Debug.Log("AI32_INTEL_READY "+OttomanDirector.PlanReport);
+        var intelScroll=GameObject.Find("Council scroll").GetComponent<ScrollRect>();intelScroll.content.anchoredPosition=new Vector2(0,740);yield return Shot("01b-intelligence-plans");ControlSingleton.Instance.GoBack();yield return null;
+        bool hadDisplay=PlayerPrefs.HasKey("Besieged.Fullscreen");int display=PlayerPrefs.GetInt("Besieged.Fullscreen",1);
+        CampaignHUD.Instance.TogglePause();AudioSettingsUI.Show(manager.transform.root);yield return Shot("02-settings");
+        for(int i=0;i<3;i++){PointerClick("Windowed");yield return new WaitForSecondsRealtime(.5f);Check(!Screen.fullScreen,"windowed switch "+i);PointerClick("Fullscreen");yield return new WaitForSecondsRealtime(.5f);Check(Screen.fullScreen,"fullscreen return "+i);}
+        Settings.Instance.SetFullscreen(false);yield return new WaitForSecondsRealtime(.5f);AudioSettingsUI.Close();CampaignHUD.Instance.TogglePause();
+        if(hadDisplay)PlayerPrefs.SetInt("Besieged.Fullscreen",display);else PlayerPrefs.DeleteKey("Besieged.Fullscreen");PlayerPrefs.Save();
+        manager.BringUpSiegeUI();FindObjectOfType<DefenseActions>(true).GetSelection("fOuterWall");yield return Shot("03-repair-materials");ControlSingleton.Instance.GoBack();yield return null;
+        CouncilUI.For(manager).ProvincialOperations();yield return Shot("04-provincial");ControlSingleton.Instance.GoBack();yield return null;
+        PhasedAssaultUI.TestFocus=true;bool oldActive=PhasedAssaultUI.ActiveMode;PhasedAssaultUI.ActiveMode=true;AssaultPractice.Show(manager);AssaultPractice.Launch(3);yield return null;var ui=PhasedAssaultUI.Current;ui.Battle.ArrowScreens=true;ui.Volley();yield return Shot("05-cannon-priority");Click("Shatter the arrow");Check(!ui.Battle.ArrowScreens&&ui.Battle.GunResolved,"screen destruction via actual choice");yield return null;
+        PhasedAssaultUI.ActiveMode=oldActive;Debug.Log("AI32_PLAYER_CHECKS "+checks+" passed; pointer display cycling, intelligence, repairs, provincial navigation, cannon priorities");Application.Quit();
+    }
+
 }
 #endif

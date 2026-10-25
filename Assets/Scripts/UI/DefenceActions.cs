@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 using System.Collections.Generic;
 
@@ -88,15 +88,16 @@ public class DefenseActions : MonoBehaviour
 
 
 
-        repairCost = Mathf.RoundToInt((1 - VariableSingleton.GetFloatVariable(variableName)) * 1000 * (1-CourtRoster.Bonus(2,.05f,.15f)));
+        repairCost = WallRepairRules.Labour;
+        repairMin=.08f;repairMax=.11f;
 
         float health = VariableSingleton.GetFloatVariable(variableName);
 
-        repairCostDisplay.text = $"{repairCost:N0} gold | +{Mathf.Min(repairMin, 1-health)*100:0.#}-{Mathf.Min(repairMax, 1-health)*100:0.#} percentage points\nIntegrity after repair: {Mathf.Min(1,health+repairMin)*100:0.#}-{Mathf.Min(1,health+repairMax)*100:0.#}% | Uses major action";
+        repairCostDisplay.text = $"{repairCost:N0} gold labour · {WallRepairRules.Materials(variableName)} materials | +{Mathf.Min(repairMin, 1-health)*100:0.#}-{Mathf.Min(repairMax, 1-health)*100:0.#} percentage points\nIntegrity after repair: {Mathf.Min(1,health+repairMin)*100:0.#}-{Mathf.Min(1,health+repairMax)*100:0.#}% | Uses major action";
 
         repairCostDisplay.fontStyle |= FontStyles.Italic;
 
-        repairButton.interactable = repairCost <= VariableSingleton.GetIntVariable("iMoney") && 1 > VariableSingleton.GetFloatVariable(variableName);
+        repairButton.interactable = repairCost <= VariableSingleton.GetIntVariable("iMoney") && WallRepairRules.Materials(variableName)<=VariableSingleton.GetIntVariable("iMaterials") && 1 > VariableSingleton.GetFloatVariable(variableName);
 
 
 
@@ -104,6 +105,8 @@ public class DefenseActions : MonoBehaviour
 
 
 
+        ImperialTheme.Panel(Options,false);
+        foreach(var label in Options.GetComponentsInChildren<TMP_Text>(true)){label.color=ImperialTheme.Gold;label.font=ImperialTheme.Font;}
         Options.SetActive(true);
 
     }
@@ -122,16 +125,8 @@ public class DefenseActions : MonoBehaviour
 
     {
 
-        if (string.IsNullOrEmpty(wallSelected) || VariableSingleton.GetIntVariable("iMoney") < repairCost) return;
-
-        if (VariableSingleton.GetFloatVariable(wallSelected) >= 1) return;
-
-        VariableSingleton.ChangeInt("iMoney", -repairCost);
-
-        VariableSingleton.ChangePercentFloat(wallSelected, Random.value * (repairMax - repairMin) + repairMin);
-
-        ActionResults.Instance.Message = "Repairs completed for " + repairCost + " gold. Wall integrity: " + VariableSingleton.GetPercentFloat(wallSelected) + ".";
-
+        if(!WallRepairRules.TryRepair(wallSelected,out var report))return;
+        ActionResults.Instance.Message=report;
         FindObjectOfType<ManagerUI>(true).CompleteAction();
 
     }

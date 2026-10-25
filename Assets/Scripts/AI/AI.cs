@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -52,6 +52,7 @@ public class AI: MonoBehaviour
         b.Type=type;b.Attackers=b.EnemyLeft=Mathf.Min(TroopWaveSize(type),VariableSingleton.GetIntVariable(key));
         if(b.Attackers==0){WasAssault=false;PendingPhased=null;LastReport="No troops remain to mount this assault.";return;}
         b.Frontline=DailyLifeEvents.I("iEmperorAtWall")==1;b.PersonalBudget=1+EmperorCombat.Skill/10;
+        b.ArrowScreens=DailyLifeEvents.I("iOttArrowScreens")>0;
         b.InitialHealth=b.Health=Mathf.RoundToInt(VariableSingleton.GetFloatVariable("fHealth")*100);
         PopulateDisposition(b);
         b.Tower=VariableSingleton.GetBoolVariable("bSiegeTower");b.Ram=VariableSingleton.GetBoolVariable("bBatteringRam");
@@ -81,6 +82,8 @@ public class AI: MonoBehaviour
         VariableSingleton.ChangeInt("iCavalry",r.CavalryDelta);VariableSingleton.ChangeInt("iVarangians",r.GuardDelta);
         VariableSingleton.ChangeInt("iAmmunition",-r.AmmoSpent);VariableSingleton.ChangeInt("iMaterials",-r.MaterialsSpent);VariableSingleton.ChangePercentFloat("fHealth",(r.HealthDelta)/100f);
         VariableSingleton.SetInt("iEmperorAtWall",0);
+        OttomanDirector.AfterAssault(b.Attackers,r.EnemyDead,!r.Held);
+        VariableSingleton.SetInt("iOttArrowScreens",r.ArrowScreens?1:0);
         RecordEnemyLosses(r.EnemyDead,b.Type);VariableSingleton.ChangeFloat("fMoat",-.1f);
         VariableSingleton.ChangeBool("bSiegeTower",r.Tower);VariableSingleton.ChangeBool("bBatteringRam",r.Ram);
         if(!r.Held&&r.Health>0){VariableSingleton.Instance.EnduringWall.Abandon();VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));}
@@ -91,6 +94,8 @@ public class AI: MonoBehaviour
 
     public void TakeAIAction()
     {
+        OttomanDirector.PrepareTurn();
+        if(OttomanDirector.ExecutedThisTurn)return;
         PendingPhased=null;
         WasAssault = false;
         AwaitingBreachDecision = false;
@@ -99,6 +104,7 @@ public class AI: MonoBehaviour
         enemyLossDisplay.SetLossesInfo(0, 0);
         assaultSystem.ClearLossDisplay();
         if (!VariableSingleton.HasSiegeStarted()) { LastReport="The siege has not begun. No Ottoman attack takes place."; return; }
+        if(!OttomanDirector.TryExecute(out var planned))return;
         string supplyReport=CouncilActions.ResolveEnemySupplies();
         if (VariableSingleton.GetIntVariable("iEnemyDelay")>0)
         {
@@ -110,50 +116,10 @@ public class AI: MonoBehaviour
         if(DailyLifeEvents.I("iLifeSurprise")==1)
         {
             VariableSingleton.SetInt("iLifeSurprise",0);
-            if(VariableSingleton.GetIntVariable("iBazouks")>0){AIBashiBazoukAssault();return;}
+            if(VariableSingleton.GetIntVariable("iBazouks")>0){OttomanDirector.MarkAssault();AIBashiBazoukAssault();return;}
         }
-        if(PreparationCampaign.CanAttackGalata&&UnityEngine.Random.Range(0,100)<15){LastReport=PreparationCampaign.AttackGalata();return;}
-        float moatRemaining = VariableSingleton.GetFloatVariable("fMoat");
-        float wallHealth = VariableSingleton.Instance.EnduringWall.GetHealth();     //needs function identifying current wall
-        float sultanRage = VariableSingleton.GetFloatVariable("fSultanRage");    //needs update
-        if (moatRemaining > 0) 
-        {
-            Debug.Log("Enemy chose preparatory tactic");
-            ottomanTactic = Instantiate(TacticPrepare, transform).GetComponent<OttomanDecision>();
-        }
-        else switch (wallHealth) 
-        {
-            case > 0.75f:
-                Debug.Log("Enemy chose bombardment tactic");
-                ottomanTactic = Instantiate(TacticBombardWall, transform).GetComponent<OttomanDecision>();
-                break;
-
-            case > 0.5f:
-                Debug.Log("Enemy chose test wall tactic");
-                ottomanTactic = Instantiate(TacticTestWall, transform).GetComponent<OttomanDecision>();
-                break;
-
-            case > 0.25f:
-                Debug.Log("Enemy chose attack wall tactic");
-                ottomanTactic = Instantiate(TacticAttackWall, transform).GetComponent<OttomanDecision>();
-                break;
-
-            case > 0:
-                Debug.Log("Enemy chose send assault tactic");
-                ottomanTactic = Instantiate(TacticSendAssault, transform).GetComponent<OttomanDecision>();
-                break;
-
-            default:
-                Debug.Log("Enemy chose advance tactic");
-                ottomanTactic = Instantiate(TacticAdvance, transform).GetComponent<OttomanDecision>();
-                break;
-
-        }
-
-        ottomanTactic.EliminateRedundant();
-        ottomanTactic.ExecuteRandomAction();
-
-        Destroy(ottomanTactic.gameObject);
+        string operationReport=OttomanSiegeOperations.Execute(this,planned);
+        if(operationReport!=null)LastReport=operationReport;
     }
 
     /****************
@@ -201,7 +167,7 @@ public class AI: MonoBehaviour
     public void AIBombard()
     {
         // Mechanics document: each Ottoman cannon removes one percentage point.
-        int cannons = VariableSingleton.GetIntVariable("iTurkCannons");
+        int cannons = VariableSingleton.GetIntVariable("iTurkCannons")+(DailyLifeEvents.I("iOttGrandCannon")>0?3:0);
         VariableSingleton.ChangeFloat("f" + VariableSingleton.Instance.EnduringWall.GetCodeName(), -cannons / 100f);
         LastReport = "Ottoman bombardment damages the current wall by " + cannons + "%.";
     }

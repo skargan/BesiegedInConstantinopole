@@ -16,18 +16,27 @@ public class Settings : MonoBehaviour
     public void SetMusicEnabled(bool enabled) {MusicEnabled=enabled;PlayerPrefs.SetInt("Besieged.MusicEnabled",enabled?1:0);PlayerPrefs.Save();ApplyVolume();}
     public void SetMusicVolume(float volume) {MusicVolume=Mathf.Clamp01(volume);PlayerPrefs.SetFloat("Besieged.MusicVolume",MusicVolume);PlayerPrefs.Save();ApplyVolume();}
 
+    int desktopWidth,desktopHeight;
+    Coroutine displayChange;
     public void SetFullscreen(bool enabled)
     {
         PlayerPrefs.SetInt("Besieged.Fullscreen",enabled?1:0);PlayerPrefs.Save();
-        if(enabled)Screen.SetResolution(Display.main.systemWidth,Display.main.systemHeight,FullScreenMode.FullScreenWindow);
-        else {int width=Mathf.Min(1600,Mathf.RoundToInt(Display.main.systemWidth*.85f));int height=Mathf.Min(900,Mathf.RoundToInt(Display.main.systemHeight*.85f));Screen.SetResolution(width,height,FullScreenMode.Windowed);}
+        if(desktopWidth<=0){desktopWidth=Mathf.Max(Screen.currentResolution.width,Display.main.systemWidth);desktopHeight=Mathf.Max(Screen.currentResolution.height,Display.main.systemHeight);}
+        if(displayChange!=null)StopCoroutine(displayChange);displayChange=StartCoroutine(ApplyDisplay(enabled));
     }
 
+    System.Collections.IEnumerator ApplyDisplay(bool enabled){
+        int w=desktopWidth>0?desktopWidth:1920,h=desktopHeight>0?desktopHeight:1080;
+        Screen.SetResolution(enabled?w:Mathf.Min(1600,Mathf.RoundToInt(w*.85f)),enabled?h:Mathf.Min(900,Mathf.RoundToInt(h*.85f)),enabled?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
+        yield return null;yield return null;Screen.fullScreen=enabled;yield return null;AudioSettingsUI.RefreshDisplay();displayChange=null;
+    }
+    void Update(){if(Input.GetKeyDown(KeyCode.F11)||(Input.GetKeyDown(KeyCode.Return)&&(Input.GetKey(KeyCode.LeftAlt)||Input.GetKey(KeyCode.RightAlt))))SetFullscreen(!Screen.fullScreen);}
     private void OnValidate() { ApplyVolume(); }
     private void Awake()
     {
         if (instance != null && instance != this) { Destroy(gameObject); return; }
         instance = this;
+        desktopWidth=Mathf.Max(Screen.currentResolution.width,Display.main.systemWidth);desktopHeight=Mathf.Max(Screen.currentResolution.height,Display.main.systemHeight);
         SfxEnabled=PlayerPrefs.GetInt("Besieged.SfxEnabled",1)!=0;
         MusicEnabled=PlayerPrefs.GetInt("Besieged.MusicEnabled",1)!=0;
         MusicVolume=PlayerPrefs.GetFloat("Besieged.MusicVolume",MusicVolume);

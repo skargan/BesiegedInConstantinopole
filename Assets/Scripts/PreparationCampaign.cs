@@ -17,7 +17,7 @@ public static class PreparationCampaign
     static void Add(string key,int value)=>VariableSingleton.ChangeInt(key,value);
     static bool B(string key)=>VariableSingleton.GetBoolVariable(key);
     public static bool Active=>I("iPreparationVersion")==2;
-    public static int CareerCount=>Enumerable.Range(0,Achievements.Names.Length).Count(i=>PlayerPrefs.GetInt("BesiegedAchievement"+i,0)==1);
+    public static int CareerCount=>Enumerable.Range(0,Achievements.Names.Length).Count(i=>AchievementPlatform.Earned(i));
     public static bool Flexible(int turn)=>new[]{1,2,4,6,7,8,9,10,13,14}.Contains(turn);
     public static DateTime Date(int turn)=>turn<12?new DateTime(1452,turn+1,turn==11?12:1):turn==12?new DateTime(1453,1,1):turn==13?new DateTime(1453,2,1):turn==14?new DateTime(1453,3,1):turn==15?new DateTime(1453,4,1):new DateTime(1453,4,6).AddDays(turn-SiegeTurn);
     public static string FixedNode(int turn)

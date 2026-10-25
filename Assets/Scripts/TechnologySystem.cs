@@ -32,7 +32,7 @@ public static class TechnologySystem
 
         new Technology("CounterCannons","Counter-battery artillery",3,"Unlock a major action: spend 3 ammunition to destroy 1–5 Ottoman cannons.","Gunners mark the enemy batteries on their charts. Powder is measured, ranges called and the first counter-battery crews take their stations."),
 
-        new Technology("RomanConcrete","Repair mortar and masonry",3,"Repair gold costs -25%.","Lime kilns burn through the night. Masons prepare fresh mortar while labourers sort stone for the breaches."),
+        new Technology("RomanConcrete","Repair mortar and masonry",3,"Wall repair materials −25% (rounded up).","Lime kilns burn through the night. Masons prepare fresh mortar while labourers sort stone for the breaches."),
 
         new Technology("RomanTraining","Roman Tactics",3,"Infantry trained lethality +25%.","Veterans take charge of the drill yards. By evening, recruits hold formation through the press of shields and the noise of shouted orders."),
 

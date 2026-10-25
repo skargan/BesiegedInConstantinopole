@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public sealed class PhasedAssault
     public int InitialInfantry, InitialArchers, InitialCavalry, InitialGuards, InitialHealth;
     public int ContactBudget,PersonalBudget,MaterialsSpent,SortieSent;
     public float ArcherFactor=1,FootFactor=1,GunFactor=1,ExposureFactor=1;
-    public bool GunResolved,CoverResolved;public float ArcherAccrued;public int ArcherApplied,CombatSeconds;
+    public bool ArrowScreens;public bool GunResolved,CoverResolved;public float ArcherAccrued;public int ArcherApplied,CombatSeconds;
     public int Type, Round, Breach, MainFront, SignalFront, Reserve=50, Shots, TimedMoments;
     public float Wall, ArcherBudget, GunBudget, FootBudget, CavalryBudget, GuardPower, EnemyLethality;
     public float VolleySum, Cover=1, SortieBonus, PressureRelief;
@@ -40,7 +40,7 @@ public sealed class PhasedAssault
     private void FightSeconds(int seconds){int lost=0;for(int i=0;i<seconds;i++){CombatSeconds++;if(Infantry+Archers==0)continue;if((random.Next(2)==0&&Infantry>0)||Archers==0)Infantry--;else Archers--;lost++;}if(lost>0)Journal.Add("Fighting attrition: "+lost+" defenders lost over "+seconds+" simulated seconds.");}
     public void Volley(float score){
         if(Stage!=Phase.Approach||Shots>=3)return;score=Mathf.Clamp(score,-.25f,.25f);VolleySum+=score;Shots++;FightSeconds(3);
-        ArcherAccrued+=ArcherBudget/3f*Mathf.Clamp((1+score)*Cover*ArcherFactor,.75f,1.25f)*(InitialArchers==0?0:(float)Archers/InitialArchers);
+        ArcherAccrued+=ArcherBudget/3f*(ArrowScreens?.75f:1)*Mathf.Clamp((1+score)*Cover*ArcherFactor,.75f,1.25f)*(InitialArchers==0?0:(float)Archers/InitialArchers);
         int killed=Mathf.Clamp(Mathf.RoundToInt(ArcherAccrued)-ArcherApplied,0,EnemyLeft);EnemyLeft-=killed;ArcherApplied+=killed;
         Journal.Add("Volley "+Shots+": "+killed+" enemy losses; timing "+score.ToString("+0%;-0%;0%")+".");
     }
@@ -53,7 +53,7 @@ public sealed class PhasedAssault
     }
     public void Approach(float moat,float fire) {
         if(Stage!=Phase.Approach)return;Stage=Phase.Contact;
-        float arrows=ArcherBudget*Mathf.Clamp(VolleyMultiplier*Cover*ArcherFactor,.75f,1.25f)*(InitialArchers==0?0:(float)Archers/InitialArchers);
+        float arrows=ArcherBudget*(ArrowScreens?.75f:1)*Mathf.Clamp(VolleyMultiplier*Cover*ArcherFactor,.75f,1.25f)*(InitialArchers==0?0:(float)Archers/InitialArchers);
         float guns=GunResolved?0:GunBudget*GunFactor;
         int killed=Mathf.Clamp(Mathf.RoundToInt((Shots>0?0:arrows)+guns+Attackers*(moat>0?.1f:0)+fire),0,EnemyLeft);EnemyLeft-=killed;ContactBudget=EnemyLeft;
         Journal.Add("Approach: "+(killed+ArcherApplied)+" enemy losses. Archers "+arrows.ToString("0")+" (volley ×"+VolleyMultiplier.ToString("0.00")+"), guns "+guns.ToString("0")+"; "+EnemyLeft+" reach the walls.");
@@ -63,6 +63,7 @@ public sealed class PhasedAssault
         float multiplier=Mathf.Clamp(GunFactor*(1+quality),.75f,1.25f);int killed=Mathf.Min(EnemyLeft,Mathf.RoundToInt(GunBudget*multiplier));EnemyLeft-=killed;
         Journal.Add("Cannon shot: "+killed+" enemy losses; gun output ×"+multiplier.ToString("0.00")+". This spends the assault's existing gun allocation.");
     }
+    public void FireAtScreens(){if(Stage!=Phase.Approach||GunResolved||!ArrowScreens||Cannons<=0||Ammo<=0)return;ArrowScreens=false;GunResolved=true;int killed=Mathf.Min(EnemyLeft,Mathf.RoundToInt(GunBudget*.5f));EnemyLeft-=killed;Journal.Add("Cannons shatter the arrow shields: "+killed+" enemy losses; full archer effect restored. The assault gun allocation is spent.");}
     public void Sortie(int strength,float exposure) {
         if(Stage!=Phase.Contact||Round>0||SortieResolved)return;SortieResolved=true;if(strength==0){Journal.Add("The gates remain shut. The reserve stays within the walls.");return;}
         int committed=Mathf.Min(Infantry,strength==1?100:300);SortieSent=committed;

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public static class EspionageSystem
 {
@@ -13,7 +13,7 @@ public static class EspionageSystem
     };
     public static readonly string[] IntelligenceLabels = {
         "Enemy soldiers", "Ottoman artillery and fleet", "Enemy food stores", "Food consumption",
-        "Sultan's fury", "Enemy spies in Constantinople", "Enemy morale", "Likely tactics"
+        "Sultan's fury", "Enemy morale", "Next Ottoman operation", "Enemy spies and their assessment", "Ottoman strategy", "Further intelligence"
     };
     public static int Alert => Mathf.Clamp(CouncilActions.Int("iCampAlert"),0,100);
     public static float LossChance(int mission) => mission==3 ? 5f : 5f+Alert*.5f;
@@ -22,12 +22,15 @@ public static class EspionageSystem
         if(CouncilActions.Int("iSpies")<level+1) return "Unknown";
         switch(level) {
             case 0: return (CouncilActions.Int("iBalkans")+CouncilActions.Int("iBazouks")+CouncilActions.Int("iJanissaries")).ToString("N0");
-            case 1: return CouncilActions.Int("iTurkCannons")+" cannons · "+NavalState.EnemyShips+" vessels";
+            case 1: return CouncilActions.Int("iTurkCannons")+" cannons · "+NavalState.EnemyShips+" vessels"+(DailyLifeEvents.I("iOttGrandCannon")>0?" · great bombard deployed":"");
             case 2: return CouncilActions.Int("iFood")+" days";
             case 3: return "1 day of stores / siege day";
             case 4: return VariableSingleton.GetPercentFloat("fSultanRage");
-            case 5: return CouncilActions.Int("iTurkSpies").ToString();
-            case 6: return CouncilActions.Int("iMorale").ToString();
+            case 5: return CouncilActions.Int("iMorale").ToString();
+            case 6: return OttomanDirector.PlanReport;
+            case 7: return CouncilActions.Int("iTurkSpies")+" infiltrators. "+OttomanDirector.BeliefReport;
+            case 8: return OttomanDirector.StrategyReport;
+            case 9: return "Reserved for a future intelligence capability.";
             default: return VariableSingleton.GetFloatVariable("fMoat")>0?"Preparations at the moat":VariableSingleton.Instance.EnduringWall.GetHealth()>.5f?"Artillery and probing attacks":"Assaults increasingly likely";
         }
     }

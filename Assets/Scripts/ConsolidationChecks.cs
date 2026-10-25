@@ -35,13 +35,13 @@ public static class ConsolidationChecks
             CouncilActions.AdvanceAid(0);Check(I("iInfantry")==inf+CouncilActions.Allies[1].Infantry,"Aid delivered twice");
             Set("iAidState2",1);Check(AidRouting.Warships(2)==CouncilActions.Allies[2].Ships,"Older pending ship promise lost");
             Set("iAidWarships2",3);Check(AidRouting.Warships(2)==3,"Explicit warship quantity ignored");
-            Set("iShips",10);Set("iFleet",1);FleetOperations.OrdersChanged(1);int money=I("iMoney");
+            Set("iShips",10);Set("iFleet",1);FleetOperations.OrdersChanged(1);int money=I("iMoney");Set("iFleetReportInterval",14);
             for(int i=0;i<13;i++){Set("iFleetReportDay",0);Check(FleetOperations.CompleteDay()=="","Fleet rewards before14active days");}
             Check(I("iMoney")==money,"Early fleet income");Set("iFleetReportDay",0);
-            Check(FleetOperations.CompleteDay().Contains("fortnightly")&&I("iMoney")>money,"Fleet report not delivered");
+            Check(FleetOperations.CompleteDay().Contains("routine report")&&I("iMoney")>money,"Fleet report not delivered");
             int delivered=I("iMoney");Check(FleetOperations.CompleteDay()==""&&I("iMoney")==delivered,"Same day repeated fleet reward");
-            FleetOperations.OrdersChanged(2);Check(FleetOperations.DaysRemaining==14,"New mission inherits completed progress");
-            Set("iShips",0);Set("iFleetReportDay",0);Check(FleetOperations.CompleteDay()==""&&FleetOperations.DaysRemaining==14,"No fleet produces rewards");
+            FleetOperations.OrdersChanged(2);Check(FleetOperations.DaysRemaining>=14&&FleetOperations.DaysRemaining<=21,"New mission inherits completed progress");
+            Set("iShips",0);Set("iFleetReportDay",0);Check(FleetOperations.CompleteDay()==""&&FleetOperations.DaysRemaining>=14&&FleetOperations.DaysRemaining<=21,"No fleet produces rewards");
             Check(!RecurringEvents.Eligible(18),"Fleet report remains in random pool");
             var saved=VariableSingleton.Instance.CaptureState();Set("iAidWarships2",9);Restore(saved);Check(AidRouting.Warships(2)==3,"Warship commitment did not restore");
             Restore(original);

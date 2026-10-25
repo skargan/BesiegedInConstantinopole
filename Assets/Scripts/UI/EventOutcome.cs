@@ -53,7 +53,7 @@ public static class EventOutcome
 
         {
 
-            if(v.key.StartsWith("iHard") || v.key.StartsWith("iCombat") || v.key=="iEmperorAtWall" || v.key.StartsWith("iLife") || v.key.StartsWith("iPopulation") || v.key=="iMerchantFavor")continue;
+            if(v.key.StartsWith("iWbw") || v.key.StartsWith("iOtt") || v.key.StartsWith("iHard") || v.key.StartsWith("iCombat") || v.key=="iEmperorAtWall" || v.key.StartsWith("iLife") || v.key.StartsWith("iPopulation") || v.key=="iMerchantFavor")continue;
             if(v.key.StartsWith("iPrepDone") || v.key.StartsWith("iGalataEvent") || v.key=="iPreparationVersion" || v.key.StartsWith("iShah") || v.key=="iFoodShortfall" || v.key=="iHungerDays" || v.key=="iHungerOfferedDay") continue;
             if(v.key.StartsWith("iSultanVisit") || v.key.StartsWith("iSultanTalk") || v.key.StartsWith("iSultanSeen") || v.key=="iSultanConversationDay" || v.key=="iTurkPolicy" || v.key.StartsWith("iAdventurer")) continue;
             if(v.key=="iTurkSpies" && before.ints.FirstOrDefault(x=>x.key=="iTurkPolicy")?.value!=after.ints.FirstOrDefault(x=>x.key=="iTurkPolicy")?.value)continue;

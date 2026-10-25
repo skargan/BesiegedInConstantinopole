@@ -3,11 +3,13 @@ using System;
 public static class FleetOperations
 {
     public const int ReportInterval=14;
-    public static int DaysRemaining=>ReportInterval-DailyLifeEvents.I("iFleetReportProgress");
+    public static int CurrentInterval=>Math.Max(14,Math.Min(21,DailyLifeEvents.I("iFleetReportInterval",14)));
+    public static int DaysRemaining=>CurrentInterval-DailyLifeEvents.I("iFleetReportProgress");
     public static void OrdersChanged(int mission)
     {
         VariableSingleton.SetInt("iFleetReportMission",mission);
         VariableSingleton.SetInt("iFleetReportProgress",0);
+        VariableSingleton.SetInt("iFleetReportInterval",UnityEngine.Random.Range(14,22));
     }
     public static string CompleteDay()
     {
@@ -19,10 +21,11 @@ public static class FleetOperations
         if(DailyLifeEvents.I("iFleetReportMission",-1)!=mission)OrdersChanged(mission);
         int progress=DailyLifeEvents.I("iFleetReportProgress")+1;
         VariableSingleton.SetInt("iFleetReportProgress",progress);
-        if(progress<ReportInterval)return "";
+        if(progress<CurrentInterval)return "";
         VariableSingleton.SetInt("iFleetReportProgress",0);
+        VariableSingleton.SetInt("iFleetReportInterval",UnityEngine.Random.Range(14,22));
         var before=VariableSingleton.Instance.CaptureState();
         RecurringEvents.FleetReport();
-        return "Fleet operations — fortnightly report\n"+EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState())+"\nNext routine report in 14 active days. Urgent reports and harbour defence do not wait for this report.\n\n";
+        return "Fleet operations — routine report\n"+EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState())+"\nNext routine report in "+CurrentInterval+" active days. Urgent reports and harbour defence do not wait for this report.\n\n";
     }
 }

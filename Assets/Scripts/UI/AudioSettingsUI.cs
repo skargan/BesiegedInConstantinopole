@@ -4,13 +4,16 @@ using TMPro;
 
 public static class AudioSettingsUI
 {
-    static GameObject panel;
-    public static void Close(){if(panel!=null)Object.Destroy(panel);panel=null;}
+    static GameObject panel,overlay;
+    public static bool Close(){if(panel==null)return false;if(overlay!=null)Object.Destroy(overlay);else Object.Destroy(panel);panel=null;overlay=null;return true;}
+    public static void RefreshDisplay(){if(panel==null)return;foreach(var t in panel.GetComponentsInChildren<TMP_Text>()){if(t.text.StartsWith("Fullscreen"))t.text=Screen.fullScreen?"Fullscreen · selected":"Fullscreen";else if(t.text.StartsWith("Windowed"))t.text=Screen.fullScreen?"Windowed":"Windowed · selected";}}
     public static void Show(Transform parent)
     {
-        if(panel!=null) Object.Destroy(panel);
+        Close();
+        overlay=new GameObject("Settings overlay",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
+        var canvas=overlay.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=400;var scaler=overlay.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);scaler.matchWidthOrHeight=.5f;
         var settings=Settings.Instance;
-        panel=CampaignHUD.Panel(parent,"Settings",Vector2.zero,Vector2.one);
+        panel=CampaignHUD.Panel(overlay.transform,"Settings",Vector2.zero,Vector2.one);
         ImperialTheme.Panel(panel);
         var title=CampaignHUD.Label(panel.transform,"Settings",new Vector2(.12f,.88f),new Vector2(.88f,.98f),40);title.alignment=TextAlignmentOptions.Center;
         var assault=CampaignHUD.MakeButton(panel.transform,PhasedAssaultUI.ActiveMode?"Assault minigames: ON":"Assault minigames: OFF · neutral",new Vector2(.08f,.76f),new Vector2(.59f,.85f),()=>{});
@@ -33,6 +36,6 @@ public static class AudioSettingsUI
         full=CampaignHUD.MakeButton(panel.transform,"Fullscreen",new Vector2(.15f,.13f),new Vector2(.49f,.22f),()=>{settings.SetFullscreen(true);full.GetComponentInChildren<TMP_Text>().text="Fullscreen · selected";window.GetComponentInChildren<TMP_Text>().text="Windowed";});
         window=CampaignHUD.MakeButton(panel.transform,"Windowed",new Vector2(.51f,.13f),new Vector2(.85f,.22f),()=>{settings.SetFullscreen(false);full.GetComponentInChildren<TMP_Text>().text="Fullscreen";window.GetComponentInChildren<TMP_Text>().text="Windowed · selected";});refresh();
         var help=CampaignHUD.Explanation(panel.transform,"Audio and display preferences are saved.",new Vector2(.15f,.085f),new Vector2(.85f,.12f),18);help.alignment=TextAlignmentOptions.Center;
-        CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.35f,.015f),new Vector2(.65f,.08f),Close);
+        CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.35f,.015f),new Vector2(.65f,.08f),()=>Close());
     }
 }

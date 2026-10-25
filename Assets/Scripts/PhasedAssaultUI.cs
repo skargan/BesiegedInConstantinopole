@@ -98,7 +98,7 @@ public class PhasedAssaultUI : MonoBehaviour
         });
     }
     public void Volley() {
-        if(active&&!cannonOffered&&Battle.Cannons>0&&Battle.Ammo>0){cannonOffered=true;Cannon();return;}
+        if(!cannonOffered&&Battle.Cannons>0&&Battle.Ammo>0&&(active||Battle.ArrowScreens)){cannonOffered=true;Cannon();return;}
         Screen("Archers to the parapet",active?"Three volleys over seven seconds. A: load. W: draw. D: fire. Move the mouse over the battlefield to place your landing area. Loose when the fresh rank enters effective range. Instructions are untimed; start when ready.":"Minigames are off: the captains manage cover and range at ordinary strength. No timing bonus, penalty or cover casualties apply.",1);
         if(Battle.Archers==0){AfterVolley();return;}
         if(active)Order("Start volleys · 7 seconds",0,1,StartVolleys);
@@ -130,9 +130,11 @@ public class PhasedAssaultUI : MonoBehaviour
         if(Battle.Tower||Battle.Ram)SortieMenu();else Contact();
     }
     void Cannon(){
+        if(!active){Screen("Choose the gunners' target","Timber mantlets protect the advancing ranks from arrows. Fire into the ranks for ordinary cannon damage, or shatter the screens: half cannon damage now, full arrow effect afterwards. This choice is untimed.",1);Order("Fire into the ranks",0,2,()=>{Battle.FireGun(0);Volley();});Order("Shatter the arrow shields",1,2,()=>{Battle.FireAtScreens();Volley();});return;}
         Screen("Command the wall gun","Move the mouse over the ground to aim. Fire once into the approaching ranks: D or the fire button. Your shot uses this assault's gun allocation; it cannot create unlimited extra damage. This aiming encounter is untimed.",1);
-        Order("Take the gun · aim and fire",0,2,()=>{foreach(Transform t in choices.transform)Destroy(t.gameObject);Order("Fire the cannon [D]",0,1,CannonShot);activity="cannon";waiting=true;elapsed=0;aim.gameObject.SetActive(true);cue.text="AIM INTO THE DENSEST RANKS · D: FIRE";crowd.Advance(.5f,true);});
-        Order("Let the gunners fire normally",1,2,Volley);
+        Order("Take the gun · aim and fire",0,Battle.ArrowScreens?3:2,()=>{foreach(Transform t in choices.transform)Destroy(t.gameObject);Order("Fire the cannon [D]",0,1,CannonShot);activity="cannon";waiting=true;elapsed=0;aim.gameObject.SetActive(true);cue.text="AIM INTO THE DENSEST RANKS · D: FIRE";crowd.Advance(.5f,true);});
+        Order("Let the gunners fire normally",1,Battle.ArrowScreens?3:2,Volley);
+        if(Battle.ArrowScreens)Order("Shatter the arrow shields\nHalf gun damage; restore arrows",2,3,()=>{Battle.FireAtScreens();RefreshLedger();Volley();});
     }
     void CannonShot(){
         if(activity!="cannon"||!waiting)return;waiting=false;float distance=Vector2.Distance(aimPoint,new Vector2(.515f,.40f));Battle.FireGun(Mathf.Clamp(.25f-distance,-.25f,.25f));crowd.Blast(aimPoint);RefreshLedger();cue.text="SHOT AWAY · "+Battle.Dead+" total enemy losses";StartCoroutine(AfterCannon());

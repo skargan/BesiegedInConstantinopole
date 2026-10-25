@@ -1,3 +1,7 @@
+CURRENT RELEASE — VERSION32 —25 OCTOBER2026
+
+Ottoman intentions,material repairs,shared career achievements,14–21day fleet reports,fullscreen return fix and first provincial-intelligence slice integrated. Read Ottoman intentions Version32.txt for scope,provisional values,tests and remaining geopolitical work.
+
 CURRENT RELEASE - Version31 -23 October2026
 Assault clarity pass: cover cue alignment and timeout exposure, volley input ordering, duplicate-ready-input protection, concise live prompt. Explicit saved Fullscreen/Windowed controls. Technology images preserve native resolution with uncompressed trilinear mipmaps. See Assault design review Version31.txt for assessment, prioritised next work and verification limits.
 

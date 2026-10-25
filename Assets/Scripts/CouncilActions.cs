@@ -322,9 +322,10 @@ public static class CouncilActions
 
         VariableSingleton.ChangeInt("iBazouks",-deserters);
 
-        VariableSingleton.SetInt("iFood",15);
+        int delivered=ImperialSupply.Deliver(15,out var provincialReport);
+        VariableSingleton.SetInt("iFood",delivered);
 
-        return Report(before,"Ottoman stores run out. The army spends today securing provisions instead of attacking. Hunger and disrupted pay drive away "+deserters.ToString("N0")+" irregulars. The new convoy brings 15 days of stores.");
+        return Report(before,"Ottoman stores run out. The army spends today securing provisions instead of attacking. Hunger and disrupted pay drive away "+deserters.ToString("N0")+" irregulars. The new convoy brings "+delivered+" days of stores. "+provincialReport+"");
 
     }
 
@@ -337,7 +338,7 @@ public static class CouncilActions
         int spies=Int("iSpies");
 
         var text=new StringBuilder($"Agents in the enemy camp: {spies}\nSecrets: {Int("iSecrets")}\nEnemy camp alert: {EspionageSystem.Alert}%\n\n");
-        for(int i=0;i<8;i++) text.AppendLine(EspionageSystem.IntelligenceLabels[i]+": "+EspionageSystem.IntelligenceValue(i));
+        for(int i=0;i<EspionageSystem.IntelligenceLabels.Length;i++) text.AppendLine(EspionageSystem.IntelligenceLabels[i]+": "+EspionageSystem.IntelligenceValue(i));
 
         return text.ToString();
 

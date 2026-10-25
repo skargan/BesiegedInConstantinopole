@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 31 · Assault clarity · 23 October 2026";
+    public const string BuildLabel="Version 32 · Ottoman intentions · 25 October 2026";
 
 
 
@@ -812,7 +812,7 @@ public partial class CouncilUI : MonoBehaviour
 
         Open("Spies and intelligence","Recruit contacts, uncover the enemy's plans and choose your operations. Each operation uses your major action.");
 
-        BodyHeight(578+CouncilActions.SpyOrders.Length*238+12);
+        BodyHeight(1398+CouncilActions.SpyOrders.Length*238+12);
 
         int spies=CouncilActions.Int("iSpies");
 
@@ -822,11 +822,11 @@ public partial class CouncilUI : MonoBehaviour
 
         CampaignHUD.Explanation(network.transform,"Each agent reveals another level of intelligence.",new Vector2(.025f,.49f),new Vector2(.62f,.71f),21);
 
-        for(int i=0;i<8;i++) {
+        for(int i=0;i<10;i++) {
 
-            float x=.025f+i*.073f;bool unlocked=spies>i;
+            float x=.025f+i*.057f;bool unlocked=spies>i;
 
-            var segment=CampaignHUD.Panel(network.transform,"Intelligence level "+(i+1),new Vector2(x,.15f),new Vector2(x+.065f,.43f));
+            var segment=CampaignHUD.Panel(network.transform,"Intelligence level "+(i+1),new Vector2(x,.15f),new Vector2(x+.050f,.43f));
 
             segment.GetComponent<Image>().color=unlocked?new Color(.58f,.43f,.22f):new Color(.12f,.10f,.12f);
 
@@ -844,26 +844,27 @@ public partial class CouncilUI : MonoBehaviour
 
         CampaignHUD.Explanation(network.transform,"Falls by 1–10 points each turn.\nHigher alert puts agents at greater risk.",new Vector2(.66f,.06f),new Vector2(.97f,.40f),20);
 
-        var intel=SpyPanel("Intelligence reports",192,280);
+        var intel=SpyPanel("Intelligence reports",192,1100);
 
-        for(int i=0;i<8;i++) {
+        for(int i=0;i<10;i++) {
 
-            float left=.01f+(i%4)*.247f,top=.97f-(i/4)*.49f;bool known=spies>i;
+            float left=.01f+(i%2)*.495f,top=.99f-(i/2)*.198f;bool known=spies>i;
 
-            var cell=CampaignHUD.Panel(intel.transform,"Intelligence report "+(i+1),new Vector2(left,top-.45f),new Vector2(left+.237f,top));
+            var cell=CampaignHUD.Panel(intel.transform,"Intelligence report "+(i+1),new Vector2(left,top-.188f),new Vector2(left+.485f,top));
 
             cell.GetComponent<Image>().color=known?ImperialTheme.Surface:ImperialTheme.Navy;
 
-            var title=CampaignHUD.Label(cell.transform,(i+1)+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.04f,.49f),new Vector2(.96f,.95f),22);
+            var title=CampaignHUD.Label(cell.transform,(i+1)+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.04f,.76f),new Vector2(.96f,.97f),22);
 
-            var value=CampaignHUD.Label(cell.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.04f,.03f),new Vector2(.96f,.48f),21);
+            var value=CampaignHUD.Label(cell.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.04f,.03f),new Vector2(.96f,.73f),21);
+            value.enableAutoSizing=true;value.fontSizeMin=18;value.fontSizeMax=21;
 
             if(!known) {title.color=new Color(.57f,.54f,.52f);value.color=title.color;value.fontStyle|=FontStyles.Italic;}
             if(i==0){title.text="Enemy soldiers · View types";EnemyTroopsLink(cell,Spies);}
 
         }
 
-        var payment=SpyPanel("Operation payment",484,80);
+        var payment=SpyPanel("Operation payment",1304,80);
 
         CampaignHUD.Label(payment.transform,"OPERATIONS  ·  "+CouncilActions.Int("iSecrets")+" secrets available",new Vector2(.02f,.12f),new Vector2(.60f,.9f),25);
 
@@ -875,7 +876,7 @@ public partial class CouncilUI : MonoBehaviour
 
         for(int i=0;i<CouncilActions.SpyOrders.Length;i++) {
 
-            int mission=i;var row=SpyPanel("Spy operation "+i,578+i*238,226);
+            int mission=i;var row=SpyPanel("Spy operation "+i,1398+i*238,226);
 
             CampaignHUD.Label(row.transform,CouncilActions.SpyOrders[i],new Vector2(.025f,.78f),new Vector2(.70f,.98f),27);
 
@@ -897,6 +898,7 @@ public partial class CouncilUI : MonoBehaviour
 
         }
 
+        AddProvincialNavigation(1398+CouncilActions.SpyOrders.Length*238);
     }
 
 
@@ -989,7 +991,7 @@ public partial class CouncilUI : MonoBehaviour
 
         FleetText(strength.transform,known?NavalState.EnemyShips.ToString():"Unknown",.68f,.30f,.98f,.67f,38);
 
-        FleetText(strength.transform,known?"+1 vessel each siege day":"Requires 2 agents in the enemy camp",.68f,.04f,.98f,.30f,19);
+        FleetText(strength.transform,known?"+1/day · "+NavalState.ReplacementSource:"Requires 2 agents in the enemy camp",.68f,.04f,.98f,.30f,19);
 
         var controls=SpyPanel("Fleet command",184,90);
 
@@ -1007,7 +1009,7 @@ public partial class CouncilUI : MonoBehaviour
 
         FleetText(mission.transform,ships==0?"No ships available. New warships take 30 days to build.":effects[order],.03f,.37f,.97f,.68f,24);
 
-        FleetText(mission.transform,"Routine report in "+FleetOperations.DaysRemaining+" active siege days. Reports follow a 14-day cycle; changing mission uses your major action and starts a new cycle.",.03f,.05f,.97f,.35f,20);
+        FleetText(mission.transform,"Routine report in "+FleetOperations.DaysRemaining+" active siege days. Reports follow a 14–21-day cycle; changing mission uses your major action and starts a new cycle.",.03f,.05f,.97f,.35f,20);
 
         var harbour=SpyPanel("Harbour and command",482,250);
 
@@ -1550,7 +1552,7 @@ public partial class CouncilUI : MonoBehaviour
 
         int position=0;
 
-        for(int i=0;i<8;i++) {
+        for(int i=0;i<10;i++) {
 
             if(!CourtRoster.InService(i))continue;
 

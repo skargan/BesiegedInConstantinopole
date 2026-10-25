@@ -15,6 +15,22 @@ public static class GardenConversations
         int today=TrainingPool.Day(VariableSingleton.GetDate());
         return DailyLifeEvents.I("iHardOfficerReturn"+person)<=today;
     }
+    public static string Introduction(int person)
+    {
+        if(IsVisitor(person))return CharacterPreparations.Profiles[person-100];
+        if(person==Kjold)return "‘I am Kjold, an officer of your Varangian Guard. I came from the north to earn my living in imperial service. My present duty is to keep your person safe and the Guard ready.’";
+        string[] introductions={
+            "‘Giovanni Giustiniani Longo, Majesty: a Genoese captain. I have brought my company to Constantinople to serve in its defence. Give us a place on the walls and we shall know our work.’",
+            "‘Alvise Diedo, a Venetian captain in the City's service. My trade is ships, crews and the defence of a harbour. I have come to put that experience at your disposal.’",
+            "‘Loukas Notaras, your megas doux. Constantinople is my home; its government has been my life's work. I serve you among the officials, merchants and households upon whom the defence depends.’",
+            "‘I am Orhan, an Ottoman prince living under your protection. My house gives me a claim and makes me a danger to my kinsman. For the present, my men and I stand with Constantinople.’",
+            "‘George Sphrantzes, your servant and envoy. I have spent much of my life in imperial service, carrying messages between this court and foreign rulers. My duty is to turn acquaintance into assistance.’",
+            "‘Orban, a founder of guns. I have travelled in search of a patron with the metal, furnaces and workmen to realise my designs. You will judge my service by what the finished cannon can do.’",
+            "‘Johannes Grant, an engineer who has come to assist the City's defence. I work with foundations, siege works and mines. My business is to find what is moving beneath us before it reaches the wall.’",
+            "‘Isidore, cardinal and papal legate, formerly metropolitan of Kyiv. I have come from the West to support the City's defence and the union of the Churches.’"
+        };
+        return person>=0&&person<introductions.Length?introductions[person]:Personal(person);
+    }
     public static string Personal(int person)
     {
         if(IsVisitor(person))return VisitorPersonal[person-100];
