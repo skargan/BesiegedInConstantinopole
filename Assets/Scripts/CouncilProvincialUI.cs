@@ -8,21 +8,24 @@ public partial class CouncilUI
     {
         BodyHeight(top+90);
         var row=SpyPanel("Beyond the siege lines",top,78);
-        CampaignHUD.MakeButton(row.transform,"War Beyond the Walls",new Vector2(.02f,.12f),new Vector2(.65f,.88f),ProvincialOperations);
+        CampaignHUD.MakeButton(row.transform,"War Beyond the Walls",new Vector2(.02f,.12f),new Vector2(.65f,.88f),WarTheatreUI.Show);
         CampaignHUD.MakeButton(row.transform,"Specialists",new Vector2(.67f,.12f),new Vector2(.98f,.88f),Specialists);
     }
+    string provincialSelection="macedonia";
+    public void ProvincialOperationsFor(string province){provincialSelection=province;ProvincialOperations();}
     public void ProvincialOperations()
     {
-        Open("War Beyond the Walls","Thessaloniki · Send a camp agent beyond the siege lines. Travel and operations continue while the siege goes on. Each order uses your major action.");
-        BodyHeight(1010);
+        if(ProvincialIntelligence.Assigned>0)provincialSelection=ProvincialIntelligence.ProvinceId;
+        Open("War Beyond the Walls",WarTheatre.Find(provincialSelection).name+" · Send a camp agent beyond the siege lines. Travel and operations continue while the siege goes on. Each order uses your major action.");
+        ControlSingleton.Instance.ReturnAction=WarTheatreUI.Show;BodyHeight(1010);
         var status=SpyPanel("Provincial assignment",0,180);
         CampaignHUD.Label(status.transform,ProvincialIntelligence.Status,new Vector2(.03f,.69f),new Vector2(.97f,.97f),27);
         CampaignHUD.Explanation(status.transform,"Camp agents: "+CouncilActions.Int("iSpies")+" · Provincial assignment: "+ProvincialIntelligence.Assigned+"\nPending convoy disruption: "+ProvincialIntelligence.GetSupplyPressure()+" days of stores. This changes the next delivery, not today's food consumption.",new Vector2(.03f,.10f),new Vector2(.97f,.66f),23);
-        var report=SpyPanel("Letter from Thessaloniki",192,210);
+        var report=SpyPanel("Provincial correspondence",192,210);
         CampaignHUD.Explanation(report.transform,ProvincialIntelligence.LastReport,new Vector2(.03f,.10f),new Vector2(.97f,.91f),24);
         var travel=SpyPanel("Travel orders",414,150);
         CampaignHUD.Explanation(travel.transform,"One agent, seven days each way. An agent abroad no longer contributes to your knowledge of the Ottoman camp.",new Vector2(.03f,.44f),new Vector2(.97f,.96f),22);
-        var dispatch=CampaignHUD.MakeButton(travel.transform,"Send agent · 500 gold",new Vector2(.03f,.06f),new Vector2(.49f,.40f),()=>{bool ok=ProvincialIntelligence.Dispatch(out var text);Finish(ok,text);});
+        var dispatch=CampaignHUD.MakeButton(travel.transform,"Send agent · 500 gold",new Vector2(.03f,.06f),new Vector2(.49f,.40f),()=>{bool ok=ProvincialIntelligence.Dispatch(provincialSelection,out var text);Finish(ok,text);});
         Availability(dispatch,ProvincialIntelligence.DispatchUnavailable);
         var recall=CampaignHUD.MakeButton(travel.transform,"Recall agent · 7 days",new Vector2(.51f,.06f),new Vector2(.97f,.40f),()=>{bool ok=ProvincialIntelligence.Recall(out var text);Finish(ok,text);});
         recall.interactable=ProvincialIntelligence.State==ProvincialIntelligence.CellState.Resident;

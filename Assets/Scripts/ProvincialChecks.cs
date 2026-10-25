@@ -14,7 +14,7 @@ public static class ProvincialChecks
         var original=VariableSingleton.Instance.CaptureState();var random=UnityEngine.Random.state;count=0;
         try {
             Move(1);VariableSingleton.SetInt("iSpies",7);VariableSingleton.SetInt("iMoney",20000);
-            foreach(string s in new[]{"State","Due","Report","Ledger","Cooldown","SupplyLoss"})Set(s,0);
+            foreach(string s in new[]{"State","Due","Report","Ledger","Ledger_macedonia","Province","Cooldown","SupplyLoss"})Set(s,0);
             Check(ProvincialIntelligence.Dispatch(out var report),"Cannot dispatch valid camp agent");
             Check(CouncilActions.Int("iSpies")==6&&ProvincialIntelligence.Assigned==1,"Assignment duplicates/loses camp agent");
             Check(CouncilActions.Int("iMoney")==19500,"Dispatch cost wrong");
@@ -29,7 +29,7 @@ public static class ProvincialChecks
             Check(!ProvincialIntelligence.Recall(out report),"Recall bypasses committed risk");
             Set("Success",1);Set("Lost",0);int secrets=CouncilActions.Int("iSecrets");Move(11);
             Check(ProvincialIntelligence.Advance(VariableSingleton.GetDate()).Contains("One secret"),"Ledger result missing");
-            Check(CouncilActions.Int("iSecrets")==secrets+1&&ProvincialIntelligence.I("Ledger")==1,"Ledger reward not applied");
+            Check(CouncilActions.Int("iSecrets")==secrets+1&&ProvincialIntelligence.Ledger==1,"Ledger reward not applied");
             Reload();ProvincialIntelligence.Advance(VariableSingleton.GetDate());Check(CouncilActions.Int("iSecrets")==secrets+1,"Reload duplicates reward");
             Check(!ProvincialIntelligence.Begin(1,out report),"Cooldown not enforced");
             Move(38);Check(ProvincialIntelligence.OperationUnavailable(0)!=null,"Ledger can be farmed twice");

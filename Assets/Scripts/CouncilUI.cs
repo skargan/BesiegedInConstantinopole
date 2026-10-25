@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 32 · Ottoman intentions · 25 October 2026";
+    public const string BuildLabel="Version 33 · War Beyond the Walls · 25 October 2026";
 
 
 
@@ -1094,7 +1094,7 @@ public partial class CouncilUI : MonoBehaviour
         CampaignHUD.MakeButton(links.transform,"Court and characters",new Vector2(.04f,.29f),new Vector2(.48f,.49f),Court);
 
         CampaignHUD.MakeButton(links.transform,"Galatan diplomacy",new Vector2(.52f,.29f),new Vector2(.96f,.49f),Galata);
-        CampaignHUD.MakeButton(links.transform,"Map of the world · Europe, c. 1450",new Vector2(.04f,.05f),new Vector2(.96f,.25f),WorldMapUI.Show);
+        CampaignHUD.MakeButton(links.transform,"War Beyond the Walls · theatre map",new Vector2(.04f,.05f),new Vector2(.96f,.25f),WarTheatreUI.Show);
 
     }
 

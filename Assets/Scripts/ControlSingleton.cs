@@ -53,7 +53,7 @@ public class ControlSingleton : MonoBehaviour
 
     public void GoBack()
     {
-        if(WorldMapUI.Close()||TechnologyArtwork.ClosePreview())return;
+        if(WorldMapUI.Close()||WarTheatreUI.Close()||TechnologyArtwork.ClosePreview())return;
         if (ReturnAction != null) { var action=ReturnAction; ClearHistory(); action(); return; }
         if (returnTo == null || returnFrom == null) { ClearHistory(); return; }
         returnTo.SetActive(true);
@@ -86,7 +86,7 @@ public class ControlSingleton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(AudioSettingsUI.Close()||WorldMapUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
+            if(AudioSettingsUI.Close()||WorldMapUI.Close()||WarTheatreUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
             if (CampaignHUD.Instance != null && CampaignHUD.Instance.HasModal) { CampaignHUD.Instance.TogglePause(); return; }
             if (escActive)
             {

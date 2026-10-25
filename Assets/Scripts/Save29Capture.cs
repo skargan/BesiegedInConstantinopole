@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Save29Capture:MonoBehaviour {
     string root;int checks;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")||Environment.GetCommandLineArgs().Contains("-theatre33-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
     void Check(bool v,string label){if(!v)throw new Exception("SAVE29 PLAYER: "+label);checks++;}
     private IEnumerator Shot(string name)
     {
@@ -43,6 +43,7 @@ public class Save29Capture:MonoBehaviour {
     void Reload(string path){SaveGames.RequestedFile=path;VariableSingleton.ContinueRequested=true;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");}
     IEnumerator Start(){
         Application.runInBackground=true;root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Save29"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        if(Environment.GetCommandLineArgs().Contains("-theatre33-capture")){yield return Theatre33Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-ai32-capture")){yield return AI32Run();yield break;}
         SaveMenu.NewCampaign(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("01-mode-selection");SaveMenu.Close();yield return Shot("00-main-menu");
         bool hadDisplay=PlayerPrefs.HasKey("Besieged.Fullscreen");int previousDisplay=PlayerPrefs.GetInt("Besieged.Fullscreen",1);AudioSettingsUI.Show(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("09-settings-display");Click("Windowed");yield return new WaitForSecondsRealtime(1);Check(!Screen.fullScreen,"windowed display applied");Click("Fullscreen");yield return new WaitForSecondsRealtime(1);Check(Screen.fullScreen,"fullscreen display applied");Click("Windowed");yield return new WaitForSecondsRealtime(.5f);AudioSettingsUI.Close();if(hadDisplay)PlayerPrefs.SetInt("Besieged.Fullscreen",previousDisplay);else PlayerPrefs.DeleteKey("Besieged.Fullscreen");PlayerPrefs.Save();
@@ -67,6 +68,45 @@ public class Save29Capture:MonoBehaviour {
         Check(SaveGames.Checkpoint(),"rolling checkpoint writes");var a=SaveGames.Read(rolling);Check(a.ironman&&a.saveFormat==SaveGames.Format&&a.build==CouncilUI.BuildLabel,"mode and versions persist");Check(File.Exists(rolling+".bak"),"automatic recovery backup exists");
         SaveMenu.Show(FindObjectOfType<ManagerUI>().transform.parent);yield return Shot("06-ironman-archives");SaveMenu.Close();
         Debug.Log("SAVE29_PLAYER_CHECKS "+checks+" passed: portable slots, mode gate, corruption rejection, event resume, assault resume, technology art");Application.Quit();
+    }
+    IEnumerator Theatre33Run(){
+        root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Theatre33"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=true;SceneManager.LoadScene("Continue Game");yield return Loaded();yield return new WaitForSecondsRealtime(1);
+        WarTheatre.Validate(WarTheatre.Data);Check(WarTheatre.Data.regions.Count(r=>r.kind=="province")==11,"eleven provinces");Check(Enum.GetValues(typeof(OttomanDirector.Temperament)).Length==3,"three personalities");
+        OttomanDirector.Ensure();VariableSingleton.SetInt("iOttPersonality",0);OttomanDirector.Ensure();Check(OttomanDirector.Personality==OttomanDirector.Temperament.Aggressive&&DailyLifeEvents.I("iOttPersonality")==1,"legacy Rash becomes Aggressive");
+        foreach(int old in new[]{1,2,3}){VariableSingleton.SetInt("iOttPersonality",old);OttomanDirector.Ensure();Check((int)OttomanDirector.Personality==old,"existing personality stable "+old);}
+        var original=VariableSingleton.Instance.CaptureState();
+        VariableSingleton.SetInt("iSpies",5);VariableSingleton.SetInt("iMoney",10000);VariableSingleton.SetInt("iWbwState",0);VariableSingleton.SetInt("iWbwDue",0);VariableSingleton.SetInt("iWbwProvince",0);
+        Check(ProvincialIntelligence.ProvinceId=="macedonia","legacy cell retains Macedonia");
+        VariableSingleton.SetInt("iWbwProvince",6);VariableSingleton.SetInt("iWbwLedger_saruhan",1);
+        Check(ProvincialIntelligence.ProvinceId=="aydin"&&ProvincialIntelligence.Ledger==1,"Lydia assignment and ledger migrate to Thrakesion");
+        VariableSingleton.SetInt("iWbwProvince",10);Check(ProvincialIntelligence.ProvinceId=="anatolia","old Anatolia slot stays stable");
+        VariableSingleton.SetInt("iWbwProvince",11);Check(ProvincialIntelligence.ProvinceId=="armeniakon","new Armeniakon uses appended save slot");
+        VariableSingleton.SetInt("iWbwProvince",12);Check(ProvincialIntelligence.ProvinceId=="candar","Paphlagonia appended save slot");
+        VariableSingleton.SetInt("iWbwProvince",0);
+        Check(WarTheatre.Find("karasi").points.All(v=>(1-v.y)*683>=353),"Opsikion stays on Asian shore");
+        Check(WarTheatre.Find("candar").kind=="province"&&WarTheatre.Control(WarTheatre.Find("candar"))==100,"Paphlagonia starts under full Ottoman authority");
+
+        Check(!ProvincialIntelligence.Dispatch("nonexistent",out var bad)&&CouncilActions.Int("iMoney")==10000,"invalid province no debit");
+        // The quick-start scene may still be in preparation. Set its siege date for the operation probe.
+        typeof(VariableSingleton).GetField("turn",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).SetValue(null,18);
+        Check(ProvincialIntelligence.Dispatch("bithynia",out var dispatch),"Bithynia accepts dispatch");Check(ProvincialIntelligence.ProvinceId=="bithynia"&&CouncilActions.Int("iMoney")==9500&&CouncilActions.Int("iSpies")==4,"province and costs recorded once");
+        Check(!ProvincialIntelligence.Dispatch("thrace",out var blocked)&&CouncilActions.Int("iMoney")==9500,"second assignment cannot duplicate");
+        var saved=VariableSingleton.Instance.CaptureState();VariableSingleton.Instance.RestoreValidated(saved);Check(ProvincialIntelligence.ProvinceId=="bithynia","destination persists on restore");
+        ProvincialIntelligence.Advance(VariableSingleton.GetDate().AddDays(7));Check(ProvincialIntelligence.State==ProvincialIntelligence.CellState.Resident,"agent arrives in selected province");
+        Check(ProvincialIntelligence.Begin(0,out var op),"shared ledger operation available");
+        VariableSingleton.SetInt("iWbwLedger",1);Check(ProvincialIntelligence.Ledger==0,"old Thessaloniki ledger does not leak into Bithynia");VariableSingleton.SetInt("iWbwLedger_bithynia",1);Check(ProvincialIntelligence.Ledger==1,"province ledger read correctly");
+        VariableSingleton.Instance.RestoreValidated(original);
+        WarTheatreUI.Show();yield return Shot("01-theatre");
+        var state=UnityEngine.Random.state;WarTheatreUI.Close();yield return null;WarTheatreUI.Show();Check(JsonUtility.ToJson(state)==JsonUtility.ToJson(UnityEngine.Random.state),"view does not consume campaign randomness");yield return null;Canvas.ForceUpdateCanvases();
+        PointerClick("Symbols");yield return Shot("02-symbols");PointerClick("Historical atlas");yield return Shot("03-historical-reference");Check(WorldMapUI.Close(),"historical reference closes independently");yield return null;
+        PointerClick("+");yield return Shot("04-map-zoom");PointerClick("Fit");
+        var shape=FindObjectsOfType<TerritoryGraphic>().First(x=>x.name=="bithynia");var map=shape.rectTransform;var point=WarTheatre.Find("bithynia").label;Vector2 screen=RectTransformUtility.WorldToScreenPoint(null,map.TransformPoint(new Vector3(map.rect.xMin+point.x*map.rect.width,map.rect.yMin+point.y*map.rect.height)));
+        Check(shape.Raycast(screen,null),"polygon raycast selects interior");
+        shape.OnPointerEnter(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current));shape.OnPointerClick(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current));yield return Shot("05-province");
+        PointerClick("Provincial operations");yield return Shot("06-operations");Check(FindObjectsOfType<TMPro.TMP_Text>().Any(x=>x.text.Contains("Bithynia")),"selected province panel");
+        WarTheatreUI.Show();yield return null;var capital=FindObjectsOfType<TerritoryGraphic>().First(x=>x.name=="Constantinople");capital.OnPointerClick(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current));yield return Shot("07-palace");Check(GameObject.Find("War Beyond the Walls map")==null,"Constantinople returns to Palace");
+        Debug.Log("THEATRE33_CHECKS "+checks+" passed");Application.Quit();
     }
     void PointerClick(string prefix){
         var b=FindObjectsOfType<Button>().First(x=>x.interactable&&x.GetComponentInChildren<TMPro.TMP_Text>()?.text.StartsWith(prefix)==true);

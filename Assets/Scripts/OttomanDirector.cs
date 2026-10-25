@@ -7,7 +7,7 @@ using UnityEngine;
 public static class OttomanDirector
 {
     public enum Strategy { RapidAssault, MethodicalAssault, GoldenHorn, Strangulation }
-    public enum Temperament { Rash, Aggressive, Cautious, Balanced }
+    public enum Temperament { Aggressive=1, Cautious=2, Balanced=3 }
     public enum Operation { Reconnaissance, FillMoat, Bombard, Ramp, Tower, Ram, BalkanAssault, IrregularAssault, JanissaryAssault, Reinforce, ArrowScreens, OverlandShips, ChainBattery, NavalAssault, SabotageFood, Carcasses, Advance, GalataAttack, Infiltrate, Resupply, AwaitOrders }
     [Serializable] public class Rule {public string action;public int weight;}
     [Serializable] public class StrategyRules {public string strategy;public Rule[] buildup,operations;}
@@ -19,7 +19,7 @@ public static class OttomanDirector
     public static bool ExecutedThisTurn=>Active&&I("ExecutedTurn",-1)==VariableSingleton.Turn;
     public static bool Active=>I("DirectorVersion")==1;
     public static Strategy CurrentStrategy=>(Strategy)Mathf.Clamp(I("Strategy"),0,3);
-    public static Temperament Personality=>(Temperament)Mathf.Clamp(I("Personality"),0,3);
+    public static Temperament Personality=>(Temperament)Mathf.Clamp(I("Personality"),1,3);
     public static Operation Plan=>(Operation)Mathf.Clamp(I("Plan"),0,Enum.GetValues(typeof(Operation)).Length-1);
     public static bool BuildingUp=>VariableSingleton.CompletedSiegeDays<I("BuildUntil");
     public static readonly string[] StrategyNames={"Rapid assault","Methodical assault","Seize the Golden Horn","Strangulation"};
@@ -31,8 +31,8 @@ public static class OttomanDirector
     public static void Validate(Catalogue c){if(c==null||c.version!=1||c.strategies==null||c.strategies.Length!=4)throw new InvalidOperationException("Four Ottoman strategies required");var names=new System.Collections.Generic.HashSet<string>();foreach(var s in c.strategies){if(!Enum.TryParse(s.strategy,out Strategy strategy)||!Enum.IsDefined(typeof(Strategy),strategy)||!names.Add(s.strategy))throw new InvalidOperationException("Invalid/duplicate Ottoman strategy");foreach(var table in new[]{s.buildup,s.operations})if(table==null||table.Length==0||table.Any(r=>r==null||r.weight<=0||(!Enum.TryParse(r.action,out Operation op)||!Enum.IsDefined(typeof(Operation),op)))||table.Sum(r=>r.weight)<=0)throw new InvalidOperationException("Invalid Ottoman operation table");}}
     public static void Ensure()
     {
-        if(Active)return;
-        Set("DirectorVersion",1);Set("Personality",UnityEngine.Random.Range(0,4));Set("Strategy",0);Set("StrategyStart",VariableSingleton.CompletedSiegeDays);Set("StrategySerial",1);Set("Reassess",VariableSingleton.CompletedSiegeDays+UnityEngine.Random.Range(14,29));Set("BuildUntil",VariableSingleton.CompletedSiegeDays+3);Set("PlanTurn",-1);Set("ExecutedTurn",-1);Set("LastObservationTurn",-1);Set("LastLandAssault",-100);Set("Ammo",30);Set("ArrowScreens",0);Set("HornWorks",0);Set("ChainDamage",0);Set("GrandCannon",0);Set("LastAssaultDead",0);Set("LastAssaultCommitted",0);
+        if(Active){if(I("Personality")==0)Set("Personality",1);return;}
+        Set("DirectorVersion",1);Set("Personality",UnityEngine.Random.Range(1,4));Set("Strategy",0);Set("StrategyStart",VariableSingleton.CompletedSiegeDays);Set("StrategySerial",1);Set("Reassess",VariableSingleton.CompletedSiegeDays+UnityEngine.Random.Range(14,29));Set("BuildUntil",VariableSingleton.CompletedSiegeDays+3);Set("PlanTurn",-1);Set("ExecutedTurn",-1);Set("LastObservationTurn",-1);Set("LastLandAssault",-100);Set("Ammo",30);Set("ArrowScreens",0);Set("HornWorks",0);Set("ChainDamage",0);Set("GrandCannon",0);Set("LastAssaultDead",0);Set("LastAssaultCommitted",0);
         Set("EstimateLand",Mathf.Max(1,Mathf.RoundToInt((DefencePosture.LandInfantry+DefencePosture.LandArchers)*UnityEngine.Random.Range(.55f,1.45f))));Set("EstimateWall",Mathf.Clamp(Mathf.RoundToInt(VariableSingleton.Instance.EnduringWall.GetHealth()*100*UnityEngine.Random.Range(.65f,1.35f)),5,100));Set("EstimateSea",Mathf.RoundToInt(DefencePosture.Strength*UnityEngine.Random.Range(.6f,1.4f)));Set("Confidence",15);
     }
     public static void PrepareTurn()
@@ -49,7 +49,7 @@ public static class OttomanDirector
     }
     static void Reassess()
     {
-        int[] weights={30,25,20,25};if(Personality==Temperament.Rash){weights[0]+=35;weights[3]-=15;}if(Personality==Temperament.Aggressive){weights[0]+=20;weights[1]+=10;}if(Personality==Temperament.Cautious){weights[1]+=15;weights[3]+=25;weights[0]-=15;}
+        int[] weights={30,25,20,25};if(Personality==Temperament.Aggressive){weights[0]+=20;weights[1]+=10;}if(Personality==Temperament.Cautious){weights[1]+=15;weights[3]+=25;weights[0]-=15;}
         if(I("EstimateWall")<40)weights[0]+=25;if(DefencePosture.HornOpen)weights[2]=8;if(Own("iTurkShips")==0)weights[2]=0;if(Own("iTurkSpies")>5)weights[3]+=10;
         if(I("LastAssaultDead")>I("LastAssaultCommitted")*.6f&&I("LastAssaultCommitted")>0){weights[0]=Mathf.Max(5,weights[0]-20);weights[1]+=15;weights[3]+=10;}
         int roll=UnityEngine.Random.Range(0,weights.Sum());int pick=0;for(int i=0;i<4;i++){roll-=weights[i];if(roll<0){pick=i;break;}}
@@ -64,7 +64,7 @@ public static class OttomanDirector
     static int Weight(Operation op,int weight)
     {
         bool attack=op==Operation.BalkanAssault||op==Operation.IrregularAssault||op==Operation.JanissaryAssault;
-        if(attack){int estimate=I("EstimateLand");if(Personality==Temperament.Rash)weight*=2;if(Personality==Temperament.Aggressive)weight=Mathf.RoundToInt(weight*1.5f);if(Personality==Temperament.Cautious&&I("EstimateWall")>60)weight=Mathf.Max(1,weight/3);if(I("EstimateWall")<50)weight*=2;if(estimate>10000)weight=Mathf.Max(1,weight/2);if(VariableSingleton.CompletedSiegeDays-I("LastLandAssault")>=7)weight*=2;}
+        if(attack){int estimate=I("EstimateLand");if(Personality==Temperament.Aggressive)weight=Mathf.RoundToInt(weight*1.5f);if(Personality==Temperament.Cautious&&I("EstimateWall")>60)weight=Mathf.Max(1,weight/3);if(I("EstimateWall")<50)weight*=2;if(estimate>10000)weight=Mathf.Max(1,weight/2);if(VariableSingleton.CompletedSiegeDays-I("LastLandAssault")>=7)weight*=2;}
         return weight;
     }
     public static bool Legal(Operation op)

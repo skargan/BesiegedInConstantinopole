@@ -38,7 +38,7 @@ public static class AI32Checks
             Check(PreparationCampaign.CareerCount==Enumerable.Range(0,Achievements.Names.Length).Count(AchievementPlatform.Earned),"one career and Ironman achievement source");
             // Evaluate every strategy/personality across wall bands using the actual saved planner.
             int attacks=0;for(int seed=0;seed<32;seed++){
-                UnityEngine.Random.InitState(32000+seed);Set("iOttDirectorVersion",0);OttomanDirector.Ensure();Set("iOttPersonality",seed%4);Set("iOttStrategy",seed%4);Set("iOttBuildUntil",0);Set("iOttReassess",999);Set("iTurkCannons",5);Set("iTurkShips",48);Set("iBalkans",20000);Set("iBazouks",50000);Set("iJanissaries",10000);Set("iTurkSpies",seed%11);Set("iProvisions",5000);Set("iOttAmmo",999);Set("iEnemyDelay",0);Set("iFood",75);
+                UnityEngine.Random.InitState(32000+seed);Set("iOttDirectorVersion",0);OttomanDirector.Ensure();Set("iOttPersonality",1+seed%3);Set("iOttStrategy",seed%4);Set("iOttBuildUntil",0);Set("iOttReassess",999);Set("iTurkCannons",5);Set("iTurkShips",48);Set("iBalkans",20000);Set("iBazouks",50000);Set("iJanissaries",10000);Set("iTurkSpies",seed%11);Set("iProvisions",5000);Set("iOttAmmo",999);Set("iEnemyDelay",0);Set("iFood",75);
                 for(int day=0;day<60;day++){
                     Move(day);F("fOuterWall",new[]{.9f,.65f,.35f,.1f}[day%4]);Set("iOttPlanTurn",-1);Set("iOttExecutedTurn",-1);OttomanDirector.PrepareTurn();Check(OttomanDirector.Legal(OttomanDirector.Plan),"legal planned operation "+seed+"/"+day);if(OttomanDirector.Plan>=OttomanDirector.Operation.BalkanAssault&&OttomanDirector.Plan<=OttomanDirector.Operation.JanissaryAssault)attacks++;
                 }
