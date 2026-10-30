@@ -1,0 +1,31 @@
+VERSION 36 â€” Council, defence and recruitment
+30 October 2026
+
+DELIVERED
+- Siege preparation picker: available choices first, unavailable/completed at bottom, seven compact options visible together. Choice identifiers and game rules preserved.
+- New Campaign contains Start at the Siege, using the latest local preparation preset; Normal and Ironman remain explicit choices. No main-menu test entries.
+- Council Development Options contains assault/incident and Albania trials. Rest says Rest and Finish the Day. City at a Glance moved to top of Siege Overview.
+- Overview grouped City at a Glance, Defences, Enemy camp. Distinct ivory wall and turquoise moat meters. Commander, strategic focus, camp delay, agents and ten intelligence levels available.
+- Recruitment logistics: queue, available manpower, losses. Approved pool = floor(current population/10) minus serving and queued infantry, archers and cavalry. Orders cannot exceed availability. Guards and construction do not consume this local pool; foreign arrivals remain possible. Local event conscription caps to availability and reports the actual count.
+- Losses record actual troop removals, not exclusively deaths. Legacy saves without recorded history show a dash. Counters are saved.
+- Walls: compact navy/gold left panel; more than half of artwork visible. Selected wall actions stay in the same panel; grey legacy cells removed. Repair and abandonment mechanics unchanged.
+- Campaign menu: centred single vertical list. Settings: aligned Display, Gameplay and Audio groups; fullscreen/windowed options remain accessible.
+- Map gold outline is hover-only. No default Macedonia selection; clicking retains details without retaining highlight.
+- Diplomacy religion buttons omit About. Fleet explanatory survivor line removed; preparation bonus retained (+50% on next report, consumed once; mission change clears it).
+- Shorter Byzantine glove cursor generated from original, built-in image generation edit, transparent PNG. Prompt: preserve gold/ivory leather, blue-gold Byzantine cuff and upper-left pointing pose; shorten index approximately35%, believable human joints; no extra objects, glow or text, readable at56px.
+
+ASSASSINATION â€” APPROVED RULES
+Ten agents in the enemy camp unlock an attempt during the siege. Explicit confirmation, major action, no gold or agent cost. Base success20% gives immediate campaign victory. Failure adds50 fury points (maximum100), sets camp alert100, and creates a permanent50 alert floor. Next attempt after30 calendar days. Cooldown and consequences persist in saves; older snapshots cannot inherit a later failure. Existing Ironman-only achievement policy applies.
+
+VALIDATION
+Unity exported player; focused UI36 harness:78 checks passed. Preparation ordering and seven fully visible choices verified at 1600x900 and 1366x768, including preserved choice-to-event mapping. Covers map hover/click/exit, display switching, recruitment payment/cap/queue completion, saved loss counts, assassination rejection with9agents, failure/fury/floor, direct and event alert mutation guards, cooldown day29/30, restore clearing/persistence, Cancel/no attempt, Confirm and terminal victory.18 additional isolated C# recruitment checks passed with external campaign dependencies stubbed. Not a full campaign balance audit.
+Screenshot review: main menu, new campaign, council, overview, logistics, map, walls, settings, campaign menu and assassination confirmation. Corrected wall heading HUD overlap in final export.
+
+NEXT ART DECISION â€” NOT IMPLEMENTED
+A. Keep Emperor as stable centrepiece, vary light, candles and small contextual details. Cheapest and most coherent.
+B. Recommended: Emperor as default; replace centrepiece only for major city states (preparation, siege, hunger, fire, relief). Small set of matching scenes communicates current conditions.
+C. Rotating council tableaux keyed to recent decisions and visitors; richest but requires more art and careful avoidance of repetitive/unrelated images.
+Do not change centre artwork until designer chooses. Current Emperor preserved.
+
+LATER SYSTEM REVIEW (READ-ONLY HANDOFF; NOT PROVEN FAILURES)
+Character-document agent flagged fixed family-event priority, unbounded autonomous Galata revenue, zero-resistance revolts from authority ripples, unlimited market stock, and daily Ottoman ship additions outside finite land logistics. Review separately; do not change balance during this UI pass.

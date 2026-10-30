@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 35 · War Beyond the Walls · 25 October 2026";
+    public const string BuildLabel="Version 36 · Council and recruitment · 30 October 2026";
 
 
 
@@ -178,7 +178,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        var briefingPanel=CampaignHUD.Panel(manager.transform,"Council briefing",new Vector2(.30f,.04f),new Vector2(.70f,.41f));
+        var briefingPanel=CampaignHUD.Panel(manager.transform,"Council briefing",new Vector2(.30f,.04f),new Vector2(.70f,.17f));
 
 
 
@@ -186,11 +186,11 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        briefing=CampaignHUD.Label(briefingPanel.transform,"",new Vector2(.05f,.05f),new Vector2(.95f,.96f),22);
+        briefing=CampaignHUD.Label(briefingPanel.transform,"<i>‘The best way of avenging thyself is not to become like [the wrong-doer].’</i>\nMarcus Aurelius · Meditations VI.6",new Vector2(.05f,.05f),new Vector2(.95f,.96f),18);
 
 
 
-        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest · major action\nThen hear petitions","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
+        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest and Finish the Day","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
 
 
 
@@ -226,52 +226,22 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        CampaignHUD.MakeButton(manager.transform,"Test assault",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>AssaultPractice.Show(manager));
+        CampaignHUD.MakeButton(manager.transform,"Development Options",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>AssaultPractice.Show(manager));
     }
 
 
 
-    private void Update()
-
-
-
+    private string CityAtGlanceText()
     {
-
-
-
-        if(briefing==null || !VariableSingleton.IsInitialized) return;
-
-
-
         string weakest="";float support=2f;
-
-
-
-        for(int i=0;i<4;i++) {float value=VariableSingleton.GetFloatVariable(CouncilActions.FactionKeys[i]);if(value<support){support=value;weakest=CouncilActions.FactionNames[i];}}
-
-
-
-        string aid="No relief expedition committed.";
-
-        int soonest=int.MaxValue,committed=0;
-
-        for(int i=0;i<CouncilActions.Allies.Length;i++) if(CouncilActions.Int("iAidState"+i)==1) {
-
+        for(int i=0;i<4;i++){float value=VariableSingleton.GetFloatVariable(CouncilActions.FactionKeys[i]);if(value<support){support=value;weakest=CouncilActions.FactionNames[i];}}
+        string aid="Relief expeditions: none";int soonest=int.MaxValue,committed=0;
+        for(int i=0;i<CouncilActions.Allies.Length;i++)if(CouncilActions.Int("iAidState"+i)==1){
             committed++;int days=CouncilActions.Int("iAidDays"+i);
-
-            if(days<soonest){soonest=days;aid="Next aid: "+CouncilActions.Allies[i].Name+" · "+days+" days";}
-
+            if(days<soonest){soonest=days;aid="Next relief: "+CouncilActions.Allies[i].Name+" · "+days+" days";}
         }
-
-        briefing.fontSize=20;
-
-        briefing.text="<b>THE CITY AT A GLANCE</b>\nLowest support: "+weakest+" "+Mathf.RoundToInt(support*100)+"%\n"+aid+(committed>0?"\nCommitted expeditions: "+committed+" · Details in Diplomacy":"")+"\nFood remaining: "+SupplyEconomy.DaysLeft+" days · Enemy camp alert: "+EspionageSystem.Alert+"%\n\n<size=85%><i>‘The best way of avenging thyself is not to become like [the wrong-doer].’</i>\nMarcus Aurelius · Meditations VI.6</size>";
-
-
-
+        return "Food remaining: "+SupplyEconomy.DaysLeft+" days · Daily consumption: "+SupplyEconomy.DailyNeed+" provisions\nLowest support: "+weakest+" "+Mathf.RoundToInt(support*100)+"%\n"+aid+(committed>1?" · "+committed+" expeditions committed":"");
     }
-
-
 
     public void Hide() { if(screen!=null) screen.SetActive(false); }
 
@@ -745,50 +715,26 @@ public partial class CouncilUI : MonoBehaviour
 
 
     public void Training()
-
     {
-
-        Open("Ongoing training","Recruits, ships and cannon prepare alongside your existing troops' drills. Several orders can proceed together; payment is made when you place them.");
-
+        Open("Recruitment logistics","");
         ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.BringUpTroopsUI();};
-
         var orders=new System.Collections.Generic.List<TrainingPool.Order>(TrainingPool.Orders);orders.Sort((a,b)=>a.readyDay.CompareTo(b.readyDay));
-
-        int pending=0;for(int i=0;i<3;i++) if(TroopTraining.Due(i)>0)pending++;
-
-        BodyHeight(Mathf.Max(180,(orders.Count+pending)*140));
-
-        if(orders.Count+pending==0) CampaignHUD.Explanation(body,"No training or construction is underway. Train recruits or upgrade your soldiers through Military and recruitment.",new Vector2(.03f,.2f),new Vector2(.97f,.9f),26);
-
-        for(int i=0;i<orders.Count;i++) {
-
-            var o=orders[i];var row=Row(i,140);
-
-            CampaignHUD.Label(row.transform,TrainingPool.Name(o.unit)+" · "+o.quantity.ToString("N0"),new Vector2(.03f,.52f),new Vector2(.63f,.92f),28);
-
-            CampaignHUD.Explanation(row.transform,o.unit=="iShips" || o.unit=="iCannons"?"Under construction":"New recruits in training",new Vector2(.03f,.1f),new Vector2(.63f,.48f),23);
-
-            CampaignHUD.Label(row.transform,"Ready "+TrainingPool.ReadyDate(o).ToString("d MMM yyyy")+"\n"+TrainingPool.Remaining(o)+" days remaining",new Vector2(.65f,.1f),new Vector2(.98f,.92f),25);
-
-        }
-
-        int index=orders.Count;
-
-        for(int i=0;i<3;i++) if(TroopTraining.Due(i)>0) {
-
-            var row=Row(index++,140);var ready=new DateTime((long)TroopTraining.Due(i)*TimeSpan.TicksPerDay);
-
-            CampaignHUD.Label(row.transform,TroopTraining.Units[i]+" · advanced drills",new Vector2(.03f,.52f),new Vector2(.63f,.92f),28);
-
-            CampaignHUD.Explanation(row.transform,"Troops remain available for battle",new Vector2(.03f,.1f),new Vector2(.63f,.48f),23);
-
-            CampaignHUD.Label(row.transform,"Ready "+ready.ToString("d MMM yyyy")+"\n"+Mathf.Max(0,TroopTraining.Due(i)-TrainingPool.Day(VariableSingleton.GetDate()))+" days remaining",new Vector2(.65f,.1f),new Vector2(.98f,.92f),25);
-
-        }
-
+        var lines=new System.Collections.Generic.List<string>();
+        foreach(var o in orders)lines.Add(TrainingPool.Name(o.unit)+" · "+o.quantity.ToString("N0")+"\nReady "+TrainingPool.ReadyDate(o).ToString("d MMM")+" · "+TrainingPool.Remaining(o)+" days");
+        for(int i=0;i<3;i++)if(TroopTraining.Due(i)>0){var ready=new DateTime((long)TroopTraining.Due(i)*TimeSpan.TicksPerDay);lines.Add(TroopTraining.Units[i]+" · advanced drills\nReady "+ready.ToString("d MMM"));}
+        float height=Mathf.Max(560,90+lines.Count*100);BodyHeight(height);
+        var queue=SpyPanel("Recruitment queue",0,height-8);var qr=queue.GetComponent<RectTransform>();qr.anchorMax=new Vector2(.51f,1);
+        var stock=SpyPanel("Manpower and losses",0,552);var sr=stock.GetComponent<RectTransform>();sr.anchorMin=new Vector2(.51f,1);
+        var heading=CampaignHUD.Label(queue.transform,"RECRUITMENT & CONSTRUCTION",Vector2.zero,Vector2.one,26);heading.rectTransform.anchorMin=new Vector2(.04f,1);heading.rectTransform.anchorMax=new Vector2(.96f,1);heading.rectTransform.offsetMin=new Vector2(0,-64);heading.rectTransform.offsetMax=new Vector2(0,-10);
+        if(lines.Count==0)lines.Add("No orders in progress.");
+        for(int i=0;i<lines.Count;i++){var label=CampaignHUD.Label(queue.transform,lines[i],Vector2.zero,Vector2.one,24);label.rectTransform.anchorMin=new Vector2(.04f,1);label.rectTransform.anchorMax=new Vector2(.96f,1);label.rectTransform.offsetMin=new Vector2(0,-164-i*100);label.rectTransform.offsetMax=new Vector2(0,-74-i*100);}
+        CampaignHUD.Label(stock.transform,"AVAILABLE MANPOWER",new Vector2(.05f,.87f),new Vector2(.95f,.97f),26);
+        CampaignHUD.Label(stock.transform,RecruitmentLogistics.AvailableManpower.ToString("N0"),new Vector2(.05f,.73f),new Vector2(.95f,.88f),42);
+        CampaignHUD.Label(stock.transform,"Recruitment pool: "+RecruitmentLogistics.ManpowerPool.ToString("N0")+"\nServing: "+RecruitmentLogistics.Serving.ToString("N0")+" · In recruitment: "+RecruitmentLogistics.Queued.ToString("N0"),new Vector2(.05f,.56f),new Vector2(.95f,.73f),24);
+        CampaignHUD.Label(stock.transform,"LOSSES SO FAR",new Vector2(.05f,.43f),new Vector2(.95f,.53f),26);
+        string[] keys={"iInfantry","iArchers","iCavalry","iVarangians"};string[] names={"Infantry","Archers","Cavalry","Varangian Guard"};
+        for(int i=0;i<4;i++){float y=.40f-i*.09f;CampaignHUD.Label(stock.transform,names[i],new Vector2(.05f,y-.08f),new Vector2(.68f,y),24);var value=CampaignHUD.Label(stock.transform,RecruitmentLogistics.LossText(keys[i]),new Vector2(.70f,y-.08f),new Vector2(.95f,y),24);value.alignment=TextAlignmentOptions.Right;}
     }
-
-
 
     private GameObject SpyPanel(string name,float top,float height)
 
@@ -842,7 +788,7 @@ public partial class CouncilUI : MonoBehaviour
 
         var fill=CampaignHUD.Panel(meter.transform,"Alert fill",Vector2.zero,new Vector2(EspionageSystem.Alert/100f,1));fill.GetComponent<Image>().color=new Color(.69f,.29f,.22f);
 
-        CampaignHUD.Explanation(network.transform,"Falls by 1–10 points each turn.\nHigher alert puts agents at greater risk.",new Vector2(.66f,.06f),new Vector2(.97f,.40f),20);
+        CampaignHUD.Explanation(network.transform,"Falls by 1–10 points each turn."+(EspionageSystem.AlertFloor>0?" Minimum 50%.":"")+"\nHigher alert puts agents at greater risk.",new Vector2(.66f,.06f),new Vector2(.97f,.40f),20);
 
         var intel=SpyPanel("Intelligence reports",192,1100);
 
@@ -861,6 +807,7 @@ public partial class CouncilUI : MonoBehaviour
 
             if(!known) {title.color=new Color(.57f,.54f,.52f);value.color=title.color;value.fontStyle|=FontStyles.Italic;}
             if(i==0){title.text="Enemy soldiers · View types";EnemyTroopsLink(cell,Spies);}
+            if(i==9){value.rectTransform.anchorMin=new Vector2(.04f,.39f);var review=CampaignHUD.MakeButton(cell.transform,"Review assassination",new Vector2(.04f,.05f),new Vector2(.96f,.33f),ReviewAssassination);review.interactable=known;}
 
         }
 
@@ -1033,7 +980,7 @@ public partial class CouncilUI : MonoBehaviour
 
         FleetText(report.transform,CouncilActions.Int("iNavalBattles")>0?"Our ships lost: "+CouncilActions.Int("iNavalOurLoss")+"     Ottoman ships lost: "+CouncilActions.Int("iNavalEnemyLoss"):"No naval battle has been fought.",.03f,.36f,.97f,.68f,23);
 
-        FleetText(report.transform,"Both fleets retain their survivors. The balance of ships determines whether the sea remains contested.",.03f,.04f,.97f,.34f,20);
+
 
         var yard=SpyPanel("The shipyards",920,yardHeight);
 
@@ -1043,7 +990,7 @@ public partial class CouncilUI : MonoBehaviour
 
         var preparation=SpyPanel("Fleet preparation",934+yardHeight,100);
 
-        FleetText(preparation.transform,CouncilActions.Int("iFleetPrepared")>0?"Prepared expedition: +50% to the next successful report. Changing mission removes this bonus.":"No preparation bonus is active. Review all five missions under Change mission.",.03f,.12f,.97f,.88f,22);
+        FleetText(preparation.transform,CouncilActions.Int("iFleetPrepared")>0?"Prepared expedition: +50% to the next successful report. Changing mission removes this bonus.":"Preparation bonus: none.",.03f,.12f,.97f,.88f,22);
 
     }
 
@@ -1144,7 +1091,7 @@ public partial class CouncilUI : MonoBehaviour
 
             var profile=DiplomaticChronicles.All[i];
 
-            var faith=CampaignHUD.MakeButton(row.transform,profile.Religion+"\nAbout",new Vector2(.59f,.12f),new Vector2(.74f,.66f),()=>Chronicle(allyIndex));
+            var faith=CampaignHUD.MakeButton(row.transform,profile.Religion,new Vector2(.59f,.12f),new Vector2(.74f,.66f),()=>Chronicle(allyIndex));
 
             faith.GetComponentInChildren<TMP_Text>().fontSize=17;
 
@@ -1199,7 +1146,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
     public void AssaultPracticeMenu(){
-        Open("Assault practice","Practice leaves campaign resources and casualties unchanged. Choose an encounter; minigames can be switched ON/OFF in its briefing.");ControlSingleton.Instance.ReturnAction=AssaultPractice.Exit;BodyHeight(650);
+        Open("Development Options","Practice leaves your campaign unchanged. Choose a system to test.");ControlSingleton.Instance.ReturnAction=AssaultPractice.Exit;BodyHeight(650);
         string[] names={"Ladder assault","Ram and siege tower","Janissary breach","Command a cannon","Mouse-sword duel","24 assault incidents","Albania regional war"};
         for(int i=0;i<7;i++){int n=i;float x=i%2*.5f,y=1-i/2*.245f;var tile=CampaignHUD.Panel(body,names[i],new Vector2(x+.012f,y-.225f),new Vector2(x+.488f,y-.015f));ImperialTheme.Panel(tile,false);CampaignHUD.Label(tile.transform,names[i],new Vector2(.04f,.55f),new Vector2(.96f,.94f),25);CampaignHUD.MakeButton(tile.transform,i==5?"Choose an incident":"Launch practice",new Vector2(.04f,.07f),new Vector2(.96f,.48f),()=>{if(n==6)AlbaniaWarTrialUI.Show();else if(n==4)AssaultPractice.Duel();else if(n==5)AssaultIncidentPractice();else {AssaultPractice.ForcedIncident=-1;AssaultPractice.Launch(n);}});}
     }
@@ -1382,87 +1329,59 @@ public partial class CouncilUI : MonoBehaviour
 
 
     public void Overview()
-
     {
-
         Open("Siege overview",VariableSingleton.HasSiegeStarted()?"Siege day "+VariableSingleton.SiegeDay+" · "+VariableSingleton.GetDate().ToString("d MMMM yyyy"):"Preparing the City · "+VariableSingleton.GetDate().ToString("d MMMM yyyy"));
-
-        BodyHeight(1800);
-
-        var defence=SpyPanel("Defence summary",0,230);
-
+        var glance=SpyPanel("City at a Glance",0,190);
+        CampaignHUD.Label(glance.transform,"CITY AT A GLANCE",new Vector2(.025f,.72f),new Vector2(.97f,.97f),28);
+        CampaignHUD.Label(glance.transform,CityAtGlanceText(),new Vector2(.025f,.07f),new Vector2(.97f,.70f),24);
+        var defence=SpyPanel("Defences",204,260);
+        CampaignHUD.Label(defence.transform,"DEFENCES",new Vector2(.025f,.81f),new Vector2(.97f,.98f),28);
+        var meters=CampaignHUD.Panel(defence.transform,"Wall and moat integrity",new Vector2(.015f,.02f),new Vector2(.985f,.80f));meters.GetComponent<Image>().color=Color.clear;
         string wall=VariableSingleton.Instance.EnduringWall.GetCodeName();
-
         wall=wall=="OuterWall"?"Theodosian Wall":wall=="MiddleWall"?"Constantinian Wall":wall=="InnerWall"?"Severan Wall":wall;
-
-        OverviewMeter(defence.transform,"ACTIVE DEFENCE · "+wall,VariableSingleton.Instance.EnduringWall.GetHealth(),.03f,.48f);
-
-        OverviewMeter(defence.transform,"MOAT",VariableSingleton.GetFloatVariable("fMoat"),.52f,.97f);
-
-        var respite=SpyPanel("Operations delay",244,170);int delay=CouncilActions.Int("iEnemyDelay");
-
-        CampaignHUD.Label(respite.transform,"OPERATIONS DELAY  ·  "+delay+(delay==1?" day":" days"),new Vector2(.025f,.54f),new Vector2(.97f,.94f),28);
-
-        CampaignHUD.Explanation(respite.transform,delay>0?"The next "+delay+" Ottoman operations are held back. Each delay buys a siege day free of attacks and siege works; other daily needs continue. Food shortages can postpone operations before this reserve is used.":"No delay is in reserve. Agents can disrupt Ottoman preparations to buy the defenders time.",new Vector2(.025f,.05f),new Vector2(.97f,.52f),22);
-
-        var network=SpyPanel("Network summary",428,110);
-
-        CampaignHUD.Label(network.transform,"AGENTS  "+CouncilActions.Int("iSpies")+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     ENEMY CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.025f,.17f),new Vector2(.97f,.86f),27);
-
-        for(int n=0;n<8;n++) {
-
-            int col=n%2,row=n/2;bool known=CouncilActions.Int("iSpies")>n;
-
-            var item=SpyPanel("Enemy report "+n,552+row*120,108);var rect=item.GetComponent<RectTransform>();rect.anchorMin=new Vector2(col*.5f,1);rect.anchorMax=new Vector2(col*.5f+.49f,1);
-
-            var label=CampaignHUD.Label(item.transform,EspionageSystem.IntelligenceLabels[n],new Vector2(.04f,.51f),new Vector2(.96f,.94f),24);
-
-            var value=CampaignHUD.Label(item.transform,known?EspionageSystem.IntelligenceValue(n):"Requires "+(n+1)+" agents",new Vector2(.04f,.06f),new Vector2(.96f,.49f),23);
-
-            if(!known){label.color=value.color=new Color(.55f,.60f,.63f);value.fontStyle|=FontStyles.Italic;}
-            if(n==0){label.text="Enemy soldiers · View types";EnemyTroopsLink(item,Overview);}
-
-        }
-
-        var situation=SpyPanel("Command and siege works",1048,260);
-
-        int commander=CouncilActions.Int("iCommander");string command=CourtRoster.CommanderName(commander);
-
-        CampaignHUD.Label(situation.transform,"SIEGE COMMANDER · "+command,new Vector2(.025f,.78f),new Vector2(.97f,.98f),26);
-
-        CampaignHUD.Explanation(situation.transform,"Enemy ramp: "+VariableSingleton.GetPercentFloat("fSiegeRamp")+" · Threatens the walls when complete.\nSiege tower: "+(VariableSingleton.GetBoolVariable("bSiegeTower")?"ready":"none")+" · Battering ram: "+(VariableSingleton.GetBoolVariable("bBatteringRam")?"ready":"none")+"\n"+NavalState.SeaControl+" · Our ships: "+CouncilActions.Int("iShips")+" · Ottoman vessels: "+(CouncilActions.Int("iSpies")>=2?NavalState.EnemyShips.ToString():"requires 2 agents")+"\nAmmunition: "+CouncilActions.Int("iAmmunition")+" · Provisions: "+CouncilActions.Int("iProvisions")+" · Daily consumption: "+SupplyEconomy.DailyNeed,new Vector2(.025f,.05f),new Vector2(.97f,.76f),23);
-
-        FocusCard(1440);
-
-        var briefingLink=SpyPanel("Intelligence briefing",1674,95);
-
-        CampaignHUD.MakeButton(briefingLink.transform,"What does the latest enemy action mean?",new Vector2(.03f,.12f),new Vector2(.97f,.88f),IntelligenceBriefing);
-
-        var links=SpyPanel("Overview navigation",1320,95);
-
+        OverviewMeter(meters.transform,"ACTIVE DEFENCE · "+wall,VariableSingleton.Instance.EnduringWall.GetHealth(),.03f,.48f);
+        OverviewMeter(meters.transform,"MOAT",VariableSingleton.GetFloatVariable("fMoat"),.52f,.97f);
+        var command=SpyPanel("Siege commander",478,100);
+        CampaignHUD.Label(command.transform,"SIEGE COMMANDER · "+CourtRoster.CommanderName(CouncilActions.Int("iCommander")),new Vector2(.025f,.50f),new Vector2(.97f,.96f),26);
+        CampaignHUD.Label(command.transform,NavalState.SeaControl+" · Our ships: "+CouncilActions.Int("iShips")+" · Ammunition: "+CouncilActions.Int("iAmmunition"),new Vector2(.025f,.06f),new Vector2(.97f,.49f),23);
+        FocusCard(592);
+        var links=SpyPanel("Defence navigation",826,90);
         CampaignHUD.MakeButton(links.transform,"Spies and intelligence",new Vector2(.03f,.12f),new Vector2(.48f,.88f),Spies);
-
         CampaignHUD.MakeButton(links.transform,"Defence of the walls",new Vector2(.52f,.12f),new Vector2(.97f,.88f),()=>{Hide();manager.BringUpSiegeUI();});
-
+        var camp=SpyPanel("Enemy camp",944,200);
+        CampaignHUD.Label(camp.transform,"ENEMY CAMP",new Vector2(.025f,.76f),new Vector2(.97f,.97f),28);
+        int delay=CouncilActions.Int("iEnemyDelay");
+        CampaignHUD.Label(camp.transform,"Operations delay: "+delay+(delay==1?" day":" days")+" · Agents in camp: "+CouncilActions.Int("iSpies")+" · Secrets: "+CouncilActions.Int("iSecrets")+" · Alert: "+EspionageSystem.Alert+"%",new Vector2(.025f,.43f),new Vector2(.97f,.73f),24);
+        CampaignHUD.Label(camp.transform,"Siege ramp: "+VariableSingleton.GetPercentFloat("fSiegeRamp")+" · Siege tower: "+(VariableSingleton.GetBoolVariable("bSiegeTower")?"ready":"none")+" · Battering ram: "+(VariableSingleton.GetBoolVariable("bBatteringRam")?"ready":"none"),new Vector2(.025f,.08f),new Vector2(.97f,.40f),24);
+        float top=1158;
+        for(int row=0;row<5;row++){
+            float height=row>=3?240:120;
+            for(int col=0;col<2;col++){
+                int n=row*2+col;bool known=CouncilActions.Int("iSpies")>n;
+                var item=SpyPanel("Enemy report "+n,top,height);var rect=item.GetComponent<RectTransform>();rect.anchorMin=new Vector2(col*.5f,1);rect.anchorMax=new Vector2(col*.5f+.5f,1);
+                var label=CampaignHUD.Label(item.transform,EspionageSystem.IntelligenceLabels[n],new Vector2(.04f,.71f),new Vector2(.96f,.96f),24);
+                var value=CampaignHUD.Label(item.transform,known?EspionageSystem.IntelligenceValue(n):"Requires "+(n+1)+" agents",new Vector2(.04f,.06f),new Vector2(.96f,.69f),23);
+                value.enableAutoSizing=true;value.fontSizeMin=19;value.fontSizeMax=23;
+                if(!known){label.color=value.color=new Color(.55f,.60f,.63f);value.fontStyle|=FontStyles.Italic;}
+                if(n==0){label.text="Enemy soldiers · View types";EnemyTroopsLink(item,Overview);}
+            }
+            top+=height+14;
+        }
+        var briefingLink=SpyPanel("Intelligence briefing",top,90);
+        CampaignHUD.MakeButton(briefingLink.transform,"Read the latest enemy action",new Vector2(.03f,.12f),new Vector2(.97f,.88f),IntelligenceBriefing);
+        BodyHeight(top+104);
     }
 
     private void OverviewMeter(Transform parent,string name,float value,float left,float right)
-
     {
-
         var title=CampaignHUD.Label(parent,name,new Vector2(left,.70f),new Vector2(right,.96f),25);
-
         var amount=CampaignHUD.Label(parent,Mathf.RoundToInt(value*100)+"% integrity",new Vector2(left,.38f),new Vector2(right,.68f),30);
-
         var track=CampaignHUD.Panel(parent,name+" meter",new Vector2(left,.15f),new Vector2(right,.29f));ImperialTheme.Panel(track,false);
-
-        var fill=CampaignHUD.Panel(track.transform,"Integrity",Vector2.zero,new Vector2(Mathf.Clamp01(value),1));ImperialTheme.Panel(fill);fill.GetComponent<Image>().color=value<.25f?new Color(.65f,.27f,.20f):new Color(.35f,.70f,.78f);
-
+        var fill=CampaignHUD.Panel(track.transform,"Integrity",new Vector2(0,.12f),new Vector2(Mathf.Clamp01(value),.88f));
+        var image=fill.GetComponent<Image>();image.sprite=null;image.color=name=="MOAT"?new Color(.23f,.66f,.67f):new Color(.83f,.77f,.63f);image.raycastTarget=false;
+        track.transform.Find("Imperial goldwork").SetAsLastSibling();
         title.alignment=amount.alignment=TextAlignmentOptions.Center;
-
     }
-
-
 
     public void Technologies()
 

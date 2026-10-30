@@ -13,9 +13,12 @@ public static class EspionageSystem
     };
     public static readonly string[] IntelligenceLabels = {
         "Enemy soldiers", "Ottoman artillery and fleet", "Enemy food stores", "Food consumption",
-        "Sultan's fury", "Enemy morale", "Next Ottoman operation", "Enemy spies and their assessment", "Ottoman strategy", "Further intelligence"
+        "Sultan's fury", "Enemy morale", "Next Ottoman operation", "Enemy spies and their assessment", "Ottoman strategy", "Assassinate Mehmed"
     };
-    public static int Alert => Mathf.Clamp(CouncilActions.Int("iCampAlert"),0,100);
+    public static int AlertFloor => MehmedAssassination.HasFailed ? 50 : 0;
+    public static int ClampAlert(int value) => Mathf.Clamp(value,AlertFloor,100);
+    public static int Alert => ClampAlert(CouncilActions.Int("iCampAlert"));
+    public static void EnforceAlertFloor() => VariableSingleton.SetInt("iCampAlert",Alert);
     public static float LossChance(int mission) => mission==3 ? 5f : 5f+Alert*.5f;
     public static string IntelligenceValue(int level)
     {
@@ -30,19 +33,19 @@ public static class EspionageSystem
             case 6: return OttomanDirector.PlanReport;
             case 7: return CouncilActions.Int("iTurkSpies")+" infiltrators. "+OttomanDirector.BeliefReport;
             case 8: return OttomanDirector.StrategyReport;
-            case 9: return "Reserved for a future intelligence capability.";
+            case 9: return MehmedAssassination.Status;
             default: return VariableSingleton.GetFloatVariable("fMoat")>0?"Preparations at the moat":VariableSingleton.Instance.EnduringWall.GetHealth()>.5f?"Artillery and probing attacks":"Assaults increasingly likely";
         }
     }
     public static bool FinishOperation(int mission, float risk)
     {
-        VariableSingleton.SetInt("iCampAlert",Mathf.Min(100,Alert+AlertGain[mission]));
+        VariableSingleton.SetInt("iCampAlert",ClampAlert(Alert+AlertGain[mission]));
         bool lost=Random.value*100f<risk && CouncilActions.Int("iSpies")>0;
         if(lost) VariableSingleton.ChangeInt("iSpies",-1);
         return lost;
     }
     public static void AdvanceTurn()
     {
-        if(Alert>0) VariableSingleton.SetInt("iCampAlert",Mathf.Max(0,Alert-Random.Range(1,11)));
+        if(Alert>0) VariableSingleton.SetInt("iCampAlert",ClampAlert(Alert-Random.Range(1,11)));
     }
 }

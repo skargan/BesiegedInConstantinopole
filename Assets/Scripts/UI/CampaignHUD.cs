@@ -119,7 +119,8 @@ public class CampaignHUD : MonoBehaviour
 
         string reason = null;
 
-        if(CouncilActions.Int("iSurrenderEnding")>0) reason=SurrenderTerms.EndingText;
+        if(MehmedAssassination.Victory) reason="Mehmed is dead. The Ottoman commanders abandon the siege. Constantinople endures.";
+        else if(CouncilActions.Int("iSurrenderEnding")>0) reason=SurrenderTerms.EndingText;
         else if (VariableSingleton.Instance.EnduringWall.CityLost) reason = "The last wall has fallen. Constantinople is lost.";
 
         else if (VariableSingleton.GetFloatVariable("fHealth") <= 0) reason = DailyLifeEvents.I("iCombatAssassinationFatal")==1 ? "Assassinated in the palace. The Emperor dies of wounds sustained fighting his attacker." : DailyLifeEvents.I("iLifePoisonEnding")==1 ? "Assassinated by poison. The Emperor dies after eating a poisoned loaf." : "The Emperor has died.";
@@ -138,10 +139,10 @@ public class CampaignHUD : MonoBehaviour
 
         else if (VariableSingleton.CompletedSiegeDays >= 240) reason = "After 240 days, the Ottoman siege collapses. Constantinople endures.";
 
-        if(VariableSingleton.GetIntVariable("iDeposed")>0)reason="Giovanni has seized the imperial throne. Your reign ends; the defence continues under another emperor.";
+        if(!MehmedAssassination.Victory && VariableSingleton.GetIntVariable("iDeposed")>0)reason="Giovanni has seized the imperial throne. Your reign ends; the defence continues under another emperor.";
         if (reason == null) return;
 
-        if(reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.") { PreparationCampaign.HonourVictory(); Achievements.Unlock(0); Achievements.Victory(); }
+        if(MehmedAssassination.Victory || reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.") { PreparationCampaign.HonourVictory(); Achievements.Unlock(0); Achievements.Victory(); }
         SaveGames.End("Campaign ended",reason+"\n\nSiege days survived: "+VariableSingleton.CompletedSiegeDays);
         ended = true;
 
@@ -173,7 +174,7 @@ public class CampaignHUD : MonoBehaviour
 
         if (modal != null) { pausedReport = modal; pausedReport.SetActive(false); modal = null; }
 
-        ShowModal("Campaign menu", (SaveGames.Ironman?"Ironman · one rolling save. Completed decisions and turns are saved automatically. Achievements enabled.":"Normal campaign · named saves available at the council. Achievements disabled.")+"\nLocal archives: "+SaveGames.Root, true);
+        ShowPauseMenu();
 
     }
 
@@ -224,6 +225,21 @@ public class CampaignHUD : MonoBehaviour
     }
 
 
+
+    private void ShowPauseMenu()
+    {
+        // Keep the report/ending layout independent of the compact pause menu.
+        modal=Panel(canvas.transform,"Campaign pause backdrop",Vector2.zero,Vector2.one);
+        modal.name="Campaign Modal";
+        modal.GetComponent<Image>().color=new Color(0,.015f,.025f,.82f);
+        var card=Panel(modal.transform,"Campaign menu card",new Vector2(.31f,.18f),new Vector2(.69f,.82f));ImperialTheme.Panel(card,false);
+        var title=Label(card.transform,"Campaign menu",new Vector2(.10f,.83f),new Vector2(.90f,.95f),34);title.alignment=TextAlignmentOptions.Center;
+        var mode=Explanation(card.transform,SaveGames.Ironman?"Ironman · achievements enabled":"Normal campaign · achievements disabled",new Vector2(.08f,.73f),new Vector2(.92f,.83f),21);mode.alignment=TextAlignmentOptions.Center;
+        ImperialTheme.Button(MakeButton(card.transform,"Resume",new Vector2(.12f,.56f),new Vector2(.88f,.68f),TogglePause));
+        ImperialTheme.Button(MakeButton(card.transform,"Save / load",new Vector2(.12f,.41f),new Vector2(.88f,.53f),()=>SaveMenu.Show(canvas.transform)));
+        ImperialTheme.Button(MakeButton(card.transform,"Settings",new Vector2(.12f,.26f),new Vector2(.88f,.38f),()=>AudioSettingsUI.Show(canvas.transform)));
+        ImperialTheme.Button(MakeButton(card.transform,"Return to main menu",new Vector2(.12f,.11f),new Vector2(.88f,.23f),()=>{if(SaveGames.CanCheckpointCouncil)VariableSingleton.Instance.Save();SceneManager.LoadScene("Menu");}));
+    }
 
     private void ShowModal(string title, string body, bool resume)
 

@@ -27,11 +27,7 @@ public class ManagerUI : UIWindowFam
     public void BringUpSiegeUI()
     {
         SwitchPhase(siegeUI);ImperialTheme.LegacySurface(siegeUI);SceneBackdrop.Apply(siegeUI,SceneBackdrop.Phase("walls"));
-        if(siegeUI.transform.Find("Special actions")==null)
-            CampaignHUD.MakeButton(siegeUI.transform,"Special actions",new Vector2(.66f,.82f),new Vector2(.94f,.91f),()=>{siegeUI.SetActive(false);CouncilUI.For(this).WallSpecialActions();});
-        if(siegeUI.transform.Find("Special actions")==null)
-            CampaignHUD.MakeButton(siegeUI.transform,"Special actions",new Vector2(.66f,.82f),new Vector2(.94f,.91f),()=>{siegeUI.SetActive(false);CouncilUI.For(this).WallSpecialActions();});
-        if(siegeUI.transform.Find("Garrison dispositions")==null)CampaignHUD.MakeButton(siegeUI.transform,"Garrison dispositions",new Vector2(.04f,.82f),new Vector2(.31f,.91f),()=>DefencePosture.Show(this,null));
+        WallDefenceLayout.Apply(siegeUI,this);
         ControlSingleton.Instance.LogToEsc(this.gameObject, siegeUI);
     }
 
@@ -56,9 +52,13 @@ public class ManagerUI : UIWindowFam
     {
         SwitchPhase(troopsUI);ImperialTheme.LegacySurface(troopsUI);SceneBackdrop.Apply(troopsUI,"army");
         Transform recruitmentPanel=troopsUI.transform;
-        foreach(var child in troopsUI.GetComponentsInChildren<Transform>(true)) if(child.name=="Military UI") recruitmentPanel=child;
-        if(recruitmentPanel.Find("Ongoing training")==null)
-            CampaignHUD.MakeButton(recruitmentPanel,"Ongoing training",new Vector2(.58f,.93f),new Vector2(.98f,.995f),()=>{troopsUI.SetActive(false);CouncilUI.For(this).Training();});
+        foreach(var child in troopsUI.GetComponentsInChildren<Transform>(true))
+        {
+            if(child.name=="Military UI") recruitmentPanel=child;
+            if(child.name=="Conscription") child.gameObject.SetActive(false);
+        }
+        if(recruitmentPanel.Find("Recruitment logistics")==null)
+            CampaignHUD.MakeButton(recruitmentPanel,"Recruitment logistics",new Vector2(.58f,.93f),new Vector2(.98f,.995f),()=>{troopsUI.SetActive(false);CouncilUI.For(this).Training();});
         foreach(var caption in troopsUI.GetComponentsInChildren<TMP_Text>(true))
         {
             if(caption.text.Trim()=="Quality") caption.text="Specialist";

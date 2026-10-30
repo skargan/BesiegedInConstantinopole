@@ -193,7 +193,7 @@ public class CampaignSmokeProbe : MonoBehaviour
 
         manager.BringUpTroopsUI();
         yield return Frames();
-        Check(Find<PercentConscriptedUpdater>().GetComponent<TMP_Text>().text.Contains("5.2%"), "Conscription displays 5.2 percent");
+        Check(!Find<PercentConscriptedUpdater>().gameObject.activeInHierarchy, "Conscription strip removed from military screen");
         Check(Find<RecruitationSelection>() != null, "Recruitment panel exists");
         var recruitment = Find<RecruitationSelection>();
         recruitment.GetSelectionIndex(0);
@@ -466,7 +466,11 @@ public class CampaignSmokeProbe : MonoBehaviour
         VariableSingleton.SetInt("iMoney",2000);Check(SultanNegotiations.Act(2,out talk) && (CouncilActions.Int("iMoney")==1000 || CouncilActions.Int("iMoney")==1300),"Gift charged with possible silver return gift");
         RecurringEvents.PlantGardens();Check(CouncilActions.Int("iHarvestDay")==TrainingPool.Day(VariableSingleton.GetDate())+25 && !RecurringEvents.HarvestDue,"Harvest scheduled after 25 calendar days");
         VariableSingleton.SetInt("iHarvestDay",TrainingPool.Day(VariableSingleton.GetDate()));Check(RecurringEvents.HarvestDue,"Harvest due on calendar date");
-        RecurringEvents.Conscript(750);Check(TrainingPool.Orders.Last().quantity==750 && TrainingPool.Remaining(TrainingPool.Orders.Last())==5,"Conscript event uses training pool");
+        int expectedConscripts=System.Math.Min(750,RecruitmentLogistics.AvailableManpower),ordersBeforeConscription=TrainingPool.Orders.Count;
+        RecurringEvents.Conscript(750);
+        Check(expectedConscripts==0 ? TrainingPool.Orders.Count==ordersBeforeConscription :
+            TrainingPool.Orders.Count==ordersBeforeConscription+1 && TrainingPool.Orders.Last().quantity==expectedConscripts && TrainingPool.Remaining(TrainingPool.Orders.Last())==5,
+            "Conscript event reserves available local manpower in training pool");
         VariableSingleton.SetInt("iAidState15",1);VariableSingleton.SetInt("iAidDays15",2);
         VariableSingleton.Instance.Save();VariableSingleton.Instance.Load();
         int archers=CouncilActions.Int("iArchers");CouncilActions.AdvanceAid(1);

@@ -25,10 +25,11 @@ public class RecruitationSelection : MonoBehaviour
 
         troopCost = VariableSingleton.Instance.RecruitmentPricelist[newIndex].GetCost();
         displayCost.text = troopCost.ToString()+" gold / unit · Ready in "+TrainingPool.Duration(troopVariableName)+" days\n"+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(troopVariableName)).ToString("d MMM yyyy");
+        if(RecruitmentLogistics.IsRegular(troopVariableName)) displayCost.text += "\nAvailable manpower: " + RecruitmentLogistics.AvailableManpower.ToString("N0");
         displayCost.fontStyle |= FontStyles.Italic;
         displayMultiplied.TroopCost = troopCost;
 
-        costDeterminant.SetMaxAffordable(VariableSingleton.GetIntVariable("iMoney") / troopCost);
+        costDeterminant.SetMaxAffordable(RecruitmentLogistics.MaximumOrder(troopVariableName, troopCost > 0 ? VariableSingleton.GetIntVariable("iMoney") / troopCost : 0));
 
 
         LogRecruitationToEsc();
@@ -75,9 +76,18 @@ public class RecruitationSelection : MonoBehaviour
     {
         int troopsOrdered = costDeterminant.CommitNumber();
         bool placed=TrainingPool.Place(troopVariableName,troopsOrdered,troopCost);
+        if(!placed)
+        {
+            string reason = RecruitmentLogistics.IsRegular(troopVariableName) &&
+                (RecruitmentLogistics.AvailableManpower == 0 || troopsOrdered > RecruitmentLogistics.AvailableManpower) ?
+                "Available manpower: " + RecruitmentLogistics.AvailableManpower.ToString("N0") :
+                troopsOrdered <= 0 ? "Select a quantity to recruit." : "Insufficient gold.";
+            CampaignHUD.Instance.ShowReport("Recruitment unavailable",reason,()=>CampaignHUD.Instance.DismissReport());
+            return;
+        }
         
 
         ControlSingleton.Instance.GoBack();
-        if(placed) CampaignHUD.Instance.ShowReport("Recruitment order placed",troopsOrdered.ToString("N0")+" "+TrainingPool.Name(troopVariableName)+" will be ready on "+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(troopVariableName)).ToString("d MMM yyyy")+" ("+TrainingPool.Duration(troopVariableName)+" days).\n\nPaid "+((long)troopsOrdered*troopCost).ToString("N0")+" gold.\nView outstanding orders in the Ongoing training.",()=>CampaignHUD.Instance.DismissReport());
+        if(placed) CampaignHUD.Instance.ShowReport("Recruitment order placed",troopsOrdered.ToString("N0")+" "+TrainingPool.Name(troopVariableName)+" will be ready on "+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(troopVariableName)).ToString("d MMM yyyy")+" ("+TrainingPool.Duration(troopVariableName)+" days).\n\nPaid "+((long)troopsOrdered*troopCost).ToString("N0")+" gold.\nView outstanding orders in Recruitment logistics.",()=>CampaignHUD.Instance.DismissReport());
     }
 }

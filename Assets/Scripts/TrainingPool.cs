@@ -23,7 +23,7 @@ public static class TrainingPool
     public static bool Place(string unit,int quantity,int unitCost)
     {
         long cost=(long)quantity*unitCost;
-        if(Duration(unit)==0 || quantity<=0 || unitCost<=0 || cost>VariableSingleton.GetIntVariable("iMoney")) return false;
+        if(Duration(unit)==0 || !RecruitmentLogistics.CanRecruit(unit,quantity) || unitCost<=0 || cost>VariableSingleton.GetIntVariable("iMoney")) return false;
         VariableSingleton.ChangeInt("iMoney",-(int)cost);
         Orders.Add(new Order {unit=unit,quantity=quantity,readyDay=Day(VariableSingleton.GetDate())+Duration(unit)});
         return true;

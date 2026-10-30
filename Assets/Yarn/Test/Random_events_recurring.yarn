@@ -173,7 +173,7 @@ title: random6
     As some young men have been evading their chance to serve the Emperor, gathering of crowds in the streets offers a fertile ground for your recruiting officers. While people will not be happy about this, additional recruits will defend our walls better than their prayers.
     <<ChangeFraction fPeopleRep -0.05>>
     <<Conscript 750>>
-    Seven hundred and fifty conscripts enter training. They will be ready in five days.
+    {ConscriptReport()}
 ===
 
 title: random7

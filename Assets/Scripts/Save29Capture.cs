@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Save29Capture:MonoBehaviour {
     string root;int checks;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-albania35-capture")||Environment.GetCommandLineArgs().Contains("-province34-capture")||Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")||Environment.GetCommandLineArgs().Contains("-theatre33-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){if(Environment.GetCommandLineArgs().Contains("-ui36-capture")||Environment.GetCommandLineArgs().Contains("-albania35-capture")||Environment.GetCommandLineArgs().Contains("-province34-capture")||Environment.GetCommandLineArgs().Contains("-save29-capture")||Environment.GetCommandLineArgs().Contains("-ai32-capture")||Environment.GetCommandLineArgs().Contains("-theatre33-capture")){var go=new GameObject("Save29 verification");DontDestroyOnLoad(go);go.AddComponent<Save29Capture>();}}
     void Check(bool v,string label){if(!v)throw new Exception("SAVE29 PLAYER: "+label);checks++;}
     private IEnumerator Shot(string name)
     {
@@ -43,6 +43,7 @@ public class Save29Capture:MonoBehaviour {
     void Reload(string path){SaveGames.RequestedFile=path;VariableSingleton.ContinueRequested=true;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");}
     IEnumerator Start(){
         Application.runInBackground=true;root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Save29"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        if(Environment.GetCommandLineArgs().Contains("-ui36-capture")){yield return UI36Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-albania35-capture")){yield return Albania35Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-province34-capture")){yield return Province34Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-theatre33-capture")){yield return Theatre33Run();yield break;}
@@ -71,6 +72,66 @@ public class Save29Capture:MonoBehaviour {
         SaveMenu.Show(FindObjectOfType<ManagerUI>().transform.parent);yield return Shot("06-ironman-archives");SaveMenu.Close();
         Debug.Log("SAVE29_PLAYER_CHECKS "+checks+" passed: portable slots, mode gate, corruption rejection, event resume, assault resume, technology art");Application.Quit();
     }
+    IEnumerator UI36Run(){
+        root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/UI36"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        yield return null;
+        Check(!FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text.Contains("Test assaults")==true),"no developer tests on main menu");
+        yield return Shot("00-main-menu");SaveMenu.NewCampaign(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("01-new-campaign");SaveMenu.Close();
+        SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");yield return Loaded();
+        var manager=FindObjectOfType<ManagerUI>(true);manager.gameObject.SetActive(true);var council=CouncilUI.For(manager);yield return null;
+        Check(FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Development Options"),"development options on council");
+        yield return Shot("02-council");
+        var beforePreparation=VariableSingleton.Instance.CaptureState();
+        typeof(VariableSingleton).GetField("turn",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).SetValue(null,1);
+        VariableSingleton.SetInt("iPrepDone0",1);string selectedNode=null;
+        PreparationMenu.Show(manager.transform,node=>selectedNode=node);yield return null;Canvas.ForceUpdateCanvases();
+        var prepRoot=manager.transform.Find("Monthly preparation");var prepScroll=prepRoot.GetComponentInChildren<ScrollRect>();
+        var prepRows=prepScroll.content.Cast<Transform>().ToArray();
+        bool metUnavailable=false;foreach(var row in prepRows){bool enabled=row.GetComponentInChildren<Button>()!=null&&row.GetComponentInChildren<Button>().interactable;if(!enabled)metUnavailable=true;Check(!metUnavailable||!enabled,"available preparation precedes every unavailable row");}
+        Check(prepRows.Length==PreparationCampaign.Nodes.Length,"all preparation options retained");
+        Vector3[] viewportCorners=new Vector3[4];prepScroll.viewport.GetWorldCorners(viewportCorners);
+        for(int i=0;i<7;i++){var corners=new Vector3[4];((RectTransform)prepRows[i]).GetWorldCorners(corners);Check(corners[0].y>=viewportCorners[0].y-.1f&&corners[1].y<=viewportCorners[1].y+.1f,"seven preparation rows visible "+i);}
+        yield return Shot("16-preparations");
+        Screen.SetResolution(1366,768,FullScreenMode.Windowed);yield return new WaitForSecondsRealtime(.5f);Canvas.ForceUpdateCanvases();prepScroll.viewport.GetWorldCorners(viewportCorners);
+        for(int i=0;i<7;i++){var corners=new Vector3[4];((RectTransform)prepRows[i]).GetWorldCorners(corners);Check(corners[0].y>=viewportCorners[0].y-.1f&&corners[1].y<=viewportCorners[1].y+.1f,"seven rows remain visible at1366 "+i);}
+        Screen.SetResolution(1600,900,FullScreenMode.Windowed);yield return new WaitForSecondsRealtime(.5f);prepScroll.verticalNormalizedPosition=0;yield return Shot("17-preparations-unavailable");
+        prepScroll.verticalNormalizedPosition=1;yield return null;Canvas.ForceUpdateCanvases();var firstChoice=prepRows[0].GetComponentInChildren<Button>();int expected=Enumerable.Range(0,PreparationCampaign.Nodes.Length).First(i=>PreparationCampaign.Unavailable(i)==null);firstChoice.onClick.Invoke();Check(selectedNode==PreparationCampaign.Nodes[expected],"sorted preparation executes original catalogue node");
+        VariableSingleton.Instance.RestoreValidated(beforePreparation);yield return null;
+        CampaignHUD.Instance.TogglePause();yield return Shot("12-campaign-menu");yield return null;Canvas.ForceUpdateCanvases();PointerClick("Settings");yield return Shot("13-settings");
+        bool wasFullscreen=Screen.fullScreen;bool hadDisplay=PlayerPrefs.HasKey("Besieged.Fullscreen");int displayPref=PlayerPrefs.GetInt("Besieged.Fullscreen",1);
+        PointerClick("Windowed");yield return new WaitForSecondsRealtime(.5f);Check(!Screen.fullScreen,"windowed setting works");PointerClick("Fullscreen");yield return new WaitForSecondsRealtime(.5f);Check(Screen.fullScreen,"fullscreen setting works");Settings.Instance.SetFullscreen(wasFullscreen);yield return new WaitForSecondsRealtime(.5f);if(hadDisplay)PlayerPrefs.SetInt("Besieged.Fullscreen",displayPref);else PlayerPrefs.DeleteKey("Besieged.Fullscreen");PlayerPrefs.Save();
+        AudioSettingsUI.Close();CampaignHUD.Instance.TogglePause();yield return null;
+        manager.BringUpSiegeUI();yield return Shot("14-wall-defence");Check(GameObject.Find("Wall command panel")!=null,"compact wall panel exists");
+        var wallPanel=GameObject.Find("Wall command panel").GetComponent<RectTransform>();Check(wallPanel.anchorMax.x-wallPanel.anchorMin.x<.5f,"wall panel leaves majority of artwork open");
+        PointerClick("Constantinian Wall");yield return Shot("15-wall-selected");Check(FindObjectsOfType<TMPro.TMP_Text>().Any(t=>t.text=="Constantinian Wall Actions"),"wall selection updates actions");
+        ControlSingleton.Instance.GoBack();yield return null;council.Overview();yield return Shot("03-overview-top");
+        var fills=FindObjectsOfType<Image>().Where(x=>x.name=="Integrity").ToArray();Check(fills.Length==2&&fills[0].color!=fills[1].color&&fills.All(x=>x.sprite==null),"distinct plain integrity fills");
+        var scroll=FindObjectsOfType<ScrollRect>().First(x=>x.content.GetComponentsInChildren<TMPro.TMP_Text>().Any(t=>t.text=="ENEMY CAMP"));scroll.verticalNormalizedPosition=0;yield return Shot("04-enemy-camp");
+        var saved=VariableSingleton.Instance.CaptureState();VariableSingleton.SetInt("iPopulation",100000);VariableSingleton.SetInt("iInfantry",6000);VariableSingleton.SetInt("iArchers",3000);VariableSingleton.SetInt("iCavalry",500);VariableSingleton.SetInt("iMoney",100000);TrainingPool.Orders.Clear();
+        Check(RecruitmentLogistics.AvailableManpower==500,"pool subtracts serving regulars");int gold=CouncilActions.Int("iMoney");Check(!TrainingPool.Place("iInfantry",501,1)&&CouncilActions.Int("iMoney")==gold,"over-cap order rejected without payment");Check(TrainingPool.Place("iInfantry",500,1)&&RecruitmentLogistics.AvailableManpower==0,"queued recruits reserve all remaining manpower");Check(!TrainingPool.Place("iArchers",1,1),"shared pool blocks other regulars");
+        TrainingPool.CompleteDueOrders(VariableSingleton.GetDate().AddDays(30));Check(RecruitmentLogistics.AvailableManpower==0&&RecruitmentLogistics.Queued==0,"completion does not double count");
+        VariableSingleton.ChangeInt("iInfantry",-17);Check(RecruitmentLogistics.LossText("iInfantry")=="17"&&RecruitmentLogistics.AvailableManpower==17,"actual losses tracked");TrainingPool.Place("iArchers",10,1);
+        council.Training();yield return Shot("05-logistics");var tracked=VariableSingleton.Instance.CaptureState();VariableSingleton.Instance.RestoreValidated(tracked);Check(RecruitmentLogistics.LossText("iInfantry")=="17","losses survive restore");VariableSingleton.Instance.RestoreValidated(saved);
+        council.Hide();manager.BringUpTroopsUI();yield return Shot("06-military");Check(!FindObjectsOfType<TMPro.TMP_Text>().Any(t=>t.text.Contains("Population Conscripted")),"conscripted strip hidden");
+        council.Fleet();yield return Shot("07-fleet");
+        WarTheatreUI.Show();yield return null;var shape=FindObjectsOfType<TerritoryGraphic>().First(x=>x.name=="macedonia");var hover=typeof(TerritoryGraphic).GetField("over",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic);Check(!(bool)hover.GetValue(shape),"Macedonia starts unhighlighted");yield return Shot("08-map-neutral");
+        var pointer=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current);shape.OnPointerEnter(pointer);shape.OnPointerClick(pointer);Check((bool)hover.GetValue(shape),"Macedonia highlights while hovered");shape.OnPointerExit(pointer);Check(!(bool)hover.GetValue(shape),"Macedonia clears highlight after click and exit");yield return Shot("09-map-selected-no-hover");WarTheatreUI.Close();yield return null;
+        VariableSingleton.Instance.RestoreValidated(saved);
+        var turn=typeof(VariableSingleton).GetField("turn",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn);
+        VariableSingleton.SetInt("iSpies",9);var rng=UnityEngine.Random.state;Check(!MehmedAssassination.Attempt(out var result)&&JsonUtility.ToJson(rng)==JsonUtility.ToJson(UnityEngine.Random.state),"nine agents cannot attempt or consume randomness");
+        VariableSingleton.SetInt("iSpies",10);int money=CouncilActions.Int("iMoney");
+        int failedSeed=Enumerable.Range(0,100).First(seed=>{UnityEngine.Random.InitState(seed);return UnityEngine.Random.Range(0,100)>=20;});UnityEngine.Random.InitState(failedSeed);
+        float fury=VariableSingleton.GetFloatVariable("fSultanRage");Check(MehmedAssassination.Attempt(out result)&&!MehmedAssassination.Victory,"assassination failure resolves");Check(EspionageSystem.Alert==100&&MehmedAssassination.CooldownDays==30,"failure alert and cooldown");Check(Mathf.Approximately(VariableSingleton.GetFloatVariable("fSultanRage"),Mathf.Min(1,fury+.5f)),"failure fury adds50 points");
+        Check(CouncilActions.Int("iSpies")==10&&CouncilActions.Int("iMoney")==money,"attempt does not charge unannounced gold or agents");
+        VariableSingleton.ChangeInt("iCampAlert",-1000);Check(CouncilActions.Int("iCampAlert")==50,"permanent floor guards event reduction");VariableSingleton.SetInt("iCampAlert",0);Check(CouncilActions.Int("iCampAlert")==50,"permanent floor guards direct assignment");for(int day=0;day<100;day++)EspionageSystem.AdvanceTurn();Check(EspionageSystem.Alert==50,"alert decay stops at50");
+        var failed=VariableSingleton.Instance.CaptureState();VariableSingleton.Instance.RestoreValidated(failed);Check(MehmedAssassination.CooldownDays==30&&EspionageSystem.AlertFloor==50,"failure consequences survive save restore");
+        turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn+29);Check(!MehmedAssassination.Available,"day29 cooldown");turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn+30);Check(MehmedAssassination.Available,"day30 repeat available");
+        VariableSingleton.Instance.RestoreValidated(saved);Check(!MehmedAssassination.HasFailed&&!MehmedAssassination.Victory&&MehmedAssassination.CooldownDays==0,"older snapshot clears assassination state");VariableSingleton.Instance.RestoreValidated(failed);turn.SetValue(null,VariableSingleton.EffectiveSiegeTurn+30);
+        council.ReviewAssassination();yield return Shot("10-assassination-confirmation");PointerClick("Cancel");Check(MehmedAssassination.Available&&!MehmedAssassination.Victory&&EspionageSystem.Alert==50,"cancel makes no attempt");council.ReviewAssassination();yield return null;Canvas.ForceUpdateCanvases();
+        int successSeed=Enumerable.Range(0,100).First(seed=>{UnityEngine.Random.InitState(seed);return UnityEngine.Random.Range(0,100)<20;});UnityEngine.Random.InitState(successSeed);PointerClick("Confirm attempt");Check(MehmedAssassination.Victory,"confirmed assassination success resolves");Check(CampaignHUD.Instance.HasEnded&&SaveGames.Terminal,"assassination ends campaign immediately");yield return Shot("11-assassination-victory");
+        Debug.Log("UI36_CHECKS "+checks+" passed");Application.Quit();
+    }
+
     IEnumerator Albania35Run(){
         root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Albania35"));Directory.CreateDirectory(root);
         var rng=UnityEngine.Random.state;var results=new System.Text.StringBuilder("Scenario,Policy,AlbanianBreakthrough,OttomanBreakthrough,AlbanianAdvantage,OttomanAdvantage,Contested\n");

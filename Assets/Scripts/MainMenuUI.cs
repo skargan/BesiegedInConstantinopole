@@ -30,13 +30,11 @@ public class MainMenuUI : UIWindowFam
         var subtitle=CampaignHUD.Explanation(transform,"A City. An Empire. A last stand.",new Vector2(.06f,.70f),new Vector2(.94f,.77f),23);subtitle.font=font;subtitle.alignment=TMPro.TextAlignmentOptions.Center;
         var rule=CampaignHUD.Panel(transform,"Gold rule",new Vector2(.15f,.695f),new Vector2(.85f,.697f));rule.GetComponent<UnityEngine.UI.Image>().color=new Color(.64f,.49f,.25f);
         var original=GetComponentsInChildren<UnityEngine.UI.Button>(true);
-        var quick=CampaignHUD.MakeButton(transform,VariableSingleton.HasPreparationPreset?"Repeat preparation":"Repeat preparation\n<size=65%>Reach the siege to unlock</size>",Vector2.zero,Vector2.one,QuickStart);quick.interactable=VariableSingleton.HasPreparationPreset;
         var achievement=CampaignHUD.MakeButton(transform,"Achievements",Vector2.zero,Vector2.one,()=>Achievements.Show(transform.root));
         var settingsButton=CampaignHUD.MakeButton(transform,"Settings",Vector2.zero,Vector2.one,()=>AudioSettingsUI.Show(transform.root));
-        var trial=CampaignHUD.MakeButton(transform,"Test assaults",Vector2.zero,Vector2.one,()=>AlbaniaWarTrialUI.TestMenu(transform.root));
         var archives=CampaignHUD.MakeButton(transform,"Saved campaigns",Vector2.zero,Vector2.one,()=>SaveMenu.Show(transform.root));
         var ordered=new System.Collections.Generic.List<UnityEngine.UI.Button>();foreach(var item in original)if(item.transform.parent==transform)ordered.Add(item);
-        ordered.Insert(Mathf.Min(2,ordered.Count),trial);ordered.Insert(Mathf.Min(2,ordered.Count),archives);ordered.Insert(Mathf.Min(3,ordered.Count),quick);ordered.Insert(Mathf.Max(0,ordered.Count-1),achievement);ordered.Insert(Mathf.Max(0,ordered.Count-1),settingsButton);
+        ordered.Insert(Mathf.Min(2,ordered.Count),archives);ordered.Insert(Mathf.Max(0,ordered.Count-1),achievement);ordered.Insert(Mathf.Max(0,ordered.Count-1),settingsButton);
         for(int i=0;i<ordered.Count;i++) {
             var button=ordered[i];float step=.56f/Mathf.Max(1,ordered.Count);float top=.66f-i*step;var rect=button.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.09f,top-step*.80f);rect.anchorMax=new Vector2(.91f,top);rect.offsetMin=rect.offsetMax=Vector2.zero;
             var background=button.GetComponent<UnityEngine.UI.Image>();if(background!=null){ImperialTheme.Button(button);}
@@ -47,15 +45,7 @@ public class MainMenuUI : UIWindowFam
         var version=CampaignHUD.Label(transform,CouncilUI.BuildLabel,new Vector2(.06f,.025f),new Vector2(.94f,.08f),17);version.alignment=TMPro.TextAlignmentOptions.Center;
     }
 
-    public void QuickStart()
-    {
-        if(!VariableSingleton.HasPreparationPreset) return;
-        var confirm=CampaignHUD.Panel(transform.root,"Repeat preparation",new Vector2(.18f,.2f),new Vector2(.82f,.8f));ImperialTheme.Panel(confirm);
-        CampaignHUD.Label(confirm.transform,"Restart at the siege",new Vector2(.06f,.78f),new Vector2(.94f,.96f),36);
-        CampaignHUD.Label(confirm.transform,"Load the preparation snapshot saved when you last reached the siege. Your prepared army, resources, decisions and relationships return to that point. You skip the preparation months.\n\nChoose New campaign instead if you want different preparation decisions. This restart will become your current campaign checkpoint.",new Vector2(.06f,.25f),new Vector2(.94f,.76f),26);
-        CampaignHUD.MakeButton(confirm.transform,"Cancel",new Vector2(.06f,.06f),new Vector2(.45f,.20f),()=>Destroy(confirm));
-        CampaignHUD.MakeButton(confirm.transform,"Restart at siege",new Vector2(.52f,.06f),new Vector2(.94f,.20f),()=>{SaveGames.PrepareNew(false);VariableSingleton.QuickStartRequested=true;VariableSingleton.ContinueRequested=false;SceneManager.LoadScene("Continue Game");});
-    }
+    public void QuickStart(){SaveMenu.StartAtSiege(transform.root);}
 
     public void NewGame(){if(SaveGames.Automated){SaveMenu.StartCampaign(false);return;}SaveMenu.NewCampaign(transform.root);}
 

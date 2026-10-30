@@ -34,7 +34,18 @@ public static class RecurringEvents
     [YarnCommand("PlantGardens")]
     public static void PlantGardens() => VariableSingleton.SetInt("iHarvestDay",TrainingPool.Day(VariableSingleton.GetDate())+25);
     [YarnCommand("Conscript")]
-    public static void Conscript(int count) {if(count>0) TrainingPool.Orders.Add(new TrainingPool.Order {unit="iInfantry",quantity=count,readyDay=TrainingPool.Day(VariableSingleton.GetDate())+5});}
+    public static void Conscript(int count)
+    {
+        count=System.Math.Max(0,System.Math.Min(count,RecruitmentLogistics.AvailableManpower));
+        VariableSingleton.SetInt("iLastConscriptQuantity",count);
+        if(count>0) TrainingPool.Orders.Add(new TrainingPool.Order {unit="iInfantry",quantity=count,readyDay=TrainingPool.Day(VariableSingleton.GetDate())+5});
+    }
+    [YarnFunction("ConscriptReport")]
+    public static string ConscriptReport()
+    {
+        int count=DailyLifeEvents.I("iLastConscriptQuantity");
+        return count>0 ? count.ToString("N0")+" conscripts enter training. They will be ready in five days." : "The recruiting officers find no remaining manpower to call up.";
+    }
     [YarnFunction("FleetReportPreview")]
     public static string FleetReportPreview() {
         string[] effects={"Enemy provisions -3","Gold +750","Provisions +150","Enemy casualties -"+FleetDefensiveDamage,"50 infantry and 25 archers arrive","Fleet lost"};

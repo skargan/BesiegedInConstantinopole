@@ -13,11 +13,32 @@ public static class SaveMenu {
     public static void StartCampaign(bool ironman){Close();SaveGames.PrepareNew(ironman);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");}
     public static void NewCampaign(Transform parent){
         Close();parent=Surface();panel=CampaignHUD.Panel(parent,"Choose campaign mode",new Vector2(.12f,.13f),new Vector2(.88f,.87f));ImperialTheme.Panel(panel);panel.transform.SetAsLastSibling();
-        CampaignHUD.Label(panel.transform,"Begin your reign",new Vector2(.06f,.82f),new Vector2(.94f,.96f),38);
-        CampaignHUD.Explanation(panel.transform,"Normal: named saves and earlier checkpoints. Achievements are disabled.\n\nIronman: one rolling save per campaign. Completed decisions and turns are saved automatically. No manual slots or earlier checkpoints. Only Ironman campaigns can earn achievements.\n\nAssault timing remains optional in either mode.",new Vector2(.06f,.25f),new Vector2(.94f,.79f),27);
-        CampaignHUD.MakeButton(panel.transform,"Normal campaign",new Vector2(.06f,.12f),new Vector2(.47f,.23f),()=>StartCampaign(false));
-        CampaignHUD.MakeButton(panel.transform,"Ironman · achievements",new Vector2(.53f,.12f),new Vector2(.94f,.23f),()=>StartCampaign(true));
-        CampaignHUD.MakeButton(panel.transform,"Cancel",new Vector2(.35f,.025f),new Vector2(.65f,.095f),()=>Close());
+        CampaignHUD.Label(panel.transform,"Begin your reign",new Vector2(.06f,.84f),new Vector2(.94f,.96f),38);
+        CampaignHUD.Explanation(panel.transform,"Normal: named saves and earlier checkpoints. Achievements disabled.\n\nIronman: one rolling autosave, no manual slots or earlier checkpoints. Achievements enabled.",new Vector2(.06f,.60f),new Vector2(.94f,.81f),26);
+        CampaignHUD.MakeButton(panel.transform,"Normal campaign",new Vector2(.06f,.46f),new Vector2(.47f,.57f),()=>StartCampaign(false));
+        CampaignHUD.MakeButton(panel.transform,"Ironman · achievements",new Vector2(.53f,.46f),new Vector2(.94f,.57f),()=>StartCampaign(true));
+        var siege=CampaignHUD.MakeButton(panel.transform,"Start at the Siege",new Vector2(.06f,.30f),new Vector2(.94f,.41f),()=>StartAtSiege(parent));
+        siege.interactable=VariableSingleton.HasPreparationPreset;
+        var explanation=CampaignHUD.Explanation(panel.transform,SiegeStartExplanation(),new Vector2(.06f,.145f),new Vector2(.94f,.28f),24);explanation.fontStyle=FontStyles.Italic;
+        CampaignHUD.MakeButton(panel.transform,"Cancel",new Vector2(.35f,.035f),new Vector2(.65f,.115f),()=>Close());
+    }
+    static string SiegeStartExplanation()=>VariableSingleton.HasPreparationPreset
+        ?"Begin at the siege, skipping all preparation turns and using the choices from your latest completed preparation."
+        :"Complete the preparation turns once to unlock Start at the Siege.";
+    public static void StartAtSiege(Transform parent){
+        Close();parent=Surface();panel=CampaignHUD.Panel(parent,"Start at the Siege",new Vector2(.12f,.17f),new Vector2(.88f,.83f));ImperialTheme.Panel(panel);panel.transform.SetAsLastSibling();
+        CampaignHUD.Label(panel.transform,"Start at the Siege",new Vector2(.06f,.82f),new Vector2(.94f,.96f),38);
+        var explanation=CampaignHUD.Explanation(panel.transform,SiegeStartExplanation(),new Vector2(.06f,.62f),new Vector2(.94f,.79f),26);explanation.fontStyle=FontStyles.Italic;
+        CampaignHUD.Label(panel.transform,"Choose campaign mode",new Vector2(.06f,.50f),new Vector2(.94f,.59f),27);
+        var normal=CampaignHUD.MakeButton(panel.transform,"Normal campaign",new Vector2(.06f,.35f),new Vector2(.47f,.47f),()=>StartSiegeCampaign(false));
+        var ironman=CampaignHUD.MakeButton(panel.transform,"Ironman · achievements",new Vector2(.53f,.35f),new Vector2(.94f,.47f),()=>StartSiegeCampaign(true));
+        normal.interactable=ironman.interactable=VariableSingleton.HasPreparationPreset;
+        CampaignHUD.Explanation(panel.transform,"Normal allows named saves. Ironman uses one rolling save and enables achievements.",new Vector2(.06f,.17f),new Vector2(.94f,.32f),24);
+        CampaignHUD.MakeButton(panel.transform,"Back",new Vector2(.35f,.045f),new Vector2(.65f,.13f),()=>NewCampaign(parent));
+    }
+    public static void StartSiegeCampaign(bool ironman){
+        if(!VariableSingleton.HasPreparationPreset)return;
+        Close();SaveGames.PrepareNew(ironman);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=true;SceneManager.LoadScene("Continue Game");
     }
     public static void Show(Transform parent){
         Close();parent=Surface();panel=CampaignHUD.Panel(parent,"Campaign archives",new Vector2(.025f,.025f),new Vector2(.975f,.975f));ImperialTheme.Panel(panel);panel.transform.SetAsLastSibling();

@@ -119,7 +119,7 @@ public class VariableSingleton : MonoBehaviour
     [YarnCommand("SetInt")]
     static  public void SetInt(string varName, int newValue) 
     {
-        iDict[varName] = newValue;
+        iDict[varName] = varName=="iCampAlert"?EspionageSystem.ClampAlert(newValue):newValue;
         if(varName=="iGrandCannon" || varName=="iAdventurerArrived" || varName=="iShahStatus")Achievements.CheckCampaign();
     }
 
@@ -172,6 +172,7 @@ public class VariableSingleton : MonoBehaviour
     static public void ChangeInt(string varName, int delta)
     {
         Achievements.TroopLoss(varName,Math.Min(iDict[varName],Math.Max(0,-delta)));
+        RecruitmentLogistics.RecordLoss(varName,Math.Min(iDict[varName],Math.Max(0,-delta)));
         if (iDict[varName] + delta < 0)
         {
             iDict[varName] = 0;
@@ -180,6 +181,7 @@ public class VariableSingleton : MonoBehaviour
         {
             iDict[varName] += delta;
         }
+        if(varName=="iCampAlert")iDict[varName]=EspionageSystem.ClampAlert(iDict[varName]);
     }
 
     static public void ChangeInt(string varName, int min, int max)
@@ -271,6 +273,8 @@ public class VariableSingleton : MonoBehaviour
         IsInitialized = true;
         OttomanDirector.Ensure();
         Achievements.BeginCampaign();
+        RecruitmentLogistics.BeginCampaign();
+        MehmedAssassination.ResetForRestore();
     }
 
     /*********************
@@ -373,13 +377,15 @@ public class VariableSingleton : MonoBehaviour
     public string Save(){
         if(!SaveGames.Checkpoint())return "";
         string json=JsonUtility.ToJson(CaptureState(),true);
-        if(!SaveGames.Ironman&&turn==EffectiveSiegeTurn)SaveGames.AtomicWrite(PreparationPresetPath,json);
+        if(turn==EffectiveSiegeTurn)SaveGames.AtomicWrite(PreparationPresetPath,json);
         return json;
     }
     public void Load(){string path=SaveGames.RequestedFile??SaveGames.LatestPath();if(path!=null)SaveGames.Load(path,out var error);}
     public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
+        RecruitmentLogistics.ResetForRestore();
+        MehmedAssassination.ResetForRestore();
         ProvincialIntelligence.ResetForRestore();
         DefencePosture.Initialise();
         PreparationCampaign.InitializeDefaults(legacy: true);
@@ -401,7 +407,7 @@ public class VariableSingleton : MonoBehaviour
         iDict["iPopulation"] = checked((int)PopulationAccounting.Count(data));
         iDict.Remove("iPopulationRemainder");
         iDict.Remove("iPopulationFoodCarry");
-        iDict["iCampAlert"] = Mathf.Clamp(iDict["iCampAlert"],0,100);
+        iDict["iCampAlert"] = EspionageSystem.ClampAlert(iDict["iCampAlert"]);
         foreach (var pair in data.floats) fDict[pair.key] = pair.key.EndsWith("Quality")?Mathf.Max(0,pair.value):Mathf.Clamp01(pair.value);
         possibleStory = data.story ?? possibleStory;
         possibleRandom = data.randomEvents ?? possibleRandom;
