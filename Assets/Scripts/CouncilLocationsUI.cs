@@ -28,8 +28,8 @@ public partial class CouncilUI
             LocationHotspot.Create(holder.transform,"Return to the Palace",new[]{new Vector2(.015f,.46f),new Vector2(.080f,.48f),new Vector2(.081f,.77f),new Vector2(.043f,.79f),new Vector2(.014f,.77f)},Palace);
             LocationHotspot.Create(holder.transform,"Hagia Sophia",new[]{new Vector2(.665f,.669f),new Vector2(.665f,.70f),new Vector2(.679f,.70f),new Vector2(.684f,.714f),new Vector2(.695f,.72f),new Vector2(.707f,.712f),new Vector2(.712f,.702f),new Vector2(.724f,.696f),new Vector2(.724f,.672f)},HagiaSophia);
         }else{
-            LocationButton(holder.transform,"Return to the Palace",.03f,.08f,.27f,.22f,Palace);
-            LocationButton(holder.transform,"Walk in the garden",.73f,.08f,.97f,.22f,Garden);
+            LocationHotspot.Create(holder.transform,"Return to the Palace",HagiaPalacePortal(),Palace);
+            LocationHotspot.Create(holder.transform,"Walk in the garden",HagiaGardenPortal(),Garden);
         }
         int visitor=PalaceLocations.Visitor(place);
         if(visitor>=0){
@@ -49,8 +49,18 @@ public partial class CouncilUI
         points.Add(new Vector2(.950f,.393f));return points.ToArray();
     }
     private Vector2[] PalaceCathedral()=>new[]{new Vector2(.366f,.687f),new Vector2(.367f,.724f),new Vector2(.372f,.726f),new Vector2(.375f,.710f),new Vector2(.389f,.717f),new Vector2(.390f,.732f),new Vector2(.399f,.743f),new Vector2(.409f,.747f),new Vector2(.420f,.742f),new Vector2(.427f,.728f),new Vector2(.428f,.718f),new Vector2(.436f,.718f),new Vector2(.436f,.733f),new Vector2(.440f,.735f),new Vector2(.443f,.720f),new Vector2(.447f,.705f),new Vector2(.447f,.677f),new Vector2(.424f,.676f),new Vector2(.416f,.672f),new Vector2(.391f,.674f),new Vector2(.390f,.688f),new Vector2(.378f,.693f)};
-    private void LocationButton(Transform parent,string title,float x,float y,float right,float top,UnityEngine.Events.UnityAction action)
-    {
-        CampaignHUD.MakeButton(parent,title,new Vector2(x,y),new Vector2(right,top),action);
-    }
+    // Trace only the visible passage, leaving the columns and foreground reliquary solid.
+    // Coordinates stay attached to the fitted painting at every window aspect ratio.
+    private Vector2[] HagiaPalacePortal()=>new[]{
+        new Vector2(.108f,.181f),new Vector2(.112f,.346f),new Vector2(.119f,.519f),
+        new Vector2(.124f,.568f),new Vector2(.130f,.604f),new Vector2(.138f,.625f),
+        new Vector2(.147f,.630f),new Vector2(.157f,.618f),new Vector2(.166f,.593f),
+        new Vector2(.174f,.557f),new Vector2(.178f,.516f),new Vector2(.174f,.441f),
+        new Vector2(.169f,.347f),new Vector2(.163f,.251f),new Vector2(.161f,.181f)};
+    private Vector2[] HagiaGardenPortal()=>new[]{
+        new Vector2(.783f,.161f),new Vector2(.782f,.468f),new Vector2(.787f,.495f),
+        new Vector2(.794f,.517f),new Vector2(.803f,.534f),new Vector2(.814f,.545f),
+        new Vector2(.826f,.548f),new Vector2(.839f,.542f),new Vector2(.840f,.505f),
+        new Vector2(.835f,.463f),new Vector2(.836f,.393f),new Vector2(.832f,.348f),
+        new Vector2(.818f,.321f),new Vector2(.824f,.275f),new Vector2(.828f,.161f)};
 }
