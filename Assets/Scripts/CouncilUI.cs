@@ -1175,47 +1175,7 @@ public partial class CouncilUI : MonoBehaviour
         CampaignHUD.MakeButton(body,"Choose another gift",new Vector2(.66f,.08f),new Vector2(.95f,.25f),SultanGiftMenu);
     }
 
-    public void Sultan()
-
-    {
-
-        Open("Messages to the Sultan","Envoys carry your words between the palace and Mehmed's court. Each conversation topic is available once per day.");
-
-        ControlSingleton.Instance.ReturnAction=Diplomacy;BodyHeight((SurrenderTerms.HasOffer?9:8)*160);
-        var sultanIdentity=Row(0,160);CharacterPortraits.Draw(sultanIdentity.transform,202,new Vector2(.02f,.07f),new Vector2(.17f,.93f));CampaignHUD.Label(sultanIdentity.transform,"Mehmed II\nSultan and supreme commander",new Vector2(.20f,.18f),new Vector2(.95f,.85f),28);
-
-        if(SurrenderTerms.HasOffer) {var offer=Row(8,160);CampaignHUD.MakeButton(offer.transform,SurrenderTerms.Valid?"Review surrender terms":"Read expired offer",new Vector2(.08f,.2f),new Vector2(.92f,.8f),ReviewTerms);}
-
-        for(int position=0;position<SultanNegotiations.Titles.Length;position++)
-
-        {
-
-            int i=new[]{0,1,3,4,2,5,6}[position];int choice=i;var row=Row(position+1,160);
-
-            CampaignHUD.Label(row.transform,SultanNegotiations.Titles[i],new Vector2(.03f,.55f),new Vector2(.7f,.95f),27);
-
-            CampaignHUD.Explanation(row.transform,SultanNegotiations.Effects[i],new Vector2(.03f,.08f),new Vector2(.7f,.53f),22);
-
-            var button=CampaignHUD.MakeButton(row.transform,SultanNegotiations.Available(i)?(i==2?"Choose gift":"Send message"):SultanNegotiations.Unavailable(i),new Vector2(.75f,.18f),new Vector2(.97f,.82f),()=>{
-
-                if(choice==2){SultanGiftMenu();return;}
-                bool ok=SultanNegotiations.Act(choice,out var report);
-
-                if(!ok){notice.text=report;return;}
-
-                if(choice==0) {ReviewTerms();return;}
-
-                if(SultanNegotiations.IsConversation(choice)) CampaignHUD.Instance.ShowReport(SultanNegotiations.Titles[choice],report,()=>{CampaignHUD.Instance.DismissReport();Sultan();});
-
-                else Finish(true,report);
-
-            });button.interactable=SultanNegotiations.Available(i);
-
-        }
-
-    }
-
-
+    public void Sultan()=>SultanAudience();
 
     public void ReviewTerms()
 
