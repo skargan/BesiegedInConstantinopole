@@ -32,7 +32,7 @@ public class HotspotCapture:MonoBehaviour
         var before=VariableSingleton.Instance.CaptureState();cathedral=Find("Hagia Sophia");cathedral.OnPointerClick(Pointer(cathedral,new Vector2(.410f,.705f)));yield return null;Check(PalaceLocations.VisitedSanctuary,"Cathedral click failed");
         c.Palace();yield return null;Screen.SetResolution(1100,760,false);yield return new WaitForSeconds(.5f);Canvas.ForceUpdateCanvases();
         door=Find("To the garden");mouse=Pointer(door,new Vector2(.895f,.60f));Check(door.IsRaycastLocationValid(mouse.position,null),"Resized hit region failed");
-        Check(Resources.Load<Texture2D>("UI/MidnightMosaic/byzantine-hand")!=null,"Cursor asset missing");
+        Check(FindObjectOfType<ByzantineCursor>().GetComponentInChildren<RawImage>(true).texture==Resources.Load<Texture2D>(ByzantineCursor.ResourcePath),"Displayed cursor uses wrong asset");
         Check(FindObjectOfType<ByzantineCursor>()!=null,"Cursor controller missing");
         File.WriteAllText(Path.Combine(output,"checks.txt"),passed+" exported-player checks passed.");Application.Quit();
     }

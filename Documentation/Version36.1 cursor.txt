@@ -1,0 +1,16 @@
+VERSION 36.1 - Compact Byzantine cursor
+31 October 2026
+
+The previous Version 36 asset was wired correctly, but its visual shortening was too subtle at 56 pixels. Replaced it with a substantially more compact pointing glove while retaining ivory leather, antique gold and a lapis-blue cuff.
+
+Implementation: byzantine-hand-v36-1.png, transparent alpha, square aspect preserved, lossless texture import, 56 x 56 cursor rectangle. The click hotspot is placed on the opaque upper-left fingertip at source coordinate (311, 225) on a 1254 x 1254 image.
+
+The focused exported-player capture checks the actual RawImage texture identity, dimensions, hotspot and non-interference with button raycasts. It forces the software cursor visible for review at its real size and in a separate four-times enlargement. It never starts a campaign and uses isolated test archives.
+
+This source also includes the previously completed Hagia Sophia passage portals and Sultan audience layout from the other agent. Campaign rules and saves are unchanged by the cursor patch.
+
+IMAGE CREATION
+Built-in image_gen edit, using byzantine-hand-v36.png as a material/style reference.
+Prompt: Use case: precise-object-edit. Asset type: transparent game mouse cursor. The attached image is ONLY the colour/material reference. Correct its anatomy substantially: redraw a compact NORMAL HUMAN RIGHT HAND in an ivory leather glove pointing diagonally towards upper left, back of hand visible, other three fingers curled, thumb naturally resting alongside. The extended index finger in the reference is far too long and tubular. SHORTEN ITS VISIBLE PROJECTION BY A FULL 45 PERCENT compared with this reference, bringing the fingertip much nearer to the curled knuckles. Make fingertip softly rounded, finger tapered, exactly two natural interphalangeal joints, no extra joints or long shaft. The index tip should project only moderately beyond the curled middle knuckle. Palm broad and compact. Short wrist cuff. Preserve exquisite antique Byzantine gold edging, ivory glove and dark lapis blue cuff with restrained small cross motif. Simplify fine ornament so silhouette reads instantly at 56 pixels; crisp dark edge and soft gold highlight. A restrained medieval painted game asset, not modern cartoon, not photoreal flesh. One hand only centred on square canvas with minimal even transparent padding, pointing upper-left. Truly transparent alpha background; no background, no checkerboard drawn into pixels, no cast ground shadow, no glow, no text. The most important success condition is a SIGNIFICANTLY shorter, believable human index finger, obvious even at thumbnail size. Do not preserve the elongated silhouette of the reference.
+
+VALIDATED: Export completed successfully. CURSOR_CHECKS 12 passed in the exported player. Loaded texture identity byzantine-hand-v36-1, 1254x1254 RGBA32, 56x56 display, normalised fingertip hotspot. Actual-size and four-times screenshots visually inspected. No campaign opened or saved by verification.

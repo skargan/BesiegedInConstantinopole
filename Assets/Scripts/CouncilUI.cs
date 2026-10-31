@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36 · Council and recruitment · 30 October 2026";
+    public const string BuildLabel="Version 36.1 · Cursor and court";
 
 
 
