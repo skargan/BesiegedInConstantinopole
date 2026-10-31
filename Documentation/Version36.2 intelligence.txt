@@ -1,0 +1,13 @@
+VERSION 36.2 - Compact intelligence desk
+
+The Spies and intelligence screen replaces its long sequence of oversized cards with two fixed-page views. Reports shows all ten intelligence levels together; Operations shows all six missions together. The header always retains camp agents, secrets, gold, operations delay, agents assigned abroad, camp alert and its permanent minimum.
+
+Locked reports occupy slim rows and reveal only the number of agents required. Unlocked reports retain the complete existing text, including Ottoman estimates and uncertainty, next-operation caveats, strategy and assassination availability. The field-army breakdown and assassination review remain accessible. War Beyond the Walls and Specialists remain in the footer.
+
+Every mission card retains its current effect, exact chosen payment, agent-loss risk, alert increase, major-action cost and availability reason. Gold and secret selection remain explicit. The five ordinary missions now have a review screen containing their full narrative description before confirmation; disruption and assassination retain their existing confirmation flows. Browsing, changing payment and cancelling do not spend resources or advance the turn.
+
+No gameplay numbers, unlock thresholds, operation outcomes or randomness were changed. Presentation lives in CouncilIntelligenceUI.cs with a narrow Spies() entry-point delegation. The existing editor smoke expectation was updated because the intelligence page no longer needs a scrollbar.
+
+Focused exported-player QA uses isolated saves and checks both 1600x900 and 1280x720, locked/unlocked intelligence, loss of agents, all six missions, payment availability, missing targets, permanent alert minimum, review/cancel flows, button hit areas and text overflow. Screenshots are captured before assertions so layout failures remain reviewable.
+
+RESULT: Final Unity export successful. INTELLIGENCE_CHECKS 2762 passed in the exported player. Report and operation screenshots inspected at 1600x900 and 1280x720; tight link captions corrected and unsupported checkmark replaced with selected-state gold tint. These are focused assertions, not full campaign playthroughs.

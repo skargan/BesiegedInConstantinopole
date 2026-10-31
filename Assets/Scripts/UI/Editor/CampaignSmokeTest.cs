@@ -360,7 +360,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         originalReport.GetComponentsInChildren<Button>().First(b=>b.GetComponentInChildren<TMP_Text>()?.text=="Continue").onClick.Invoke();
         Check(reportContinues==1 && !CampaignHUD.Instance.HasModal,"Restored outcome continues exactly once");
         council.Spies();yield return Frames();
-        Check(FindObjectsByType<Scrollbar>(FindObjectsSortMode.None).Length>0,"Long council screen has visible scroll control");
+        Check(GameObject.Find("Intelligence ledger")!=null && FindObjectsByType<Scrollbar>(FindObjectsSortMode.None).Length==0,"Compact intelligence ledger needs no scroll control");
         ControlSingleton.Instance.GoBack();
         Check(!TechnologySystem.CounterBattery(out technologyReport),"Counterbattery rejects unavailable operation");
         VariableSingleton.Instance.Save();

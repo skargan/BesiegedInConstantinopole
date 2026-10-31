@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.1 · Cursor and court";
+    public const string BuildLabel="Version 36.2 · Intelligence desk";
 
 
 
@@ -752,103 +752,7 @@ public partial class CouncilUI : MonoBehaviour
 
     }
 
-    public void Spies()
-
-    {
-
-        Open("Spies and intelligence","Recruit contacts, uncover the enemy's plans and choose your operations. Each operation uses your major action.");
-
-        BodyHeight(1398+CouncilActions.SpyOrders.Length*238+12);
-
-        int spies=CouncilActions.Int("iSpies");
-
-        var network=SpyPanel("Intelligence network",0,180);
-
-        CampaignHUD.Label(network.transform,"INTELLIGENCE NETWORK  ·  "+spies+" agents",new Vector2(.025f,.70f),new Vector2(.62f,.96f),26);
-
-        CampaignHUD.Explanation(network.transform,"Each agent reveals another level of intelligence.",new Vector2(.025f,.49f),new Vector2(.62f,.71f),21);
-
-        for(int i=0;i<10;i++) {
-
-            float x=.025f+i*.057f;bool unlocked=spies>i;
-
-            var segment=CampaignHUD.Panel(network.transform,"Intelligence level "+(i+1),new Vector2(x,.15f),new Vector2(x+.050f,.43f));
-
-            segment.GetComponent<Image>().color=unlocked?new Color(.58f,.43f,.22f):new Color(.12f,.10f,.12f);
-
-            var number=CampaignHUD.Label(segment.transform,(i+1).ToString(),Vector2.zero,Vector2.one,23);number.alignment=TextAlignmentOptions.Center;
-
-            if(!unlocked)number.color=new Color(.57f,.54f,.52f);
-
-        }
-
-        CampaignHUD.Label(network.transform,"ENEMY CAMP ALERT  ·  "+EspionageSystem.Alert+"%",new Vector2(.66f,.68f),new Vector2(.97f,.96f),26);
-
-        var meter=CampaignHUD.Panel(network.transform,"Enemy camp alert meter",new Vector2(.66f,.47f),new Vector2(.97f,.59f));meter.GetComponent<Image>().color=new Color(.10f,.07f,.09f);
-
-        var fill=CampaignHUD.Panel(meter.transform,"Alert fill",Vector2.zero,new Vector2(EspionageSystem.Alert/100f,1));fill.GetComponent<Image>().color=new Color(.69f,.29f,.22f);
-
-        CampaignHUD.Explanation(network.transform,"Falls by 1–10 points each turn."+(EspionageSystem.AlertFloor>0?" Minimum 50%.":"")+"\nHigher alert puts agents at greater risk.",new Vector2(.66f,.06f),new Vector2(.97f,.40f),20);
-
-        var intel=SpyPanel("Intelligence reports",192,1100);
-
-        for(int i=0;i<10;i++) {
-
-            float left=.01f+(i%2)*.495f,top=.99f-(i/2)*.198f;bool known=spies>i;
-
-            var cell=CampaignHUD.Panel(intel.transform,"Intelligence report "+(i+1),new Vector2(left,top-.188f),new Vector2(left+.485f,top));
-
-            cell.GetComponent<Image>().color=known?ImperialTheme.Surface:ImperialTheme.Navy;
-
-            var title=CampaignHUD.Label(cell.transform,(i+1)+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.04f,.76f),new Vector2(.96f,.97f),22);
-
-            var value=CampaignHUD.Label(cell.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.04f,.03f),new Vector2(.96f,.73f),21);
-            value.enableAutoSizing=true;value.fontSizeMin=18;value.fontSizeMax=21;
-
-            if(!known) {title.color=new Color(.57f,.54f,.52f);value.color=title.color;value.fontStyle|=FontStyles.Italic;}
-            if(i==0){title.text="Enemy soldiers · View types";EnemyTroopsLink(cell,Spies);}
-            if(i==9){value.rectTransform.anchorMin=new Vector2(.04f,.39f);var review=CampaignHUD.MakeButton(cell.transform,"Review assassination",new Vector2(.04f,.05f),new Vector2(.96f,.33f),ReviewAssassination);review.interactable=known;}
-
-        }
-
-        var payment=SpyPanel("Operation payment",1304,80);
-
-        CampaignHUD.Label(payment.transform,"OPERATIONS  ·  "+CouncilActions.Int("iSecrets")+" secrets available",new Vector2(.02f,.12f),new Vector2(.60f,.9f),25);
-
-        var gold=CampaignHUD.MakeButton(payment.transform,"Gold",new Vector2(.65f,.12f),new Vector2(.80f,.88f),()=>{paySecret=false;Spies();});
-
-        var secrets=CampaignHUD.MakeButton(payment.transform,"Secrets",new Vector2(.82f,.12f),new Vector2(.98f,.88f),()=>{paySecret=true;Spies();});
-
-        (paySecret?secrets:gold).GetComponent<Image>().color=new Color(.50f,.34f,.12f);
-
-        for(int i=0;i<CouncilActions.SpyOrders.Length;i++) {
-
-            int mission=i;var row=SpyPanel("Spy operation "+i,1398+i*238,226);
-
-            CampaignHUD.Label(row.transform,CouncilActions.SpyOrders[i],new Vector2(.025f,.78f),new Vector2(.70f,.98f),27);
-
-            CampaignHUD.Explanation(row.transform,EspionageSystem.Descriptions[i],new Vector2(.025f,.32f),new Vector2(.69f,.76f),22);
-
-            CampaignHUD.Label(row.transform,CouncilActions.SpyEffects[i],new Vector2(.025f,.04f),new Vector2(.69f,.29f),21);
-
-            var risk=CampaignHUD.Label(row.transform,"Agent loss risk: "+EspionageSystem.LossChance(i).ToString("0.#")+"%\nEnemy camp alert: "+(i==3?"unchanged":"+"+EspionageSystem.AlertGain[i]+" points"),new Vector2(.71f,.49f),new Vector2(.98f,.94f),21);risk.alignment=TextAlignmentOptions.Center;
-
-            var button=CampaignHUD.MakeButton(row.transform,paySecret?"Use 1 secret":"Pay 1,000 gold",new Vector2(.72f,.08f),new Vector2(.98f,.39f),()=>{if(mission==5){ReviewDisruption();return;}bool ok=CouncilActions.SpyMission(mission,paySecret,out var result);Finish(ok,result);});
-
-            string unavailable=i!=0 && spies<1?"Recruit an agent first":
-
-                (paySecret?CouncilActions.Int("iSecrets")<1:CouncilActions.Int("iMoney")<1000)?(paySecret?"Requires 1 secret":"Requires 1,000 gold"):
-
-                i==1 && CouncilActions.Int("iTurkCannons")==0 || i==2 && CouncilActions.Int("iFood")==0 || i==3 && CouncilActions.Int("iTurkSpies")==0?"No targets remain":null;
-
-            if(unavailable!=null) {button.interactable=false;button.GetComponentInChildren<TMP_Text>().text=unavailable;}
-
-        }
-
-        AddProvincialNavigation(1398+CouncilActions.SpyOrders.Length*238);
-    }
-
-
+    public void Spies() { IntelligenceMenu(false); }
 
     public void ReviewDisruption()
 
