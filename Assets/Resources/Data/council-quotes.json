@@ -1,0 +1,5033 @@
+{
+  "schemaVersion": 1,
+  "catalogueVersion": "selected-2026-10-31-v1",
+  "sourceFile": "To resolve - quotes.docx",
+  "sourceSha256": "e481c576d4e811e67659c3581acdb157d1a0656f1e724f201229db1b09a80a32",
+  "importedCount": 392,
+  "absentOriginalIds": [
+    "Q012",
+    "Q013",
+    "Q192",
+    "Q196",
+    "Q197",
+    "Q200",
+    "Q204",
+    "Q224"
+  ],
+  "quotes": [
+    {
+      "id": "Q001",
+      "text": "“Our merchants who escaped hid in caverns underground.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 55  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 55",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/47"
+      ]
+    },
+    {
+      "id": "Q002",
+      "text": "“Now that the population was diminished and the resources of the state had failed, the treasury remained empty, and enemies gathered strength on all sides.”",
+      "attribution": "Saadi  ·  Gulistan I.6  [S42]",
+      "displayAttribution": "Saadi · Gulistan I.6",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q003",
+      "text": "“Now, eternity is the possession of endless life whole and perfect at a single moment.”",
+      "attribution": "Boethius  ·  Consolation V, prose 6  [S10]  ·  Literary voice",
+      "displayAttribution": "Boethius · Consolation V, prose 6",
+      "sourceId": "S10",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/14328.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q004",
+      "text": "“Deserters break an enemy more than men killed in battle.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q005",
+      "text": "“Just as iron, by sufficient polishing, can be made into a mirror, so any mind by due discipline can be rendered receptive of such impressions.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q006",
+      "text": "“Every man is worth just so much as the things are worth about which he busies himself.”",
+      "attribution": "Marcus Aurelius  ·  Meditations VII.3  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations VII.3",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q007",
+      "text": "Basil’s scorn for literary culture did not stop a flowering of philosophers.",
+      "attribution": "Michael Psellos  ·  Chronographia I.32  [S33]  ·  Paraphrase",
+      "displayAttribution": "Michael Psellos · Chronographia I.32",
+      "sourceId": "S33",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/psellus-chrono01.asp"
+      ]
+    },
+    {
+      "id": "Q008",
+      "text": "“There was nothing stable in his authority, but the balance of justice inclined to one side or the other, according to the weight of gold in either scale.”",
+      "attribution": "Procopius  ·  Secret History XIV  [S40]",
+      "displayAttribution": "Procopius · Secret History XIV",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q009",
+      "text": "“Truth cannot contradict truth, but verifies it and bears testimony to it.”",
+      "attribution": "Ibn Rushd  ·  Decisive Discourse On philosophical inquiry  [S23]",
+      "displayAttribution": "Ibn Rushd · Decisive Discourse On philosophical inquiry",
+      "sourceId": "S23",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q010",
+      "text": "“Pour rivers into one small gill, It can but hold its little fill.”",
+      "attribution": "Jalal al-Din Rumi  ·  Masnavi I, Proem 20  [S24]",
+      "displayAttribution": "Jalal al-Din Rumi · Masnavi I, Proem 20",
+      "sourceId": "S24",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q011",
+      "text": "“Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy's resistance without fighting.”",
+      "attribution": "Sun Tzu  ·  Art of War III.2  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War III.2",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q014",
+      "text": "“Spies are a most important element in war, because on them depends an army's ability to move.”",
+      "attribution": "Sun Tzu  ·  Art of War XIII.27  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War XIII.27",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q015",
+      "text": "“The only excuse, therefore, for going to war is that we may live in peace unharmed.”",
+      "attribution": "Cicero  ·  On Duties I.35  [S11]",
+      "displayAttribution": "Cicero · On Duties I.35",
+      "sourceId": "S11",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/47001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q016",
+      "text": "“For a weak mind can contribute no valuable ideas, nor can strength unsupported bring to completion any activity.”",
+      "attribution": "Onasander  ·  The General I.10  [S37]",
+      "displayAttribution": "Onasander · The General I.10",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q017",
+      "text": "“I am more afraid of our own blunders than of the enemy’s devices.”",
+      "attribution": "Pericles in Thucydides  ·  Peloponnesian War I.144  [S48]  ·  Literary speech",
+      "displayAttribution": "Pericles in Thucydides · Peloponnesian War I.144",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q018",
+      "text": "“A slave readily submits to every command, more especially if he is a prisoner of war.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 20  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 20",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q019",
+      "text": "“Faith is born of the soul, not the body.”",
+      "attribution": "Manuel II Palaiologos  ·  Dialogues with a Persian VII.2c  [S31]",
+      "displayAttribution": "Manuel II Palaiologos · Dialogues with a Persian VII.2c",
+      "sourceId": "S31",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html"
+      ]
+    },
+    {
+      "id": "Q020",
+      "text": "“It must be borne in mind that my design is not to write histories, but lives.”",
+      "attribution": "Plutarch  ·  Parallel Lives Alexander 1  [S38]",
+      "displayAttribution": "Plutarch · Parallel Lives Alexander 1",
+      "sourceId": "S38",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/674.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q021",
+      "text": "“Reason may easily become for a man a physician for the ills caused by himself.”",
+      "attribution": "Belisarius in Procopius  ·  Wars I.14  [S41]  ·  Literary speech",
+      "displayAttribution": "Belisarius in Procopius · Wars I.14",
+      "sourceId": "S41",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q022",
+      "text": "“Your lordship of Venice sends no fleet to help this unfortunate city of mine.”",
+      "attribution": "Constantine XI in Barbaro  ·  Siege Diary p. 34  [S35]  ·  Reported speech · Translation",
+      "displayAttribution": "Constantine XI in Barbaro · Siege Diary p. 34",
+      "sourceId": "S35",
+      "labels": [
+        "Reported speech",
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/24"
+      ]
+    },
+    {
+      "id": "Q023",
+      "text": "“In war, then, let your great object be victory, not lengthy campaigns.”",
+      "attribution": "Sun Tzu  ·  Art of War II.19  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War II.19",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q024",
+      "text": "“I was taken prisoner and suffered the evils of wretched slavery.”",
+      "attribution": "George Sphrantzes  ·  Chronicle Minor 35.11  [S16]",
+      "displayAttribution": "George Sphrantzes · Chronicle Minor 35.11",
+      "sourceId": "S16",
+      "labels": [],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-george-sphrantzes/"
+      ]
+    },
+    {
+      "id": "Q025",
+      "text": "“Such men must one obey, and must try to realize their words in his life.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men VI  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men VI",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q026",
+      "text": "“For it is not His will that there should be wickedness nor does He choose to compel virtue.”",
+      "attribution": "John of Damascus  ·  Orthodox Faith II.30  [S26]",
+      "displayAttribution": "John of Damascus · Orthodox Faith II.30",
+      "sourceId": "S26",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "Q027",
+      "text": "“We are busy that we may have leisure, and make war that we may live in peace.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics X.7  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics X.7",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.10.x.html"
+      ]
+    },
+    {
+      "id": "Q028",
+      "text": "“Such as are thy habitual thoughts, such also will be the character of thy mind; for the soul is dyed by the thoughts.”",
+      "attribution": "Marcus Aurelius  ·  Meditations V.16  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations V.16",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q029",
+      "text": "“The pick was the weapon with which to beat the enemy.”",
+      "attribution": "Corbulo in Frontinus  ·  Stratagems IV.7.2  [S15]  ·  Reported speech",
+      "displayAttribution": "Corbulo in Frontinus · Stratagems IV.7.2",
+      "sourceId": "S15",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "Q030",
+      "text": "“For all gifts are given for a time as use and need require, but when the dispensation is ended they will without doubt presently pass away: but love will never be destroyed.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.11  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.11",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q031",
+      "text": "“There is no greater sorrow Than to be mindful of the happy time In misery.”",
+      "attribution": "Dante Alighieri  ·  Inferno V.121–123  [S12]  ·  Literary voice",
+      "displayAttribution": "Dante Alighieri · Inferno V.121–123",
+      "sourceId": "S12",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q032",
+      "text": "“The growth of the power of Athens, and the alarm which this inspired in Lacedaemon, made war inevitable.”",
+      "attribution": "Thucydides  ·  Peloponnesian War I.23  [S48]",
+      "displayAttribution": "Thucydides · Peloponnesian War I.23",
+      "sourceId": "S48",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q033",
+      "text": "“Fate worked for him on all sides, raised him to kingly power, and accomplished everything helpful to him.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 33  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 33",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q034",
+      "text": "“For the moment that one of them passes over the threshold of the sacred precinct he becomes a private citizen.”",
+      "attribution": "Julian  ·  Letters 22, 431B  [S27]",
+      "displayAttribution": "Julian · Letters 22, 431B",
+      "sourceId": "S27",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/The_Works_of_the_Emperor_Julian/Letters/Letter_22"
+      ]
+    },
+    {
+      "id": "Q035",
+      "text": "“So that if they are captured by the enemy they may be able neither willingly nor unwillingly to reveal the watchword of those in the city.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence VI.7  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence VI.7",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/A*.html"
+      ]
+    },
+    {
+      "id": "Q036",
+      "text": "“For the righteous have not inherited the kingdom, nor have the wicked gone into torment.”",
+      "attribution": "Aphrahat  ·  Demonstration 8 8.22  [S05]",
+      "displayAttribution": "Aphrahat · Demonstration 8 8.22",
+      "sourceId": "S05",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/370108.htm"
+      ]
+    },
+    {
+      "id": "Q037",
+      "text": "“I shall obey God rather than you.”",
+      "attribution": "Socrates in Plato  ·  Apology 29d  [S44]  ·  Literary voice",
+      "displayAttribution": "Socrates in Plato · Apology 29d",
+      "sourceId": "S44",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1656.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q038",
+      "text": "“The unhappy emperor began to weep, fearing that the Turks meant to launch their general assault that night.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 23  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 23",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/16"
+      ]
+    },
+    {
+      "id": "Q039",
+      "text": "“Nowhere either with more quiet or more freedom from trouble does a man retire than into his own soul.”",
+      "attribution": "Marcus Aurelius  ·  Meditations IV.3  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations IV.3",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q040",
+      "text": "“When you surround an army, leave a passage for them to flee.”",
+      "attribution": "Sun Tzu  ·  Art of War VII.36  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War VII.36",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q041",
+      "text": "“Reckless audacity came to be considered the courage of a loyal ally; prudent hesitation, specious cowardice.”",
+      "attribution": "Thucydides  ·  Peloponnesian War III.82  [S48]",
+      "displayAttribution": "Thucydides · Peloponnesian War III.82",
+      "sourceId": "S48",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q042",
+      "text": "“Give what Thou enjoinest, and enjoin what Thou wilt.”",
+      "attribution": "Augustine of Hippo  ·  Confessions X.29.40  [S08]",
+      "displayAttribution": "Augustine of Hippo · Confessions X.29.40",
+      "sourceId": "S08",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/3296.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q043",
+      "text": "“Now, the health of the soul is nothing but righteousness, and vice is its sickness.”",
+      "attribution": "Boethius  ·  Consolation IV, prose 6  [S10]  ·  Literary voice",
+      "displayAttribution": "Boethius · Consolation IV, prose 6",
+      "sourceId": "S10",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/14328.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q044",
+      "text": "“First, then, it is necessary to select the most prudent citizens and those most experienced in war for attendance upon the civil authorities.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence I.4  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence I.4",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/A*.html"
+      ]
+    },
+    {
+      "id": "Q045",
+      "text": "“Nobles wandered about ignominiously, those of venerable age in tears, the rich in poverty.”",
+      "attribution": "Niketas Choniates  ·  History Sack of 1204  [S36]",
+      "displayAttribution": "Niketas Choniates · History Sack of 1204",
+      "sourceId": "S36",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/source/choniates1.asp"
+      ]
+    },
+    {
+      "id": "Q046",
+      "text": "“The unexamined life is not worth living.”",
+      "attribution": "Socrates in Plato  ·  Apology 38a  [S44]  ·  Literary voice",
+      "displayAttribution": "Socrates in Plato · Apology 38a",
+      "sourceId": "S44",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1656.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q047",
+      "text": "“When the four ships were opposite Constantinople, the wind suddenly fell.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 23  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 23",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/17"
+      ]
+    },
+    {
+      "id": "Q048",
+      "text": "“How bad and injurious is the blindness of ignorance!”",
+      "attribution": "Moses Maimonides  ·  Guide for the Perplexed II.14  [S34]",
+      "displayAttribution": "Moses Maimonides · Guide for the Perplexed II.14",
+      "sourceId": "S34",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/73584.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q049",
+      "text": "“And the labourers who hastened and were wearied in the vineyard, shall not receive the reward till the labour shall cease.”",
+      "attribution": "Aphrahat  ·  Demonstration 8 8.21  [S05]",
+      "displayAttribution": "Aphrahat · Demonstration 8 8.21",
+      "sourceId": "S05",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/370108.htm"
+      ]
+    },
+    {
+      "id": "Q050",
+      "text": "“Better to subdue an enemy by hunger, surprise or terror than by battle, where fortune often has more power than courage.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q051",
+      "text": "“If you would improve, be content to be thought foolish and dull by those around you.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 13  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 13",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q052",
+      "text": "“In the same manner various classes of men, each man in proportion to his ignorance, bring great evils upon themselves and upon other individual members of the species.”",
+      "attribution": "Moses Maimonides  ·  Guide for the Perplexed III.11  [S34]",
+      "displayAttribution": "Moses Maimonides · Guide for the Perplexed III.11",
+      "sourceId": "S34",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/73584.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q053",
+      "text": "“Behold, my steed has run off the high road of my history.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 42  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 42",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q054",
+      "text": "“The difficulty, my friends, is not to avoid death, but to avoid unrighteousness; for that runs faster than death.”",
+      "attribution": "Socrates in Plato  ·  Apology 39a–b  [S44]  ·  Literary voice",
+      "displayAttribution": "Socrates in Plato · Apology 39a–b",
+      "sourceId": "S44",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1656.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q055",
+      "text": "“Thou madest us for Thyself, and our heart is restless, until it repose in Thee.”",
+      "attribution": "Augustine of Hippo  ·  Confessions I.1.1  [S08]",
+      "displayAttribution": "Augustine of Hippo · Confessions I.1.1",
+      "sourceId": "S08",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/3296.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q056",
+      "text": "“Royalty is a good burial-shroud.”",
+      "attribution": "Theodora in Procopius  ·  Wars I.24  [S41]  ·  Literary speech",
+      "displayAttribution": "Theodora in Procopius · Wars I.24",
+      "sourceId": "S41",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q057",
+      "text": "“We mean to return to Constantinople, whether it belongs to the Turks or to the Christians.”",
+      "attribution": "Brigantine crew in Barbaro  ·  Siege Diary p. 35  [S35]  ·  Reported speech · Translation",
+      "displayAttribution": "Brigantine crew in Barbaro · Siege Diary p. 35",
+      "sourceId": "S35",
+      "labels": [
+        "Reported speech",
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/24"
+      ]
+    },
+    {
+      "id": "Q058",
+      "text": "“The way that most men deal with traditions, even traditions of their own country, is to receive them all alike as they are delivered, without applying any critical test whatever.”",
+      "attribution": "Thucydides  ·  Peloponnesian War I.20  [S48]",
+      "displayAttribution": "Thucydides · Peloponnesian War I.20",
+      "sourceId": "S48",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q059",
+      "text": "“Besides, which would you rather have, a sum of money or a faithful and honorable friend?”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 24  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 24",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q060",
+      "text": "“Providence, then, is the care that God takes over existing things.”",
+      "attribution": "John of Damascus  ·  Orthodox Faith II.29  [S26]",
+      "displayAttribution": "John of Damascus · Orthodox Faith II.29",
+      "sourceId": "S26",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "Q061",
+      "text": "“Thus the good fighter is able to secure himself against defeat, but cannot make certain of defeating the enemy.”",
+      "attribution": "Sun Tzu  ·  Art of War IV.3  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War IV.3",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q062",
+      "text": "“Courage helps more than numbers.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q063",
+      "text": "“For what is involuntary apart from its being the result of oppression, is neither meritorious nor durable.”",
+      "attribution": "Gregory of Nazianzus  ·  Oration 2 2.15  [S18]",
+      "displayAttribution": "Gregory of Nazianzus · Oration 2 2.15",
+      "sourceId": "S18",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/310202.htm"
+      ]
+    },
+    {
+      "id": "Q064",
+      "text": "“They termed politeness, whilst, in reality, it constituted a part of their slavery.”",
+      "attribution": "Tacitus  ·  Agricola 21  [S46]",
+      "displayAttribution": "Tacitus · Agricola 21",
+      "sourceId": "S46",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q065",
+      "text": "“For one could insist emphatically without falsehood that this disease, whether by chance or by some providence, chose out with exactitude the worst men and let them go free.”",
+      "attribution": "Procopius  ·  Wars II.22  [S41]",
+      "displayAttribution": "Procopius · Wars II.22",
+      "sourceId": "S41",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q066",
+      "text": "“We are not born for ourselves alone.”",
+      "attribution": "Cicero  ·  On Duties I.22  [S11]",
+      "displayAttribution": "Cicero · On Duties I.22",
+      "sourceId": "S11",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/47001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q067",
+      "text": "“The art of war is of vital importance to the State.”",
+      "attribution": "Sun Tzu  ·  Art of War I.1  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War I.1",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q068",
+      "text": "“Good generals fight a pitched battle only when opportunity or extreme necessity demands it.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q069",
+      "text": "“No one was without a share in the grief.”",
+      "attribution": "Niketas Choniates  ·  History Sack of 1204  [S36]",
+      "displayAttribution": "Niketas Choniates · History Sack of 1204",
+      "sourceId": "S36",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/source/choniates1.asp"
+      ]
+    },
+    {
+      "id": "Q070",
+      "text": "“For the gain from fasting will not balance the loss from anger, nor is the profit from reading so great as the harm which results from despising a brother.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.7  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.7",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q071",
+      "text": "“And the most glorious exploits do not always furnish us with the clearest discoveries of virtue or vice in men.”",
+      "attribution": "Plutarch  ·  Parallel Lives Alexander 1  [S38]",
+      "displayAttribution": "Plutarch · Parallel Lives Alexander 1",
+      "sourceId": "S38",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/674.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q072",
+      "text": "“Tunnel met tunnel, so that ours found theirs.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 41  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 41",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/34"
+      ]
+    },
+    {
+      "id": "Q073",
+      "text": "“In these regions the fortunes of the Roman Empire had sunk to their lowest ebb.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 13  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 13",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q074",
+      "text": "“Our men heard the digging at night: the tunnel had already passed beneath the foundations of the walls.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 41  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 41",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/34"
+      ]
+    },
+    {
+      "id": "Q075",
+      "text": "“Anger may in time change to gladness; vexation may be succeeded by content.”",
+      "attribution": "Sun Tzu  ·  Art of War XII.20  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War XII.20",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q076",
+      "text": "“And in some instances, by releasing wasps and bees into the opening, men have worked mischief with those in the mine.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence XXXVII.4  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence XXXVII.4",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/F*.html"
+      ]
+    },
+    {
+      "id": "Q077",
+      "text": "“If it is not right, do not do it: if it is not true, do not say it.”",
+      "attribution": "Marcus Aurelius  ·  Meditations XII.17  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations XII.17",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q078",
+      "text": "Only the emperor and I knew the true number of defenders.",
+      "attribution": "George Sphrantzes  ·  Chronicle Minor 35.8  [S16]  ·  Paraphrase",
+      "displayAttribution": "George Sphrantzes · Chronicle Minor 35.8",
+      "sourceId": "S16",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-george-sphrantzes/"
+      ]
+    },
+    {
+      "id": "Q079",
+      "text": "“For many who can face the shields and spears of a host with courage are blinded by gold.”",
+      "attribution": "Onasander  ·  The General I.8  [S37]",
+      "displayAttribution": "Onasander · The General I.8",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q080",
+      "text": "“Discuss what should be done with many; what you will do, with very few.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q081",
+      "text": "Injustice destroys the incentive to earn, and with it civilisation.",
+      "attribution": "Ibn Khaldun  ·  Muqaddimah III.41  [S22]  ·  Paraphrase",
+      "displayAttribution": "Ibn Khaldun · Muqaddimah III.41",
+      "sourceId": "S22",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://muslimphilosophy.com/ik/Muqaddimah/Chapter3/Ch_3_41.htm"
+      ]
+    },
+    {
+      "id": "Q082",
+      "text": "“Alchemy is better than gold, but real alchemists are very rare, and so are real Sufis.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q083",
+      "text": "“The emperor ordered the chain stretched across the harbour, from Constantinople to Pera.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 15  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 15",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/11"
+      ]
+    },
+    {
+      "id": "Q084",
+      "text": "“The entire tract of country, however, was utterly depopulated; war and its attendant evils, disease and famine, had exterminated the inhabitants.”",
+      "attribution": "Procopius  ·  Secret History XVIII  [S40]",
+      "displayAttribution": "Procopius · Secret History XVIII",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q085",
+      "text": "“When the truth was there, what need any more of the shadow?”",
+      "attribution": "Athanasius of Alexandria  ·  On the Incarnation 40.2  [S07]",
+      "displayAttribution": "Athanasius of Alexandria · On the Incarnation 40.2",
+      "sourceId": "S07",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ]
+    },
+    {
+      "id": "Q086",
+      "text": "“This was the last tunnel they made and the last we found, but it was the most dangerous of all.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 48  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 48",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/43"
+      ]
+    },
+    {
+      "id": "Q087",
+      "text": "“Would you do honor to Christ's body? Neglect Him not when naked.”",
+      "attribution": "John Chrysostom  ·  Matthew Homilies 50.4  [S25]",
+      "displayAttribution": "John Chrysostom · Matthew Homilies 50.4",
+      "sourceId": "S25",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/200150.htm"
+      ]
+    },
+    {
+      "id": "Q088",
+      "text": "“There are two ways of settling a dispute: first, by discussion; second, by physical force.”",
+      "attribution": "Cicero  ·  On Duties I.34  [S11]",
+      "displayAttribution": "Cicero · On Duties I.34",
+      "sourceId": "S11",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/47001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q089",
+      "text": "“When friend cheats friend, a deeper stain attaches to the perpetrator than to the victim of deceit.”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis VII.6  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis VII.6",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q090",
+      "text": "“Good policy against an adversary is superior to the blind attacks of brute force.”",
+      "attribution": "Diodotus in Thucydides  ·  Peloponnesian War III.46  [S48]  ·  Literary speech",
+      "displayAttribution": "Diodotus in Thucydides · Peloponnesian War III.46",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q091",
+      "text": "“The precepts of the law are these: to live honestly, to injure no one, and to give every man his due.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.1.3  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.1.3",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q092",
+      "text": "“The more care spent on guard duty and training, the less danger faced.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q093",
+      "text": "“How shall we, who lay the knife to each other’s throats, give battle to our enemies?”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis V.7  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis V.7",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q094",
+      "text": "Revolt turned Basil from courtly indulgence to relentless work.",
+      "attribution": "Michael Psellos  ·  Chronographia I.4  [S33]  ·  Paraphrase",
+      "displayAttribution": "Michael Psellos · Chronographia I.4",
+      "sourceId": "S33",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/psellus-chrono01.asp"
+      ]
+    },
+    {
+      "id": "Q095",
+      "text": "“At the same time you should build a counter-rampart where the breach is being made, before the wall collapses, if you cannot otherwise stop the enemy.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence XXXII.12  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence XXXII.12",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/F*.html"
+      ]
+    },
+    {
+      "id": "Q096",
+      "text": "“People only see the outward, while God sees both the outer and the inner man.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness VI  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness VI",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah10.htm"
+      ]
+    },
+    {
+      "id": "Q097",
+      "text": "“It is impossible for the mind not to be approached by thoughts, but it is in the power of every earnest man either to admit them or to reject them.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.17  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.17",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q098",
+      "text": "“There is no instance of a country having benefited from prolonged warfare.”",
+      "attribution": "Sun Tzu  ·  Art of War II.6  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War II.6",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q099",
+      "text": "“For it is God's peculiar property at once to be invisible and yet to be known from His works.”",
+      "attribution": "Athanasius of Alexandria  ·  On the Incarnation 32.1  [S07]",
+      "displayAttribution": "Athanasius of Alexandria · On the Incarnation 32.1",
+      "sourceId": "S07",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ]
+    },
+    {
+      "id": "Q100",
+      "text": "“For it is not easy to distinguish between men in a promiscuous armed throng, rushing confusedly in together.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence XXXIX.5  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence XXXIX.5",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/F*.html"
+      ]
+    },
+    {
+      "id": "Q101",
+      "text": "“For myself, it has long been my principle, that a retiring general or army is never safe.”",
+      "attribution": "Agricola in Tacitus  ·  Agricola 33  [S46]  ·  Literary speech",
+      "displayAttribution": "Agricola in Tacitus · Agricola 33",
+      "sourceId": "S46",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q102",
+      "text": "“We must needs believe that the greatest of all battles lies before us, in preparation for which we must do and suffer all things to gain power.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men II  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men II",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q103",
+      "text": "“It makes no small difference, then, whether we form habits of one kind or of another from our very youth; it makes a very great difference, or rather all the difference.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics II.1  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics II.1",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
+      ]
+    },
+    {
+      "id": "Q104",
+      "text": "“The repairs were made with barrels full of stones and earth.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 26  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 26",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/17"
+      ]
+    },
+    {
+      "id": "Q105",
+      "text": "“Consequently we must be conversant with poets, with historians, with orators, indeed with all men who may further our soul's salvation.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men II  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men II",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q106",
+      "text": "“Virtue is not given by money, but that from virtue comes money and every other good of man, public as well as private.”",
+      "attribution": "Socrates in Plato  ·  Apology 30b  [S44]  ·  Literary voice",
+      "displayAttribution": "Socrates in Plato · Apology 30b",
+      "sourceId": "S44",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1656.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q107",
+      "text": "“But his anger left no relics behind; his silence and reserve were not to be dreaded.”",
+      "attribution": "Tacitus  ·  Agricola 22  [S46]",
+      "displayAttribution": "Tacitus · Agricola 22",
+      "sourceId": "S46",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q108",
+      "text": "“Life stands on the verge of a single breath; and this world is an existence between two nonentities.”",
+      "attribution": "Saadi  ·  Gulistan VIII.34  [S42]",
+      "displayAttribution": "Saadi · Gulistan VIII.34",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q109",
+      "text": "“But if passion and resentment master reason, the ruin of the soul infallibly ensues.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q110",
+      "text": "“What all the Christians in Constantinople could not have built in a month, he built in a single night.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 42  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 42",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/36"
+      ]
+    },
+    {
+      "id": "Q111",
+      "text": "“For if you desire any of the things not within our own power, you must necessarily be disappointed.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 2  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 2",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q112",
+      "text": "“Men make the city and not walls or ships without men in them.”",
+      "attribution": "Nicias in Thucydides  ·  Peloponnesian War VII.77  [S48]  ·  Literary speech",
+      "displayAttribution": "Nicias in Thucydides · Peloponnesian War VII.77",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q113",
+      "text": "“Since they know that the punishment of the conquered by the conqueror is merciless, they are ready to do and suffer anything rather than surrender their cities.”",
+      "attribution": "Onasander  ·  The General XXXVIII.3  [S37]",
+      "displayAttribution": "Onasander · The General XXXVIII.3",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/K*.html"
+      ]
+    },
+    {
+      "id": "Q114",
+      "text": "“If the Law is apparently opposed to a truth proved by philosophy it admits of an interpretation according to the canons of the Arabic language.”",
+      "attribution": "Ibn Rushd  ·  Decisive Discourse On interpretation  [S23]",
+      "displayAttribution": "Ibn Rushd · Decisive Discourse On interpretation",
+      "sourceId": "S23",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q115",
+      "text": "“He is hard to defeat who can judge his own forces and his enemy’s accurately.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q116",
+      "text": "“In every city establish frequent hostels in order that strangers may profit by our benevolence.”",
+      "attribution": "Julian  ·  Letters 22, 430B  [S27]",
+      "displayAttribution": "Julian · Letters 22, 430B",
+      "sourceId": "S27",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/The_Works_of_the_Emperor_Julian/Letters/Letter_22"
+      ]
+    },
+    {
+      "id": "Q117",
+      "text": "“Opportunity in war often helps more than courage.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q118",
+      "text": "Natural knowledge and spiritual knowledge are different kinds of knowing.",
+      "attribution": "Gregory Palamas  ·  150 Chapters 20  [S17]  ·  Paraphrase",
+      "displayAttribution": "Gregory Palamas · 150 Chapters 20",
+      "sourceId": "S17",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://azbyka.ru/otechnik/Grigorij_Palama/the-one-hundred-and-fifty-chapters/4"
+      ]
+    },
+    {
+      "id": "Q119",
+      "text": "“Have, then, no fear; from these weak embers the vital heat shall once more be kindled within thee.”",
+      "attribution": "Boethius  ·  Consolation I, prose 6  [S10]  ·  Literary voice",
+      "displayAttribution": "Boethius · Consolation I, prose 6",
+      "sourceId": "S10",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/14328.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q120",
+      "text": "Sclerus won loyalty by sharing his men’s table, cup and hardships.",
+      "attribution": "Michael Psellos  ·  Chronographia I.25  [S33]  ·  Paraphrase",
+      "displayAttribution": "Michael Psellos · Chronographia I.25",
+      "sourceId": "S33",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/psellus-chrono01.asp"
+      ]
+    },
+    {
+      "id": "Q121",
+      "text": "“There are things which are within our power, and there are things which are beyond our power.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 1  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 1",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q122",
+      "text": "“Let them read a hundred chapters of wisdom to a fool, and they will all seem but a jest to him.”",
+      "attribution": "Saadi  ·  Gulistan II.20  [S42]",
+      "displayAttribution": "Saadi · Gulistan II.20",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q123",
+      "text": "“No one is so senseless as to choose of his own will war rather [than] peace.”",
+      "attribution": "Croesus in Herodotus  ·  Histories I.87  [S19]  ·  Reported speech",
+      "displayAttribution": "Croesus in Herodotus · Histories I.87",
+      "sourceId": "S19",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2707.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q124",
+      "text": "Imagination stands between mind and senses.",
+      "attribution": "Gregory Palamas  ·  150 Chapters 17  [S17]  ·  Paraphrase",
+      "displayAttribution": "Gregory Palamas · 150 Chapters 17",
+      "sourceId": "S17",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://azbyka.ru/otechnik/Grigorij_Palama/the-one-hundred-and-fifty-chapters/4"
+      ]
+    },
+    {
+      "id": "Q125",
+      "text": "“Jurisprudence is the knowledge of things divine and human, the science of the just and the unjust.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.1.1  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.1.1",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q126",
+      "text": "“Men, women, children, old people and priests all worked together on the repairs.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 44  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 44",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/38"
+      ]
+    },
+    {
+      "id": "Q127",
+      "text": "“Many of these men, as is natural, exert themselves to act in a spirit of loyalty to their nation, while some also betray their secrets to the enemy.”",
+      "attribution": "Procopius  ·  Wars I.21  [S41]",
+      "displayAttribution": "Procopius · Wars I.21",
+      "sourceId": "S41",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q128",
+      "text": "“Adequate provision must also be made for those who are in want of the necessities of life.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence XIV.1  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence XIV.1",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/B*.html"
+      ]
+    },
+    {
+      "id": "Q129",
+      "text": "“Judging happiness to be the fruit of freedom and freedom of valour, never decline the dangers of war.”",
+      "attribution": "Pericles in Thucydides  ·  Peloponnesian War II.43  [S48]  ·  Literary speech",
+      "displayAttribution": "Pericles in Thucydides · Peloponnesian War II.43",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q130",
+      "text": "“Knowledge of self is the key to the knowledge of God.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q131",
+      "text": "“What helps you in war harms your opponent; what helps him obstructs you.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q132",
+      "text": "“On this day they will behold ten thousand Clearchuses instead of one, who will not suffer one man to play the coward.”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis III.2  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis III.2",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q133",
+      "text": "“Exercise, therefore, what is in your power.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 14  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 14",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q134",
+      "text": "“Likewise in other matters we must be governed by necessity, and only give so much care to the body as is beneficial to the soul.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men IX  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men IX",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q135",
+      "text": "“Man is the vainest of all creatures that have their being upon earth.”",
+      "attribution": "Homer  ·  Odyssey XVIII.130–131  [S21]  ·  Literary voice",
+      "displayAttribution": "Homer · Odyssey XVIII.130–131",
+      "sourceId": "S21",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1727.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q136",
+      "text": "“But virtue is the only possession that is sure, and that remains with us whether living or dead.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men V  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men V",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q137",
+      "text": "The siege must close around the city on every side.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.117  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.117",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q138",
+      "text": "Sclerus fought by cutting roads, seizing supplies and intercepting orders.",
+      "attribution": "Michael Psellos  ·  Chronographia I.24  [S33]  ·  Paraphrase",
+      "displayAttribution": "Michael Psellos · Chronographia I.24",
+      "sourceId": "S33",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/psellus-chrono01.asp"
+      ]
+    },
+    {
+      "id": "Q139",
+      "text": "“Better to see a Turkish turban ruling in the city’s midst than a Latin headdress.”",
+      "attribution": "Loukas Notaras in Doukas  ·  History 37.10  [S30]  ·  Reported speech · Translation",
+      "displayAttribution": "Loukas Notaras in Doukas · History 37.10",
+      "sourceId": "S30",
+      "labels": [
+        "Reported speech",
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://student.cc.uoc.gr/uploadFiles/177-%CE%92%CE%A5%CE%A6%CE%95400/6._Karpozilos._Byzantinoi_istorikoi._Doukas_..._ss._270-288.pdf"
+      ]
+    },
+    {
+      "id": "Q140",
+      "text": "The third generation forgets the toughness that founded its dynasty.",
+      "attribution": "Ibn Khaldun  ·  Muqaddimah III.12  [S22]  ·  Paraphrase",
+      "displayAttribution": "Ibn Khaldun · Muqaddimah III.12",
+      "sourceId": "S22",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://muslimphilosophy.com/ik/Muqaddimah/Chapter3/Ch_3_12.htm"
+      ]
+    },
+    {
+      "id": "Q141",
+      "text": "“Do you want to be one of those few?”",
+      "attribution": "Quintus Fabius in Frontinus  ·  Stratagems IV.6.1  [S15]  ·  Reported speech",
+      "displayAttribution": "Quintus Fabius in Frontinus · Stratagems IV.6.1",
+      "sourceId": "S15",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "Q142",
+      "text": "“But if, by desiring to be useful to that, you lose these, how can you serve your country when you have become faithless and shameless?”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 24  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 24",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q143",
+      "text": "“Give me chastity and continency, only not yet.”",
+      "attribution": "Augustine of Hippo  ·  Confessions VIII.7.17  [S08]",
+      "displayAttribution": "Augustine of Hippo · Confessions VIII.7.17",
+      "sourceId": "S08",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/3296.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q144",
+      "text": "“In this way the army was now split up into three divisions.”",
+      "attribution": "Xenophon  ·  Anabasis VI.2  [S50]",
+      "displayAttribution": "Xenophon · Anabasis VI.2",
+      "sourceId": "S50",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q145",
+      "text": "“Thou preparest clothing to shield thee from the cold of winter, yet makest no preparation for the after-life.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness VI  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness VI",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah10.htm"
+      ]
+    },
+    {
+      "id": "Q146",
+      "text": "“Since this seems right and just, it is, I take it, equally wrong and disorderly that all should wish to rule, and that no one should accept it.”",
+      "attribution": "Gregory of Nazianzus  ·  Oration 2 2.4  [S18]",
+      "displayAttribution": "Gregory of Nazianzus · Oration 2 2.4",
+      "sourceId": "S18",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/310202.htm"
+      ]
+    },
+    {
+      "id": "Q147",
+      "text": "“For even the greatest of deeds, if not haply preserved in written words and handed down to remembrance, become extinguished in the obscurity of silence.”",
+      "attribution": "Anna Komnene  ·  Alexiad Preface II  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad Preface II",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q148",
+      "text": "“On the heels of the army hung perpetually bands of the enemy, snatching away disabled baggage animals and fighting with each other over the carcases.”",
+      "attribution": "Xenophon  ·  Anabasis IV.5  [S50]",
+      "displayAttribution": "Xenophon · Anabasis IV.5",
+      "sourceId": "S50",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q149",
+      "text": "“Fear and punishment correct soldiers in quarters; hope and rewards improve them on campaign.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q150",
+      "text": "“Constantinople had belonged, and still belonged, more to the Venetians than to the Greeks.”",
+      "attribution": "Constantine XI in Barbaro  ·  Siege Diary p. 16  [S35]  ·  Reported speech · Translation",
+      "displayAttribution": "Constantine XI in Barbaro · Siege Diary p. 16",
+      "sourceId": "S35",
+      "labels": [
+        "Reported speech",
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/11"
+      ]
+    },
+    {
+      "id": "Q151",
+      "text": "“So in war, the way is to avoid what is strong and to strike at what is weak.”",
+      "attribution": "Sun Tzu  ·  Art of War VI.30  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War VI.30",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q152",
+      "text": "“Who's from his home snatched far away, Longs to return some future day.”",
+      "attribution": "Jalal al-Din Rumi  ·  Masnavi I, Proem 4  [S24]",
+      "displayAttribution": "Jalal al-Din Rumi · Masnavi I, Proem 4",
+      "sourceId": "S24",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q153",
+      "text": "“You can be unconquerable if you enter into no combat in which it is not in your own power to conquer.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 19  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 19",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q154",
+      "text": "“Can you imagine that the Romans are as brave in war as they are licentious in peace?”",
+      "attribution": "Calgacus in Tacitus  ·  Agricola 31  [S46]  ·  Literary speech",
+      "displayAttribution": "Calgacus in Tacitus · Agricola 31",
+      "sourceId": "S46",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q155",
+      "text": "“Be not elated at any excellence not your own.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 6  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 6",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q156",
+      "text": "“Where they make a desert, they call it peace.”",
+      "attribution": "Calgacus in Tacitus  ·  Agricola 30  [S46]  ·  Literary speech",
+      "displayAttribution": "Calgacus in Tacitus · Agricola 30",
+      "sourceId": "S46",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q157",
+      "text": "“Note, however, that while the choice of what is to be done is ever in our power, the action itself often is prevented by some dispensation of the divine Providence.”",
+      "attribution": "John of Damascus  ·  Orthodox Faith II.26  [S26]",
+      "displayAttribution": "John of Damascus · Orthodox Faith II.26",
+      "sourceId": "S26",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "Q158",
+      "text": "“Arms are of little value in the field unless there is wise counsel at home.”",
+      "attribution": "Cicero  ·  On Duties I.74  [S11]",
+      "displayAttribution": "Cicero · On Duties I.74",
+      "sourceId": "S11",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/47001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q159",
+      "text": "Who sent a single coin or soldier to our defence?",
+      "attribution": "George Sphrantzes  ·  Chronicle Minor 36.8  [S16]  ·  Paraphrase",
+      "displayAttribution": "George Sphrantzes · Chronicle Minor 36.8",
+      "sourceId": "S16",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-george-sphrantzes/"
+      ]
+    },
+    {
+      "id": "Q160",
+      "text": "“Write, read, sing, weep, be silent, pray, endure adversities manfully; eternal life is worthy of all these conflicts, yea, and of greater.”",
+      "attribution": "Thomas à Kempis  ·  Imitation of Christ III.47  [S47]  ·  Literary voice",
+      "displayAttribution": "Thomas à Kempis · Imitation of Christ III.47",
+      "sourceId": "S47",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1653.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q161",
+      "text": "“May God set all aright, help all to His love, and bring together their hearts for piety, and erase enmity and hatred by his favour and grace.”",
+      "attribution": "Ibn Rushd  ·  Decisive Discourse Conclusion  [S23]",
+      "displayAttribution": "Ibn Rushd · Decisive Discourse Conclusion",
+      "sourceId": "S23",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q162",
+      "text": "“Of a truth there is nothing which the wise man must more guard against than the temptation to live for praise, and to study what pleases the crowd.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men IX  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men IX",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q163",
+      "text": "“Ye were not made to live like unto brutes, But for pursuit of virtue and of knowledge.”",
+      "attribution": "Dante Alighieri  ·  Inferno XXVI.119–120  [S12]  ·  Literary voice",
+      "displayAttribution": "Dante Alighieri · Inferno XXVI.119–120",
+      "sourceId": "S12",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q164",
+      "text": "“For we have much money, and there is the sea, here the boats.”",
+      "attribution": "Theodora in Procopius  ·  Wars I.24  [S41]  ·  Literary speech",
+      "displayAttribution": "Theodora in Procopius · Wars I.24",
+      "sourceId": "S41",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q165",
+      "text": "“Our law is partly written, partly unwritten, as among the Greeks.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.2.3  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.2.3",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q166",
+      "text": "“An army improves through labour and grows old through idleness.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q167",
+      "text": "“And at this moment the Emperor resigned his holy soul to God, and my sun went down.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 426  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 426",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q168",
+      "text": "“We must cry not over the loss of houses and land but of men’s lives; since houses and land do not gain men, but men them.”",
+      "attribution": "Pericles in Thucydides  ·  Peloponnesian War I.143  [S48]  ·  Literary speech",
+      "displayAttribution": "Pericles in Thucydides · Peloponnesian War I.143",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q169",
+      "text": "“Therefore virtue is a kind of mean, since, as we have seen, it aims at what is intermediate.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics II.6  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics II.6",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
+      ]
+    },
+    {
+      "id": "Q170",
+      "text": "“Each side had prayed to its God for victory: they to theirs, and we to ours.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 51  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 51",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/46"
+      ]
+    },
+    {
+      "id": "Q171",
+      "text": "“Were a person to turn up the dust of the defunct, he could not distinguish that of the rich man from the poor.”",
+      "attribution": "Saadi  ·  Gulistan I.28  [S42]",
+      "displayAttribution": "Saadi · Gulistan I.28",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q172",
+      "text": "“The Emperor thought of leaving him as successor to the Empire, giving him the kingdom as his ancestral portion, so to speak, and in this he was ill-advised.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 46  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 46",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q173",
+      "text": "“Let us not speak of them, but look, and pass.”",
+      "attribution": "Dante Alighieri  ·  Inferno III.51  [S12]  ·  Literary voice",
+      "displayAttribution": "Dante Alighieri · Inferno III.51",
+      "sourceId": "S12",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q174",
+      "text": "“For better is a laudable war than a peace which severs a man from God.”",
+      "attribution": "Gregory of Nazianzus  ·  Oration 2 2.82  [S18]",
+      "displayAttribution": "Gregory of Nazianzus · Oration 2 2.82",
+      "sourceId": "S18",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/310202.htm"
+      ]
+    },
+    {
+      "id": "Q175",
+      "text": "“While he was Emperor of the Romans neither faith in God nor religion was secure, no law continued in force, no action, no contract was binding.”",
+      "attribution": "Procopius  ·  Secret History XIII  [S40]",
+      "displayAttribution": "Procopius · Secret History XIII",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q176",
+      "text": "“Were a professional man to lose his fortune, he need not feel regret, for his knowledge is of itself a mine of wealth.”",
+      "attribution": "Saadi  ·  Gulistan VII.2  [S42]",
+      "displayAttribution": "Saadi · Gulistan VII.2",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q177",
+      "text": "“Everywhere means nowhere.”",
+      "attribution": "Seneca  ·  Letters 2.2  [S43]",
+      "displayAttribution": "Seneca · Letters 2.2",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_2"
+      ]
+    },
+    {
+      "id": "Q178",
+      "text": "“The rule is, not to besiege walled cities if it can possibly be avoided.”",
+      "attribution": "Sun Tzu  ·  Art of War III.4  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War III.4",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q179",
+      "text": "“It is not bragging to state what nature and my zeal for learning have given me.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 1  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 1",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q180",
+      "text": "“Men come and go as leaves year by year upon the trees.”",
+      "attribution": "Homer  ·  Iliad VI.146–149  [S20]  ·  Literary voice",
+      "displayAttribution": "Homer · Iliad VI.146–149",
+      "sourceId": "S20",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2199.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q181",
+      "text": "“It is not only necessary in victory to distribute rewards to individual men but also to make recompense to the army as a whole for its dangers.”",
+      "attribution": "Onasander  ·  The General XXXIV.4  [S37]",
+      "displayAttribution": "Onasander · The General XXXIV.4",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/J*.html"
+      ]
+    },
+    {
+      "id": "Q182",
+      "text": "“Slavery is an institution of the law of nations, against nature subjecting one man to the dominion of another.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.3.2  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.3.2",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q183",
+      "text": "“We suffer more often in imagination than in reality.”",
+      "attribution": "Seneca  ·  Letters 13.4  [S43]",
+      "displayAttribution": "Seneca · Letters 13.4",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13"
+      ]
+    },
+    {
+      "id": "Q184",
+      "text": "“In the death of a rival I have no room for exultation, since my life also is not to last forever.”",
+      "attribution": "Saadi  ·  Gulistan I.37  [S42]",
+      "displayAttribution": "Saadi · Gulistan I.37",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q185",
+      "text": "“Perish strife both from among gods and men.”",
+      "attribution": "Homer  ·  Iliad XVIII.107  [S20]  ·  Literary voice",
+      "displayAttribution": "Homer · Iliad XVIII.107",
+      "sourceId": "S20",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2199.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q186",
+      "text": "“Man is altogether a creature of accident.”",
+      "attribution": "Solon in Herodotus  ·  Histories I.32  [S19]  ·  Reported speech",
+      "displayAttribution": "Solon in Herodotus · Histories I.32",
+      "sourceId": "S19",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2707.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q187",
+      "text": "“For if you once gain time and respite, you will more easily command yourself.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 20  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 20",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q188",
+      "text": "“You have got a city, you have got triremes, you have got money, you have got men.”",
+      "attribution": "Soldiers at Byzantium in Xenophon  ·  Anabasis VII.1  [S50]  ·  Reported speech",
+      "displayAttribution": "Soldiers at Byzantium in Xenophon · Anabasis VII.1",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q189",
+      "text": "“For the church is not a gold foundry nor a workshop for silver, but an assembly of angels.”",
+      "attribution": "John Chrysostom  ·  Matthew Homilies 50.4  [S25]",
+      "displayAttribution": "John Chrysostom · Matthew Homilies 50.4",
+      "sourceId": "S25",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/200150.htm"
+      ]
+    },
+    {
+      "id": "Q190",
+      "text": "“The stipendiary commission went from one place to another, plundering the subjects of the Empire in the name of their office.”",
+      "attribution": "Procopius  ·  Secret History XXI  [S40]",
+      "displayAttribution": "Procopius · Secret History XXI",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q191",
+      "text": "“For men shut in, desperation breeds daring; when hope is gone, fear takes up arms.”",
+      "attribution": "Vegetius  ·  Military Epitome III.21  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.21",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q193",
+      "text": "“To a man without provision, and knocked up in the desert, a piece of stone or of gold, in his scrip, is all the same.”",
+      "attribution": "Saadi  ·  Gulistan III.17  [S42]",
+      "displayAttribution": "Saadi · Gulistan III.17",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q194",
+      "text": "“Even a soldier can perform a great deed by bravery, but no one except the general can by his wisdom plan a greater one.”",
+      "attribution": "Onasander  ·  The General XXXIII.1  [S37]",
+      "displayAttribution": "Onasander · The General XXXIII.1",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/J*.html"
+      ]
+    },
+    {
+      "id": "Q195",
+      "text": "“For this is your business—to act well the given part, but to choose it belongs to another.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 17  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 17",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q198",
+      "text": "“Of all things law is king.”",
+      "attribution": "Pindar cited by Herodotus  ·  Histories III.38  [S19]  ·  Reported speech",
+      "displayAttribution": "Pindar cited by Herodotus · Histories III.38",
+      "sourceId": "S19",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2707.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q199",
+      "text": "“If he got a blow with the fist from me it saved him a thrust with the lance from the enemy.”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis V.8  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis V.8",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q201",
+      "text": "“A siege demands courage on the part of the soldiers, military science on the part of the general, and equipment of machines of war.”",
+      "attribution": "Onasander  ·  The General XL.1  [S37]",
+      "displayAttribution": "Onasander · The General XL.1",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/L*.html"
+      ]
+    },
+    {
+      "id": "Q202",
+      "text": "“The whole world, agog with excitement, was eagerly looking forward to what would happen.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 58  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 58",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q203",
+      "text": "“Gold is a strong weapon against the enemy and effective for victory.”",
+      "attribution": "Onasander  ·  The General I.8  [S37]",
+      "displayAttribution": "Onasander · The General I.8",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q205",
+      "text": "“In a word, the Empire resembled a queen over boys at play.”",
+      "attribution": "Procopius  ·  Secret History XIV  [S40]",
+      "displayAttribution": "Procopius · Secret History XIV",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q206",
+      "text": "“Fear is a false prophet and believes that what it fears is actually coming to pass.”",
+      "attribution": "Onasander  ·  The General XLII.1  [S37]",
+      "displayAttribution": "Onasander · The General XLII.1",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/L*.html"
+      ]
+    },
+    {
+      "id": "Q207",
+      "text": "“For no place remained unassailed or defended the suppliants.”",
+      "attribution": "Niketas Choniates  ·  History Sack of 1204  [S36]",
+      "displayAttribution": "Niketas Choniates · History Sack of 1204",
+      "sourceId": "S36",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/source/choniates1.asp"
+      ]
+    },
+    {
+      "id": "Q208",
+      "text": "“The whole city was seized with terror, and everyone prayed to God and Saint Mary with great weeping.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 48  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 48",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/44"
+      ]
+    },
+    {
+      "id": "Q209",
+      "text": "“The control of a large force is the same principle as the control of a few men: it is merely a question of dividing up their numbers.”",
+      "attribution": "Sun Tzu  ·  Art of War V.1  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War V.1",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q210",
+      "text": "“For my part, I had rather be the first man among these fellows, than the second man in Rome.”",
+      "attribution": "Julius Caesar in Plutarch  ·  Parallel Lives Caesar 11  [S38]  ·  Reported speech",
+      "displayAttribution": "Julius Caesar in Plutarch · Parallel Lives Caesar 11",
+      "sourceId": "S38",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/674.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q211",
+      "text": "“There is a wide distinction between the human and the supernatural.”",
+      "attribution": "Procopius  ·  Secret History XII  [S40]",
+      "displayAttribution": "Procopius · Secret History XII",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q212",
+      "text": "“Let your plans be dark and impenetrable as night, and when you move, fall like a thunderbolt.”",
+      "attribution": "Sun Tzu  ·  Art of War VII.19  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War VII.19",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q213",
+      "text": "“Hardened to labour, that he may not be the first but the last of the army to grow weary.”",
+      "attribution": "Onasander  ·  The General I.6  [S37]",
+      "displayAttribution": "Onasander · The General I.6",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q214",
+      "text": "“Mules and saddled horses were led to the very sanctuary of the temple.”",
+      "attribution": "Niketas Choniates  ·  History Sack of 1204  [S36]",
+      "displayAttribution": "Niketas Choniates · History Sack of 1204",
+      "sourceId": "S36",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/source/choniates1.asp"
+      ]
+    },
+    {
+      "id": "Q215",
+      "text": "“Words had to change their ordinary meaning and to take that which was now given them.”",
+      "attribution": "Thucydides  ·  Peloponnesian War III.82  [S48]",
+      "displayAttribution": "Thucydides · Peloponnesian War III.82",
+      "sourceId": "S48",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q216",
+      "text": "“Dynasties have a natural life span like individuals.”",
+      "attribution": "Ibn Khaldun  ·  Muqaddimah III.12  [S22]",
+      "displayAttribution": "Ibn Khaldun · Muqaddimah III.12",
+      "sourceId": "S22",
+      "labels": [],
+      "sourceUrls": [
+        "https://muslimphilosophy.com/ik/Muqaddimah/Chapter3/Ch_3_12.htm"
+      ]
+    },
+    {
+      "id": "Q217",
+      "text": "Some mistook the army’s silence for preparations to withdraw.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.216  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.216",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q218",
+      "text": "“And so the end of our way of life is indeed the kingdom of God.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.4  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.4",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q219",
+      "text": "“Thus in some such way it is possible that one trumpeter, even without arms, can capture a city.”",
+      "attribution": "Onasander  ·  The General XLII.17  [S37]",
+      "displayAttribution": "Onasander · The General XLII.17",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/L*.html"
+      ]
+    },
+    {
+      "id": "Q220",
+      "text": "“For my part, I would rather at any time attack with half my men than retreat with twice the number.”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis VI.5  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis VI.5",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q221",
+      "text": "“A king may acquire the sovereignty of one empire; and he will in like manner covet the possession of another.”",
+      "attribution": "Saadi  ·  Gulistan I.3  [S42]",
+      "displayAttribution": "Saadi · Gulistan I.3",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q222",
+      "text": "“If a man knows not his own soul, which is the nearest thing to him, what is the use of his claiming to know others?”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q223",
+      "text": "“Since God has no need at all of golden vessels, but of golden souls.”",
+      "attribution": "John Chrysostom  ·  Matthew Homilies 50.4  [S25]",
+      "displayAttribution": "John Chrysostom · Matthew Homilies 50.4",
+      "sourceId": "S25",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/200150.htm"
+      ]
+    },
+    {
+      "id": "Q225",
+      "text": "“Justice is the set and constant purpose which gives to every man his due.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.1 pr.  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.1 pr.",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q226",
+      "text": "“Deal fairly with thy subjects, and rest easy about the warfare of thine enemies, for with an upright prince his yeomanry is an army.”",
+      "attribution": "Saadi  ·  Gulistan I.6  [S42]",
+      "displayAttribution": "Saadi · Gulistan I.6",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q227",
+      "text": "“My mother bore me a general, not a warrior.”",
+      "attribution": "Scipio Africanus in Frontinus  ·  Stratagems IV.7.4  [S15]  ·  Reported speech",
+      "displayAttribution": "Scipio Africanus in Frontinus · Stratagems IV.7.4",
+      "sourceId": "S15",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "Q228",
+      "text": "“If a general has birth in addition to these other qualities, he is fortunate, but even if he has a famous name without the other qualities, he is useless.”",
+      "attribution": "Onasander  ·  The General I.23  [S37]",
+      "displayAttribution": "Onasander · The General I.23",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q229",
+      "text": "Sense, memory and thought together disclose that the moon borrows the sun’s light.",
+      "attribution": "Gregory Palamas  ·  150 Chapters 19  [S17]  ·  Paraphrase",
+      "displayAttribution": "Gregory Palamas · 150 Chapters 19",
+      "sourceId": "S17",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://azbyka.ru/otechnik/Grigorij_Palama/the-one-hundred-and-fifty-chapters/4"
+      ]
+    },
+    {
+      "id": "Q230",
+      "text": "“A road not only ought to be afforded the enemy for flight, but that it ought even to be paved.”",
+      "attribution": "Scipio Africanus in Frontinus  ·  Stratagems IV.7.16  [S15]  ·  Reported speech",
+      "displayAttribution": "Scipio Africanus in Frontinus · Stratagems IV.7.16",
+      "sourceId": "S15",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "Q231",
+      "text": "“The best way of avenging thyself is not to become like [the wrong-doer].”",
+      "attribution": "Marcus Aurelius  ·  Meditations VI.6  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations VI.6",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q232",
+      "text": "“But our faith thus teaches, that when men fall asleep, they sleep this slumber without knowing good from evil.”",
+      "attribution": "Aphrahat  ·  Demonstration 8 8.20  [S05]",
+      "displayAttribution": "Aphrahat · Demonstration 8 8.20",
+      "sourceId": "S05",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/370108.htm"
+      ]
+    },
+    {
+      "id": "Q233",
+      "text": "“Now it is necessary that those who gather for deliberation should make their minds entirely free from modesty and from fear.”",
+      "attribution": "Belisarius in Procopius  ·  Wars II.16  [S41]  ·  Literary speech",
+      "displayAttribution": "Belisarius in Procopius · Wars II.16",
+      "sourceId": "S41",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q234",
+      "text": "“Come, you lambs, receive your seal, for it is truth that is your seal!”",
+      "attribution": "Ephrem tradition  ·  Epiphany Hymns 3.25  [S13]",
+      "displayAttribution": "Ephrem tradition · Epiphany Hymns 3.25",
+      "sourceId": "S13",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/3704.htm"
+      ]
+    },
+    {
+      "id": "Q235",
+      "text": "“It is in fact ignorance or a kind of madness to weary our minds with finding out things which are beyond our reach, without having the means of approaching them.”",
+      "attribution": "Moses Maimonides  ·  Guide for the Perplexed II.24  [S34]",
+      "displayAttribution": "Moses Maimonides · Guide for the Perplexed II.24",
+      "sourceId": "S34",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/73584.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q236",
+      "text": "We faced war outside; a church appointment might bring war within.",
+      "attribution": "George Sphrantzes  ·  Chronicle Minor 36.6  [S16]  ·  Paraphrase",
+      "displayAttribution": "George Sphrantzes · Chronicle Minor 36.6",
+      "sourceId": "S16",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-george-sphrantzes/"
+      ]
+    },
+    {
+      "id": "Q237",
+      "text": "“For one might say of such a state of affairs that it is nothing else than the transformation of the habits of men into those of beasts.”",
+      "attribution": "Procopius  ·  Wars II.10  [S41]",
+      "displayAttribution": "Procopius · Wars II.10",
+      "sourceId": "S41",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q238",
+      "text": "“For the guiding of man, the most variable and manifold of creatures, seems to me in very deed to be the art of arts and science of sciences.”",
+      "attribution": "Gregory of Nazianzus  ·  Oration 2 2.16  [S18]",
+      "displayAttribution": "Gregory of Nazianzus · Oration 2 2.16",
+      "sourceId": "S18",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/310202.htm"
+      ]
+    },
+    {
+      "id": "Q239",
+      "text": "“It is not the man who has too little, but the man who craves more, that is poor.”",
+      "attribution": "Seneca  ·  Letters 2.6  [S43]",
+      "displayAttribution": "Seneca · Letters 2.6",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_2"
+      ]
+    },
+    {
+      "id": "Q240",
+      "text": "“Neither by nature, then, nor contrary to nature do the virtues arise in us; rather we are adapted by nature to receive them, and are made perfect by habit.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics II.1  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics II.1",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
+      ]
+    },
+    {
+      "id": "Q241",
+      "text": "“For by the law of nature all men from the beginning were born free.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.2.2  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.2.2",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q242",
+      "text": "“But this is the kernel of my advice: Treat your inferiors as you would be treated by your betters.”",
+      "attribution": "Seneca  ·  Letters 47.11  [S43]",
+      "displayAttribution": "Seneca · Letters 47.11",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_47"
+      ]
+    },
+    {
+      "id": "Q243",
+      "text": "“No tyrant had ever yet inspired such fear, since it was impossible for any word or deed of her opponents to pass unnoticed.”",
+      "attribution": "Procopius  ·  Secret History XVI  [S40]",
+      "displayAttribution": "Procopius · Secret History XVI",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q244",
+      "text": "“Security against defeat implies defensive tactics; ability to defeat the enemy means taking the offensive.”",
+      "attribution": "Sun Tzu  ·  Art of War IV.5  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War IV.5",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q245",
+      "text": "“Everyone saw himself as lost, considering how much fine wall had been broken in so few days.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 26  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 26",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/17"
+      ]
+    },
+    {
+      "id": "Q246",
+      "text": "“The tale of history forms a very strong bulwark against the stream of time.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 1  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 1",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q247",
+      "text": "“Almost every cannon shot took a man from us.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 36  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 36",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/25"
+      ]
+    },
+    {
+      "id": "Q248",
+      "text": "“To cling to God continually, and as you say inseparably to hold fast to meditation on Him, is impossible for a man while still in this weak flesh of ours.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.13  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.13",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q249",
+      "text": "“My weight, is my love.”",
+      "attribution": "Augustine of Hippo  ·  Confessions XIII.9.10  [S08]",
+      "displayAttribution": "Augustine of Hippo · Confessions XIII.9.10",
+      "sourceId": "S08",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/3296.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q250",
+      "text": "“What else than to care for the soul, never leaving an idle moment for other things?”",
+      "attribution": "Basil of Caesarea  ·  To Young Men IX  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men IX",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q251",
+      "text": "“At sunrise the Turks entered Constantinople by Saint Romanos, where their cannon had battered down the walls.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 55  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 55",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/47"
+      ]
+    },
+    {
+      "id": "Q252",
+      "text": "“In the law of persons, then, the first division is into free men and slaves.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.3 pr.  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.3 pr.",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q253",
+      "text": "“The third wave found the men on the walls exhausted from fighting the first and the second.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 53  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 53",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/47"
+      ]
+    },
+    {
+      "id": "Q254",
+      "text": "“Could those, who showed so great madness against God Himself, have spared the honorable matrons and maidens or the virgins consecrated to God?”",
+      "attribution": "Niketas Choniates  ·  History Sack of 1204  [S36]",
+      "displayAttribution": "Niketas Choniates · History Sack of 1204",
+      "sourceId": "S36",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/source/choniates1.asp"
+      ]
+    },
+    {
+      "id": "Q255",
+      "text": "Constantine had no reserves to fill the abandoned positions.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.232  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.232",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q256",
+      "text": "“Day scouts also must be stationed before the city on a high place visible for as long a distance as possible.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence VI.1  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence VI.1",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/A*.html"
+      ]
+    },
+    {
+      "id": "Q257",
+      "text": "“For the physicians with their medicines care only for the wounded, whereas the eloquent general not only heartens the disabled but also sets the well on their feet again.”",
+      "attribution": "Onasander  ·  The General I.14  [S37]",
+      "displayAttribution": "Onasander · The General I.14",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q258",
+      "text": "Basil offered the rebel second place when force could not catch him.",
+      "attribution": "Michael Psellos  ·  Chronographia I.26  [S33]  ·  Paraphrase",
+      "displayAttribution": "Michael Psellos · Chronographia I.26",
+      "sourceId": "S33",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/psellus-chrono01.asp"
+      ]
+    },
+    {
+      "id": "Q259",
+      "text": "“If he is taking his ease, give him no rest.”",
+      "attribution": "Sun Tzu  ·  Art of War I.23  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War I.23",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q260",
+      "text": "“I believe it would be impossible for anyone to estimate correctly the number of men who perished there.”",
+      "attribution": "Procopius  ·  Secret History XVIII  [S40]",
+      "displayAttribution": "Procopius · Secret History XVIII",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q261",
+      "text": "“For the enemy fear the reserves more than the force already on duty before them.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence XXXVIII.2  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence XXXVIII.2",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/F*.html"
+      ]
+    },
+    {
+      "id": "Q262",
+      "text": "“All warfare is based on deception.”",
+      "attribution": "Sun Tzu  ·  Art of War I.18  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War I.18",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q263",
+      "text": "“But on the other hand we shall receive gladly those passages in which they praise virtue or condemn vice.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men IV  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men IV",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q264",
+      "text": "“In war, practise dissimulation, and you will succeed.”",
+      "attribution": "Sun Tzu  ·  Art of War VII.19  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War VII.19",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q265",
+      "text": "“As then their rising up does not entirely depend on ourselves, so the rejection or admission of them lies in our own power.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.17  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.17",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q266",
+      "text": "“Fear of gods or law of man there was none to restrain them.”",
+      "attribution": "Thucydides  ·  Peloponnesian War II.53  [S48]",
+      "displayAttribution": "Thucydides · Peloponnesian War II.53",
+      "sourceId": "S48",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q267",
+      "text": "“He will win who knows when to fight and when not to fight.”",
+      "attribution": "Sun Tzu  ·  Art of War III.17  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War III.17",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q268",
+      "text": "Hunger, sleeplessness and the deaths of relatives could not break their resistance.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.225  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.225",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q269",
+      "text": "“My father, as the actual facts prove, knew both how to command and how to obey the rulers within reasonable limits.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 2  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 2",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q270",
+      "text": "When Giustiniani fell, those around him scattered.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.230  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.230",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q271",
+      "text": "“For a truth, once established by proof, does neither gain force nor certainty by the consent of all scholars, nor lose by the general dissent.”",
+      "attribution": "Moses Maimonides  ·  Guide for the Perplexed II.15  [S34]",
+      "displayAttribution": "Moses Maimonides · Guide for the Perplexed II.15",
+      "sourceId": "S34",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/73584.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q272",
+      "text": "“We must of every thing examine the end and how it will turn out at the last.”",
+      "attribution": "Solon in Herodotus  ·  Histories I.32  [S19]  ·  Reported speech",
+      "displayAttribution": "Solon in Herodotus · Histories I.32",
+      "sourceId": "S19",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2707.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q273",
+      "text": "“The strong do what they can and the weak suffer what they must.”",
+      "attribution": "Athenian envoys in Thucydides  ·  Peloponnesian War V.89  [S48]  ·  Literary speech",
+      "displayAttribution": "Athenian envoys in Thucydides · Peloponnesian War V.89",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q274",
+      "text": "“All the men of the brigantine were dressed as Turks and flew the Turkish lord’s flag.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 35  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 35",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/24"
+      ]
+    },
+    {
+      "id": "Q275",
+      "text": "“First of all one should appoint as captain of each precinct the most capable and prudent man.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence III.4  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence III.4",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/A*.html"
+      ]
+    },
+    {
+      "id": "Q276",
+      "text": "“The best plans are those your opponent does not know before you act.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q277",
+      "text": "“What else do tragedies make such woeful outcry over save the overthrow of kingdoms by the indiscriminate strokes of Fortune?”",
+      "attribution": "Boethius  ·  Consolation II, prose 2  [S10]  ·  Literary voice",
+      "displayAttribution": "Boethius · Consolation II, prose 2",
+      "sourceId": "S10",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/14328.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q278",
+      "text": "“What boot from counsel to a fool? Waste not thy words; thy wrath let cool.”",
+      "attribution": "Jalal al-Din Rumi  ·  Masnavi I, Proem 18  [S24]",
+      "displayAttribution": "Jalal al-Din Rumi · Masnavi I, Proem 18",
+      "sourceId": "S24",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q279",
+      "text": "“Powerful natures are ever like this, people say, even though they be of somewhat obscure descent.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 27  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 27",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q280",
+      "text": "“For what is the profit, when His table indeed is full of golden cups, but He perishes with hunger?”",
+      "attribution": "John Chrysostom  ·  Matthew Homilies 50.4  [S25]",
+      "displayAttribution": "John Chrysostom · Matthew Homilies 50.4",
+      "sourceId": "S25",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/200150.htm"
+      ]
+    },
+    {
+      "id": "Q281",
+      "text": "“A mirror best portrays when bright; Begrimed with rust, its gleam grows slight.”",
+      "attribution": "Jalal al-Din Rumi  ·  Masnavi I, Proem 34  [S24]",
+      "displayAttribution": "Jalal al-Din Rumi · Masnavi I, Proem 34",
+      "sourceId": "S24",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q282",
+      "text": "“Men are disturbed not by things, but by the views which they take of things.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 5  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 5",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q283",
+      "text": "Soft earth swallowed the cannonball instead of shattering under it.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.148  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.148",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q284",
+      "text": "“The cause of all these evils was the lust for power arising from greed and ambition.”",
+      "attribution": "Thucydides  ·  Peloponnesian War III.82  [S48]",
+      "displayAttribution": "Thucydides · Peloponnesian War III.82",
+      "sourceId": "S48",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q285",
+      "text": "“For He was made man that we might be made God.”",
+      "attribution": "Athanasius of Alexandria  ·  On the Incarnation 54.3  [S07]",
+      "displayAttribution": "Athanasius of Alexandria · On the Incarnation 54.3",
+      "sourceId": "S07",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ]
+    },
+    {
+      "id": "Q286",
+      "text": "“Cast off lust's bonds; stand free from all. Slave not for pelf; be not greed's thrall.”",
+      "attribution": "Jalal al-Din Rumi  ·  Masnavi I, Proem 19  [S24]",
+      "displayAttribution": "Jalal al-Din Rumi · Masnavi I, Proem 19",
+      "sourceId": "S24",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q287",
+      "text": "“Hope, danger’s comforter, may be indulged in by those who have abundant resources.”",
+      "attribution": "Athenian envoys in Thucydides  ·  Peloponnesian War V.103  [S48]  ·  Literary speech",
+      "displayAttribution": "Athenian envoys in Thucydides · Peloponnesian War V.103",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q288",
+      "text": "“A kingdom that has once been destroyed can never come again into being; nor can the dead ever be brought back to life.”",
+      "attribution": "Sun Tzu  ·  Art of War XII.21  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War XII.21",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q289",
+      "text": "“We let ourselves drift with every breeze; we are frightened at uncertainties, just as if they were certain.”",
+      "attribution": "Seneca  ·  Letters 13.13  [S43]",
+      "displayAttribution": "Seneca · Letters 13.13",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13"
+      ]
+    },
+    {
+      "id": "Q290",
+      "text": "“For the old Emperors and Caesars shewed great consideration for their subjects.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 53  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 53",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q291",
+      "text": "“That general is wise and cautious who affords the enemy, even when they desire to attack, no opportunity to break their compact.”",
+      "attribution": "Onasander  ·  The General XXXVII.3  [S37]",
+      "displayAttribution": "Onasander · The General XXXVII.3",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/K*.html"
+      ]
+    },
+    {
+      "id": "Q292",
+      "text": "To recognise the mind’s weakness and seek its healing is greater than measuring the stars.",
+      "attribution": "Gregory Palamas  ·  150 Chapters 29  [S17]  ·  Paraphrase",
+      "displayAttribution": "Gregory Palamas · 150 Chapters 29",
+      "sourceId": "S17",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://azbyka.ru/otechnik/Grigorij_Palama/the-one-hundred-and-fifty-chapters/4"
+      ]
+    },
+    {
+      "id": "Q293",
+      "text": "“For it is useless to know the law without knowing the persons for whose sake it was established.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.2.12  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.2.12",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q294",
+      "text": "“If you would not have a man flinch when the crisis comes, train him before it comes.”",
+      "attribution": "Seneca  ·  Letters 18.6  [S43]",
+      "displayAttribution": "Seneca · Letters 18.6",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_18"
+      ]
+    },
+    {
+      "id": "Q295",
+      "text": "“For all men commend patience, although few be willing to practise it.”",
+      "attribution": "Thomas à Kempis  ·  Imitation of Christ II.12  [S47]  ·  Literary voice",
+      "displayAttribution": "Thomas à Kempis · Imitation of Christ II.12",
+      "sourceId": "S47",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1653.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q296",
+      "text": "“I affirm by the gods that I do not wish the Galilaeans to be either put to death or unjustly beaten, or to suffer any other injury.”",
+      "attribution": "Julian  ·  Letters 37  [S27]",
+      "displayAttribution": "Julian · Letters 37",
+      "sourceId": "S27",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/The_Works_of_the_Emperor_Julian/Letters/Letter_37"
+      ]
+    },
+    {
+      "id": "Q297",
+      "text": "“The highest function of the soul of man is the perception of truth; in this accordingly it finds its special delight.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q298",
+      "text": "“Be like the promontory against which the waves continually break, but it stands firm and tames the fury of the water around it.”",
+      "attribution": "Marcus Aurelius  ·  Meditations IV.49  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations IV.49",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q299",
+      "text": "“Seasonable fear is wise precaution, as ill-timed contempt is recklessness that invites attack.”",
+      "attribution": "Onasander  ·  The General XXXVI.6  [S37]",
+      "displayAttribution": "Onasander · The General XXXVI.6",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/K*.html"
+      ]
+    },
+    {
+      "id": "Q300",
+      "text": "“Nothing, Lucilius, is ours, except time.”",
+      "attribution": "Seneca  ·  Letters 1.3  [S43]",
+      "displayAttribution": "Seneca · Letters 1.3",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1"
+      ]
+    },
+    {
+      "id": "Q301",
+      "text": "A great city can conceal the damage injustice gradually does to it.",
+      "attribution": "Ibn Khaldun  ·  Muqaddimah III.41  [S22]  ·  Paraphrase",
+      "displayAttribution": "Ibn Khaldun · Muqaddimah III.41",
+      "sourceId": "S22",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://muslimphilosophy.com/ik/Muqaddimah/Chapter3/Ch_3_41.htm"
+      ]
+    },
+    {
+      "id": "Q302",
+      "text": "“This rigorous discipline made Cassius's men superior to those of Brutus not only in constructing military works, but also in the general conduct of the war.”",
+      "attribution": "Frontinus  ·  Stratagems IV.2.3  [S15]",
+      "displayAttribution": "Frontinus · Stratagems IV.2.3",
+      "sourceId": "S15",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "Q303",
+      "text": "To act without reason contradicts the nature of God.",
+      "attribution": "Manuel II Palaiologos  ·  Dialogues with a Persian VII.2c  [S31]  ·  Paraphrase",
+      "displayAttribution": "Manuel II Palaiologos · Dialogues with a Persian VII.2c",
+      "sourceId": "S31",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html"
+      ]
+    },
+    {
+      "id": "Q304",
+      "text": "“Thus, then, God the Word showed Himself to men by His works.”",
+      "attribution": "Athanasius of Alexandria  ·  On the Incarnation 19.3  [S07]",
+      "displayAttribution": "Athanasius of Alexandria · On the Incarnation 19.3",
+      "sourceId": "S07",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ]
+    },
+    {
+      "id": "Q305",
+      "text": "I was elsewhere under orders when the emperor died.",
+      "attribution": "George Sphrantzes  ·  Chronicle Minor 35.9  [S16]  ·  Paraphrase",
+      "displayAttribution": "George Sphrantzes · Chronicle Minor 35.9",
+      "sourceId": "S16",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-george-sphrantzes/"
+      ]
+    },
+    {
+      "id": "Q306",
+      "text": "Fresh attackers could rest; the defenders had to fight without respite.",
+      "attribution": "Mehmed II in Kritoboulos  ·  History of Mehmed I.198  [S29]  ·  Literary speech · Paraphrase",
+      "displayAttribution": "Mehmed II in Kritoboulos · History of Mehmed I.198",
+      "sourceId": "S29",
+      "labels": [
+        "Literary speech",
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q307",
+      "text": "“The hour of departure has arrived, and we go our ways—I to die, and you to live. Which is better God only knows.”",
+      "attribution": "Socrates in Plato  ·  Apology 42a  [S44]  ·  Literary voice",
+      "displayAttribution": "Socrates in Plato · Apology 42a",
+      "sourceId": "S44",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1656.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q308",
+      "text": "Persuading a rational soul requires reasoned speech, not threats of death.",
+      "attribution": "Manuel II Palaiologos  ·  Dialogues with a Persian VII.2c  [S31]  ·  Paraphrase",
+      "displayAttribution": "Manuel II Palaiologos · Dialogues with a Persian VII.2c",
+      "sourceId": "S31",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html"
+      ]
+    },
+    {
+      "id": "Q309",
+      "text": "“Freedom, from which men are called free, is a man's natural power of doing what he pleases, so far as he is not prevented by force or law.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.3.1  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.3.1",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q310",
+      "text": "“Surprises terrify the enemy; familiar things breed contempt.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q311",
+      "text": "No thickness of wall could withstand the cannonball’s force.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.137  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.137",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q312",
+      "text": "“In addition to the teaching of truths the Law aims at the removal of injustice from mankind.”",
+      "attribution": "Moses Maimonides  ·  Guide for the Perplexed III.33  [S34]",
+      "displayAttribution": "Moses Maimonides · Guide for the Perplexed III.33",
+      "sourceId": "S34",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/73584.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q313",
+      "text": "“Sickness is an impediment to the body, but not to the will unless itself pleases.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 9  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 9",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q314",
+      "text": "“First, one must note whether the citizens are of one mind, since that would be of greatest advantage during a siege.”",
+      "attribution": "Aeneas Tacticus  ·  Siege Defence X.20  [S02]",
+      "displayAttribution": "Aeneas Tacticus · Siege Defence X.20",
+      "sourceId": "S02",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/A*.html"
+      ]
+    },
+    {
+      "id": "Q315",
+      "text": "The cannon was terrifying to see, and scarcely believable in the telling.",
+      "attribution": "Kritoboulos of Imbros  ·  History of Mehmed I.125  [S29]  ·  Paraphrase",
+      "displayAttribution": "Kritoboulos of Imbros · History of Mehmed I.125",
+      "sourceId": "S29",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q316",
+      "text": "“Their shouting and drums made the Turks seem far more numerous than they were.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 23  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 23",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/16"
+      ]
+    },
+    {
+      "id": "Q317",
+      "text": "“If we take it in succession to do picket and outlook duty, the enemy will be less able to harry us.”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis V.1  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis V.1",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q318",
+      "text": "“For grace is far from the judge, but justice urges the judge.”",
+      "attribution": "Aphrahat  ·  Demonstration 8 8.20  [S05]",
+      "displayAttribution": "Aphrahat · Demonstration 8 8.20",
+      "sourceId": "S05",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/370108.htm"
+      ]
+    },
+    {
+      "id": "Q319",
+      "text": "“He imposed a perpetual and most severe tax upon bread, which the artisans, the poor, and infirm were compelled to purchase.”",
+      "attribution": "Procopius  ·  Secret History XXVI  [S40]",
+      "displayAttribution": "Procopius · Secret History XXVI",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q320",
+      "text": "“Hence it is necessary for the besieging general to fortify his camp with trenches, palisades, and guards.”",
+      "attribution": "Onasander  ·  The General XL.2  [S37]",
+      "displayAttribution": "Onasander · The General XL.2",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/L*.html"
+      ]
+    },
+    {
+      "id": "Q321",
+      "text": "“Of every malice that wins hate in Heaven, Injury is the end; and all such end Either by force or fraud afflicteth others.”",
+      "attribution": "Dante Alighieri  ·  Inferno XI.22–24  [S12]  ·  Literary voice",
+      "displayAttribution": "Dante Alighieri · Inferno XI.22–24",
+      "sourceId": "S12",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q322",
+      "text": "“For death or for life, let us set out.”",
+      "attribution": "Brigantine crew in Barbaro  ·  Siege Diary p. 35  [S35]  ·  Reported speech · Translation",
+      "displayAttribution": "Brigantine crew in Barbaro · Siege Diary p. 35",
+      "sourceId": "S35",
+      "labels": [
+        "Reported speech",
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/24"
+      ]
+    },
+    {
+      "id": "Q323",
+      "text": "“All things past and future are present to His knowledge.”",
+      "attribution": "Abba Moses in John Cassian  ·  Conferences I.15  [S01]  ·  Literary voice",
+      "displayAttribution": "Abba Moses in John Cassian · Conferences I.15",
+      "sourceId": "S01",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "Q324",
+      "text": "“We saw that the city was wholly taken, and that there was no remedy for recovering it then.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 56  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 56",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/47"
+      ]
+    },
+    {
+      "id": "Q325",
+      "text": "“Peace bear to your lands:— peace be multiplied in your borders!”",
+      "attribution": "Ephrem tradition  ·  Epiphany Hymns 15.50  [S13]",
+      "displayAttribution": "Ephrem tradition · Epiphany Hymns 15.50",
+      "sourceId": "S13",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/3704.htm"
+      ]
+    },
+    {
+      "id": "Q326",
+      "text": "“God ... is not pleased by blood.”",
+      "attribution": "Manuel II Palaiologos  ·  Dialogues with a Persian VII.2c  [S31]",
+      "displayAttribution": "Manuel II Palaiologos · Dialogues with a Persian VII.2c",
+      "sourceId": "S31",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html"
+      ]
+    },
+    {
+      "id": "Q327",
+      "text": "“Though soul and body be as one, Sight of his soul hath no man won.”",
+      "attribution": "Jalal al-Din Rumi  ·  Masnavi I, Proem 8  [S24]",
+      "displayAttribution": "Jalal al-Din Rumi · Masnavi I, Proem 8",
+      "sourceId": "S24",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q328",
+      "text": "“No servitude is more disgraceful than that which is self-imposed.”",
+      "attribution": "Seneca  ·  Letters 47.17  [S43]",
+      "displayAttribution": "Seneca · Letters 47.17",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_47"
+      ]
+    },
+    {
+      "id": "Q329",
+      "text": "“The great wish of some is to avenge themselves on some particular enemy, the great wish of others to save their own pocket.”",
+      "attribution": "Pericles in Thucydides  ·  Peloponnesian War I.141  [S48]  ·  Literary speech",
+      "displayAttribution": "Pericles in Thucydides · Peloponnesian War I.141",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q330",
+      "text": "“Fear God and thou shalt not quail before the terrors of men.”",
+      "attribution": "Thomas à Kempis  ·  Imitation of Christ III.36  [S47]  ·  Literary voice",
+      "displayAttribution": "Thomas à Kempis · Imitation of Christ III.36",
+      "sourceId": "S47",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1653.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q331",
+      "text": "“Therefore it is for a noble end that the brave man endures and acts as courage directs.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics III.7  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics III.7",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.3.iii.html"
+      ]
+    },
+    {
+      "id": "Q332",
+      "text": "“There is one omen, and one only—that a man should fight for his country.”",
+      "attribution": "Homer  ·  Iliad XII.243  [S20]  ·  Literary voice",
+      "displayAttribution": "Homer · Iliad XII.243",
+      "sourceId": "S20",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2199.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q333",
+      "text": "“You ought to be aware that the real purpose of the Law is to impart the knowledge of truth and of right action.”",
+      "attribution": "Ibn Rushd  ·  Decisive Discourse On the Law’s aim  [S23]",
+      "displayAttribution": "Ibn Rushd · Decisive Discourse On the Law’s aim",
+      "sourceId": "S23",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q334",
+      "text": "“There are two ways by which all men can reform themselves, the one through their own mischances, the other through those of others.”",
+      "attribution": "Polybius  ·  Histories I.35.7  [S39]",
+      "displayAttribution": "Polybius · Histories I.35.7",
+      "sourceId": "S39",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/1*.html"
+      ]
+    },
+    {
+      "id": "Q335",
+      "text": "“Heart, be still, you had worse than this to bear.”",
+      "attribution": "Homer  ·  Odyssey XX  [S21]  ·  Literary voice",
+      "displayAttribution": "Homer · Odyssey XX",
+      "sourceId": "S21",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1727.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q336",
+      "text": "Later generations may mistake inherited power for a natural condition.",
+      "attribution": "Ibn Khaldun  ·  Muqaddimah III.12  [S22]  ·  Paraphrase",
+      "displayAttribution": "Ibn Khaldun · Muqaddimah III.12",
+      "sourceId": "S22",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://muslimphilosophy.com/ik/Muqaddimah/Chapter3/Ch_3_12.htm"
+      ]
+    },
+    {
+      "id": "Q337",
+      "text": "“Nature produces few brave men; training and diligence make many.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q338",
+      "text": "“Even the fleet in the harbour felt that great trembling.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 44  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 44",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/38"
+      ]
+    },
+    {
+      "id": "Q339",
+      "text": "“Thus we must look into creation with the reason.”",
+      "attribution": "Ibn Rushd  ·  Decisive Discourse Opening  [S23]",
+      "displayAttribution": "Ibn Rushd · Decisive Discourse Opening",
+      "sourceId": "S23",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q340",
+      "text": "“In peace the sons bury their fathers, but in war the fathers bury their sons.”",
+      "attribution": "Croesus in Herodotus  ·  Histories I.87  [S19]  ·  Reported speech",
+      "displayAttribution": "Croesus in Herodotus · Histories I.87",
+      "sourceId": "S19",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2707.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q341",
+      "text": "“Let us remember that we must have regard for justice even towards the humblest.”",
+      "attribution": "Cicero  ·  On Duties I.41  [S11]",
+      "displayAttribution": "Cicero · On Duties I.41",
+      "sourceId": "S11",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/47001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q342",
+      "text": "“All hope abandon, ye who enter in!”",
+      "attribution": "Dante Alighieri  ·  Inferno III.9  [S12]  ·  Literary voice",
+      "displayAttribution": "Dante Alighieri · Inferno III.9",
+      "sourceId": "S12",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q343",
+      "text": "“Epaminondas, the Theban general, was a man of such simple habits that among his belongings nothing was found beyond a mat and a single spit.”",
+      "attribution": "Frontinus  ·  Stratagems IV.3.6  [S15]",
+      "displayAttribution": "Frontinus · Stratagems IV.3.6",
+      "sourceId": "S15",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "Q344",
+      "text": "“Do not act as if thou wert going to live ten thousand years.”",
+      "attribution": "Marcus Aurelius  ·  Meditations IV.17  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations IV.17",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q345",
+      "text": "“We should regard as the best discipline for actual life the experience that accrues from serious history.”",
+      "attribution": "Polybius  ·  Histories I.35.9  [S39]",
+      "displayAttribution": "Polybius · Histories I.35.9",
+      "sourceId": "S39",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/1*.html"
+      ]
+    },
+    {
+      "id": "Q346",
+      "text": "“He will win who, prepared himself, waits to take the enemy unprepared.”",
+      "attribution": "Sun Tzu  ·  Art of War III.17  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War III.17",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q347",
+      "text": "“Whoever then would be free, let him wish nothing, let him decline nothing, which depends on others; else he must necessarily be a slave.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 14  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 14",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q348",
+      "text": "“Do you make Him a cup of gold, while you give Him not a cup of cold water?”",
+      "attribution": "John Chrysostom  ·  Matthew Homilies 50.4  [S25]",
+      "displayAttribution": "John Chrysostom · Matthew Homilies 50.4",
+      "sourceId": "S25",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/200150.htm"
+      ]
+    },
+    {
+      "id": "Q349",
+      "text": "“Women and children together carried stones to the walls to fill the battlements.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 50  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 50",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/46"
+      ]
+    },
+    {
+      "id": "Q350",
+      "text": "“That which is not good for the swarm, neither is it good for the bee.”",
+      "attribution": "Marcus Aurelius  ·  Meditations VI.54  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations VI.54",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q351",
+      "text": "“Therefore virtue also is in our own power, and so too vice.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics III.5  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics III.5",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.3.iii.html"
+      ]
+    },
+    {
+      "id": "Q352",
+      "text": "“War is a matter not so much of arms as of money, which makes arms of use.”",
+      "attribution": "Archidamus in Thucydides  ·  Peloponnesian War I.83  [S48]  ·  Literary speech",
+      "displayAttribution": "Archidamus in Thucydides · Peloponnesian War I.83",
+      "sourceId": "S48",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q353",
+      "text": "“Then seeking to alleviate his grief in war, he set out, as it were, to a hunt and chase of men.”",
+      "attribution": "Plutarch  ·  Parallel Lives Alexander 72  [S38]",
+      "displayAttribution": "Plutarch · Parallel Lives Alexander 72",
+      "sourceId": "S38",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/674.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q354",
+      "text": "“True liberality is not as a rule judged by the quantity of money supplied, but is weighed by the spirit of the giver.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 52  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 52",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q355",
+      "text": "“We ought to understand that while God knows all things beforehand, yet He does not predetermine all things.”",
+      "attribution": "John of Damascus  ·  Orthodox Faith II.30  [S26]",
+      "displayAttribution": "John of Damascus · Orthodox Faith II.30",
+      "sourceId": "S26",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "Q356",
+      "text": "“The vessel moulded of clay, gains beauty from the water, receives strength from the fire.”",
+      "attribution": "Ephrem tradition  ·  Epiphany Hymns 3.19  [S13]",
+      "displayAttribution": "Ephrem tradition · Epiphany Hymns 3.19",
+      "sourceId": "S13",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/3704.htm"
+      ]
+    },
+    {
+      "id": "Q357",
+      "text": "Passing sights can leave light or darkness fixed in the soul.",
+      "attribution": "Gregory Palamas  ·  150 Chapters 18  [S17]  ·  Paraphrase",
+      "displayAttribution": "Gregory Palamas · 150 Chapters 18",
+      "sourceId": "S17",
+      "labels": [
+        "Paraphrase"
+      ],
+      "sourceUrls": [
+        "https://azbyka.ru/otechnik/Grigorij_Palama/the-one-hundred-and-fifty-chapters/4"
+      ]
+    },
+    {
+      "id": "Q358",
+      "text": "“Men have no more ready corrective of conduct than knowledge of the past.”",
+      "attribution": "Polybius  ·  Histories I.1.1  [S39]",
+      "displayAttribution": "Polybius · Histories I.1.1",
+      "sourceId": "S39",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/1*.html"
+      ]
+    },
+    {
+      "id": "Q359",
+      "text": "“Terrain often helps more than courage.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q360",
+      "text": "“The will to fight, a realization of what is and is not honorable, and obedience to authority.”",
+      "attribution": "Mehmed II in Kritoboulos  ·  History of Mehmed I.203  [S29]  ·  Literary speech",
+      "displayAttribution": "Mehmed II in Kritoboulos · History of Mehmed I.203",
+      "sourceId": "S29",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "Q361",
+      "text": "“The soundest education and training for a life of active politics is the study of History.”",
+      "attribution": "Polybius  ·  Histories I.1.2  [S39]",
+      "displayAttribution": "Polybius · Histories I.1.2",
+      "sourceId": "S39",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/1*.html"
+      ]
+    },
+    {
+      "id": "Q362",
+      "text": "“So we, if wise, shall take from heathen books whatever befits us and is allied to the truth, and shall pass over the rest.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men IV  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men IV",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q363",
+      "text": "“Never say of anything, \"I have lost it,\" but, \"I have restored it.\".”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 11  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 11",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q364",
+      "text": "“No one can hurry me down to Hades before my time.”",
+      "attribution": "Homer  ·  Iliad VI.487–489  [S20]  ·  Literary voice",
+      "displayAttribution": "Homer · Iliad VI.487–489",
+      "sourceId": "S20",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/2199.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q365",
+      "text": "“The happy life is thought to be virtuous; now a virtuous life requires exertion, and does not consist in amusement.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics X.6  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics X.6",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.10.x.html"
+      ]
+    },
+    {
+      "id": "Q366",
+      "text": "“And if this is so, free-will must necessarily be very closely related to reason.”",
+      "attribution": "John of Damascus  ·  Orthodox Faith II.27  [S26]",
+      "displayAttribution": "John of Damascus · Orthodox Faith II.27",
+      "sourceId": "S26",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "Q367",
+      "text": "“The coward, then, is a despairing sort of person; for he fears everything.”",
+      "attribution": "Aristotle  ·  Nicomachean Ethics III.7  [S06]",
+      "displayAttribution": "Aristotle · Nicomachean Ethics III.7",
+      "sourceId": "S06",
+      "labels": [],
+      "sourceUrls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.3.iii.html"
+      ]
+    },
+    {
+      "id": "Q368",
+      "text": "“What I write here I did not see myself, but I heard it told by men who were positive that they had seen it.”",
+      "attribution": "Procopius  ·  Secret History XII  [S40]",
+      "displayAttribution": "Procopius · Secret History XII",
+      "sourceId": "S40",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q369",
+      "text": "“I know the height of God, and the weakness of man, and, on the contrary, his power.”",
+      "attribution": "Gregory of Nazianzus  ·  Oration 2 2.74  [S18]",
+      "displayAttribution": "Gregory of Nazianzus · Oration 2 2.74",
+      "sourceId": "S18",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/310202.htm"
+      ]
+    },
+    {
+      "id": "Q370",
+      "text": "“If your opponent is of choleric temper, seek to irritate him.”",
+      "attribution": "Sun Tzu  ·  Art of War I.22  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War I.22",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q371",
+      "text": "“Do not disturb thyself by thinking of the whole of thy life.”",
+      "attribution": "Marcus Aurelius  ·  Meditations VIII.36  [S32]",
+      "displayAttribution": "Marcus Aurelius · Meditations VIII.36",
+      "sourceId": "S32",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q372",
+      "text": "“Because of the cannon’s thick smoke, almost nothing could be seen.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 54  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 54",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/47"
+      ]
+    },
+    {
+      "id": "Q373",
+      "text": "“And bring not all the mischief you are able to do upon an enemy, for he may one day become your friend.”",
+      "attribution": "Saadi  ·  Gulistan VIII.10  [S42]",
+      "displayAttribution": "Saadi · Gulistan VIII.10",
+      "sourceId": "S42",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q374",
+      "text": "“It is not necessary that the general be rich or poor; he may be the one or the other.”",
+      "attribution": "Onasander  ·  The General I.19  [S37]",
+      "displayAttribution": "Onasander · The General I.19",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "Q375",
+      "text": "“We demand, how much a man hath done; but from how much virtue he acted, is not so narrowly considered.”",
+      "attribution": "Thomas à Kempis  ·  Imitation of Christ III.31  [S47]  ·  Literary voice",
+      "displayAttribution": "Thomas à Kempis · Imitation of Christ III.31",
+      "sourceId": "S47",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1653.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q376",
+      "text": "“For the man who himself does no wrong is not just, unless he is also accustomed to rescue those who are wronged by others when he has it in his power.”",
+      "attribution": "Lazic envoys in Procopius  ·  Wars II.15  [S41]  ·  Literary speech",
+      "displayAttribution": "Lazic envoys in Procopius · Wars II.15",
+      "sourceId": "S41",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q377",
+      "text": "“Demand not that events should happen as you wish; but wish them to happen as they do happen, and you will go on well.”",
+      "attribution": "Epictetus via Arrian  ·  Enchiridion 8  [S14]",
+      "displayAttribution": "Epictetus via Arrian · Enchiridion 8",
+      "sourceId": "S14",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q378",
+      "text": "“Attack him where he is unprepared, appear where you are not expected.”",
+      "attribution": "Sun Tzu  ·  Art of War I.24  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War I.24",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q379",
+      "text": "“For Christ is the sea, and He can receive — the fountains and brooks, the rivers and streams, that flow from the midst of the Scriptures.”",
+      "attribution": "Ephrem tradition  ·  Epiphany Hymns 4.25  [S13]",
+      "displayAttribution": "Ephrem tradition · Epiphany Hymns 4.25",
+      "sourceId": "S13",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/3704.htm"
+      ]
+    },
+    {
+      "id": "Q380",
+      "text": "“For a hostile trumpet heard at night from the walls brings great terror to the besieged.”",
+      "attribution": "Onasander  ·  The General XLII.17  [S37]",
+      "displayAttribution": "Onasander · The General XLII.17",
+      "sourceId": "S37",
+      "labels": [],
+      "sourceUrls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/L*.html"
+      ]
+    },
+    {
+      "id": "Q381",
+      "text": "“For that which is the result of compulsion has neither reason nor virtue in it.”",
+      "attribution": "John of Damascus  ·  Orthodox Faith II.29  [S26]",
+      "displayAttribution": "John of Damascus · Orthodox Faith II.29",
+      "sourceId": "S26",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "Q382",
+      "text": "“Without labour thou drawest not near to rest, nor without fighting comest thou to victory.”",
+      "attribution": "Thomas à Kempis  ·  Imitation of Christ III.19  [S47]  ·  Literary voice",
+      "displayAttribution": "Thomas à Kempis · Imitation of Christ III.19",
+      "sourceId": "S47",
+      "labels": [
+        "Literary voice"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1653.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q383",
+      "text": "“It is the men, the real swordsmen, who do whatever is done in battles.”",
+      "attribution": "Xenophon in his Anabasis  ·  Anabasis III.2  [S50]  ·  Reported speech",
+      "displayAttribution": "Xenophon in his Anabasis · Anabasis III.2",
+      "sourceId": "S50",
+      "labels": [
+        "Reported speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q384",
+      "text": "“Keep more reserves behind the line rather than spread your men too widely.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q385",
+      "text": "“What the Emperor determines has the force of a statute.”",
+      "attribution": "Justinian I and his jurists  ·  Institutes I.2.6  [S28]",
+      "displayAttribution": "Justinian I and his jurists · Institutes I.2.6",
+      "sourceId": "S28",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q386",
+      "text": "“Therefore, Lucilius, do as you write me that you are doing: hold every hour in your grasp.”",
+      "attribution": "Seneca  ·  Letters 1.2  [S43]",
+      "displayAttribution": "Seneca · Letters 1.2",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1"
+      ]
+    },
+    {
+      "id": "Q387",
+      "text": "“He must never shirk either blaming his friends or praising his enemies.”",
+      "attribution": "Anna Komnene  ·  Alexiad p. 2  [S04]",
+      "displayAttribution": "Anna Komnene · Alexiad p. 2",
+      "sourceId": "S04",
+      "labels": [],
+      "sourceUrls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "Q388",
+      "text": "“They only succeeded in creating hatred and wars among men, destroying the Law, and disuniting the people completely.”",
+      "attribution": "Ibn Rushd  ·  Decisive Discourse Conclusion  [S23]",
+      "displayAttribution": "Ibn Rushd · Decisive Discourse Conclusion",
+      "sourceId": "S23",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q389",
+      "text": "“If you know the enemy and know yourself, you need not fear the result of a hundred battles.”",
+      "attribution": "Sun Tzu  ·  Art of War III.18  [S45]",
+      "displayAttribution": "Sun Tzu · Art of War III.18",
+      "sourceId": "S45",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q390",
+      "text": "“Whoever fails to prepare grain and necessities is defeated without a sword.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q391",
+      "text": "“The aim of moral discipline is to purify the heart from the rust of passion and resentment, till, like a clear mirror, it reflects the light of God.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q392",
+      "text": "“We considered ourselves secure against the Turkish fleet, especially with the chain across the harbour.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 20  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 20",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/13"
+      ]
+    },
+    {
+      "id": "Q393",
+      "text": "“While we are postponing, life speeds by.”",
+      "attribution": "Seneca  ·  Letters 1.2  [S43]",
+      "displayAttribution": "Seneca · Letters 1.2",
+      "sourceId": "S43",
+      "labels": [],
+      "sourceUrls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1"
+      ]
+    },
+    {
+      "id": "Q394",
+      "text": "“There were two or three trumpeters on each galley; it sounded as though there were at least twenty galleys.”",
+      "attribution": "Nicolò Barbaro  ·  Siege Diary p. 24  [S35]  ·  Translation",
+      "displayAttribution": "Nicolò Barbaro · Siege Diary p. 24",
+      "sourceId": "S35",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/17"
+      ]
+    },
+    {
+      "id": "Q395",
+      "text": "“Terror and dread alone are the weak bonds of attachment; which once broken, they who cease to fear will begin to hate.”",
+      "attribution": "Calgacus in Tacitus  ·  Agricola 32  [S46]  ·  Literary speech",
+      "displayAttribution": "Calgacus in Tacitus · Agricola 32",
+      "sourceId": "S46",
+      "labels": [
+        "Literary speech"
+      ],
+      "sourceUrls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "Q396",
+      "text": "“Reason may be called the vizier, or prime minister, passion the revenue-collector, and anger the police-officer.”",
+      "attribution": "Al-Ghazali  ·  Alchemy of Happiness I  [S03]",
+      "displayAttribution": "Al-Ghazali · Alchemy of Happiness I",
+      "sourceId": "S03",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "Q397",
+      "text": "“For men are able to learn from men more directly about higher things.”",
+      "attribution": "Athanasius of Alexandria  ·  On the Incarnation 12.2  [S07]",
+      "displayAttribution": "Athanasius of Alexandria · On the Incarnation 12.2",
+      "sourceId": "S07",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ]
+    },
+    {
+      "id": "Q398",
+      "text": "“When you learn that your plan has been betrayed, change your dispositions.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "Q399",
+      "text": "“But if such restraint is not easy, we shall at least curb our anger by reflection, so as not to give it too much rein.”",
+      "attribution": "Basil of Caesarea  ·  To Young Men VII  [S09]",
+      "displayAttribution": "Basil of Caesarea · To Young Men VII",
+      "sourceId": "S09",
+      "labels": [],
+      "sourceUrls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "Q400",
+      "text": "“Never lead a soldier into battle before you have tested him.”",
+      "attribution": "Vegetius  ·  Military Epitome III.26  [S49]  ·  Translation",
+      "displayAttribution": "Vegetius · Military Epitome III.26",
+      "sourceId": "S49",
+      "labels": [
+        "Translation"
+      ],
+      "sourceUrls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Abba Moses in John Cassian  Conferences",
+      "notes": "Written c. 426. E. C. S. Gibson, Nicene and Post Nicene Fathers, second series XI, 1894; conference I. Abba Moses is the literary speaker.",
+      "urls": [
+        "https://www.newadvent.org/fathers/350801.htm"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "Aeneas Tacticus  Siege Defence",
+      "notes": "Written mid fourth century BC. Illinois Greek Club, Loeb, 1923/1928.",
+      "urls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Aeneas_Tacticus/A*.html"
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "Al-Ghazali  Alchemy of Happiness",
+      "notes": "Written c. 1100. Claud Field, 1909, translated through Hindustani; chapters I and VI.",
+      "urls": [
+        "https://www.ghazali.org/books/alchemy/tah05.htm"
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "Anna Komnene  Alexiad",
+      "notes": "Written c. 1148. Elizabeth A. S. Dawes, 1928. Page references follow the bracketed original page numbers in the Fordham text.",
+      "urls": [
+        "https://sourcebooks.web.fordham.edu/basis/AnnaComnena-Alexiad00.asp"
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "Aphrahat  Demonstration 8",
+      "notes": "Written 337. John Gwynn, Nicene and Post Nicene Fathers, second series XIII, 1898. Demonstration on the resurrection.",
+      "urls": [
+        "https://www.newadvent.org/fathers/370108.htm"
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "Aristotle  Nicomachean Ethics",
+      "notes": "Written fourth century BC. W. D. Ross, 1925, books II, III and X, cited by chapter.",
+      "urls": [
+        "https://classics.mit.edu/Aristotle/nicomachaen.2.ii.html"
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "Athanasius of Alexandria  On the Incarnation",
+      "notes": "Written fourth century. Archibald Robertson, Nicene and Post Nicene Fathers, second series IV, 1892.",
+      "urls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "Augustine of Hippo  Confessions",
+      "notes": "Written c. 397–400. E. B. Pusey, 1838; Gutenberg 3296. Citations use book, chapter and paragraph.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/3296.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "Basil of Caesarea  To Young Men",
+      "notes": "Written c. 370. F. M. Padelford, Essays on the Study and Use of Poetry, 1902, pp. 101–120.",
+      "urls": [
+        "https://www.tertullian.org/fathers/basil_litterature01.htm"
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "Boethius  Consolation",
+      "notes": "Written c. 524. H. R. James, 1897. Philosophy is a literary personification; her words are not a report of a historical conversation.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/14328.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S11",
+      "title": "Cicero  On Duties",
+      "notes": "Written 44 BC. Walter Miller, Loeb, 1913; Gutenberg 47001. Book and numbered section references.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/47001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S12",
+      "title": "Dante Alighieri  Inferno",
+      "notes": "Written c. 1308–1321. Henry Wadsworth Longfellow, 1867. Verse numbers follow the Italian text. Quotations are literary dialogue or inscriptions, not historical reported speech.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/1001.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S13",
+      "title": "Ephrem the Syrian  Epiphany Hymns",
+      "notes": "Written Syriac Ephrem tradition, fourth century and later. J. B. Morris and A. E. Johnston, Nicene and Post Nicene Fathers, second series XIII, 1898. Hymns transmitted under Ephrem’s name; individual attribution is not uniformly certain.",
+      "urls": [
+        "https://www.newadvent.org/fathers/3704.htm"
+      ]
+    },
+    {
+      "id": "S14",
+      "title": "Epictetus via Arrian  Enchiridion",
+      "notes": "Written c. 125. Thomas Wentworth Higginson’s nineteenth century translation, reprinted in the Liberal Arts Press edition, 1955; Gutenberg 45109. The modern introduction by Albert Salomon is not used.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/45109.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S15",
+      "title": "Frontinus  Stratagems",
+      "notes": "Written first century AD or later ancient compilation. Charles E. Bennett, Loeb, 1925; book IV is transmitted with the work but its authorship has been questioned. Reported sayings are anecdotal.",
+      "urls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Frontinus/Strategemata/4*.html"
+      ]
+    },
+    {
+      "id": "S16",
+      "title": "George Sphrantzes  Chronicle Minor",
+      "notes": "Written c. 1470s. Marios Philippides, The Fall of the Byzantine Empire, 1980; §§35–36 excerpted by De Re Militari. Authentic short chronicle, not the sixteenth century Chronicle Major.",
+      "urls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-george-sphrantzes/"
+      ]
+    },
+    {
+      "id": "S17",
+      "title": "Gregory Palamas  150 Chapters",
+      "notes": "Written c. 1349–1350. Robert E. Sinkewicz, The One Hundred and Fifty Chapters, 1988, Greek and English reproduced at Azbyka. CP entries are short editorial paraphrases, not verbatim Sinkewicz quotations.",
+      "urls": [
+        "https://azbyka.ru/otechnik/Grigorij_Palama/the-one-hundred-and-fifty-chapters/4"
+      ]
+    },
+    {
+      "id": "S18",
+      "title": "Gregory of Nazianzus  Oration 2",
+      "notes": "Written 362. C. G. Browne and J. E. Swallow, Nicene and Post Nicene Fathers, second series VII, 1894.",
+      "urls": [
+        "https://www.newadvent.org/fathers/310202.htm"
+      ]
+    },
+    {
+      "id": "S19",
+      "title": "Herodotus  Histories",
+      "notes": "Written fifth century BC. G. C. Macaulay, 1890, volume I; Gutenberg 2707. Speeches and anecdotes are the historian’s reports.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/2707.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S20",
+      "title": "Homer  Iliad",
+      "notes": "Written eighth or seventh century BC. Samuel Butler, 1898; Gutenberg 2199. Book references suffice for these short prose excerpts; all speakers are epic characters.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/2199.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S21",
+      "title": "Homer  Odyssey",
+      "notes": "Written eighth or seventh century BC. Samuel Butler, 1900; Gutenberg 1727. Epic literary dialogue.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/1727.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S22",
+      "title": "Ibn Khaldun  Muqaddimah",
+      "notes": "Written 1377; later revisions. Franz Rosenthal, 1958, chapter III §§12 and 41. One brief verbatim excerpt; the other entries are labelled close paraphrases.",
+      "urls": [
+        "https://muslimphilosophy.com/ik/Muqaddimah/Chapter3/Ch_3_12.htm"
+      ]
+    },
+    {
+      "id": "S23",
+      "title": "Ibn Rushd  Decisive Discourse",
+      "notes": "Written c. 1179–1180. Mohammad Jamil-ur-Rehman, The Philosophy and Theology of Averroes, 1921. Locations refer to the short treatise or its stated argument, rather than modern paragraph numbers.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/65708.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S24",
+      "title": "Jalal al-Din Rumi  Masnavi",
+      "notes": "Written thirteenth century. James W. Redhouse, The Mesnevi, 1881, book I. “Proem” and couplet numbers follow Redhouse, whose numbering differs from Nicholson. The opening flute is a literary speaker.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/61724.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S25",
+      "title": "John Chrysostom  Matthew Homilies",
+      "notes": "Written c. 390. George Prevost, revised by M. B. Riddle, Nicene and Post Nicene Fathers, first series X, 1888. Homily 50.",
+      "urls": [
+        "https://www.newadvent.org/fathers/200150.htm"
+      ]
+    },
+    {
+      "id": "S26",
+      "title": "John of Damascus  Orthodox Faith",
+      "notes": "Written eighth century. S. D. F. Salmond, Nicene and Post Nicene Fathers, second series IX, 1899; book II.",
+      "urls": [
+        "https://www.newadvent.org/fathers/33042.htm"
+      ]
+    },
+    {
+      "id": "S27",
+      "title": "Julian  Letters",
+      "notes": "Written 362. Wilmer Cave Wright, Loeb, 1923; letters 22 to Arsacius and 37 to Atarbius. “Atheism” and “Galilaeans” here mean Christianity and Christians.",
+      "urls": [
+        "https://en.wikisource.org/wiki/The_Works_of_the_Emperor_Julian/Letters/Letter_22"
+      ]
+    },
+    {
+      "id": "S28",
+      "title": "Justinian I and his jurists  Institutes",
+      "notes": "Written 533. J. B. Moyle, fifth edition, 1913. Promulgated under Justinian; compiled by Tribonian, Theophilus and Dorotheus, drawing on earlier jurists.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/5983.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S29",
+      "title": "Kritoboulos of Imbros  History of Mehmed",
+      "notes": "Written 1460s. Charles T. Riggs, 1954, book I §§117–257, reproduced by De Re Militari. Contemporary Ottoman subject; not an eyewitness inside the besieged city. CP means editorial paraphrase; speeches are literary reconstructions.",
+      "urls": [
+        "https://deremilitari.org/2016/08/the-siege-of-constantinople-in-1453-according-to-kritovoulos/"
+      ]
+    },
+    {
+      "id": "S30",
+      "title": "Loukas Notaras in Doukas  History",
+      "notes": "Written recorded c. 1462. Doukas, History 37.10, Greek quoted in A. Karpozilos, Byzantine Historians, pp. 270–288. Fresh translation. Doukas attributes the saying; it is not a verified verbatim utterance.",
+      "urls": [
+        "https://student.cc.uoc.gr/uploadFiles/177-%CE%92%CE%A5%CE%A6%CE%95400/6._Karpozilos._Byzantinoi_istorikoi._Doukas_..._ss._270-288.pdf"
+      ]
+    },
+    {
+      "id": "S31",
+      "title": "Manuel II Palaiologos  Dialogues with a Persian",
+      "notes": "Written c. 1394–1402. Dialogue VII 2c, quoted from Théodore Khoury’s edition, 1966, pp. 144–145, in the Vatican transcript of 12 September 2006, note 4. The emperor’s literary dialogue, not a transcript of an exchange.",
+      "urls": [
+        "https://www.vatican.va/content/benedict-xvi/en/speeches/2006/september/documents/hf_ben-xvi_spe_20060912_university-regensburg.html"
+      ]
+    },
+    {
+      "id": "S32",
+      "title": "Marcus Aurelius  Meditations",
+      "notes": "Written c. 170–180. George Long, 1862; Gutenberg 15877. Only Marcus’s numbered text is used, not Long’s essays.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/15877.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S33",
+      "title": "Michael Psellos  Chronographia",
+      "notes": "Written c. 1060s–1070s. E. R. A. Sewter, 1953, book I. Short editorial paraphrases of the cited passages, not verbatim Sewter translations.",
+      "urls": [
+        "https://sourcebooks.web.fordham.edu/basis/psellus-chrono01.asp"
+      ]
+    },
+    {
+      "id": "S34",
+      "title": "Moses Maimonides  Guide for the Perplexed",
+      "notes": "Written c. 1190. Michael Friedländer, revised second edition, 1904, reprint 1910; Gutenberg 73584.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/73584.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S35",
+      "title": "Nicolò Barbaro  Siege Diary",
+      "notes": "Written 1453; later revision. Venetian text edited by Enrico Cornet, Giornale dell’assedio di Costantinopoli 1453, Vienna, 1856. Fresh English translation. Eyewitness diary revised after the event.",
+      "urls": [
+        "https://vec.wikisource.org/wiki/Giornale_dell'assedio_di_Costantinopoli_1453/11"
+      ]
+    },
+    {
+      "id": "S36",
+      "title": "Niketas Choniates  History",
+      "notes": "Written early thirteenth century. Dana C. Munro, The Fourth Crusade, 1896/revised 1912, pp. 15–16, from the narrative of the sack of 1204.",
+      "urls": [
+        "https://sourcebooks.web.fordham.edu/source/choniates1.asp"
+      ]
+    },
+    {
+      "id": "S37",
+      "title": "Onasander  The General",
+      "notes": "Written first century AD. Illinois Greek Club, Loeb, 1923/1928.",
+      "urls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Onasander/A*.html"
+      ]
+    },
+    {
+      "id": "S38",
+      "title": "Plutarch  Parallel Lives",
+      "notes": "Written early second century AD. John Dryden translation revised by Arthur Hugh Clough, nineteenth century; Gutenberg 674. Reported sayings remain biographical anecdotes.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/674.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S39",
+      "title": "Polybius  Histories",
+      "notes": "Written second century BC. W. R. Paton, Loeb, 1922; book I.",
+      "urls": [
+        "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Polybius/1*.html"
+      ]
+    },
+    {
+      "id": "S40",
+      "title": "Procopius  Secret History",
+      "notes": "Written c. 550. Anonymous English translation, 1896, Gutenberg 12916. A hostile polemic against Justinian and Theodora; its accusations remain the author’s claims.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/12916.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S41",
+      "title": "Procopius  Wars",
+      "notes": "Written c. 550. H. B. Dewing, 1914; books I and II, also called the Persian War. Speeches are historical compositions, not transcripts.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/16764.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S42",
+      "title": "Saadi  Gulistan",
+      "notes": "Written 1258. James Ross translation, in Persian Literature, revised edition II, 1900. Citations follow that edition’s chapter and story numbering.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/13060.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S43",
+      "title": "Seneca  Letters",
+      "notes": "Written c. 63–65. Richard M. Gummere, Moral Epistles, Loeb, 1917–1925.",
+      "urls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1"
+      ]
+    },
+    {
+      "id": "S44",
+      "title": "Socrates in Plato  Apology",
+      "notes": "Written fourth century BC. Benjamin Jowett, nineteenth century. Plato’s literary presentation of Socrates’s defence, not a stenographic transcript.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/1656.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S45",
+      "title": "Sun Tzu  Art of War",
+      "notes": "Written traditionally fifth century BC. Lionel Giles, 1910. Only the numbered ancient text is excerpted; Giles and later Chinese commentators are excluded.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/132.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S46",
+      "title": "Tacitus  Agricola",
+      "notes": "Written c. 98. The Oxford Translation Revised, with an introduction by Edward Brooks Jr., 1897; Gutenberg 7524. Calgacus’s and Agricola’s speeches are literary compositions.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/7524.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S47",
+      "title": "Thomas à Kempis  Imitation of Christ",
+      "notes": "Written c. 1420–1441. William Benham, 1886; Gutenberg 1653. The book’s dialogue voices are literary devotional voices.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/1653.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S48",
+      "title": "Thucydides  Peloponnesian War",
+      "notes": "Written late fifth century BC. Richard Crawley, 1874. Book and section numbers are those of the Greek text; the speeches are the historian’s literary reconstructions.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/7142.txt.utf-8"
+      ]
+    },
+    {
+      "id": "S49",
+      "title": "Vegetius  Military Epitome",
+      "notes": "Written late fourth or early fifth century. Latin text at The Latin Library, book III; fresh English translations.",
+      "urls": [
+        "https://www.thelatinlibrary.com/vegetius3.html"
+      ]
+    },
+    {
+      "id": "S50",
+      "title": "Xenophon  Anabasis",
+      "notes": "Written fourth century BC. H. G. Dakyns, 1897; Gutenberg 1170. Book and chapter references. Speeches are the author’s narrative reconstruction.",
+      "urls": [
+        "https://www.gutenberg.org/ebooks/1170.txt.utf-8"
+      ]
+    }
+  ]
+}

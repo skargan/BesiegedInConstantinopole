@@ -178,7 +178,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        var briefingPanel=CampaignHUD.Panel(manager.transform,"Council briefing",new Vector2(.30f,.04f),new Vector2(.70f,.17f));
+        var briefingPanel=CampaignHUD.Panel(manager.transform,"Council briefing",new Vector2(.30f,.04f),new Vector2(.70f,.23f));
 
 
 
@@ -186,7 +186,8 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        briefing=CampaignHUD.Label(briefingPanel.transform,"<i>‘The best way of avenging thyself is not to become like [the wrong-doer].’</i>\nMarcus Aurelius · Meditations VI.6",new Vector2(.05f,.05f),new Vector2(.95f,.96f),18);
+        briefing=CampaignHUD.Label(briefingPanel.transform,"",new Vector2(.05f,.05f),new Vector2(.95f,.96f),22);
+        CouncilQuoteView.Attach(briefing);
 
 
 
