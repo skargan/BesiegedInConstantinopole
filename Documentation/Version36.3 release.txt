@@ -1,0 +1,14 @@
+VERSION 36.3 - Council quotations
+1 November 2026
+
+This combined release includes the compact intelligence desk from Version36.2 and the completed Imperial Council quotation system.
+
+The Council shows a different quotation each campaign turn, with author/speaker and a short source. The catalogue contains392 entries from the designer's edited document. A campaign has its own stable order: reopening the Council or loading the same turn preserves its quotation. Quote selection does not use gameplay randomness or alter campaign resources. Save format is unchanged.
+
+Version36.2 was exported before the quotation implementation was complete; it therefore retains the older fixed quotation. Version36.3 includes the implemented and tested catalogue and selector.
+
+All prior Version36 updates remain: compact preparation, campaign/settings/wall defence screens; revised cursor; recruitment logistics and manpower limit; assassination action; Hagia Sophia entrances; Sultan audience layout; Reports/Operations intelligence tabs.
+
+Use the Besieged-Latest desktop shortcut to open this combined release. Version-specific shortcuts continue to open their labelled versions. Saves are carried forward from the latest saved copy in the previous Version36 build folders; older folders remain intact.
+
+Verified in Version36.3: 59 exported-player checks passed; all392quotations measured at three display sizes (1176layouts). Actual council screenshot reviewed. Gameplay randomness and save/load behaviour checked.

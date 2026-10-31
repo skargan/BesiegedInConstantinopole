@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.2 · Intelligence desk";
+    public const string BuildLabel="Version 36.3 · Council quotations";
 
 
 
