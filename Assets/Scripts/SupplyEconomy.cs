@@ -3,9 +3,10 @@ using Yarn.Unity;
 
 public static class SupplyEconomy
 {
-    public static int DailyNeed=>FoodAfterPolitics(PopulationAccounting.Food(false));
-    public static int FoodAfterPolitics(int need)=>PoliticalSystem.Passive(1)?Mathf.CeilToInt(need*.95f):need;
-    public static long Cost(string resource,int quantity)=>PoliticalSystem.Passive(3)?((long)Price(resource)*quantity*95+99)/100:(long)Price(resource)*quantity;
+    public static int DailyNeed=>PopulationAccounting.Food(false);
+    // Compatibility helper for older checks; faction ration discounts are retired.
+    public static int FoodAfterPolitics(int need)=>need;
+    public static long Cost(string resource,int quantity)=>(long)Price(resource)*quantity;
     public static int Price(string resource)=>resource=="iProvisions"?(VariableSingleton.HasSiegeStarted()?10:2):resource=="iMaterials"?10:resource=="iAmmunition"?50:0;
     public static int DaysLeft=>DailyNeed==0?0:CouncilActions.Int("iProvisions")/DailyNeed;
     public static bool Buy(string resource,int quantity,out string report) {

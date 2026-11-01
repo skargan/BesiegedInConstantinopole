@@ -53,7 +53,7 @@ title: courtLadyMarriage
     <<LadyLoyalty 10>>
     <<ChangeFraction fNobleRep -0.05>>
     You remind the court that a marriage under your protection is no invitation to a public spectacle. Helena thanks you without lowering her eyes. Several nobles resent the lecture more than they regret the gossip.
--> Leave the couple to settle it privately. Husband's loyalty -10 if still in service; no faction reputation change.
+-> Leave the couple to settle it privately. Husband's loyalty -10 if still in service.
     <<LadyLoyalty -10>>
     The palace doors remain closed. Your silence saves an argument at council, but an imperial promise of protection has proved disappointingly quiet when tested.
 -> Diplomacy: have Helena expose the slanderer's affairs. Gain 1 secret; husband's loyalty +5 if still in service; clergy support -5. <<if GetInt("iFocus") == 4>>

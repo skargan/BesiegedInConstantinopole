@@ -1,0 +1,9 @@
+Retired at user request: persistent Emperor fencing skill, training/progression, and the palace order to lead the next wall assault.
+
+Retained: the active assault briefing's explicit shelter/parapet choice, optional timing and mouse-sword minigames, personal emergencies, and the narrative assassin encounter.
+
+Balance: use the former untrained new-campaign baseline (skill 25) as fixed encounter values: personal contribution 3, assassin duel success 47%, winning injury 4-14 health, losing injury 23-43 health. Calling the guard still costs 10-25 health. No old saved skill influences these outcomes.
+
+Legacy iFencing may remain in imported saves but is unused and hidden from event result changes. iEmperorAtWall is cleared when an assault is prepared; it never auto-selects frontline or removes health. Old Train/ToggleWall/WallKills callbacks remain inert. Fencing() is retained only as a constant Yarn compatibility binding for an older compiled program.
+
+The .txt snapshots preserve the original affected sources. They are not imported as compiled C# scripts.

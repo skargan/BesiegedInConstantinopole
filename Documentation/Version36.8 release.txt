@@ -1,0 +1,13 @@
+BESIEGED VERSION36.8 — SOCIETY AND COURT
+
+Society and politics now opens the five civic measures directly: army morale, public morale, noble support, clergy support, Galata relations. Existing audiences and their effects remain.
+Retired faction influence, passives, drift, weekly favours, political debts, faction banishment and allegiance-based character exclusion. Old saves neutralise these keys; already experienced consequences and queued recruitment dates remain historical state.
+Removed merchant favour, personal fencing progression and general mentorship statistics. The daily merchant levy remains. The Apprentice Gunner is kept as its particular event, including the five-day outcome.
+The palace map opens Defence of the walls. The old Imperial Affairs panel and its duplicate garden/rest/lead-next-assault controls are retired. The palace garden, assault decisions and sword minigame remain accessible.
+Siege overview now shows the current commander's benefit and Change commander. A serving adviser can be selected, reviewed and confirmed. Final appointment uses the hourglass and cannot double-submit. The outgoing adviser keeps their ordinary specialist contribution while in service.
+
+Verification: RETIREMENT_CHECKS 167 passed at 1600x900 and 1280x720; retired systems, saved-state behaviour and active navigation verified.
+Also616 isolated regression checks against the updated Emperor combat implementation: old fencing values cannot change results; former starting combat balance is preserved; old wall flags cannot auto-select frontline.
+Screenshots inspected at1600x900/1280x720, including society, commander overview/confirmation, specialists and palace-to-walls. Focused verification, not a new full-campaign balance audit.
+Original retired source and event excerpts are preserved in Documentation/Retired systems in the development project.
+Previous Version36 save files are copied into this build's local Saves folder; originals are untouched.

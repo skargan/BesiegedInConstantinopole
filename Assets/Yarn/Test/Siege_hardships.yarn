@@ -253,9 +253,8 @@ title: hardSand
 -> Accept replacement stock and close the matter. Gain 50 provisions.
     <<Change iProvisions 50>>
     The replacement grain is inspected carefully. The false signature remains unexplained.
--> Confiscate the dealer's remaining stock. Gain 100 provisions; merchant favour -5.
+-> Confiscate the dealer's remaining stock. Gain 100 provisions.
     <<Change iProvisions 100>>
-    <<MerchantFavor -5>>
     Other merchants complain about punishment without inquiry. The dealer says very little.
 ===
 title: hardSand1
@@ -265,9 +264,8 @@ title: hardSand1
     <<Change iMoney -100>>
     <<HardNext Sand 2 3>>
     The porter is moved to safe lodgings. His directions lead to a second set of books hidden beneath an ordinary floorboard.
--> Raid the warehouse immediately. Gain 150 provisions; merchant favour -5.
+-> Raid the warehouse immediately. Gain 150 provisions.
     <<Change iProvisions 150>>
-    <<MerchantFavor -5>>
     <<HardNext Sand 99 0>>
     You recover sound grain. By the time the clerks arrive, the more interesting papers are ash.
 -> Close the investigation. Public morale -1.
@@ -284,10 +282,9 @@ title: hardSand2
     <<ChangeFraction fPeopleRep 0.03>>
     <<HardNext Sand 99 0>>
     The purchasing official's relatives protest. Honest traders quietly bring your clerks further evidence.
--> Demand restitution and continuing supplies. Gain 500 gold and 100 provisions; merchant favour -5.
+-> Demand restitution and continuing supplies. Gain 500 gold and 100 provisions.
     <<Change iMoney 500>>
     <<Change iProvisions 100>>
-    <<MerchantFavor -5>>
     <<HardNext Sand 99 0>>
     The ring buys its survival on terms favourable to the treasury. Whether anyone has learned honesty is another question.
 -> Keep the ledger as political leverage. Gain 2 secrets; public morale -2.

@@ -69,11 +69,11 @@ public class PhasedAssaultUI : MonoBehaviour
         ledger.text="<b>THIS ASSAULT</b>\nCommitted attackers: "+Battle.Attackers.ToString("N0")+"\nEnemy survivors: "+Battle.EnemyLeft.ToString("N0")+"\nEnemy dead: "+Battle.Dead.ToString("N0")+"\nOur casualties: "+Battle.OurDead+"\n\nArchers ×"+Battle.VolleyMultiplier.ToString("0.00")+"\nReserve guards: "+Battle.Guards+"\nBreach pressure: "+(Battle.Finished?0:Battle.GuardsNeeded)+"\nEmperor health: "+Battle.Health+"%\n\n"+(Battle.Journal.Count>0?Battle.Journal[Battle.Journal.Count-1]:"No casualties yet. Orders below affect only this assault.");
     }
     public void Briefing() {
-        Screen("The Ottoman assault","Choose where you command. Frontline leadership adds 8% to melee output but increases exposure and can bring a personal emergency. Safe command has no personal combat risk. Timed play is optional."+(!Battle.Practice?"\n"+DefencePosture.Summary:"")+(Battle.Frontline?" Your palace order to join this assault is recorded; confirm it below or choose shelter.":""),0);
+        Screen("The Ottoman assault","Choose where you command. Frontline leadership adds 8% to melee output but increases exposure and can bring a personal emergency. Safe command has no personal combat risk. Timed play is optional."+(!Battle.Practice?"\n"+DefencePosture.Summary:""),0);
         if(!Battle.Practice)Order("Review land / sea dispositions",3,4,()=>DefencePosture.Show(FindObjectOfType<ManagerUI>(true),()=>{AI.Instance.RefreshDisposition(Battle);Briefing();}));
         Order(active?"Minigames: ON\nSwitch off":"Minigames: OFF\nSwitch on",0,Battle.Practice?3:4,()=>{active=!active;ActiveMode=active;Briefing();});
         Order("Command from shelter",1,Battle.Practice?3:4,()=>{Battle.Frontline=false;PrepareApproach();});
-        Order(Battle.Frontline?"Confirm palace order\nJoin the parapet":"Join the parapet\nPersonal risk",2,Battle.Practice?3:4,()=>{Battle.Frontline=true;PrepareApproach();});
+        Order("Join the parapet\nPersonal risk",2,Battle.Practice?3:4,()=>{Battle.Frontline=true;PrepareApproach();});
     }
     void BeginTimer(string kind,float seconds,Action onTimeout) {
         activity=kind;elapsed=0;deadline=seconds;timeout=onTimeout;waiting=true;Battle.TimedMoments++;

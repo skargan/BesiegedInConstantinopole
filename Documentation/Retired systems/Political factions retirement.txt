@@ -1,0 +1,28 @@
+Political factions retirement
+Baseline: Version36.7, commit f1a3820 (1 November 2026)
+
+Scope
+Retire the four political blocs, their influence, drift, passives, favours/debts, delayed demands, faction banishment and allegiance-based character recruitment veto. Preserve the separate five civic measures: army morale, public morale, clergy support, noble support and Galata relations. Preserve unrelated intrigue, deposition, surrender, diplomacy and campaign defeat conditions.
+
+Implementation
+PoliticalSystem and PoliticalDemands retain harmless compatibility APIs for old calls and Yarn bindings. They neither consume RNG nor change money, support, characters, time or state. No faction demand can be scheduled. The narrative owner replaces politicalDemand with a single safe Continue node for old checkpoints.
+SupplyEconomy uses population-based daily need and ordinary market prices. TrainingPool uses original base durations for new orders. Existing order ready dates remain as saved. CouncilActions preserves the diplomatic-focus and adviser bonuses while removing only the Western Unionist +5 chance. VariableSingleton no longer advances politics or rejects character introductions because of faction allegiance.
+New/load paths zero only retired iPol*, iBloc*, iAllegiance* and iBanishmentUsed keys. Saved and already-applied historical outcomes (spent money, existing troop training due dates, past exile, old civic losses) are not reversed. A character introduction can subsequently recruit somebody despite an old faction ban; characters are not automatically resurrected or returned. No changes to the five civic support floats.
+
+Owner boundaries and follow-up
+Root removes faction UI/cards, allegiance text and discount labels. The narrative agent owns PoliticalDemands.yarn. Original PoliticsSmokeTest and CampaignSmokeTest copies are archived here; live faction assertions now verify no-op compatibility, neutralised old-save state, unchanged civic support, ordinary prices/durations, and no faction recruitment veto. Campaign200Probe also has a faction-policy cohort and a shares-sum check; these need a new meaningful cohort before future 200-run assessments. Old PlaytestCapture directly forces politicalDemand and should now exercise the compatibility node. Restore no longer seeds the separately retired merchant-favour and fencing values; their old stored data remains inert under the respective owners' compatibility code.
+
+Focused runtime verification
+1. Create a normal campaign. Set all four influence values to100, bans to1, blocked-until far future, outstanding/issued debt values, an active demand and character allegiances. Confirm Passive/CanAid/Banned are false, Share/Owed zero, Active=-1 and PendingNode=null.
+2. Capture campaign JSON and Unity RNG. Call Gain, SetAllegiance, Aid, Banish, AdvancePolitics, Schedule and Resolve for every repayment option. Confirm no campaign or RNG change, no money granted, no support penalty and no character removed.
+3. Confirm base costs:100 materials=1,000 gold;100 ammunition=5,000 gold; provisions use the normal2/10-gold pre-siege/siege rate. Daily food100 remains100;101 remains101. New training durations5/10/15/20 days, ships30/cannons10/monks5. Existing queued readyDay stays unchanged.
+4. Changing retired faction values does not affect AidChance. Diplomatic focus and Sphrantzes bonuses still apply.
+5. Save/restore an extreme legacy political state. Every existing retired faction key becomes0. Army/public/clergy/noble/Galata values, money, population, training dates, character service, commander and RNG match the saved values. Loading an older save later in the same session cannot restore outstanding debt or bans.
+6. With raw old iBlocBan/iAllegiance values set, introduce a character using ChangeBool; recruitment succeeds. No automatic restoration of prior dead/imprisoned/departed characters occurs.
+7. Advance a calendar turn: no political drift text, demand or faction RNG roll. Unrelated supplies/aid/training/AI still advance normally.
+8. Resume a checkpoint whose pending narrative node is politicalDemand: one cost-free Continue, then normal progression; no permanent loop. A legacy event outcome for that node also continues without rescheduling the retired demand.
+
+Static checks
+No PoliticalSystem.Passive references remain in SupplyEconomy, TrainingPool or CouncilActions; no AdvancePolitics or Banned recruitment hook remains in VariableSingleton. Only compatibility methods retain the retired names. Archive files have .txt extensions and live outside Assets.
+
+These notes describe checks to execute, not a claim that Unity runtime verification has already passed.

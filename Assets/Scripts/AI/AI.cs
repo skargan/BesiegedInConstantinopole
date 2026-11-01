@@ -51,7 +51,7 @@ public class AI: MonoBehaviour
         var b=new PhasedAssault(Random.Range(1,int.MaxValue));
         b.Type=type;b.Attackers=b.EnemyLeft=Mathf.Min(TroopWaveSize(type),VariableSingleton.GetIntVariable(key));
         if(b.Attackers==0){WasAssault=false;PendingPhased=null;LastReport="No troops remain to mount this assault.";return;}
-        b.Frontline=DailyLifeEvents.I("iEmperorAtWall")==1;b.PersonalBudget=1+EmperorCombat.Skill/10;
+        EmperorCombat.PrepareAssault(b);
         b.ArrowScreens=DailyLifeEvents.I("iOttArrowScreens")>0;
         b.InitialHealth=b.Health=Mathf.RoundToInt(VariableSingleton.GetFloatVariable("fHealth")*100);
         PopulateDisposition(b);

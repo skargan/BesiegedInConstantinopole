@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.7 · Hourglass spacing";
+    public const string BuildLabel="Version 36.8 · Society and court";
 
 
 
@@ -396,66 +396,8 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public void Factions()
-
-    {
-
-        Open("Society and politics", "Influence is shared power. Above 20%, a faction grants its passive bonus. Its weekly favour strengthens it and creates a political debt.");
-
-        BodyHeight(710);
-
-        var tabs=SpyPanel("Society navigation",0,70);
-
-        CampaignHUD.MakeButton(tabs.transform,"Political dealings",new Vector2(.02f,.15f),new Vector2(.49f,.85f),Politics);
-
-        CampaignHUD.MakeButton(tabs.transform,"Civic relations and audiences",new Vector2(.51f,.15f),new Vector2(.98f,.85f),CivicRelations);
-
-        for(int i=0;i<4;i++)
-
-        {
-
-            int col=i%2, row=i/2, share=PoliticalSystem.Share(i);
-
-            bool banned=PoliticalSystem.Banned(i);
-
-            var card=SpyPanel(PoliticalSystem.Names[i],84+row*310,298);
-
-            var rect=card.GetComponent<RectTransform>();
-
-            rect.anchorMin=new Vector2(col*.5f,1);rect.anchorMax=new Vector2(col*.5f+.49f,1);
-
-            var title=CampaignHUD.Label(card.transform,PoliticalSystem.Names[i],new Vector2(.04f,.80f),new Vector2(.96f,.97f),25);
-
-            title.alignment=TextAlignmentOptions.Center;
-
-            var value=CampaignHUD.Label(card.transform,banned?"BANISHED":share+"% influence",new Vector2(.04f,.64f),new Vector2(.96f,.80f),24);
-
-            value.alignment=TextAlignmentOptions.Center;
-
-            var track=CampaignHUD.Panel(card.transform,"Influence",new Vector2(.06f,.57f),new Vector2(.94f,.60f));
-
-            track.GetComponent<Image>().color=new Color(.12f,.16f,.19f);
-
-            var fill=CampaignHUD.Panel(track.transform,"Current share",Vector2.zero,new Vector2(Mathf.Clamp01(share/100f),1));
-
-            fill.GetComponent<Image>().color=PoliticalSystem.Colours[i];
-
-            CampaignHUD.Explanation(card.transform,PoliticalSystem.Beliefs[i],new Vector2(.05f,.38f),new Vector2(.95f,.55f),20);
-
-            var offer=CampaignHUD.Label(card.transform,(DailyLifeEvents.I("iPolBlocked"+i)>PoliticalSystem.Day?"SUSPENDED: ":PoliticalSystem.Passive(i)?"ACTIVE: ":"AT 21%: ")+PoliticalSystem.Passives[i]+"\nWeekly favour: "+PoliticalSystem.Effects[i],new Vector2(.05f,.13f),new Vector2(.95f,.37f),19);
-
-            offer.alignment=TextAlignmentOptions.Center;
-
-            string status=(PoliticalSystem.FavourUnavailable(i)??"Favour available")+" · Owed: "+PoliticalSystem.Owed(i);
-            var availability=CampaignHUD.Label(card.transform,status,new Vector2(.05f,.02f),new Vector2(.95f,.14f),18);
-
-            availability.alignment=TextAlignmentOptions.Center;
-
-        }
-
-    }
-
-
+    // Legacy navigation bindings now open the five civic measures directly.
+    public void Factions()=>CivicRelations();
 
     public void CivicRelations()
 
@@ -465,13 +407,13 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        Open("Civic relations and audiences","Five overlapping interests. Each audience costs 300 gold, improves its measure by 3 points (up to 100%).");
+        Open("Society and politics","Army morale, public morale, noble support, clergy support and Galata relations. Audiences cost 300 gold and improve their measure by 3 points.");
 
 
 
-        ControlSingleton.Instance.ReturnAction=Factions;
+        ControlSingleton.Instance.ReturnAction=Hide;
 
-        BodyHeight(5*142);
+        BodyHeight(5*120);
 
 
 
@@ -483,7 +425,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-            int choice=i;var row=Row(i,142);
+            int choice=i;var row=Row(i,120);
 
 
 
@@ -499,7 +441,7 @@ public partial class CouncilUI : MonoBehaviour
 
                 CampaignHUD.MakeButton(row.transform,"Send a gift",new Vector2(.67f,.12f),new Vector2(.82f,.88f),()=>ReviewFaction(4));
 
-                CampaignHUD.MakeButton(row.transform,"Galatan diplomacy",new Vector2(.83f,.12f),new Vector2(.99f,.88f),Galata);
+                CampaignHUD.MakeButton(row.transform,"Galata relations",new Vector2(.83f,.12f),new Vector2(.99f,.88f),Galata);
 
                 continue;
 
@@ -944,7 +886,7 @@ public partial class CouncilUI : MonoBehaviour
 
         CampaignHUD.MakeButton(links.transform,"Court and characters",new Vector2(.04f,.29f),new Vector2(.48f,.49f),Court);
 
-        CampaignHUD.MakeButton(links.transform,"Galatan diplomacy",new Vector2(.52f,.29f),new Vector2(.96f,.49f),Galata);
+        CampaignHUD.MakeButton(links.transform,"Galata relations",new Vector2(.52f,.29f),new Vector2(.96f,.49f),Galata);
         CampaignHUD.MakeButton(links.transform,"War Beyond the Walls · theatre map",new Vector2(.04f,.05f),new Vector2(.96f,.25f),WarTheatreUI.Show);
 
     }
@@ -1155,66 +1097,8 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public void Politics()
-
-    {
-
-        Open("Political dealings","Above 20% influence, passive benefits are active. Request one favour per faction every seven days: up to +5 influence, and one favour owed.");
-
-        ControlSingleton.Instance.ReturnAction=Factions;
-
-        BodyHeight(1080);
-
-        var chart=Row(0,240);
-
-        var pie=CampaignHUD.Panel(chart.transform,"Influence chart",new Vector2(.025f,.08f),new Vector2(.19f,.92f));
-
-        pie.GetComponent<Image>().color=Color.clear;
-
-        var pr=pie.GetComponent<RectTransform>();pr.anchorMin=pr.anchorMax=new Vector2(.10f,.5f);pr.sizeDelta=new Vector2(190,190);pr.anchoredPosition=Vector2.zero;
-
-        PoliticalSystem.DrawPie(pie.transform);
-
-        string legend="";
-
-        for(int i=0;i<4;i++) legend+="<color=#"+ColorUtility.ToHtmlStringRGB(Color.Lerp(PoliticalSystem.Colours[i],Color.white,.45f))+">"+PoliticalSystem.Names[i]+"</color>  "+PoliticalSystem.Share(i)+"%\n";
-
-        CampaignHUD.Label(chart.transform,legend,new Vector2(.25f,.08f),new Vector2(.96f,.93f),26);
-
-        for(int i=0;i<4;i++)
-
-        {
-
-            int bloc=i;var row=Row(i+1,205);
-
-            var rect=row.GetComponent<RectTransform>();rect.anchoredPosition+=new Vector2(0,-35);
-
-            CampaignHUD.Label(row.transform,PoliticalSystem.Names[i]+" - "+PoliticalSystem.Share(i)+"%"+(PoliticalSystem.Banned(i)?" | Banished":""),new Vector2(.02f,.76f),new Vector2(.66f,.98f),26);
-
-            CampaignHUD.Explanation(row.transform,PoliticalSystem.Beliefs[i]+"\n\n"+PoliticalSystem.Effects[i]+" | Influence +5 | Favours owed: "+PoliticalSystem.Owed(i),new Vector2(.02f,.05f),new Vector2(.66f,.74f),21);
-
-            var order=CampaignHUD.MakeButton(row.transform,PoliticalSystem.FavourUnavailable(i)??("Review: "+PoliticalSystem.Orders[i]),new Vector2(.69f,.43f),new Vector2(.98f,.94f),()=>ReviewPoliticalFavour(bloc));
-            order.interactable=PoliticalSystem.CanAid(i);
-
-            if(i>0){var ban=CampaignHUD.MakeButton(row.transform,"Banish faction...",new Vector2(.69f,.06f),new Vector2(.98f,.36f),()=>{
-
-                CampaignHUD.Instance.ShowReport("Banishment",PoliticalSystem.BanishPreview(bloc),()=>{CampaignHUD.Instance.DismissReport();bool ok=PoliticalSystem.Banish(bloc,out var report);Finish(ok,report);});
-
-                var modal=GameObject.Find("Event outcome");
-
-                foreach(var button in modal.GetComponentsInChildren<Button>()){button.GetComponentInChildren<TMP_Text>().text="Confirm banishment";TurnActionButton.Mark(button);}
-
-                CampaignHUD.MakeButton(modal.transform,"Cancel",new Vector2(.69f,.07f),new Vector2(.88f,.16f),()=>CampaignHUD.Instance.DismissReport());
-
-            });ban.interactable=!PoliticalSystem.Banned(i)&&CouncilActions.Int("iBanishmentUsed")==0;}
-
-        }
-
-    }
-
-
-
-
+    // Retired faction screen: preserve the callback for older scene bindings.
+    public void Politics()=>CivicRelations();
 
     public void Overview()
     {
@@ -1228,8 +1112,11 @@ public partial class CouncilUI : MonoBehaviour
         OverviewMeter(meters.transform,"ACTIVE DEFENCE · "+wall,VariableSingleton.Instance.EnduringWall.GetHealth(),.03f,.48f);
         OverviewMeter(meters.transform,"MOAT",VariableSingleton.GetFloatVariable("fMoat"),.52f,.97f);
         var command=SpyPanel("Siege commander",offset+478,100);
-        CampaignHUD.Label(command.transform,"SIEGE COMMANDER · "+CourtRoster.CommanderName(CouncilActions.Int("iCommander")),new Vector2(.025f,.50f),new Vector2(.97f,.96f),26);
-        CampaignHUD.Label(command.transform,NavalState.SeaControl+" · Our ships: "+CouncilActions.Int("iShips")+" · Ammunition: "+CouncilActions.Int("iAmmunition"),new Vector2(.025f,.06f),new Vector2(.97f,.49f),23);
+        int commander=CouncilActions.Int("iCommander");
+        var commandName=CampaignHUD.Label(command.transform,"SIEGE COMMANDER · "+CourtRoster.CommanderName(commander),new Vector2(.025f,.53f),new Vector2(.72f,.96f),26);
+        var commandBonus=CampaignHUD.Label(command.transform,CourtRoster.CommanderBenefit(commander),new Vector2(.025f,.06f),new Vector2(.72f,.52f),23);
+        foreach(var label in new[]{commandName,commandBonus}){label.enableAutoSizing=true;label.fontSizeMin=17;label.fontSizeMax=label.fontSize;}
+        CampaignHUD.MakeButton(command.transform,"Change commander",new Vector2(.75f,.18f),new Vector2(.975f,.82f),CommanderSelection);
         FocusCard(offset+592);
         var links=SpyPanel("Defence navigation",offset+826,90);
         CampaignHUD.MakeButton(links.transform,"Spies and intelligence",new Vector2(.03f,.12f),new Vector2(.48f,.88f),Spies);
@@ -1369,7 +1256,7 @@ public partial class CouncilUI : MonoBehaviour
 
             CampaignHUD.Label(row.transform,CourtRoster.Names[i],new Vector2(.20f,.74f),new Vector2(.98f,.98f),29);
 
-            CampaignHUD.Label(row.transform,CourtRoster.Status(i)+" · Loyalty "+CouncilActions.Int("iLoyalty"+i)+" / 100 · "+PoliticalSystem.Allegiance(i),new Vector2(.20f,.53f),new Vector2(.98f,.75f),22);
+            CampaignHUD.Label(row.transform,CourtRoster.Status(i)+" · Loyalty "+CouncilActions.Int("iLoyalty"+i)+" / 100",new Vector2(.20f,.53f),new Vector2(.98f,.75f),22);
 
             CampaignHUD.Explanation(row.transform,CourtRoster.Roles[i]+"\n"+CourtRoster.Notes[i],new Vector2(.20f,.09f),new Vector2(.60f,.52f),22);
 
@@ -1421,7 +1308,7 @@ public partial class CouncilUI : MonoBehaviour
 
             int index=i;string resource=resources[i];var row=Row(i+1,150);
 
-            CampaignHUD.Label(row.transform,names[i]+": "+CouncilActions.Int(resource).ToString("N0")+"\n"+SupplyEconomy.Price(resource)+" gold each"+(PoliticalSystem.Passive(3)?"\nFaction discount: 5% off total":""),new Vector2(.02f,.1f),new Vector2(.35f,.9f),24);
+            CampaignHUD.Label(row.transform,names[i]+": "+CouncilActions.Int(resource).ToString("N0")+"\n"+SupplyEconomy.Price(resource)+" gold each",new Vector2(.02f,.1f),new Vector2(.35f,.9f),24);
 
             CampaignHUD.MakeButton(row.transform,"−",new Vector2(.39f,.22f),new Vector2(.46f,.78f),()=>{purchaseAmounts[index]=Mathf.Max(steps[index],purchaseAmounts[index]-steps[index]);Market();});
 
@@ -1475,47 +1362,10 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
+    // The palace map now opens the actual defensive orders.
     public void PalaceActions()
-
-
-
     {
-
-
-
-        Open("The Palace","Review the Emperor's position and receive your court.");
-
-
-
-        ControlSingleton.Instance.ReturnAction=Palace;
-        BodyHeight(600);
-
-
-
-        CampaignHUD.Label(body,"Health: "+VariableSingleton.GetPercentFloat("fHealth")+"\nSiege Focus: "+FocusIcon.Names[Mathf.Clamp(CouncilActions.Int("iFocus"),0,4)]+"\nPopulation: "+VariableSingleton.PopulationInPeople()+"\nMerchant favour: "+DailyLifeEvents.I("iMerchantFavor",50)+" / 100\nFencing: "+EmperorCombat.Skill+" / 100"+"\n\n<i>Rest restores health and ends management. Your council will then hear the next event.</i>",new Vector2(.03f,.61f),new Vector2(.97f,.98f),23);
-
-
-
-
-
-
-
-        CampaignHUD.MakeTurnButton(body,"Practise fencing · +5 skill / -5 health",new Vector2(.08f,.27f),new Vector2(.92f,.43f),()=>{bool ok=EmperorCombat.Train(out var report);Finish(ok,report);});
-
-        CampaignHUD.MakeButton(body,"Lead next wall assault / cancel · costs 5 health when fighting",new Vector2(.08f,.46f),new Vector2(.92f,.59f),()=>{notice.text=EmperorCombat.ToggleWall();});
-
-
-
-
-
-        CampaignHUD.MakeButton(body,"Walk in the garden · speak with your court",new Vector2(.08f,.17f),new Vector2(.92f,.26f),Garden);
-
-        CampaignHUD.MakeTurnButton(body,"Rest",new Vector2(.08f,.03f),new Vector2(.92f,.16f),()=>{Hide();manager.ContinueToRest();});
-
-
-
+        Hide();
+        manager.BringUpSiegeUI();
     }
-
-
-
 }

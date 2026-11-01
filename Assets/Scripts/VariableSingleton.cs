@@ -45,7 +45,6 @@ public class VariableSingleton : MonoBehaviour
         ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
         ArrivalNotice+=TroopTraining.Complete(GetDate());
         ArrivalNotice+=PreparationCampaign.Advance();
-        ArrivalNotice+=PoliticalSystem.AdvancePolitics();
         Achievements.CheckCampaign();
         return turn;
     }
@@ -163,8 +162,6 @@ public class VariableSingleton : MonoBehaviour
 
     static public void ChangeBool(string varName, bool newValue)
     {
-        int character=Array.IndexOf(CourtRoster.Keys,varName);
-        if(newValue && character>=0 && iDict.TryGetValue("iAllegiance"+character,out int bloc) && bloc>0 && PoliticalSystem.Banned(bloc-1)) return;
         bDict[varName] = newValue;
         CourtRoster.Record(varName,newValue);
         Achievements.CheckCampaign();
@@ -244,6 +241,13 @@ public class VariableSingleton : MonoBehaviour
         }
     }
 
+    // Ignore obsolete faction state without rewriting civic relationships or past outcomes.
+    private void NeutraliseRetiredFactions()
+    {
+        foreach(string key in new List<string>(iDict.Keys))
+            if(key.StartsWith("iPol") || key.StartsWith("iBloc") || key.StartsWith("iAllegiance") || key=="iBanishmentUsed") iDict[key]=0;
+    }
+
     private void InitializeVariables()
     {
         ArrivalNotice="";
@@ -269,6 +273,7 @@ public class VariableSingleton : MonoBehaviour
                 case 'f': fDict[key] = float.Parse(value, CultureInfo.InvariantCulture); break;
             }
         }
+        NeutraliseRetiredFactions();
         PreparationCampaign.InitializeDefaults();
         DefencePosture.Initialise();
         IsInitialized = true;
@@ -400,8 +405,6 @@ public class VariableSingleton : MonoBehaviour
         foreach(string key in new[]{"bTechVarangianDrills","bTechDismountedChampions"}) bDict[key]=false;
         foreach(string key in new System.Collections.Generic.List<string>(iDict.Keys))
             if(key.StartsWith("iAchievement") || key.StartsWith("iHard") || key.StartsWith("iCombat") || key=="iEmperorAtWall" || key.StartsWith("iLife") || key.StartsWith("iLady") || (key.StartsWith("iPopulation") && key!="iPopulation") || key.StartsWith("iDrill") || key.StartsWith("iTerms") || key.StartsWith("iSurrender") || key.StartsWith("iSultanSeen") || key=="iSultanConversationDay") iDict[key]=0;
-        iDict["iMerchantFavor"] = 50;
-        iDict["iFencing"] = 25;
         turn = data.turn;
         TrainingOrders = new List<TrainingPool.Order>();
         if(data.training!=null) foreach(var order in data.training) TrainingOrders.Add(order.Copy());
@@ -410,6 +413,7 @@ public class VariableSingleton : MonoBehaviour
         if(!data.ints.Any(p=>p.key=="iTurkShips")) iDict["iTurkShips"]=bDict["bTurkFleet"]?NavalState.StartingShips:0;
         iDict["iCampAlert"] = 0; // Saves from before the alert system start at zero.
         foreach (var pair in data.ints) iDict[pair.key] = pair.value;
+        NeutraliseRetiredFactions();
         if(!data.ints.Any(v=>v.key=="iOttDirectorVersion"))iDict["iOttDirectorVersion"]=0;
         iDict["iPopulation"] = checked((int)PopulationAccounting.Count(data));
         iDict.Remove("iPopulationRemainder");

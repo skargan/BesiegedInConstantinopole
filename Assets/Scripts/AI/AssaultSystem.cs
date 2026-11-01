@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 using System.Collections.Generic;
 
@@ -76,7 +76,6 @@ public class AssaultSystem : MonoBehaviour
         float guards=GuardLethality*VarangiansDeployed,ourRoll=Random.value*100-50;
         float command=1+CourtRoster.Bonus(3,.05f,.15f);
         int enemyLoss=Mathf.Clamp(Mathf.RoundToInt((attackerNumbers-reached+Mathf.RoundToInt(infantryPower+cavalryPower+guards+ourRoll))*command),0,attackerNumbers);
-        int personal=Mathf.Min(EmperorCombat.WallKills,attackerNumbers-enemyLoss);enemyLoss+=personal;
         EmperorCombat.ConsumeWallPresence();
         int infantry=VariableSingleton.GetIntVariable("iInfantry"),archers=VariableSingleton.GetIntVariable("iArchers"),cavalry=VariableSingleton.GetIntVariable("iCavalry");
         archerLoss+=Mathf.Max(0,infantryLoss-infantry);infantryLoss=Mathf.Min(infantryLoss,infantry);
@@ -92,7 +91,7 @@ public class AssaultSystem : MonoBehaviour
             "Reached the wall: "+reached.ToString("N0")+"\n\n<b>2 · AT THE WALL</b>\n"+
             "Infantry: "+infantryPower.ToString("N0")+" ("+foot.ToString("0.##")+" each) · Cavalry: "+cavalryPower.ToString("N0")+"\n"+
             "Guard: "+guards.ToString("N0")+" · Fighting variation: "+ourRoll.ToString("+0;-0;0")+" · Command ×"+command.ToString("0.##")+"\n"+
-            "Your personal kills: "+personal+"\n\n<b>3 · THE PRICE</b>\n"+
+            "\n<b>3 · THE PRICE</b>\n"+
             "Enemy lethality: "+enemyLethality.ToString("0.##")+" × "+reached+" reaching the wall\n"+
             "Variation: "+enemyRoll.ToString("+0;-0;0")+" · Defender exposure: "+(exposure*100).ToString("0")+"%\n"+
             "<i>Contributions are calculated before rounding and caps. Enemy losses cannot exceed the attacking wave; exposure falls as wall integrity rises.</i>";

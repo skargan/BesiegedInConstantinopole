@@ -1,13 +1,59 @@
-﻿using UnityEngine;
+using UnityEngine;
 using Yarn.Unity;
+
+// Assassin encounters and explicit, encounter-local frontline choices remain active.
+// Persistent fencing progression and queued palace wall orders are retired.
 public static class EmperorCombat
 {
-    public static int Skill=>Mathf.Clamp(DailyLifeEvents.I("iFencing",25),0,100);
-    public static int WallKills=>DailyLifeEvents.I("iEmperorAtWall")==1&&VariableSingleton.GetFloatVariable("fHealth")>0?1+Skill/10:0;
-    public static void ConsumeWallPresence(){if(DailyLifeEvents.I("iEmperorAtWall")==1){VariableSingleton.ChangePercentFloat("fHealth",-.05f);VariableSingleton.SetInt("iEmperorAtWall",0);}}
-    public static bool Train(out string report){report="Training requires more than 10 health and fencing below100.";if(Skill>=100||VariableSingleton.GetFloatVariable("fHealth")<=.10f)return false;int old=Skill;VariableSingleton.SetInt("iFencing",Mathf.Min(100,old+5));VariableSingleton.ChangePercentFloat("fHealth",-.05f);report="You drill with the guard: footwork, distance, recovery. Fencing +"+(Skill-old)+" → "+Skill+"; health -5.";return true;}
-    public static string ToggleWall(){bool lead=DailyLifeEvents.I("iEmperorAtWall")==0;VariableSingleton.SetInt("iEmperorAtWall",lead?1:0);return lead?"You plan to join the next wall assault. Confirm or change your position in its command briefing. Personal kills scale with fencing; the briefing explains health risks.":"You will direct the defence from safety.";}
-    [YarnFunction("Fencing")]public static int Fencing()=>Skill;
-    [YarnCommand("FightAssassin")]public static void Fight(int style){int damage;bool win;if(style==0){win=Random.Range(0,100)<35+Skill/2;damage=win?Mathf.Max(2,Random.Range(5,16)-Skill/20):Mathf.Max(10,Random.Range(25,46)-Skill/10);}else{win=true;damage=Random.Range(10,26);}VariableSingleton.SetInt("iCombatAssassinWon",win?1:0);VariableSingleton.SetInt("iCombatLastDamage",damage);VariableSingleton.ChangePercentFloat("fHealth",-damage/100f);if(VariableSingleton.GetFloatVariable("fHealth")<=0)VariableSingleton.SetInt("iCombatAssassinationFatal",1);}
-    [YarnFunction("AssassinDamage")]public static int Damage()=>DailyLifeEvents.I("iCombatLastDamage");
+    // Preserve the original new-campaign balance without reading legacy iFencing.
+    public const int PersonalContribution = 3;
+    public const int AssassinDuelSuccessChance = 47;
+
+    public static void PrepareAssault(PhasedAssault battle)
+    {
+        ConsumeWallPresence();
+        battle.Frontline = false;
+        battle.PersonalBudget = PersonalContribution;
+    }
+
+    // Compatibility entry points for old scene callbacks; none grants an advantage,
+    // trains a skill, spends health, or schedules participation in a future assault.
+    public static int WallKills => 0;
+    public static void ConsumeWallPresence() => VariableSingleton.SetInt("iEmperorAtWall", 0);
+    public static bool Train(out string report)
+    {
+        report = "Personal training is unavailable.";
+        return false;
+    }
+    public static string ToggleWall()
+    {
+        ConsumeWallPresence();
+        return "Choose your command position when an assault begins.";
+    }
+    // Old compiled Yarn programs can still resolve the binding; no current text
+    // presents this constant as a player statistic or progression system.
+    [YarnFunction("Fencing")] public static int Fencing() => 25;
+
+    [YarnCommand("FightAssassin")]
+    public static void Fight(int style)
+    {
+        int damage;
+        bool win;
+        if (style == 0)
+        {
+            win = Random.Range(0,100) < AssassinDuelSuccessChance;
+            damage = win ? Random.Range(4,15) : Random.Range(23,44);
+        }
+        else
+        {
+            win = true;
+            damage = Random.Range(10,26);
+        }
+        VariableSingleton.SetInt("iCombatAssassinWon", win ? 1 : 0);
+        VariableSingleton.SetInt("iCombatLastDamage", damage);
+        VariableSingleton.ChangePercentFloat("fHealth", -damage/100f);
+        if (VariableSingleton.GetFloatVariable("fHealth") <= 0)
+            VariableSingleton.SetInt("iCombatAssassinationFatal", 1);
+    }
+    [YarnFunction("AssassinDamage")] public static int Damage() => DailyLifeEvents.I("iCombatLastDamage");
 }

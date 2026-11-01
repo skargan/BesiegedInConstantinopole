@@ -23,7 +23,7 @@ public partial class CouncilUI
         if(place==0){
             LocationHotspot.Create(holder.transform,"To the garden",GardenDoor(),Garden);
             LocationHotspot.Create(holder.transform,"Hagia Sophia",PalaceCathedral(),HagiaSophia);
-            LocationHotspot.Create(holder.transform,"Imperial affairs",new[]{new Vector2(.30f,.43f),new Vector2(.59f,.46f),new Vector2(.90f,.28f),new Vector2(.66f,.14f),new Vector2(.32f,.31f)},PalaceActions);
+            LocationHotspot.Create(holder.transform,"Defence of the walls",new[]{new Vector2(.30f,.43f),new Vector2(.59f,.46f),new Vector2(.90f,.28f),new Vector2(.66f,.14f),new Vector2(.32f,.31f)},PalaceActions);
         }else if(place==1){
             LocationHotspot.Create(holder.transform,"Return to the Palace",new[]{new Vector2(.015f,.46f),new Vector2(.080f,.48f),new Vector2(.081f,.77f),new Vector2(.043f,.79f),new Vector2(.014f,.77f)},Palace);
             LocationHotspot.Create(holder.transform,"Hagia Sophia",new[]{new Vector2(.665f,.669f),new Vector2(.665f,.70f),new Vector2(.679f,.70f),new Vector2(.684f,.714f),new Vector2(.695f,.72f),new Vector2(.707f,.712f),new Vector2(.712f,.702f),new Vector2(.724f,.696f),new Vector2(.724f,.672f)},HagiaSophia);

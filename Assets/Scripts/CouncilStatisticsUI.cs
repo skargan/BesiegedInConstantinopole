@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public partial class CouncilUI
 {
-    // Six quiet ledgers replace a single paragraph; detailed defence and gated enemy reports follow below.
+    // Five civic and logistical ledgers; detailed defence and gated enemy reports follow below.
     float CityStatistics()
     {
         var panel=SpyPanel("City at a Glance",0,650);
@@ -18,7 +18,6 @@ public partial class CouncilUI
         troops.Add(Pair("Cannons",I("iCannons")));troops.Add(Pair("Ammunition",I("iAmmunition")));troops.Add(Pair("Warships",I("iShips")));troops.Add(Pair("Damaged ships",I("iDamagedShips")));
         var support=new List<string[]>();for(int i=10;i<14;i++)support.Add(StatRow(i));
         support.Add(Pair("Galata relations",VariableSingleton.GetPercentFloat("fGalataRep")));
-        support.Add(Pair("Merchant favour",DailyLifeEvents.I("iMerchantFavor",50)+"%"));
         support.Add(Pair("Daily merchant levy",I("iIncome")+" gold"));
         int religion=CouncilActions.Int("iReligion");support.Add(Pair("Church policy",religion==1?"Full Union":religion==2?"Partial Union":"Orthodox"));
         StatsLedger(panel.transform,"CITY & STORES",city,0,true,CampaignStatusStrip.GroupColours[0]);
@@ -27,9 +26,9 @@ public partial class CouncilUI
         int court=Enumerable.Range(0,8).Count(CourtRoster.InService)+(CharacterPreparations.InService?1:0);
         if(SultanGifts.Known&&(DailyLifeEvents.I("iShahStatus")==4||DailyLifeEvents.I("iShahStatus")==7))court++;
         var people=new List<string[]> {
-            Pair("Engineers available",I("iEngineers")),Pair("Engineers mentoring",DailyLifeEvents.I("iLifeMentorDue")>0?"1":"0"),
+            Pair("Engineers available",I("iEngineers")),
             Pair("Monks",I("iHealers")),Pair("Agents in camp",I("iSpies")),Pair("Agents abroad",N(ProvinceCampaign.Assigned)),
-            Pair("Characters in service",N(court)),Pair("Emperor's fencing",EmperorCombat.Skill+" / 100"),
+            Pair("Characters in service",N(court)),
             Pair("Technologies adopted",N(TechnologySystem.All.Count(t=>VariableSingleton.GetBoolVariable(t.Key))))
         };
         var logistics=new List<string[]> {
@@ -41,12 +40,8 @@ public partial class CouncilUI
         };
         StatsLedger(panel.transform,"SPECIALISTS & COURT",people,0,false,CampaignStatusStrip.GroupColours[0]);
         StatsLedger(panel.transform,"RECRUITMENT & LOGISTICS",logistics,1,false,CampaignStatusStrip.GroupColours[1]);
-        var politics=new List<string[]>();
-        for(int i=0;i<4;i++) {
-            politics.Add(Pair(PoliticalSystem.Names[i],PoliticalSystem.Share(i)+"%"));
-            politics.Add(Pair(PoliticalSystem.Banned(i)?"Banished":PoliticalSystem.Passive(i)?"Passive active":"Passive inactive",PoliticalSystem.Owed(i)+" favours owed"));
-        }
-        StatsLedger(panel.transform,"FACTION INFLUENCE",politics,2,false,CampaignStatusStrip.GroupColours[2]);
+
+
         var medical=SpyPanel("Medical service summary",664,88);
         var care=CampaignHUD.Label(medical.transform,"<b>MEDICAL SERVICE</b>   Wounded: "+N(MedicalRecovery.Total)+"   ·   Capacity: "+N(MedicalRecovery.Capacity)+"   ·   Free places: "+N(MedicalRecovery.FreePlaces)+"\nTreatment provisions: "+N(MedicalRecovery.DailyProvisionNeed)+" / day"+(MedicalRecovery.Total>0?"   ·   Earliest recovery: "+MedicalRecovery.SoonestReturnDays+" treatment days":""),new Vector2(.022f,.08f),new Vector2(.77f,.94f),22);
         care.enableAutoSizing=true;care.fontSizeMin=18;care.fontSizeMax=22;
@@ -66,8 +61,9 @@ public partial class CouncilUI
     static long Queued(string unit)=>TrainingPool.Orders.Where(o=>o!=null&&o.unit==unit).Sum(o=>(long)o.quantity);
     void StatsLedger(Transform parent,string title,List<string[]> rows,int column,bool top,Color accent)
     {
-        float left=.012f+column*.329f;
-        var card=CampaignHUD.Panel(parent,title,new Vector2(left,top?.505f:.02f),new Vector2(left+.319f,top?.935f:.49f));
+        float width=top?.319f:.4835f;
+        float left=.012f+column*(top?.329f:.4935f);
+        var card=CampaignHUD.Panel(parent,title,new Vector2(left,top?.505f:.02f),new Vector2(left+width,top?.935f:.49f));
         card.GetComponent<Image>().color=ImperialTheme.Navy;
         var head=CampaignHUD.Label(card.transform,title,new Vector2(.035f,.865f),new Vector2(.97f,.98f),20);
         head.color=accent;head.enableAutoSizing=true;head.fontSizeMin=17;head.fontSizeMax=20;

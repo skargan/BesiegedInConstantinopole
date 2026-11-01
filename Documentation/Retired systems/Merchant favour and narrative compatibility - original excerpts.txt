@@ -1,0 +1,314 @@
+RETIREMENT SNAPSHOT — MERCHANT FAVOUR AND NARRATIVE COMPATIBILITY
+Captured 2026-11-01 from release18 baseline f1a3820, before this pass.
+
+These are exact original source excerpts for design history, outside the active Yarn project.
+Merchant favour and political-demand mechanics are retired. Their old costs/bonuses must not be restored accidentally.
+The Apprentice Gunner excerpts are PRESERVED ACTIVE mechanics, included to document the event-local five-day exception; they are not retired.
+The assassin excerpt records the removed persistent fencing reference; the encounter remains active.
+Daily merchant levy iIncome and unrelated civic support, loyalty and geopolitical allegiance remain active.
+No replacement balance penalties were invented for choices formerly affecting merchant favour.
+
+FOLLOW-UP RETIREMENT: obsolete queued Emperor-at-wall command. Other option effects and prose remain active.
+SOURCE: Assets/Yarn/Test/Daily_life.yarn, original personal-rally branch in lifeSurprise
+-> Rally the defenders personally. Lose 10 health; army morale +3 before the assault.
+    <<ChangeFraction fHealth -0.10>>
+    <<ChangeFraction fTroopRep 0.03>>
+    <<LifeSurprise>>
+    <<SetInt iEmperorAtWall 1>>
+    You reach the stair at a run. Men who were hesitating follow you towards the fighting.
+
+SOURCE: Assets/Yarn/Test/Daily_life.yarn
+title: lifeMorea
+---
+<<SetInt iLifeSailsDue 0>>
+<b>Sails: Morean Merchants</b>: <br> A merchant from our holdings in the Morea has slipped through the blockade with 500 provisions. He offers the cargo to the City, but expects to depart with his ship. His crew watches the harbour guards closely.
+-> Accept the cargo and reward his courage. Lose 100 gold; gain 500 provisions. The ship departs. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<Change iProvisions 500>>
+    The captain receives your reward with a bow. His men unload the grain, then prepare to sail while the passage remains open.
+-> Accept his gift with thanks. Gain 500 provisions; the merchant keeps his ship.
+    <<Change iProvisions 500>>
+    You cannot offer coin, but you thank him before the harbour workers. The grain enters the stores; the vessel remains his.
+-> Confiscate the cargo and ship for the defence. Gain 500 provisions and 1 ship; merchant favour -15.
+    <<Change iProvisions 500>>
+    <<Change iShips 1>>
+    <<MerchantFavor -15>>
+    Guards take possession of the vessel. The captain's protests follow you up the quay. By evening, every merchant in the City has heard how an imperial welcome is repaid.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Daily_life.yarn
+title: lifeRefugees
+---
+<<SetInt iLifeSailsDue 0>>
+<b>Sails: Refugees</b>: <br> Two hundred refugees crowd the deck of a battered vessel. They offer the ship for the defence if you will admit them. There are children beneath the awnings, and few possessions worth unloading.
+-> Admit them and take the vessel into service. Gain 200 residents and 1 ship.
+    <<AddResidents 200>>
+    <<Change iShips 1>>
+    The passengers come ashore in silence until someone begins to weep. Harbour crews take charge of the empty vessel.
+-> Turn them away. Public morale -7; army, noble and clergy support -2 each; merchant favour -2.
+    <<ChangeFraction fPeopleRep -0.07>>
+    <<ChangeFraction fTroopRep -0.02>>
+    <<ChangeFraction fNobleRep -0.02>>
+    <<ChangeFraction fPriestRep -0.02>>
+    <<MerchantFavor -2>>
+    The vessel turns back towards open water. The crowd on the quay watches until it is too far away to hear.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Daily_life.yarn
+title: lifeWell
+---
+<<LifeSeen lifeWell>>
+<b>A Quarrel at the Well</b>: <br> Two streets accuse each other of taking more than their share of water. Buckets are overturned, sleeves rolled up, and a remarkable number of people claim to have arrived first.
+-> Ask the merchants' elders to arrange a fair queue. Merchant favour +1.
+    <<MerchantFavor 1>>
+    The elders mark places with chalk and appoint a keeper. By noon, everyone is arguing about the chalk instead.
+-> Send the senior watchman to settle it. Army morale +1.
+    <<ChangeFraction fTroopRep 0.01>>
+    The watchman separates the loudest disputants and makes them carry water for the oldest residents. His men approve of a problem with such an immediate solution.
+-> Resolve it personally. 70%: public morale +5. Failure: public morale -1, noble and clergy support -3.
+    <<set $chance = dice(100)>>
+    <<if $chance <= 70>>
+    <<ChangeFraction fPeopleRep 0.05>>
+    You listen, establish turns and carry the first bucket to an elderly woman. The crowd cheers an Emperor who has come down from the palace to hear them.
+    <<else>>
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<ChangeFraction fNobleRep -0.03>>
+    <<ChangeFraction fPriestRep -0.03>>
+    Your compromise satisfies nobody. Someone asks whether you intend to negotiate with the Sultan as successfully. By evening, the palace and clergy have heard the remark.
+    <<endif>>
+-> Ignore the quarrel.
+    The argument continues without imperial assistance.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Daily_life.yarn
+title: lifeBarrelOwner
+---
+<<SetInt iLifeBarrelDue 0>>
+<b>The Barrel's Owner Appears</b>: <br> A wine merchant arrives with a witness, a warehouse key and a surprisingly clear description of the allegedly unmarked barrel. He demands 250 gold in compensation.
+-> Pay him 250 gold. <<if GetInt("iMoney") >= 250>>
+    <<Change iMoney -250>>
+    He counts the money and declares the misunderstanding resolved.
+-> Return the sealed barrel from the infirmary. Merchant favour +1. <<if LifeInt("iLifeBarrelUse") == 3>>
+    <<MerchantFavor 1>>
+    The merchant inspects the seal, bows, and has his porters remove the barrel. He leaves speaking well of imperial justice.
+-> Refuse compensation. Public morale -4.
+    <<ChangeFraction fPeopleRep -0.04>>
+    By evening, he has told half the market that the Emperor steals wine and the other half that he refuses to pay his debts.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Siege_hardships.yarn
+title: hardSand
+---
+<<LifeSeen hardSand>>
+<b>A Sack Full of Sand</b>: <br> The baker empties a sack marked as fine grain. Sand and small stones pour across the table. The merchant blames his supplier; the supplier's signature belongs to a man nobody has seen in months.
+-> Follow the invoices. Spend 100 gold; investigate in three days. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<HardNext Sand 1 3>>
+    Your clerk keeps the sack, the seal and the invoice. None can be explained away separately now.
+-> Accept replacement stock and close the matter. Gain 50 provisions.
+    <<Change iProvisions 50>>
+    The replacement grain is inspected carefully. The false signature remains unexplained.
+-> Confiscate the dealer's remaining stock. Gain 100 provisions; merchant favour -5.
+    <<Change iProvisions 100>>
+    <<MerchantFavor -5>>
+    Other merchants complain about punishment without inquiry. The dealer says very little.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Siege_hardships.yarn
+title: hardSand1
+---
+<b>Three Seals, One Warehouse</b>: <br> Three supposedly independent suppliers share a warehouse and the same clerk. A Levantine broker named Yusuf keeps their accounts. His porter offers to show your men the books, provided they can protect him afterwards.
+-> Protect the porter and inspect the ledgers. Spend 100 gold; continue the investigation. <<if GetInt("iMoney") >= 100>>
+    <<Change iMoney -100>>
+    <<HardNext Sand 2 3>>
+    The porter is moved to safe lodgings. His directions lead to a second set of books hidden beneath an ordinary floorboard.
+-> Raid the warehouse immediately. Gain 150 provisions; merchant favour -5.
+    <<Change iProvisions 150>>
+    <<MerchantFavor -5>>
+    <<HardNext Sand 99 0>>
+    You recover sound grain. By the time the clerks arrive, the more interesting papers are ash.
+-> Close the investigation. Public morale -1.
+    <<ChangeFraction fPeopleRep -0.01>>
+    <<HardNext Sand 99 0>>
+    The porter disappears into another district. The warehouse changes its sign.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Siege_hardships.yarn
+title: hardSand2
+---
+<b>The Levantine Merchant Scheme</b>: <br> Yusuf's private ledger records a small ring of brokers, warehousemen and an imperial purchasing official. They sold the same good grain twice, replacing one delivery with sand. The signatures are clear enough to act upon.
+-> Prosecute the ring and recover the stock. Gain 300 provisions; noble support -3; public morale +3.
+    <<Change iProvisions 300>>
+    <<ChangeFraction fNobleRep -0.03>>
+    <<ChangeFraction fPeopleRep 0.03>>
+    <<HardNext Sand 99 0>>
+    The purchasing official's relatives protest. Honest traders quietly bring your clerks further evidence.
+-> Demand restitution and continuing supplies. Gain 500 gold and 100 provisions; merchant favour -5.
+    <<Change iMoney 500>>
+    <<Change iProvisions 100>>
+    <<MerchantFavor -5>>
+    <<HardNext Sand 99 0>>
+    The ring buys its survival on terms favourable to the treasury. Whether anyone has learned honesty is another question.
+-> Keep the ledger as political leverage. Gain 2 secrets; public morale -2.
+    <<Change iSecrets 2>>
+    <<ChangeFraction fPeopleRep -0.02>>
+    <<HardNext Sand 99 0>>
+    The accused remain useful and frightened. The bakers receive no explanation for the inquiry's sudden end.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Court_intrigue.yarn
+title: courtLadyMarriage
+---
+<<SetInt iLadyFollowup 1>>
+<b>The Wedding and the Whisper</b>: <br> A former admirer circulates a story about Helena's wedding night which could only have been invented or overheard. The court is enjoying both possibilities. Your sponsorship of her marriage to {LadyMatchName()} has made the insult an imperial concern.
+-> Publicly defend the marriage and rebuke the gossip. Husband's loyalty +10 if still in service; noble support -5.
+    <<LadyLoyalty 10>>
+    <<ChangeFraction fNobleRep -0.05>>
+    You remind the court that a marriage under your protection is no invitation to a public spectacle. Helena thanks you without lowering her eyes. Several nobles resent the lecture more than they regret the gossip.
+-> Leave the couple to settle it privately. Husband's loyalty -10 if still in service; no faction reputation change.
+    <<LadyLoyalty -10>>
+    The palace doors remain closed. Your silence saves an argument at council, but an imperial promise of protection has proved disappointingly quiet when tested.
+-> Diplomacy: have Helena expose the slanderer's affairs. Gain 1 secret; husband's loyalty +5 if still in service; clergy support -5. <<if GetInt("iFocus") == 4>>
+    <<Change iSecrets 1>>
+    <<LadyLoyalty 5>>
+    <<ChangeFraction fPriestRep -0.05>>
+    Helena produces names, dates and a ribbon its owner would dearly like returned. Her tormentor falls silent. The clergy deplore a court which answers scandal by publishing a better scandal.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Daily_life_more.yarn
+title: lifeGunner
+---
+<<LifeSeen lifeGunner>>
+<b>The Apprentice Gunner</b>: <br> During your inspection, an infantryman steps out and declares that he has always wanted to serve the guns. He has watched the crews carefully, he says. The nearest engineer closes his eyes at the word "watched."
+-> Assign an engineer for five days. Mentor and soldier temporarily unavailable; 80% chance of gaining an engineer when they return. <<if GetInt("iEngineers") >= 1 && GetInt("iInfantry") >= 1>>
+    <<LifeMentor>>
+    The engineer takes the soldier aside before he can touch a powder measure. For five days they will work away from their regular posts. The first lesson is how to recognise what he does not yet know.
+-> Give him powder to practise alone. Spend 2 ammunition. 30% chance of gaining an engineer; otherwise he and 10 other infantry die. <<if GetInt("iAmmunition") >= 2 && GetInt("iInfantry") >= 11>>
+    <<Change iAmmunition -2>>
+    <<set $chance = dice(100)>>
+    <<if $chance <= 30>>
+    <<Change iInfantry -1>>
+    <<Change iEngineers 1>>
+    Against the engineer's expectations, the young man proves a careful student. He earns a place with the gun crews and joins the engineer roster.
+    <<else>>
+    <<Change iInfantry -11>>
+    A flash runs into the loose powder. When the smoke clears, the would-be gunner and ten other soldiers are dead.
+    <<endif>>
+-> Deny permission. He remains in the infantry.
+    You tell him the wall still needs a man who knows which end of a spear to hold. The engineer opens his eyes again.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Daily_life_more.yarn
+title: lifeGunnerResult
+---
+<<SetInt iLifeMentorDue 0>>
+<<Change iEngineers 1>>
+<b>The Gunner's Examination</b>: <br> The engineer returns from his five days of instruction and presents his pupil for examination.
+<<if LifeInt("iLifeMentorSuccess") == 1>>
+<<Change iEngineers 1>>
+The apprentice measures the charge, checks the barrel and explains every precaution. His mentor nods. Both enter your available engineer roster: the returning instructor and one newly qualified man.
+<<else>>
+<<Change iInfantry 1>>
+The apprentice has learned enough to understand why he should remain an infantryman. The engineer returns to duty; the soldier rejoins his company, considerably less certain that gunnery is easy.
+<<endif>>
+-> Thank the instructor and return them to duty.
+    The engineer asks that the next volunteer be sent to him before being given powder.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/Daily_life_more.yarn
+title: combatAssassin
+---
+<b>A Blade within Reach</b>: <br> Steel flashes where a petition should have been. The attacker is already inside the guards' reach, close enough that you can see the strain in his jaw. There is time to move, but none to ask why.
+-> Draw and fight. Your fencing skill is {Fencing()}; skill improves defence and reduces injuries.
+    <<FightAssassin 0>>
+    <<if LifeInt("iCombatAssassinWon") == 1>>
+    You turn his blade, force his arm aside and strike. The guards reach you as he falls. You lose {AssassinDamage()} health.
+    <<else>>
+    His first cut gets through. You stumble against the table before the guards drag him down. You lose {AssassinDamage()} health.
+    <<endif>>
+-> Throw furniture between you and call the guards. Lose 10–25 health in the struggle.
+    <<FightAssassin 1>>
+    The table buys a heartbeat. His blade finds you as the guards seize his arms. You lose {AssassinDamage()} health.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Yarn/Test/PoliticalDemands.yarn
+title: politicalDemand
+---
+<b>A Favour Remembered</b>
+The petition bears the seal of {PoliticalCreditor()}. Their spokesman recalls the help once placed at your disposal. The City needed them then; now they ask the Emperor to honour his obligation.
+Choose how to settle one favour. Refusal suspends this faction's passive benefit and special action for fifteen days; the debt remains.
+-> Pay {PoliticalPayment()} gold from the treasury. <<if PoliticalCanPay()>>
+    <<ResolvePoliticalDemand pay>>
+    The sum is counted before witnesses. One obligation is discharged.
+-> {PoliticalConcession()}
+    <<ResolvePoliticalDemand concede>>
+    The concession is proclaimed. One obligation is discharged, though others at court resent its price.
+-> Give them greater authority at court. Faction influence +5 points. <<if PoliticalCanEmpower()>>
+    <<ResolvePoliticalDemand empower>>
+    <<if true>>
+        Their place at council is strengthened. One obligation is discharged.
+    <<endif>>
+-> Refuse. Their passive benefit and special action are suspended for 15 days; the favour remains owed.
+    <<ResolvePoliticalDemand refuse>>
+    The delegation withdraws without satisfaction. For fifteen days their assistance is withheld. Their claim against the throne remains.
+===
+
+----------------------------------------
+
+SOURCE: Assets/Scripts/DailyLifeEvents.cs
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using Yarn.Unity;
+public static class DailyLifeEvents
+{
+    public static int I(string key,int fallback=0){try{return VariableSingleton.GetIntVariable(key);}catch(KeyNotFoundException){return fallback;}}
+    static int Day=>TrainingPool.Day(VariableSingleton.GetDate());
+    public static readonly string[] Roots={"lifeSails","lifeBread","lifeWell","lifeGhost","lifeBarrel","lifeCobbler","lifeDrawing","lifeCandles","lifeCoin","lifeWedding","lifeOnions","lifeQuiet","lifeInsult","lifeStones","lifeSaints","lifeRoof","lifeSong","lifeGenerosity","lifeGunner","lifeLights"};
+    public static IEnumerable<string> Available(){if(!VariableSingleton.HasSiegeStarted())yield break;foreach(var n in Roots)if(Day>=I("iLifeCooldown"+n)&&(n!="lifeSails"||I("iLifeSailsDue")==0)&&(n!="lifeBarrel"||I("iLifeBarrelDue")==0))yield return n;}
+    [YarnCommand("LifeSeen")] public static void Seen(string node)=>VariableSingleton.SetInt("iLifeCooldown"+node,Day+30);
+    public static string DueNode {get {if(I("iLifeSailsDue")>0&&Day>=I("iLifeSailsDue"))return new[]{"lifeFalseHope","lifeMorea","lifeMercenaries","lifeRefugees"}[I("iLifeSailsResult")];if(I("iLifeBarrelDue")>0&&Day>=I("iLifeBarrelDue"))return "lifeBarrelOwner";if(I("iLifeMentorDue")>0&&Day>=I("iLifeMentorDue"))return "lifeGunnerResult";return null;}}
+    public static int SailsOutcome(int roll)=>roll<15?1:roll<30?2:roll<45?3:0;
+    [YarnCommand("LifeSails")] public static void Sails(int announced){VariableSingleton.SetInt("iLifeAnnounced",announced);VariableSingleton.SetInt("iLifeSailsResult",SailsOutcome(Random.Range(0,100)));VariableSingleton.SetInt("iLifeSailsDue",Day+1);if(announced==1)VariableSingleton.ChangePercentFloat("fPeopleRep",.05f);}
+    [YarnFunction("LifeInt")] public static int Read(string key)=>I(key);
+    [YarnCommand("LifeBarrel")] public static void Barrel(int use){VariableSingleton.SetInt("iLifeBarrelUse",use);VariableSingleton.SetInt("iLifeBarrelDue",Day+3);}
+    [YarnCommand("MerchantFavor")] public static void Merchant(int delta)=>VariableSingleton.SetInt("iMerchantFavor",Mathf.Clamp(I("iMerchantFavor",50)+delta,0,100));
+    [YarnCommand("LifePoison")] public static void Poison(){VariableSingleton.SetInt("iLifePoisonEnding",1);VariableSingleton.ChangePercentFloat("fHealth",-1f);}
+    [YarnFunction("LifeCanSurprise")] public static bool CanSurprise()=>I("iEnemyDelay")==0&&I("iBazouks")>0;
+    [YarnCommand("LifeSurprise")] public static void Surprise()=>VariableSingleton.SetInt("iLifeSurprise",1);
+    [YarnCommand("LifeMentor")] public static void Mentor(){if(I("iLifeMentorDue")>0||I("iEngineers")<1||I("iInfantry")<1)return;VariableSingleton.ChangeInt("iEngineers",-1);VariableSingleton.ChangeInt("iInfantry",-1);VariableSingleton.SetInt("iLifeMentorDue",Day+5);VariableSingleton.SetInt("iLifeMentorSuccess",Random.Range(0,100)<80?1:0);}
+    [YarnCommand("LifeRepair")] public static void Repair()=>VariableSingleton.ChangePercentFloat("f"+VariableSingleton.Instance.EnduringWall.GetCodeName(),.01f);
+}
+public static class PopulationAccounting
+{
+    public static long People=>DailyLifeEvents.I("iPopulation");
+    [YarnCommand("AddResidents")] public static void Add(int people)=>VariableSingleton.SetInt("iPopulation",(int)System.Math.Min(int.MaxValue,System.Math.Max(0,People+people)));
+    public static int RoundedFood(long people)=>(int)((System.Math.Max(0,people)+500)/1000);
+    public static int Food(bool advance)=>RoundedFood(People);
+    // Preserve the existing three-gold-per-thousand tax rate and fractional carry.
+    public static int Tax(){long amount=People*3+DailyLifeEvents.I("iPopulationTaxCarry");VariableSingleton.SetInt("iPopulationTaxCarry",(int)(amount%1000));return (int)(amount/1000);}
+    public static long Count(VariableSingleton.CampaignSave s){long population=s.ints.FirstOrDefault(v=>v!=null&&v.key=="iPopulation")?.value??0;return s.version<2?population*1000+(s.ints.FirstOrDefault(v=>v!=null&&v.key=="iPopulationRemainder")?.value??0):population;}
+    public static string Report(VariableSingleton.CampaignSave before,VariableSingleton.CampaignSave after){long a=Count(before),b=Count(after);int ma=before.ints.FirstOrDefault(v=>v!=null&&v.key=="iMerchantFavor")?.value??50,mb=after.ints.FirstOrDefault(v=>v!=null&&v.key=="iMerchantFavor")?.value??50;return(a==b?"":"City population: "+(b>a?"+":"")+(b-a).ToString("N0")+" → now "+b.ToString("N0")+"\n")+(ma==mb?"":"Merchant favour: "+(mb>ma?"+":"")+(mb-ma)+" → now "+mb+"\n");}
+}

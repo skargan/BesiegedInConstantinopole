@@ -14,10 +14,12 @@ public static class DailyLifeEvents
     [YarnCommand("LifeSails")] public static void Sails(int announced){VariableSingleton.SetInt("iLifeAnnounced",announced);VariableSingleton.SetInt("iLifeSailsResult",SailsOutcome(Random.Range(0,100)));VariableSingleton.SetInt("iLifeSailsDue",Day+1);if(announced==1)VariableSingleton.ChangePercentFloat("fPeopleRep",.05f);}
     [YarnFunction("LifeInt")] public static int Read(string key)=>I(key);
     [YarnCommand("LifeBarrel")] public static void Barrel(int use){VariableSingleton.SetInt("iLifeBarrelUse",use);VariableSingleton.SetInt("iLifeBarrelDue",Day+3);}
-    [YarnCommand("MerchantFavor")] public static void Merchant(int delta)=>VariableSingleton.SetInt("iMerchantFavor",Mathf.Clamp(I("iMerchantFavor",50)+delta,0,100));
+    // Compatibility entry point for older narrative checkpoints; merchant favour is retired.
+    [YarnCommand("MerchantFavor")] public static void Merchant(int delta) { }
     [YarnCommand("LifePoison")] public static void Poison(){VariableSingleton.SetInt("iLifePoisonEnding",1);VariableSingleton.ChangePercentFloat("fHealth",-1f);}
     [YarnFunction("LifeCanSurprise")] public static bool CanSurprise()=>I("iEnemyDelay")==0&&I("iBazouks")>0;
     [YarnCommand("LifeSurprise")] public static void Surprise()=>VariableSingleton.SetInt("iLifeSurprise",1);
+    // Only The Apprentice Gunner event uses this five-day assignment; it is not a general training system.
     [YarnCommand("LifeMentor")] public static void Mentor(){if(I("iLifeMentorDue")>0||I("iEngineers")<1||I("iInfantry")<1)return;VariableSingleton.ChangeInt("iEngineers",-1);VariableSingleton.ChangeInt("iInfantry",-1);VariableSingleton.SetInt("iLifeMentorDue",Day+5);VariableSingleton.SetInt("iLifeMentorSuccess",Random.Range(0,100)<80?1:0);}
     [YarnCommand("LifeRepair")] public static void Repair()=>VariableSingleton.ChangePercentFloat("f"+VariableSingleton.Instance.EnduringWall.GetCodeName(),.01f);
 }
@@ -30,5 +32,5 @@ public static class PopulationAccounting
     // Preserve the existing three-gold-per-thousand tax rate and fractional carry.
     public static int Tax(){long amount=People*3+DailyLifeEvents.I("iPopulationTaxCarry");VariableSingleton.SetInt("iPopulationTaxCarry",(int)(amount%1000));return (int)(amount/1000);}
     public static long Count(VariableSingleton.CampaignSave s){long population=s.ints.FirstOrDefault(v=>v!=null&&v.key=="iPopulation")?.value??0;return s.version<2?population*1000+(s.ints.FirstOrDefault(v=>v!=null&&v.key=="iPopulationRemainder")?.value??0):population;}
-    public static string Report(VariableSingleton.CampaignSave before,VariableSingleton.CampaignSave after){long a=Count(before),b=Count(after);int ma=before.ints.FirstOrDefault(v=>v!=null&&v.key=="iMerchantFavor")?.value??50,mb=after.ints.FirstOrDefault(v=>v!=null&&v.key=="iMerchantFavor")?.value??50;return(a==b?"":"City population: "+(b>a?"+":"")+(b-a).ToString("N0")+" → now "+b.ToString("N0")+"\n")+(ma==mb?"":"Merchant favour: "+(mb>ma?"+":"")+(mb-ma)+" → now "+mb+"\n");}
+    public static string Report(VariableSingleton.CampaignSave before,VariableSingleton.CampaignSave after){long a=Count(before),b=Count(after);return a==b?"":"City population: "+(b>a?"+":"")+(b-a).ToString("N0")+" → now "+b.ToString("N0")+"\n";}
 }

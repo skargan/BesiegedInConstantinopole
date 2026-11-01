@@ -40,8 +40,7 @@ public partial class CouncilUI
     {
         Open("Specialists","Your people have different duties. An agent sent abroad cannot also work in the Ottoman camp.");BodyHeight(620);
         string[] names={"Engineers","Monks","Agents","Envoys"};
-        int mentor=DailyLifeEvents.I("iLifeMentorDue")>0?1:0;
-        string[] detail={CouncilActions.Int("iEngineers")+" available · "+mentor+" temporarily mentoring an apprentice.\nEngineers support construction and specialised assignments.",MedicalRecovery.Monks+" monks · "+MedicalRecovery.Total+" wounded in care.\n"+MedicalRecovery.FreePlaces+" free care places · 15 treatment days to return.",CouncilActions.Int("iSpies")+" in the Ottoman camp · "+ProvinceCampaign.Assigned+" assigned abroad.\n"+"Agents develop separate local networks in each province.","Resident-envoy assignments are not available yet.\nOrdinary diplomatic appeals remain available through messengers."};
+        string[] detail={CouncilActions.Int("iEngineers")+" available.\nEngineers support construction and specialised assignments.",MedicalRecovery.Monks+" monks · "+MedicalRecovery.Total+" wounded in care.\n"+MedicalRecovery.FreePlaces+" free care places · 15 treatment days to return.",CouncilActions.Int("iSpies")+" in the Ottoman camp · "+ProvinceCampaign.Assigned+" assigned abroad.\n"+"Agents develop separate local networks in each province.","Resident-envoy assignments are not available yet.\nOrdinary diplomatic appeals remain available through messengers."};
         for(int i=0;i<4;i++){var row=SpyPanel(names[i],i*145,133);CampaignHUD.Label(row.transform,names[i],new Vector2(.03f,.68f),new Vector2(.97f,.98f),26);CampaignHUD.Explanation(row.transform,detail[i],new Vector2(.03f,.08f),new Vector2(i==1?.70f:.97f,.66f),22);if(i==1)CampaignHUD.MakeButton(row.transform,"Infirmary",new Vector2(.73f,.12f),new Vector2(.97f,.66f),Infirmary);}
     }
 }

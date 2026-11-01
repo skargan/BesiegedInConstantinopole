@@ -24,7 +24,7 @@ public static class CampaignStatistics
         new Stat("Varangian Guard","Guard","iVarangians","Varangian guards currently in service."),
         new Stat("Army morale","Army","fTroopRep","The army's willingness to continue the defence."),
         new Stat("Public morale","Public","fPeopleRep","The population's confidence in your rule."),
-        new Stat("Clergy support","Clergy","fPriestRep","Support among the clergy. Separate from political faction influence."),
-        new Stat("Noble support","Nobles","fNobleRep","Support among the nobility. Separate from political faction influence.")
+        new Stat("Clergy support","Clergy","fPriestRep","Support among the clergy."),
+        new Stat("Noble support","Nobles","fNobleRep","Support among the nobility.")
     };
 }

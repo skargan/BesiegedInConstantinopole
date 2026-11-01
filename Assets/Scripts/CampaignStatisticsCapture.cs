@@ -19,7 +19,7 @@ public sealed class CampaignStatisticsCapture : MonoBehaviour
     VariableSingleton.CampaignSave baseline;
     readonly List<string> results = new List<string>();
     static readonly string[] Keys = {"fHealth","iMoney","iPopulation","iMaterials","iProvisions","iSecrets","iArchers","iInfantry","iCavalry","iVarangians","fTroopRep","fPeopleRep","fPriestRep","fNobleRep"};
-    static readonly string[] Ledgers = {"CITY & STORES","GARRISON & EQUIPMENT","MORALE & SUPPORT","SPECIALISTS & COURT","RECRUITMENT & LOGISTICS","FACTION INFLUENCE"};
+    static readonly string[] Ledgers = {"CITY & STORES","GARRISON & EQUIPMENT","MORALE & SUPPORT","SPECIALISTS & COURT","RECRUITMENT & LOGISTICS"};
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Begin()
@@ -124,10 +124,10 @@ public sealed class CampaignStatisticsCapture : MonoBehaviour
     {
         var root=Overview();Check(root!=null,suffix+" overview opens");
         var transforms=root.GetComponentsInChildren<Transform>();
-        Check(Ledgers.All(n=>transforms.Any(t=>t.name==n)),suffix+" all six ledgers present");
+        Check(Ledgers.All(n=>transforms.Count(t=>t.name==n)==1)&&!transforms.Any(t=>t.name=="FACTION INFLUENCE"),suffix+" five retained ledgers present; retired faction ledger absent");
         string text=Text(root.transform);
         Check(CampaignStatistics.Header.All(s=>text.Contains(s.Name)&&text.Contains(s.Value)),suffix+" all permanent statistics also present in overview");
-        Check(new[]{"Engineers available","Engineers mentoring","Monks","Agents in camp","Agents abroad","Characters in service","Available manpower","Ammunition","Wounded:","Food remaining","Galata relations","Emperor's fencing"}.All(text.Contains),suffix+" specialists, logistics, medical and secondary statistics retained");
+        Check(new[]{"Engineers available","Monks","Agents in camp","Agents abroad","Characters in service","Available manpower","Ammunition","Wounded:","Food remaining","Galata relations"}.All(text.Contains),suffix+" specialists, logistics, medical and secondary statistics retained");
         Check(transforms.Any(t=>t.name=="Defences")&&transforms.Any(t=>t.name=="Enemy camp"),suffix+" existing defence and enemy sections retained");
         bool gated=true;
         for(int i=0;i<10;i++){
