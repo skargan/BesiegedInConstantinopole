@@ -40,7 +40,8 @@ R07 CONFIRMED / Single-visitor recruitment cannot support multiple selections.
 CharacterPreparations has one iAdventurerChoice/due/arrived/loyalty. Many bonus and commander helpers derive from that one choice.
 Recommendation: stable individual roster records and migration of the existing invite; individual travel, illness, death, loyalty, appointment and quest eligibility. Buying several invitations is one transaction with a preview total, not several chances to overwrite the last choice.
 
-R08 CONFIRMED / Monks are not yet a functional medical service.
+R08 RESOLVED IN VERSION 36.4 / Monks now run the wounded recovery service.
+Current rules and 107 exported-player checks: see Monks and wounded recovery.txt. The notes below preserve the earlier audit and provisional proposals; they are not the current rules.
 iHealers was found only as an outcome label in the searched active assets. TrainingPool has unit/quantity/readyDay but no treatment identity. User approved one workforce called Monks, retaining the old key.
 Recommendation: expose specialist counts first; implement recovery from a committed casualty record, with per-day capacity, unit identity,15-day due date and once-only return. Do not let each battle separately claim the same day's full capacity. Proposed1/3/5 capacity and provision ratios remain provisional.
 

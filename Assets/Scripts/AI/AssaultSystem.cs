@@ -81,7 +81,8 @@ public class AssaultSystem : MonoBehaviour
         int infantry=VariableSingleton.GetIntVariable("iInfantry"),archers=VariableSingleton.GetIntVariable("iArchers"),cavalry=VariableSingleton.GetIntVariable("iCavalry");
         archerLoss+=Mathf.Max(0,infantryLoss-infantry);infantryLoss=Mathf.Min(infantryLoss,infantry);
         int cavalryLoss=Mathf.Min(cavalry,Mathf.Max(0,archerLoss-archers));archerLoss=Mathf.Min(archerLoss,archers);
-        VariableSingleton.ChangeInt("iInfantry",-infantryLoss);VariableSingleton.ChangeInt("iArchers",-archerLoss);VariableSingleton.ChangeInt("iCavalry",-cavalryLoss);VariableSingleton.ChangeInt("iVarangians",-VarangiansDeployed);
+        VarangiansDeployed=Mathf.Min(VariableSingleton.GetIntVariable("iVarangians"),Mathf.Max(0,VarangiansDeployed));
+        string medical=MedicalRecovery.ApplyCombatLosses(isWallHeld,infantryLoss,archerLoss,cavalryLoss,VarangiansDeployed);
         if(!isWallHeld)VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));
         else{VariableSingleton.ChangeBool("bSiegeTower",false);VariableSingleton.ChangeBool("bBatteringRam",false);}
         playerLossDisplay.SetLossesInfo(infantryLoss,archerLoss,cavalryLoss,VarangiansDeployed,isWallHeld);
@@ -95,7 +96,7 @@ public class AssaultSystem : MonoBehaviour
             "Enemy lethality: "+enemyLethality.ToString("0.##")+" × "+reached+" reaching the wall\n"+
             "Variation: "+enemyRoll.ToString("+0;-0;0")+" · Defender exposure: "+(exposure*100).ToString("0")+"%\n"+
             "<i>Contributions are calculated before rounding and caps. Enemy losses cannot exceed the attacking wave; exposure falls as wall integrity rises.</i>";
-        LossReport="<b>OUR LOSSES</b>\nInfantry  "+infantryLoss+"\nArchers  "+archerLoss+"\nCavalry  "+cavalryLoss+"\nVarangian Guard  "+VarangiansDeployed+"\n\n<b>ENEMY LOSSES</b>\n"+enemyLoss.ToString("N0")+" of "+attackerNumbers.ToString("N0")+" attackers\n\n"+(isWallHeld?"The defenders held the wall.":"The defenders withdrew.");
+        LossReport="<b>OUR LOSSES</b>\nInfantry  "+infantryLoss+"\nArchers  "+archerLoss+"\nCavalry  "+cavalryLoss+"\nVarangian Guard  "+VarangiansDeployed+"\n\n<b>ENEMY LOSSES</b>\n"+enemyLoss.ToString("N0")+" of "+attackerNumbers.ToString("N0")+" attackers\n\n"+(isWallHeld?"The defenders held the wall.":"The defenders withdrew.")+"\n\n"+medical;
         return enemyLoss;
     }
 

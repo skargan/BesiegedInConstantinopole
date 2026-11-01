@@ -20,7 +20,7 @@ public static class EventOutcome
 
         {"iVarangians","Varangian Guard"},{"iShips","Ships"},{"iCannons","Cannons"},{"iProvisions","Provisions"},{"iMaterials","Materials"},
 
-        {"iEngineers","Engineers"},{"iSpies","Spies"},{"iSecrets","Secrets"},{"iAmmunition","Ammunition"},{"iHealers","Healers"},
+        {"iEngineers","Engineers"},{"iSpies","Spies"},{"iSecrets","Secrets"},{"iAmmunition","Ammunition"},{"iHealers","Monks"},
 
         {"iBalkans","Ottoman Balkan troops"},{"iBazouks","Ottoman irregulars"},{"iJanissaries","Janissaries"},{"iFood","Ottoman provisions"},
 

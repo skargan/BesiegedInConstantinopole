@@ -38,6 +38,7 @@ public class VariableSingleton : MonoBehaviour
         ArrivalNotice+=ProvinceCampaign.TakeDeliveryReport();
         if(completedSiegeDay) { ArrivalNotice+=SupplyEconomy.CompleteDay(); NavalState.CompleteDay(); ArrivalNotice+=FleetOperations.CompleteDay(); }
         if(CompletedSiegeDays>0 && GetIntVariable("iIncome")>0) {int income=GetIntVariable("iIncome");ChangeInt("iMoney",income);ArrivalNotice+="Merchant levy: +"+income+" gold.\n\n";}
+        ArrivalNotice+=MedicalRecovery.Advance(GetDate());
         if(completedSiegeDay)ArrivalNotice+=DefencePosture.Advance();
         ArrivalNotice+=ProvinceCampaign.Advance(GetDate());
         ArrivalNotice+=CouncilActions.AdvanceAid(Math.Max(0,(GetDate()-previousDate).Days));
@@ -274,6 +275,7 @@ public class VariableSingleton : MonoBehaviour
         OttomanDirector.Ensure();
         Achievements.BeginCampaign();
         RecruitmentLogistics.BeginCampaign();
+        MedicalRecovery.ResetForRestore();
         MehmedAssassination.ResetForRestore();
     }
 
@@ -385,6 +387,7 @@ public class VariableSingleton : MonoBehaviour
     private void RestoreState(CampaignSave data)
     {
         RecruitmentLogistics.ResetForRestore();
+        MedicalRecovery.ResetForRestore();
         MehmedAssassination.ResetForRestore();
         ProvincialIntelligence.ResetForRestore();
         DefencePosture.Initialise();

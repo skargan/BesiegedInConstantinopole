@@ -19,8 +19,8 @@ public static class DefencePosture {
   int day=VariableSingleton.CompletedSiegeDays;if(day<=0)return "";int due=DailyLifeEvents.I("iSeaRaidDue");
   if(due>0&&day>=due){VariableSingleton.SetInt("iSeaRaidDue",0);VariableSingleton.SetInt("iSeaNextWindow",day+4);if(NavalState.Uncontested&&!HornOpen)return "Coastal watch: Ottoman boats withdraw before a landing. Our fleet controls the approaches.\n\n";
    if(Strength>=Required)return "Coastal attack repulsed. The sea-wall garrison holds without losses; the land operation remains separate.\n\n";
-   int lost=Mathf.Min(SeaInfantry+SeaArchers,Mathf.Clamp((Required-Strength)/25,1,20));int foot=Mathf.Min(SeaInfantry,lost);VariableSingleton.ChangeInt("iInfantry",-foot);VariableSingleton.ChangeInt("iArchers",-Mathf.Min(SeaArchers,lost-foot));VariableSingleton.SetInt("iSeaIntegrity",Mathf.Max(0,Integrity-10));
-   return "Coastal attack: "+lost+" sea-wall defenders lost; integrity −10 points, now "+Integrity+"%. "+(Integrity==0?"A coastal breach needs repair; it does not instantly end the campaign.":"Review the sea garrison before the next warning.")+"\n\n";
+   int lost=Mathf.Min(SeaInfantry+SeaArchers,Mathf.Clamp((Required-Strength)/25,1,20));int foot=Mathf.Min(SeaInfantry,lost);int bow=Mathf.Min(SeaArchers,lost-foot);VariableSingleton.SetInt("iSeaIntegrity",Mathf.Max(0,Integrity-10));string medical=MedicalRecovery.ApplyCombatLosses(Integrity>0,foot,bow,0,0);
+   return "Coastal attack: "+lost+" sea-wall defenders lost; integrity −10 points, now "+Integrity+"%. "+(Integrity==0?"A coastal breach needs repair; it does not instantly end the campaign.":"Review the sea garrison before the next warning.")+"\n"+medical+"\n\n";
   }
   if(!OttomanDirector.Active&&due==0&&day>=Mathf.Max(4,DailyLifeEvents.I("iSeaNextWindow"))&&(!NavalState.Uncontested||HornOpen)){VariableSingleton.SetInt("iSeaRaidDue",day+1);return "COASTAL WARNING: Ottoman landing boats gather for siege day "+(day+1)+". Review the sea-wall garrison. Land assaults may happen on the same day.\n\n";}return "";
  }

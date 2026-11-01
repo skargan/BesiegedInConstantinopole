@@ -1,0 +1,16 @@
+VERSION 36.4 - City ledger
+
+The permanent status strip now has three groups in the requested order:
+- City and stores: Emperor health, gold, population, materials, provisions, secrets.
+- Garrison: archers, infantry, cavalry, Varangian Guard.
+- Support: army morale, public morale, clergy support, noble support.
+
+Each statistic has a small drawn symbol, short label and exact count. Hover or click shows its full name and meaning. No large numbers are abbreviated. Symbols are native UI geometry, so scaling does not require a texture atlas or additional raster artwork. Values read existing campaign state and refresh only when needed; no second resource store is introduced.
+
+Siege overview opens with an expanded City at a Glance: city resources, food usage, military equipment, civic support, merchant levy, church policy, specialists and court, manpower and recruitment, ships/cannons in construction, fleet reporting, faction influence/passives/favours, and the medical service. The existing defences and gated enemy intelligence remain below. Enemy secrets remain subject to agent requirements. Greyed-out/placeholder statistics with no game mechanics are omitted.
+
+The medical-recovery system developed in the parallel chat is included in this combined release; see Monks and wounded recovery.txt for its rules and validation.
+
+All Version 36.3 features, including 392 campaign-turn quotations, are retained. Campaign save schema is unchanged. Desktop publication carries forward the newest save copy for each filename from prior Version 36 releases.
+
+Validation: 146 exported-player statistics checks passed at1600x900,1280x720 and1100x760. Exact values, zero/large counts, text fit, hover descriptions, locked enemy intelligence and campaign/RNG preservation were checked. Council, overview, lower-ledger and tooltip captures were visually inspected. Medical recovery separately passed107 exported-player checks and eight screenshot reviews. This is focused verification, not a full-campaign balance assessment.

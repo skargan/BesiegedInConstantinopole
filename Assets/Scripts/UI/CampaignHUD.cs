@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 using UnityEngine.UI;
 
@@ -20,7 +20,7 @@ public class CampaignHUD : MonoBehaviour
 
     private TMP_Text status;
 
-    private TMP_Text[] resources = new TMP_Text[9];
+
 
     private Button back;
 
@@ -63,25 +63,15 @@ public class CampaignHUD : MonoBehaviour
 
         ImperialTheme.Panel(bar);
 
-        status = Label(bar.transform, "", new Vector2(.02f,.67f), new Vector2(.72f,.96f), 20);
-
-        for(int i=0;i<9;i++)
-
-        {
-
-            float x=.02f+i*.085f;
-
-            var card=Panel(bar.transform,"Resource",new Vector2(x,.08f),new Vector2(x+.08f,.63f));
-
-            card.GetComponent<Image>().color=ImperialTheme.Surface;ImperialTheme.Frame(card);
-
-            resources[i]=Label(card.transform,"",new Vector2(.08f,.03f),new Vector2(.98f,.97f),24);
-
+        status = Label(bar.transform, "", new Vector2(.015f,.73f), new Vector2(.735f,.98f), 19);
+        status.enableAutoSizing=true;status.fontSizeMin=15;status.fontSizeMax=19;status.enableWordWrapping=false;
+        CampaignStatusStrip.Create(bar.transform);
+        back=MakeButton(bar.transform,"Return",new Vector2(.742f,.735f),new Vector2(.819f,.975f),()=>ControlSingleton.Instance.GoBack());
+        var menu=MakeButton(bar.transform,"Campaign menu",new Vector2(.826f,.735f),new Vector2(.987f,.975f),TogglePause);
+        foreach(var control in new[]{back,menu}) {
+            ImperialTheme.Button(control);
+            var label=control.GetComponentInChildren<TMP_Text>();label.fontSizeMin=14;label.fontSizeMax=19;label.margin=new Vector4(6,0,6,0);
         }
-
-        back=MakeButton(bar.transform,"Return",new Vector2(.81f,.12f),new Vector2(.98f,.48f),()=>ControlSingleton.Instance.GoBack());
-
-        MakeButton(bar.transform,"Campaign menu",new Vector2(.81f,.55f),new Vector2(.98f,.91f),TogglePause);
 
     }
 
@@ -101,11 +91,6 @@ public class CampaignHUD : MonoBehaviour
 
             "   /   " + CouncilUI.BuildLabel + "   /   " + (VariableSingleton.HasSiegeStarted() ? "Siege day " + VariableSingleton.SiegeDay : "Preparations");
 
-        string[] names={"GOLD","INFANTRY","ARCHERS","POPULATION","HEALTH","ARMY MORALE","MATERIALS","PROVISIONS","SPIES"};
-
-        string[] values={VariableSingleton.GetIntVariable("iMoney").ToString("N0"),VariableSingleton.GetIntVariable("iInfantry").ToString("N0"),VariableSingleton.GetIntVariable("iArchers").ToString("N0"),PopulationAccounting.People.ToString("N0"),VariableSingleton.GetPercentFloat("fHealth"),VariableSingleton.GetPercentFloat("fTroopRep"),VariableSingleton.GetIntVariable("iMaterials").ToString("N0"),VariableSingleton.GetIntVariable("iProvisions").ToString("N0"),VariableSingleton.GetIntVariable("iSpies").ToString("N0")};
-
-        for(int i=0;i<9;i++) resources[i].text="<size=13><color=#B9AB88>"+names[i]+"</color></size>\n"+values[i];
 
     }
 

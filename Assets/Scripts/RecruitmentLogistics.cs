@@ -22,7 +22,7 @@ public static class RecruitmentLogistics
             return Count(count);
         }
     }
-    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued);
+    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued - MedicalRecovery.RegularWounded);
     public static bool CanRecruit(string unit, int quantity) => quantity > 0 && (!IsRegular(unit) || quantity <= AvailableManpower);
     public static int MaximumOrder(string unit, int affordable) => Math.Max(0, IsRegular(unit) ? Math.Min(affordable, AvailableManpower) : affordable);
 

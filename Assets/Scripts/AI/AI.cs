@@ -78,8 +78,7 @@ public class AI: MonoBehaviour
     }
     public void CommitPhased(PhasedAssault b) {
         if(b==null||(!b.Practice&&b!=PendingPhased)||!b.TryCommit())return;if(b.Practice)return;var r=b.Outcome;
-        VariableSingleton.ChangeInt("iInfantry",r.InfantryDelta);VariableSingleton.ChangeInt("iArchers",r.ArcherDelta);
-        VariableSingleton.ChangeInt("iCavalry",r.CavalryDelta);VariableSingleton.ChangeInt("iVarangians",r.GuardDelta);
+        string medical=MedicalRecovery.ApplyCombatLosses(r.Held,-r.InfantryDelta,-r.ArcherDelta,-r.CavalryDelta,-r.GuardDelta);
         VariableSingleton.ChangeInt("iAmmunition",-r.AmmoSpent);VariableSingleton.ChangeInt("iMaterials",-r.MaterialsSpent);VariableSingleton.ChangePercentFloat("fHealth",(r.HealthDelta)/100f);
         VariableSingleton.SetInt("iEmperorAtWall",0);
         OttomanDirector.AfterAssault(b.Attackers,r.EnemyDead,!r.Held);
@@ -87,9 +86,9 @@ public class AI: MonoBehaviour
         RecordEnemyLosses(r.EnemyDead,b.Type);VariableSingleton.ChangeFloat("fMoat",-.1f);
         VariableSingleton.ChangeBool("bSiegeTower",r.Tower);VariableSingleton.ChangeBool("bBatteringRam",r.Ram);
         if(!r.Held&&r.Health>0){VariableSingleton.Instance.EnduringWall.Abandon();VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));}
-        SaveGames.Checkpoint("advance",null,"Assault aftermath",r.Ledger);
-        LastReport=r.Summary;AwaitingBreachDecision=false;assaultUI.SetAssaultResultButton(r.Held);
-        assaultSystem.SetPhasedReport(r.Ledger,"Enemy dead: "+r.EnemyDead+"\nEnemy survivors: "+r.EnemySurvivors+"\nInfantry lost: "+(-r.InfantryDelta)+"\nArchers lost: "+(-r.ArcherDelta)+"\nCavalry lost: "+(-r.CavalryDelta)+"\nGuards lost: "+(-r.GuardDelta)+"\nAmmunition spent: "+r.AmmoSpent+"\n\n"+r.Summary);
+        SaveGames.Checkpoint("advance",null,"Assault aftermath",r.Ledger+"\n\n"+medical);
+        LastReport=r.Summary+(medical.Length>0?"\n\n"+medical:"");AwaitingBreachDecision=false;assaultUI.SetAssaultResultButton(r.Held);
+        assaultSystem.SetPhasedReport(r.Ledger+"\n\n"+medical,"Enemy dead: "+r.EnemyDead+"\nEnemy survivors: "+r.EnemySurvivors+"\nInfantry lost: "+(-r.InfantryDelta)+"\nArchers lost: "+(-r.ArcherDelta)+"\nCavalry lost: "+(-r.CavalryDelta)+"\nGuards lost: "+(-r.GuardDelta)+"\nAmmunition spent: "+r.AmmoSpent+"\n\n"+r.Summary+"\n\n"+medical);
     }
 
     public void TakeAIAction()
