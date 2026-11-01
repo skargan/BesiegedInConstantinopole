@@ -1,0 +1,19 @@
+HOURGLASS — ARTWORK AND INTERACTION CONTRACT
+
+Final asset: Assets/Resources/UI/MidnightMosaic/turn-hourglass.png
+Generated with the built-in image-generation tool; original alpha retained.
+References: MidnightMosaic/Scenes/assault-hourglass.png and Council/rest.png.
+Import: uncompressed,512px maximum,no mipmaps,bilinear filtering. Runtime sprite selects the central artwork without modifying the original PNG.
+
+Generation prompt:
+Create ONE NEW game UI hourglass emblem on a truly transparent background, using the supplied images only as style references. The existing Byzantine strategy game uses midnight-blue lapis mosaics, antique warm gold, ivory and gold filigree. Design a compact, beautifully proportioned, symmetrical upright sandglass for a small button icon, legible at 28–44 pixels tall. Clear hourglass silhouette: two sturdy gold side columns, simple curved glass bulbs pinched at the neck, visible ivory-gold sand in both bulbs and a thin falling stream. Top and bottom crossbars have restrained dark lapis inlay and tiny gold ornament. Reduce fussy detail compared with reference hourglass. Painterly polished gilded game asset, crisp edges, front view, no perspective tilt. Centre the icon, occupy about 88% of image height, comfortable transparent margins. No lettering, no clock hands, no surrounding badge, no scene, no ground shadow, no opaque backdrop. Preserve transparent space around and through open gaps. This denotes finishing one's council orders.
+
+Implementation contract:
+- Explicit MakeTurnButton / TurnActionButton.Mark metadata. Never infer commitment from button words.
+- Mark the final confirmation, not the review or navigation control.
+- Keep resource prices, risks and guaranteed consequences visible.
+- Hourglass is decorative and must not intercept clicks. Reserve text space; dim with disabled state.
+- Use concise time explanations on hover/focus. The normal guide teaches the symbol once.
+- Intermediate report acknowledgement and dialogue choices must not look like an additional council action.
+- Serialized legacy controls are identified by their exact bound handler, not object text.
+- Do not change gameplay timing, resource deductions, RNG or save fields as part of presentation work.

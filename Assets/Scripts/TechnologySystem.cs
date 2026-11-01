@@ -30,7 +30,7 @@ public static class TechnologySystem
 
         new Technology("GreekFire","Greek Fire",3,"An additional 5% of an assault's attackers are stopped before they reach the defenders.","Pitch catches on the water. The artificers deliver sealed vessels of incendiary mixture, and the crews practise passing them along the battlements."),
 
-        new Technology("CounterCannons","Counter-battery artillery",3,"Unlock a major action: spend 3 ammunition to destroy 1–5 Ottoman cannons.","Gunners mark the enemy batteries on their charts. Powder is measured, ranges called and the first counter-battery crews take their stations."),
+        new Technology("CounterCannons","Counter-battery artillery",3,"Unlock counter-battery fire: spend 3 ammunition to destroy 1–5 Ottoman cannons.","Gunners mark the enemy batteries on their charts. Powder is measured, ranges called and the first counter-battery crews take their stations."),
 
         new Technology("RomanConcrete","Repair mortar and masonry",3,"Wall repair materials −25% (rounded up).","Lime kilns burn through the night. Masons prepare fresh mortar while labourers sort stone for the breaches."),
 

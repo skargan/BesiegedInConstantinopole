@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Events;
 using UnityEditor.SceneManagement;
@@ -172,8 +172,8 @@ public static class PolishPlaytest
         var name=(TMP_Text)ds.FindProperty("selectionName").objectReferenceValue;Rect(name.gameObject,.04f,.77f,.96f,.94f);
         Rect(((Button)ds.FindProperty("repairButton").objectReferenceValue).gameObject,.04f,.23f,.96f,.39f);
         Rect(((Button)ds.FindProperty("abandonButton").objectReferenceValue).gameObject,.04f,.03f,.96f,.19f);
-        Caption(((Button)ds.FindProperty("repairButton").objectReferenceValue),"Repair — end turn");
-        Caption(((Button)ds.FindProperty("abandonButton").objectReferenceValue),"Abandon wall — end turn");
+        Caption(((Button)ds.FindProperty("repairButton").objectReferenceValue),"Repair");
+        Caption(((Button)ds.FindProperty("abandonButton").objectReferenceValue),"Abandon wall");
         foreach(var b in defense.GetComponentsInChildren<Button>(true))
             for(int i=0;i<b.onClick.GetPersistentEventCount();i++) if(b.onClick.GetPersistentMethodName(i)=="GetSelection") Caption(b,"Inspect wall");
         var old=repairOptions.transform.Find("Repair Cost");if(old!=null)old.gameObject.SetActive(false);

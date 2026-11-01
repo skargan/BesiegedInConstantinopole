@@ -7,7 +7,7 @@ public partial class CouncilUI
     private void SultanAudience()
     {
         const string title="Messages to the Sultan";
-        Open(title,"History, poetry and theology share one exchange per day, carried by your envoys. Conversation costs no major action.");
+        Open(title,"History, poetry and theology share one exchange per day, carried by your envoys.");
         ControlSingleton.Instance.ReturnAction=Diplomacy;
 
         // This audience uses the full page; the common scrolling list is not needed here.
@@ -89,6 +89,7 @@ public partial class CouncilUI
         var status=SultanText(card.transform,action,new Vector2(.045f,.035f),new Vector2(.955f,.235f),19,TextAlignmentOptions.BottomLeft);
         card.interactable=unavailable==null;
         ImperialTheme.Button(card);
+        if(choice==5||choice==6)TurnActionButton.Mark(card);
         status.color=unavailable==null?ImperialTheme.Gold:new Color(.64f,.64f,.61f);
         if(unavailable!=null){heading.color=new Color(.72f,.70f,.64f);description.color=new Color(.64f,.64f,.61f);}
     }

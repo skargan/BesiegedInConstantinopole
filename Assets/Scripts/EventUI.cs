@@ -36,9 +36,15 @@ public class EventUI : UIWindowFam
         string changes=EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState());
         string body=(decision.Length>0?"<i>"+decision+"</i>\n\n":"")+(narrative.Length>0?narrative+"\n\n":"")+changes;
         SaveGames.Checkpoint("event",Node,title+" — outcome",body);
-        CampaignHUD.Instance.ShowReport(title+" — outcome",body,ContinueToAssault);
+        CampaignHUD.Instance.ShowReport(title+" — outcome",body,ContinueToAssault);MarkCalendarProgression();
     }
-    public void ResumeCheckpoint(string node,string heading,string body){Node=node;completed=true;resumed=true;CampaignHUD.Instance.ShowReport(heading,body,ContinueToAssault);}
+    public void ResumeCheckpoint(string node,string heading,string body){Node=node;completed=true;resumed=true;CampaignHUD.Instance.ShowReport(heading,body,ContinueToAssault);MarkCalendarProgression();}
+    void MarkCalendarProgression()
+    {
+        // Follow-up dialogue is still part of this decision; only the final report progresses time.
+        if((PreparationCampaign.Followup(Node)??SupplyEconomy.PendingNode??PoliticalDemands.PendingNode??SultanGifts.PendingNode)!=null)return;
+        CampaignHUD.Instance.MarkReportAdvance(VariableSingleton.HasSiegeStarted()?"Proceed to the Ottoman siege activity.":"Proceed to the next month.");
+    }
     public void ContinueToAssault()
     {
         var runner=GetComponentInChildren<DialogueRunner>(true);

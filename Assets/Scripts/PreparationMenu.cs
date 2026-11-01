@@ -31,14 +31,14 @@ public static class PreparationMenu
             var title=CampaignHUD.Label(row.transform,PreparationCampaign.Titles[index],new Vector2(.02f,.52f),new Vector2(.73f,.96f),20);title.alignment=TextAlignmentOptions.MidlineLeft;
             var description=CampaignHUD.Explanation(row.transform,PreparationCampaign.Summaries[index],new Vector2(.02f,.05f),new Vector2(.73f,.52f),17);description.alignment=TextAlignmentOptions.MidlineLeft;
             if(reason==null){
-                var button=CampaignHUD.MakeButton(row.transform,"Choose",new Vector2(.77f,.14f),new Vector2(.98f,.86f),()=>choose(PreparationCampaign.Nodes[index]));ImperialTheme.Button(button);
+                var button=CampaignHUD.MakeTurnButton(row.transform,"Choose",new Vector2(.77f,.14f),new Vector2(.98f,.86f),()=>choose(PreparationCampaign.Nodes[index]));ImperialTheme.Button(button);TurnActionButton.Mark(button,"Commits this month's preparation.");
             }else{
                 var state=CampaignHUD.Label(row.transform,reason,new Vector2(.76f,.06f),new Vector2(.98f,.94f),17);state.alignment=TextAlignmentOptions.Center;state.color=new Color(.66f,.66f,.60f);
                 title.color=new Color(.70f,.69f,.62f);description.color=new Color(.63f,.63f,.59f);
             }
         }
         Canvas.ForceUpdateCanvases();viewport.AddComponent<PreparationListLayout>().Configure(rect,rows);
-        CampaignHUD.MakeButton(panel.transform,"Pass this month",new Vector2(.32f,.025f),new Vector2(.68f,.10f),()=>choose("prepPass"));
+        CampaignHUD.MakeTurnButton(panel.transform,"Pass this month",new Vector2(.32f,.025f),new Vector2(.68f,.10f),()=>choose("prepPass"));
     }
 }
 

@@ -156,7 +156,7 @@ public static class CouncilActions
 
         VariableSingleton.ChangePercentFloat(FactionKeys[index],.03f);
 
-        report=Report(before,FactionOrders[index]+". Your personal attention improves relations. This uses the major action.");
+        report=Report(before,FactionOrders[index]+". Your personal attention improves relations.");
 
         return true;
 
@@ -221,7 +221,7 @@ public static class CouncilActions
 
         bool lost=EspionageSystem.FinishOperation(index,risk);
         explanation+=lost?" One of your agents is lost during the operation.":" Your agents return safely.";
-        report=Report(before,explanation+" This uses the major action.");
+        report=Report(before,explanation);
 
         return true;
 

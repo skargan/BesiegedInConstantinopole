@@ -83,7 +83,10 @@ public static class WallDefenceLayout
         Place(cost.transform,.03f,.35f,.97f,.78f);
         cost.font=ImperialTheme.Font;cost.color=ImperialTheme.Ivory;cost.enableAutoSizing=true;cost.fontSizeMin=16;cost.fontSizeMax=21;cost.alignment=TextAlignmentOptions.Center;
         Place(repair.transform,.02f,.025f,.55f,.29f);Place(abandon.transform,.59f,.025f,.98f,.29f);
+        repair.GetComponentInChildren<TMP_Text>(true).text="Repair";
+        abandon.GetComponentInChildren<TMP_Text>(true).text="Abandon wall";
         ImperialTheme.Button(repair);ImperialTheme.Button(abandon);
+        TurnActionButton.Mark(repair);TurnActionButton.Mark(abandon);
         foreach(var button in new[]{repair,abandon})foreach(var text in button.GetComponentsInChildren<TMP_Text>(true)){text.enableAutoSizing=true;text.fontSizeMin=16;text.fontSizeMax=22;}
     }
 

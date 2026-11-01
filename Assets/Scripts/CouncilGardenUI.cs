@@ -39,7 +39,7 @@ public partial class CouncilUI
         var row=SpyPanel("Strategic focus",top,220);
         ImperialTheme.Icon(row.transform,Mathf.Clamp(CouncilActions.Int("iFocus"),0,4),new Vector2(.02f,.10f),new Vector2(.14f,.90f));
         CampaignHUD.Label(row.transform,"STRATEGIC FOCUS\n"+FocusIcon.Names[Mathf.Clamp(CouncilActions.Int("iFocus"),0,4)],new Vector2(.17f,.45f),new Vector2(.70f,.94f),26);
-        CampaignHUD.Explanation(row.transform,FocusReorganisation.AdviserAvailable?"Sphrantzes: 2,000 gold · major action · 30 days between changes":"One change per campaign · 5,000 gold · major action",new Vector2(.17f,.08f),new Vector2(.70f,.43f),21);
+        CampaignHUD.Explanation(row.transform,FocusReorganisation.AdviserAvailable?"Sphrantzes: 2,000 gold · 30 days between changes":"One change per campaign · 5,000 gold",new Vector2(.17f,.08f),new Vector2(.70f,.43f),21);
         CampaignHUD.MakeButton(row.transform,"Review focus",new Vector2(.74f,.20f),new Vector2(.97f,.80f),ReviewFocus);
     }
     public void ReviewFocus()
@@ -62,8 +62,8 @@ public partial class CouncilUI
     private void ConfirmFocus(int focus)
     {
         Open("Confirm strategic change",FocusIcon.Names[Mathf.Clamp(CouncilActions.Int("iFocus"),0,4)]+" → "+FocusIcon.Names[focus]);ControlSingleton.Instance.ReturnAction=ReviewFocus;BodyHeight(440);
-        CampaignHUD.Explanation(body,"Spend "+FocusReorganisation.Cost.ToString("N0")+" gold and this turn's major action. "+(FocusReorganisation.AdviserAvailable?"Sphrantzes allows another change after 30 days while he remains available.":"This uses your one ordinary focus change for the campaign.")+" Completed preparations are retained.",new Vector2(.05f,.38f),new Vector2(.95f,.93f),28);
-        bool submitted=false;CampaignHUD.MakeButton(body,"Confirm change",new Vector2(.53f,.08f),new Vector2(.95f,.30f),()=>{if(submitted)return;submitted=true;bool ok=FocusReorganisation.Change(focus,out var report);if(!ok)submitted=false;Finish(ok,report);});
+        CampaignHUD.Explanation(body,"Spend "+FocusReorganisation.Cost.ToString("N0")+" gold. "+(FocusReorganisation.AdviserAvailable?"Sphrantzes allows another change after 30 days while he remains available.":"This uses your one ordinary focus change for the campaign.")+" Completed preparations are retained.",new Vector2(.05f,.38f),new Vector2(.95f,.93f),28);
+        bool submitted=false;CampaignHUD.MakeTurnButton(body,"Confirm change",new Vector2(.53f,.08f),new Vector2(.95f,.30f),()=>{if(submitted)return;submitted=true;bool ok=FocusReorganisation.Change(focus,out var report);if(!ok)submitted=false;Finish(ok,report);});
         CampaignHUD.MakeButton(body,"Keep current focus",new Vector2(.05f,.08f),new Vector2(.47f,.30f),ReviewFocus);
     }
 }

@@ -211,6 +211,12 @@ public class CampaignHUD : MonoBehaviour
 
 
 
+    public void MarkReportAdvance(string hint)
+    {
+        if(modal==null)return;
+        var button=modal.GetComponentInChildren<Button>();if(button!=null)TurnActionButton.Mark(button,hint);
+    }
+
     private void ShowPauseMenu()
     {
         // Keep the report/ending layout independent of the compact pause menu.
@@ -331,6 +337,11 @@ public class CampaignHUD : MonoBehaviour
 
         return label;
 
+    }
+
+    public static Button MakeTurnButton(Transform parent,string text,Vector2 min,Vector2 max,UnityEngine.Events.UnityAction action)
+    {
+        var button=MakeButton(parent,text,min,max,action);TurnActionButton.Mark(button);return button;
     }
 
     public static Button MakeButton(Transform parent, string text, Vector2 min, Vector2 max, UnityEngine.Events.UnityAction action)

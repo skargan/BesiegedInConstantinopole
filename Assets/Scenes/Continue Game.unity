@@ -7290,7 +7290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 713605494710760279, guid: 6067464202137d64dac99c98e3cc6944, type: 3}
       propertyPath: m_text
-      value: "Abandon wall \u2014 end turn"
+      value: "Abandon wall"
       objectReference: {fileID: 0}
     - target: {fileID: 713605494710760279, guid: 6067464202137d64dac99c98e3cc6944, type: 3}
       propertyPath: m_fontSize
@@ -8334,7 +8334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6211850782769518218, guid: 6067464202137d64dac99c98e3cc6944, type: 3}
       propertyPath: m_text
-      value: "Repair \u2014 end turn"
+      value: "Repair"
       objectReference: {fileID: 0}
     - target: {fileID: 6211850782769518218, guid: 6067464202137d64dac99c98e3cc6944, type: 3}
       propertyPath: m_fontSize
@@ -27315,7 +27315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rest \u2014 end turn"
+  m_text: "Rest"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

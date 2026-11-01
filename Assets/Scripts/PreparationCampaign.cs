@@ -121,7 +121,7 @@ public static class PreparationCampaign
     {
         report="A fleet and an available route are required.";if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))return false;
         if(I("iFleet")==mission){report="The fleet already has those orders.";return false;}
-        VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. This uses the major action; no preparation bonus is renewed.";return true;
+        VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. No preparation bonus is renewed.";return true;
     }
     [YarnCommand("PrepFleet")] public static void PrepareFleet(int mission){if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))throw new InvalidOperationException("Fleet mission unavailable");VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",1);}
     [YarnCommand("FleetRetreat")] public static void Retreat(){int sailed=I("iShips"),survived=(sailed+1)/2;VariableSingleton.SetInt("iShips",survived);Add("iDamagedShips",(sailed-survived)/2);VariableSingleton.SetInt("iFleet",3);VariableSingleton.SetInt("iFleetPrepared",0);}

@@ -93,7 +93,7 @@ public class DefenseActions : MonoBehaviour
 
         float health = VariableSingleton.GetFloatVariable(variableName);
 
-        repairCostDisplay.text = $"{repairCost:N0} gold labour · {WallRepairRules.Materials(variableName)} materials\nIntegrity: {health*100:0.#}% → {Mathf.Min(1,health+repairMin)*100:0.#}–{Mathf.Min(1,health+repairMax)*100:0.#}%\nMajor action";
+        repairCostDisplay.text = $"{repairCost:N0} gold labour · {WallRepairRules.Materials(variableName)} materials\nIntegrity: {health*100:0.#}% → {Mathf.Min(1,health+repairMin)*100:0.#}–{Mathf.Min(1,health+repairMax)*100:0.#}%";
 
         repairCostDisplay.fontStyle |= FontStyles.Italic;
 

@@ -1,0 +1,11 @@
+BESIEGED VERSION36.6 — THE HOURGLASS
+
+Generated a transparent gold-and-lapis hourglass matching Midnight Mosaic.
+The symbol marks buttons that commit council time: repairs, rest, training confirmation, research, aid, fleet orders/battle, provincial operations, gifts, political favours, banishment, commander appointment, emergency tax, artillery and consequential Sultan orders.
+Monthly preparation commitments and final calendar-progression controls also use the symbol, with context-specific hover explanations.
+Review/navigation, resource purchases, ordinary recruitment, conversations, standing instructions and garrison toggles remain unmarked. No action rules or costs changed.
+Removed major/minor action terminology and end-turn suffixes from player-facing UI, reports, guide and active scene captions. Wall buttons now read Repair and Abandon wall.
+
+Verification: TURN_ACTION_CHECKS 217 passed at 1600x900 and 1280x720; one isolated repair committed.
+Screenshots reviewed for walls, preparation, fleet confirmation, market, aid and tooltip placement. Tests include inactive emblems, stable padding, no campaign/RNG mutation from presentation, failed repair without consumption, and successful repair with exact deductions and one report transition. Focused verification, not a full-campaign balance test.
+Previous Version36 save files have been copied into this build's local Saves folder.

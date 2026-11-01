@@ -84,7 +84,7 @@ public static class PoliticalSystem
     public static string BanishPreview(int bloc)
     {
         string people=string.Join(", ",Enumerable.Range(0,8).Where(i=>CouncilActions.Int("iAllegiance"+i)==bloc+1 && VariableSingleton.GetBoolVariable(CourtRoster.Keys[i])).Select(i=>CourtRoster.Names[i]));
-        return "Banish "+Names[bloc]+"?\n\nTheir influence passes to the Loyalists. All five civic relations fall by 15 points.\nCharacters expelled: "+(people.Length==0?"None currently in service":people)+".\n\nThis uses the major action and your single faction banishment for this campaign.";
+        return "Banish "+Names[bloc]+"?\n\nTheir influence passes to the Loyalists. All five civic relations fall by 15 points.\nCharacters expelled: "+(people.Length==0?"None currently in service":people)+".\n\nYou may banish only one faction during this campaign.";
     }
     public static bool Banish(int bloc,out string report)
     {

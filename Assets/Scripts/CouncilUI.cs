@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.5 · Realms and frontiers";
+    public const string BuildLabel="Version 36.6 · The hourglass";
 
 
 
@@ -191,7 +191,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest and Finish the Day","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
+        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
 
 
 
@@ -219,7 +219,7 @@ public partial class CouncilUI : MonoBehaviour
 
             var caption=button.GetComponentInChildren<TMP_Text>();caption.rectTransform.anchorMin=new Vector2(.23f,.03f);caption.rectTransform.anchorMax=new Vector2(.96f,.97f);
 
-            if(i==5) button.name="ButtonToContinue";
+            if(i==5) {button.name="ButtonToContinue";TurnActionButton.Mark(button);}
 
 
 
@@ -465,7 +465,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        Open("Civic relations and audiences","Five overlapping interests. Each audience costs 300 gold, improves its measure by 3 points (up to 100%), and uses your major action.");
+        Open("Civic relations and audiences","Five overlapping interests. Each audience costs 300 gold, improves its measure by 3 points (up to 100%).");
 
 
 
@@ -563,7 +563,6 @@ public partial class CouncilUI : MonoBehaviour
 
         ReviewCard(.52f,.94f,"BENEFIT",CouncilActions.FactionNames[index].ToUpperInvariant(),"+"+gain.ToString("0.#")+(Mathf.Abs(gain-1)<.001f?" point":" points"),"Current support: "+(support*100).ToString("0.#")+"%",new Color(.72f,.80f,.67f));
 
-        var commitment=CampaignHUD.Explanation(screen.transform,"Uses your major action",new Vector2(.1f,.24f),new Vector2(.9f,.34f),24);commitment.alignment=TextAlignmentOptions.Center;
 
         notice=CampaignHUD.Label(screen.transform,"",new Vector2(.1f,.01f),new Vector2(.9f,.08f),21);notice.alignment=TextAlignmentOptions.Center;
 
@@ -571,7 +570,7 @@ public partial class CouncilUI : MonoBehaviour
 
         bool submitted=false;
 
-        var confirm=CampaignHUD.MakeButton(screen.transform,confirms[index],new Vector2(.51f,.10f),new Vector2(.85f,.21f),()=>{
+        var confirm=CampaignHUD.MakeTurnButton(screen.transform,confirms[index],new Vector2(.51f,.10f),new Vector2(.85f,.21f),()=>{
 
             if(submitted) return;
 
@@ -701,7 +700,6 @@ public partial class CouncilUI : MonoBehaviour
 
         ReviewCard(.52f,.94f,"TRAINING",TroopTraining.Ranks[Mathf.Min(4,TroopTraining.Rank(unit)+1)].ToUpperInvariant(),"×"+TroopTraining.Base(unit).ToString("0.##")+" → ×"+TroopTraining.Next(unit).ToString("0.##"),"Ready "+VariableSingleton.GetDate().AddDays(5).ToString("d MMM yyyy"),new Color(.72f,.80f,.67f));
 
-        var action=CampaignHUD.Explanation(screen.transform,"Uses your major action",new Vector2(.1f,.24f),new Vector2(.9f,.34f),24);action.alignment=TextAlignmentOptions.Center;
 
         notice=CampaignHUD.Label(screen.transform,"",new Vector2(.1f,.01f),new Vector2(.9f,.08f),21);
 
@@ -709,7 +707,7 @@ public partial class CouncilUI : MonoBehaviour
 
         bool submitted=false;
 
-        var button=CampaignHUD.MakeButton(screen.transform,"Confirm training",new Vector2(.51f,.10f),new Vector2(.85f,.21f),()=>{if(submitted)return;bool ok=TroopTraining.Order(unit,out var report);if(ok)submitted=true;Finish(ok,report);});button.interactable=TroopTraining.Unavailable(unit)==null;
+        var button=CampaignHUD.MakeTurnButton(screen.transform,"Confirm training",new Vector2(.51f,.10f),new Vector2(.85f,.21f),()=>{if(submitted)return;bool ok=TroopTraining.Order(unit,out var report);if(ok)submitted=true;Finish(ok,report);});button.interactable=TroopTraining.Unavailable(unit)==null;
 
     }
 
@@ -776,7 +774,7 @@ public partial class CouncilUI : MonoBehaviour
 
         ReviewCard(.52f,.94f,"BENEFIT","OPERATIONS DELAY","+1 siege day","Current delay: "+CouncilActions.Int("iEnemyDelay")+" days",new Color(.72f,.80f,.67f));
 
-        var terms=CampaignHUD.Explanation(screen.transform,"Uses your major action · Enemy camp alert +20 points · Agent loss risk "+EspionageSystem.LossChance(5).ToString("0.#")+"%\nDelays accumulate and begin taking effect during the siege.",new Vector2(.06f,.23f),new Vector2(.94f,.37f),22);terms.alignment=TextAlignmentOptions.Center;
+        var terms=CampaignHUD.Explanation(screen.transform,"Enemy camp alert +20 points · Agent loss risk "+EspionageSystem.LossChance(5).ToString("0.#")+"%\nDelays accumulate and begin taking effect during the siege.",new Vector2(.06f,.23f),new Vector2(.94f,.37f),22);terms.alignment=TextAlignmentOptions.Center;
 
         notice=CampaignHUD.Label(screen.transform,"",new Vector2(.06f,.01f),new Vector2(.94f,.08f),21);
 
@@ -784,7 +782,7 @@ public partial class CouncilUI : MonoBehaviour
 
         bool submitted=false;
 
-        var confirm=CampaignHUD.MakeButton(screen.transform,"Confirm disruption",new Vector2(.51f,.10f),new Vector2(.85f,.21f),()=>{
+        var confirm=CampaignHUD.MakeTurnButton(screen.transform,"Confirm disruption",new Vector2(.51f,.10f),new Vector2(.85f,.21f),()=>{
 
             if(submitted)return;
 
@@ -862,7 +860,7 @@ public partial class CouncilUI : MonoBehaviour
 
         FleetText(mission.transform,ships==0?"No ships available. New warships take 30 days to build.":effects[order],.03f,.37f,.97f,.68f,24);
 
-        FleetText(mission.transform,"Routine report in "+FleetOperations.DaysRemaining+" active siege days. Reports follow a 14–21-day cycle; changing mission uses your major action and starts a new cycle.",.03f,.05f,.97f,.35f,20);
+        FleetText(mission.transform,"Routine report in "+FleetOperations.DaysRemaining+" active siege days. Reports follow a 14–21-day cycle; changing mission starts a new cycle.",.03f,.05f,.97f,.35f,20);
 
         var harbour=SpyPanel("Harbour and command",482,250);
 
@@ -957,7 +955,7 @@ public partial class CouncilUI : MonoBehaviour
 
     {
 
-        Open("Diplomatic relations","One appeal per ally per campaign. Appeal: 1,000 gold; sea routes also require an available ship. Expedite: 1,000 gold, up to 5 days sooner. Both use the major action. Scroll for all allies.");
+        Open("Diplomatic relations","One appeal per ally per campaign. Appeal: 1,000 gold; sea routes also require an available ship. Expedite: 1,000 gold, up to 5 days sooner. Scroll for all allies.");
 
 
 
@@ -1007,7 +1005,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-            var button=CampaignHUD.MakeButton(row.transform,state==1?"Expedite aid\n1,000 gold":state==0?"Request aid\n1,000 gold":"Resolved",new Vector2(.76f,.18f),new Vector2(.98f,.82f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(allyIndex,out result):CouncilActions.RequestAid(allyIndex,out result);Finish(ok,result);});
+            var button=CampaignHUD.MakeTurnButton(row.transform,state==1?"Expedite aid\n1,000 gold":state==0?"Request aid\n1,000 gold":"Resolved",new Vector2(.76f,.18f),new Vector2(.98f,.82f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(allyIndex,out result):CouncilActions.RequestAid(allyIndex,out result);Finish(ok,result);});
 
 
 
@@ -1039,10 +1037,10 @@ public partial class CouncilUI : MonoBehaviour
         ControlSingleton.Instance.ReturnAction=DiplomaticRelations;
         BodyHeight(400);var row=Row(0,400);
         string status=state==0?CouncilActions.AidChance(index)+"% acceptance · "+ally.Days+" days travel":state==1?"Aid due in "+CouncilActions.Int("iAidDays"+index)+" days":state==2?"Aid delivered":state==4?"Relief fleet lost at sea":"Appeal declined";
-        string terms=state==0?"Appeal: 1,000 gold · Major action"+(AidRouting.BySea(index)?" · Requires an available ship":""):state==1?"Expedite: 1,000 gold · Up to 5 days sooner · Major action":"One appeal per campaign";
+        string terms=state==0?"Appeal: 1,000 gold"+(AidRouting.BySea(index)?" · Requires an available ship":""):state==1?"Expedite: 1,000 gold · Up to 5 days sooner":"One appeal per campaign";
         CampaignHUD.Label(row.transform,status,new Vector2(.04f,.80f),new Vector2(.96f,.96f),27);
         CampaignHUD.Explanation(row.transform,ally.Description+"\n\n"+AidRouting.Route(index)+" · Package: "+AidRouting.Cargo(index)+"\n"+terms,new Vector2(.04f,.30f),new Vector2(.96f,.79f),23);
-        var action=CampaignHUD.MakeButton(row.transform,state==1?"Expedite aid · 1,000 gold":state==0?"Request aid · 1,000 gold":"Appeal resolved",new Vector2(.04f,.06f),new Vector2(.58f,.23f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(index,out result):CouncilActions.RequestAid(index,out result);Finish(ok,result);});
+        var action=CampaignHUD.MakeTurnButton(row.transform,state==1?"Expedite aid · 1,000 gold":state==0?"Request aid · 1,000 gold":"Appeal resolved",new Vector2(.04f,.06f),new Vector2(.58f,.23f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(index,out result):CouncilActions.RequestAid(index,out result);Finish(ok,result);});
         action.interactable=(state==0 || state==1) && CouncilActions.Int("iMoney")>=1000 && (state==1 || !AidRouting.BySea(index) || CouncilActions.Int("iShips")>0) && (state!=1 || CouncilActions.Int("iAidDays"+index)>1);
         CampaignHUD.MakeButton(row.transform,"The realm and its interests",new Vector2(.62f,.06f),new Vector2(.96f,.23f),()=>{Chronicle(index);ControlSingleton.Instance.ReturnAction=()=>DiplomaticPower(index);});
     }
@@ -1086,7 +1084,7 @@ public partial class CouncilUI : MonoBehaviour
     }
 
     public void SultanGiftMenu() {
-        Open("Gifts for Mehmed","Choose a gift to review. Nothing is spent until you confirm. Each gift uses the major action; a return gift is possible.");
+        Open("Gifts for Mehmed","Choose a gift to review. Nothing is spent until you confirm. A return gift is possible.");
         ControlSingleton.Instance.ReturnAction=Sultan;
         BodyHeight(8*180);
         for(int i=0;i<SultanGifts.Gifts.Length;i++) {
@@ -1099,9 +1097,9 @@ public partial class CouncilUI : MonoBehaviour
     private void ReviewSultanGift(int index) {
         var g=SultanGifts.Gifts[index];Open("Gift to Mehmed · "+g.Name,"Review the offering before sending your envoy.");
         ControlSingleton.Instance.ReturnAction=SultanGiftMenu;BodyHeight(520);
-        CampaignHUD.Explanation(body,g.Description+"\n\nCost: "+g.Cost+"\nSultan's fury −"+g.Fury+" points (minimum zero).\nUses the major action. A return gift is possible, not guaranteed.",new Vector2(.05f,.35f),new Vector2(.95f,.95f),27);
+        CampaignHUD.Explanation(body,g.Description+"\n\nCost: "+g.Cost+"\nSultan's fury −"+g.Fury+" points (minimum zero).\nA return gift is possible, not guaranteed.",new Vector2(.05f,.35f),new Vector2(.95f,.95f),27);
         string unavailable=SultanGifts.GiftUnavailable(index);
-        var confirm=CampaignHUD.MakeButton(body,unavailable??"Confirm — send gift",new Vector2(.05f,.08f),new Vector2(.62f,.25f),()=>{bool ok=SultanGifts.Send(index,out var report);Finish(ok,report);});confirm.interactable=unavailable==null;
+        var confirm=CampaignHUD.MakeTurnButton(body,unavailable??"Confirm — send gift",new Vector2(.05f,.08f),new Vector2(.62f,.25f),()=>{bool ok=SultanGifts.Send(index,out var report);Finish(ok,report);});confirm.interactable=unavailable==null;
         CampaignHUD.MakeButton(body,"Choose another gift",new Vector2(.66f,.08f),new Vector2(.95f,.25f),SultanGiftMenu);
     }
 
@@ -1161,7 +1159,7 @@ public partial class CouncilUI : MonoBehaviour
 
     {
 
-        Open("Political dealings","Above 20% influence, passive benefits are active. Request one favour per faction every seven days: major action, up to +5 influence, and one favour owed.");
+        Open("Political dealings","Above 20% influence, passive benefits are active. Request one favour per faction every seven days: up to +5 influence, and one favour owed.");
 
         ControlSingleton.Instance.ReturnAction=Factions;
 
@@ -1204,7 +1202,7 @@ public partial class CouncilUI : MonoBehaviour
 
                 var modal=GameObject.Find("Event outcome");
 
-                foreach(var button in modal.GetComponentsInChildren<Button>()) button.GetComponentInChildren<TMP_Text>().text="Confirm banishment";
+                foreach(var button in modal.GetComponentsInChildren<Button>()){button.GetComponentInChildren<TMP_Text>().text="Confirm banishment";TurnActionButton.Mark(button);}
 
                 CampaignHUD.MakeButton(modal.transform,"Cancel",new Vector2(.69f,.07f),new Vector2(.88f,.16f),()=>CampaignHUD.Instance.DismissReport());
 
@@ -1283,7 +1281,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        Open("Technologies and workshops","Secrets represent expertise and contacts. Research uses your major action. Obtain secrets through events or Spies > Gather secrets. Scroll to see every research option.");
+        Open("Technologies and workshops","Secrets represent expertise and contacts. Obtain secrets through events or Spies > Gather secrets. Scroll to see every research option.");
 
 
 
@@ -1321,7 +1319,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
             technologyDescription.enableAutoSizing=true; technologyDescription.fontSizeMin=16; technologyDescription.fontSizeMax=21;
-            var button=CampaignHUD.MakeButton(row.transform,active?"Active":technology.Cost+" secrets\nResearch",new Vector2(.76f,.18f),new Vector2(.98f,.82f),()=>{bool ok=TechnologySystem.Unlock(choice,out var report);Finish(ok,report);});
+            var button=CampaignHUD.MakeTurnButton(row.transform,active?"Active":technology.Cost+" secrets\nResearch",new Vector2(.76f,.18f),new Vector2(.98f,.82f),()=>{bool ok=TechnologySystem.Unlock(choice,out var report);Finish(ok,report);});
 
 
 
@@ -1391,7 +1389,7 @@ public partial class CouncilUI : MonoBehaviour
 
             CampaignHUD.Label(row.transform,"<color=#E8C36F>"+CharacterPreparations.Abilities[c]+"</color>",new Vector2(.60f,.40f),new Vector2(.97f,.70f),23);
 
-            var appoint=CampaignHUD.MakeButton(row.transform,CharacterPreparations.IsCommander?"Siege commander":"Appoint commander · major action",new Vector2(.60f,.08f),new Vector2(.97f,.36f),()=>{bool ok=CharacterPreparations.Appoint(out var report);Finish(ok,report);});appoint.interactable=!CharacterPreparations.IsCommander;
+            var appoint=CampaignHUD.MakeTurnButton(row.transform,CharacterPreparations.IsCommander?"Siege commander":"Appoint commander",new Vector2(.60f,.08f),new Vector2(.97f,.36f),()=>{bool ok=CharacterPreparations.Appoint(out var report);Finish(ok,report);});appoint.interactable=!CharacterPreparations.IsCommander;
 
         }
 
@@ -1409,7 +1407,7 @@ public partial class CouncilUI : MonoBehaviour
 
     {
 
-        Open("Treasury and market","Purchases use gold and remain minor actions. Prices for provisions rise when the siege begins.");
+        Open("Treasury and market","Purchases use gold. Prices for provisions rise when the siege begins.");
 
         BodyHeight(780);
 
@@ -1437,9 +1435,9 @@ public partial class CouncilUI : MonoBehaviour
 
         }
 
-        var tax=Row(4,150);CampaignHUD.Label(tax.transform,"Emergency levy: +"+(SupplyEconomy.DailyNeed*100).ToString("N0")+" gold\nPublic morale −15 points · Major action",new Vector2(.02f,.1f),new Vector2(.65f,.9f),24);
+        var tax=Row(4,150);CampaignHUD.Label(tax.transform,"Emergency levy: +"+(SupplyEconomy.DailyNeed*100).ToString("N0")+" gold\nPublic morale −15 points",new Vector2(.02f,.1f),new Vector2(.65f,.9f),24);
 
-        CampaignHUD.MakeButton(tax.transform,"Collect emergency tax",new Vector2(.70f,.17f),new Vector2(.97f,.83f),()=>{SupplyEconomy.EmergencyTax(out var report);Finish(true,report);});
+        CampaignHUD.MakeTurnButton(tax.transform,"Collect emergency tax",new Vector2(.70f,.17f),new Vector2(.97f,.83f),()=>{SupplyEconomy.EmergencyTax(out var report);Finish(true,report);});
 
     }
 
@@ -1449,7 +1447,7 @@ public partial class CouncilUI : MonoBehaviour
 
     {
 
-        Open("Wall defences · Special actions","Direct your artillery against the Ottoman batteries. Firing uses your major action.");
+        Open("Wall defences · Special actions","Direct your artillery against the Ottoman batteries.");
 
         ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.BringUpSiegeUI();};
 
@@ -1467,7 +1465,7 @@ public partial class CouncilUI : MonoBehaviour
 
             string reason=TechnologySystem.ArtilleryUnavailable(grand);
 
-            var fire=CampaignHUD.MakeButton(row.transform,reason??"Fire · major action",new Vector2(.72f,.15f),new Vector2(.97f,.85f),()=>{string report;bool ok=grand?TechnologySystem.FireGrandCannon(out report):TechnologySystem.CounterBattery(out report);Finish(ok,report);});
+            var fire=CampaignHUD.MakeTurnButton(row.transform,reason??"Fire",new Vector2(.72f,.15f),new Vector2(.97f,.85f),()=>{string report;bool ok=grand?TechnologySystem.FireGrandCannon(out report):TechnologySystem.CounterBattery(out report);Finish(ok,report);});
 
             fire.interactable=reason==null;
 
@@ -1485,7 +1483,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        Open("The Palace","Review the Emperor's position. Recruitment remains a minor action; a council mission, audience, repair or rest spends the major action.");
+        Open("The Palace","Review the Emperor's position and receive your court.");
 
 
 
@@ -1502,7 +1500,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        CampaignHUD.MakeButton(body,"Practise fencing · major action · +5 skill / -5 health",new Vector2(.08f,.27f),new Vector2(.92f,.43f),()=>{bool ok=EmperorCombat.Train(out var report);Finish(ok,report);});
+        CampaignHUD.MakeTurnButton(body,"Practise fencing · +5 skill / -5 health",new Vector2(.08f,.27f),new Vector2(.92f,.43f),()=>{bool ok=EmperorCombat.Train(out var report);Finish(ok,report);});
 
         CampaignHUD.MakeButton(body,"Lead next wall assault / cancel · costs 5 health when fighting",new Vector2(.08f,.46f),new Vector2(.92f,.59f),()=>{notice.text=EmperorCombat.ToggleWall();});
 
@@ -1512,7 +1510,7 @@ public partial class CouncilUI : MonoBehaviour
 
         CampaignHUD.MakeButton(body,"Walk in the garden · speak with your court",new Vector2(.08f,.17f),new Vector2(.92f,.26f),Garden);
 
-        CampaignHUD.MakeButton(body,"Rest — use the major action",new Vector2(.08f,.03f),new Vector2(.92f,.16f),()=>{Hide();manager.ContinueToRest();});
+        CampaignHUD.MakeTurnButton(body,"Rest",new Vector2(.08f,.03f),new Vector2(.92f,.16f),()=>{Hide();manager.ContinueToRest();});
 
 
 

@@ -152,7 +152,11 @@ public class ManagerUI : UIWindowFam
     //*****************************
     // Refresh
 
-    private void Start() { CouncilUI.For(this).BuildManagementMenu(); }
+    private void Start() {
+        CouncilUI.For(this).BuildManagementMenu();
+        if(repairAction!=null)TurnActionButton.MarkBoundActions(repairAction.transform,"ApproveRepairs");
+        if(recruitmentAction!=null)TurnActionButton.MarkBoundActions(recruitmentAction.transform,"ApproveTroopRecruitment");
+    }
 
     private void OnEnable()
     {

@@ -75,7 +75,7 @@ public partial class CouncilUI
             ImperialTheme.Panel(card,false);
             IntelligenceText(card.transform,CouncilActions.SpyOrders[i],new Vector2(.025f,.76f),new Vector2(.975f,.97f),23);
             IntelligenceText(card.transform,CouncilActions.SpyEffects[i],new Vector2(.025f,.47f),new Vector2(.975f,.75f),20);
-            IntelligenceText(card.transform,"Agent loss risk "+EspionageSystem.LossChance(i).ToString("0.#")+"% · Alert "+(i==3?"unchanged":"+"+EspionageSystem.AlertGain[i])+" · Major action",new Vector2(.025f,.30f),new Vector2(.975f,.46f),18);
+            IntelligenceText(card.transform,"Agent loss risk "+EspionageSystem.LossChance(i).ToString("0.#")+"% · Alert "+(i==3?"unchanged":"+"+EspionageSystem.AlertGain[i]),new Vector2(.025f,.30f),new Vector2(.975f,.46f),18);
             string reason=SpyMissionUnavailable(i);
             var review=IntelligenceButton(card.transform,reason??("Review · "+(paySecret?"1 secret":"1,000 gold")),new Vector2(.025f,.04f),new Vector2(.975f,.28f),()=>{if(mission==5)ReviewDisruption();else ReviewSpyMission(mission);});
             review.name="Review spy mission "+i;review.interactable=reason==null;
@@ -102,7 +102,7 @@ public partial class CouncilUI
         ImperialTheme.Panel(review,false);
         IntelligenceText(review.transform,"EXPECTED EFFECT",new Vector2(.04f,.82f),new Vector2(.96f,.96f),24);
         IntelligenceText(review.transform,CouncilActions.SpyEffects[mission],new Vector2(.04f,.57f),new Vector2(.96f,.82f),28);
-        IntelligenceText(review.transform,"Cost: "+(useSecret?"1 secret":"1,000 gold")+" · Uses your major action",new Vector2(.04f,.40f),new Vector2(.96f,.56f),25);
+        IntelligenceText(review.transform,"Cost: "+(useSecret?"1 secret":"1,000 gold"),new Vector2(.04f,.40f),new Vector2(.96f,.56f),25);
         IntelligenceText(review.transform,"Risk of losing an agent: "+EspionageSystem.LossChance(mission).ToString("0.#")+"%\nCamp alert: "+(mission==3?"unchanged":"+"+EspionageSystem.AlertGain[mission]+" points")+". Higher alert increases the risk of future missions.",new Vector2(.04f,.09f),new Vector2(.96f,.39f),23);
         bool submitted=false;
         var cancel=IntelligenceButton(screen.transform,"Cancel",new Vector2(.10f,.115f),new Vector2(.46f,.205f),()=>IntelligenceMenu(true));cancel.name="Cancel spy mission";
@@ -111,7 +111,7 @@ public partial class CouncilUI
             bool ok=CouncilActions.SpyMission(mission,useSecret,out var report);
             if(ok)submitted=true;
             Finish(ok,report);
-        });confirm.name="Confirm spy mission "+mission;confirm.interactable=SpyMissionUnavailable(mission)==null;
+        });TurnActionButton.Mark(confirm);confirm.name="Confirm spy mission "+mission;confirm.interactable=SpyMissionUnavailable(mission)==null;
     }
 
     private TMP_Text IntelligenceText(Transform parent,string text,Vector2 min,Vector2 max,float size)

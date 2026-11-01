@@ -120,7 +120,7 @@ public static class ConfigurePlaytest
 
         CampaignHUD.Label(help.transform,
 
-            "Defend the city against the odds.\n\nEach turn: choose your management action, hear an event, then face the enemy. Repairs and rest use your major action.\n\nPrepare your walls and army before the siege. During assaults, spend your irreplaceable Varangians to hold a breach, or retreat to the next wall. Losing the final wall ends the campaign.\n\nSpace / Enter: advance narrative text. Escape: back or campaign menu. Checkpoints resume at the start of management.",
+            "Defend the city against the odds.\n\nEach turn: choose your management action, hear an event, then face the enemy. Repairs and rest finish council business.\n\nPrepare your walls and army before the siege. During assaults, spend your irreplaceable Varangians to hold a breach, or retreat to the next wall. Losing the final wall ends the campaign.\n\nSpace / Enter: advance narrative text. Escape: back or campaign menu. Checkpoints resume at the start of management.",
 
             new Vector2(.06f,.2f), new Vector2(.94f,.94f), 27);
 
@@ -180,7 +180,7 @@ public static class ConfigurePlaytest
 
         Caption(Named("ButtonToSiege"), "Inspect / repair walls");
 
-        Caption(manager.GetComponentsInChildren<Button>(true).First(b=>b.name=="ButtonToContinue").gameObject, "Rest — end turn");
+        Caption(manager.GetComponentsInChildren<Button>(true).First(b=>b.name=="ButtonToContinue").gameObject, "Rest");
 
         var defense = Find<DefenseActions>();
 
@@ -188,9 +188,9 @@ public static class ConfigurePlaytest
 
         Rewire(Named("Abandon").GetComponent<Button>(), defense.AbandonSelected);
 
-        Caption(Named("Repair"), "Repair — end turn");
+        Caption(Named("Repair"), "Repair");
 
-        Caption(Named("Abandon"), "Abandon wall — end turn");
+        Caption(Named("Abandon"), "Abandon wall");
 
         var recruit = Find<RecruitationSelection>();
 

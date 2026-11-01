@@ -59,7 +59,7 @@ public partial class CouncilUI
 
         var recruitment=MedicalCard("Monastic service",new Vector2(.035f,.115f),new Vector2(.965f,.265f));
         MedicalText(recruitment.transform,"CALL FOR MORE MONKS",new Vector2(.025f,.59f),new Vector2(.635f,.93f),24);
-        MedicalText(recruitment.transform,"Five monks · 1,000 gold · ready in five days\n"+MedicalRecovery.QueuedMonks.ToString("N0")+" on their way. Recruitment leaves your major action available.",new Vector2(.025f,.08f),new Vector2(.635f,.59f),22);
+        MedicalText(recruitment.transform,"Five monks · 1,000 gold · ready in five days\n"+MedicalRecovery.QueuedMonks.ToString("N0")+" on their way.",new Vector2(.025f,.08f),new Vector2(.635f,.59f),22);
         bool submitted=false;
         bool affordable=CouncilActions.Int("iMoney")>=1000;
         var recruit=CampaignHUD.MakeButton(recruitment.transform,affordable?"Call five monks · 1,000 gold":"Requires 1,000 gold",new Vector2(.67f,.18f),new Vector2(.975f,.83f),()=>{

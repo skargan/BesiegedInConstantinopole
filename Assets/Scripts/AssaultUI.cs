@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
@@ -17,6 +17,7 @@ public class AssaultUI : UIWindowFam
     private System.Collections.Generic.List<TMP_Text> reportFields=new System.Collections.Generic.List<TMP_Text>();
     private void Awake()
     {
+        TurnActionButton.MarkBoundActions(transform,"ContinueToEmperorAction","Proceed to the next day.");
         foreach(var button in GetComponentsInChildren<Button>(true))
             if(button==procedeToAssaultResult || button.name=="ButtonToContinue")
             {
@@ -26,7 +27,7 @@ public class AssaultUI : UIWindowFam
         {
             if(text.text.Trim()=="Title") text.text="Ottoman siege activity";
             if(text.text.StartsWith("Description")) reportFields.Add(text);
-            if(text.text.Contains("sacrifice")) text.text="Continue to the next day";
+            if(text.text.Contains("sacrifice")) text.text="Continue";
         }
     }
     private void BuildBattleReport()
@@ -93,6 +94,7 @@ public class AssaultUI : UIWindowFam
         assaultAftermathMessage.SetActive(false);
         procedeToAssaultResult.gameObject.SetActive(true);
         AI.Instance.TakeAIAction();
+        if(!AI.Instance.WasAssault)TurnActionButton.Mark(procedeToAssaultResult,"Proceed to the next day.");else TurnActionButton.Unmark(procedeToAssaultResult);
         if(!AI.Instance.HasPendingPhased&&!AI.Instance.AwaitingBreachDecision)SaveGames.Checkpoint("advance",null,"Ottoman siege activity",AI.Instance.LastReport);
         RefreshReport();
     }

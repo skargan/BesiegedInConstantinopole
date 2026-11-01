@@ -104,6 +104,6 @@ public static class MedicalRecovery
     public static bool RecruitMonks(out string report)
     {
         if(!TrainingPool.Place("iHealers",5,MonkCost)){report="You need 1,000 gold to call five monks into the medical service.";return false;}
-        report="Five monks will join the medical service in five days. Gold −1,000. Your major action remains available.";return true;
+        report="Five monks will join the medical service in five days. Gold −1,000. You may continue issuing orders.";return true;
     }
 }

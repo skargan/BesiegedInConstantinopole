@@ -4,7 +4,7 @@ using Yarn.Unity;
 public static class SultanNegotiations
 {
     public static readonly string[] Titles={"Surrender — request terms","Talk of history","Send a gift to Mehmed","Recite poetry","Talk theology","Demand his surrender","Taunt him"};
-    public static readonly string[] Effects={"Receive a sealed offer to review. Once per day; no major action.","An exchange about rulers, conquest and inheritance. One conversation per day; no major action.","Choose from eight gifts. Review gold, resources and effect before confirming. Major action. May receive a return gift.","Exchange verses about desire, victory and loss. One conversation per day; no major action.","Discuss providence, judgement and the duties of a ruler. One conversation per day; no major action.","Army morale +3 points · Sultan's fury +5 points · Major action.","Public morale +3 points · Sultan's fury +5 points · Major action."};
+    public static readonly string[] Effects={"Receive a sealed offer to review. Once per day; you may continue issuing orders.","An exchange about rulers, conquest and inheritance. One conversation per day; you may continue issuing orders.","Choose from eight gifts. Review gold, resources and effect before confirming. A return gift is possible.","Exchange verses about desire, victory and loss. One conversation per day; you may continue issuing orders.","Discuss providence, judgement and the duties of a ruler. One conversation per day; you may continue issuing orders.","Army morale +3 points · Sultan's fury +5 points.","Public morale +3 points · Sultan's fury +5 points."};
     public static bool IsConversation(int i)=>i==0 || i==1 || i==3 || i==4;
     public static bool IsTalk(int i)=>i==1 || i==3 || i==4;
     static int Topic(int i)=>i==1?0:i==3?1:2;

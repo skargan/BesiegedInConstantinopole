@@ -11,7 +11,7 @@ public partial class CouncilUI
     {
         string[] titles={"The Palace","The palace garden","Hagia Sophia"};
         string[] art={"palace-interior","palace-garden","hagia-sophia"};
-        string subtitle=place==2?PalaceLocations.VisitSanctuary():place==0?"Attend to your affairs, or step outside to meet your court.":"A little distance from the council table. Conversation costs no major action.";
+        string subtitle=place==2?PalaceLocations.VisitSanctuary():place==0?"Attend to your affairs, or step outside to meet your court.":"A little distance from the council table. You may continue issuing orders.";
         Open(titles[place],subtitle);
         body.parent.gameObject.SetActive(false);
         // Fit the entire painting; hotspots use its own coordinates at every window aspect ratio.
