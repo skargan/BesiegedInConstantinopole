@@ -1,0 +1,8 @@
+BESIEGED VERSION 36.7 — HOURGLASS SPACING
+
+The shared time-commitment button class now keeps its hourglass farther inside the ornamental frame, with a responsive 20–28 UI-unit edge inset and an explicit 10-unit gap reserved for the caption. The same spacing applies to Rest, repairs, monthly preparation, aid, fleet confirmations and every other marked control. Icon artwork, size, vertical centring, hover behaviour, disabled appearance and all gameplay timing remain unchanged.
+
+Verification: TURN_ACTION_CHECKS 411 passed at 1600x900 and 1280x720; one isolated repair committed.
+Checks include frame inset, caption/icon clearance and text overflow, repeated marking without shrinking captions, disabled/hover behaviour, campaign and RNG preservation, and an actual isolated repair. Visually reviewed Council Rest and tooltip at both capture sizes, plus preparation, walls, aid and fleet confirmation. Focused layout validation, not a new balance pass.
+
+Latest saves copied from earlier Version 36 releases. Open Besieged-Latest after closing an earlier game version to see this update.

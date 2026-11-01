@@ -12,7 +12,7 @@ public static class BuildHourglassPatch
         importer.maxTextureSize=512;importer.mipmapEnabled=false;importer.alphaIsTransparency=true;importer.filterMode=UnityEngine.FilterMode.Bilinear;importer.SaveAndReimport();
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{
             scenes=EditorBuildSettings.scenes.Where(s=>s.enabled).Select(s=>s.path).ToArray(),
-            locationPathName="Builds/Version-36.6/Besieged.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.Development});
+            locationPathName="Builds/Version-36.7/Besieged.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.Development});
         if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Hourglass build failed: "+report.summary.result);
         UnityEngine.Debug.Log("HOURGLASS_BUILD_COMPLETE");
     }

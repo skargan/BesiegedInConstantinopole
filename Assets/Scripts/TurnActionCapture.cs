@@ -39,7 +39,20 @@ public sealed class TurnActionCapture : MonoBehaviour
     void Marked(Button button,bool expected,string label)
     {
         var icon=Icon(button);Check((button.GetComponent<TurnActionButton>()!=null)==expected,label+" commitment marker");
-        if(expected)Check(icon!=null&&icon.sprite!=null&&icon.sprite==TurnActionButton.Emblem&&!icon.raycastTarget&&Inside(Bounds((RectTransform)button.transform),Bounds(icon.rectTransform)),label+" visible contained nonblocking emblem");
+        if(expected){
+            Check(icon!=null&&icon.sprite!=null&&icon.sprite==TurnActionButton.Emblem&&!icon.raycastTarget&&Inside(Bounds((RectTransform)button.transform),Bounds(icon.rectTransform)),label+" visible contained nonblocking emblem");
+            var box=(RectTransform)button.transform;var local=icon.rectTransform;
+            float inset=-local.anchoredPosition.x-local.rect.width*.5f;
+            Check(inset>=19.99f&&inset<=28.01f,label+" hourglass has a generous frame inset");
+            foreach(var caption in button.GetComponentsInChildren<TMP_Text>().Where(t=>t.gameObject.activeSelf&&t.enabled&&t.rectTransform.anchorMax.x>.8f)){
+                caption.ForceMeshUpdate();
+                var corners=new Vector3[4];caption.rectTransform.GetWorldCorners(corners);
+                float captionRight=corners.Max(c=>box.InverseTransformPoint(c).x);
+                float iconLeft=box.rect.xMax+local.anchoredPosition.x-local.rect.width*.5f;
+                Check(captionRight<=iconLeft-9.9f,label+" caption stays clear of hourglass");
+                Check(!caption.isTextOverflowing,label+" caption fits reserved text area: "+caption.text);
+            }
+        }
         else Check(icon==null,label+" no misleading emblem");
     }
     void NoActionProse(GameObject root,string label)
@@ -101,7 +114,11 @@ public sealed class TurnActionCapture : MonoBehaviour
         yield return new WaitForSecondsRealtime(.5f);manager=FindObjectOfType<ManagerUI>();council=CouncilUI.For(manager);baseline=VariableSingleton.Instance.CaptureState();
         foreach(var size in new[]{new Vector2Int(1600,900),new Vector2Int(1280,720)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.6f);string suffix=size.x+"x"+size.y;
-            Check(Screen.width==size.x&&Screen.height==size.y,suffix+" display size applied");Restore();manager.BringUpSiegeUI();yield return null;
+            Check(Screen.width==size.x&&Screen.height==size.y,suffix+" display size applied");
+            Restore();var restButton=manager.GetComponentsInChildren<Button>().First(b=>b.name=="ButtonToContinue");
+            Canvas.ForceUpdateCanvases();Marked(restButton,true,suffix+" council rest");
+            yield return Capture("council-rest-"+suffix);yield return Hover(restButton,"rest-"+suffix);
+            Restore();manager.BringUpSiegeUI();yield return null;
             walls=Field<GameObject>(manager,"siegeUI");var actions=walls.GetComponentInChildren<DefenseActions>(true);
             actions.GetSelection("fOuterWall");Canvas.ForceUpdateCanvases();
             var repair=Field<Button>(actions,"repairButton");var abandon=Field<Button>(actions,"abandonButton");

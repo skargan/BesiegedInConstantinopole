@@ -65,9 +65,11 @@ public sealed class TurnActionButton : MonoBehaviour, IPointerEnterHandler, IPoi
         icon.sprite=Emblem;
         var bounds=((RectTransform)transform).rect;
         float height=Mathf.Clamp(bounds.height*.66f,22,44),width=height*.60f;
+        // Keep the emblem clear of the ornate frame at every button height.
+        float inset=Mathf.Clamp(height*.65f,20,28),captionGap=10;
         var rect=icon.rectTransform;rect.anchorMin=rect.anchorMax=new Vector2(1,.5f);
-        rect.sizeDelta=new Vector2(width,height);rect.anchoredPosition=new Vector2(-12-width*.5f,0);
-        for(int i=0;i<captions.Length;i++)if(captions[i]!=null)captions[i].rectTransform.offsetMax=new Vector2(captionOffsets[i].x-width-18,captionOffsets[i].y);
+        rect.sizeDelta=new Vector2(width,height);rect.anchoredPosition=new Vector2(-inset-width*.5f,0);
+        for(int i=0;i<captions.Length;i++)if(captions[i]!=null)captions[i].rectTransform.offsetMax=new Vector2(captionOffsets[i].x-width-inset-captionGap,captionOffsets[i].y);
     }
     void Refresh(){lastEnabled=button!=null&&button.IsInteractable();if(!lastEnabled)CloseHint();if(icon!=null)icon.color=lastEnabled?Color.white:new Color(.46f,.46f,.46f,.72f);}
     void LateUpdate(){if(button!=null&&button.IsInteractable()!=lastEnabled)Refresh();}
