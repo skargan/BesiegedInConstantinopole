@@ -14,6 +14,9 @@ public static class WarTheatre
     public static readonly string[] SavedProvinceIds={"thrace","bulgaria","macedonia","bithynia","karasi","saruhan","aydin","mentese","germiyan","anatolia","armeniakon","candar"};
     public static string CanonicalProvince(string id)=>id=="saruhan"?"aydin":id;
     public static Region Find(string id)=>Data.regions.FirstOrDefault(r=>r.id==CanonicalProvince(id));
+    // Possessions remain separate polygons, but share one diplomatic identity.
+    public static string HighlightKey(Region r)=>r.kind=="province"||r.kind=="neutral"||r.kind=="capital"?r.id:r.group;
+    public static Region DiplomaticPower(Region r)=>r.kind=="province"||r.kind=="neutral"||r.kind=="capital"?r:Find(r.group)??r;
     public static int Control(Region r)=>Mathf.Clamp(100-DailyLifeEvents.I("iWbwControlLoss_"+r.id),0,100);
     public static int Resistance(Region r)=>ProvinceCampaign.Rebellion(r.id)?2:ProvinceCampaign.Resistance(r.id)>0?1:0;
     public static bool Captured(Region r)=>DailyLifeEvents.I("iWbwCaptured_"+r.id)>0;

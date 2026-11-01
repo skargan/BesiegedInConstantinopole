@@ -1,0 +1,23 @@
+Aq Qoyunlu diplomatic integration — map review
+
+Implementation
+- Append-only ally index 17; all earlier numerical save indices remain unchanged.
+- One realm identifier: aq_qoyunlu. Its map possessions route to the same profile and appeal.
+- CouncilActions.AllyIndexForRealm is explicit; map-only powers have no borrowed ally index.
+- CouncilUI.DiplomaticRelationsFor(group) opens the correct aid status/action and realm history.
+- Existing aid rules apply: one appeal per campaign, 1,000 gold major action. Provisional package mirrors Karaman (20% base, 3,000 gold, 300 provisions), with 35-day travel through Trebizond and the Black Sea. These are game balance assumptions, not historical shipments.
+- New and legacy saves use existing lazy defaults. Loading an older save clears absent aid fields from the previous campaign, including transport promises; older recorded cargo keeps its fallback.
+
+Regional war boundary / next dependency
+Aq Qoyunlu is a candidate for the general regional-war system. Do not advertise a working war invitation yet. The current live game has no producer of iWbwWar_<group>; map war reports are placeholders. AlbaniaWarTrial is an isolated 30-day test and must not be silently used as a campaign war. The eventual shared system should model diplomatic acceptance, declared commitments, eastern fronts, provincial exports and revolt cooperation before exposing a declaration-of-war action. No new frontier pressure, army strength or war cost has been invented in this integration.
+
+Historical scope
+Represent the Amid / Diyarbakir and upper Tigris base, with approximate foothills and disputed margins. Do not draw the later empire across Iran. Uzun Hasan took Amid in 1452; rivalry with Jahangir continued until 1457. The great expansion followed the defeat of the Qara Qoyunlu in 1467. Existing Trebizond family links support a fictional diplomatic route; do not present the later Venetian coalition or a Constantinople relief mission as an established 1453 fact. Original diplomatic letters are fictional, not quotations.
+Source: Rosemarie Quiring-Zoche, “Aq Qoyunlu”, Encyclopaedia Iranica, https://www.iranicaonline.org/articles/aq-qoyunlu-confederation/ (checked 1 November 2026).
+
+Verification to run in Unity
+- DiplomaticRepliesSmokeTest: roster/profile alignment; index 17; canonical routing; sea route; non-Western political classification; all original reply combinations.
+- Load an older save after committing Aq aid: no phantom commitment, countdown or transport cargo.
+- Accept/deliver Aq aid once and save/reload pending aid; confirm ordinary aid state and no duplicate delivery.
+- Click Venice, Crete, Genoa and Caffa: one corresponding parent power profile and shared appeal state.
+- Open Aq profile at 1280x720 and 1920x1080: cost, route, status and buttons fit.

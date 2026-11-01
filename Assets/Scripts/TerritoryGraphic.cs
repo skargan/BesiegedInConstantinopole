@@ -8,10 +8,12 @@ public class TerritoryGraphic : MaskableGraphic, IPointerEnterHandler, IPointerE
 {
     public Vector2[] Points; public System.Action Click; public System.Action<bool> Hover;
     bool over;
+    public bool Highlighted => over;
+    public void SetHighlighted(bool value) { if (over == value) return; over=value; SetVerticesDirty(); }
     public static bool Contains(Vector2 p,Vector2[] points){bool inside=false;for(int i=0,j=points.Length-1;i<points.Length;j=i++)if((points[i].y>p.y)!=(points[j].y>p.y)&&p.x<(points[j].x-points[i].x)*(p.y-points[i].y)/(points[j].y-points[i].y)+points[i].x)inside=!inside;return inside;}
     public override bool Raycast(Vector2 screen,Camera camera){if(!base.Raycast(screen,camera)||Points==null)return false;RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform,screen,camera,out var p);var r=rectTransform.rect;return Contains(new Vector2((p.x-r.xMin)/r.width,(p.y-r.yMin)/r.height),Points);}
-    public void OnPointerEnter(PointerEventData e){over=true;SetVerticesDirty();Hover?.Invoke(true);}
-    public void OnPointerExit(PointerEventData e){over=false;SetVerticesDirty();Hover?.Invoke(false);}
+    public void OnPointerEnter(PointerEventData e){if(Hover!=null)Hover(true);else SetHighlighted(true);}
+    public void OnPointerExit(PointerEventData e){if(Hover!=null)Hover(false);else SetHighlighted(false);}
     public void OnPointerClick(PointerEventData e){if(e.button==PointerEventData.InputButton.Left)Click?.Invoke();}
     static float Cross(Vector2 a,Vector2 b,Vector2 c)=>(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);
     static bool Triangle(Vector2 p,Vector2 a,Vector2 b,Vector2 c)=>Cross(a,b,p)>=0&&Cross(b,c,p)>=0&&Cross(c,a,p)>=0;

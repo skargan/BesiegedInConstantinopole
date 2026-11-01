@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,27 @@ using UnityEngine.UI;
 public class WarTheatreUI : MonoBehaviour
 {
     static GameObject root; RectTransform map; Transform overlays,detail; TMP_Text hover;
+    readonly Dictionary<string,List<TerritoryGraphic>> powerShapes=new Dictionary<string,List<TerritoryGraphic>>();
+    TerritoryGraphic hoveredShape;
+    void Register(TerritoryGraphic shape,WarTheatre.Region region) {
+        string key=WarTheatre.HighlightKey(region);
+        if(!powerShapes.TryGetValue(key,out var shapes)){shapes=new List<TerritoryGraphic>();powerShapes.Add(key,shapes);}
+        shapes.Add(shape);shape.Click=()=>Select(region);shape.Hover=on=>HoverPower(region,shape,on);
+    }
+    void ClearHover() {
+        foreach(var shapes in powerShapes.Values)foreach(var shape in shapes)if(shape!=null)shape.SetHighlighted(false);
+        hoveredShape=null;if(hover!=null)hover.text=HoverHint;
+    }
+    void HoverPower(WarTheatre.Region region,TerritoryGraphic source,bool on) {
+        string key=WarTheatre.HighlightKey(region);
+        if(!on){if(hoveredShape==source)ClearHover();return;}
+        ClearHover();hoveredShape=source;
+        if(powerShapes.TryGetValue(key,out var shapes))foreach(var shape in shapes)shape.SetHighlighted(true);
+        var power=WarTheatre.DiplomaticPower(region);
+        string title=power.name+(power.id==region.id?"":" · "+region.name);
+        hover.text=title+" · "+(region.kind=="province"?WarTheatre.Status(region):region.kind=="capital"?"Enter the Palace":region.kind=="neutral"?"Independent territory":"All possessions highlighted · Select for diplomacy");
+    }
+    void OnDisable(){ClearHover();}
     bool provinces=true,allies=true; float zoom=1; Vector2 fit;
     const string HoverHint="Hover for gold outline · Click a territory · Scroll to zoom · Drag to explore";
     public static bool Close(){if(root==null)return false;root.SetActive(false);Destroy(root);root=null;return true;}
@@ -40,12 +62,22 @@ public class WarTheatreUI : MonoBehaviour
     bool WorldMapUIOpen()=>GameObject.Find("World map viewer")!=null;
     void Clear(Transform t){foreach(Transform child in t){child.gameObject.SetActive(false);Destroy(child.gameObject);}}
     void Draw(){
+        ClearHover();powerShapes.Clear();
         if(overlays!=null){overlays.gameObject.SetActive(false);Destroy(overlays.gameObject);}overlays=CampaignHUD.Panel(map,"Political overlays",Vector2.zero,Vector2.one).transform;overlays.GetComponent<Image>().color=Color.clear;overlays.GetComponent<Image>().raycastTarget=false;
         foreach(var r in WarTheatre.Data.regions){if(r.kind=="province"?!provinces:!allies&&r.kind!="capital")continue;
-            if(r.points.Length>=3){var go=new GameObject(r.id,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=Vector2.zero;rt.anchorMax=Vector2.one;rt.offsetMin=rt.offsetMax=Vector2.zero;var shape=go.GetComponent<TerritoryGraphic>();shape.Points=r.points;shape.color=WarTheatre.Tint(r);shape.Click=()=>Select(r);shape.Hover=on=>hover.text=on?r.name+" · "+(r.kind=="province"?WarTheatre.Status(r):r.kind=="neutral"?"Independent principality · geographical context":"Select for relations and regional interests"):HoverHint;}
+            if(r.points.Length>=3){var go=new GameObject(r.id,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=Vector2.zero;rt.anchorMax=Vector2.one;rt.offsetMin=rt.offsetMax=Vector2.zero;var shape=go.GetComponent<TerritoryGraphic>();shape.Points=r.points;shape.color=WarTheatre.Tint(r);Register(shape,r);}
         }
         foreach(var r in WarTheatre.Data.regions){if(r.kind=="province"?!provinces:!allies&&r.kind!="capital")continue;
-            if(r.kind=="colony"||r.kind=="capital"){var go=new GameObject(r.name,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=r.label;rt.sizeDelta=Vector2.one*(r.kind=="capital"?20:12);var shape=go.GetComponent<TerritoryGraphic>();shape.Points=new[]{new Vector2(.5f,0),new Vector2(1,.5f),new Vector2(.5f,1),new Vector2(0,.5f)};shape.color=r.kind=="capital"?new Color(.75f,.25f,.9f):WarTheatre.Tint(r);shape.Click=()=>Select(r);shape.Hover=on=>hover.text=on?r.name+" · "+(r.kind=="capital"?"Enter the Palace":r.group+" connection"):HoverHint;}
+            if(r.kind=="colony"||r.kind=="capital"){
+                // Separate the Galata port marker from the Palace hotspot without moving its geographic anchor.
+                Vector2 markerOffset=r.id=="galata"?new Vector2(-16,14):Vector2.zero;
+                if(markerOffset!=Vector2.zero){
+                    var leader=new GameObject("Galata leader",typeof(RectTransform),typeof(Image));leader.transform.SetParent(overlays,false);
+                    var lr=leader.GetComponent<RectTransform>();lr.anchorMin=lr.anchorMax=r.label;lr.anchoredPosition=markerOffset*.5f;
+                    lr.sizeDelta=new Vector2(markerOffset.magnitude,1);lr.localEulerAngles=new Vector3(0,0,Mathf.Atan2(markerOffset.y,markerOffset.x)*Mathf.Rad2Deg);
+                    var ink=leader.GetComponent<Image>();ink.color=new Color(.87f,.78f,.48f,.8f);ink.raycastTarget=false;
+                }
+                var go=new GameObject(r.name,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=r.label;rt.anchoredPosition=markerOffset;rt.sizeDelta=Vector2.one*(r.kind=="capital"?20:12);var shape=go.GetComponent<TerritoryGraphic>();shape.Points=new[]{new Vector2(.5f,0),new Vector2(1,.5f),new Vector2(.5f,1),new Vector2(0,.5f)};shape.color=r.kind=="capital"?new Color(.75f,.25f,.9f):WarTheatre.Tint(r);Register(shape,r);}
             if(r.kind!="colony"&&r.kind!="island"){var text=CampaignHUD.Label(overlays,r.name,new Vector2(r.label.x-.047f,r.label.y-.016f),new Vector2(r.label.x+.047f,r.label.y+.016f),r.kind=="capital"?14:16);text.alignment=TextAlignmentOptions.Center;text.raycastTarget=false;text.fontStyle=FontStyles.Bold;text.enableAutoSizing=true;text.fontSizeMin=10;text.fontSizeMax=16;text.color=new Color(1,.95f,.78f);text.gameObject.AddComponent<Shadow>().effectDistance=new Vector2(1,-1);if(r.kind=="capital")text.rectTransform.anchoredPosition+=new Vector2(0,-19);}
             if(r.kind=="province"){int icon=WarTheatre.Captured(r)?3:WarTheatre.Resistance(r)>=2?2:WarTheatre.Resistance(r)==1?1:ProvinceCampaign.Agent(r.id)>0?0:-1;if(icon>=0)Icon(overlays,icon,r.label+new Vector2(0,.046f),32,()=>Select(r));}
         }
@@ -56,14 +88,15 @@ public class WarTheatreUI : MonoBehaviour
     }
     void Select(WarTheatre.Region r){
         if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}Clear(detail);
-        CampaignHUD.Label(detail,r.name,new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
+        var power=WarTheatre.DiplomaticPower(r);
+        CampaignHUD.Label(detail,power.name,new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
         string text;
         if(r.kind=="province")text=WarTheatre.Status(r)+" · Authority "+WarTheatre.Control(r)+"% · Resistance "+ProvinceCampaign.Resistance(r.id)+"%\n"+r.referenceName+" · "+r.role+"\n"+(ProvinceCampaign.Agent(r.id)>0?ProvinceCampaign.Status(r.id):"No imperial agent assigned here.");
         else if(r.kind=="neutral")text=r.referenceName+"\n"+r.note;
-        else text=(r.kind=="colony"?"Maritime possession / associated lordship · "+r.group:"Potential regional participant · "+(WarTheatre.AtWar(r)?"War reported":"No regional war reported"))+"\n"+r.note;
+        else text=(power.id==r.id?"Realm and dependencies":r.name+" · "+power.name+" connection")+" · "+(WarTheatre.AtWar(power)?"War reported":"No regional war reported")+"\n"+r.note;
         var body=CampaignHUD.Explanation(detail,text,new Vector2(.02f,.06f),new Vector2(.73f,.71f),20);body.enableAutoSizing=true;body.fontSizeMin=17;body.fontSizeMax=20;
         if(r.kind=="province")CampaignHUD.MakeButton(detail,"Provincial operations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).ProvincialOperationsFor(r.id);});
-        else if(r.kind!="neutral")CampaignHUD.MakeButton(detail,"Diplomatic relations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
+        else if(r.kind!="neutral")CampaignHUD.MakeButton(detail,"Diplomatic relations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelationsFor(power.group);});
         CampaignHUD.Label(detail,r.kind=="province"?"Supply exports stop during\nrebellion and after liberation.":"An aid expedition does not\nautomatically mean a foreign war.",new Vector2(.76f,.06f),new Vector2(.98f,.4f),17);
     }
     void WarReport(WarTheatre.Region r){Clear(detail);CampaignHUD.Label(detail,r.name+" · Ottoman front",new Vector2(.02f,.7f),new Vector2(.98f,.98f),28);CampaignHUD.Explanation(detail,"War reported on this front. Provincial control and independent commitments will be recorded here as the regional warfare system develops.\nNo battle strength or casualties have been invented for this report.",new Vector2(.02f,.08f),new Vector2(.98f,.66f),22);}

@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.4 · City ledger";
+    public const string BuildLabel="Version 36.5 · Realms and frontiers";
 
 
 
@@ -1022,6 +1022,30 @@ public partial class CouncilUI : MonoBehaviour
     }
 
 
+
+    public void DiplomaticRelationsFor(string group)
+    {
+        int index=CouncilActions.AllyIndexForRealm(group);
+        if(index<0) { DiplomaticRelations(); return; }
+        DiplomaticPower(index);
+    }
+
+    public void DiplomaticPower(int index)
+    {
+        if(index<0 || index>=CouncilActions.Allies.Length) { DiplomaticRelations(); return; }
+        var ally=CouncilActions.Allies[index];int state=CouncilActions.Int("iAidState"+index);
+        var profile=DiplomaticChronicles.All[index];
+        Open(ally.Name,profile.Religion+" · Diplomatic relations");
+        ControlSingleton.Instance.ReturnAction=DiplomaticRelations;
+        BodyHeight(400);var row=Row(0,400);
+        string status=state==0?CouncilActions.AidChance(index)+"% acceptance · "+ally.Days+" days travel":state==1?"Aid due in "+CouncilActions.Int("iAidDays"+index)+" days":state==2?"Aid delivered":state==4?"Relief fleet lost at sea":"Appeal declined";
+        string terms=state==0?"Appeal: 1,000 gold · Major action"+(AidRouting.BySea(index)?" · Requires an available ship":""):state==1?"Expedite: 1,000 gold · Up to 5 days sooner · Major action":"One appeal per campaign";
+        CampaignHUD.Label(row.transform,status,new Vector2(.04f,.80f),new Vector2(.96f,.96f),27);
+        CampaignHUD.Explanation(row.transform,ally.Description+"\n\n"+AidRouting.Route(index)+" · Package: "+AidRouting.Cargo(index)+"\n"+terms,new Vector2(.04f,.30f),new Vector2(.96f,.79f),23);
+        var action=CampaignHUD.MakeButton(row.transform,state==1?"Expedite aid · 1,000 gold":state==0?"Request aid · 1,000 gold":"Appeal resolved",new Vector2(.04f,.06f),new Vector2(.58f,.23f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(index,out result):CouncilActions.RequestAid(index,out result);Finish(ok,result);});
+        action.interactable=(state==0 || state==1) && CouncilActions.Int("iMoney")>=1000 && (state==1 || !AidRouting.BySea(index) || CouncilActions.Int("iShips")>0) && (state!=1 || CouncilActions.Int("iAidDays"+index)>1);
+        CampaignHUD.MakeButton(row.transform,"The realm and its interests",new Vector2(.62f,.06f),new Vector2(.96f,.23f),()=>{Chronicle(index);ControlSingleton.Instance.ReturnAction=()=>DiplomaticPower(index);});
+    }
 
     public void Chronicle(int index)
 

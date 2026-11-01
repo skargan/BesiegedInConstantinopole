@@ -1,0 +1,13 @@
+BESIEGED VERSION 36.5 — REALMS AND FRONTIERS
+
+- Redrawn Adriatic, Greek and Anatolian coastal gaps; organic shared inland borders.
+- Venetian Dalmatia, ports and islands; Hungarian Croatia; neutral Bosnia, Ragusa and Tocco island context; Genoese Corsica.
+- One diplomatic identity per realm: hover any Venetian/Genoese possession to highlight all of them; every dependency opens its parent power. Naples and Sicily are grouped too.
+- Aq Qoyunlu added to the map and the existing diplomacy/aid system, with profile and correspondence. Its live regional-war invitation awaits the shared regional-war system; Albania remains an isolated development trial.
+- Separated Galata's click target from Constantinople with a leader line. Port anchors checked against painted shorelines.
+- Existing eleven Ottoman province identifiers and original seventeen diplomatic indices preserved. Appended Aq Qoyunlu at index17. Older saves cannot inherit a later campaign's aid commitments.
+
+Verification
+THEATRE_CHECKS 613 passed at1600x900 and1280x720: group hover/exit, delayed pointer exits, real polygon hit tests, independent Galata/Palace targets, map toggles/zoom, parent selection, direct diplomacy, old-save restoration and aid delivery exactly once. Actual map and diplomatic screenshots reviewed. 216 diplomatic reply combinations checked during Unity build. 67 regions and51 polygons passed catalogue/triangulation checks.
+
+Your prior Version36 save files have been copied into this build's local Saves folder. Previous builds and their saves remain available. This was a focused map/diplomacy release, not a new full-campaign balance test.

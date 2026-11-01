@@ -1,0 +1,54 @@
+WAR THEATRE CARTOGRAPHY — NOVEMBER 2026
+
+The base geographical painting is unchanged. All changes are vector overlays
+registered to that painting. Coastlines are traced from the illustration;
+inland frontiers use interpreted ridges and river corridors, not survey data.
+The 11 province IDs and their save mappings remain unchanged.
+
+Marked areas corrected
+- Eastern Adriatic: a narrow Venetian Dalmatian coastal strip; Croatian lands
+  grouped with Hungary; Bosnia and Ragusa shown separately as neutral context.
+  Kotor, Zara, Spalato and Sebenico are Venetian ports. Venetian Adriatic island outlines are grouped with their metropolis. Existing Istria remains
+  in the Venetian mainland outline. Small port markers do not claim hinterland.
+- Western Greece: Ottoman Epirus and the Thessalian coastal gap now form part
+  of the existing Macedonian operational district. Chalkidiki's three fingers
+  follow the coastline. No Mount Athos label has been introduced.
+- Corfu retains Venetian affiliation. Cephalonia, Leucas and Zakynthos form
+  contextual Tocco lordships, rather than being falsely coloured Venetian in
+  1453. They do not create three separate diplomatic relationships.
+- Opsikion and Thrakesion now include their omitted western promontories;
+  Genoese-associated Lesbos and Chios remain distinct islands.
+- The Antalya coastal gap belongs to the Cibyrrhaeot operational district.
+  Karaman and that district meet along an irregular shared Taurus frontier.
+- Long Karaman/Anatolikon, Armeniakon and Georgian borders were redrawn around
+  foothill and river corridors. Naples' artificial stepped frontier was removed.
+- Genoese Corsica added; South Crimea retains the Genoese group, with the
+  overlapping Gazaria headline removed (colony markers remain).
+- Aq Qoyunlu added near the upper Tigris / Diyarbakir. This is a deliberately
+  restrained 1453 extent, not the much larger Iranian empire of the late 1460s.
+
+Affiliation is a gameplay grouping. Associated Gattilusio and maritime
+lordships retain explanatory notes; Genoese association is not a claim that
+every local institution was administered identically. Paphlagonia remains
+fully Ottoman as explicitly requested earlier for this prototype.
+
+References consulted
+https://www.iranicaonline.org/articles/aq-qoyunlu-confederation/
+https://islamansiklopedisi.org.tr/uzun-hasan
+https://makale.isam.org.tr/items/2a616060-977c-4dd9-8771-70ae890b8adb
+https://etc.usf.edu/maps/pages/3600/3658/3658.htm
+https://commons.wikimedia.org/wiki/File:Empire-byzantin-1450.svg
+Existing project reference: Davies and Davis, Greeks, Venice, and the Ottoman
+Empire, https://storia.dh.unica.it/risorse_omc/files/original/97da42ed321f90e7be55607b16ee3bb7.pdf
+
+Validation
+67 unique region IDs; exactly 11 Ottoman province IDs; normalised coordinates
+within bounds; no duplicate vertices; no strict edge self-intersections.
+Ownership masks are partitioned before tracing. Touching edges and very small
+coastal painterly inaccuracies are possible at this illustration's resolution.
+Generated preview visually reviewed. Unity interaction checks are separate.
+
+Reproducibility
+map_cartography_revision.py stages a new JSON from the captured baseline and
+reuses the original coastline classifier/tracer in wbw33_coastlines.py. It
+also emits a diagnostic overlay preview. It never writes the base artwork.

@@ -386,6 +386,10 @@ public class VariableSingleton : MonoBehaviour
     public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
+        // Appended realms must not inherit a later campaign's appeal when loading an older save.
+        // Omitted warship promises stay absent so legacy pending expeditions retain their original cargo.
+        foreach(string key in new List<string>(iDict.Keys))
+            if(key.StartsWith("iAidState") || key.StartsWith("iAidDays") || key.StartsWith("iAidWarships")) iDict.Remove(key);
         RecruitmentLogistics.ResetForRestore();
         MedicalRecovery.ResetForRestore();
         MehmedAssassination.ResetForRestore();

@@ -42,6 +42,8 @@ public static class CouncilActions
 
     }
 
+    // Append only: numeric ally keys are retained in campaign saves.
+    public const int AqQoyunluIndex = 17;
     public static readonly Ally[] Allies = {
 
         new Ally("Hungary", "A potential landward counterweight to the Ottomans; aid is uncertain.",70,27,5000,0,500,0,0,0),
@@ -67,9 +69,38 @@ public static class CouncilActions
         new Ally("Poland and Lithuania", "Appeal for cavalry, volunteers and a war subsidy.",15,42,500,250,500,0,5000,0),
         new Ally("Teutonic Order", "Request an armed brotherhood and its supporting troops.",15,50,500,250,200,1,0,0),
         new Ally("England", "Ask for archers, ships and funds for the City's defence.",15,60,300,750,100,2,5000,0),
-        new Ally("Karaman", "Ibrahim Bey's rivalry with the Sultan opens a route for discreet funds and supplies.",20,25,0,0,0,0,3000,300)
+        new Ally("Karaman", "Ibrahim Bey's rivalry with the Sultan opens a route for discreet funds and supplies.",20,25,0,0,0,0,3000,300),
+        new Ally("Aq Qoyunlu", "The White Sheep Turkomans guard their eastern interests; seek discreet funds and supplies through Trebizond.",20,35,0,0,0,0,3000,300)
 
     };
+
+    // Map possessions share their parent realm's appeal and saved commitment.
+    // Unimplemented diplomatic powers return -1 rather than borrowing another realm's index.
+    public static int AllyIndexForRealm(string group)
+    {
+        switch(group)
+        {
+            case "hungary": return 0;
+            case "venice": return 1;
+            case "genoa": return 2;
+            case "papacy": return 3;
+            case "albania": return 4;
+            case "hospitallers": return 5;
+            case "naples": return 6;
+            case "holy_roman_empire": return 7;
+            case "france": return 8;
+            case "athens": return 9;
+            case "georgia": return 10;
+            case "trebizond": return 11;
+            case "cyprus": return 12;
+            case "poland_lithuania": return 13;
+            case "teutonic_order": return 14;
+            case "england": return 15;
+            case "karaman": return 16;
+            case "aq_qoyunlu": return AqQoyunluIndex;
+            default: return -1;
+        }
+    }
 
     public static readonly string[] FactionKeys = {"fTroopRep","fPeopleRep","fNobleRep","fPriestRep","fGalataRep"};
 

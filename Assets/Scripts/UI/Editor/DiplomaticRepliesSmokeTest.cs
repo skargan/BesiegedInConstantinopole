@@ -5,6 +5,11 @@ public static class DiplomaticRepliesSmokeTest
  public static void Run()
  {
   int checks=0;
+  if(CouncilActions.Allies.Length!=DiplomaticChronicles.All.Length)throw new Exception("Diplomatic profile roster mismatch");
+  if(CouncilActions.Allies[CouncilActions.AqQoyunluIndex].Name!="Aq Qoyunlu" || CouncilActions.AqQoyunluIndex!=17)throw new Exception("Aq Qoyunlu save index changed");
+  if(CouncilActions.AllyIndexForRealm("venice")!=1 || CouncilActions.AllyIndexForRealm("genoa")!=2 || CouncilActions.AllyIndexForRealm("aq_qoyunlu")!=17)throw new Exception("Realm routing mismatch");
+  if(CouncilActions.AllyIndexForRealm("morea")!=-1 || CouncilActions.AllyIndexForRealm(null)!=-1)throw new Exception("Map-only realm borrowed a diplomatic identity");
+  if(!AidRouting.BySea(17) || !AidRouting.Route(17).Contains("Trebizond") || PoliticalSystem.Western(17))throw new Exception("Aq Qoyunlu route or political alignment incorrect");
   foreach(var ally in CouncilActions.Allies)
    for(int religion=0;religion<3;religion++)
     for(int accepted=0;accepted<2;accepted++)
