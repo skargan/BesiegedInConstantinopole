@@ -1,0 +1,9 @@
+BESIEGED VERSION 36.9 — REVISED FRONTIERS
+
+Moldavia, Bosnia, Albania and Trebizond have larger, contiguous schematic territories. Hungary, Wallachia and Moldavia share a redrawn Carpathian/foothill boundary. The enlarged eastern region is now Turkmen Confederations, with an About article distinguishing the rival Aq Qoyunlu and Qara Qoyunlu dynasties. The current embassy continues to approach the Aq Qoyunlu court through Trebizond.
+
+Existing IDs, aid index 17, prices, chances, packages, travel time, save progress and gameplay randomisation remain unchanged. The geographic background and separate historical atlas are unchanged.
+
+Verification: THEATRE_CHECKS 659 passed. Exported-player checks at 1600x900 and 1280x720 include newly covered land hit-testing, correct territory selection, grouped highlights, readable eastern label, map-to-diplomacy-to-About navigation, legacy and current aid saves, no repeated aid delivery, and campaign/RNG preservation. The 216 diplomatic-reply combinations also passed in Unity. Independent geometry checks found no new overlap or invalid polygon; all shapes triangulate at three map widths.
+
+Built on Version 36.8. Earlier saves were copied by filename, keeping the newest timestamp. Close an earlier game instance and reopen Besieged-Latest to use this version.

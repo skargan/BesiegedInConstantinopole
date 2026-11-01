@@ -39,12 +39,14 @@ public static class DiplomaticReplies
             case "Teutonic Order": return accepted?"Our brothers took the cross for service, not ornament. A contingent shall depart, though our own lands still require the greater part of our strength.":"A mantle marked with the cross does not make its wearer master of inexhaustible armies. Our obligations here bind the men you ask us to send.";
             case "England": return accepted?"We cannot shorten the sea between us. Nevertheless, we shall send what we have promised. God grant that your walls outlast the voyage.":"By the time an English expedition reached you, this siege might be settled one way or the other. We will not dress that distance in a false promise. God keep you.";
             case "Karaman": return accepted?"You and I do not kneel in the same faith. Yet Mehmed would have us both kneel before him. His pride could drag his people into the pit of Iblis; take this aid and keep him occupied.":alternate?"You ask a Muslim ruler to save your Christian throne? Your envoy has a bold tongue. Tell him boldness is not a currency accepted in our treasury.":"Mehmed is no friend of ours. That does not make your quarrel a war we can afford. Do not mistake our pleasure at his difficulties for a promise to rescue you.";
+            case "Turkmen Confederations":
             case "Aq Qoyunlu": return accepted?"Mehmed's triumph would cast a longer shadow across Anatolia. We shall send what we can spare through Trebizond. Do not mistake these purses for a pledge of all our horsemen.":alternate?"Our riders answer many lords, and too many banners already threaten Amid. We cannot purchase your safety with our own ruin.":"We have heard your envoy. The Sultan is not the only enemy in this world, and those nearer our tents leave us nothing to promise your City.";
             default:return accepted?"Our own burdens are heavy, but we shall send what we have pledged. May it reach you in time.":"We have war upon our own doorstep. We can offer sympathy, Emperor, but no men to accompany it.";
         }
     }
     public static string Format(string power,bool accepted,int religion,int variant=0)
     {
-        return "\n\nThe reply bears the seal of "+power+":\n<i>“"+Quote(power,accepted,religion,variant)+"”</i>";
+        string court=power=="Turkmen Confederations"?"the Aq Qoyunlu court":power;
+        return "\n\nThe reply bears the seal of "+court+":\n<i>“"+Quote(power,accepted,religion,variant)+"”</i>";
     }
 }

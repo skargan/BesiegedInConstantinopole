@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.8 · Society and court";
+    public const string BuildLabel="Version 36.9 · Revised frontiers";
 
 
 

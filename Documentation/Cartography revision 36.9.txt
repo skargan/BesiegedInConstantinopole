@@ -1,0 +1,26 @@
+GEOPOLITICAL MAP: FRONTIER REVISION
+
+Scope
+The editable territory overlays have been revised; the painted geographic base is unchanged. The historical atlas remains a separate reference view. Coordinates describe schematic gameplay regions, not a new claim to exact 1453 boundaries.
+
+Changes
+- Moldavia enlarged into the northern hinterland.
+- Hungary, Wallachia and Moldavia now share an explicit Carpathian/foothill frontier. Hungary keeps approximately its previous area; Wallachia loses the oversized northern bulge.
+- Bosnia fills the inland gap behind Dalmatia and meets its neighbours. Ragusa and the coastal possessions retain their own identities.
+- Albania's mountain belt is wider; the adjoining Macedonia overlay shares the same edge.
+- Trebizond's coastal and mountain strip is wider and meets Georgia and the eastern confederations.
+- The former Aq Qoyunlu overlay is expanded eastwards and renamed Turkmen Confederations. Its About text explains the Aq Qoyunlu and Qara Qoyunlu as rival Muslim dynasties. The present appeal still approaches the Aq Qoyunlu court via Trebizond, so replies bear that court's seal. No joint ruler, army or allegiance is implied.
+
+Compatibility
+Existing region IDs, diplomatic ally index 17, campaign keys, aid packages, delivery route, acceptance chances and RNG behaviour are retained. This is a map and explanatory text change, not additional regional-war simulation. Eleven Ottoman provinces remain; moving a schematic border does not increase their resources or change existing provincial mechanics.
+
+Historical grounding
+Encyclopaedia Iranica, Aq Qoyunlu: https://www.iranicaonline.org/articles/aq-qoyunlu-confederation/
+TDV Islam Ansiklopedisi, Karakoyunlular: https://islamansiklopedisi.org.tr/karakoyunlular
+The combined overlay is a game abstraction. Much of Qara Qoyunlu territory lies beyond this theatre's eastern and southern scope. Unmarked land remains outside the current theatre; it is not silently attributed to the confederations.
+
+Verification before integration
+Independent geometric audit: all polygons valid, all changed labels inside their territory, no introduced pairwise overlap above 0.01 source-pixel squared. All polygons fully triangulate with the runtime algorithm emulated in float32 at 1520, 1280 and 2048 map widths. Minor pre-existing hairline gaps around Ragusa/Croatia/Serbia remain.
+Exported-player and visual checks must be recorded in the release note after integration.
+
+Integrated verification: Unity 2022.3.15f1 export succeeded. THEATRE_CHECKS 659 passed at 1600x900 and 1280x720; 216 diplomatic-reply combinations passed. Visually reviewed the fitted map at both sizes, the gold eastern hover, the diplomacy screen, and About text including its lower portion. No exceptions or failed checks in the player log. Built on commit 82bc2b3 (Version 36.8).

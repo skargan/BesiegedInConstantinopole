@@ -60,7 +60,7 @@ public sealed class WarTheatreCapture : MonoBehaviour
         Check(CouncilActions.Int("iAidState17")==1&&CouncilActions.Int("iAidDays17")==35,"Pending Aq appeal survives save round trip");
         int gold=CouncilActions.Int("iMoney"),food=CouncilActions.Int("iProvisions");
         string arrival=CouncilActions.AdvanceAid(35);
-        Check(CouncilActions.Int("iAidState17")==2&&CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300&&arrival.Contains("Aq Qoyunlu"),"Aq promised supplies arrive on time");
+        Check(CouncilActions.Int("iAidState17")==2&&CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300&&arrival.Contains("Turkmen Confederations"),"Aq promised supplies arrive on time");
         CouncilActions.AdvanceAid(1);
         Check(CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300,"Aq aid cannot be delivered twice");
         VariableSingleton.Instance.RestoreValidated(baseline);
@@ -78,6 +78,21 @@ public sealed class WarTheatreCapture : MonoBehaviour
                 }
                 Hover(members[0],true);yield return Capture(power+"-hover-"+suffix);Hover(members[0],false);
             }
+            // Newly covered land must use the same visible polygon and click target.
+            string[] enlarged={"moldavia","bosnia","albania","trebizond","aq_qoyunlu"};
+            Vector2[] samples={new Vector2(805,60),new Vector2(480,257),new Vector2(493,300),new Vector2(1500,337),new Vector2(1700,420)};
+            for(int i=0;i<enlarged.Length;i++){
+                var shape=groups[enlarged[i]][0];var p=new Vector2(samples[i].x/2048f,1-samples[i].y/683f);
+                Check(TerritoryGraphic.Contains(p,shape.Points),suffix+" expanded land included: "+enlarged[i]);
+                var rect=shape.rectTransform.rect;
+                var screen=RectTransformUtility.WorldToScreenPoint(null,shape.rectTransform.TransformPoint(new Vector3(rect.xMin+p.x*rect.width,rect.yMin+p.y*rect.height,0)));
+                Check(shape.Raycast(screen,null),suffix+" expanded land clickable: "+enlarged[i]);
+                var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=screen},hits);
+                Check(hits.Count>0&&hits[0].gameObject==shape.gameObject,suffix+" expanded land not stolen by neighbour: "+enlarged[i]);
+                Hover(shape,true);Click(shape);Check(shape.Highlighted&&Text(Map()).Contains(WarTheatre.Find(enlarged[i]).name),suffix+" expanded territory opens correct details: "+enlarged[i]);Hover(shape,false);
+            }
+            var easternLabel=Map().GetComponentsInChildren<TMP_Text>().First(t=>t.text=="Turkmen\nConfederations");
+            Check(!easternLabel.isTextOverflowing,suffix+" eastern map label fits");
             Check(State()==state,suffix+" map hover and territory selection preserve campaign and RNG");
             // Direct cross-power entry must also clear the previous outline.
             Hover(groups["macedonia"][0],true);Hover(groups["venice"][0],true);
@@ -105,8 +120,15 @@ public sealed class WarTheatreCapture : MonoBehaviour
             yield return Capture("theatre-fit-"+suffix);
             var aq=groups["aq_qoyunlu"][0];Click(aq);Button("Diplomatic relations");yield return null;
             Check(Map()==null,suffix+" map closes into diplomacy");
-            var council=GameObject.Find("Council screen");Check(council!=null&&Text(council).Contains("Aq Qoyunlu"),suffix+" Aq profile opens directly");
+            var council=GameObject.Find("Council screen");Check(council!=null&&Text(council).Contains("Turkmen Confederations"),suffix+" Aq profile opens directly");
             yield return Capture("aq-diplomacy-"+suffix);
+            council.GetComponentsInChildren<Button>().First(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="The realm and its interests")).onClick.Invoke();yield return null;
+            council=GameObject.Find("Council screen");
+            Check(Text(council).Contains("Qara Qoyunlu")&&Text(council).Contains("neither speaks for the other"),suffix+" About distinguishes the rival confederations");
+            Check(Text(council).Contains("Your present embassy approaches the Aq Qoyunlu"),suffix+" About identifies the current embassy");
+            yield return Capture("turkmen-about-"+suffix);
+            var articleScroll=council.GetComponentInChildren<ScrollRect>();
+            if(articleScroll!=null){articleScroll.verticalNormalizedPosition=0;yield return Capture("turkmen-about-bottom-"+suffix);}
             FindObjectOfType<CouncilUI>(true).Hide();
         }
     }

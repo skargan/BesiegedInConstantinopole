@@ -70,7 +70,7 @@ public static class CouncilActions
         new Ally("Teutonic Order", "Request an armed brotherhood and its supporting troops.",15,50,500,250,200,1,0,0),
         new Ally("England", "Ask for archers, ships and funds for the City's defence.",15,60,300,750,100,2,5000,0),
         new Ally("Karaman", "Ibrahim Bey's rivalry with the Sultan opens a route for discreet funds and supplies.",20,25,0,0,0,0,3000,300),
-        new Ally("Aq Qoyunlu", "The White Sheep Turkomans guard their eastern interests; seek discreet funds and supplies through Trebizond.",20,35,0,0,0,0,3000,300)
+        new Ally("Turkmen Confederations", "Rival eastern Turkmen powers. Seek discreet Aq Qoyunlu funds and provisions through Trebizond.",20,35,0,0,0,0,3000,300)
 
     };
 
