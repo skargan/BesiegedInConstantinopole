@@ -1,0 +1,63 @@
+MENU STAT ICONS — INTEGRATION PREPARATION
+1 November 2026
+
+Status
+The approved 14 icons and their Unity loading helper are ready in this change.
+The current v36.6 CampaignHUD.cs is not available in the connected repository.
+The accessible codex/prototype-first-playtest branch is v33, commit
+99d8349567970d7ecbb6cc897818d18874ef867e, and its HUD has nine resource cards.
+This change deliberately adds assets and a helper without replacing that older
+HUD, modifying gameplay values, or claiming that the v36.6 menu is updated.
+
+Assets
+Assets/Resources/UI/MidnightMosaic/Stats contains the 14 original, unchanged
+1254 x 1254 RGBA PNGs. Import settings cap the runtime textures at 256 pixels,
+preserve alpha, use bilinear filtering and clamp wrapping, disable mipmaps and
+CPU readability, and avoid texture compression artifacts on small symbols.
+
+CampaignStatArt
+Assets/Scripts/UI/CampaignStatArt.cs loads each requested texture once and caches
+its sprite. Sprite rectangles use measured visible bounds plus padding, scaled
+to the actual imported texture dimensions. No CPU pixel scanning is needed.
+Apply(image, stat) assigns the art with white color, preserved aspect ratio and
+raycasts disabled. It returns false and leaves the target unchanged when the
+asset cannot be loaded. Get(stat) exposes the cached sprite for other UI code.
+
+Connection to the current menu
+Read the current v36.6-or-newer CampaignHUD.cs before changing the HUD.
+At the existing stat-icon construction point, use CampaignStatArt.Apply on its
+Image, or use CampaignStatArt.Get when creating an Image. Keep the existing
+label, tooltip, value getter, update frequency and stat ordering. Remove the old
+glyph only after the replacement sprite has loaded successfully. Keep icon
+creation out of the per-frame value-update loop. Use equal icon slots and
+preserve aspect ratio; retain the existing responsive layout.
+
+Stat enum                 Visible label     Existing gameplay binding
+Health                    Health            fHealth
+Gold                      Gold              iMoney
+People                    People            PopulationAccounting.People
+Materials                 Materials         iMaterials
+Food                      Food              iProvisions
+Secrets                   Secrets           iSecrets
+Archers                   Archers           iArchers
+Infantry                  Infantry          iInfantry
+Cavalry                   Cavalry           iCavalry
+Guard                     Guard             iVarangians
+ArmySupport               Army              fTroopRep
+PublicSupport             Public            fPeopleRep
+ClergySupport             Clergy            fPriestRep
+NoblesSupport             Nobles            fNobleRep
+
+Confirm these bindings against the current HUD when connecting it. The older
+v33 HUD has a Spies card bound to iSpies; do not silently relabel that value as
+Secrets. Army support is fTroopRep, not the separate iArmySupport field.
+
+Validation and remaining gate
+The PNG dimensions, real alpha, complete set, source-byte identity and importer
+settings have been checked locally. The helper requires Unity import/compilation
+and an in-game check at the current menu's supported resolutions. A static
+source review is not a Unity compilation, playtest or rebuilt Windows export.
+
+Next required input: current Assets/Scripts/UI/CampaignHUD.cs, or a push of the
+current working project to the connected repository. Then connect the icons,
+verify the actual menu, and rebuild the existing Windows target.
