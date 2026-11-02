@@ -1,0 +1,4786 @@
+{
+  "schema_version": 1,
+  "package": "Besieged_final_art_handover_v36.9",
+  "created_at_utc": "2026-11-01T22:58:59.620549+00:00",
+  "delivery_status": "complete_original_files_packaged",
+  "scope": "All 60 earlier final event covers, all 61 completion final covers, exactly 11 reuse mappings, and the original 14 stat icons from PR5.",
+  "target": {
+    "repository": "skargan/BesiegedInConstantinopole",
+    "version": "Version36.9",
+    "commit_sha": "28fa420ac58c222574c8f5b3d43cf871543ffb7a",
+    "commit_url": "https://github.com/skargan/BesiegedInConstantinopole/commit/28fa420ac58c222574c8f5b3d43cf871543ffb7a",
+    "event_node_compatibility_verified": true,
+    "validation_scope": "Exact case-sensitive Yarn node presence and source-file identity. Runtime import, rendering and playtesting are outside this assets-only handover."
+  },
+  "counts": {
+    "earlier_final_event_covers": 60,
+    "completion_final_event_covers": 61,
+    "unique_event_cover_pngs": 121,
+    "reuse_mappings": 11,
+    "covered_event_nodes": 132,
+    "stat_icon_pngs": 14,
+    "total_original_pngs": 135,
+    "existing_stat_icon_metadata_files": 14,
+    "corrected_final_event_covers": 18,
+    "superseded_drafts_excluded": 18,
+    "missing_original_files": 0,
+    "game_source_files": 0,
+    "total_original_png_bytes": 351976462
+  },
+  "path_convention": "All asset_path and metadata_path values are relative to this manifest. Event IDs are case-sensitive. Each reuse node points to the same existing PNG without a duplicate file.",
+  "image_policy": "Original PNG bytes preserved exactly; files were renamed by event/stat key for portability. No image was regenerated, resized, re-encoded, or edited for this handover.",
+  "integration_status": "Assets and manifests only. No game source, Yarn, scene, prefab, or runtime assignment changes are included.",
+  "missing_original_files": [],
+  "event_assets": [
+    {
+      "asset_id": "story7",
+      "event_node": "story7",
+      "title": "Imperial Wardrobe",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story7.png",
+      "original_image_file_name": "exec-fd9fa73d-d386-4046-943e-d0c3e3ddf891.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Corrected minaret-free final from first-five preparation cover batch. Per-event draft attribution not independently verified; superseded batch files excluded.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2617688,
+      "sha256": "cb020cdd947d1c526f8cfbb562fdcec09bebefba96ac1a976bed5af6b8134b8c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 213,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story9",
+      "event_node": "story9",
+      "title": "Mind over Matter",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story9.png",
+      "original_image_file_name": "exec-6cb84ab3-3ef8-42c5-bdd0-3938d5725345.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Corrected minaret-free final from first-five preparation cover batch. Per-event draft attribution not independently verified; superseded batch files excluded.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2480591,
+      "sha256": "dbedc6ac5a1eed388ac91f8048ab91c632bf9d36116eb5163c402bf8eacb55e8",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 306,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story12",
+      "event_node": "story12",
+      "title": "Trust the Venetians",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story12.png",
+      "original_image_file_name": "exec-8842535d-587e-46c9-8e18-eedd2415eb97.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Corrected minaret-free final from first-five preparation cover batch. Per-event draft attribution not independently verified; superseded batch files excluded.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2766902,
+      "sha256": "78e5066b52ed53d40e15c58ba5709c3e1d4ee9c680096db6a915adc1c4cc8e71",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 406,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story13",
+      "event_node": "story13",
+      "title": "Our Turks",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story13.png",
+      "original_image_file_name": "exec-1fcf184d-6f7f-4fae-8713-724ec3a4f526.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Corrected minaret-free final from first-five preparation cover batch. Per-event draft attribution not independently verified; superseded batch files excluded.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2800054,
+      "sha256": "9bcefbb534421629fc1476b7832f196396fd76b057f4bda575add1409ab3b199",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 423,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story17",
+      "event_node": "story17",
+      "title": "Greek Fire",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story17.png",
+      "original_image_file_name": "exec-8753eefa-1f73-489c-8cc3-2b0aaac9ac29.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Corrected minaret-free final from first-five preparation cover batch. Per-event draft attribution not independently verified; superseded batch files excluded.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2427823,
+      "sha256": "7e1ee6ca9a32c2cb54775bd21dd37fef1e139db14debcdf6f542f3a2f12e35b0",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 557,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story16",
+      "event_node": "story16",
+      "title": "Assault on the Straitcutter Fortress",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story16.png",
+      "original_image_file_name": "exec-344d81f8-9d6e-46b5-9487-499028966f26.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3323286,
+      "sha256": "a232bb8db93f624cd73ce80e713c698b72ad2797b1be432f948cc364e1bf9c12",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 514,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story20",
+      "event_node": "story20",
+      "title": "Stadia and Therapia Castles",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/story20.png",
+      "original_image_file_name": "exec-8dbbd7df-1d76-4e57-9965-8cc7b91e9ef5.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3334847,
+      "sha256": "606ea7a1c15740ad292ca760e9fc545127f511fff7d92792dcd17955a3878b09",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 666,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepScorched",
+      "event_node": "prepScorched",
+      "title": "Scorched Earth",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/prepScorched.png",
+      "original_image_file_name": "exec-c5949cb8-7cc0-47b4-8d61-b5c301d33e51.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3709984,
+      "sha256": "d418427342df6d8f1a6ad11264ba6ca3d18abb398c5d96f7e522b76d9cd1b581",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 17,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepGrain",
+      "event_node": "prepGrain",
+      "title": "Overseas Grain Missions",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/prepGrain.png",
+      "original_image_file_name": "exec-95451131-317e-4c07-8707-b27971d3c861.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3005267,
+      "sha256": "86e13f8f9e498f9f737c992e297dade1d5c6719bb944cfede1dc7a270767e1ec",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 73,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepAdventurers",
+      "event_node": "prepAdventurers",
+      "title": "Call on Adventurers",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_1",
+      "asset_path": "event-covers/prepAdventurers.png",
+      "original_image_file_name": "exec-b3133d05-4f67-4d04-8ca8-9a9e0efcee97.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2868168,
+      "sha256": "41fa2712e082da9b47b8fc2520ae8a767ecacad03602409e82c6caa932a4f23d",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Character_preparations.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Character_preparations.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "325dfb1d75f22f225523638b0d3844b90859bc3f",
+          "source_content_sha256": "5fb9f0e3ddcad145f062445e6dd7558fd36b204eb6929278235548b2058ebf9c"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random1",
+      "event_node": "random1",
+      "title": "Desertion to the Monasteries",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random1.png",
+      "original_image_file_name": "exec-5331e6ce-5af3-4247-ab7b-a2d036a5dd4a.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3186021,
+      "sha256": "f4bef9cd63f5cdf8f4156722b3cbe760fdaea65196e0527280d0e06a304d6d05",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 37,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random3",
+      "event_node": "random3",
+      "title": "Sudden Storm Hits the City",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random3.png",
+      "original_image_file_name": "exec-d85a6916-a0f4-4823-a030-d00511271d36.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3417547,
+      "sha256": "f533d72485c87f188adb7cab8e736404cebaf4b26490527576da1ce9f1d2ed71",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 93,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random4",
+      "event_node": "random4",
+      "title": "Ottoman Propaganda",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random4.png",
+      "original_image_file_name": "exec-5b7e3125-d1a8-42ca-bc9e-fdcecf81a5e1.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2319641,
+      "sha256": "23fc2172f98b07359109cba7cc29d33accf2fa9d2c05b7af4ee2be470ac48c57",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 116,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random5",
+      "event_node": "random5",
+      "title": "Our Cannon Explodes",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random5.png",
+      "original_image_file_name": "exec-43d0c6c2-d230-404f-bbbf-9e30538b032d.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3342282,
+      "sha256": "245ae3a86686e0052d2e3c810a6cb3ee0e2993f32b66a0f2a354744abe1e02fb",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 140,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random6",
+      "event_node": "random6",
+      "title": "Nightly Vigils",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random6.png",
+      "original_image_file_name": "exec-92d407c7-21b3-4456-94fd-e7511b40ce67.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "replaced burning skyline",
+      "superseded_image_file_names": [
+        "exec-621534f0-e207-4214-8d31-97f3f0dbad8a.png"
+      ],
+      "file_available": true,
+      "byte_size": 2492110,
+      "sha256": "a6476b6800295ee55336a39fb28bb24ecf6ba5f1291e1884aa62971f751a9ff1",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 158,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random8",
+      "event_node": "random8",
+      "title": "Gardens Behind Walls",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random8.png",
+      "original_image_file_name": "exec-ba064636-a1b4-46df-a740-9922fb85b2e3.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3452113,
+      "sha256": "291a5d2833bbc6e2431dcf284d0d3e8603d7312cb4c39df803031566b0155057",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 207,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random9",
+      "event_node": "random9",
+      "title": "Street Poet",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random9.png",
+      "original_image_file_name": "exec-34c70fb4-6017-4eb1-8803-51e44f8f78a5.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3104432,
+      "sha256": "9d701af27634264f5d3800047dddd32fd79694d5b8c2ffdd7f96faf0bd70961d",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 238,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random15",
+      "event_node": "random15",
+      "title": "Hunt for the Traitor",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random15.png",
+      "original_image_file_name": "exec-098ae4da-c602-4bbd-9d84-a6a6516c9f4d.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2263065,
+      "sha256": "661c9ef8493157bf777170545cdbf1b28b39ca5008288a1fd3aa2c3906651eef",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 386,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random19",
+      "event_node": "random19",
+      "title": "Fire in the City",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random19.png",
+      "original_image_file_name": "exec-588a89aa-ab42-4f2b-b963-614e1d59b184.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2947249,
+      "sha256": "6b2fbd308d3bf591628b0b6a2da6608145c30f691d1d805569b66d13b50b5ef1",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 467,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random22",
+      "event_node": "random22",
+      "title": "Rising Tensions among Soldiers",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_2",
+      "asset_path": "event-covers/random22.png",
+      "original_image_file_name": "exec-3aa51a21-d498-48c1-bd77-c4b6a9c3180c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2861759,
+      "sha256": "e0860ea68f3cc5dca1a4f4969d48f324b74c3eb4ff10723d3357085eb6acef03",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 540,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeWedding",
+      "event_node": "lifeWedding",
+      "title": "A Wedding Under Arms",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/lifeWedding.png",
+      "original_image_file_name": "exec-aaf56504-4734-4773-9314-77ee7ee31b2c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2936671,
+      "sha256": "b2d01aed4be4cdaa80b293372ad2fed17010147e12653ceec3d1874dae8c314c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 218,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeGhost",
+      "event_node": "lifeGhost",
+      "title": "The Watchman’s Ghost",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/lifeGhost.png",
+      "original_image_file_name": "exec-3671c337-2a4b-4585-b1ef-78d3c01b94c4.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2686622,
+      "sha256": "5498e6f3ac5e60f856fc28b9631d29e4b8fde78e1426fb8c78f66f7c6c99d36e",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 118,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeCandles",
+      "event_node": "lifeCandles",
+      "title": "Someone Has Eaten the Candles",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/lifeCandles.png",
+      "original_image_file_name": "exec-583e9f88-a9d0-44dc-b26e-9b6a7e2d61a5.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2500449,
+      "sha256": "51b42d9045f1e3cc5585a136334b2692d25021f6075bf36f60de7f65b1a855a7",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 194,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeSong",
+      "event_node": "lifeSong",
+      "title": "A Song from Home",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/lifeSong.png",
+      "original_image_file_name": "exec-55550b52-d07e-4033-bfaa-a7ab6e83b1a0.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2501288,
+      "sha256": "bd45072e974c667cfdfd6e5bf519ed00fb2d89d8deef17d3b57b5b1968c34ff8",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 66,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeDrawing",
+      "event_node": "lifeDrawing",
+      "title": "A Child’s Drawing",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/lifeDrawing.png",
+      "original_image_file_name": "exec-e50566a1-ca42-441a-b069-2b263fc3f30c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2750003,
+      "sha256": "5052cea50d7bd5209c76ed19114e139a82eb362b65e03fddc9d5c6d02367e63c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 182,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardCoin",
+      "event_node": "hardCoin",
+      "title": "Pay in Clipped Coin",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/hardCoin.png",
+      "original_image_file_name": "exec-3fc24630-4581-433d-a2eb-3ed37112cf64.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2416884,
+      "sha256": "7025d0022b08f40998c372b322331bcd9df00c5bd806ef56e4e7ceca57d5e7c1",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 229,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random2",
+      "event_node": "random2",
+      "title": "Food Riots in the Merchant Quarter",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/random2.png",
+      "original_image_file_name": "exec-2a744bb4-2cbc-4552-a682-24a075fe0f71.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3275371,
+      "sha256": "b67977652a12bca2ca2b411821dc421a3fc012e902030816e4c958fd8dc58f10",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 69,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random7",
+      "event_node": "random7",
+      "title": "Food Thief Captured",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/random7.png",
+      "original_image_file_name": "exec-6f9e46f4-8b7d-4c8e-930d-1580c257d483.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3087059,
+      "sha256": "c78a5cb0df362527914235842c46bd7401a2f0a58a2d06d99f0f240df2bd2809",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 179,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random10",
+      "event_node": "random10",
+      "title": "Citizens Assist Repairing Walls",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/random10.png",
+      "original_image_file_name": "exec-da33657c-85ed-4a07-9864-fb8ed0af2584.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3276908,
+      "sha256": "3057f93a0cddb5f023678f34dcf306190e0a485d69211437e088f4e75d1fe0dd",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 259,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random21",
+      "event_node": "random21",
+      "title": "Food Spoils",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_3",
+      "asset_path": "event-covers/random21.png",
+      "original_image_file_name": "exec-5f9e7423-af9b-42d6-a6bd-0ac0a3021bda.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2443975,
+      "sha256": "dcaee79c44177c5ff075a8955776057b18d0dabfe978c4e133f16ab3aa162c2e",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 509,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeSails",
+      "event_node": "lifeSails",
+      "title": "Sails on the Horizon",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/lifeSails.png",
+      "original_image_file_name": "exec-b6e7111a-92bb-40f9-a08b-80782d3b63e4.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3074039,
+      "sha256": "448d422e00f95f77935027e8f1e6bc33b845409c9d3fbdb9be607b0f07619f5f",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeCobbler",
+      "event_node": "lifeCobbler",
+      "title": "The Cobbler’s Petition",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/lifeCobbler.png",
+      "original_image_file_name": "exec-e719a73d-44cc-4cb7-bd41-a9bf577458e4.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3005986,
+      "sha256": "f9048648c3bd47c9e46a024d5d4210ee6fb03df194756b40ead9d8c8158d3d22",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 167,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeStones",
+      "event_node": "lifeStones",
+      "title": "The Old Woman and the Stones",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/lifeStones.png",
+      "original_image_file_name": "exec-04c47801-9217-4a9c-8416-24e1e066f45f.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3053699,
+      "sha256": "22b04b2b404652c09fb1569bebd8d510370d37acb4582338ab332305a3734a94",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeRoof",
+      "event_node": "lifeRoof",
+      "title": "Rain through the Roof",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/lifeRoof.png",
+      "original_image_file_name": "exec-de0994f4-1373-4fc1-b820-d1d6e3e386b7.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "removed modern lamp",
+      "superseded_image_file_names": [
+        "exec-694ff354-3658-487b-be65-dbdc9c6c65c4.png"
+      ],
+      "file_available": true,
+      "byte_size": 2514333,
+      "sha256": "eae3064bf43c59f2a84e1b1a597e93087ece9acf8cbe8d7d97c36ef5dc3ee7f6",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 50,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeSaints",
+      "event_node": "lifeSaints",
+      "title": "Two Saints upon the Wall",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/lifeSaints.png",
+      "original_image_file_name": "exec-8155a87e-ac3e-4343-b134-7ffd347b3814.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2815972,
+      "sha256": "807a02ae4d5bfed436d4553fff102a4fe740ffe94c068ff5784ba2ead67f804b",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 13,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeLights",
+      "event_node": "lifeLights",
+      "title": "Lights across the Water",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/lifeLights.png",
+      "original_image_file_name": "exec-a2bc8317-1680-4bcb-8f28-348fa3d0f217.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2350436,
+      "sha256": "b8e38f5d0a68dc7cad1ad28813bc94df376b47a0a7555236f78e16a894f83d89",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 131,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardCistern",
+      "event_node": "hardCistern",
+      "title": "Filth in the Cistern",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/hardCistern.png",
+      "original_image_file_name": "exec-f6aab088-1b80-4296-bbbd-d4fb9f13073c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2549538,
+      "sha256": "23cd113a2822f73d24e26773239cefe6667e2bea8a2210ded6171518843ca7cd",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardSand",
+      "event_node": "hardSand",
+      "title": "A Sack Full of Sand",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/hardSand.png",
+      "original_image_file_name": "exec-f65393f8-cd02-4ad2-92d7-312d553d8e8e.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2691975,
+      "sha256": "8b51b3e45fb0add7a5e42f70baeae31c13b14a6146dcf6484e4a8b55ddb13f41",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 245,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random13",
+      "event_node": "random13",
+      "title": "Surprise Assault Proposal",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/random13.png",
+      "original_image_file_name": "exec-3ccbbbe3-3ea8-441d-b838-c69b4e9b0424.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2421731,
+      "sha256": "ad922b25d7c7757822c292f1320796af4066d19e0642a0fc1c53d5d82b969aed",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 307,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random14",
+      "event_node": "random14",
+      "title": "Cracks in the Outer Wall",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_4",
+      "asset_path": "event-covers/random14.png",
+      "original_image_file_name": "exec-7c6e94b3-dfc0-4214-a9cf-4f714d6e38f2.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3136727,
+      "sha256": "8888d99e316ce75e0f9d14f382c9b5a6fe4f32c099217d98ebafee924ff509e5",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 369,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeBread",
+      "event_node": "lifeBread",
+      "title": "Bread Still Warm",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/lifeBread.png",
+      "original_image_file_name": "exec-f1c4fd3f-427f-4ca0-a719-1714715299cf.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3066412,
+      "sha256": "e948e5c821bf3c52f0818e540d3ed4bebd271781b53207d1f1f471ee08900cf1",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 69,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeWell",
+      "event_node": "lifeWell",
+      "title": "A Quarrel at the Well",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/lifeWell.png",
+      "original_image_file_name": "exec-d7e50969-a4d0-4cb5-9925-c87da3173576.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3346104,
+      "sha256": "e53cc77427558861e94519b64c6eb45e37a3abf81be570ea48b354bd64456f0d",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 95,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeBarrel",
+      "event_node": "lifeBarrel",
+      "title": "A Barrel Without an Owner",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/lifeBarrel.png",
+      "original_image_file_name": "exec-4569b17a-20f5-4ab1-bb07-f0c657bd5464.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3155181,
+      "sha256": "d350fb9febb7db08e9ad31d40594cc703e0ec4aa0a55e278e6d7e765015e631f",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 137,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeCoin",
+      "event_node": "lifeCoin",
+      "title": "A Soldier’s Last Coin",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/lifeCoin.png",
+      "original_image_file_name": "exec-52fb1574-e1d1-469f-b9a2-00fc4557518f.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2249540,
+      "sha256": "31bfedee81729a5c71674c269cef84ea4eb24c06de08b26d05bdf2993b9dbbfb",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 206,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeQuiet",
+      "event_node": "lifeQuiet",
+      "title": "An Unusually Quiet Morning",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/lifeQuiet.png",
+      "original_image_file_name": "exec-ee04b444-7ba6-4ef9-8415-60a713d6c63c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2693621,
+      "sha256": "3791883407ad98ba9de50f9f00d76992ac9735bf612eb63b3964e98b84f953b0",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 242,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeGunner",
+      "event_node": "lifeGunner",
+      "title": "The Apprentice Gunner",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/lifeGunner.png",
+      "original_image_file_name": "exec-e81efc68-88e3-4655-a6b7-397c9a5c964f.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2990432,
+      "sha256": "e572c6abbd4665221aa1adf926b3af1f2bfa1b33f471498faa5147f94a8fd70d",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 110,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardHorse",
+      "event_node": "hardHorse",
+      "title": "Dead Horse in the Alley",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/hardHorse.png",
+      "original_image_file_name": "exec-cbc89083-c0e7-4816-b270-6b9de6072ad4.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3225487,
+      "sha256": "68c38837fc1f17a8f38d42e5bb063ddc34354366ce869244c292b262e07f2d23",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 23,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardRats",
+      "event_node": "hardRats",
+      "title": "Rats in the Flour",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/hardRats.png",
+      "original_image_file_name": "exec-c8f01fb6-71d3-46e0-8fa2-0057bd389bd4.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2738790,
+      "sha256": "c8b913e7c930e3af4143f1108b09bf30e8543f6b91f6750b71773a21c7d4dbaa",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 45,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random17",
+      "event_node": "random17",
+      "title": "Enemy Cannon Explodes",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/random17.png",
+      "original_image_file_name": "exec-b36360e1-88e1-49f7-90b4-dcbcce73ec76.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2921572,
+      "sha256": "b1936ea7c2d9f4262168683a94c61793d42d5f23bb9df3b8c6c28c514b84c6fe",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 439,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random11",
+      "event_node": "random11",
+      "title": "Rumours of Reinforcements",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_5",
+      "asset_path": "event-covers/random11.png",
+      "original_image_file_name": "exec-7b4e6032-2396-4798-a44a-285cd1e29ffd.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2284347,
+      "sha256": "2339573bc4f30b177b44c2e05b431c1ddd6cf7c64c1bb21ed557c863a97afcfc",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 289,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story0",
+      "event_node": "story0",
+      "title": "Messenger Arrives",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story0.png",
+      "original_image_file_name": "exec-7f3dcd15-9bb6-4b5a-abf0-e0888f648cf8.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2937701,
+      "sha256": "9dfe1b4c434b65d935da1857524cb212c91f229490fc1a926ab13931ed0994de",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story1",
+      "event_node": "story1",
+      "title": "Mending the Schism",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story1.png",
+      "original_image_file_name": "exec-571a2ef9-7c46-46e6-8019-46819aea40e9.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2614331,
+      "sha256": "819a330c5723e8a56f8297323161bab524066f113a7ac0bfd788369995a80531",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 22,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story3",
+      "event_node": "story3",
+      "title": "Artillery Genius",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story3.png",
+      "original_image_file_name": "exec-42a70ba4-cea5-40d5-8323-a131ab0982c8.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2700497,
+      "sha256": "6b7e2efb06f45a527eec9c6567861417d6b6ac39e20172da9838790a195d5593",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 75,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story4",
+      "event_node": "story4",
+      "title": "Hungry Mouths",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story4.png",
+      "original_image_file_name": "exec-29c48726-c571-4183-b86a-796e90f0c856.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "removed minarets",
+      "superseded_image_file_names": [
+        "exec-f8d2e71b-7e68-4e46-a3d4-8af6eb6840d9.png"
+      ],
+      "file_available": true,
+      "byte_size": 2811539,
+      "sha256": "b87ff1fd9701b391973b062d575a6ffa005d2cb8ff5644da0ddf24369be13dd5",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 119,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story5",
+      "event_node": "story5",
+      "title": "The Genoese Arrive",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story5.png",
+      "original_image_file_name": "exec-fa51645e-3271-4f92-aa56-9dc716d405cf.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3353877,
+      "sha256": "2013351c5eddaaebc3ef3bb5e217928ed4dbba8a21d2501772a43184f77bdc03",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 163,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story8",
+      "event_node": "story8",
+      "title": "Call on a Major Christian Power",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story8.png",
+      "original_image_file_name": "exec-ac6222ff-e782-4fc3-8991-bbfda5df9abd.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2640219,
+      "sha256": "93cb4024c237c243d021bfbc10db4386e5b4e6083387d100b21274f695d961a5",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 235,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story15",
+      "event_node": "story15",
+      "title": "Galata Decision",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story15.png",
+      "original_image_file_name": "exec-f095ae84-f416-4251-a271-a1de54d48a24.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "corrected version; specific change not retained in handover context",
+      "superseded_image_file_names": [
+        "exec-f156639e-6d2a-41eb-9c08-0b4288a21ef5.png"
+      ],
+      "file_available": true,
+      "byte_size": 2903018,
+      "sha256": "d8261ec8f58a7f4c79bcc89fcd30345bed4a37957e2a6cfc2721b14b4010a7b3",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 471,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story19",
+      "event_node": "story19",
+      "title": "Great Chain",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story19.png",
+      "original_image_file_name": "exec-36ca86ac-afe2-4322-9f04-f03ff2b0566c.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "corrected version; specific change not retained in handover context",
+      "superseded_image_file_names": [
+        "exec-cc476400-4262-47d4-9aeb-d97a65f15304.png"
+      ],
+      "file_available": true,
+      "byte_size": 3036830,
+      "sha256": "5b91ed35bb6c3d8528899f5b013ecd5d67de655f9bb5e02da1c9feb93d42b533",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 646,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story22",
+      "event_node": "story22",
+      "title": "Easter Speech",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story22.png",
+      "original_image_file_name": "exec-a330ce6e-f3b5-4f80-a017-b0774592663b.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2839684,
+      "sha256": "28e558428764111bc6704805d158198115a5e09990c9fde851cbe6d0caa8e71a",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 704,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story23",
+      "event_node": "story23",
+      "title": "Siege Begins",
+      "origin_group": "earlier60",
+      "batch": "earlier_batch_6",
+      "asset_path": "event-covers/story23.png",
+      "original_image_file_name": "exec-e51e7df7-4e37-4688-9ff2-04db16fcd8a1.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": null,
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3120560,
+      "sha256": "11fb0c72a20da64b19456fa8685b234b1a667a482b80078467f64dd0e038688c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 741,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story6",
+      "event_node": "story6",
+      "title": "Provisions Planning",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/story6.png",
+      "original_image_file_name": "exec-b614a411-5f82-485a-be8c-cd22c755602c.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-3a18454e-5e5b-42fd-a4ff-f670829421e6.png"
+      ],
+      "file_available": true,
+      "byte_size": 2580108,
+      "sha256": "ec3a3973c36b32c184b7beda6a71401dce228247fcd894f3fc8ab7a4a4dfe17a",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 186,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story10",
+      "event_node": "story10",
+      "title": "Recruitment",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/story10.png",
+      "original_image_file_name": "exec-52266157-fde7-4a6e-8024-908de5904d9d.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2891829,
+      "sha256": "b306f2b6f45d7b0acb9b91d21730ed128c487ad5f047b04c181ad141acb66f6d",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 324,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story18",
+      "event_node": "story18",
+      "title": "Orders for the Fleet",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/story18.png",
+      "original_image_file_name": "exec-f3c75071-e10a-4984-97ae-6a4351521cb9.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2756631,
+      "sha256": "d90a5255d15f790b5bfa80c0bd9d3ad299fc5b2e6e69f8a6607130e961247f83",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 597,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story14",
+      "event_node": "story14",
+      "title": "Choosing a Commander",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/story14.png",
+      "original_image_file_name": "exec-be251787-744f-41be-8ad1-222763279993.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2913840,
+      "sha256": "f4ec10b0c14657f7e1d65eda0cf5c814ed408cb75737315334852b435677800e",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 436,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepNaval",
+      "event_node": "prepNaval",
+      "title": "Siege Preparation — Naval Warfare",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/prepNaval.png",
+      "original_image_file_name": "exec-607d1d35-f8a3-476a-b206-9e2e8b598bfd.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2998647,
+      "sha256": "afc36c73425d33f7bdd5bde8388da51e3ed132268c71611f9853d3e5de19dfd7",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 88,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepIntelligence",
+      "event_node": "prepIntelligence",
+      "title": "Siege Preparation — Intelligence",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/prepIntelligence.png",
+      "original_image_file_name": "exec-a4c30ce8-540e-494e-9325-885ffa440016.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2579929,
+      "sha256": "dd65dcd080125a5598bec8f8030899a2afd361c7d597b5636103f01aef3362ac",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepFortress",
+      "event_node": "prepFortress",
+      "title": "A Fortress Rises on the Bosphorus",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/prepFortress.png",
+      "original_image_file_name": "exec-b9858a33-255d-4292-aea1-7493ad53c0a4.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-0fc6d4a4-c9a1-4267-bac2-2bc0bb97bc93.png"
+      ],
+      "file_available": true,
+      "byte_size": 3067780,
+      "sha256": "b073367cbc855aa9dfadcb2ae1691ea80195d09330dd3312f3d4dae712b7cdfe",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 39,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeOnions",
+      "event_node": "lifeOnions",
+      "title": "The Price of Onions",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/lifeOnions.png",
+      "original_image_file_name": "exec-ae88eb31-30a9-4101-ab3d-50c36d9bed5d.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-843a0866-96a3-453a-b10f-c9a0ea05a68d.png"
+      ],
+      "file_available": true,
+      "byte_size": 2855657,
+      "sha256": "cb345082676c29b9dd23761313e7c034a5911786e34af7927713e26f20c95734",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 230,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeInsult",
+      "event_node": "lifeInsult",
+      "title": "A Fine Insult",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/lifeInsult.png",
+      "original_image_file_name": "exec-c8467551-1d5e-4285-82b3-e74aad887281.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-e36797b7-6de1-40b8-9480-538fce2943be.png"
+      ],
+      "file_available": true,
+      "byte_size": 2863550,
+      "sha256": "cb7e4d5f4adb58b8e6c3c5e3d5055c99769e66b0b18629e57c5b2e55348e6bbc",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 276,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random0",
+      "event_node": "random0",
+      "title": "An Uneventful Day",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/random0.png",
+      "original_image_file_name": "exec-8a80a2ba-3c63-4c34-ad2a-66040b731589.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3103887,
+      "sha256": "9ec839a84a4bea58acac6f18c15ee550ba71d46c822fdf4360a55057ba307247",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeGenerosity",
+      "event_node": "lifeGenerosity",
+      "title": "A Merchant's Generosity",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/lifeGenerosity.png",
+      "original_image_file_name": "exec-2f62265e-d9b7-4c38-8d27-914fb7b07454.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2952231,
+      "sha256": "77837d255f97286ecfba1d251b725af3080cdba6290a120b7c916a393ea82a9b",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 78,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random12",
+      "event_node": "random12",
+      "title": "Rumours That No One Is Coming",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/random12.png",
+      "original_image_file_name": "exec-5279088f-3edb-4b6b-9bd1-1e5cf8ac8144.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2583157,
+      "sha256": "069ffdd1cc77e8043903c76723312696e708534f138579bc3825b61e0b8e9677",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 298,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random20",
+      "event_node": "random20",
+      "title": "Engineer Falls to His Death",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/random20.png",
+      "original_image_file_name": "exec-3c8df7c3-9a3d-4d8b-8209-ad470b4f7f77.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-8720b376-10a3-43ce-a98b-252f7f6be842.png"
+      ],
+      "file_available": true,
+      "byte_size": 2928003,
+      "sha256": "81e81ff7a1737df977d24da83b44b44ae1d63d211bd6620cc06243d05f431c4e",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 493,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random23",
+      "event_node": "random23",
+      "title": "The Road from Adrianople",
+      "origin_group": "completion61",
+      "batch": "A",
+      "asset_path": "event-covers/random23.png",
+      "original_image_file_name": "exec-b8388986-a479-4056-8b96-cb7e9c3ff4c2.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2938487,
+      "sha256": "f5e7fbe1c3e4dc9d5f276cf935363f34186b6b6999edcac71fc659da01ae82f5",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Artillery_convoy.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Artillery_convoy.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "36421e45790013a2b2871a7dd8e362e90e32f470",
+          "source_content_sha256": "5a2f95cc8386c26a8fdd41777adcf80aa3e7ad5550d5fca2cc4a8182c19b8bec"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random16",
+      "event_node": "random16",
+      "title": "Noble ends his life",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/random16.png",
+      "original_image_file_name": "exec-e04c162b-844d-40aa-b661-55f586e4f224.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2808521,
+      "sha256": "306f0c7b44d1f86cfde7372a2b99bce86d2d8e6fccd9ef896c1c892f245b3949",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 417,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardDead",
+      "event_node": "hardDead",
+      "title": "A Cart of Unburied Dead",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardDead.png",
+      "original_image_file_name": "exec-565e468e-2608-458b-ae3e-49e855cf5ce8.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3327125,
+      "sha256": "19c4000b864c2b28084e1c606b3ed5845913ecdb5bdb2766ebae88b92deea7ae",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 66,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardGrave",
+      "event_node": "hardGrave",
+      "title": "A Grave Robbed Twice",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardGrave.png",
+      "original_image_file_name": "exec-4bf8290e-1e58-4aab-9d15-ba4b0a893fd3.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2603074,
+      "sha256": "7d5af0d277d75f0a092751d0d8d8e87b26c45983b70025c820c37f2b06fa5ecf",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 82,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardItch",
+      "event_node": "hardItch",
+      "title": "The Itch after Leave",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardItch.png",
+      "original_image_file_name": "exec-eb6be7b9-e13b-4432-8867-c27dcacae96e.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2708361,
+      "sha256": "4bf9097d8487582c86708b146ab16d044fd453d8c45018120ae6c9da9d2ee6d8",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 134,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardBrothel",
+      "event_node": "hardBrothel",
+      "title": "The Brothel's Complaint",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardBrothel.png",
+      "original_image_file_name": "exec-106bb713-ea31-4c3f-8b2b-8853eb24233a.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2467859,
+      "sha256": "2325c426feb93281c83c8df895bbd26091e8e2f5c2eb79af112f62035a1535ae",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 150,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardWoman",
+      "event_node": "hardWoman",
+      "title": "A Woman at the Barracks Gate",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardWoman.png",
+      "original_image_file_name": "exec-7c0b9dfd-e716-407f-be13-5c4ba227575a.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2941481,
+      "sha256": "017fa81ad4a951ee21ffa98ec580604ff09451777e16ab1d686cd058a9e3169e",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 166,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardFavourite",
+      "event_node": "hardFavourite",
+      "title": "The Captain's Favourite",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardFavourite.png",
+      "original_image_file_name": "exec-f1a8e934-4d1e-4b53-84bb-4dcfc8e8b896.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2574609,
+      "sha256": "0886874012d23623be2ecde6d2990868d2c1aa99e7c8bb63f7f190f0950dddb0",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 198,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardChild",
+      "event_node": "hardChild",
+      "title": "A Child Left at the Tavern",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardChild.png",
+      "original_image_file_name": "exec-f146ade7-dc9f-4c27-9635-f40df331fc9f.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2715492,
+      "sha256": "9d967c9c1dc31688c70042a8ca8e8b29e931c940862658ee9de2e6a3f5bdb228",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 214,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardHead",
+      "event_node": "hardHead",
+      "title": "A Head beneath the Wall",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardHead.png",
+      "original_image_file_name": "exec-a99b26e5-9fee-4016-8620-685289a4159e.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2736758,
+      "sha256": "962c2cb74659eb6d053119dbea35359d18758f5bd2267aac9c45475a49274710",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 296,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardScreams",
+      "event_node": "hardScreams",
+      "title": "Screaming beyond the Gate",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardScreams.png",
+      "original_image_file_name": "exec-b0fca8b8-3a02-48d0-b398-12ad95a9e225.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2584909,
+      "sha256": "e331d7353260f03b4681b79778a78145984d69e62d6524cf7bf1f6327b911b70",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 317,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardMissing",
+      "event_node": "hardMissing",
+      "title": "Missing Men at Roll Call",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardMissing.png",
+      "original_image_file_name": "exec-b9a8379d-17f3-4dcb-ba2b-790f31fe8b86.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2786745,
+      "sha256": "5d6bd6281988c2d1e54c98c96c2fca40d5b9a8a93e637836eb2f0c2f5d0e7907",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 339,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "sermonPride",
+      "event_node": "sermonPride",
+      "title": "Sermon against the Palace: Pride",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/sermonPride.png",
+      "original_image_file_name": "exec-d14748cb-06bb-4481-ae43-25762e312e77.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2849940,
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 397,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "random8a",
+      "event_node": "random8a",
+      "title": "Harvest!",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/random8a.png",
+      "original_image_file_name": "exec-5cd9e52b-8781-463c-bfa1-de6f13c29f40.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3162272,
+      "sha256": "d883a2d935d3a9b59537142dde66d353cc9e10dc993e5f1ef9e6fdf4d0591083",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 221,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardGrave1",
+      "event_node": "hardGrave1",
+      "title": "The Shroud with the Blue Stitch",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardGrave1.png",
+      "original_image_file_name": "exec-df3f5094-432c-47c5-8589-3dd1781d13f8.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2667442,
+      "sha256": "854e3627afd60a64b56b254d93a974524b0074c72f2eec0a16b021c79a40c50c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 98,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardGrave2",
+      "event_node": "hardGrave2",
+      "title": "The Dead Man's Linen",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardGrave2.png",
+      "original_image_file_name": "exec-bd33280f-cd6c-4e76-869c-3f9dfe1150af.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2537690,
+      "sha256": "c4b546b3c286e3f1b28eaf76cdc8e307c2dc47446f2f8c6472c9ffbc80eccad0",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 115,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardSand1",
+      "event_node": "hardSand1",
+      "title": "Three Seals, One Warehouse",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardSand1.png",
+      "original_image_file_name": "exec-01fd1403-f3bd-4604-ac71-b45c89fe0811.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2565299,
+      "sha256": "ed9232fd3da8e3848d02d3676c0d4f95d7dc7f26774c349a8ed0a2e13fd42f9a",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 260,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardMissing1",
+      "event_node": "hardMissing1",
+      "title": "The Tavern with the Shuttered Door",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardMissing1.png",
+      "original_image_file_name": "exec-9c5d9205-e224-496b-8d0b-7fdaa0055530.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2345648,
+      "sha256": "ee9a34238b78e973b2a4bde63e8348c396faa96570b87dfb24d4a69a19fc8ece",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 358,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardMissing2",
+      "event_node": "hardMissing2",
+      "title": "Passage for Four",
+      "origin_group": "completion61",
+      "batch": "B",
+      "asset_path": "event-covers/hardMissing2.png",
+      "original_image_file_name": "exec-38e52b34-880b-4e7d-9a98-529e09a3e689.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-0ad70184-a5fc-44c6-9e13-8f78afb1db64.png"
+      ],
+      "file_available": true,
+      "byte_size": 2986651,
+      "sha256": "e83a487757d52f9432d595bb981f45c26b5da95043592b83059d11653198d49f",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 376,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata26",
+      "event_node": "galata26",
+      "title": "Galata Joins the Emperor",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata26.png",
+      "original_image_file_name": "exec-d4cee8bb-2909-4c71-8d44-babd6c5bcd31.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2635628,
+      "sha256": "0ea3bbcd1c2f890de0ed72241766015d59fd09678da96ecd0bd1346d1d1551b8",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 135,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata27",
+      "event_node": "galata27",
+      "title": "Galata Distracts the Turks",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata27.png",
+      "original_image_file_name": "exec-8522fb74-fa7c-424a-97e2-c3577dfceb98.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2453549,
+      "sha256": "89992960604849f669579e48a2d68103e32234a6716b47c24fc2abc0aed0482a",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 145,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata28",
+      "event_node": "galata28",
+      "title": "Galata Sends Troops",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata28.png",
+      "original_image_file_name": "exec-80696144-ac67-4801-8960-2541470159e4.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3150595,
+      "sha256": "0850ba9d1307dd53cd05769aa7f37d5248cd345966e3fcd45d0e54e4bc8364da",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 155,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata29",
+      "event_node": "galata29",
+      "title": "Galata Offers a Loan",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata29.png",
+      "original_image_file_name": "exec-c53a5534-bee6-465b-8650-5463d9f585d1.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2497042,
+      "sha256": "e5f78ef11bfb771cd8857822b1ef38299074a361a02853be3a737769fc94797d",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 166,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata30",
+      "event_node": "galata30",
+      "title": "Galata Trades with the Turks",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata30.png",
+      "original_image_file_name": "exec-75ae380d-c7dd-4674-802b-1aefa1b8ce63.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2839048,
+      "sha256": "32fd023abbebb4645980feee7203e840840feb05cd7dc9d80c21c69bed444728",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 176,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata31",
+      "event_node": "galata31",
+      "title": "Galata Sells War Plans",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata31.png",
+      "original_image_file_name": "exec-dfe8cc20-1aa9-4f3d-8045-83d086554dc1.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2308768,
+      "sha256": "4958733a9e4e81a37a3cfba642cd58d357acdf58b62bea00268f312540a7d4c2",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 187,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "galata32",
+      "event_node": "galata32",
+      "title": "Galata Opens Its Gates to the Turks",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/galata32.png",
+      "original_image_file_name": "exec-ae472449-5466-4c8d-a91c-614887b1c3d5.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2624074,
+      "sha256": "6e6c22486bcc55986a5bbf5c992eb61b504fbf1adea6a92f07605d857315ee53",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 197,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "giovanniWarning",
+      "event_node": "giovanniWarning",
+      "title": "Giovanni Asks for Guarantees",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/giovanniWarning.png",
+      "original_image_file_name": "exec-2804ab49-4186-4bd2-ac3a-3267c33186ef.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2676969,
+      "sha256": "ab1736d5c6e34d1fa2ece17569fe39e0d79cea2b1fcfa235c7340d1898b7e328",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 208,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "giovanniThrone",
+      "event_node": "giovanniThrone",
+      "title": "The Purple or the Walls",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/giovanniThrone.png",
+      "original_image_file_name": "exec-fd3e7065-30a1-49be-9d76-74d3f10ab605.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3015487,
+      "sha256": "5853fa37081f6c2785b21e87f6106279049b0bdb68cf66495327dd9dfd2abe86",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 221,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "prepGalataGovernor",
+      "event_node": "prepGalataGovernor",
+      "title": "Who Shall Govern Galata?",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/prepGalataGovernor.png",
+      "original_image_file_name": "exec-4e721c89-eeab-4b08-b31e-defae64cd3fa.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2571867,
+      "sha256": "4901cb3ba9adc33ecdf14ce24878f4d0b36fe1965e241c988b9e2f8001b95237",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 110,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "courtLady",
+      "event_node": "courtLady",
+      "title": "Promiscuous Court Lady",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/courtLady.png",
+      "original_image_file_name": "exec-0420458f-46a2-415d-90e6-6bfb6c24786a.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2734879,
+      "sha256": "d2c6cdffeac618b18aad3e051639896b3295b2c3765b8e5eb44c45c9385fa307",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Court_intrigue.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+          "source_content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "foodShortage",
+      "event_node": "foodShortage",
+      "title": "The Empty Granary",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/foodShortage.png",
+      "original_image_file_name": "exec-70785dcb-0966-4caf-b030-1faa377a682b.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-2e7697ce-1222-4d6f-bd90-6d07e898b5f7.png"
+      ],
+      "file_available": true,
+      "byte_size": 2761364,
+      "sha256": "d59f6d06f6c03185db0a4c267808cb8de6dddcb3bc8095fa894fb29e7ff9b233",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/FoodShortage.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/FoodShortage.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "574d064e0d205cec330b521b45a79d04c608494d",
+          "source_content_sha256": "793fd649a428f3008912f72ee7b224cf9af5a35f713167501d1546fbeecf9be7"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "politicalDemand",
+      "event_node": "politicalDemand",
+      "title": "A Favour Remembered",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/politicalDemand.png",
+      "original_image_file_name": "exec-cda122da-519a-41d9-8842-db1a7547046f.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2618997,
+      "sha256": "90b18cce28f3ee85b59bed327fcb66c0bb32717cdcfdb8556b8c17c87b37b371",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/PoliticalDemands.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/PoliticalDemands.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "13900193c25a76343411405b3aa928bb2b147b0e",
+          "source_content_sha256": "0550b7445fb6d85690ff1d1de0a1e54f272092f8de1e46d2bb808836ae9b1fd5"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardStorm",
+      "event_node": "hardStorm",
+      "title": "A Horrible Storm: Fleet Diverted",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/hardStorm.png",
+      "original_image_file_name": "exec-cd3fd164-a08f-4095-adf8-4cf628c1239e.png",
+      "final_revision": 2,
+      "corrected_final": true,
+      "revision_note": "Final corrected original selected.",
+      "superseded_image_file_names": [
+        "exec-c2a6e6fe-3427-4202-985a-61e45cc32dc7.png"
+      ],
+      "file_available": true,
+      "byte_size": 2560875,
+      "sha256": "f64c3cdb0be38b797ecc2ef7adfc3ef48b6935af881b6adfcf2e5c44a8bae408",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Relief_storms.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Relief_storms.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "460a6251409a5c99b80020e83f2a5807e33b28af",
+          "source_content_sha256": "b50dfd508209b94319005761c1c01b0970eb57da30ff09b103ef04e0f69c95e0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "hardCatastrophicStorm",
+      "event_node": "hardCatastrophicStorm",
+      "title": "A Catastrophic Storm",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/hardCatastrophicStorm.png",
+      "original_image_file_name": "exec-1a67ee91-a410-4b4a-8dea-a67bf3a64386.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2979015,
+      "sha256": "ffa91c1e492cffb2456080824b2c451065f89852113a6b2ea007a620bc9b1444",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Relief_storms.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Relief_storms.yarn",
+          "node_header_line": 9,
+          "source_git_blob_sha": "460a6251409a5c99b80020e83f2a5807e33b28af",
+          "source_content_sha256": "b50dfd508209b94319005761c1c01b0970eb57da30ff09b103ef04e0f69c95e0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "shah1",
+      "event_node": "shah1",
+      "title": "The Sultan's Return Gift",
+      "origin_group": "completion61",
+      "batch": "C",
+      "asset_path": "event-covers/shah1.png",
+      "original_image_file_name": "exec-5e21b72b-f61b-43da-b09f-964f25d5127f.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2528821,
+      "sha256": "8d9480bc82ae0654522792e3624fc9e961c5598ac88ffeaff9aa2216e3525a04",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Shaherezade.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+          "source_content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "story18b",
+      "event_node": "story18b",
+      "title": "Defeated Fleet",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/story18b.png",
+      "original_image_file_name": "exec-aa32fe9e-ebaa-4c41-812e-42840f92456c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3213144,
+      "sha256": "a6f0a47651e1002b2cdf0dc5a0b5e4c9ee093f87f8f70e7a6aba9a45422b8795",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 624,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeFalseHope",
+      "event_node": "lifeFalseHope",
+      "title": "Sails: False Hope",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeFalseHope.png",
+      "original_image_file_name": "exec-bd329c56-e004-472f-bc3a-de5410911300.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2898464,
+      "sha256": "00d9fb34c36e39058d2256993ae97e5324f4d72200916683da790ca22054d9c0",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 12,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeMorea",
+      "event_node": "lifeMorea",
+      "title": "Sails: Morean Merchants",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeMorea.png",
+      "original_image_file_name": "exec-8b0e24ba-a603-46a9-be9b-b98101c2afca.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3085169,
+      "sha256": "cf90f0b52df91e2f0a6223bd9afdc67b48bd02097e1325ea189dd42dbda9350e",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 25,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeMercenaries",
+      "event_node": "lifeMercenaries",
+      "title": "Sails: Italian Mercenaries",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeMercenaries.png",
+      "original_image_file_name": "exec-54f7dd97-f034-4005-ab57-0864062519a2.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2744090,
+      "sha256": "10c4b21c1bc6f17f01748760c11549c3a1d8b10df8a511209742192b87286e70",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 41,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeRefugees",
+      "event_node": "lifeRefugees",
+      "title": "Sails: Refugees",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeRefugees.png",
+      "original_image_file_name": "exec-56092a62-c4a3-41eb-a152-7cb0ecb8bed8.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3019072,
+      "sha256": "acf7cf1bfb949052fd23bd5271d8dfdc272a35f42e4cabd98a2ce006f4900ace",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 54,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeBarrelOwner",
+      "event_node": "lifeBarrelOwner",
+      "title": "The Barrel's Owner Appears",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeBarrelOwner.png",
+      "original_image_file_name": "exec-757c5acc-3daa-4076-92db-a94f0a21fa78.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2353677,
+      "sha256": "8d4b2e59bec1326d334612d49a34d2a646145105bfda11250d822da7a1d1994f",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 154,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeSurprise",
+      "event_node": "lifeSurprise",
+      "title": "Too Quiet",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeSurprise.png",
+      "original_image_file_name": "exec-ffa06d95-8bf9-4914-b05b-2ee1fa34cdb2.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 3134997,
+      "sha256": "f415bdfeca9cc5f19270810073ea01f1b4f3480f90b91e78240f3307e8a6bc1c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 259,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "combatAssassin",
+      "event_node": "combatAssassin",
+      "title": "A Blade within Reach",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/combatAssassin.png",
+      "original_image_file_name": "exec-54672969-234e-4373-a0d1-106870da84c1.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2933562,
+      "sha256": "c09e1449743ea5fb26a29ccd516dd8b20f3890bb6b37faf69e1054e64222f85c",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 96,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "lifeGunnerResult",
+      "event_node": "lifeGunnerResult",
+      "title": "The Gunner's Examination",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/lifeGunnerResult.png",
+      "original_image_file_name": "exec-83fddb55-c67a-44b8-8fe9-9087a1e5412c.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2785665,
+      "sha256": "de48b810a3c189ceb2787c79a7d88069e81a878caa191681b9f2616578f80dd8",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 148,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "courtLadyLetters",
+      "event_node": "courtLadyLetters",
+      "title": "A Letter Left Unburned",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/courtLadyLetters.png",
+      "original_image_file_name": "exec-b20f9d5c-4f5f-4d8e-ba1b-539550cba032.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2374323,
+      "sha256": "056077e9c5204f381314118cf46aef198686d755a0e219a3ff39ca91d039af02",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Court_intrigue.yarn",
+          "node_header_line": 30,
+          "source_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+          "source_content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "courtLadyMarriage",
+      "event_node": "courtLadyMarriage",
+      "title": "The Wedding and the Whisper",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/courtLadyMarriage.png",
+      "original_image_file_name": "exec-2857cbe6-af4b-4e53-8245-4361fb7c3932.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2442855,
+      "sha256": "52fc15fa83853470a48b95bc0e9c13a262e9fbcd213e476777235ab107977cf8",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Court_intrigue.yarn",
+          "node_header_line": 48,
+          "source_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+          "source_content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "shah2",
+      "event_node": "shah2",
+      "title": "A Page Sewn Shut",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/shah2.png",
+      "original_image_file_name": "exec-fb3351ea-02e4-4feb-afb0-2a0a941453e6.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2551589,
+      "sha256": "80d7b95bcef1ec0242f1b666847707ab5cf0faf76ac02bda36b9698c92e1fe50",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Shaherezade.yarn",
+          "node_header_line": 18,
+          "source_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+          "source_content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "asset_id": "shah3",
+      "event_node": "shah3",
+      "title": "The Third Bell / The Story's Missing Page",
+      "origin_group": "completion61",
+      "batch": "D",
+      "asset_path": "event-covers/shah3.png",
+      "original_image_file_name": "exec-90d4a7ec-8bab-4832-a493-dbe57bbf4642.png",
+      "final_revision": 1,
+      "corrected_final": false,
+      "revision_note": "Original final selection.",
+      "superseded_image_file_names": [],
+      "file_available": true,
+      "byte_size": 2317768,
+      "sha256": "46531edc98356671babdac570360985b4839b05eaa963e473ed9b2c8628f162f",
+      "width": 1536,
+      "height": 1024,
+      "color_mode": "RGB",
+      "bytes_unchanged_from_original": true,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Shaherezade.yarn",
+          "node_header_line": 36,
+          "source_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+          "source_content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    }
+  ],
+  "reuse_mappings": [
+    {
+      "event_node": "story18a",
+      "reuse_event_node": "story18",
+      "asset_id": "story18",
+      "asset_path": "event-covers/story18.png",
+      "sha256": "d90a5255d15f790b5bfa80c0bd9d3ad299fc5b2e6e69f8a6607130e961247f83",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 631,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "lifeSaintsDebate",
+      "reuse_event_node": "lifeSaints",
+      "asset_id": "lifeSaints",
+      "asset_path": "event-covers/lifeSaints.png",
+      "sha256": "807a02ae4d5bfed436d4553fff102a4fe740ffe94c068ff5784ba2ead67f804b",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 22,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "lifeSaintsQuestion",
+      "reuse_event_node": "lifeSaints",
+      "asset_id": "lifeSaints",
+      "asset_path": "event-covers/lifeSaints.png",
+      "sha256": "807a02ae4d5bfed436d4553fff102a4fe740ffe94c068ff5784ba2ead67f804b",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 35,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "hardWoman1",
+      "reuse_event_node": "hardWoman",
+      "asset_id": "hardWoman",
+      "asset_path": "event-covers/hardWoman.png",
+      "sha256": "017fa81ad4a951ee21ffa98ec580604ff09451777e16ab1d686cd058a9e3169e",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 184,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "hardSand2",
+      "reuse_event_node": "hardSand1",
+      "asset_id": "hardSand1",
+      "asset_path": "event-covers/hardSand1.png",
+      "sha256": "ed9232fd3da8e3848d02d3676c0d4f95d7dc7f26774c349a8ed0a2e13fd42f9a",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 276,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "sermonGreed",
+      "reuse_event_node": "sermonPride",
+      "asset_id": "sermonPride",
+      "asset_path": "event-covers/sermonPride.png",
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 418,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "sermonLust",
+      "reuse_event_node": "sermonPride",
+      "asset_id": "sermonPride",
+      "asset_path": "event-covers/sermonPride.png",
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 438,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "sermonEnvy",
+      "reuse_event_node": "sermonPride",
+      "asset_id": "sermonPride",
+      "asset_path": "event-covers/sermonPride.png",
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 463,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "sermonGluttony",
+      "reuse_event_node": "sermonPride",
+      "asset_id": "sermonPride",
+      "asset_path": "event-covers/sermonPride.png",
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 483,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "sermonWrath",
+      "reuse_event_node": "sermonPride",
+      "asset_id": "sermonPride",
+      "asset_path": "event-covers/sermonPride.png",
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 503,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    },
+    {
+      "event_node": "sermonSloth",
+      "reuse_event_node": "sermonPride",
+      "asset_id": "sermonPride",
+      "asset_path": "event-covers/sermonPride.png",
+      "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f",
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 523,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "node_verified_at_commit": "28fa420ac58c222574c8f5b3d43cf871543ffb7a"
+    }
+  ],
+  "event_node_to_asset_path": {
+    "story7": "event-covers/story7.png",
+    "story9": "event-covers/story9.png",
+    "story12": "event-covers/story12.png",
+    "story13": "event-covers/story13.png",
+    "story17": "event-covers/story17.png",
+    "story16": "event-covers/story16.png",
+    "story20": "event-covers/story20.png",
+    "prepScorched": "event-covers/prepScorched.png",
+    "prepGrain": "event-covers/prepGrain.png",
+    "prepAdventurers": "event-covers/prepAdventurers.png",
+    "random1": "event-covers/random1.png",
+    "random3": "event-covers/random3.png",
+    "random4": "event-covers/random4.png",
+    "random5": "event-covers/random5.png",
+    "random6": "event-covers/random6.png",
+    "random8": "event-covers/random8.png",
+    "random9": "event-covers/random9.png",
+    "random15": "event-covers/random15.png",
+    "random19": "event-covers/random19.png",
+    "random22": "event-covers/random22.png",
+    "lifeWedding": "event-covers/lifeWedding.png",
+    "lifeGhost": "event-covers/lifeGhost.png",
+    "lifeCandles": "event-covers/lifeCandles.png",
+    "lifeSong": "event-covers/lifeSong.png",
+    "lifeDrawing": "event-covers/lifeDrawing.png",
+    "hardCoin": "event-covers/hardCoin.png",
+    "random2": "event-covers/random2.png",
+    "random7": "event-covers/random7.png",
+    "random10": "event-covers/random10.png",
+    "random21": "event-covers/random21.png",
+    "lifeSails": "event-covers/lifeSails.png",
+    "lifeCobbler": "event-covers/lifeCobbler.png",
+    "lifeStones": "event-covers/lifeStones.png",
+    "lifeRoof": "event-covers/lifeRoof.png",
+    "lifeSaints": "event-covers/lifeSaints.png",
+    "lifeLights": "event-covers/lifeLights.png",
+    "hardCistern": "event-covers/hardCistern.png",
+    "hardSand": "event-covers/hardSand.png",
+    "random13": "event-covers/random13.png",
+    "random14": "event-covers/random14.png",
+    "lifeBread": "event-covers/lifeBread.png",
+    "lifeWell": "event-covers/lifeWell.png",
+    "lifeBarrel": "event-covers/lifeBarrel.png",
+    "lifeCoin": "event-covers/lifeCoin.png",
+    "lifeQuiet": "event-covers/lifeQuiet.png",
+    "lifeGunner": "event-covers/lifeGunner.png",
+    "hardHorse": "event-covers/hardHorse.png",
+    "hardRats": "event-covers/hardRats.png",
+    "random17": "event-covers/random17.png",
+    "random11": "event-covers/random11.png",
+    "story0": "event-covers/story0.png",
+    "story1": "event-covers/story1.png",
+    "story3": "event-covers/story3.png",
+    "story4": "event-covers/story4.png",
+    "story5": "event-covers/story5.png",
+    "story8": "event-covers/story8.png",
+    "story15": "event-covers/story15.png",
+    "story19": "event-covers/story19.png",
+    "story22": "event-covers/story22.png",
+    "story23": "event-covers/story23.png",
+    "story6": "event-covers/story6.png",
+    "story10": "event-covers/story10.png",
+    "story18": "event-covers/story18.png",
+    "story14": "event-covers/story14.png",
+    "prepNaval": "event-covers/prepNaval.png",
+    "prepIntelligence": "event-covers/prepIntelligence.png",
+    "prepFortress": "event-covers/prepFortress.png",
+    "lifeOnions": "event-covers/lifeOnions.png",
+    "lifeInsult": "event-covers/lifeInsult.png",
+    "random0": "event-covers/random0.png",
+    "lifeGenerosity": "event-covers/lifeGenerosity.png",
+    "random12": "event-covers/random12.png",
+    "random20": "event-covers/random20.png",
+    "random23": "event-covers/random23.png",
+    "random16": "event-covers/random16.png",
+    "hardDead": "event-covers/hardDead.png",
+    "hardGrave": "event-covers/hardGrave.png",
+    "hardItch": "event-covers/hardItch.png",
+    "hardBrothel": "event-covers/hardBrothel.png",
+    "hardWoman": "event-covers/hardWoman.png",
+    "hardFavourite": "event-covers/hardFavourite.png",
+    "hardChild": "event-covers/hardChild.png",
+    "hardHead": "event-covers/hardHead.png",
+    "hardScreams": "event-covers/hardScreams.png",
+    "hardMissing": "event-covers/hardMissing.png",
+    "sermonPride": "event-covers/sermonPride.png",
+    "random8a": "event-covers/random8a.png",
+    "hardGrave1": "event-covers/hardGrave1.png",
+    "hardGrave2": "event-covers/hardGrave2.png",
+    "hardSand1": "event-covers/hardSand1.png",
+    "hardMissing1": "event-covers/hardMissing1.png",
+    "hardMissing2": "event-covers/hardMissing2.png",
+    "galata26": "event-covers/galata26.png",
+    "galata27": "event-covers/galata27.png",
+    "galata28": "event-covers/galata28.png",
+    "galata29": "event-covers/galata29.png",
+    "galata30": "event-covers/galata30.png",
+    "galata31": "event-covers/galata31.png",
+    "galata32": "event-covers/galata32.png",
+    "giovanniWarning": "event-covers/giovanniWarning.png",
+    "giovanniThrone": "event-covers/giovanniThrone.png",
+    "prepGalataGovernor": "event-covers/prepGalataGovernor.png",
+    "courtLady": "event-covers/courtLady.png",
+    "foodShortage": "event-covers/foodShortage.png",
+    "politicalDemand": "event-covers/politicalDemand.png",
+    "hardStorm": "event-covers/hardStorm.png",
+    "hardCatastrophicStorm": "event-covers/hardCatastrophicStorm.png",
+    "shah1": "event-covers/shah1.png",
+    "story18b": "event-covers/story18b.png",
+    "lifeFalseHope": "event-covers/lifeFalseHope.png",
+    "lifeMorea": "event-covers/lifeMorea.png",
+    "lifeMercenaries": "event-covers/lifeMercenaries.png",
+    "lifeRefugees": "event-covers/lifeRefugees.png",
+    "lifeBarrelOwner": "event-covers/lifeBarrelOwner.png",
+    "lifeSurprise": "event-covers/lifeSurprise.png",
+    "combatAssassin": "event-covers/combatAssassin.png",
+    "lifeGunnerResult": "event-covers/lifeGunnerResult.png",
+    "courtLadyLetters": "event-covers/courtLadyLetters.png",
+    "courtLadyMarriage": "event-covers/courtLadyMarriage.png",
+    "shah2": "event-covers/shah2.png",
+    "shah3": "event-covers/shah3.png",
+    "story18a": "event-covers/story18.png",
+    "lifeSaintsDebate": "event-covers/lifeSaints.png",
+    "lifeSaintsQuestion": "event-covers/lifeSaints.png",
+    "hardWoman1": "event-covers/hardWoman.png",
+    "hardSand2": "event-covers/hardSand1.png",
+    "sermonGreed": "event-covers/sermonPride.png",
+    "sermonLust": "event-covers/sermonPride.png",
+    "sermonEnvy": "event-covers/sermonPride.png",
+    "sermonGluttony": "event-covers/sermonPride.png",
+    "sermonWrath": "event-covers/sermonPride.png",
+    "sermonSloth": "event-covers/sermonPride.png"
+  },
+  "stat_icons": [
+    {
+      "stat": "Health",
+      "display_label": "Health",
+      "asset_path": "stat-icons/health.png",
+      "metadata_path": "stat-icons/health.png.meta",
+      "original_image_file_name": "exec-034d8b29-abe9-41c4-9d0c-f4d37f43e267.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/health.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/health.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "18d8f789ee52cfaa77626fc28e7874b5ba476a14388af4003415999f9e5d85f2",
+      "byte_size": 934202,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        140,
+        201,
+        1114,
+        1078
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "9284bbf19afa4132899693dcc782f4f9caafd68c",
+      "metadata_guid": "611a0e7a3102507d8e014f62bbed04af",
+      "metadata_sha256": "020ac9bbdfc9ecfe52041c62009363db4811c994632e05ff0608f0d9f57dbed6",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "9ae17d35dc67f78fbd99ff63ccca04df06a87a3a"
+    },
+    {
+      "stat": "Gold",
+      "display_label": "Gold",
+      "asset_path": "stat-icons/gold.png",
+      "metadata_path": "stat-icons/gold.png.meta",
+      "original_image_file_name": "exec-6518e663-9c08-413b-8462-6aeeb1d93838.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/gold.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/gold.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "4642d91e00f13d750beeee95381f198e6d2e927e209c3eb1b39f2f8d6f0f9afc",
+      "byte_size": 1131176,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        133,
+        165,
+        1106,
+        1091
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "5bc9aad831a06fcc8f880164ebb1cee9e85a97e4",
+      "metadata_guid": "80312393bc0555b5b916ae52930e8518",
+      "metadata_sha256": "7687178887140b91737ecb8aa429eb1ae91995d26f76c742101337a18892d63f",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "7cee529fd1c70d9b6c808fac23b78ddb11591182"
+    },
+    {
+      "stat": "People",
+      "display_label": "People",
+      "asset_path": "stat-icons/people.png",
+      "metadata_path": "stat-icons/people.png.meta",
+      "original_image_file_name": "exec-df4e027e-2404-41ec-a450-95ab5b3e7c72.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/people.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/people.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "fe3aed11ef2260aaa715b78136c5d6880b1fe3845f95df8e59c53a8032dbf902",
+      "byte_size": 1120039,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        62,
+        273,
+        1191,
+        1042
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "693feeedc8c5ecb67e4e0da2947ef146a1eeb43e",
+      "metadata_guid": "02d11bf9c1d45c2e83f4c98cdcf51223",
+      "metadata_sha256": "4555574da64aa325373e63809f69b0a0d35f0c9b7ef8a0bf4b8b101e5a983fb0",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "c2557e2212fdd924debd0e372a96313c4b6d0e7e"
+    },
+    {
+      "stat": "Materials",
+      "display_label": "Materials",
+      "asset_path": "stat-icons/materials.png",
+      "metadata_path": "stat-icons/materials.png.meta",
+      "original_image_file_name": "exec-e4f0c7b5-76ea-47d9-ae93-e2bcd1991145.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/materials.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/materials.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "b1f9b9e7aa20ad60f93af40b63c642bc7c3f38ce3970daf8e4df5c3e8672891f",
+      "byte_size": 1006956,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        85,
+        262,
+        1171,
+        1023
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "fe1c2383c00b3b411cf91c28dbb94ce822ca468d",
+      "metadata_guid": "b8957a6bb1625c459a9abce95c343f57",
+      "metadata_sha256": "bcd72c2b87c166592c50971574154789ed85269cd946d8a8649725bf999879eb",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "e179aa2d749709510bf49de606f7bb4575817ab6"
+    },
+    {
+      "stat": "Food",
+      "display_label": "Food",
+      "asset_path": "stat-icons/food.png",
+      "metadata_path": "stat-icons/food.png.meta",
+      "original_image_file_name": "exec-8716d4bc-c23d-4e7b-aeac-f41331bf7d97.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/food.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/food.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "a23f93156a60ae5dbad9594b8ed100642bc4bdbe2acf941fb7d43c400b40c14a",
+      "byte_size": 896785,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        348,
+        87,
+        906,
+        1171
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "2c509935301c7e4739b8457b1ed73189ffcadd0a",
+      "metadata_guid": "cdbec6c4b42c55d58bec90cf623b8fb8",
+      "metadata_sha256": "0c2b3878b5e4314df3eaa616504eb2befe62413d4e8d155998e4ccd141d510f9",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "2f8f2b2092101d26b74c89aa3c01249d5605c9c5"
+    },
+    {
+      "stat": "Secrets",
+      "display_label": "Secrets",
+      "asset_path": "stat-icons/secrets.png",
+      "metadata_path": "stat-icons/secrets.png.meta",
+      "original_image_file_name": "exec-2af37af2-b87a-4f66-a21c-b9a44655f1e5.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/secrets.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/secrets.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "902f0c9f8fee597d7f20a6ba679432da8bfbdefa0685dcf9d818246094c8f91e",
+      "byte_size": 706809,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        128,
+        152,
+        1121,
+        1144
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "bc81632ba626f847b91a77952e66518448172ce1",
+      "metadata_guid": "b00342a3783e57ff9aa16ad48f5d3e06",
+      "metadata_sha256": "36b2559750630213d165836718903c007b03c3679e04bf318183ba85acb9ebdf",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "3abe571a3094e5ae398043c4fb7baa52c24f29b4"
+    },
+    {
+      "stat": "Archers",
+      "display_label": "Archers",
+      "asset_path": "stat-icons/archers.png",
+      "metadata_path": "stat-icons/archers.png.meta",
+      "original_image_file_name": "exec-5ccc93d6-de78-4c87-93ae-73115205f8ae.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/archers.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/archers.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "3b17f174d5a5a3166fe4fdc88d18ed331144592018dde98ba39fd79833be0bab",
+      "byte_size": 606677,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        106,
+        115,
+        1172,
+        1140
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "2e10cf02772a7efbd32b1877f24d78e886ebae00",
+      "metadata_guid": "311f080900eb5e488d777260b1c7d7af",
+      "metadata_sha256": "923460e9ac81694309463ee0d0a2733c83cd39409eac5bb14e0566a27358db00",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "b59cfc1a42278ed27b711a62b7443f7588b601ff"
+    },
+    {
+      "stat": "Infantry",
+      "display_label": "Infantry",
+      "asset_path": "stat-icons/infantry.png",
+      "metadata_path": "stat-icons/infantry.png.meta",
+      "original_image_file_name": "exec-8a13b05f-72fa-45a2-876a-5f04c03f01a1.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/infantry.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/infantry.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "1bfef6317761d6da460789dc32987edda79bd09da4ed81edc613b76c6f92aa13",
+      "byte_size": 580326,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        101,
+        111,
+        1153,
+        1149
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "b789fe97c258cb5a7395511f7c75cd5701dfabc8",
+      "metadata_guid": "01f2575f1fd05874a40274ac48c8c5ed",
+      "metadata_sha256": "3a067b3e9441c7d04a4cf5f4f6b497e0787814e781b7a9a09994f5f90c53778f",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "d14c8628e2709f5d7aa7296154773ae784772e12"
+    },
+    {
+      "stat": "Cavalry",
+      "display_label": "Cavalry",
+      "asset_path": "stat-icons/cavalry.png",
+      "metadata_path": "stat-icons/cavalry.png.meta",
+      "original_image_file_name": "exec-c1a0f9a6-4687-4ee5-9954-cfde3a664fdf.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/cavalry.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/cavalry.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "7788fd74b22c5431baf7e3f1ce8ccbd0f54057e6f9947227d7c08a413fa54888",
+      "byte_size": 1145037,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        132,
+        87,
+        1147,
+        1179
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "147cb3c1c9e5ee364201ab6744609c568541bad4",
+      "metadata_guid": "2bbca08710af57219d1f91e67901f117",
+      "metadata_sha256": "27d1d1a658432fac7ec4f8c3ad9786a4b049b1256c8db21675e441c1018e9620",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "fef1daf6d2f67378fdf7dfc4d28a6e1b32f3f5e2"
+    },
+    {
+      "stat": "Guard",
+      "display_label": "Guard",
+      "asset_path": "stat-icons/guard.png",
+      "metadata_path": "stat-icons/guard.png.meta",
+      "original_image_file_name": "exec-92ca6e77-550c-4118-a319-b2d7eb3b52c0.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/guard.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/guard.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "6d8d38f31227e7003dcc33bdedd3779b11a4da466d73c2cdfc64dfe3983a250b",
+      "byte_size": 568934,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        181,
+        157,
+        1173,
+        1109
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "be7d708cc1a98d51586c10ae15711aa53f538286",
+      "metadata_guid": "41e652a8b09a5231aeaf6798c5846206",
+      "metadata_sha256": "9c7804605a8b14eae11bd461b4a853eca4f006ce938b82dedc2440f77d3e1773",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "df25fbc9ce5dc225e20f065e03fc0a0a1bdd61cf"
+    },
+    {
+      "stat": "ArmySupport",
+      "display_label": "Army",
+      "asset_path": "stat-icons/army-support.png",
+      "metadata_path": "stat-icons/army-support.png.meta",
+      "original_image_file_name": "exec-f47e0fe0-49cc-429d-ba78-3ad0ef34f67e.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/army-support.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/army-support.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "1891ebd60a98573a13c3ee9597a26365125298783d49ead529a21856d86a3257",
+      "byte_size": 707641,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        249,
+        98,
+        1059,
+        1132
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "6c2fc2b5688331e1f99e365e54625b13ac4ddc54",
+      "metadata_guid": "8a862118f92f5215a48c06bf14842667",
+      "metadata_sha256": "7d5dd34ab73fb6561a8b40715c082858d51e14f3ec23ecca7a2751b21e61d0b7",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "3001fdc91c76bc00b174a164a00bc5fa7e290c5c"
+    },
+    {
+      "stat": "PublicSupport",
+      "display_label": "Public",
+      "asset_path": "stat-icons/public-support.png",
+      "metadata_path": "stat-icons/public-support.png.meta",
+      "original_image_file_name": "exec-62d05343-f6a8-40c1-b1aa-fb6716de492f.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/public-support.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/public-support.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "f964c375730fd926ac98c3751774a387486930b4da71775bae34d72bedfef03d",
+      "byte_size": 957679,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        214,
+        115,
+        1099,
+        1147
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "5397acf800a36090db3e95c79ea88a02ce84cf74",
+      "metadata_guid": "94c325587fd950fb83ef115aac874982",
+      "metadata_sha256": "f1f1ebba76450cba30dcffd15518f32cf52d99a7c07f875c8547431fa755ec79",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "9a9a9673f17a2b4283fc8663b7cfb397d8eca577"
+    },
+    {
+      "stat": "ClergySupport",
+      "display_label": "Clergy",
+      "asset_path": "stat-icons/clergy-support.png",
+      "metadata_path": "stat-icons/clergy-support.png.meta",
+      "original_image_file_name": "exec-deac788f-519a-48ce-961f-109324a7651d.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/clergy-support.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/clergy-support.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "d6c4dcd7107025372e96b2b377d60b515a49773f668625eb469330947293675c",
+      "byte_size": 743376,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        179,
+        196,
+        1074,
+        1056
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "6ac1bdad80530720e828f1c8d5fa06f60bcdfb94",
+      "metadata_guid": "042a74a3aac35a79af4b5d8408989125",
+      "metadata_sha256": "0e33917e7738ab8f2ead42a501a38a247c58ec48edb33b4e7b1f369ebfc29dfb",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "f5724f9494a38c47e2cb0c222a5372329432074f"
+    },
+    {
+      "stat": "NoblesSupport",
+      "display_label": "Nobles",
+      "asset_path": "stat-icons/nobles-support.png",
+      "metadata_path": "stat-icons/nobles-support.png.meta",
+      "original_image_file_name": "exec-3387dbc9-46cc-4988-8f55-31a6b4bedbeb.png",
+      "repository_path": "Assets/Resources/UI/MidnightMosaic/Stats/nobles-support.png",
+      "repository_metadata_path": "Assets/Resources/UI/MidnightMosaic/Stats/nobles-support.png.meta",
+      "source_commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "source_pull_request": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "sha256": "d3c3300d25112876481ba9d179569f5be3414fb49b6759d18827c3498934c1df",
+      "byte_size": 835623,
+      "width": 1254,
+      "height": 1254,
+      "color_mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_bounds": [
+        81,
+        277,
+        1173,
+        977
+      ],
+      "bytes_unchanged_from_original": true,
+      "matches_pr5_commit_bytes": true,
+      "git_blob_sha": "6dcf4c93befad031c00e1e578c00afc1198b5213",
+      "metadata_guid": "72253f8312cf5d948b3cfe8835367847",
+      "metadata_sha256": "22f5d077ef95941d714419b189dcb658aaef7c3c3050526a7f61c57d6ceac7d6",
+      "metadata_byte_size": 2229,
+      "metadata_git_blob_sha": "20b7924133928728bbeda2b8cced4cd8bb4f5e74"
+    }
+  ],
+  "stat_icon_provenance": {
+    "url": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "branch": "codex/menu-stat-icons-20261101",
+    "commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+    "base": "codex/prototype-first-playtest",
+    "base_sha": "99d8349567970d7ecbb6cc897818d18874ef867e"
+  },
+  "superseded_draft_image_file_names_excluded": [
+    "exec-0ad70184-a5fc-44c6-9e13-8f78afb1db64.png",
+    "exec-0fc6d4a4-c9a1-4267-bac2-2bc0bb97bc93.png",
+    "exec-2e7697ce-1222-4d6f-bd90-6d07e898b5f7.png",
+    "exec-2f85f675-a722-40f8-9941-8c8923f035a1.png",
+    "exec-3a18454e-5e5b-42fd-a4ff-f670829421e6.png",
+    "exec-47b8173d-b4c0-485f-933d-c6c0520bb201.png",
+    "exec-621534f0-e207-4214-8d31-97f3f0dbad8a.png",
+    "exec-694ff354-3658-487b-be65-dbdc9c6c65c4.png",
+    "exec-843a0866-96a3-453a-b10f-c9a0ea05a68d.png",
+    "exec-8720b376-10a3-43ce-a98b-252f7f6be842.png",
+    "exec-a3fdce66-5c02-4c64-847a-ec0cb2d69c9a.png",
+    "exec-c2a6e6fe-3427-4202-985a-61e45cc32dc7.png",
+    "exec-cc476400-4262-47d4-9aeb-d97a65f15304.png",
+    "exec-cd4074fd-5f01-4827-ad31-61df92dfb448.png",
+    "exec-d3961015-cc5e-4212-b3e2-207db549c442.png",
+    "exec-e36797b7-6de1-40b8-9480-538fce2943be.png",
+    "exec-f156639e-6d2a-41eb-9c08-0b4288a21ef5.png",
+    "exec-f8d2e71b-7e68-4e46-a3d4-8af6eb6840d9.png"
+  ],
+  "first_five_correction_provenance_note": "The five corrected preparation finals are exact confirmed files. Their five old draft filenames are excluded at batch level; no unsupported one-to-one draft attribution is asserted.",
+  "other_source_nodes_outside_requested_handover": [
+    "prepPass",
+    "quietDay",
+    "random18",
+    "story11",
+    "story2",
+    "story21",
+    "story24"
+  ],
+  "other_nodes_note": "These seven source nodes are outside the requested 121-cover plus 11-reuse set and are not missing originals from that set. No new art or extra reuse mappings are invented for them.",
+  "source_verification_file": "SOURCE_VERIFICATION.json",
+  "checksum_file": "SHA256SUMS.txt"
+}
