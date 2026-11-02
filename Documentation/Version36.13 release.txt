@@ -1,0 +1,63 @@
+BESIEGED VERSION 36.13 - COURTS OF THE MEDITERRANEAN
+2 November 2026
+
+Open Besieged-Latest on the desktop after closing an older running game.
+
+DIPLOMACY
+31 diplomatic courts. Ragusa, the Tocco Ionian lordships, Florence, Milan, Siena
+and Theodoro now offer aid, resident envoys, gifts, renewed appeals, historical
+profiles and individual replies. Crimea, the Mamluks and Lithuania have working
+map routes to their existing diplomatic records. Papal territories open Rome.
+Poland and Lithuania retain one Casimir embassy. Naples, Sicily and Sardinia
+retain one Alfonso embassy, avoiding duplicate aid entitlements.
+Ragusa, the new minor courts, Crimea and the Mamluks do not automatically gain
+a generic anti-Ottoman war button. Their ordinary diplomacy is fully available.
+
+MAP
+94 regions and possession polygons. Coastlines follow the existing artwork;
+the independent Crimean Khanate, Genoese colonies and Theodoro are distinguished.
+Venetian Corfu remains separate from the Tocco islands. Schematic local-rule
+notes distinguish the Ramadanid and Dulkadir marches from Cairo's core domains.
+Egypt lies beyond this map's southern edge; the visible Mamluk territory is Syria.
+Savoy and the small Po-valley lordships remain geographic context, not new courts.
+
+The Lithuania/Crimea and Savoy/Milan lines are less angular. Mamluk and Turkmen
+frontiers now meet. Inland seams at Phrygia/Karaman, Thrace/Macedonia, the Ionian
+mainland coast and Hungary/Bosnia/Venetian territory are closed. Actual sea
+channels remain open. Visible shapes and clickable territory use the same data.
+This is the schematic gameplay map; the separate historical atlas is preserved.
+
+INTERFACE
+- Intelligence report tiers use Roman numerals I-X. Actual resource counts remain
+  Arabic. The heading explicitly says Ottoman camp alert; redundant captions and
+  the zero-floor reminder are removed. Meaningful nonzero alert floors remain.
+- Fleet orders in Military now opens Fleet management, with a return to Military.
+- Repair hover text fits a single measured panel, stays within the screen and
+  does not cover its own button. Other turn-action hints use the same improvement.
+- Notaras's existing discount remains applied to the 50-gold engineer base rate.
+
+BALANCE AND COMPATIBILITY
+Existing country indices and all gameplay values for the original 25 courts are
+preserved. Six new packages use modest editable playtest defaults, documented in
+Expanded diplomatic courts 36.13.txt. No new currency or duplicated sovereign
+state was introduced. The monastic, personnel and palace-figure systems remain.
+Diplomatic flag artwork and further location changes are the main developer's
+separate following update; they are not claimed as part of this release.
+
+VALIDATION
+Complete gameplay assembly and Unity Windows export compiled. Backend catalogue,
+profiles, replies, shared-sovereign routing and migration passed 133 standalone
+checks. Unity editor checked 372 diplomatic reply combinations. All polygons are
+valid; 468 float32 triangulation checks passed across six map widths. Shared-edge
+rounding intersections are below 0.05 square artwork pixels, with no visible
+overlapping interiors. Exported-player results are recorded alongside this file
+in VALIDATION.txt. Targeted screenshots were inspected; this is not a full
+campaign balance playthrough.
+
+Historical sources and qualifications: Historical map and diplomacy sources 36.13
+in the repository Documentation folder. New aid figures are design values, not
+historical measurements.
+
+FINAL EXPORTED CHECKS
+THEATRE_CHECKS 999 passed
+TURN_ACTION_CHECKS 552 passed at 1600x900 and 1280x720; one isolated repair committed.

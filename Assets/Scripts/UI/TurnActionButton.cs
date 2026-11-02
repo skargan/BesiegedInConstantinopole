@@ -10,6 +10,7 @@ public sealed class TurnActionButton : MonoBehaviour, IPointerEnterHandler, IPoi
 {
     public string Hint = "Time passes after this order.";
     static Sprite emblem;
+    static TurnActionButton hintOwner;
     Button button;
     Image icon;
     TMP_Text[] captions;
@@ -82,17 +83,37 @@ public sealed class TurnActionButton : MonoBehaviour, IPointerEnterHandler, IPoi
     void ShowHint()
     {
         CloseHint();if(button==null||!button.IsInteractable())return;
+        if(hintOwner!=null&&hintOwner!=this)hintOwner.CloseHint();
         var canvas=GetComponentInParent<Canvas>();if(canvas==null)return;
         canvas=canvas.rootCanvas;
+        hintOwner=this;
         tip=new GameObject("Turn meaning",typeof(RectTransform),typeof(Canvas),typeof(Image));tip.transform.SetParent(canvas.transform,false);
         var layer=tip.GetComponent<Canvas>();layer.overrideSorting=true;layer.sortingOrder=700;
         tip.GetComponent<Image>().color=ImperialTheme.Navy;tip.GetComponent<Image>().raycastTarget=false;ImperialTheme.Frame(tip);
-        var rect=tip.GetComponent<RectTransform>();rect.anchorMin=rect.anchorMax=new Vector2(.5f,.5f);rect.sizeDelta=new Vector2(300,44);
+        var rect=tip.GetComponent<RectTransform>();rect.anchorMin=rect.anchorMax=new Vector2(.5f,.5f);
+        var parent=(RectTransform)canvas.transform;var area=parent.rect;
+        const float margin=12,gap=10,padding=16;
+        var label=CampaignHUD.Label(tip.transform,Hint,Vector2.zero,Vector2.one,19);label.alignment=TextAlignmentOptions.Center;
+        label.enableWordWrapping=true;label.enableAutoSizing=false;label.raycastTarget=false;
+        float maximumWidth=Mathf.Max(1,Mathf.Min(520,area.width-2*margin));
+        float width=Mathf.Clamp(label.GetPreferredValues(Hint,float.PositiveInfinity,float.PositiveInfinity).x+2*padding,Mathf.Min(300,maximumWidth),maximumWidth);
+        float wantedHeight=label.GetPreferredValues(Hint,Mathf.Max(1,width-2*padding),float.PositiveInfinity).y+24;
+        float height=Mathf.Min(Mathf.Max(44,wantedHeight),Mathf.Max(1,area.height-2*margin));
+        rect.sizeDelta=new Vector2(width,height);
+        label.rectTransform.offsetMin=new Vector2(padding,12);label.rectTransform.offsetMax=new Vector2(-padding,-12);
+        if(wantedHeight>height){label.enableAutoSizing=true;label.fontSizeMin=14;label.fontSizeMax=19;}
         var corners=new Vector3[4];((RectTransform)transform).GetWorldCorners(corners);
-        var parent=(RectTransform)canvas.transform;var local=(Vector2)parent.InverseTransformPoint((corners[0]+corners[3])*.5f);
-        local.y-=30;var area=parent.rect;
-        rect.anchoredPosition=new Vector2(Mathf.Clamp(local.x,area.xMin+158,area.xMax-158),Mathf.Clamp(local.y,area.yMin+30,area.yMax-30));
-        var label=CampaignHUD.Label(tip.transform,Hint,new Vector2(.04f,.08f),new Vector2(.96f,.92f),19);label.alignment=TextAlignmentOptions.Center;
+        var points=corners.Select(c=>(Vector2)parent.InverseTransformPoint(c)).ToArray();
+        float left=points.Min(p=>p.x),right=points.Max(p=>p.x),bottom=points.Min(p=>p.y),top=points.Max(p=>p.y);
+        float x=(left+right)*.5f,y=bottom-gap-height*.5f;
+        // Prefer below; flip above when a low button leaves insufficient room.
+        if(y-height*.5f<area.yMin+margin)y=top+gap+height*.5f;
+        if(y+height*.5f>area.yMax-margin){
+            // Very tall controls can leave more room beside them than above/below.
+            y=(bottom+top)*.5f;
+            x=right+gap+width<=area.xMax-margin?right+gap+width*.5f:left-gap-width*.5f;
+        }
+        rect.anchoredPosition=new Vector2(Mathf.Clamp(x,area.xMin+margin+width*.5f,area.xMax-margin-width*.5f),Mathf.Clamp(y,area.yMin+margin+height*.5f,area.yMax-margin-height*.5f))-area.center;
     }
-    void CloseHint(){if(tip!=null){tip.SetActive(false);Destroy(tip);tip=null;}}
+    void CloseHint(){if(tip!=null){tip.SetActive(false);Destroy(tip);tip=null;}if(hintOwner==this)hintOwner=null;}
 }

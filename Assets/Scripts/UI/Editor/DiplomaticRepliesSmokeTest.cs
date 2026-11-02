@@ -8,7 +8,8 @@ public static class DiplomaticRepliesSmokeTest
   if(CouncilActions.Allies.Length!=DiplomaticChronicles.All.Length)throw new Exception("Diplomatic profile roster mismatch");
   if(CouncilActions.Allies[CouncilActions.AqQoyunluIndex].Name!="Aq Qoyunlu" || CouncilActions.AqQoyunluIndex!=17)throw new Exception("Aq Qoyunlu save index or embassy recipient changed");
   if(CouncilActions.AllyIndexForRealm("venice")!=1 || CouncilActions.AllyIndexForRealm("genoa")!=2 || CouncilActions.AllyIndexForRealm("aq_qoyunlu")!=17)throw new Exception("Realm routing mismatch");
-  if(CouncilActions.AllyIndexForRealm("morea")!=24 || CouncilActions.AllyIndexForRealm("bosnia")!=21 || CouncilActions.AllyIndexForRealm("ragusa")!=-1 || CouncilActions.AllyIndexForRealm(null)!=-1)throw new Exception("Appended or deferred realm routing mismatch");
+  if(CouncilActions.AllyIndexForRealm("morea")!=24 || CouncilActions.AllyIndexForRealm("bosnia")!=21 || CouncilActions.AllyIndexForRealm("ragusa")!=25 || CouncilActions.AllyIndexForRealm("theodoro")!=30 || CouncilActions.AllyIndexForRealm(null)!=-1)throw new Exception("Appended realm routing mismatch");
+  if(CouncilActions.AllyIndexForRealm("lithuania")!=13 || CouncilActions.AllyIndexForRealm("poland")!=13 || CouncilActions.AllyIndexForRealm("aragon")!=6 || CouncilActions.AllyIndexForRealm("sardinia")!=6)throw new Exception("Shared ruler has duplicate diplomatic identities");
   if(!AidRouting.BySea(17) || !AidRouting.Route(17).Contains("Trebizond") || PoliticalSystem.Western(17))throw new Exception("Aq Qoyunlu route or political alignment incorrect");
   foreach(var ally in CouncilActions.Allies)
    for(int religion=0;religion<3;religion++)

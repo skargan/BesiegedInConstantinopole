@@ -28,9 +28,9 @@ public static class CountryDiplomacy
                 var asset=Resources.Load<TextAsset>("Content/DiplomaticPowers");
                 if(asset==null)throw new InvalidOperationException("Missing Content/DiplomaticPowers.json");
                 var data=JsonUtility.FromJson<Catalogue>(asset.text);
-                if(data==null||data.Version!=1||data.Powers==null||data.Powers.Length<25)throw new InvalidOperationException("Invalid diplomatic powers catalogue");
+                if(data==null||data.Version!=1||data.Powers==null||data.Powers.Length<31)throw new InvalidOperationException("Invalid diplomatic powers catalogue");
                 definitions=data.Powers;
-                string[] stable={"hungary","venice","genoa","papacy","albania","hospitallers","naples","holy_roman_empire","france","athens","georgia","trebizond","cyprus","poland_lithuania","teutonic_order","england","karaman","aq_qoyunlu","wallachia","moldavia","serbia","bosnia","crimea","mamluks","morea"};
+                string[] stable={"hungary","venice","genoa","papacy","albania","hospitallers","naples","holy_roman_empire","france","athens","georgia","trebizond","cyprus","poland_lithuania","teutonic_order","england","karaman","aq_qoyunlu","wallachia","moldavia","serbia","bosnia","crimea","mamluks","morea","ragusa","ionian_tocco","florence","milan","siena","theodoro"};
                 for(int i=0;i<stable.Length;i++)if(definitions[i].Id!=stable[i]||definitions[i].EnvoyDays<1)throw new InvalidOperationException("Diplomatic save index changed: "+i);
             }
             return definitions;
@@ -52,6 +52,12 @@ public static class CountryDiplomacy
     {
         if(string.IsNullOrEmpty(id))return -1;
         switch(id.ToLowerInvariant()) {
+            case "poland":case "lithuania":case "grand_duchy_lithuania":id="poland_lithuania";break;
+            case "aragon":case "aragon_crown":case "crown_of_aragon":case "sardinia":case "sicily":id="naples";break;
+            case "dubrovnik":id="ragusa";break;
+            case "ionian":case "ionian_lordships":case "cephalonia":case "zakynthos":case "leucas":id="ionian_tocco";break;
+            case "duchy_of_milan":id="milan";break;
+            case "mangup":case "gothia":id="theodoro";break;
             case "moldova":id="moldavia";break;
             case "crimean_khanate":id="crimea";break;
             case "mamluk_sultanate":case "mamluk":id="mamluks";break;

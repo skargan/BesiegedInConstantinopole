@@ -1,0 +1,135 @@
+BESIEGED 36.13 - HISTORICAL MAP AND DIPLOMACY CHECK
+2 November 2026. Focus: a readable schematic map of the opening 1452-53 campaign.
+
+Implementation guidance
+
+Ragusa is a separate republic, not a Venetian possession. Its diplomatic value
+lies in commerce, discreet supplies and financial networks. Independent actions
+are appropriate; a generic field-army war option is not required.
+Source: Lovorka Coralic, Croatian Institute of History, The Ragusans in Venice
+from the Thirteenth to the Eighteenth Century, Dubrovnik Annals 3 (1999), pp.13-40.
+https://hrcak.srce.hr/file/12664
+
+The Tocco Ionian lordships must be distinguished from Venetian Corfu and Paxos.
+Cephalonia, Zakynthos, Ithaca and Leucas/Lefkada form the practical island group;
+do not give their diplomatic court all the Ionian Islands. Their mainland
+possessions had contracted, so avoid painting all Epirus as a Tocco state.
+Source: John Freely, The Ionian Islands, historical opening chapter (publisher
+preview); official Kefalonia tourism historical booklet corroborates the sequence.
+https://api.pageplace.de/preview/DT0400.9780857718280_A23726065/preview-9780857718280_A23726065.pdf
+https://visitkefaloniaisland.gr/wp-content/uploads/2022/01/%CE%91-STROLL-DOWN-HIST.-KEFALONIA.pdf
+
+Naples, Sicily and Sardinia share Alfonso's sovereign in this period. Use distinct
+possession labels but the existing Naples diplomatic state, avoiding an additional
+Aragon aid allowance. Alfonso inherited Sardinia and Sicily in 1416 and conquered
+Naples in 1442; their different succession belongs to 1458, after this campaign.
+Source: Istituto della Enciclopedia Italiana, Alfonso V, Dizionario di Storia.
+https://www.treccani.it/enciclopedia/alfonso-v_%28Dizionario-di-Storia%29/
+
+Corsica belongs in the Genoese diplomatic grouping, with local resistance and
+uneven authority acknowledged in its note. Genoa's administration was transferred
+to the Banco di San Giorgio in 1453; a solid colour is a gameplay simplification,
+not proof of uniform direct control over every interior lordship.
+Source: scholarly research on fifteenth-century Corsican ports and navigation;
+KU Leuven research project on the Banco's sovereign jurisdiction.
+https://www.persee.fr/doc/acths_1764-7355_2008_act_128_3_1325?pageId=T2_14
+https://research.kuleuven.be/portal/en/project/3H120583
+
+Milan is a Sforza duchy by 1452, not the defunct Ambrosian Republic. Florence and
+Siena remain separate republics. Florence has maritime access through Pisa and
+Livorno; Siena through its Maremma possessions and Talamone. Central Italian
+Papal territory opens the existing Papal embassy. Small lordships, republics and
+local papal vicariates should not be described as direct uniform administration.
+Sources: Comune di Milano, Castello Sforzesco; Italian national archives' Livorno
+record; Treccani, Talamone.
+https://www2.comune.milano.it/web/castello-sforzesco/scopri-il-castello/la-storia-del-castello/il-castello-dei-visconti-e-degli-sforza
+https://www.treccani.it/enciclopedia/livorno/
+https://www.treccani.it/enciclopedia/talamone_%28Enciclopedia-Dantesca%29/
+
+Lithuania and Poland are distinct realms under Casimir, not the later Commonwealth.
+Separate map labels can open the existing shared embassy without duplicating its
+aid. The visible Lithuanian frontier should reach the northern Black Sea roughly
+between the Dniester and lower Dnieper; do not extend it over Crimea or the entire
+Azov coast. Control of the steppe was fluid. Depicting a precise hard line for 1452
+is an inference, not a documented survey. The map note should call this a frontier.
+Sources: Visuotine lietuviu enciklopedija; Darius Baronas, Lithuanian Institute of
+History, critical analysis/edition of the 1427 letter describing coastal castles;
+Encyclopedia of Ukraine, Vytautas and Black Sea entries. The latter describes
+mid-fifteenth-century erosion of Lithuanian gains; VLE places the loss across the
+later fifteenth century. These do not establish a precise 1452 border.
+https://www.vle.lt/straipsnis/lietuvos-didzioji-kunigaikstyste/
+https://www.vle.lt/straipsnis/lietuvos-didzioji-kunigaikstyste-nuo-krevos-sutarties-iki-liublino-unijos-14-a-pabaiga-1569-institucines-monarchijos-laikotarpis/
+https://open.istorija.lt/journal/IST/article/750/info
+https://www.encyclopediaofukraine.com/display.asp?linkpath=pagesvyvytautasthegreat.htm
+https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CB%5CL%5CBlackSea.htm
+
+Crimea must have three political identities: the Giray Khanate in the peninsula's
+interior/steppe, Genoese Gazaria's coastal colonies, and the Orthodox principality
+of Theodoro around Mangup in the south-west. The Khanate is not an Ottoman
+dependency at the campaign's opening. Theodoro survived until the Ottoman siege
+of 1475. Do not paint the entire south coast as Theodoro or all Crimea as Genoese.
+Sources: Encyclopedia of Ukraine, Giray dynasty; Treccani, Caffa; archaeological
+conference findings on the Mangup palace; CEU dissertation discussing documentary
+and inscriptional evidence for medieval Crimean Gothia/Theodoro.
+https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CG%5CI%5CGireidynasty.htm
+https://www.treccani.it/enciclopedia/caffa_%28Enciclopedia-Italiana%29/
+https://old.chersonesos-sev.ru/wp-content/uploads/2015/10/ForInternet.pdf
+https://www.etd.ceu.edu/2002/smirnov_oleksiy.pdf
+
+The Mamluk Sultanate covers Egypt and Syria, with frontier dependencies distinct
+from its directly governed core. The Adana/Cilician gap belongs to the Ramadanid
+marches, not simply Karaman or the eastern Turkmen confederations. Dulkadir around
+Maras/Elbistan is another buffer principality. A fast schematic map may group
+these marches with the Mamluk diplomatic sphere, provided their labels and notes
+explicitly retain local rulers and qualified suzerainty. That grouping is a game
+interface choice, not a claim that their rulers had no independent politics.
+Sources: TDV Islam Ansiklopedisi, Faruk Sumer on Ramazanogullari and Refet Yinanc
+on Dulkadirogullari. Tarsus repeatedly changed hands; exact local lines remain
+schematic. Avoid an invented 1452 cadastral border.
+https://islamansiklopedisi.org.tr/ramazanogullari
+https://islamansiklopedisi.org.tr/dulkadirogullari
+
+Boundary confidence
+High: identities, principal islands, coasts, shared rulers and separate embassies.
+Medium: broad regional coverage of the principal courts.
+Low: exact inland frontiers, northern steppe control and minor Italian lordships.
+The background is generated geographical artwork; polygons are a legible campaign
+overlay, not a historical atlas. Keep the separate historical reference map.
+
+All aid, travel, goodwill and intervention magnitudes remain editable game-balance
+choices; these sources validate historical framing, not numerical game effects.
+
+HERALDRY HANDOFF (for the main art developer; no assets changed here)
+
+Lithuania: the mounted swordsman/Vytis is appropriate to the period. Avoid a flag
+of the post-1569 Commonwealth as a claimed 1452 national flag. A shared Casimir
+embassy can visually pair the Lithuanian rider and Polish eagle as distinct arms.
+https://www.vle.lt/straipsnis/vytis/
+https://www.lrs.lt/sip/getFile?guid=661a2fa0-634a-483e-9522-859b0e06c732
+
+Mamluks: rank/patron blazons are well attested, including the cupbearer's cup and
+secretary's pen box. They were not interchangeable national flags. The familiar
+late tripartite emblem associated with Qaytbay became prominent after this siege.
+Use a documented period-inspired court medallion as an artistic game identifier,
+not a claim to reproduce an exact 1452 flag. Do not use the modern Egyptian flag.
+https://exhibitions.kelsey.lsa.umich.edu/pearls/objects/blazon1.html
+https://islamicart.museumwnf.org/database_item.php?id=object%3BISL%3Bsy%3BMus01_A%3B48%3Ben
+
+Crimea: the Giray tarak-tamga is the appropriate dynastic motif. TDV records the
+mark on Mengli's coins and a 1475 document; a later museum coin clearly illustrates
+it. This supports the family motif, not the modern blue national flag in 1452.
+https://islamansiklopedisi.org.tr/giray
+https://museum.mincult.gov.ua/collections/325969
+
+Tocco: blue/silver wavy horizontal bars are an appropriate family reference, but
+armorial variants differ in number and later composite chiefs. Avoid presenting
+a later elaborate coat with accumulated titles as an exact Leonardo III banner.
+The armorial index cites Rietstap among its sources; this is a secondary reference,
+not a verified contemporary artefact.
+https://www.armoriale.it/wiki/Armoriale_delle_famiglie_italiane_%28Toc%29
+
+Theodoro: a Byzantine double-headed eagle is a defensible court-inspired emblem;
+exact flag colours/layout were not verified in this bounded check. Treat generated
+art as interpretation. Further source lead: Pascal Androuidis (2017), Presence de
+l'aigle bicephale en Trebizonde et dans la principaute grecque de Theodoro en Crimee
+(XIVe-XVe siecles). Do not infer an exact national banner from a stone emblem.

@@ -101,6 +101,12 @@ public sealed class TurnActionCapture : MonoBehaviour
         var tip=GameObject.Find("Turn meaning");
         Check(tip!=null&&Text(tip).Contains(marker.Hint),suffix+" tooltip explains time");
         Check(Inside(new Rect(0,0,Screen.width,Screen.height),Bounds(tip.GetComponent<RectTransform>())),suffix+" tooltip remains on screen");
+        foreach(var text in tip.GetComponentsInChildren<TMP_Text>()){
+            text.ForceMeshUpdate();Check(!text.isTextOverflowing,suffix+" tooltip fits every line inside its background");
+            Check(Inside(Bounds(tip.GetComponent<RectTransform>()),Bounds(text.rectTransform)),suffix+" tooltip text rectangle remains inside its frame");
+        }
+        Check(!Bounds(tip.GetComponent<RectTransform>()).Overlaps(Bounds(button.GetComponent<RectTransform>())),suffix+" tooltip does not cover its button");
+        Check(FindObjectsOfType<TMP_Text>().Count(t=>t.transform.parent.name=="Turn meaning")==1,suffix+" only one shared hover hint is visible");
         yield return Capture("tooltip-"+suffix);
         marker.OnPointerExit(null);yield return null;Check(GameObject.Find("Turn meaning")==null,suffix+" tooltip closes on exit");
         bool enabled=button.interactable;button.interactable=false;yield return null;yield return null;
@@ -120,6 +126,26 @@ public sealed class TurnActionCapture : MonoBehaviour
         foreach(var size in new[]{new Vector2Int(1600,900),new Vector2Int(1280,720)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.6f);string suffix=size.x+"x"+size.y;
             Check(Screen.width==size.x&&Screen.height==size.y,suffix+" display size applied");
+            Restore();VariableSingleton.SetInt("iSpies",3);VariableSingleton.SetInt("iCampAlert",0);council.Spies();yield return null;Canvas.ForceUpdateCanvases();
+            var intelligence=ScreenRoot();string intelligenceText=Text(intelligence);
+            Check(intelligenceText.Contains("OTTOMAN CAMP ALERT  0%")&&intelligenceText.Contains("Falls 1–10 points/turn"),suffix+" Ottoman alert and useful decay remain visible");
+            Check(!intelligenceText.Contains("REPORT / AGENTS REQUIRED")&&!intelligenceText.Contains("Minimum 0%")&&!intelligenceText.Contains("One agent unlocks"),suffix+" redundant intelligence captions removed");
+            string[] roman={"I","II","III","IV","V","VI","VII","VIII","IX","X"};
+            for(int i=0;i<roman.Length;i++)Check(intelligence.GetComponentsInChildren<TMP_Text>().Any(t=>t.text==roman[i]+"  "+EspionageSystem.IntelligenceLabels[i]),suffix+" Roman intelligence tier "+roman[i]);
+            Check(intelligenceText.Contains("CAMP AGENTS  3")&&intelligenceText.Contains("Requires 4 agents"),suffix+" actual resource and requirement counts stay readable Arabic numbers");
+            foreach(var label in intelligence.GetComponentsInChildren<TMP_Text>()){label.ForceMeshUpdate();Check(!label.isTextOverflowing,suffix+" intelligence text fits: "+label.text);}
+            yield return Capture("intelligence-polish-"+suffix);
+            Restore();manager.BringUpTroopsUI();yield return null;Canvas.ForceUpdateCanvases();
+            var military=Field<GameObject>(manager,"troopsUI");var fleetLink=military.GetComponentsInChildren<Button>().Single(b=>b.name=="Military fleet management");
+            Check(fleetLink.interactable&&fleetLink.GetComponent<TurnActionButton>()==null,suffix+" warship Fleet orders is usable free navigation");
+            var pointer=new PointerEventData(EventSystem.current){position=Bounds(fleetLink.GetComponent<RectTransform>()).center};var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(pointer,hits);
+            Check(hits.Count>0&&hits[0].gameObject.GetComponentInParent<Button>()==fleetLink,suffix+" Fleet orders is clickable at its centre");
+            string navalState=State(),navalRng=Rng();yield return Capture("military-fleet-link-"+suffix);
+            fleetLink.onClick.Invoke();yield return null;
+            Check(ScreenRoot()!=null&&Text(ScreenRoot()).Contains("The Imperial Fleet")&&!military.activeSelf,suffix+" Fleet orders opens fleet management");
+            Check(State()==navalState&&Rng()==navalRng,suffix+" fleet navigation spends no resources, time or RNG");
+            yield return Capture("military-to-fleet-"+suffix);ControlSingleton.Instance.GoBack();yield return null;
+            Check(military.activeSelf&&ScreenRoot()==null&&State()==navalState&&Rng()==navalRng,suffix+" Return restores Military without an action");
             Restore();var restButton=manager.GetComponentsInChildren<Button>().First(b=>b.name=="ButtonToContinue");
             Canvas.ForceUpdateCanvases();Marked(restButton,true,suffix+" council rest");
             yield return Capture("council-rest-"+suffix);yield return Hover(restButton,"rest-"+suffix);

@@ -1,0 +1,41 @@
+DIPLOMACY CATALOGUE 36.13 — staged backend handoff
+
+31 ordinary diplomatic courts. Indices0–24 retained. Six appended courts:
+Index | ID | Court | Goodwill | Attitude | Envoy days | Aid days | Infantry | Archers | Cavalry | Gold | Provisions | Union full/symbolic/rejected
+25 | ragusa | Ragusa | 25 | Neutral | 12 | 20 | 0 | 0 | 0 | 2500 | 200 | 5/5/0
+26 | ionian_tocco | Ionian lordships | 20 | Wary | 10 | 14 | 75 | 50 | 0 | 0 | 150 | 5/5/0
+27 | florence | Florence | 20 | Neutral | 22 | 30 | 0 | 0 | 0 | 3500 | 100 | 10/5/0
+28 | milan | Milan | 20 | Neutral | 26 | 34 | 150 | 75 | 0 | 1500 | 0 | 10/5/0
+29 | siena | Siena | 15 | Neutral | 24 | 32 | 75 | 0 | 0 | 1500 | 100 | 10/5/0
+30 | theodoro | Theodoro | 25 | Friendly | 18 | 24 | 100 | 100 | 0 | 0 | 150 | -10/0/5
+
+All six use sea delivery, gifts, resident envoys and renewed aid appeals under the existing rules. Transport ships do not join the fleet. No additional generic war-entry action is enabled. Ragusa remains discreet assistance; Crimea and Mamluks keep their previously approved ordinary diplomacy without generic war. Country values/packages and travel times are editable initial playtest choices, not historical measurements.
+
+Identity reconciliation:
+- Poland, Lithuania and grand_duchy_lithuania route to existing poland_lithuania13. Their lands may be drawn separately; goodwill, attitude, embassy and aid entitlement remain shared under Casimir.
+- Aragon, aragon_crown, crown_of_aragon, Sicily and Sardinia route to existing Naples6 under Alfonso. Distinct map possessions do not create a second gift or aid pool for the same ruler. Siena is the sixth addition instead of a duplicated Aragon court.
+- Ragusa/dubrovnik25 is independent of Venice.
+- Ionian/ionian_lordships/cephalonia/zakynthos/leucas route to ionian_tocco26. Venetian Corfu is not assigned to this relationship.
+- Theodoro/mangup/gothia30 is distinct from Crimea22 and Genoa2.
+
+Research reconciliation:
+The research agent verified Alfonso's shared rule using Treccani: https://www.treccani.it/enciclopedia/alfonso-v_%28Dizionario-di-Storia%29/ . Naples came under Alfonso in1442; the succession split occurred in1458, after this campaign. Profiles therefore explain the composite monarchy rather than implying duplicate sovereigns. The same agent confirmed Ragusan independence and the distinction between Tocco lordships and Venetian Ionian possessions.
+
+Changed staged runtime files:
+Assets/Resources/Content/DiplomaticPowers.json
+Assets/Scripts/CountryDiplomacy.cs
+Assets/Scripts/DiplomaticChronicles.cs
+Assets/Scripts/DiplomaticReplies.cs
+
+Changed staged verification files:
+Assets/Scripts/DiplomacyMechanicsChecks.cs
+Assets/Scripts/UI/Editor/DiplomaticRepliesSmokeTest.cs
+
+No edits to map geometry, UI, build scripts, live repo, AidRouting, CouncilActions or DiplomaticBattleEvents. Their data-driven paths already cover appended countries; previously approved battle goodwill recipients are preserved.
+
+Validation:
+- Actual backend + actual JSON/profile/reply/story-aid sources compiled in the standalone deterministic C# harness:133 checks,0 failures.
+- Checks include the previous diplomacy lifecycle/regression suite, preserved old-save countries/envoys, initialisation of newly appended courts, all six meaningful aid packages, full profiles, bespoke replies across faith/outcome combinations, resident Ragusan gifts/renewal, no generic war, shared-sovereign envoy and aid guards.
+- Compared every gameplay field of old indices0–24 against the live baseline: unchanged. Naples explanatory description alone was revised.
+-31 unique stable IDs; data/profile counts match; old numeric save identities preserved.
+- Updated integrated player checks and editor reply checks. Root owns full-assembly/Unity build and screen validation; no standalone test claims to validate the Unity renderer.

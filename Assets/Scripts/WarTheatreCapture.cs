@@ -46,10 +46,13 @@ public sealed class WarTheatreCapture : MonoBehaviour
         Check(SaveGames.Automated,"Isolated archives");SaveMenu.StartCampaign(false);float deadline=Time.realtimeSinceStartup+25;
         while((!VariableSingleton.IsInitialized||FindObjectOfType<ManagerUI>()==null)&&Time.realtimeSinceStartup<deadline)yield return null;
         Check(VariableSingleton.IsInitialized,"Campaign initialized");yield return new WaitForSecondsRealtime(.5f);CampaignHUD.Instance.DismissReport();
+        // Synthetic pointer checks must not inherit the user's physical mouse position.
+        foreach(var input in FindObjectsOfType<BaseInputModule>())input.enabled=false;
         WarTheatre.Validate(WarTheatre.Data);Check(WarTheatre.Data.regions.Count(r=>r.kind=="province")==11,"Eleven stable provinces");
         Check(WarTheatre.Find("aq_qoyunlu")!=null,"Aq Qoyunlu on map");
         Check(WarTheatre.Find("hospitallers")!=null&&CouncilActions.AllyIndexForRealm("hospitallers")==5,"Rhodes maps to existing Knights Hospitaller diplomacy");
         Check(CouncilActions.AllyIndexForRealm("aq_qoyunlu")==17,"Aq appended at stable index17");
+        Check(DiplomacyMechanicsChecks.Run().Contains("failures=0"),"Expanded country mechanics and shared-sovereign checks");
         var baseline=VariableSingleton.Instance.CaptureState();
         var legacy=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(baseline));
         legacy.ints.RemoveAll(v=>v.key=="iAidState17"||v.key=="iAidDays17"||v.key=="iAidWarships17");
@@ -65,6 +68,8 @@ public sealed class WarTheatreCapture : MonoBehaviour
         CouncilActions.AdvanceAid(1);
         Check(CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300,"Aq aid cannot be delivered twice");
         VariableSingleton.Instance.RestoreValidated(baseline);
+        // Materialise legacy zero-valued aid slots before comparing read-only UI navigation.
+        for(int i=0;i<CountryDiplomacy.Definitions.Length;i++){CouncilActions.Int("iAidState"+i);CouncilActions.Int("iAidDays"+i);}
         foreach(var size in new[]{new Vector2Int(1600,900),new Vector2Int(1280,720)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.6f);
             string suffix=size.x+"x"+size.y;WarTheatreUI.Show();yield return null;Canvas.ForceUpdateCanvases();
@@ -105,7 +110,7 @@ public sealed class WarTheatreCapture : MonoBehaviour
             var geo=Map().GetComponentsInChildren<RawImage>().First(r=>r.name=="Geographic base").rectTransform;float before=geo.rect.width;
             Button("+");Check(geo.rect.width>before,suffix+" zoom works");Button("Fit");Check(Mathf.Abs(geo.rect.width-before)<1,suffix+" fit restores width");
             foreach(var g in groups.Values.SelectMany(v=>v)){
-                var points=g.Points;Vector2 min=points.Aggregate(Vector2.Min),max=points.Aggregate(Vector2.Max);Vector2 centre=(min+max)*.5f;Vector2? inside=TerritoryGraphic.Contains(centre,points)?centre:(Vector2?)null;
+                var points=g.Points;Vector2 min=points.Aggregate(Vector2.Min),max=points.Aggregate(Vector2.Max);Vector2 centre=points.Length==3?(points[0]+points[1]+points[2])/3f:(min+max)*.5f;Vector2? inside=TerritoryGraphic.Contains(centre,points)?centre:(Vector2?)null;
                 for(int x=0;x<24&&!inside.HasValue;x++)for(int y=0;y<24&&!inside.HasValue;y++){var p=new Vector2(Mathf.Lerp(min.x,max.x,(x+.5f)/24),Mathf.Lerp(min.y,max.y,(y+.5f)/24));if(TerritoryGraphic.Contains(p,points))inside=p;}
                 Check(inside.HasValue,suffix+" selectable polygon interior "+g.name);
                 var rect=g.rectTransform.rect;var local=new Vector3(rect.xMin+inside.Value.x*rect.width,rect.yMin+inside.Value.y*rect.height,0);
@@ -119,6 +124,26 @@ public sealed class WarTheatreCapture : MonoBehaviour
                 Check(hits.Count>0&&hits[0].gameObject==marker.gameObject,suffix+" "+name+" has independent unobstructed click target");
             }
             yield return Capture("theatre-fit-"+suffix);
+            // Every new or newly visible court must open actionable diplomacy, not a context-only card.
+            foreach(string id in new[]{"ragusa","ionian_tocco","florence","milan","siena","theodoro","crimea","mamluks","poland_lithuania","papacy"}) {
+                int index=CountryDiplomacy.Index(id);Check(index>=0,suffix+" diplomatic identity "+id);
+                Check(groups.ContainsKey(id)&&groups[id].Count>0,suffix+" selectable territory for "+id);
+                var members=groups[id];Hover(members[0],true);Check(members.All(s=>s.Highlighted),suffix+" grouped possessions "+id);
+                Click(members[0]);Check(Text(Map()).Contains("Diplomatic relations"),suffix+" map offers working diplomacy for "+id);
+                yield return Capture(id+"-map-"+suffix);
+                Button("Diplomatic relations");yield return null;
+                var panel=GameObject.Find("Council screen");string panelText=Text(panel);
+                Check(Map()==null&&panelText.Contains(CountryDiplomacy.Definitions[index].Name),suffix+" court opens for "+id);
+                Check(panelText.Contains("Request aid")&&panelText.Contains("Send an envoy")&&panelText.Contains("Advanced diplomacy"),suffix+" aid embassy and advanced diplomacy available for "+id);
+                Canvas.ForceUpdateCanvases();foreach(var label in panel.GetComponentsInChildren<TMP_Text>())label.ForceMeshUpdate();
+                Check(panel.GetComponentsInChildren<TMP_Text>().All(t=>!t.isTextOverflowing),suffix+" diplomatic text fits for "+id);
+                yield return Capture(id+"-diplomacy-"+suffix);
+                var aid=panel.GetComponentsInChildren<Button>().First(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text.StartsWith("Request aid")));
+                Check(aid.interactable,suffix+" initial appeal enabled for "+id);aid.onClick.Invoke();yield return null;
+                Check(Text(GameObject.Find("Council screen")).Contains("Review before committing"),suffix+" aid opens review without spending for "+id);
+                Check(State()==state,suffix+" court navigation and aid preview preserve campaign and RNG for "+id);
+                FindObjectOfType<CouncilUI>(true).Hide();WarTheatreUI.Show();yield return null;groups=Groups();
+            }
             Click(groups["hospitallers"][0]);Button("Diplomatic relations");yield return null;
             Check(Map()==null,suffix+" Rhodes map selection opens diplomacy");
             var rhodesProfile=GameObject.Find("Council screen");

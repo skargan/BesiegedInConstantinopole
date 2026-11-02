@@ -53,7 +53,7 @@ public class WarTheatreUI : MonoBehaviour
         Canvas.ForceUpdateCanvases();var bounds=scroll.viewport.rect;float aspect=tex==null?3:(float)tex.width/tex.height;float width=Mathf.Min(bounds.width,bounds.height*aspect);ui.fit=new Vector2(width,width/aspect);ui.Resize(1);
         ui.detail=CampaignHUD.Panel(root.transform,"Province information",new Vector2(.025f,.045f),new Vector2(.975f,.245f)).transform;
         ui.hover=CampaignHUD.Label(root.transform,HoverHint,new Vector2(.025f,.248f),new Vector2(.975f,.283f),19);
-        CampaignHUD.Label(root.transform,"1453 theatre · Schematic frontier bands · Colour shows control; symbols show reports. Unmarked land is outside this theatre's current scope.",new Vector2(.025f,.002f),new Vector2(.975f,.04f),16);
+        CampaignHUD.Label(root.transform,"Frontiers circa 1452 · Schematic borders and contested marches · Select a coast or realm to reach its diplomatic court.",new Vector2(.025f,.002f),new Vector2(.975f,.04f),16);
         ui.Draw();
         CampaignHUD.Label(ui.detail,"Choose a territory",new Vector2(.02f,.72f),new Vector2(.98f,.97f),28);
         CampaignHUD.Explanation(ui.detail,"Select a province or realm to view its information.",new Vector2(.02f,.12f),new Vector2(.98f,.66f),22);
@@ -81,8 +81,13 @@ public class WarTheatreUI : MonoBehaviour
                 var go=new GameObject(r.name,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=r.label;rt.anchoredPosition=markerOffset;rt.sizeDelta=Vector2.one*(r.kind=="capital"?20:12);var shape=go.GetComponent<TerritoryGraphic>();shape.Points=new[]{new Vector2(.5f,0),new Vector2(1,.5f),new Vector2(.5f,1),new Vector2(0,.5f)};shape.color=r.kind=="capital"?new Color(.75f,.25f,.9f):WarTheatre.Tint(r);Register(shape,r);}
             if(r.kind!="colony"&&r.kind!="island"){
                 bool eastern=r.id=="aq_qoyunlu";
-                Vector2 half=eastern?new Vector2(.065f,.032f):new Vector2(.047f,.016f);
-                var text=CampaignHUD.Label(overlays,eastern?"Turkmen\nConfederations":r.name,r.label-half,r.label+half,r.kind=="capital"?14:16);text.alignment=TextAlignmentOptions.Center;text.raycastTarget=false;text.fontStyle=FontStyles.Bold;text.enableAutoSizing=true;text.fontSizeMin=10;text.fontSizeMax=16;text.color=new Color(1,.95f,.78f);text.gameObject.AddComponent<Shadow>().effectDistance=new Vector2(1,-1);if(r.kind=="capital")text.rectTransform.anchoredPosition+=new Vector2(0,-19);}
+                bool compact=new[]{"savoy","milan","po_lordships","florence","siena","papacy","genoa","theodoro","sardinia","corsica","athens","ionian_tocco"}.Contains(r.id);
+                string caption=eastern?"Turkmen\nConfederations":r.id=="milan"?"Milan":r.id=="athens"?"Athens":r.id=="ionian_tocco"?"Ionian\nlordships":r.id=="po_lordships"?"Po lords":r.id=="papacy"?"Papal\nStates":r.name;
+                Vector2 half=eastern?new Vector2(.065f,.032f):compact?new Vector2(.027f,(r.id=="papacy"||r.id=="ionian_tocco")?.03f:.018f):new Vector2(.047f,.016f);
+                // Edge possessions remain readable even when their territory continues beyond the atlas.
+                Vector2 centre=new Vector2(Mathf.Clamp(r.label.x,half.x,1-half.x),Mathf.Clamp(r.label.y,half.y,1-half.y));
+                if(r.id=="savoy")centre.y-=.028f;
+                var text=CampaignHUD.Label(overlays,caption,centre-half,centre+half,r.kind=="capital"?14:compact?13:16);text.alignment=TextAlignmentOptions.Center;text.raycastTarget=false;text.fontStyle=FontStyles.Bold;text.enableAutoSizing=true;text.fontSizeMin=10;text.fontSizeMax=compact?13:16;text.color=new Color(1,.95f,.78f);text.gameObject.AddComponent<Shadow>().effectDistance=new Vector2(1,-1);if(r.kind=="capital")text.rectTransform.anchoredPosition+=new Vector2(0,-19);}
             if(r.kind=="province"){int icon=WarTheatre.Captured(r)?3:WarTheatre.Resistance(r)>=2?2:WarTheatre.Resistance(r)==1?1:ProvinceCampaign.Agent(r.id)>0?0:-1;if(icon>=0)Icon(overlays,icon,r.label+new Vector2(0,.046f),32,()=>Select(r));}
         }
         foreach(var r in WarTheatre.Data.regions.Where(r=>r.id==r.group&&CountryDiplomacy.Index(r.group)>=0&&WarTheatre.AtWar(r)))Icon(overlays,new[]{"venice","genoa","naples","cyprus"}.Contains(r.group)?5:4,r.front,38,()=>WarReport(r));

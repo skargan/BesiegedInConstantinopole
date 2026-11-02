@@ -6,7 +6,7 @@ public static class DiplomaticReplies
     {
         bool alternate=(variant&1)!=0;
         bool union=religion==1||religion==2;
-        if(power=="Georgia"||power=="Trebizond"||power=="Wallachia"||power=="Moldavia"||power=="Serbia")
+        if(power=="Georgia"||power=="Trebizond"||power=="Wallachia"||power=="Moldavia"||power=="Serbia"||power=="Theodoro")
         {
             if(union&&!accepted)return religion==1
                 ?"You have bent the imperial crown before Rome and called it salvation. Let those who bought your obedience now purchase your deliverance."
@@ -48,6 +48,12 @@ public static class DiplomaticReplies
             case "Crimean Khanate":return accepted?"The Black Sea has room for more than one master's ships. What we send serves our interests as well as yours; remember both halves of that bargain.":"Your envoy describes the danger to your harbour. He has not yet explained why our horses and silver must cure it.";
             case "Mamluk Sultanate":return accepted?"We have heard your petition. Accept this measured assistance without imagining that it purchases our sword or directs our policy.":"Your emperor's distress does not make it our obligation. We have frontiers to guard and a treasury intended for their defence.";
             case "Morea":return accepted?"Brother, the seal upon this letter is easier to send than the men who follow it. They are coming. May our arguments survive long enough to trouble us again.":"You know the dangers here as well as any messenger can tell them. We cannot save the family in Constantinople by abandoning its last lands in the south.";
+            case "Ragusa":return accepted?"Our merchants know how to carry useful things without a trumpet announcing them. Accept this assistance, and leave us the discretion that makes it possible.":"A little republic has fewer walls between a brave declaration and its consequences. We cannot make the undertaking your envoy requests.";
+            case "Ionian lordships":return accepted?"Our islands cannot furnish an army worthy of your title. They can furnish these men and stores. We hope your officers will find more use in them than in a grander promise.":"Each soldier sent east would leave a harbour here with one less defender. The Sultan is not the only danger that comes by sea.";
+            case "Florence":return accepted?"The republic has agreed that your walls should receive something more substantial than our admiration. The funds and stores are being prepared.":"Every councillor praises the courage of Constantinople. None has found an account which makes its rescue affordable to Florence. You have our concern, but not the subsidy.";
+            case "Milan":return accepted?"A ruler who wishes his own cause to be heard must sometimes hear another man's. These soldiers and funds will be sent under the undertaking your envoy has secured.":"We have soldiers, Emperor. What we lack is the certainty that their departure would not invite another war upon our own lands. The duke cannot agree.";
+            case "Siena":return accepted?"Let it be recorded that Siena answered in her own name. Our contribution is small, but the men and money are real.":"Our council cannot defend the republic with the satisfaction of having helped yours. The treasury and the muster rolls leave us no room for this promise.";
+            case "Theodoro":return accepted?"A small court knows how much can depend upon a distant friend remaining alive. Receive these men and stores as the measure of our means, not of our hopes.":"We look from our heights upon neighbours stronger than ourselves. The danger to your City is plain; so is the danger of leaving our own strongholds empty.";
             default:return accepted?"Our own burdens are heavy, but we shall send what we have pledged. May it reach you in time.":"We have war upon our own doorstep. We can offer sympathy, Emperor, but no men to accompany it.";
         }
     }

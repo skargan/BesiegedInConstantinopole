@@ -13,7 +13,9 @@ public static class DiplomacyMechanicsChecks
         Action<string,int> set=VariableSingleton.SetInt;
         try {
             CountryDiplomacy.BeginCampaign();set("iReligion",0);set("iFocus",0);CountryDiplomacy.SynchronisePolicy();
-            check(CountryDiplomacy.Definitions.Length==25,"25 country definitions");
+            check(CountryDiplomacy.Definitions.Length>=31&&DiplomaticChronicles.All.Length==CountryDiplomacy.Definitions.Length,"expanded country and profile catalogues match");
+            check(CountryDiplomacy.Index("ragusa")==25&&CountryDiplomacy.Index("ionian_tocco")==26&&CountryDiplomacy.Index("florence")==27&&CountryDiplomacy.Index("milan")==28&&CountryDiplomacy.Index("siena")==29&&CountryDiplomacy.Index("theodoro")==30,"six countries appended without shifting saves");
+            check(CountryDiplomacy.Index("lithuania")==13&&CountryDiplomacy.Index("poland")==13&&CountryDiplomacy.Index("aragon")==6&&CountryDiplomacy.Index("sardinia")==6,"shared sovereigns retain one embassy and entitlement");
             check(CountryDiplomacy.Index("moldova")==19&&CountryDiplomacy.Index("gazaria")==2,"country aliases share one record");
             check(CountryDiplomacy.AvailableEnvoys==3&&CountryDiplomacy.TotalEnvoys==3,"three initial envoys");
             float adviser=CountryDiplomacy.AdviserModifier;
@@ -41,6 +43,10 @@ public static class DiplomacyMechanicsChecks
             check(CountryDiplomacy.Attitude(0)==CountryDiplomacy.AttitudeLevel.Allied,"gifts never demote an ally");
             check(!CountryDiplomacy.Definitions[22].WarEligible&&!CountryDiplomacy.Definitions[23].WarEligible&&!CountryDiplomacy.Definitions[24].WarEligible,"Crimea Mamluks and Morea excluded from generic war");
             check(!AidRouting.BySea(18)&&!AidRouting.BySea(19)&&AidRouting.BySea(22),"new land and sea routes");
+            for(int court=25;court<=30;court++)check(!CountryDiplomacy.Definitions[court].WarEligible&&AidRouting.BySea(court)&&CountryDiplomacy.Definitions[court].AidDays>0,"new court has an ordinary maritime aid package: "+CountryDiplomacy.Definitions[court].Id);
+            set("iAidState6",1);set("iAidDays6",12);set("iAidState13",3);
+            check(CountryDiplomacy.AidRequestReason(CountryDiplomacy.Index("aragon"))!=null&&CountryDiplomacy.AidRequestReason(CountryDiplomacy.Index("sicily"))!=null,"Aragonese possessions cannot duplicate Naples aid");
+            check(CountryDiplomacy.AidRequestReason(CountryDiplomacy.Index("lithuania"))!=null&&CountryDiplomacy.AidRequestReason(CountryDiplomacy.Index("poland"))!=null,"Polish and Lithuanian aliases share the answered appeal");
             set("iAidState3",0);int goldBefore=DailyLifeEvents.I("iMoney"),shipsBefore=DailyLifeEvents.I("iShips");
             check(DiplomaticStoryAid.TryGrant("papacy","major",out _),"named preparation aid can arrive once");
             check(DailyLifeEvents.I("iAidState3")==2&&DailyLifeEvents.I("iMoney")==goldBefore+10000&&DailyLifeEvents.I("iShips")==shipsBefore,"story aid canonical state and no transport ships");

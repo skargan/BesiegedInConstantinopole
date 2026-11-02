@@ -19,10 +19,10 @@ public partial class CouncilUI
         var network=CampaignHUD.Panel(desk.transform,"Intelligence network",new Vector2(0,.845f),Vector2.one);
         ImperialTheme.Panel(network,false);
         IntelligenceText(network.transform,"CAMP AGENTS  "+agents+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     GOLD  "+CouncilActions.Int("iMoney").ToString("N0"),new Vector2(.02f,.47f),new Vector2(.65f,.94f),23);
-        IntelligenceText(network.transform,"One agent unlocks each level · Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.02f,.06f),new Vector2(.65f,.49f),19);
-        var alert=IntelligenceText(network.transform,"CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.68f,.47f),new Vector2(.98f,.94f),23);
+        IntelligenceText(network.transform,"Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.02f,.06f),new Vector2(.65f,.49f),19);
+        var alert=IntelligenceText(network.transform,"OTTOMAN CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.68f,.47f),new Vector2(.98f,.94f),23);
         alert.color=EspionageSystem.Alert>=50?new Color(1f,.65f,.49f):ImperialTheme.Ivory;
-        IntelligenceText(network.transform,"Falls 1–10 points/turn · Minimum "+EspionageSystem.AlertFloor+"%",new Vector2(.68f,.06f),new Vector2(.98f,.49f),19);
+        IntelligenceText(network.transform,"Falls 1–10 points/turn"+(EspionageSystem.AlertFloor>0?" · Minimum "+EspionageSystem.AlertFloor+"%":""),new Vector2(.68f,.06f),new Vector2(.98f,.49f),19);
 
         var reports=IntelligenceButton(desk.transform,"Reports",new Vector2(0,.753f),new Vector2(.18f,.827f),()=>IntelligenceMenu(false));
         reports.name="Intelligence reports tab";
@@ -35,7 +35,6 @@ public partial class CouncilUI
             var secrets=IntelligenceButton(desk.transform,"1 secret",new Vector2(.80f,.753f),new Vector2(1,.827f),()=>{paySecret=true;IntelligenceMenu(true);});secrets.name="Spy payment secrets";var payment=paySecret?secrets:gold;var paymentColours=payment.colors;paymentColours.normalColor=new Color(.72f,.58f,.34f);paymentColours.selectedColor=paymentColours.normalColor;payment.colors=paymentColours;
             IntelligenceOperations(desk.transform);
         }else{
-            IntelligenceText(desk.transform,"REPORT / AGENTS REQUIRED",new Vector2(.42f,.753f),new Vector2(1,.827f),18);
             IntelligenceLedger(desk.transform,agents);
         }
         IntelligenceButton(screen.transform,"War Beyond the Walls",new Vector2(.035f,.02f),new Vector2(.30f,.09f),WarTheatreUI.Show);
@@ -50,12 +49,13 @@ public partial class CouncilUI
         // Longer unlocked reports receive the space their actual contents require.
         float[] heights={1.35f,1.05f,.9f,.9f,.9f,.9f,1.8f,2.7f,1.25f,1.75f};
         float total=0;for(int i=0;i<10;i++){if(agents<=i)heights[i]=(i==0||i==9)?1.35f:1.05f;total+=heights[i];}
+        string[] tiers={"I","II","III","IV","V","VI","VII","VIII","IX","X"};
         float top=.985f;
         for(int i=0;i<10;i++){
             bool known=agents>i;float h=.97f*heights[i]/total;
             var row=CampaignHUD.Panel(ledger.transform,"Intelligence row "+i,new Vector2(.008f,top-h),new Vector2(.992f,top-.004f));
             row.GetComponent<Image>().color=i%2==0?ImperialTheme.Surface:ImperialTheme.Navy;
-            var label=IntelligenceText(row.transform,(i+1)+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.015f,.04f),new Vector2(.33f,.96f),21);
+            var label=IntelligenceText(row.transform,tiers[i]+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.015f,.04f),new Vector2(.33f,.96f),21);
             bool link=i==0||i==9;
             var value=IntelligenceText(row.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.35f,.04f),new Vector2(link?.80f:.985f,.96f),20);
             if(!known){label.color=new Color(.66f,.65f,.59f);value.color=label.color;}
