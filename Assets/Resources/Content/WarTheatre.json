@@ -9218,6 +9218,65 @@
       "role": "",
       "note": "Genoese Corsica, grouped with Genoese diplomatic relations.",
       "referenceName": ""
+    },
+    {
+      "id": "hospitallers",
+      "name": "Rhodes",
+      "kind": "ally",
+      "group": "hospitallers",
+      "role": "Knights Hospitaller",
+      "note": "The Knights Hospitaller govern Rhodes. Their ships can carry aid to Constantinople, while their island fortress and sea routes remain their first duty.",
+      "referenceName": "Knights Hospitaller",
+      "points": [
+        {
+          "x": 0.41552734,
+          "y": 0.18301611
+        },
+        {
+          "x": 0.41699219,
+          "y": 0.19619327
+        },
+        {
+          "x": 0.41992188,
+          "y": 0.20644217
+        },
+        {
+          "x": 0.42382812,
+          "y": 0.21229868
+        },
+        {
+          "x": 0.42724609,
+          "y": 0.21522694
+        },
+        {
+          "x": 0.42871094,
+          "y": 0.20937042
+        },
+        {
+          "x": 0.42626953,
+          "y": 0.19765739
+        },
+        {
+          "x": 0.42382812,
+          "y": 0.18887262
+        },
+        {
+          "x": 0.42138672,
+          "y": 0.17715959
+        },
+        {
+          "x": 0.41845703,
+          "y": 0.16837482
+        },
+        {
+          "x": 0.41601562,
+          "y": 0.1727672
+        }
+      ],
+      "label": {
+        "x": 0.43408203,
+        "y": 0.1625183
+      }
     }
   ]
 }

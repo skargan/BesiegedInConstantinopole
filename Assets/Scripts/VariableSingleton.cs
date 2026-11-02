@@ -396,6 +396,7 @@ public class VariableSingleton : MonoBehaviour
         foreach(string key in new List<string>(iDict.Keys))
             if(key.StartsWith("iAidState") || key.StartsWith("iAidDays") || key.StartsWith("iAidWarships")) iDict.Remove(key);
         RecruitmentLogistics.ResetForRestore();
+        MarketPurchaseLimits.ResetForRestore();
         MedicalRecovery.ResetForRestore();
         MehmedAssassination.ResetForRestore();
         ProvincialIntelligence.ResetForRestore();

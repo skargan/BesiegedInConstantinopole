@@ -1,0 +1,411 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "node": "story7",
+      "path": "EventArt/Covers/story7",
+      "source": "Inventories of the Imperial Wardrobe-1.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story9",
+      "path": "EventArt/Covers/story9",
+      "source": "Grant's water ripple test-2.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story13",
+      "path": "EventArt/Covers/story13",
+      "source": "Orhan's Appeal for Constantinople's Turks-3.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story12",
+      "path": "EventArt/Covers/story12",
+      "source": "A Wary Venetian Proposal-4.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story17",
+      "path": "EventArt/Covers/story17",
+      "source": "Seeking the Lost Greek Fire-5.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story20",
+      "path": "EventArt/Covers/story20",
+      "source": "A Sealed Dispatch at the Coastal Outpost-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepFortress",
+      "path": "EventArt/Covers/prepFortress",
+      "source": "Scouts Observe Rumeli Hisarı-7.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepScorched",
+      "path": "EventArt/Covers/prepScorched",
+      "source": "A Choice at the Watermill-8.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepGrain",
+      "path": "EventArt/Covers/prepGrain",
+      "source": "The Grain Charter Negotiation-9.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepAdventurers",
+      "path": "EventArt/Covers/prepAdventurers",
+      "source": "Invitation at the Chancery Door-10.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeSaints",
+      "path": "EventArt/Covers/lifeSaints",
+      "source": "A Boiled-Dry Pot and Two Debaters-5.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeRoof",
+      "path": "EventArt/Covers/lifeRoof",
+      "source": "A Bowl Beneath the Leak-4.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeCoin",
+      "path": "EventArt/Covers/lifeCoin",
+      "source": "A Veteran Offers His Last Coins-3.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random11",
+      "path": "EventArt/Covers/random11",
+      "source": "Alehouse Whispers of Hope-10.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeGunner",
+      "path": "EventArt/Covers/lifeGunner",
+      "source": "An Apprentice Gunner Volunteers-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random22",
+      "path": "EventArt/Covers/random22",
+      "source": "Barracks Dispute Over One Blanket-8.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random5",
+      "path": "EventArt/Covers/random5",
+      "source": "Broken Bronze Cannon on the Wall-3.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random6",
+      "path": "EventArt/Covers/random6",
+      "source": "Candlelit Vigil in Besieged Constantinople-4.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random10",
+      "path": "EventArt/Covers/random10",
+      "source": "Citizens Repair Constantinople’s Wall-9.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardCoin",
+      "path": "EventArt/Covers/hardCoin",
+      "source": "Clipped Silver at the Pay Table-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeCobbler",
+      "path": "EventArt/Covers/lifeCobbler",
+      "source": "Daylight Through the Soldier's Boot-3.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardHorse",
+      "path": "EventArt/Covers/hardHorse",
+      "source": "Dead horse blocks the alley-7.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story1",
+      "path": "EventArt/Covers/story1",
+      "source": "Debating the Union Before the Emperor-3.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story22",
+      "path": "EventArt/Covers/story22",
+      "source": "Easter Speech in Hagia Sophia-10.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story5",
+      "path": "EventArt/Covers/story5",
+      "source": "Giustiniani's Arrival at the Golden Horn-5.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeDrawing",
+      "path": "EventArt/Covers/lifeDrawing",
+      "source": "Guards Study a Child’s Siege Sketch-5.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeSong",
+      "path": "EventArt/Covers/lifeSong",
+      "source": "Homesick Song by the Siege Fire-3.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random7",
+      "path": "EventArt/Covers/random7",
+      "source": "Hungry Plea Outside the Warehouse Guardhouse-8.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random14",
+      "path": "EventArt/Covers/random14",
+      "source": "Inspecting the Cracks in Constantinople’s Wall-10.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story0",
+      "path": "EventArt/Covers/story0",
+      "source": "Messenger's Warning in the Imperial Court-2.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random21",
+      "path": "EventArt/Covers/random21",
+      "source": "Mouldy grain discovered in Constantinople-10.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story3",
+      "path": "EventArt/Covers/story3",
+      "source": "Orban's Cannon Proposal Before the Court-4.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random2",
+      "path": "EventArt/Covers/random2",
+      "source": "Overturned Bread Stall in Constantinople-7.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeWell",
+      "path": "EventArt/Covers/lifeWell",
+      "source": "Quarrel at the Courtyard Well-2.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardRats",
+      "path": "EventArt/Covers/hardRats",
+      "source": "Rat in the flour store-8.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story4",
+      "path": "EventArt/Covers/story4",
+      "source": "Refugees Await the City Gate-1.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random17",
+      "path": "EventArt/Covers/random17",
+      "source": "Ruptured Siege Bombard Beyond the Walls-9.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardSand",
+      "path": "EventArt/Covers/hardSand",
+      "source": "Sand in the Grain Sack-8.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random8",
+      "path": "EventArt/Covers/random8",
+      "source": "Siege Garden in Constantinople-5.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeGhost",
+      "path": "EventArt/Covers/lifeGhost",
+      "source": "Silence on the Empty Stair-4.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeWedding",
+      "path": "EventArt/Covers/lifeWedding",
+      "source": "Soldier Seeks Leave to Marry-1.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeBarrel",
+      "path": "EventArt/Covers/lifeBarrel",
+      "source": "Soldiers Discover an Unclaimed Wine Barrel-4.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeQuiet",
+      "path": "EventArt/Covers/lifeQuiet",
+      "source": "Sparrows Above the Quiet Battlements-5.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeCandles",
+      "path": "EventArt/Covers/lifeCandles",
+      "source": "Tallow candle stubs in besieged Constantinople-2.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story15",
+      "path": "EventArt/Covers/story15",
+      "source": "The Galata Decision Across the Golden Horn-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story19",
+      "path": "EventArt/Covers/story19",
+      "source": "The Great Chain of the Golden Horn-7.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story23",
+      "path": "EventArt/Covers/story23",
+      "source": "The Siege Begins at Constantinople-8.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeStones",
+      "path": "EventArt/Covers/lifeStones",
+      "source": "The Unlifted Basket-2.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeLights",
+      "path": "EventArt/Covers/lifeLights",
+      "source": "Three Lights Beyond the Quiet Harbor-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardCistern",
+      "path": "EventArt/Covers/hardCistern",
+      "source": "Troubled Water in the Cistern-7.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeSails",
+      "path": "EventArt/Covers/lifeSails",
+      "source": "Uncertain Sails on the Horizon-1.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random19",
+      "path": "EventArt/Covers/random19",
+      "source": "Warehouse Fire at Phanar Docks-7.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeBread",
+      "path": "EventArt/Covers/lifeBread",
+      "source": "Warm Bread on the Wall-1.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random1",
+      "path": "EventArt/Covers/random1",
+      "source": "Weary soldiers in sanctuary-1.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story8",
+      "path": "EventArt/Covers/story8",
+      "source": "Quills, maps, and waiting hands-9.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story14",
+      "path": "EventArt/Covers/story14",
+      "source": "Uncertain War Council in Constantinople-9.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random15",
+      "path": "EventArt/Covers/random15",
+      "source": "The Servant's Moonlit Departure-9.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random9",
+      "path": "EventArt/Covers/random9",
+      "source": "Wit in Constantinople’s Grand Market-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    }
+  ]
+}

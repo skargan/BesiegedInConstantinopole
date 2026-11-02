@@ -48,6 +48,7 @@ public sealed class WarTheatreCapture : MonoBehaviour
         Check(VariableSingleton.IsInitialized,"Campaign initialized");yield return new WaitForSecondsRealtime(.5f);CampaignHUD.Instance.DismissReport();
         WarTheatre.Validate(WarTheatre.Data);Check(WarTheatre.Data.regions.Count(r=>r.kind=="province")==11,"Eleven stable provinces");
         Check(WarTheatre.Find("aq_qoyunlu")!=null,"Aq Qoyunlu on map");
+        Check(WarTheatre.Find("hospitallers")!=null&&CouncilActions.AllyIndexForRealm("hospitallers")==5,"Rhodes maps to existing Knights Hospitaller diplomacy");
         Check(CouncilActions.AllyIndexForRealm("aq_qoyunlu")==17,"Aq appended at stable index17");
         var baseline=VariableSingleton.Instance.CaptureState();
         var legacy=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(baseline));
@@ -68,8 +69,8 @@ public sealed class WarTheatreCapture : MonoBehaviour
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.6f);
             string suffix=size.x+"x"+size.y;WarTheatreUI.Show();yield return null;Canvas.ForceUpdateCanvases();
             string state=State();var groups=Groups();Check(groups.Values.SelectMany(v=>v).All(g=>!g.Highlighted),suffix+" starts without sticky Macedonia highlight");
-            foreach(string power in new[]{"venice","genoa","naples","aq_qoyunlu"}){
-                var members=groups[power];Check(members.Count>=(power=="aq_qoyunlu"?1:2),suffix+" grouped "+power);
+            foreach(string power in new[]{"venice","genoa","naples","aq_qoyunlu","hospitallers"}){
+                var members=groups[power];Check(members.Count>=((power=="aq_qoyunlu"||power=="hospitallers")?1:2),suffix+" grouped "+power);
                 foreach(var shape in members){
                     Hover(shape,true);Check(members.All(s=>s.Highlighted),suffix+" all "+power+" highlighted from "+shape.name);
                     Check(groups.Where(p=>p.Key!=power).SelectMany(p=>p.Value).All(s=>!s.Highlighted),suffix+" unrelated territories remain quiet for "+shape.name);
@@ -118,6 +119,12 @@ public sealed class WarTheatreCapture : MonoBehaviour
                 Check(hits.Count>0&&hits[0].gameObject==marker.gameObject,suffix+" "+name+" has independent unobstructed click target");
             }
             yield return Capture("theatre-fit-"+suffix);
+            Click(groups["hospitallers"][0]);Button("Diplomatic relations");yield return null;
+            Check(Map()==null,suffix+" Rhodes map selection opens diplomacy");
+            var rhodesProfile=GameObject.Find("Council screen");
+            Check(rhodesProfile!=null&&Text(rhodesProfile).Contains("Hospitaller"),suffix+" Knights Hospitaller profile opens from Rhodes");
+            yield return Capture("rhodes-diplomacy-"+suffix);FindObjectOfType<CouncilUI>(true).Hide();
+            WarTheatreUI.Show();yield return null;groups=Groups();
             var aq=groups["aq_qoyunlu"][0];Click(aq);Button("Diplomatic relations");yield return null;
             Check(Map()==null,suffix+" map closes into diplomacy");
             var council=GameObject.Find("Council screen");Check(council!=null&&Text(council).Contains("Turkmen Confederations"),suffix+" Aq profile opens directly");

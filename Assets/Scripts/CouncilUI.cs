@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.9 · Revised frontiers";
+    public const string BuildLabel="Version 36.10 · Market and illustrations";
 
 
 
@@ -1283,48 +1283,6 @@ public partial class CouncilUI : MonoBehaviour
         if(position==0)CampaignHUD.Label(body,"No advisers are currently in your service.",new Vector2(.04f,.2f),new Vector2(.96f,.9f),28);
 
         if(CharacterPreparations.Invited&&!CharacterPreparations.InService)notice.text="Expected arrival: "+CharacterPreparations.Name()+" · "+CharacterPreparations.Status;
-
-    }
-
-
-
-    private int[] purchaseAmounts={1000,100,20};
-
-    public void Market()
-
-    {
-
-        Open("Treasury and market","Purchases use gold. Prices for provisions rise when the siege begins.");
-
-        BodyHeight(780);
-
-        var account=Row(0,120);
-
-        CampaignHUD.Label(account.transform,"Treasury: "+CouncilActions.Int("iMoney").ToString("N0")+" gold   ·   Food: "+SupplyEconomy.DaysLeft+" full days\nDaily consumption during the siege: "+SupplyEconomy.DailyNeed+" provisions",new Vector2(.02f,.08f),new Vector2(.98f,.92f),25);
-
-        string[] resources={"iProvisions","iMaterials","iAmmunition"},names={"Provisions","Materials","Ammunition"};int[] steps={100,10,1};
-
-        for(int i=0;i<3;i++) {
-
-            int index=i;string resource=resources[i];var row=Row(i+1,150);
-
-            CampaignHUD.Label(row.transform,names[i]+": "+CouncilActions.Int(resource).ToString("N0")+"\n"+SupplyEconomy.Price(resource)+" gold each",new Vector2(.02f,.1f),new Vector2(.35f,.9f),24);
-
-            CampaignHUD.MakeButton(row.transform,"−",new Vector2(.39f,.22f),new Vector2(.46f,.78f),()=>{purchaseAmounts[index]=Mathf.Max(steps[index],purchaseAmounts[index]-steps[index]);Market();});
-
-            var quantity=CampaignHUD.Label(row.transform,purchaseAmounts[i].ToString("N0"),new Vector2(.47f,.2f),new Vector2(.59f,.8f),27);quantity.alignment=TextAlignmentOptions.Center;
-
-            CampaignHUD.MakeButton(row.transform,"+",new Vector2(.60f,.22f),new Vector2(.67f,.78f),()=>{purchaseAmounts[index]=Mathf.Min(100000,purchaseAmounts[index]+steps[index]);Market();});
-
-            long cost=SupplyEconomy.Cost(resource,purchaseAmounts[i]);
-
-            var buy=CampaignHUD.MakeButton(row.transform,"Buy\n"+cost.ToString("N0")+" gold",new Vector2(.71f,.17f),new Vector2(.97f,.83f),()=>{if(SupplyEconomy.Buy(resource,purchaseAmounts[index],out var report))VariableSingleton.Instance.Save();Market();notice.text=report;});buy.interactable=cost<=CouncilActions.Int("iMoney");
-
-        }
-
-        var tax=Row(4,150);CampaignHUD.Label(tax.transform,"Emergency levy: +"+(SupplyEconomy.DailyNeed*100).ToString("N0")+" gold\nPublic morale −15 points",new Vector2(.02f,.1f),new Vector2(.65f,.9f),24);
-
-        CampaignHUD.MakeTurnButton(tax.transform,"Collect emergency tax",new Vector2(.70f,.17f),new Vector2(.97f,.83f),()=>{SupplyEconomy.EmergencyTax(out var report);Finish(true,report);});
 
     }
 

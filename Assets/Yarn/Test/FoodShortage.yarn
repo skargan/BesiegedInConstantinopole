@@ -2,7 +2,7 @@
 ---
 <b>The Empty Granary</b>: The storekeeper brings the day's ration ledger. There was too little food for the City. Outside the bakeries, people wait beside cold ovens. On the walls, soldiers ask when their bread will come.
 The storekeeper needs {FoodNeed()} provisions for each full day's ration. The remaining merchants demand wartime prices.
--> Purchase three days of emergency grain. ({EmergencyGrainCost()} gold) <<if GetInt("iMoney") >= EmergencyGrainCost()>>
+-> Purchase three days of emergency grain. ({EmergencyGrainCost()} gold) <<if CanBuyEmergencyGrain()>>
     <<ResolveFoodShortage buy>>
     Grain carts arrive under guard. The storekeeper weighs the sacks himself. The City has enough food for the next three days.
 -> Requisition two days of food from noble households. (Noble support −5 points.)

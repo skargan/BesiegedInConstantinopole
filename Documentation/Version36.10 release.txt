@@ -1,0 +1,17 @@
+BESIEGED VERSION 36.10 - MARKET AND ILLUSTRATIONS
+
+Treasury and market now fits the right half of the screen, leaving the market illustration visible. Type exact whole quantities or adjust them in steps of 1, 10 or 100. Each resource shows its price, holdings, remaining allowance and purchase total.
+Provisional shared limits per council turn: 500 provisions, 100 materials, 20 ammunition. A turn is one preparation month or one siege day. All purchases share the same allowance, including emergency grain. Reopening the market or saving/loading does not replenish it. The next turn does. Free food-shortage alternatives remain available. Existing prices and emergency levy effects are unchanged.
+
+Rhodes now appears in War Beyond the Walls, highlights on hover, and opens the existing Knights Hospitaller diplomatic profile. Existing country indices and aid rules remain unchanged.
+
+14 supplied Midnight Mosaic statistic icons are now used in the permanent header. 58 locally downloaded event covers are mapped to specific events. Their full composition is retained; click an illustration for an enlarged view, and Close or Escape to return. Rendering uses a small ownership-aware texture cache.
+Art coverage is partial: the supporting art chat reports 121 dedicated covers and 11 reuse mappings in its complete handover. Only58 locally accessible, verified scene matches are included here. Four skyline references and two ambiguous/alternative scenes remain unassigned; one identical file was excluded. Remaining originals and the official manifest are still being requested through an accessible handover. No missing artwork was regenerated or falsely marked integrated.
+
+Verification:
+MARKET_CAPTURE 38 checks passed at 1600x900 and 1280x720; isolated purchases and save reload verified.
+ART_INTEGRATION_CHECKS 1682 passed; 14 header sprites, all 58 manifest entries, and aspect-preserving rendering checked at 1600x900 / 1280x720. Ten representative event-art fixtures captured at each resolution. No event choices executed.
+THEATRE_CHECKS 678 passed
+Also28 isolated C# market-model checks passed. Screenshots reviewed for the market, header icons, event illustrations and Rhodes. This is focused integration verification, not a new full-campaign balance audit.
+
+Previous Version36 save files were copied into this build's local Saves folder. Originals remain in their earlier build folders. Old saves start with a fresh market allowance; thereafter purchases persist normally.

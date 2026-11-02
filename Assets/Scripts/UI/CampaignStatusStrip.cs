@@ -34,13 +34,28 @@ public sealed class CampaignStatusStrip : MonoBehaviour
                 var divider=CampaignHUD.Panel(cell.transform,"Divider",new Vector2(0,.13f),new Vector2(.008f,.91f));
                 divider.GetComponent<Image>().color=new Color(.48f,.43f,.32f,.4f);divider.GetComponent<Image>().raycastTarget=false;
             }
-            CampaignStatGlyph.Add(cell.transform,index,new Vector2(.07f,.56f),new Vector2(.24f,.98f)).color=GroupColours[group];
+            AddStatArt(cell.transform,index,group);
             var label=CampaignHUD.Label(cell.transform,CampaignStatistics.Header[index].ShortName,new Vector2(.28f,.53f),new Vector2(.98f,.99f),15);
             label.enableWordWrapping=false;label.enableAutoSizing=true;label.fontSizeMin=13;label.fontSizeMax=15;
             amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.07f,.015f),new Vector2(.98f,.59f),25);
             amounts[index].name="Stat value "+index;
             amounts[index].enableWordWrapping=false;amounts[index].enableAutoSizing=true;amounts[index].fontSizeMin=18;amounts[index].fontSizeMax=25;
         }
+    }
+    // Artwork replaces presentation only; the existing glyph remains a per-stat fallback.
+    void AddStatArt(Transform parent,int index,int group)
+    {
+        var min=new Vector2(.07f,.56f);var max=new Vector2(.24f,.98f);
+        var stat=(CampaignStatArt.Stat)index;
+        if(CampaignStatArt.Get(stat)==null) {
+            CampaignStatGlyph.Add(parent,index,min,max).color=GroupColours[group];
+            return;
+        }
+        var go=new GameObject("Stat symbol "+index,typeof(RectTransform),typeof(CanvasRenderer),typeof(Image));
+        go.transform.SetParent(parent,false);
+        var rect=go.GetComponent<RectTransform>();rect.anchorMin=min;rect.anchorMax=max;
+        rect.offsetMin=rect.offsetMax=Vector2.zero;
+        CampaignStatArt.Apply(go.GetComponent<Image>(),stat);
     }
     void Update()
     {
