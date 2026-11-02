@@ -1,0 +1,192 @@
+{
+  "agent": "map_cartography",
+  "tool": "built-in image_gen",
+  "characters": [
+    {
+      "id": 103,
+      "name": "Giovanni Fontana",
+      "details": "Grey curly hair and a short greying beard, warm rust-red soft cap, dark brown-black scholar's robe with restrained gold embroidered borders and reddish inner garment, white linen collar. Preserve his rolled engineering drawing held naturally in one hand. Extend his robes to below the knee with dark hose and plain leather shoes.",
+      "prompt": "Use case: identity-preserve. Asset type: a single complete full-body palace character cutout sprite for Besieged in Constantinople, circa 1453.\nInput image 1 is the identity and costume reference for Giovanni Fontana; preserve this exact man's face, age, hair, facial hair, headwear and upper-body costume. Input image 2 (Diedo) is ONLY the full-body rendering, scale and court-stance style reference, not the face or costume. Extend the first portrait into one anatomically proportioned head-to-boots standing figure. Grey curly hair and a short greying beard, warm rust-red soft cap, dark brown-black scholar's robe with restrained gold embroidered borders and reddish inner garment, white linen collar. Preserve his rolled engineering drawing held naturally in one hand. Extend his robes to below the knee with dark hose and plain leather shoes.\nRelaxed dignified court stance, body turned slightly three-quarter toward the viewer, looking toward the viewer. Detailed realistic painterly historical illustration, matching Diedo's convincing fabrics, subtle natural skin and warm light from upper left. Full figure, all headwear and both shoes wholly visible, modest clear margins on every side. Vertical portrait composition. A single isolated man only.\nCRITICAL BACKGROUND: actual fully transparent alpha outside the figure. No painted dark background, no coloured glow or halo, no floor, no cast ground shadow, no scenery, no pedestal. Do not copy Diedo's backdrop. Preserve clean semitransparent edge antialiasing. No text, labels, watermarks, collage or extra people. Do not crop hat, hair, arms, robe or feet.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-ac251361-c625-4252-89c8-86230e7a5d2c.png",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\generated\\103.png",
+      "sha256": "5a76737ea2ee3d74eeb8f1182017a6e08fab9cf18b992a06a207dc136e26b7cf",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        73,
+        17,
+        980,
+        1518
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 1020643,
+      "nonOpaquePixels": 1572864,
+      "transparentBackgroundRequested": true,
+      "actualTransparency": true,
+      "status": "generated-alpha-present",
+      "alphaBoundsByThreshold": {
+        "1": [
+          73,
+          17,
+          980,
+          1518
+        ],
+        "16": [
+          242,
+          19,
+          821,
+          1512
+        ],
+        "64": [
+          242,
+          19,
+          820,
+          1512
+        ],
+        "128": [
+          243,
+          20,
+          820,
+          1512
+        ],
+        "240": [
+          243,
+          20,
+          819,
+          1511
+        ]
+      },
+      "visualReview": "Identity, hat/hair, full stance and both shoes preserved; actual alpha present. Original output retained without edits. Very low-alpha fringe extends beyond figure; verify compositing on palace background."
+    },
+    {
+      "id": 104,
+      "name": "Cyriacus of Ancona",
+      "details": "Grey wavy hair and a short pointed greying beard, soft black scholar's cap, brown velvet robe with black-brown fur collar and restrained gold borders, white linen collar, front brass buttons. Preserve his small carved classical stone fragment held naturally in both hands near his waist. Extend his robes to below the knee with dark hose and plain leather shoes.",
+      "prompt": "Use case: identity-preserve. Asset type: a single complete full-body palace character cutout sprite for Besieged in Constantinople, circa 1453.\nInput image 1 is the identity and costume reference for Cyriacus of Ancona; preserve this exact man's face, age, hair, facial hair, headwear and upper-body costume. Input image 2 (Diedo) is ONLY the full-body rendering, scale and court-stance style reference, not the face or costume. Extend the first portrait into one anatomically proportioned head-to-boots standing figure. Grey wavy hair and a short pointed greying beard, soft black scholar's cap, brown velvet robe with black-brown fur collar and restrained gold borders, white linen collar, front brass buttons. Preserve his small carved classical stone fragment held naturally in both hands near his waist. Extend his robes to below the knee with dark hose and plain leather shoes.\nRelaxed dignified court stance, body turned slightly three-quarter toward the viewer, looking toward the viewer. Detailed realistic painterly historical illustration, matching Diedo's convincing fabrics, subtle natural skin and warm light from upper left. Full figure, all headwear and both shoes wholly visible, modest clear margins on every side. Vertical portrait composition. A single isolated man only.\nCRITICAL BACKGROUND: actual fully transparent alpha outside the figure. No painted dark background, no coloured glow or halo, no floor, no cast ground shadow, no scenery, no pedestal. Do not copy Diedo's backdrop. Preserve clean semitransparent edge antialiasing. No text, labels, watermarks, collage or extra people. Do not crop hat, hair, arms, robe or feet.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-d5be3366-28d2-48e0-a92d-3c7da8cb3dd0.png",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\generated\\104.png",
+      "sha256": "971a065e70a079079c9fd361e3a64fa26964dabf3b5b26a66f6a1ae32459b36a",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        81,
+        7,
+        1010,
+        1516
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 997659,
+      "nonOpaquePixels": 1572864,
+      "transparentBackgroundRequested": true,
+      "actualTransparency": true,
+      "status": "generated-alpha-present",
+      "alphaBoundsByThreshold": {
+        "1": [
+          81,
+          7,
+          1010,
+          1516
+        ],
+        "16": [
+          213,
+          11,
+          819,
+          1509
+        ],
+        "64": [
+          213,
+          11,
+          819,
+          1509
+        ],
+        "128": [
+          213,
+          12,
+          819,
+          1509
+        ],
+        "240": [
+          214,
+          12,
+          818,
+          1508
+        ]
+      },
+      "visualReview": "Identity, hat/hair, full stance and both shoes preserved; actual alpha present. Original output retained without edits. Very low-alpha fringe extends beyond figure; verify compositing on palace background."
+    },
+    {
+      "id": 105,
+      "name": "Pero Tafur",
+      "details": "Dark curly hair, closely trimmed dark beard, proud but composed expression, polished period steel gorget, rich deep red velvet doublet with restrained gold edging and white linen collar. Extend his knight's clothing into a matching belted red doublet and practical dark hose and dark leather boots. Hands rest naturally at his belt; any sword remains sheathed at his hip.",
+      "prompt": "Use case: identity-preserve. Asset type: a single complete full-body palace character cutout sprite for Besieged in Constantinople, circa 1453.\nInput image 1 is the identity and costume reference for Pero Tafur; preserve this exact man's face, age, hair, facial hair, headwear and upper-body costume. Input image 2 (Diedo) is ONLY the full-body rendering, scale and court-stance style reference, not the face or costume. Extend the first portrait into one anatomically proportioned head-to-boots standing figure. Dark curly hair, closely trimmed dark beard, proud but composed expression, polished period steel gorget, rich deep red velvet doublet with restrained gold edging and white linen collar. Extend his knight's clothing into a matching belted red doublet and practical dark hose and dark leather boots. Hands rest naturally at his belt; any sword remains sheathed at his hip.\nRelaxed dignified court stance, body turned slightly three-quarter toward the viewer, looking toward the viewer. Detailed realistic painterly historical illustration, matching Diedo's convincing fabrics, subtle natural skin and warm light from upper left. Full figure, all headwear and both shoes wholly visible, modest clear margins on every side. Vertical portrait composition. A single isolated man only.\nCRITICAL BACKGROUND: actual fully transparent alpha outside the figure. No painted dark background, no coloured glow or halo, no floor, no cast ground shadow, no scenery, no pedestal. Do not copy Diedo's backdrop. Preserve clean semitransparent edge antialiasing. No text, labels, watermarks, collage or extra people. Do not crop hat, hair, arms, robe or feet.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-7eb2d05c-692e-4d82-98c4-3b7dbcb72a2f.png",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\generated\\105.png",
+      "sha256": "83b56e91cd3ad92e2e7ba65d525fe0d828f56c52b1bab3e4d909e790d6e99f42",
+      "dimensions": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1006,
+        1520
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 1097339,
+      "nonOpaquePixels": 1572864,
+      "transparentBackgroundRequested": true,
+      "actualTransparency": true,
+      "status": "generated-alpha-present",
+      "alphaBoundsByThreshold": {
+        "1": [
+          0,
+          0,
+          1006,
+          1520
+        ],
+        "16": [
+          239,
+          9,
+          808,
+          1511
+        ],
+        "64": [
+          240,
+          10,
+          808,
+          1511
+        ],
+        "128": [
+          240,
+          14,
+          808,
+          1510
+        ],
+        "240": [
+          241,
+          18,
+          807,
+          1510
+        ]
+      },
+      "visualReview": "Identity, hat/hair, full stance and both shoes preserved; actual alpha present. Original output retained without edits. Very low-alpha fringe extends beyond figure; verify compositing on palace background."
+    }
+  ]
+}

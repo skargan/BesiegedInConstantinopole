@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "threshold": 8,
+  "bboxConvention": "Pillow left/top/right/bottom, right and bottom exclusive; origin top left",
+  "spriteRectConvention": "Unity x/y/width/height, origin bottom left",
+  "assets": [
+    {
+      "id": 0,
+      "name": "Giovanni Giustiniani",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\ChatGPT Image Oct 22, 2026, 03_03_16 PM.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png",
+      "resourcePath": "UI/Identity/CourtFigures/0",
+      "sha256": "60a94cd82db4bd2e6e4c0d5ce2d42150cf0c5b89e68272ab3be29c0e0cbf7a6a",
+      "bytes": 2249651,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 61.177,
+      "bboxAlpha8TopLeftExclusive": [
+        160,
+        8,
+        803,
+        1480
+      ],
+      "spriteRectBottomLeftXYWH": [
+        160,
+        56,
+        643,
+        1472
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 1,
+      "name": "Alvise Diedo",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\Alvise Diedo, Venetian Naval Commander-3.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\1.png",
+      "resourcePath": "UI/Identity/CourtFigures/1",
+      "sha256": "50f4a906539966ba83a71d7e23a80dda92a0d2ef173fd1921f31b059f6b2843c",
+      "bytes": 2022709,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 65.047,
+      "bboxAlpha8TopLeftExclusive": [
+        240,
+        28,
+        806,
+        1502
+      ],
+      "spriteRectBottomLeftXYWH": [
+        240,
+        34,
+        566,
+        1474
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 2,
+      "name": "Loukas Notaras",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\ChatGPT Image Oct 22, 2026, 03_14_31 PM.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\2.png",
+      "resourcePath": "UI/Identity/CourtFigures/2",
+      "sha256": "39f64b6d9db442f590aa6b33f19c953519533bc7adfc7a36819ea551083fc382",
+      "bytes": 2467604,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 53.08,
+      "bboxAlpha8TopLeftExclusive": [
+        114,
+        8,
+        874,
+        1527
+      ],
+      "spriteRectBottomLeftXYWH": [
+        114,
+        9,
+        760,
+        1519
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 3,
+      "name": "Prince Orhan",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\Prince Orhan in Emerald Caftan-4.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\3.png",
+      "resourcePath": "UI/Identity/CourtFigures/3",
+      "sha256": "0f4c8c826522e7e6f2547f1d47eb54f0f4b84bc19e9cafdc4169316623f636e7",
+      "bytes": 2274974,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 61.737,
+      "bboxAlpha8TopLeftExclusive": [
+        184,
+        10,
+        830,
+        1499
+      ],
+      "spriteRectBottomLeftXYWH": [
+        184,
+        37,
+        646,
+        1489
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 4,
+      "name": "George Sphrantzes",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\George Sphrantzes, Byzantine Court Chronicler-2.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\4.png",
+      "resourcePath": "UI/Identity/CourtFigures/4",
+      "sha256": "a1ace33217023a7c99ca041554f745917ee20107f50f77a6bb8d290ed3d6ff91",
+      "bytes": 1983706,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 60.303,
+      "bboxAlpha8TopLeftExclusive": [
+        200,
+        28,
+        821,
+        1511
+      ],
+      "spriteRectBottomLeftXYWH": [
+        200,
+        25,
+        621,
+        1483
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 5,
+      "name": "Orban",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\Orban, the master gunfounder-1.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\5.png",
+      "resourcePath": "UI/Identity/CourtFigures/5",
+      "sha256": "2341392fef5a5121f94a34fee9201761fc00a67d37bedebfc2d1aa9991ac3c02",
+      "bytes": 2073715,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 64.686,
+      "bboxAlpha8TopLeftExclusive": [
+        226,
+        16,
+        800,
+        1509
+      ],
+      "spriteRectBottomLeftXYWH": [
+        226,
+        27,
+        574,
+        1493
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 7,
+      "name": "Cardinal Isidore",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\Cardinal Isidore with sealed parchment.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\7.png",
+      "resourcePath": "UI/Identity/CourtFigures/7",
+      "sha256": "120cec271c8edaf37b4b93f4e52bdb9ffe24cd4b94cfdd38f327c073271fb320",
+      "bytes": 2190897,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 53.656,
+      "bboxAlpha8TopLeftExclusive": [
+        101,
+        9,
+        834,
+        1522
+      ],
+      "spriteRectBottomLeftXYWH": [
+        101,
+        14,
+        733,
+        1513
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    },
+    {
+      "id": 200,
+      "name": "Kjold",
+      "sourcePath": "C:\\Users\\Dainius\\Desktop\\GAMES\\Besieged\\characters\\ChatGPT Image Oct 22, 2026, 03_36_18 PM.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\200.png",
+      "resourcePath": "UI/Identity/CourtFigures/200",
+      "sha256": "c928ad00b44dbd9b4b1057ee44d693d577c4f5d26721b98db68543dabe2128fb",
+      "bytes": 2243749,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 60.304,
+      "bboxAlpha8TopLeftExclusive": [
+        169,
+        14,
+        819,
+        1508
+      ],
+      "spriteRectBottomLeftXYWH": [
+        169,
+        28,
+        650,
+        1494
+      ],
+      "visualReview": "full body and feet visible; matched existing character portrait identity",
+      "note": "Original bytes preserved. RGB outside alpha can look like black vignette in an alpha-ignoring viewer; background pixels are fully transparent."
+    }
+  ],
+  "missingCourtIds": [
+    6,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105
+  ],
+  "duplicateExcluded": "Prince Orhan in Emerald Caftan.png matches -4.png byte for byte",
+  "repositoryModified": false
+}

@@ -1,0 +1,12 @@
+BESIEGED VERSION 36.12 - THE LIVING COURT
+
+Palace visitors now stand in the room as full-body figures. Click the figure or nameplate to open their existing conversation. Hovering adds a restrained gold outline. The palace's garden, Hagia Sophia and defence-map hotspots remain accessible; transparent image margins do not intercept clicks.
+
+All 15 existing eligible visitors are covered: Giustiniani, Diedo, Notaras, Orhan, Sphrantzes, Orban, Grant, Isidore, Stephen of Moldavia, Giosafat Barbaro, Bertrandon de la Broquiere, Giovanni Fontana, Cyriacus of Ancona, Pero Tafur and Kjold. Eight supplied full-body originals were retained unchanged. Seven missing figures were generated from their established portraits with built-in image generation. The current assigned-visitor system and character availability remain unchanged; this does not place every recruit in the room at once. Garden and cathedral retain their existing portrait cards.
+
+Figures load on demand into a four-entry cache that protects any displayed asset. Source PNGs remain untouched; measured transparent bounds control display scale. Imports retain true alpha and uncompressed detail.
+
+Verification: PALACE_FIGURE_CHECKS 376 passed; all 15 IDs at 1600x900 and 1280x720, all fifteen visitors captured at 1280x720, plus four at 1600x900.
+All 15 visitors visually reviewed in exported-player captures; representative figures also reviewed at1600x900. Covered navigation, conversations and return, nameplate fit, silhouette clicks, campaign/RNG preservation, bounded caching and two resolutions. This release preserves all36.11 mechanics and introduces no balance changes.
+
+Save format unchanged. Latest-per-filename saves from earlier Version36 build folders copied and hash-verified. Earlier builds remain available. Artwork provenance, generation prompts and measured bounds are in Documentation/Artwork/PalaceFigures in the source project.

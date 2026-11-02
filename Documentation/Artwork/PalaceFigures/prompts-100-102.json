@@ -1,0 +1,32 @@
+[
+  {
+    "id": 100,
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Asset type: transparent full-body standing court character sprite for the historical strategy game Besieged in Constantinople, around 1453. Image 1 is the exact face and upper costume identity reference. Image 2 is ONLY the style, full-body proportions and warm left-side lighting reference; do not copy its face, blue uniform or pose exactly. Subject: Stephen of Moldavia, young clean-shaven noble with shoulder-length chestnut hair, red velvet and gold-embroidered cloak over chainmail. Preserve image 1's facial structure, age, hair, expression, hat if present, colours and costume details, extending the figure naturally from head to boots. Show ONE individual in a calm relaxed three-quarter standing court stance, natural human anatomy and hands, entire head, garment hem, both feet and any worn accessories fully inside frame with modest margin. Restrained painterly realism with the crisp detailed fabric, skin, gold thread and muted colour treatment of image 2. Believable mid-fifteenth-century clothing continued from the portrait, not fantasy armour. Portrait-oriented composition approximately 1024x1536, full-height figure occupying around 90% of image height. Genuine transparent alpha background: no black vignette, no backdrop, no floor, no cast ground shadow, no labels, no borders, no text, no extra people. Face recognisably identical to image 1; character silhouette clean for placement over the palace scene.",
+    "references": [
+      "C:\\Users\\Dainius\\Documents\\Codex\\Besieged-release18\\Assets\\Resources\\UI\\Identity\\Characters\\100.png",
+      "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\1.png"
+    ],
+    "transparent_background": true
+  },
+  {
+    "id": 101,
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Asset type: transparent full-body standing court character sprite for the historical strategy game Besieged in Constantinople, around 1453. Image 1 is the exact face and upper costume identity reference. Image 2 is ONLY the style, full-body proportions and warm left-side lighting reference; do not copy its face, blue uniform or pose exactly. Subject: Giosafat Barbaro, middle-aged Venetian traveller and merchant with short salt-and-pepper beard, navy soft cap and dark navy fur-trimmed robe. Preserve image 1's facial structure, age, hair, expression, hat if present, colours and costume details, extending the figure naturally from head to boots. Show ONE individual in a calm relaxed three-quarter standing court stance, natural human anatomy and hands, entire head, garment hem, both feet and any worn accessories fully inside frame with modest margin. Restrained painterly realism with the crisp detailed fabric, skin, gold thread and muted colour treatment of image 2. Believable mid-fifteenth-century clothing continued from the portrait, not fantasy armour. Portrait-oriented composition approximately 1024x1536, full-height figure occupying around 90% of image height. Genuine transparent alpha background: no black vignette, no backdrop, no floor, no cast ground shadow, no labels, no borders, no text, no extra people. Face recognisably identical to image 1; character silhouette clean for placement over the palace scene.",
+    "references": [
+      "C:\\Users\\Dainius\\Documents\\Codex\\Besieged-release18\\Assets\\Resources\\UI\\Identity\\Characters\\101.png",
+      "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\1.png"
+    ],
+    "transparent_background": true
+  },
+  {
+    "id": 102,
+    "tool": "built-in image_gen",
+    "prompt": "Use case: identity-preserve. Asset type: transparent full-body standing court character sprite for the historical strategy game Besieged in Constantinople, around 1453. Image 1 is the exact face and upper costume identity reference. Image 2 is ONLY the style, full-body proportions and warm left-side lighting reference; do not copy its face, blue uniform or pose exactly. Subject: Bertrandon de la Broquière, mature Burgundian traveller with brown-grey beard, soft black draped cap with small gold brooch, muted burgundy doublet and dark travelling cloak. Preserve image 1's facial structure, age, hair, expression, hat if present, colours and costume details, extending the figure naturally from head to boots. Show ONE individual in a calm relaxed three-quarter standing court stance, natural human anatomy and hands, entire head, garment hem, both feet and any worn accessories fully inside frame with modest margin. Restrained painterly realism with the crisp detailed fabric, skin, gold thread and muted colour treatment of image 2. Believable mid-fifteenth-century clothing continued from the portrait, not fantasy armour. Portrait-oriented composition approximately 1024x1536, full-height figure occupying around 90% of image height. Genuine transparent alpha background: no black vignette, no backdrop, no floor, no cast ground shadow, no labels, no borders, no text, no extra people. Face recognisably identical to image 1; character silhouette clean for placement over the palace scene.",
+    "references": [
+      "C:\\Users\\Dainius\\Documents\\Codex\\Besieged-release18\\Assets\\Resources\\UI\\Identity\\Characters\\102.png",
+      "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\art\\Assets\\Resources\\UI\\Identity\\CourtFigures\\1.png"
+    ],
+    "transparent_background": true
+  }
+]

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "threshold": 8,
+  "bboxConvention": "Pillow left/top/right/bottom, right and bottom exclusive; origin top left",
+  "spriteRectConvention": "Unity x/y/width/height, origin bottom left",
+  "assets": [
+    {
+      "id": 100,
+      "name": "Stephen of Moldavia",
+      "tool": "built-in image_gen",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-6b6cce26-cb18-4b48-82e4-f68937dab78a.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\generated\\100.png",
+      "resourcePath": "UI/Identity/CourtFigures/100",
+      "sha256": "0e00e1c78d72b86de3fabb3c33e008eda0cf9ff419de6bc41c67c2362d88db85",
+      "bytes": 2241008,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 59.058,
+      "bboxAlpha8TopLeftExclusive": [
+        162,
+        17,
+        872,
+        1517
+      ],
+      "spriteRectBottomLeftXYWH": [
+        162,
+        19,
+        710,
+        1500
+      ],
+      "promptFile": "prompts-100-102.json",
+      "visualReview": "Identity matches original portrait; whole figure including both boots; retained costume colours and warm left lighting. No clipping or opaque backdrop visible after alpha inspection."
+    },
+    {
+      "id": 101,
+      "name": "Giosafat Barbaro",
+      "tool": "built-in image_gen",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-91a90d50-fb8a-4bf3-922c-fdf78889c82a.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\generated\\101.png",
+      "resourcePath": "UI/Identity/CourtFigures/101",
+      "sha256": "c6030c69b2cc956763feb8621e4157b927875b39bf69d036c62b64d2c42b0731",
+      "bytes": 2137209,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 60.902,
+      "bboxAlpha8TopLeftExclusive": [
+        191,
+        19,
+        828,
+        1516
+      ],
+      "spriteRectBottomLeftXYWH": [
+        191,
+        20,
+        637,
+        1497
+      ],
+      "promptFile": "prompts-100-102.json",
+      "visualReview": "Identity matches original portrait; whole figure including both boots; retained costume colours and warm left lighting. No clipping or opaque backdrop visible after alpha inspection."
+    },
+    {
+      "id": 102,
+      "name": "Bertrandon de la Broquiere",
+      "tool": "built-in image_gen",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-f5ad3322-101f-44f6-9d9d-5c02b8071586.png",
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\palace-sprites-next\\generated\\102.png",
+      "resourcePath": "UI/Identity/CourtFigures/102",
+      "sha256": "510da6f0031c7ecbde550f5e54ffca0ac8a66971a28c4e64c2d903936f7ff800",
+      "bytes": 1962361,
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "fullyTransparentPercent": 62.063,
+      "bboxAlpha8TopLeftExclusive": [
+        212,
+        19,
+        841,
+        1511
+      ],
+      "spriteRectBottomLeftXYWH": [
+        212,
+        25,
+        629,
+        1492
+      ],
+      "promptFile": "prompts-100-102.json",
+      "visualReview": "Identity matches original portrait; whole figure including both boots; retained costume colours and warm left lighting. No clipping or opaque backdrop visible after alpha inspection."
+    }
+  ],
+  "repositoryModified": false,
+  "generationPromptSet": "prompts-100-102.json"
+}

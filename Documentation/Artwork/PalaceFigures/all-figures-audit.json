@@ -1,0 +1,170 @@
+{
+  "method": "Existing eight originals; seven portrait-matched built-in image_gen outputs. Original PNG bytes unchanged. Alpha >=16 bounding boxes affect Sprite rectangles only.",
+  "figures": [
+    {
+      "id": 0,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 160,
+      "y": 56,
+      "width": 643,
+      "height": 1472,
+      "sha256": "60a94cd82db4bd2e6e4c0d5ce2d42150cf0c5b89e68272ab3be29c0e0cbf7a6a",
+      "bytes": 2249651
+    },
+    {
+      "id": 1,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 240,
+      "y": 35,
+      "width": 566,
+      "height": 1473,
+      "sha256": "50f4a906539966ba83a71d7e23a80dda92a0d2ef173fd1921f31b059f6b2843c",
+      "bytes": 2022709
+    },
+    {
+      "id": 2,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 114,
+      "y": 9,
+      "width": 760,
+      "height": 1519,
+      "sha256": "39f64b6d9db442f590aa6b33f19c953519533bc7adfc7a36819ea551083fc382",
+      "bytes": 2467604
+    },
+    {
+      "id": 3,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 184,
+      "y": 38,
+      "width": 645,
+      "height": 1487,
+      "sha256": "0f4c8c826522e7e6f2547f1d47eb54f0f4b84bc19e9cafdc4169316623f636e7",
+      "bytes": 2274974
+    },
+    {
+      "id": 4,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 201,
+      "y": 25,
+      "width": 619,
+      "height": 1483,
+      "sha256": "a1ace33217023a7c99ca041554f745917ee20107f50f77a6bb8d290ed3d6ff91",
+      "bytes": 1983706
+    },
+    {
+      "id": 5,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 226,
+      "y": 27,
+      "width": 574,
+      "height": 1493,
+      "sha256": "2341392fef5a5121f94a34fee9201761fc00a67d37bedebfc2d1aa9991ac3c02",
+      "bytes": 2073715
+    },
+    {
+      "id": 6,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 158,
+      "y": 20,
+      "width": 698,
+      "height": 1502,
+      "sha256": "817cdd38721fdf931cfd09cca8120fd01f97bf9480df41dba75a28b3d73dc945",
+      "bytes": 2068355
+    },
+    {
+      "id": 7,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 101,
+      "y": 14,
+      "width": 733,
+      "height": 1513,
+      "sha256": "120cec271c8edaf37b4b93f4e52bdb9ffe24cd4b94cfdd38f327c073271fb320",
+      "bytes": 2190897
+    },
+    {
+      "id": 100,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 162,
+      "y": 19,
+      "width": 710,
+      "height": 1500,
+      "sha256": "0e00e1c78d72b86de3fabb3c33e008eda0cf9ff419de6bc41c67c2362d88db85",
+      "bytes": 2241008
+    },
+    {
+      "id": 101,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 191,
+      "y": 21,
+      "width": 637,
+      "height": 1496,
+      "sha256": "c6030c69b2cc956763feb8621e4157b927875b39bf69d036c62b64d2c42b0731",
+      "bytes": 2137209
+    },
+    {
+      "id": 102,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 212,
+      "y": 25,
+      "width": 629,
+      "height": 1492,
+      "sha256": "510da6f0031c7ecbde550f5e54ffca0ac8a66971a28c4e64c2d903936f7ff800",
+      "bytes": 1962361
+    },
+    {
+      "id": 103,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 242,
+      "y": 24,
+      "width": 579,
+      "height": 1493,
+      "sha256": "5a76737ea2ee3d74eeb8f1182017a6e08fab9cf18b992a06a207dc136e26b7cf",
+      "bytes": 1880368
+    },
+    {
+      "id": 104,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 213,
+      "y": 27,
+      "width": 606,
+      "height": 1498,
+      "sha256": "971a065e70a079079c9fd361e3a64fa26964dabf3b5b26a66f6a1ae32459b36a",
+      "bytes": 1976397
+    },
+    {
+      "id": 105,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 239,
+      "y": 25,
+      "width": 569,
+      "height": 1502,
+      "sha256": "83b56e91cd3ad92e2e7ba65d525fe0d828f56c52b1bab3e4d909e790d6e99f42",
+      "bytes": 1871946
+    },
+    {
+      "id": 200,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 170,
+      "y": 28,
+      "width": 649,
+      "height": 1494,
+      "sha256": "c928ad00b44dbd9b4b1057ee44d693d577c4f5d26721b98db68543dabe2128fb",
+      "bytes": 2243749
+    }
+  ]
+}
