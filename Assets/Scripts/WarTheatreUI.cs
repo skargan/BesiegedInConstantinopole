@@ -91,6 +91,7 @@ public class WarTheatreUI : MonoBehaviour
             if(r.kind=="province"){int icon=WarTheatre.Captured(r)?3:WarTheatre.Resistance(r)>=2?2:WarTheatre.Resistance(r)==1?1:ProvinceCampaign.Agent(r.id)>0?0:-1;if(icon>=0)Icon(overlays,icon,r.label+new Vector2(0,.046f),32,()=>Select(r));}
         }
         foreach(var r in WarTheatre.Data.regions.Where(r=>r.id==r.group&&CountryDiplomacy.Index(r.group)>=0&&WarTheatre.AtWar(r)))Icon(overlays,new[]{"venice","genoa","naples","cyprus"}.Contains(r.group)?5:4,r.front,38,()=>WarReport(r));
+        MaritimeMapMedallions.Add(overlays,detail,hover,ClearHover);
     }
     static void Icon(Transform parent,int index,Vector2 point,float size,UnityEngine.Events.UnityAction action=null){
         var go=new GameObject("Theatre marker "+index,typeof(RectTransform),typeof(RawImage));go.transform.SetParent(parent,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=point;rt.sizeDelta=Vector2.one*size;var image=go.GetComponent<RawImage>();image.texture=Resources.Load<Texture2D>("UI/Maps/WarTheatreSymbols");image.uvRect=new Rect(index%4*.25f,(3-index/4)*.25f,.25f,.25f);image.raycastTarget=action!=null;if(action!=null)go.AddComponent<Button>().onClick.AddListener(action);
