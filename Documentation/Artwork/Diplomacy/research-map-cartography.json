@@ -1,0 +1,35 @@
+{
+  "agent": "map_cartography",
+  "entries": [
+    {
+      "id": "florence",
+      "design": "The civic banner of Florence: warm ivory white cloth field bearing one large vivid red Florentine giglio, the distinctive open botanical lily with side stamens and curled lateral leaves, balanced and bilaterally symmetric. No crown, no shield panel.",
+      "classification": "Period civic emblem; rectangular presentation reconstruction",
+      "sources": [
+        "https://catalogo.beniculturali.it/detail/HistoricOrArtisticProperty/0900294017",
+        "https://www.comune.firenze.it/system/files/2019-09/gonfalone.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: The civic banner of Florence: warm ivory white cloth field bearing one large vivid red Florentine giglio, the distinctive open botanical lily with side stamens and curled lateral leaves, balanced and bilaterally symmetric. No crown, no shield panel."
+    },
+    {
+      "id": "siena",
+      "design": "The Sienese Balzana: exactly two equal horizontal fields, warm ivory white on the upper half and deep charcoal black on the lower half. No added emblem, no shield, no lettering. The clean two-colour division is the entire heraldic design.",
+      "classification": "Period civic emblem; rectangular presentation reconstruction",
+      "sources": [
+        "https://www.ilpalio.siena.it/5/paliopedia.aspx?q=balzana",
+        "https://www.comune.siena.it/sites/default/files/2024-04/Statuto%20-%20Ultimo%20Aggiornamento%20%2015-11-18.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: The Sienese Balzana: exactly two equal horizontal fields, warm ivory white on the upper half and deep charcoal black on the lower half. No added emblem, no shield, no lettering. The clean two-colour division is the entire heraldic design."
+    },
+    {
+      "id": "milan",
+      "design": "Ducal Sforza heraldry of Milan under Francesco Sforza: quarter the entire flag into four equal panels. Upper left and lower right panels gold yellow with black crowned imperial eagle displayed. Upper right and lower left ivory white with the blue Visconti biscione, a vertically coiling crowned serpent, a tiny red human heraldic figure emerging from its mouth. Keep each emblem bold and legible. No central shield, no written motto.",
+      "classification": "1450 ducal heraldry attested; cloth layout reconstruction",
+      "sources": [
+        "https://www.milanocastello.it/sites/default/files/Museo%20a%20cielo%20aperto%20Opere%20nei%20cortili%20del%20Castello%20Sforzesco.pdf",
+        "https://www.milanocastello.it/documents/461595483/477972018/Colora%2Bil%2BCastello.pdf/9e6f8bb9-6bc3-f6f3-2ebf-3f27ee962eae?t=1729074643783"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: Ducal Sforza heraldry of Milan under Francesco Sforza: quarter the entire flag into four equal panels. Upper left and lower right panels gold yellow with black crowned imperial eagle displayed. Upper right and lower left ivory white with the blue Visconti biscione, a vertically coiling crowned serpent, a tiny red human heraldic figure emerging from its mouth. Keep each emblem bold and legible. No central shield, no written motto."
+    }
+  ]
+}

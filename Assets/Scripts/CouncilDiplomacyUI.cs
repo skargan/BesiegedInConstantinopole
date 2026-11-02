@@ -25,12 +25,8 @@ public partial class CouncilUI
     {
         var label=CampaignHUD.Label(parent,text,min,max,size);label.enableAutoSizing=true;label.fontSizeMax=size;label.fontSizeMin=Mathf.Max(16,size-3);return label;
     }
-    void DiplomacyMask(Transform parent,int index,Vector2 min,Vector2 max)
-    {
-        var badge=new GameObject("Court attitude",typeof(RectTransform),typeof(DiplomaticMaskBadge));badge.transform.SetParent(parent,false);
-        var rect=badge.GetComponent<RectTransform>();rect.anchorMin=min;rect.anchorMax=max;rect.offsetMin=rect.offsetMax=Vector2.zero;
-        var graphic=badge.GetComponent<DiplomaticMaskBadge>();graphic.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];graphic.raycastTarget=false;
-    }
+    void DiplomacyFlag(Transform parent,int index,Vector2 min,Vector2 max)=>DiplomaticArtwork.DrawFlag(parent,CountryDiplomacy.Definitions[index].Id,min,max);
+    void DiplomacyAttitude(Transform parent,int index,Vector2 min,Vector2 max)=>DiplomaticArtwork.DrawAttitude(parent,CountryDiplomacy.Attitude(index).ToString(),min,max);
     string AidStanding(int index)
     {
         int state=DailyLifeEvents.I("iAidState"+index);
@@ -48,11 +44,13 @@ public partial class CouncilUI
             int index=diplomacyPage*perPage+n;float left=(n%2)*.505f,top=1-(n/2)*.222f;
             var tile=CampaignHUD.MakeButton(stage,"",new Vector2(left,top-.207f),new Vector2(left+.495f,top),()=>DiplomaticPower(index));
             tile.GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);ImperialTheme.Button(tile);
-            DiplomacyMask(tile.transform,index,new Vector2(.025f,.47f),new Vector2(.13f,.92f));
-            DiplomacyText(tile.transform,CountryDiplomacy.Definitions[index].Name,new Vector2(.15f,.65f),new Vector2(.96f,.95f),25);
-            var attitude=DiplomacyText(tile.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.15f,.39f),new Vector2(.96f,.68f),20);
-            attitude.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];
-            DiplomacyText(tile.transform,CountryDiplomacy.EnvoyStatus(index)+"\n"+AidStanding(index),new Vector2(.035f,.03f),new Vector2(.96f,.38f),18);
+            tile.gameObject.name="Diplomatic court "+CountryDiplomacy.Definitions[index].Id;
+            DiplomacyFlag(tile.transform,index,new Vector2(.025f,.50f),new Vector2(.145f,.94f));
+            var courtName=DiplomacyText(tile.transform,CountryDiplomacy.Definitions[index].Name,new Vector2(.175f,.65f),new Vector2(.96f,.95f),25);courtName.gameObject.name="Court name";
+            DiplomacyAttitude(tile.transform,index,new Vector2(.175f,.405f),new Vector2(.215f,.64f));
+            var attitude=DiplomacyText(tile.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.225f,.405f),new Vector2(.96f,.64f),20);
+            attitude.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];attitude.gameObject.name="Court attitude text";
+            var standing=DiplomacyText(tile.transform,CountryDiplomacy.EnvoyStatus(index)+"\n"+AidStanding(index),new Vector2(.035f,.03f),new Vector2(.96f,.39f),18);standing.gameObject.name="Court commitments";
         }
         var previous=CampaignHUD.MakeButton(stage,"‹ Previous courts",new Vector2(0,0),new Vector2(.27f,.09f),()=>{diplomacyPage--;UnifiedDiplomaticRelations();});previous.interactable=diplomacyPage>0;
         var pageLabel=DiplomacyText(stage,"Courts "+(diplomacyPage*perPage+1)+"–"+Mathf.Min(total,(diplomacyPage+1)*perPage)+" of "+total,new Vector2(.3f,0),new Vector2(.7f,.09f),20);pageLabel.alignment=TextAlignmentOptions.Center;
@@ -64,9 +62,10 @@ public partial class CouncilUI
         var d=CountryDiplomacy.Definitions[index];var ally=CouncilActions.Allies[index];
         var stage=DiplomacyPage(d.Name,DiplomaticChronicles.All[index].Religion+" · "+CountryDiplomacy.EnvoyStatus(index),DiplomaticRelations);
         var heading=CampaignHUD.Panel(stage,"Relationship",new Vector2(0,.73f),Vector2.one);ImperialTheme.Panel(heading,false);
-        DiplomacyMask(heading.transform,index,new Vector2(.02f,.23f),new Vector2(.11f,.90f));
-        var relationship=DiplomacyText(heading.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.13f,.57f),new Vector2(.97f,.94f),27);relationship.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];
-        DiplomacyText(heading.transform,CountryDiplomacy.ChanceBreakdown(index),new Vector2(.13f,.08f),new Vector2(.97f,.56f),19);
+        DiplomacyFlag(heading.transform,index,new Vector2(.02f,.17f),new Vector2(.17f,.90f));
+        DiplomacyAttitude(heading.transform,index,new Vector2(.19f,.60f),new Vector2(.24f,.89f));
+        var relationship=DiplomacyText(heading.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.255f,.57f),new Vector2(.97f,.94f),27);relationship.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];relationship.gameObject.name="Court attitude text";
+        var breakdown=DiplomacyText(heading.transform,CountryDiplomacy.ChanceBreakdown(index),new Vector2(.19f,.08f),new Vector2(.97f,.56f),19);breakdown.gameObject.name="Court acceptance breakdown";
         var cargo=CampaignHUD.Panel(stage,"Aid and commitments",new Vector2(0,.40f),new Vector2(1,.705f));ImperialTheme.Panel(cargo,false);
         DiplomacyText(cargo.transform,AidStanding(index)+" · "+CountryDiplomacy.WarStatus(index),new Vector2(.025f,.72f),new Vector2(.975f,.96f),24);
         string delivery=DiplomaticStoryAid.DeliveredCargo(index)!=null?"Preparation aid received. A renewed appeal uses the ordinary package in its confirmation.":"Delivery: "+ally.Days+" calendar days. Transport vessels return home.";

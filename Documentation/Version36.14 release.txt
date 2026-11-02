@@ -1,0 +1,10 @@
+VERSION36.14 - BANNERS AND COURT
+
+31 court banners and five relationship emblems replace the flat diplomatic masks. Period civic and dynastic motifs are artist adaptations, with uncertain reconstructions recorded in Documentation/Artwork/Diplomacy. The names, relationship labels, acceptance values and diplomatic rules remain visible and unchanged.
+
+Full-body court figures now appear in the palace garden and Hagia Sophia as well as the palace, with location-specific placement and existing conversations. All15identities supported. Removed the Specialists bottom manpower/orders-return-dates strip.
+
+Verification:
+PALACE_FIGURE_CHECKS 1192 passed; all 15 IDs in all three locations at 1600x900 and 1280x720; palace, Garden Kjold and Hagia Isidore screenshots.
+DIPLOMATIC_ART_CHECKS 176 passed; all courts and five attitudes at two resolutions. No diplomatic actions committed.
+No save-format or gameplay-rule changes. Prior Version36 saves copied and verified.

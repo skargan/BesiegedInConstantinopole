@@ -1,0 +1,34 @@
+[
+  {
+    "id": "aq-retry",
+    "args": {
+      "prompt": "Create a historical reconstruction court banner for Aq Qoyunlu, a fifteenth-century Turkmen dynasty, for a historical strategy game. First reference: the sourced Bayandur dynastic tamga from Aq Qoyunlu coins, documented by V. Minorsky (1939). Preserve its exact black line motif, orientation and topology faithfully; do not invent a different symbol. Second reference: STYLE ONLY, match its straight-on rectangular ivory woven cloth, very subtle folds, narrow antique-gold stitched edging and refined painterly realism. Replace the Genoese red cross entirely with the large centred black Bayandur tamga. Ivory cloth, black emblem, fine gold edging, no additional motifs or lettering, no pole. Broad rectangular banner centred with comfortable transparent margins on all sides. This is explicitly an artistic reconstruction using a sourced dynastic emblem, not a claim of a surviving period flag. Clean, legible at small UI scale.",
+      "referenced_image_paths": [
+        "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\aq_qoyunlu.png",
+        "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\genoa.png"
+      ],
+      "transparent_background": true
+    }
+  },
+  {
+    "id": "aid-single",
+    "args": {
+      "prompt": "Historical strategy game map marker: one single fifteenth-century Mediterranean sailing galleys, compact single ship silhouette, all sailing towards upper right. Elevated three-quarter isometric view, complete hulls, ivory lateen sails, dark walnut wood, restrained burgundy pennants, antique-gold accents. Elegant finely painted realistic miniature matching a Byzantine navy-and-gold mosaic game UI. Bold clear silhouette and restrained detail readable at 64 pixels. No people close-ups, no ocean, no island, no pedestal, no frame, no labels, no text, no modern insignia. Transparent background, generous clear margin, each ship visible and visually separated. The formation is an illustrative aid expedition size icon.",
+      "transparent_background": true
+    }
+  },
+  {
+    "id": "aid-convoy",
+    "args": {
+      "prompt": "Historical strategy game map marker: three distinct fifteenth-century Mediterranean sailing galleys, compact staggered formation, all sailing towards upper right. Elevated three-quarter isometric view, complete hulls, ivory lateen sails, dark walnut wood, restrained burgundy pennants, antique-gold accents. Elegant finely painted realistic miniature matching a Byzantine navy-and-gold mosaic game UI. Bold clear silhouette and restrained detail readable at 64 pixels. No people close-ups, no ocean, no island, no pedestal, no frame, no labels, no text, no modern insignia. Transparent background, generous clear margin, each ship visible and visually separated. The formation is an illustrative aid expedition size icon.",
+      "transparent_background": true
+    }
+  },
+  {
+    "id": "aid-fleet",
+    "args": {
+      "prompt": "Historical strategy game map marker: seven distinct fifteenth-century Mediterranean sailing galleys, compact staggered formation, all sailing towards upper right. Elevated three-quarter isometric view, complete hulls, ivory lateen sails, dark walnut wood, restrained burgundy pennants, antique-gold accents. Elegant finely painted realistic miniature matching a Byzantine navy-and-gold mosaic game UI. Bold clear silhouette and restrained detail readable at 64 pixels. No people close-ups, no ocean, no island, no pedestal, no frame, no labels, no text, no modern insignia. Transparent background, generous clear margin, each ship visible and visually separated. The formation is an illustrative aid expedition size icon.",
+      "transparent_background": true
+    }
+  }
+]

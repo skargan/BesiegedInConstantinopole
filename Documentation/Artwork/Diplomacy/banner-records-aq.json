@@ -1,0 +1,598 @@
+{
+  "version": 1,
+  "generatedWith": "built-in image_gen.imagegen",
+  "records": [
+    {
+      "id": "hungary",
+      "motif": "Hungarian medieval territorial banner: EXACTLY eight equal horizontal bands alternating deep crimson red and ivory white, beginning crimson at top and ending ivory at bottom. This is the established Árpád striped arms adapted as a rectangular court banner. No modern tricolour, no green, no crown or extra coat of arms.",
+      "sources": [
+        "https://www.etd.ceu.edu/2020/voltz_jordan.htm",
+        "https://nemzetijelkepek.hu/tortenelmi-zaszlok"
+      ],
+      "classification": "medieval territorial heraldry, simplified banner adaptation",
+      "uncertainty": "Arpad stripes were used with other royal charges in1453; this uses the recognisable territorial device, not a reconstructed Ladislaus V personal standard.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Hungarian medieval territorial banner: EXACTLY eight equal horizontal bands alternating deep crimson red and ivory white, beginning crimson at top and ending ivory at bottom. This is the established Árpád striped arms adapted as a rectangular court banner. No modern tricolour, no green, no crown or extra coat of arms.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-a418080d-1072-44de-bea2-2512dcf99f30.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\hungary.png",
+      "sha256": "16d191f6713fdbdaa9bb723737cd22da0640d55f1086b49e37da7f0d43f83a73",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        79,
+        170,
+        1458,
+        853
+      ],
+      "fullyTransparentPercent": 36.7,
+      "spriteRectBottomLeft": [
+        79,
+        171,
+        1379,
+        683
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "venice",
+      "motif": "Republic of Venice: deep crimson cloth bearing ONE large gold winged lion of Saint Mark passant facing viewer left, halo behind head, one forepaw upon a small open ivory gospel book with completely blank pages. Bold simple medieval silhouette, recognisable wings and lion anatomy. No sword, no lettering, no segmented tails or modern flags.",
+      "sources": [
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/70176EBEF6C480FA4246DC2F189D1F9B/S0003598X25101592a.pdf/chinese_identity_of_st_marks_bronze_lion_and_its_place_in_the_history_of_medieval_venice.pdf",
+        "https://fiav.org/wp-content/uploads/2021/06/ICV22-07-Betocchi-OriginOfTheFlagOfTheVenetianRepublic.pdf"
+      ],
+      "classification": "medieval republic emblem, rectangular artistic adaptation",
+      "uncertainty": "Lion standard is medieval; exact colour/form varied, and later six-tail formal designs are deliberately omitted.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Republic of Venice: deep crimson cloth bearing ONE large gold winged lion of Saint Mark passant facing viewer left, halo behind head, one forepaw upon a small open ivory gospel book with completely blank pages. Bold simple medieval silhouette, recognisable wings and lion anatomy. No sword, no lettering, no segmented tails or modern flags.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-850d1b75-0800-4db0-904c-78296c5c05d8.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\venice.png",
+      "sha256": "c40eb160ea4d1051200905d75acfa526ac5e955b9135278b88a641587425fb0a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        133,
+        180,
+        1404,
+        841
+      ],
+      "fullyTransparentPercent": 43.77,
+      "spriteRectBottomLeft": [
+        133,
+        183,
+        1271,
+        661
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "genoa",
+      "motif": "Republic of Genoa: ivory white cloth with ONE bold straight crimson Saint George cross extending fully to all four edges, centred. The vertical bar and horizontal bar have equal thickness. Absolutely no other emblem or coat of arms.",
+      "sources": [
+        "https://www.gutenberg.org/files/46370/old/46370-h/46370-h.htm",
+        "https://www.acompagna.org/rf/1904_23p/bandiera_san_giorgio.pdf"
+      ],
+      "classification": "documented medieval communal cross ensign",
+      "uncertainty": "Cloth proportions, texture and gold stitch are presentation adaptations.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Republic of Genoa: ivory white cloth with ONE bold straight crimson Saint George cross extending fully to all four edges, centred. The vertical bar and horizontal bar have equal thickness. Absolutely no other emblem or coat of arms.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-abb77c12-9518-434a-ab16-fe62ac8d823a.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\genoa.png",
+      "sha256": "56913208d18d247082aa5a5b3d45a9d0fdcd26c92d6c190d6c14e7be73ed946d",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        32,
+        258,
+        1222,
+        996
+      ],
+      "fullyTransparentPercent": 43.01,
+      "spriteRectBottomLeft": [
+        32,
+        258,
+        1190,
+        738
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "papacy",
+      "motif": "Holy See medieval ecclesiastical banner: deep crimson field with two large antique crossed keys in saltire, one golden and one silver, their wards pointing upward and outward, loops below tied with a simple red cord. A compact white papal triple tiara with gold bands sits above the crossed keys. Clear medieval sacred heraldry. No yellow-white modern Vatican bicolour, no text.",
+      "sources": [
+        "https://www.vatican.va/roman_curia/secretariat_state/documents/insigne/sp_ss_scv_stemma-bandiera-sigillo_en.html"
+      ],
+      "classification": "medieval papal insignia on artistic court banner",
+      "uncertainty": "Keys are attested official insignia since14th century; arrangement is a simplified ecclesiastical banner, not Nicholas V exact personal arms.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Holy See medieval ecclesiastical banner: deep crimson field with two large antique crossed keys in saltire, one golden and one silver, their wards pointing upward and outward, loops below tied with a simple red cord. A compact white papal triple tiara with gold bands sits above the crossed keys. Clear medieval sacred heraldry. No yellow-white modern Vatican bicolour, no text.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-29c82077-a07f-4f90-815a-e37b0565e2d8.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\papacy.png",
+      "sha256": "1717e26faf3b977b6750b6eb9cc816d8c3346346fe1df2b86d51ad1ae203337c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        85,
+        143,
+        1452,
+        880
+      ],
+      "fullyTransparentPercent": 35.65,
+      "spriteRectBottomLeft": [
+        85,
+        144,
+        1367,
+        737
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "albania",
+      "motif": "Skanderbeg's Kastrioti Albanian banner: rich red field with one large BLACK double-headed eagle displayed, wings outstretched, both heads facing away from one another, spread talons and clean symmetrical feather silhouette. Small gold six-pointed star above the two heads, drawn in medieval heraldic form. No goat helmet, modern state seal or text.",
+      "sources": [
+        "https://www.flagheritagefoundation.org/web/wp-content/uploads/2018/08/DoubleEagle-Final-PDF-150dpi.pdf"
+      ],
+      "classification": "Kastrioti dynastic emblem reconstruction",
+      "uncertainty": "Red and black eagle comes from near-contemporary reported tradition; exact eagle drawing and star arrangement are reconstructed.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Skanderbeg's Kastrioti Albanian banner: rich red field with one large BLACK double-headed eagle displayed, wings outstretched, both heads facing away from one another, spread talons and clean symmetrical feather silhouette. Small gold six-pointed star above the two heads, drawn in medieval heraldic form. No goat helmet, modern state seal or text.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-2a4dd493-5cdc-4142-869a-0a9019982669.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\albania.png",
+      "sha256": "b240efae08b20959de9062bd59ba880fdcc52f15f6b9a3dbe8cd95a6637ecb10",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        108,
+        167,
+        1428,
+        864
+      ],
+      "fullyTransparentPercent": 37.9,
+      "spriteRectBottomLeft": [
+        108,
+        160,
+        1320,
+        697
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "hospitallers",
+      "motif": "Knights Hospitaller of Saint John at Rhodes: rich red field with a bold plain WHITE straight cross centred, its arms extending to the four edges, equal arm thickness. Simple historic cross of Saint John. NOT the later sharply eight-pointed Maltese cross, no crown, no crest, no text.",
+      "sources": [
+        "https://www.orderofmalta.int/government/flags-emblems/"
+      ],
+      "classification": "documented medieval Order ensign",
+      "uncertainty": "Modern rectangle/proportions presented artistically; simple cross attested in Order history.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Knights Hospitaller of Saint John at Rhodes: rich red field with a bold plain WHITE straight cross centred, its arms extending to the four edges, equal arm thickness. Simple historic cross of Saint John. NOT the later sharply eight-pointed Maltese cross, no crown, no crest, no text.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-6c762726-6966-416f-82e7-ba5cb6420a60.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\hospitallers.png",
+      "sha256": "40fa25b1c7e93e2dcd32435c3aff553718c4163ebb8976f95aecdb652c1df26a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        113,
+        158,
+        1423,
+        864
+      ],
+      "fullyTransparentPercent": 39.12,
+      "spriteRectBottomLeft": [
+        113,
+        160,
+        1310,
+        706
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "naples",
+      "motif": "King Alfonso V of Aragon's dynastic banner, representing his Naples and Aragon court in1453: gold field with EXACTLY FOUR vertical crimson red pallets, equal-width stripes evenly spaced, gold visible between and at both sides. Stripe field only, no coat of arms overlay, no modern national emblem. Medieval royal Aragon colours.",
+      "sources": [
+        "https://www.hubert-herald.nl/ItalSicNaples1.htm",
+        "https://www.heraldica.org/topics/national/italy2.htm"
+      ],
+      "classification": "Aragon dynastic simplification for Alfonso's combined court",
+      "uncertainty": "Alfonso's full personal arms were quartered; fourpallet motif deliberately represents shared ruling dynasty rather than a separate national Naples flag.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. King Alfonso V of Aragon's dynastic banner, representing his Naples and Aragon court in1453: gold field with EXACTLY FOUR vertical crimson red pallets, equal-width stripes evenly spaced, gold visible between and at both sides. Stripe field only, no coat of arms overlay, no modern national emblem. Medieval royal Aragon colours.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-7deb4aff-af0a-4eb2-813d-12a2d37b0b5a.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\naples.png",
+      "sha256": "4d5d4ecd3574316a5c8bbc4b599bc207b4ce70cba12f8dc7c85aefc555efa4a9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        85,
+        158,
+        1452,
+        865
+      ],
+      "fullyTransparentPercent": 37.17,
+      "spriteRectBottomLeft": [
+        85,
+        159,
+        1367,
+        707
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "holy_roman_empire",
+      "motif": "Holy Roman imperial banner in the mid-fifteenth century: warm GOLD field with one large BLACK double-headed imperial eagle displayed with outstretched wings and red beaks and talons. Thin gold halos around its two heads, no modern chest shield, no sword or sceptre, no Austrian tricolour or imperial crown above. Bold readable late-medieval eagle silhouette.",
+      "sources": [
+        "https://real.mtak.hu/199471/1/HHR_2024_2_Schneidmuller_jav.pdf",
+        "https://www.habsburger.net/en/chapter/double-headed-eagle-omnipresent-emblem-habsburgs"
+      ],
+      "classification": "late-medieval imperial arms adapted to banner",
+      "uncertainty": "Double eagle used underSigismund andFrederickIII; exact feather drawing is modern illustration.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Holy Roman imperial banner in the mid-fifteenth century: warm GOLD field with one large BLACK double-headed imperial eagle displayed with outstretched wings and red beaks and talons. Thin gold halos around its two heads, no modern chest shield, no sword or sceptre, no Austrian tricolour or imperial crown above. Bold readable late-medieval eagle silhouette.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-19260bf2-6eab-49ec-a0e9-0b18afb0c597.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\holy_roman_empire.png",
+      "sha256": "4fceb7a223b6b74480da43aa9cdb65566af816a710ec85093976f2471194e74a",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        181,
+        194,
+        1356,
+        830
+      ],
+      "fullyTransparentPercent": 51.79,
+      "spriteRectBottomLeft": [
+        181,
+        194,
+        1175,
+        636
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "france",
+      "motif": "Charles VII's royal France banner: deep ultramarine blue field with EXACTLY THREE large GOLD fleurs-de-lis, two in the upper row and one centred below. Elegant clear medieval heraldic lilies. No white field, no tricolour, no crown, no shield, no additional tiny lilies or text.",
+      "sources": [
+        "https://www.heraldica.org/topics/france/frarms.htm",
+        "https://www.collectionscanada.gc.ca/obj/thesescanada/vol2/002/NR79357.pdf"
+      ],
+      "classification": "France moderne royal heraldic banner",
+      "uncertainty": "Three-lily arrangement is period appropriate; cloth presentation artistic.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Charles VII's royal France banner: deep ultramarine blue field with EXACTLY THREE large GOLD fleurs-de-lis, two in the upper row and one centred below. Elegant clear medieval heraldic lilies. No white field, no tricolour, no crown, no shield, no additional tiny lilies or text.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-f57820b1-3880-4319-b741-0e86ff99706f.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\france.png",
+      "sha256": "5bb8bde39688583d4c9d818bc689abdd6ba0d71a3698a6d04bd4f9f4fb2eb283",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        68,
+        136,
+        1468,
+        889
+      ],
+      "fullyTransparentPercent": 23.53,
+      "spriteRectBottomLeft": [
+        68,
+        135,
+        1400,
+        753
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "athens",
+      "motif": "Acciaioli dynasty ruling the Duchy of Athens in the fifteenth century: ivory white field with ONE large cobalt BLUE lion rampant facing viewer left, raised forepaws, one rear foot planted, tail curling upward. Pure bold medieval lion silhouette, small red tongue. No shield, flag within flag, crown or writing. This simplified family heraldic banner must read clearly.",
+      "sources": [
+        "https://sepoltuario.iath.virginia.edu/groups/187"
+      ],
+      "classification": "Acciaioli family device simplified as court banner",
+      "uncertainty": "A dynastic identification rather than a claim to an exact national flag of Athens; family armorial variants and secondary charges are omitted.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Acciaioli dynasty ruling the Duchy of Athens in the fifteenth century: ivory white field with ONE large cobalt BLUE lion rampant facing viewer left, raised forepaws, one rear foot planted, tail curling upward. Pure bold medieval lion silhouette, small red tongue. No shield, flag within flag, crown or writing. This simplified family heraldic banner must read clearly.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-11c30071-4c00-4eff-95bf-a908d38dd925.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\athens.png",
+      "sha256": "f8f1a1e68c926b5e8bf58ce169ae5c21c05138772da9299959674255a65f0385",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        85,
+        134,
+        1451,
+        889
+      ],
+      "fullyTransparentPercent": 31.49,
+      "spriteRectBottomLeft": [
+        85,
+        135,
+        1366,
+        755
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "georgia",
+      "motif": "Georgian royal court, using the medieval five-cross motif recorded on portolan charts: ivory white field with one large red straight cross extending fully to all four edges, plus FOUR smaller red equal-armed crosses, one centred in each of the four white quarters. Clean restrained medieval geometry, no additional emblems or writing.",
+      "sources": [
+        "https://georgianencyclopedia.ge/en/form_eng/673"
+      ],
+      "classification": "medieval cartographic five-cross motif, artistic reconstruction",
+      "uncertainty": "Five-cross motif appears in fourteenth-century cartography; this is not a documented exact royal standard for 1453.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Georgian royal court, using the medieval five-cross motif recorded on portolan charts: ivory white field with one large red straight cross extending fully to all four edges, plus FOUR smaller red equal-armed crosses, one centred in each of the four white quarters. Clean restrained medieval geometry, no additional emblems or writing.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-911e9533-a19c-4f1a-a08e-611fae609fbd.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\georgia.png",
+      "sha256": "0ca11f916368776fa05e654092c014b0b0f78c652681e063bdad7323d77779c4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        89,
+        158,
+        1449,
+        882
+      ],
+      "fullyTransparentPercent": 36.77,
+      "spriteRectBottomLeft": [
+        89,
+        142,
+        1360,
+        724
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "trebizond",
+      "motif": "Empire of Trebizond, following its late-medieval cartographic emblem: deep crimson red field bearing ONE large GOLD double-headed eagle displayed, wings outstretched, both heads facing outward, symmetrical feather silhouette and gold talons. No crowns, shield, letters B, crescent, modern Pontic symbols, or text.",
+      "sources": [
+        "https://crwflags.com/FotW/FLAGS/tr_14th.html",
+        "https://www.greekmos.ru/wp-content/uploads/2020/02/epdf.pub_byzantine-monuments-and-topography-of-the-pontos-v.pdf"
+      ],
+      "classification": "late-medieval cartographic imperial emblem, artistic reconstruction",
+      "uncertainty": "Red and gold double eagle follows the Book of All Kingdoms and medieval cartographic tradition, not a surviving 1453 cloth standard.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Empire of Trebizond, following its late-medieval cartographic emblem: deep crimson red field bearing ONE large GOLD double-headed eagle displayed, wings outstretched, both heads facing outward, symmetrical feather silhouette and gold talons. No crowns, shield, letters B, crescent, modern Pontic symbols, or text.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-6a78b620-eaeb-4324-bda3-2326ce11c97c.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\trebizond.png",
+      "sha256": "8a796e4665761de1c73c4e22539e927225b3b6838f37d17f6532478d47753793",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        82,
+        143,
+        1454,
+        880
+      ],
+      "fullyTransparentPercent": 35.16,
+      "spriteRectBottomLeft": [
+        82,
+        144,
+        1372,
+        737
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "cyprus",
+      "motif": "Lusignan dynasty of Cyprus, simplified dynastic court banner: ten equal horizontal stripes alternating ivory white and pale cobalt blue, beginning white at top. ONE large crimson RED lion rampant over the stripes, facing viewer left, gold crown, raised forepaws, curled tail. Lion is a bold single coherent emblem and visible above stripes. No shield, quartering, writing or modern national flag.",
+      "sources": [
+        "https://colombia.unmissions.org/sites/default/files/5_january_1966.pdf"
+      ],
+      "classification": "Lusignan dynastic arms simplified as banner",
+      "uncertainty": "Full fifteenth-century Cypriot royal arms were quartered with Jerusalem and other titles; this uses the recognisable Lusignan component.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Lusignan dynasty of Cyprus, simplified dynastic court banner: ten equal horizontal stripes alternating ivory white and pale cobalt blue, beginning white at top. ONE large crimson RED lion rampant over the stripes, facing viewer left, gold crown, raised forepaws, curled tail. Lion is a bold single coherent emblem and visible above stripes. No shield, quartering, writing or modern national flag.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-47370716-7201-42f0-8dbf-5397125a7086.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\cyprus.png",
+      "sha256": "95988c8087a1007a3bd0a6e6cb9a624c4f11bbbf816fc751cf44f78708c3cd64",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        94,
+        161,
+        1442,
+        894
+      ],
+      "fullyTransparentPercent": 35.61,
+      "spriteRectBottomLeft": [
+        94,
+        130,
+        1348,
+        733
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "poland_lithuania",
+      "motif": "Casimir IV's Polish royal court in personal union with Lithuania, NOT the later Commonwealth: rich red field bearing ONE large WHITE single-headed eagle displayed, wings raised, head facing viewer left, small GOLD crown above its head, gold beak and talons. Elegant late-medieval heraldic eagle with clear feather silhouette. No quartering, no second eagle, no modern state seal, no white-red bicolour, no writing.",
+      "sources": [
+        "https://printsandcolours.uw.edu.pl/tag/coats-of-arms/",
+        "https://polishhistory.pl/whats-your-emblem/",
+        "https://www.lrs.lt/sip/getFile?guid=661a2fa0-634a-483e-9522-859b0e06c732"
+      ],
+      "classification": "Polish Crown emblem for Casimir IV's shared personal-union court",
+      "uncertainty": "This identifies the shared court through the Polish Crown, not a unified national flag of Poland-Lithuania or the later Commonwealth; Lithuania's Vytis is not included in this simplified banner.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Casimir IV's Polish royal court in personal union with Lithuania, NOT the later Commonwealth: rich red field bearing ONE large WHITE single-headed eagle displayed, wings raised, head facing viewer left, small GOLD crown above its head, gold beak and talons. Elegant late-medieval heraldic eagle with clear feather silhouette. No quartering, no second eagle, no modern state seal, no white-red bicolour, no writing.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-21f23327-e9d1-4a43-bcc6-0b2f9f9e92c3.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\poland_lithuania.png",
+      "sha256": "1ee6780ec27a7e8827952df6ff4435f74c89eb915491830a1f9decceb11c922f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        83,
+        130,
+        1453,
+        891
+      ],
+      "fullyTransparentPercent": 32.83,
+      "spriteRectBottomLeft": [
+        83,
+        133,
+        1370,
+        761
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "teutonic_order",
+      "motif": "Teutonic Order medieval banner: ivory white cloth with ONE large BLACK straight cross centred, equal thickness vertical and horizontal bars extending fully to all four edges. The arms have flat square ends. Austere and very readable. No eagle, no inner shield, no swastika, no later German military Iron Cross, no text.",
+      "sources": [
+        "https://www.deutscher-orden.de/spiritualitaet/das-kreuz",
+        "https://deutscher-orden.com/kreuz/"
+      ],
+      "classification": "documented medieval Order cross adapted to rectangular banner",
+      "uncertainty": "Cloth proportions and gold edge are artistic UI presentation.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Teutonic Order medieval banner: ivory white cloth with ONE large BLACK straight cross centred, equal thickness vertical and horizontal bars extending fully to all four edges. The arms have flat square ends. Austere and very readable. No eagle, no inner shield, no swastika, no later German military Iron Cross, no text.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-2b91fab1-865f-491e-99e4-1fdbb9cc8057.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\teutonic_order.png",
+      "sha256": "1a3995ddcefe09febd5386b9667dd46b0763014910e9d543178da0c83374a358",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        105,
+        150,
+        1431,
+        871
+      ],
+      "fullyTransparentPercent": 36.27,
+      "spriteRectBottomLeft": [
+        105,
+        153,
+        1326,
+        721
+      ],
+      "sourceBytesPreserved": true
+    },
+    {
+      "id": "england",
+      "motif": "Henry VI's royal England banner in 1453, rectangular quartered heraldry. Upper left and lower right quarters are royal BLUE, each with EXACTLY THREE GOLD fleurs-de-lis arranged two above one. Upper right and lower left quarters are crimson RED, each with EXACTLY THREE GOLD lions passant guardant stacked vertically, all bodies facing viewer left and faces looking toward viewer. Four equally sized quarters fill entire cloth. Bold flat readable medieval heraldic shapes. No shield, crown, border between quarters, Union Jack, Tudor rose, text or extra emblem.",
+      "sources": [
+        "https://digital.library.leeds.ac.uk/10839/",
+        "https://heraldica.org/topics/britain/royalarm.htm"
+      ],
+      "classification": "English royal arms 1406–1603 adapted as cloth banner",
+      "uncertainty": "Quartering and charge counts are period appropriate; the illustration and cloth treatment are newly generated.",
+      "prompt": "Create a single historically inspired heraldic court banner for Besieged in Constantinople, 1452–1453. Rectangular cloth exactly 3:2 ratio viewed front-on almost flat, centred on a 1024x1024 transparent canvas. The cloth occupies about 90% canvas width and 60% height, with generous clear transparent space above and below. Rich saturated pigments, crisp bold readable heraldic emblem, very subtle woven silk texture, minimal gentle folds, restrained aged-gold stitched edge INSIDE the cloth. Premium illuminated Byzantine strategy-game aesthetic, realistically painted but clean at small size. No flagpole, tassels, writing, labels, scenery, floor, cast shadow or frame outside the cloth. Genuine transparent alpha around banner. No ragged damage. Henry VI's royal England banner in 1453, rectangular quartered heraldry. Upper left and lower right quarters are royal BLUE, each with EXACTLY THREE GOLD fleurs-de-lis arranged two above one. Upper right and lower left quarters are crimson RED, each with EXACTLY THREE GOLD lions passant guardant stacked vertically, all bodies facing viewer left and faces looking toward viewer. Four equally sized quarters fill entire cloth. Bold flat readable medieval heraldic shapes. No shield, crown, border between quarters, Union Jack, Tudor rose, text or extra emblem.",
+      "sourcePath": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952f-1cd4-7b21-8427-6df6fa5ee17d\\exec-1767e030-7257-4f66-8385-09455e8b3f4e.png",
+      "sourceImages": [],
+      "stagedPath": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\england.png",
+      "sha256": "4bb46f9eb2e18bf34af98a0bc9a7a57961278e60f1abe024442db65c233f92a9",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "bboxAlpha8TopLeftExclusive": [
+        29,
+        247,
+        1224,
+        1010
+      ],
+      "fullyTransparentPercent": 39.64,
+      "spriteRectBottomLeft": [
+        29,
+        244,
+        1195,
+        763
+      ],
+      "sourceBytesPreserved": true
+    }
+  ],
+  "notes": [
+    "Original generated PNG bytes preserved, no resizing or image edits.",
+    "Most canvases are 1536x1024; Genoa and England are 1254x1254. Runtime should use measured alpha bounds and preserve aspect.",
+    "Gold edge and cloth texture are artistic presentation. Classification and uncertainty identify heraldic reconstruction."
+  ]
+}

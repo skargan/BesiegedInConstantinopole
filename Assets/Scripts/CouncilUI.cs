@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.13 Â· Courts of the Mediterranean";
+    public const string BuildLabel="Version 36.14 · Banners and court";
 
 
 

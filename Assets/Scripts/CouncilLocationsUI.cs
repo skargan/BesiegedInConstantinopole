@@ -32,16 +32,16 @@ public partial class CouncilUI
             LocationHotspot.Create(holder.transform,"Walk in the garden",HagiaGardenPortal(),Garden);
         }
         int visitor=PalaceLocations.Visitor(place);
-        bool palaceFigure=visitor>=0 && place==0 && PalaceCourtFigure.TryCreate(holder.transform,visitor,()=>{conversationLocation=place;GardenTalk(visitor,0);});
-        if(visitor>=0 && !palaceFigure){
+        bool locationFigure=visitor>=0 && PalaceCourtFigure.TryCreate(holder.transform,visitor,place,()=>{conversationLocation=place;GardenTalk(visitor,0);});
+        if(visitor>=0 && !locationFigure){
             var speak=CampaignHUD.MakeButton(holder.transform,GardenConversations.Name(visitor)+"\nSpeak",new Vector2(.05f,.07f),new Vector2(.33f,.24f),()=>{conversationLocation=place;GardenTalk(visitor,0);});
             var label=speak.GetComponentInChildren<TMPro.TMP_Text>();label.rectTransform.anchorMin=new Vector2(.30f,.04f);label.rectTransform.anchorMax=new Vector2(.97f,.96f);label.enableAutoSizing=true;label.fontSizeMin=17;label.fontSizeMax=25;
             CharacterPortraits.Draw(speak.transform,visitor,new Vector2(.02f,.06f),new Vector2(.28f,.94f));
         }
-        if(place==2&&visitor>=0){ // Keep the visitor separate from the return doorway.
+        if(place==2&&visitor>=0&&!locationFigure){ // Only the legacy portrait fallback needs repositioning.
             var last=holder.transform.GetChild(holder.transform.childCount-1).GetComponent<RectTransform>();last.anchorMin=new Vector2(.37f,.08f);last.anchorMax=new Vector2(.65f,.24f);
         }
-        if(place==0&&visitor>=0&&!palaceFigure){var last=holder.transform.GetChild(holder.transform.childCount-1).GetComponent<RectTransform>();last.anchorMin=new Vector2(.03f,.07f);last.anchorMax=new Vector2(.31f,.24f);}
+        if(place==0&&visitor>=0&&!locationFigure){var last=holder.transform.GetChild(holder.transform.childCount-1).GetComponent<RectTransform>();last.anchorMin=new Vector2(.03f,.07f);last.anchorMax=new Vector2(.31f,.24f);}
     }
     private Vector2[] GardenDoor()
     {

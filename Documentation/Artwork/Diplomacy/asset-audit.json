@@ -1,0 +1,146 @@
+[
+  {
+    "key": "Flags/albania",
+    "sha256": "b240efae08b20959de9062bd59ba880fdcc52f15f6b9a3dbe8cd95a6637ecb10"
+  },
+  {
+    "key": "Flags/aq_qoyunlu",
+    "sha256": "814e904166cacb2ad3cfad0fec7efe3c207ba84ee0f57a766ee0717e911b527c"
+  },
+  {
+    "key": "Flags/athens",
+    "sha256": "f8f1a1e68c926b5e8bf58ce169ae5c21c05138772da9299959674255a65f0385"
+  },
+  {
+    "key": "Flags/bosnia",
+    "sha256": "b9afd3a50673e197e30f69b2c59c7c143039f5f7859583eccbfbabf9e9766fca"
+  },
+  {
+    "key": "Flags/crimea",
+    "sha256": "4218ecfd28c2e97ded92886b40dd02a8a5e05aacbf08c96d0759f5b1f333dbe8"
+  },
+  {
+    "key": "Flags/cyprus",
+    "sha256": "95988c8087a1007a3bd0a6e6cb9a624c4f11bbbf816fc751cf44f78708c3cd64"
+  },
+  {
+    "key": "Flags/england",
+    "sha256": "4bb46f9eb2e18bf34af98a0bc9a7a57961278e60f1abe024442db65c233f92a9"
+  },
+  {
+    "key": "Flags/florence",
+    "sha256": "be7c63d6c543ce4c354c7e542b51e7ba1e021167422049bc28f0bb6cb0379c47"
+  },
+  {
+    "key": "Flags/france",
+    "sha256": "5bb8bde39688583d4c9d818bc689abdd6ba0d71a3698a6d04bd4f9f4fb2eb283"
+  },
+  {
+    "key": "Flags/genoa",
+    "sha256": "56913208d18d247082aa5a5b3d45a9d0fdcd26c92d6c190d6c14e7be73ed946d"
+  },
+  {
+    "key": "Flags/georgia",
+    "sha256": "0ca11f916368776fa05e654092c014b0b0f78c652681e063bdad7323d77779c4"
+  },
+  {
+    "key": "Flags/holy_roman_empire",
+    "sha256": "4fceb7a223b6b74480da43aa9cdb65566af816a710ec85093976f2471194e74a"
+  },
+  {
+    "key": "Flags/hospitallers",
+    "sha256": "40fa25b1c7e93e2dcd32435c3aff553718c4163ebb8976f95aecdb652c1df26a"
+  },
+  {
+    "key": "Flags/hungary",
+    "sha256": "16d191f6713fdbdaa9bb723737cd22da0640d55f1086b49e37da7f0d43f83a73"
+  },
+  {
+    "key": "Flags/ionian_tocco",
+    "sha256": "53d12f8de6fcd6825f149e973f01408b4b1274bff173d2ddace83110aa7fa54c"
+  },
+  {
+    "key": "Flags/karaman",
+    "sha256": "9b8be7aafecfc4b31d218945a07ac3faae40ebe81aebe84a753c48a01d48562f"
+  },
+  {
+    "key": "Flags/mamluks",
+    "sha256": "355079a22f34f8f3e5455c0be0b8a59852f081b2ab6ad10bb7b36847be2e8ae0"
+  },
+  {
+    "key": "Flags/milan",
+    "sha256": "aa0699191b9409d9e9c0daf0f83e967e504fd1b2acbccb6377899c533ad8f649"
+  },
+  {
+    "key": "Flags/moldavia",
+    "sha256": "8cce17c9f11e59651230f0a38e7b72b90ff6a5f5c781546c856bc3ecd5a59579"
+  },
+  {
+    "key": "Flags/morea",
+    "sha256": "ab5d643188dc56db0cdcb9cf0390e62179b8a530347dc9c9c6f22fed269e5dd9"
+  },
+  {
+    "key": "Flags/naples",
+    "sha256": "4d5d4ecd3574316a5c8bbc4b599bc207b4ce70cba12f8dc7c85aefc555efa4a9"
+  },
+  {
+    "key": "Flags/papacy",
+    "sha256": "1717e26faf3b977b6750b6eb9cc816d8c3346346fe1df2b86d51ad1ae203337c"
+  },
+  {
+    "key": "Flags/poland_lithuania",
+    "sha256": "1ee6780ec27a7e8827952df6ff4435f74c89eb915491830a1f9decceb11c922f"
+  },
+  {
+    "key": "Flags/ragusa",
+    "sha256": "3fd96d7009b454b42c8ccbd257cf5f200f4f6806c47b1a3d2130007cfd7e5782"
+  },
+  {
+    "key": "Flags/serbia",
+    "sha256": "fb44e78d38efcfe13ac64a60adfbc4926177e4a31a04d343dc8c5a11d5d6a601"
+  },
+  {
+    "key": "Flags/siena",
+    "sha256": "6b2f5c18ead48fb4575efece511225aa99c9dc9208b41782fee3baee4c2e5736"
+  },
+  {
+    "key": "Flags/teutonic_order",
+    "sha256": "1a3995ddcefe09febd5386b9667dd46b0763014910e9d543178da0c83374a358"
+  },
+  {
+    "key": "Flags/theodoro",
+    "sha256": "b52e144d6e94215fa3561f16682498700afb0f0f211b6533c940786d78f80a41"
+  },
+  {
+    "key": "Flags/trebizond",
+    "sha256": "8a796e4665761de1c73c4e22539e927225b3b6838f37d17f6532478d47753793"
+  },
+  {
+    "key": "Flags/venice",
+    "sha256": "c40eb160ea4d1051200905d75acfa526ac5e955b9135278b88a641587425fb0a"
+  },
+  {
+    "key": "Flags/wallachia",
+    "sha256": "a2412cacde4b9f6bd9b02e516f7daa29f3ade9b1d77aeb45741c2b38d83679f5"
+  },
+  {
+    "key": "Attitudes/allied",
+    "sha256": "f9d17d1cfa568951cc7bc071c8d677fde1f5238466ac89191328bf5262f191fe"
+  },
+  {
+    "key": "Attitudes/friendly",
+    "sha256": "403cf9521555a5cfc7e85a5977f885241824eaac482b5c61e0fbbbabf0507da1"
+  },
+  {
+    "key": "Attitudes/hostile",
+    "sha256": "603f119791c03eb3c85b8cbf3dd70c9a253a9e499ddedcc2f6ecbdb17477acc3"
+  },
+  {
+    "key": "Attitudes/neutral",
+    "sha256": "f81a329d3986f4c0b3301785219ff90d5dd0543d0f704c3982cb04de44aec539"
+  },
+  {
+    "key": "Attitudes/wary",
+    "sha256": "468bf98dedbf258e2320f96513a8e433aa31d4b73e5636b287d9462981faba62"
+  }
+]

@@ -22,7 +22,7 @@ public partial class CouncilUI
     {
         SpecialistPersonnel.EnsureInitialized();CountryDiplomacy.Ensure();
         Open("Specialists","Assign skilled people with care. An engineer cannot build, teach and repair at the same time.");
-        ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.BringUpTroopsUI();};BodyHeight(682);
+        ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.BringUpTroopsUI();};BodyHeight(600);
         var engineers=SpecialistCard("ENGINEERS · "+SpecialistPersonnel.AvailableEngineers+" available",0,0);
         SpecialistText(engineers.transform,
             "Construction "+SpecialistPersonnel.ConstructionEngineers+" · Ship repairs "+SpecialistPersonnel.RepairingEngineers+
@@ -52,9 +52,6 @@ public partial class CouncilUI
             "\nResident envoys open deeper negotiations.",new Vector2(.04f,.29f),new Vector2(.96f,.81f),23);
         CampaignHUD.MakeButton(envoys.transform,"Train envoys",new Vector2(.04f,.05f),new Vector2(.58f,.25f),()=>SpecialistRecruitment("iEnvoys"));
         CampaignHUD.MakeButton(envoys.transform,"Diplomacy",new Vector2(.61f,.05f),new Vector2(.96f,.25f),DiplomaticRelations);
-        var footer=SpyPanel("Recruitment commitments",612,64);
-        SpecialistText(footer.transform,RecruitmentLogistics.AvailableManpower.ToString("N0")+" manpower available · Construction and specialist orders reserve their people immediately.",new Vector2(.02f,.1f),new Vector2(.69f,.9f),20);
-        CampaignHUD.MakeButton(footer.transform,"Orders & return dates",new Vector2(.72f,.12f),new Vector2(.98f,.88f),Training);
         StyleSpecialistButtons();
     }
     void ReviewSpecialistAgent()

@@ -1,0 +1,545 @@
+{
+  "entries": [
+    {
+      "id": "florence",
+      "design": "The civic banner of Florence: warm ivory white cloth field bearing one large vivid red Florentine giglio, the distinctive open botanical lily with side stamens and curled lateral leaves, balanced and bilaterally symmetric. No crown, no shield panel.",
+      "classification": "Period civic emblem; rectangular presentation reconstruction",
+      "sources": [
+        "https://catalogo.beniculturali.it/detail/HistoricOrArtisticProperty/0900294017",
+        "https://www.comune.firenze.it/system/files/2019-09/gonfalone.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: The civic banner of Florence: warm ivory white cloth field bearing one large vivid red Florentine giglio, the distinctive open botanical lily with side stamens and curled lateral leaves, balanced and bilaterally symmetric. No crown, no shield panel.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-01f7b82f-a92e-42e4-848a-fdab2ebf5511.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\florence.png",
+      "sha256": "be7c63d6c543ce4c354c7e542b51e7ba1e021167422049bc28f0bb6cb0379c47",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1506,
+        1008
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 430087,
+      "alphaBounds16": [
+        70,
+        127,
+        1468,
+        922
+      ]
+    },
+    {
+      "id": "siena",
+      "design": "The Sienese Balzana: exactly two equal horizontal fields, warm ivory white on the upper half and deep charcoal black on the lower half. No added emblem, no shield, no lettering. The clean two-colour division is the entire heraldic design.",
+      "classification": "Period civic emblem; rectangular presentation reconstruction",
+      "sources": [
+        "https://www.ilpalio.siena.it/5/paliopedia.aspx?q=balzana",
+        "https://www.comune.siena.it/sites/default/files/2024-04/Statuto%20-%20Ultimo%20Aggiornamento%20%2015-11-18.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: The Sienese Balzana: exactly two equal horizontal fields, warm ivory white on the upper half and deep charcoal black on the lower half. No added emblem, no shield, no lettering. The clean two-colour division is the entire heraldic design.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-4e389787-68be-43e1-9d40-61eaeb2147db.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\siena.png",
+      "sha256": "6b2f5c18ead48fb4575efece511225aa99c9dc9208b41782fee3baee4c2e5736",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1506,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 414638,
+      "alphaBounds16": [
+        56,
+        133,
+        1480,
+        890
+      ]
+    },
+    {
+      "id": "milan",
+      "design": "Ducal Sforza heraldry of Milan under Francesco Sforza: quarter the entire flag into four equal panels. Upper left and lower right panels gold yellow with black crowned imperial eagle displayed. Upper right and lower left ivory white with the blue Visconti biscione, a vertically coiling crowned serpent, a tiny red human heraldic figure emerging from its mouth. Keep each emblem bold and legible. No central shield, no written motto.",
+      "classification": "1450 ducal heraldry attested; cloth layout reconstruction",
+      "sources": [
+        "https://www.milanocastello.it/sites/default/files/Museo%20a%20cielo%20aperto%20Opere%20nei%20cortili%20del%20Castello%20Sforzesco.pdf",
+        "https://www.milanocastello.it/documents/461595483/477972018/Colora%2Bil%2BCastello.pdf/9e6f8bb9-6bc3-f6f3-2ebf-3f27ee962eae?t=1729074643783"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: Ducal Sforza heraldry of Milan under Francesco Sforza: quarter the entire flag into four equal panels. Upper left and lower right panels gold yellow with black crowned imperial eagle displayed. Upper right and lower left ivory white with the blue Visconti biscione, a vertically coiling crowned serpent, a tiny red human heraldic figure emerging from its mouth. Keep each emblem bold and legible. No central shield, no written motto.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-f43cfe82-8e62-4f25-b841-980fa2672902.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\milan.png",
+      "sha256": "aa0699191b9409d9e9c0daf0f83e967e504fd1b2acbccb6377899c533ad8f649",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        17,
+        1518,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 530732,
+      "alphaBounds16": [
+        107,
+        139,
+        1430,
+        908
+      ]
+    },
+    {
+      "id": "wallachia",
+      "design": "A reconstructed princely banner of Wallachia: deep ultramarine cloth carrying one large golden eagle in heraldic profile with spread wings and a small gold cross held in its beak. A golden sun in the upper left and a silver crescent in the upper right flank the bird. No crown above the field and no modern tricolour.",
+      "classification": "Medieval seal emblem attested; tinctures and rectangular court-banner layout reconstructed",
+      "sources": [
+        "https://romfilatelia.ro/en/romanian-heraldic-symbols/",
+        "https://www.crwflags.com/fotw/flags/ro-wall.html"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: A reconstructed princely banner of Wallachia: deep ultramarine cloth carrying one large golden eagle in heraldic profile with spread wings and a small gold cross held in its beak. A golden sun in the upper left and a silver crescent in the upper right flank the bird. No crown above the field and no modern tricolour.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-b1e82da1-2313-445f-a0ae-3ac3d2878df0.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\wallachia.png",
+      "sha256": "a2412cacde4b9f6bd9b02e516f7daa29f3ade9b1d77aeb45741c2b38d83679f5",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        12,
+        1480,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 434280,
+      "alphaBounds16": [
+        64,
+        118,
+        1472,
+        906
+      ]
+    },
+    {
+      "id": "moldavia",
+      "design": "A reconstructed Moldavian princely banner: deep crimson red cloth, a large gold aurochs head seen frontally, with elegant upward horns. One small gold five-point star between the horns; a small gold heraldic rose to the viewer's left and a gold crescent to the viewer's right. All shapes clear and balanced. No eagle supporter or modern tricolour.",
+      "classification": "Medieval coin emblem attested; red-and-gold cloth arrangement reconstructed for1453",
+      "sources": [
+        "https://romfilatelia.ro/en/romanian-heraldic-symbols/",
+        "https://monederomanesti.cimec.ro/art/Emisiunile%20monetare%20batute%20pe%20teritoriul%20Moldovei%20in%20vremea%20lui%20Stefan%20cel%20Mare.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: A reconstructed Moldavian princely banner: deep crimson red cloth, a large gold aurochs head seen frontally, with elegant upward horns. One small gold five-point star between the horns; a small gold heraldic rose to the viewer's left and a gold crescent to the viewer's right. All shapes clear and balanced. No eagle supporter or modern tricolour.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-d1a5afdd-80ca-4b7f-afb0-a5a096f523cd.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\moldavia.png",
+      "sha256": "8cce17c9f11e59651230f0a38e7b72b90ff6a5f5c781546c856bc3ecd5a59579",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        4,
+        1518,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 532779,
+      "alphaBounds16": [
+        93,
+        152,
+        1443,
+        871
+      ]
+    },
+    {
+      "id": "serbia",
+      "design": "A reconstructed Brankovic dynastic banner for the Serbian Despotate: rich crimson field with a single large gold lion passant walking toward the viewer's left, one forepaw raised, tail curled upward. Two broad silver buffalo horns curve upward symmetrically behind and around the lion, leaving the animal plainly visible. Restrained medieval heraldic style. No modern Serbian flag, four-firesteel shield, crest helmet or lettering.",
+      "classification": "Brankovic lion/buffalo-horn seal motif; colour and cloth reconstruction",
+      "sources": [
+        "https://heraldika.org/wp-content/uploads/2021/12/mkherald-17.pdf",
+        "https://www.rodoslovlje.com/medieval_serbia/eng/print/families-brankovics.htm"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: A reconstructed Brankovic dynastic banner for the Serbian Despotate: rich crimson field with a single large gold lion passant walking toward the viewer's left, one forepaw raised, tail curled upward. Two broad silver buffalo horns curve upward symmetrically behind and around the lion, leaving the animal plainly visible. Restrained medieval heraldic style. No modern Serbian flag, four-firesteel shield, crest helmet or lettering.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-9f1c21d5-eea7-417f-b973-f74e26738034.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\serbia.png",
+      "sha256": "fb44e78d38efcfe13ac64a60adfbc4926177e4a31a04d343dc8c5a11d5d6a601",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1535,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 334329,
+      "alphaBounds16": [
+        69,
+        111,
+        1467,
+        928
+      ]
+    },
+    {
+      "id": "bosnia",
+      "design": "A Kotromanic dynastic banner for medieval Bosnia: rich royal blue cloth crossed by one broad silver-white diagonal band from upper left to lower right. Exactly six upright gold fleurs-de-lis, three in each of the two blue triangular fields, evenly spaced and entirely separate from the diagonal band. No modern national flag, no stars and no added shield.",
+      "classification": "Kotromanic royal arms attested on seals and coins; banner layout reconstruction",
+      "sources": [
+        "https://zenodo.org/record/3894215/files/Emir%20O.%20Filipovic%CC%81%2C%20Creatio%20Regni%20in%20the%20Great%20Seal%20of%20Bosnian%20King%20Tvrtko%20Kotromanic%CC%81.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: A Kotromanic dynastic banner for medieval Bosnia: rich royal blue cloth crossed by one broad silver-white diagonal band from upper left to lower right. Exactly six upright gold fleurs-de-lis, three in each of the two blue triangular fields, evenly spaced and entirely separate from the diagonal band. No modern national flag, no stars and no added shield.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-bdf3f883-4409-4ab6-b256-9cbc2bd04a8b.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\bosnia.png",
+      "sha256": "b9afd3a50673e197e30f69b2c59c7c143039f5f7859583eccbfbabf9e9766fca",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        9,
+        1515,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 442241,
+      "alphaBounds16": [
+        71,
+        131,
+        1464,
+        913
+      ]
+    },
+    {
+      "id": "morea",
+      "design": "A Palaiologan dynastic court banner for the Despotate of Morea: deep imperial crimson cloth with a single large gold Byzantine double-headed eagle displayed, two heads turned outward, evenly spread wings, symmetric tail and talons. Restrained medieval eagle silhouette, no later Russian imperial shields or regalia, no extra coat-of-arms and no lettering.",
+      "classification": "Palaiologan despot emblem; court-banner reconstruction rather than attested national flag",
+      "sources": [
+        "https://www.flagheritagefoundation.org/web/wp-content/uploads/2018/08/DoubleEagle-Final-PDF-150dpi.pdf",
+        "https://www.medievalists.net/2021/04/DOUBLE-HEADED-EAGLE-BYZANTINE/"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: A Palaiologan dynastic court banner for the Despotate of Morea: deep imperial crimson cloth with a single large gold Byzantine double-headed eagle displayed, two heads turned outward, evenly spread wings, symmetric tail and talons. Restrained medieval eagle silhouette, no later Russian imperial shields or regalia, no extra coat-of-arms and no lettering.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-eddd0293-6ac8-4f51-9e84-4b4ea0c33ff8.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\morea.png",
+      "sha256": "ab5d643188dc56db0cdcb9cf0390e62179b8a530347dc9c9c6f22fed269e5dd9",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1520,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 326446,
+      "alphaBounds16": [
+        56,
+        80,
+        1481,
+        944
+      ]
+    },
+    {
+      "id": "ragusa",
+      "design": "A medieval Ragusan civic saint banner: ivory-white cloth with one centered compact illuminated figure of Saint Blaise, elderly bearded bishop with gold halo and mitre, crimson and gold vestments, holding a crozier in one hand and a small model of the walled city in the other. Flat heraldic/icon figure rather than a photographic person. Plenty of white field around him. No initials or writing anywhere.",
+      "classification": "Saint Blaise civic-banner tradition; simplified iconographic reconstruction for1453",
+      "sources": [
+        "https://local.fotw.info/flags/hr_ragus.html",
+        "https://en.wikipedia.org/wiki/Flag_of_Dubrovnik"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHERALDIC DESIGN: A medieval Ragusan civic saint banner: ivory-white cloth with one centered compact illuminated figure of Saint Blaise, elderly bearded bishop with gold halo and mitre, crimson and gold vestments, holding a crozier in one hand and a small model of the walled city in the other. Flat heraldic/icon figure rather than a photographic person. Plenty of white field around him. No initials or writing anywhere.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-445c1433-ae0f-4af1-9b82-27098d49edd7.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\ragusa.png",
+      "sha256": "3fd96d7009b454b42c8ccbd257cf5f200f4f6806c47b1a3d2130007cfd7e5782",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1488,
+        1006
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 547326,
+      "alphaBounds16": [
+        96,
+        139,
+        1439,
+        881
+      ]
+    },
+    {
+      "id": "karaman",
+      "design": "Karaman court, circa1453. Alternate eight equal horizontal bands of deep crimson and warm ivory, beginning crimson at top. Straight rectangle, shallow gentle rippling of cloth only. No stars, no crescent, no central emblem. This is an explicitly conjectural portolan-inspired court banner, not a claim of an authenticated state flag.",
+      "classification": "Conjectural portolan-inspired court banner; exact1453Karamanflag not verified. Avoids disputed blue six-point-star attribution to Satalia/Teke.",
+      "sources": [
+        "https://commons.wikimedia.org/wiki/File:Karamanid_Dynasty_flag.svg",
+        "https://commons.wikimedia.org/wiki/File:Karaman.png",
+        "https://www.paxhistoria.co/assets/91209659-87cb-5589-9428-acb258bfd983"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHistorical device: Karaman court, circa1453. Alternate eight equal horizontal bands of deep crimson and warm ivory, beginning crimson at top. Straight rectangle, shallow gentle rippling of cloth only. No stars, no crescent, no central emblem. This is an explicitly conjectural portolan-inspired court banner, not a claim of an authenticated state flag.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-e9f19941-b500-46c9-8710-c9fd636a5d96.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\karaman.png",
+      "sha256": "9b8be7aafecfc4b31d218945a07ac3faae40ebe81aebe84a753c48a01d48562f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        88,
+        8,
+        1516,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 464698,
+      "alphaBounds16": [
+        92,
+        128,
+        1444,
+        928
+      ]
+    },
+    {
+      "id": "aq_qoyunlu",
+      "design": "Aq Qoyunlu Bayandur dynasty court banner, circa1453. Warm ivory white cloth and one large bold near-black Bayandur Aq Qoyunlu tamga at centre, using the historical stylised looping Bayandur clan brand found on their coinage, not the Kayi IYI symbol and not a sheep illustration. The Bayandur tamga is an angular sideways loop attached to a cross-bar with its projecting strokes. Extremely clear simple tribal brand, no calligraphy, no lettering. Museum-quality historical reconstruction of a dynasty's cloth insignia.",
+      "classification": "Bayandur dynastic tamga attested on AqQoyunlucoins; simplified cloth layout/tinctures reconstructed, not an authenticated1453banner.",
+      "sources": [
+        "https://www.iranicaonline.org/articles/aq-qoyunlu-confederation/",
+        "https://commons.wikimedia.org/wiki/File:Tamga_of_Bayandur_(Aq_Qoyunlu_version).png",
+        "https://en.wikipedia.org/wiki/Aq_Qoyunlu"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHistorical device: Aq Qoyunlu Bayandur dynasty court banner, circa1453. Warm ivory white cloth and one large bold near-black Bayandur Aq Qoyunlu tamga at centre, using the historical stylised looping Bayandur clan brand found on their coinage, not the Kayi IYI symbol and not a sheep illustration. The Bayandur tamga is an angular sideways loop attached to a cross-bar with its projecting strokes. Extremely clear simple tribal brand, no calligraphy, no lettering. Museum-quality historical reconstruction of a dynasty's cloth insignia.",
+      "status": "blocked",
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID a79f4756-4352-4873-b42c-6ad0463925cb. safety_violations=[abuse].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"output\\\",\\n      \\\"categories\\\": [\\n        \\\"other\\\"\\n      ]\\n    }\\n  }\\n}\")"
+    },
+    {
+      "id": "crimea",
+      "design": "Giray dynasty of the Crimean Khanate under HajiGiray, circa1453. Warm ivory cloth bearing one large deep crimson tarak-tamga dynasty sign centred, precisely the familiar Giray comb tamga: a broad upper horizontal bar with short downward strokes at both ends and a longer central vertical stem rising above and extending below the bar. Simple orthogonal linework, thick consistent strokes, not a trident, no ornaments. Avoid the modern blue national flag. Bold restrained medieval dynastic insignia.",
+      "classification": "Giray tarak-tamga dynastic motif; ivory/crimson court layout reconstructed. No claim modernblueCrimeanTatarflag dates to1453.",
+      "sources": [
+        "https://islamansiklopedisi.org.tr/giray",
+        "https://en.wikipedia.org/wiki/Tarak_Tamga",
+        "https://ppu.gov.ua/en/press-center/26-chervnia-den-krymskotatarskoho-prapora-3/"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHistorical device: Giray dynasty of the Crimean Khanate under HajiGiray, circa1453. Warm ivory cloth bearing one large deep crimson tarak-tamga dynasty sign centred, precisely the familiar Giray comb tamga: a broad upper horizontal bar with short downward strokes at both ends and a longer central vertical stem rising above and extending below the bar. Simple orthogonal linework, thick consistent strokes, not a trident, no ornaments. Avoid the modern blue national flag. Bold restrained medieval dynastic insignia.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-40333ef7-d2ee-4f91-82d0-33b3b2f5deba.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\crimea.png",
+      "sha256": "4218ecfd28c2e97ded92886b40dd02a8a5e05aacbf08c96d0759f5b1f333dbe8",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        16,
+        1504,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 409267,
+      "alphaBounds16": [
+        75,
+        103,
+        1463,
+        920
+      ]
+    },
+    {
+      "id": "mamluks",
+      "design": "Mamluk Sultanate court insignia during Jaqmaq's reign circa1453. Deep garnet red cloth with one very large golden ceremonial stemmed cup, drawn in bold medieval Mamluk blazon style, with wide shallow bowl, straight short stem and wide flared foot. Centre it within a very thin gold roundel. A dignified simple cup-and-roundel motif, not European chalice ornament. No eagle, no crescent, no script, no modern national symbols. Period-inspired reconstruction rather than exact personal arms.",
+      "classification": "Explicit period-inspired Mamluk court reconstruction, using cupblazontradition. Cup/rankemblems are not a proven Jaqmaq nationalflag; no Qaytbaylatecomposite.",
+      "sources": [
+        "https://sites.lsa.umich.edu/khamseen/topics/2024/the-history-of-the-blazon-in-the-mamluk-period/",
+        "https://islamicart.museumwnf.org/database_item.php?id=object%3BISL%3Bsy%3BMus01_A%3B48%3Ben",
+        "https://knowledge.uchicago.edu/record/744/files/MamlukStudiesReview_VIII-1_2004_33MB.pdf"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHistorical device: Mamluk Sultanate court insignia during Jaqmaq's reign circa1453. Deep garnet red cloth with one very large golden ceremonial stemmed cup, drawn in bold medieval Mamluk blazon style, with wide shallow bowl, straight short stem and wide flared foot. Centre it within a very thin gold roundel. A dignified simple cup-and-roundel motif, not European chalice ornament. No eagle, no crescent, no script, no modern national symbols. Period-inspired reconstruction rather than exact personal arms.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-8a8efb0b-5ee1-49f0-ab5a-d68f9b919f7a.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\mamluks.png",
+      "sha256": "355079a22f34f8f3e5455c0be0b8a59852f081b2ab6ad10bb7b36847be2e8ae0",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        25,
+        23,
+        1472,
+        996
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 396329,
+      "alphaBounds16": [
+        75,
+        90,
+        1461,
+        927
+      ]
+    },
+    {
+      "id": "ionian_tocco",
+      "aliases": [
+        "ionian_lordships"
+      ],
+      "design": "Tocco dynasty of the Ionian lordships, circa1453. White or ivory cloth with exactly three rich azure horizontal dancetty bars. Each blue bar has a repeated broad angular zigzag along both edges, like a medieval heraldic fess vivrée, not soft ocean waves. Three bars separated by equal white gaps, and white above and below. No crown, eagle, shield or lettering. Strong simple blue and silver family insignia.",
+      "classification": "Toccofamilyarms reconstructed from retrospective Rietstapblazon, argent three azure fesses vivrées; cloth layout conjectural, variants exist.",
+      "sources": [
+        "https://www.heraldrysinstitute.com/lang/en/armoriali/Tocco%2B%28di%29/Paese/Europe/idc/119012/"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHistorical device: Tocco dynasty of the Ionian lordships, circa1453. White or ivory cloth with exactly three rich azure horizontal dancetty bars. Each blue bar has a repeated broad angular zigzag along both edges, like a medieval heraldic fess vivrée, not soft ocean waves. Three bars separated by equal white gaps, and white above and below. No crown, eagle, shield or lettering. Strong simple blue and silver family insignia.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-8065c2d8-df22-4950-bfe9-b9d26b84b783.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\ionian_tocco.png",
+      "sha256": "53d12f8de6fcd6825f149e973f01408b4b1274bff173d2ddace83110aa7fa54c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        2,
+        1484,
+        1000
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 351422,
+      "alphaBounds16": [
+        61,
+        91,
+        1476,
+        933
+      ]
+    },
+    {
+      "id": "theodoro",
+      "design": "Principality of Theodoro at Mangup, circa1453. A deep wine-purple cloth with a single large silver-white double-headed eagle displayed, inspired by late medieval Crimean Byzantine court sculpture, two heads looking outward, symmetrical wings spread, curled tail, feet visible. No crowns, no sceptres, no orb, no escutcheon, no Russian imperialregalia. Clearly different from a golden Morean eagle. Exact cloth colours are a restrained artistic reconstruction.",
+      "classification": "Double-headedeagle plausible Theodoro courtdevice; exact1453flag colours/layout unattested and explicitly reconstructed.",
+      "sources": [
+        "https://www.medievalists.net/2021/04/double-headed-eagle-byzantine/",
+        "https://www.flagheritagefoundation.org/web/wp-content/uploads/2018/08/DoubleEagle-Final-PDF-150dpi.pdf",
+        "https://en.wikipedia.org/wiki/Principality_of_Theodoro"
+      ],
+      "prompt": "Use case: historical-scene. Asset type: single heraldic cloth banner for a Byzantine historical strategy game's diplomacy screen, circa 1452–1453. A precisely rectangular 3:2 cloth banner seen straight-on, almost completely flat with only extremely subtle shallow fabric folds. Crisp bold large heraldic forms, rich medieval pigments, subtle aged-gold stitched narrow edge ON the cloth. Illuminated Byzantine strategy-game realism, finely woven fabric, restrained texture, excellent readability when reduced. Square 1024×1024 image; flag occupies about 90% of canvas width and 60% of canvas height, centered with generous fully transparent space outside all four cloth edges. Actual transparent alpha outside the rectangle. No pole, cords, tassels, lettering, written motto, caption, crest helmet, external frame, scenery, floor, cast shadow or background. Keep all four corners visible, no swallowtail, no folds concealing emblems. Render exactly one flag.\nHistorical device: Principality of Theodoro at Mangup, circa1453. A deep wine-purple cloth with a single large silver-white double-headed eagle displayed, inspired by late medieval Crimean Byzantine court sculpture, two heads looking outward, symmetrical wings spread, curled tail, feet visible. No crowns, no sceptres, no orb, no escutcheon, no Russian imperialregalia. Clearly different from a golden Morean eagle. Exact cloth colours are a restrained artistic reconstruction.",
+      "generatedOriginal": "C:\\Users\\Dainius\\.codex\\generated_images\\01a1952c-9459-79f3-a82c-0be3b4cff5ef\\exec-97c7d515-37b6-4c9d-a33c-7667d250dbdc.png",
+      "status": "generated",
+      "visualReview": "Reviewed generated preview: full rectangular cloth visible, emblem legible, consistent fabric and narrow gold edge.",
+      "path": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomacy-art-next\\flags\\theodoro.png",
+      "sha256": "b52e144d6e94215fa3561f16682498700afb0f0f211b6533c940786d78f80a41",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaBounds": [
+        0,
+        0,
+        1486,
+        1024
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "transparentPixels": 570242,
+      "alphaBounds16": [
+        94,
+        151,
+        1442,
+        879
+      ]
+    }
+  ],
+  "notes": [
+    "Original generated PNGs preserved unchanged; PNG resolution and cloth aspect ratio differ from prompt. Preserve aspect in runtime and use alphaBounds16 for sprite crop.",
+    "These are court and dynasty insignia for diplomacy, not claims that every medieval realm had a standardised national flag.",
+    "Aq Qoyunlu is absent: output generation was rejected; no substitute or retry used."
+  ]
+}

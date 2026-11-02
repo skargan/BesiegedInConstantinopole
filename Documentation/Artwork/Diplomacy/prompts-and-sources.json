@@ -1,0 +1,30 @@
+{
+  "method": "built-in image_gen",
+  "items": [
+    {
+      "id": "hostile",
+      "prompt": "Create a single polished medieval strategy-game diplomacy status icon for \"hostile\". Subject: Two bold crossed medieval swords over a small deep crimson enamel shield. Aggressive, clearly recognisable silhouette; simple clear blades and gold hilts. Match the supplied reference only in polished antique gold edges, restrained enamel colour, warm shaded handcrafted relief and clear thumbnail readability; do not copy its flag. Full centred object occupying 80 percent of a square canvas, clean strong outline, sparse interior detail so it reads at 28-48px, realistic painterly metal with restrained highlights rather than glossy plastic. Byzantine illuminated court aesthetic consistent with navy mosaic and gold UI. True transparent background with no square, no scenery, no text, no labels, no glow or detached shadow. One complete symbol, all edges visible.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a0a8e2-b837-7953-bbb3-acf52c000d0c\\exec-e20bf92b-6381-47d7-965e-49f1d898bc8b.png"
+    },
+    {
+      "id": "wary",
+      "prompt": "Create a single polished medieval strategy-game diplomacy status icon for \"wary\". Subject: One upright defensive medieval shield, bronze and amber enamel, with a small raised open gauntlet in front signalling caution. Clear simple silhouette, no face. Match the supplied reference only in polished antique gold edges, restrained enamel colour, warm shaded handcrafted relief and clear thumbnail readability; do not copy its flag. Full centred object occupying 80 percent of a square canvas, clean strong outline, sparse interior detail so it reads at 28-48px, realistic painterly metal with restrained highlights rather than glossy plastic. Byzantine illuminated court aesthetic consistent with navy mosaic and gold UI. True transparent background with no square, no scenery, no text, no labels, no glow or detached shadow. One complete symbol, all edges visible.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a0a8e2-b837-7953-bbb3-acf52c000d0c\\exec-2651fbd0-be75-462c-91b5-0fc2f8fd306c.png"
+    },
+    {
+      "id": "neutral",
+      "prompt": "Create a single polished medieval strategy-game diplomacy status icon for \"neutral\". Subject: A perfectly balanced pair of small medieval weighing scales, solid ivory enamel pans and antique gold beam. Calm symmetry, no shield or sword. Match the supplied reference only in polished antique gold edges, restrained enamel colour, warm shaded handcrafted relief and clear thumbnail readability; do not copy its flag. Full centred object occupying 80 percent of a square canvas, clean strong outline, sparse interior detail so it reads at 28-48px, realistic painterly metal with restrained highlights rather than glossy plastic. Byzantine illuminated court aesthetic consistent with navy mosaic and gold UI. True transparent background with no square, no scenery, no text, no labels, no glow or detached shadow. One complete symbol, all edges visible.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a0a8e2-b837-7953-bbb3-acf52c000d0c\\exec-f680b308-7139-4847-bafb-4cda8e82f2c4.png"
+    },
+    {
+      "id": "friendly",
+      "prompt": "Create a single polished medieval strategy-game diplomacy status icon for \"friendly\". Subject: Two naturally proportioned clasped hands in medieval sleeves, with one small olive leaf beneath, warm gold and muted sage green enamel. Simple welcoming handshake, clear fingers, no extra hands. Match the supplied reference only in polished antique gold edges, restrained enamel colour, warm shaded handcrafted relief and clear thumbnail readability; do not copy its flag. Full centred object occupying 80 percent of a square canvas, clean strong outline, sparse interior detail so it reads at 28-48px, realistic painterly metal with restrained highlights rather than glossy plastic. Byzantine illuminated court aesthetic consistent with navy mosaic and gold UI. True transparent background with no square, no scenery, no text, no labels, no glow or detached shadow. One complete symbol, all edges visible.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a0a8e2-b837-7953-bbb3-acf52c000d0c\\exec-6809281f-8225-452c-8b83-42c27916650e.png"
+    },
+    {
+      "id": "allied",
+      "prompt": "Create a single polished medieval strategy-game diplomacy status icon for \"allied\". Subject: Two thick interlocking gold rings over a compact emerald enamel shield, topped by a tiny laurel sprig. Clearly distinct linked-rings silhouette, enduring treaty symbolism. Match the supplied reference only in polished antique gold edges, restrained enamel colour, warm shaded handcrafted relief and clear thumbnail readability; do not copy its flag. Full centred object occupying 80 percent of a square canvas, clean strong outline, sparse interior detail so it reads at 28-48px, realistic painterly metal with restrained highlights rather than glossy plastic. Byzantine illuminated court aesthetic consistent with navy mosaic and gold UI. True transparent background with no square, no scenery, no text, no labels, no glow or detached shadow. One complete symbol, all edges visible.",
+      "source": "C:\\Users\\Dainius\\.codex\\generated_images\\01a0a8e2-b837-7953-bbb3-acf52c000d0c\\exec-0bc4b17b-c1c7-4112-bb71-32eecc8f224e.png"
+    }
+  ]
+}
