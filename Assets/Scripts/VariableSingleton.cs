@@ -25,6 +25,9 @@ public class VariableSingleton : MonoBehaviour
     static public int IncrementTurn()
     {
         var previousDate=GetDate();
+        MonasticResearch.Ensure();
+        CountryDiplomacy.Ensure();
+        if(DailyLifeEvents.I("iMedicalLastDay")==0)SetInt("iMedicalLastDay",TrainingPool.Day(previousDate));
         bool completedSiegeDay=HasSiegeStarted();
         EspionageSystem.AdvanceTurn();
         turn++;
@@ -38,11 +41,10 @@ public class VariableSingleton : MonoBehaviour
         ArrivalNotice+=ProvinceCampaign.TakeDeliveryReport();
         if(completedSiegeDay) { ArrivalNotice+=SupplyEconomy.CompleteDay(); NavalState.CompleteDay(); ArrivalNotice+=FleetOperations.CompleteDay(); }
         if(CompletedSiegeDays>0 && GetIntVariable("iIncome")>0) {int income=GetIntVariable("iIncome");ChangeInt("iMoney",income);ArrivalNotice+="Merchant levy: +"+income+" gold.\n\n";}
-        ArrivalNotice+=MedicalRecovery.Advance(GetDate());
+        ArrivalNotice+=CampaignPersonnelCalendar.Advance(previousDate,GetDate());
         if(completedSiegeDay)ArrivalNotice+=DefencePosture.Advance();
         ArrivalNotice+=ProvinceCampaign.Advance(GetDate());
         ArrivalNotice+=CouncilActions.AdvanceAid(Math.Max(0,(GetDate()-previousDate).Days));
-        ArrivalNotice+=TrainingPool.CompleteDueOrders(GetDate());
         ArrivalNotice+=TroopTraining.Complete(GetDate());
         ArrivalNotice+=PreparationCampaign.Advance();
         Achievements.CheckCampaign();
@@ -120,6 +122,8 @@ public class VariableSingleton : MonoBehaviour
     static  public void SetInt(string varName, int newValue) 
     {
         iDict[varName] = varName=="iCampAlert"?EspionageSystem.ClampAlert(newValue):newValue;
+        if(varName=="iReligion")CountryDiplomacy.SynchronisePolicy();
+        if(varName=="iHealers"&&DailyLifeEvents.I("iMonasticVersion")>0)MonasticResearch.ValidateAllocation();
         if(varName=="iGrandCannon" || varName=="iAdventurerArrived" || varName=="iShahStatus")Achievements.CheckCampaign();
     }
 
@@ -180,6 +184,8 @@ public class VariableSingleton : MonoBehaviour
             iDict[varName] += delta;
         }
         if(varName=="iCampAlert")iDict[varName]=EspionageSystem.ClampAlert(iDict[varName]);
+        if(varName=="iReligion")CountryDiplomacy.SynchronisePolicy();
+        if(varName=="iHealers"&&DailyLifeEvents.I("iMonasticVersion")>0)MonasticResearch.ValidateAllocation();
     }
 
     static public void ChangeInt(string varName, int min, int max)
@@ -281,6 +287,11 @@ public class VariableSingleton : MonoBehaviour
         Achievements.BeginCampaign();
         RecruitmentLogistics.BeginCampaign();
         MedicalRecovery.ResetForRestore();
+        MonasticResearch.ResetForRestore();
+        MonasticResearch.Ensure();
+        SpecialistPersonnel.ResetForRestore();
+        SpecialistPersonnel.EnsureInitialized();
+        CountryDiplomacy.BeginCampaign();
         MehmedAssassination.ResetForRestore();
     }
 
@@ -398,6 +409,9 @@ public class VariableSingleton : MonoBehaviour
         RecruitmentLogistics.ResetForRestore();
         MarketPurchaseLimits.ResetForRestore();
         MedicalRecovery.ResetForRestore();
+        MonasticResearch.ResetForRestore();
+        SpecialistPersonnel.ResetForRestore();
+        CountryDiplomacy.ResetForRestore();
         MehmedAssassination.ResetForRestore();
         ProvincialIntelligence.ResetForRestore();
         DefencePosture.Initialise();
@@ -424,6 +438,9 @@ public class VariableSingleton : MonoBehaviour
         possibleStory = data.story ?? possibleStory;
         possibleRandom = data.randomEvents ?? possibleRandom;
         UnityEngine.Random.state = data.randomState;
+        MonasticResearch.AfterRestore();
+        SpecialistPersonnel.EnsureInitialized();
+        CountryDiplomacy.AfterRestore();
     }
 
     private void Awake()

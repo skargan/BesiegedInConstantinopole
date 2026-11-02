@@ -20,7 +20,7 @@ public static class WarTheatre
     public static int Control(Region r)=>Mathf.Clamp(100-DailyLifeEvents.I("iWbwControlLoss_"+r.id),0,100);
     public static int Resistance(Region r)=>ProvinceCampaign.Rebellion(r.id)?2:ProvinceCampaign.Resistance(r.id)>0?1:0;
     public static bool Captured(Region r)=>DailyLifeEvents.I("iWbwCaptured_"+r.id)>0;
-    public static bool AtWar(Region r)=>DailyLifeEvents.I("iWbwWar_"+r.group)>0;
+    public static bool AtWar(Region r){if(r==null)return false;int country=CountryDiplomacy.Index(string.IsNullOrEmpty(r.group)?r.id:r.group);return country>=0&&CountryDiplomacy.IsIntervening(country);}
     public static string Status(Region r)=>Captured(r)?"Under imperial control":Resistance(r)>=2?"Armed insurrection":Resistance(r)==1?"Resistance network":Control(r)<60?"Ottoman authority weakened":"Ottoman administration";
     public static Color Tint(Region r){
         if(r.kind=="province"){if(Captured(r))return new Color(.59f,.25f,.77f,.48f);if(Resistance(r)>=2)return new Color(.95f,.35f,.10f,.48f);return Color.Lerp(new Color(.85f,.60f,.13f,.43f),new Color(.12f,.56f,.40f,.36f),Control(r)/100f);}

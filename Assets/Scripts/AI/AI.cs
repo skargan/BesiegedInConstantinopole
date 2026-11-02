@@ -79,6 +79,7 @@ public class AI: MonoBehaviour
     public void CommitPhased(PhasedAssault b) {
         if(b==null||(!b.Practice&&b!=PendingPhased)||!b.TryCommit())return;if(b.Practice)return;var r=b.Outcome;
         string medical=MedicalRecovery.ApplyCombatLosses(r.Held,-r.InfantryDelta,-r.ArcherDelta,-r.CavalryDelta,-r.GuardDelta);
+        medical+=DiplomaticBattleEvents.HeldLandDefence(b.Attackers,r.Held,r.Health>0);
         VariableSingleton.ChangeInt("iAmmunition",-r.AmmoSpent);VariableSingleton.ChangeInt("iMaterials",-r.MaterialsSpent);VariableSingleton.ChangePercentFloat("fHealth",(r.HealthDelta)/100f);
         VariableSingleton.SetInt("iEmperorAtWall",0);
         OttomanDirector.AfterAssault(b.Attackers,r.EnemyDead,!r.Held);

@@ -235,20 +235,16 @@ The approaching war has frightened the buyers. The best offer is only 4,000 gold
 title: story8
 ---
 <b>Siege Preparation — Call on a Major Christian Power</b>: <br> Alone we shall fall, that is certain to everyone from megas doux himself down to the blind Cuman beggar wailing by the walls of the Hippodrome. But not all is lost. The time has come to call upon Christendom and ask for their help. Recent battle of Varna in 1444 has been a major defeat for the Christian nations, who suffered heavy casualties against the Ottomans. The memories are still fresh, but maybe we could offer them a chance to even the score? Whom shall we reach out to in the first place?
--> Send our envoy to the Pope. As the leader of Christendom, he is guaranteed to provide at least some aid. <<if GetInt("iReligion") == 2 || GetInt("iReligion") == 1>> 
+-> Send our envoy to the Pope. As the leader of Christendom, he is guaranteed to provide at least some aid. <<if (GetInt("iReligion") == 2 || GetInt("iReligion") == 1) && CanDiplomaticStoryAid("papacy")>>
     <<set $chance = dice(100)>>
     <<if $chance <= 40>> 
-    The Pope sends 6 ships packed with food, carrying money and 600 archers, along with his letter in which he offers his prayers for the soul of Constantinople and a promise of further aid.
-    <<Change iProvisions 3000>>
-    <<Change iMoney 10000>> 
-    <<Change iArchers 600>>
-    <<Change iShips 6>>
+    The Pope sends six transports packed with food, carrying money and 600 archers, along with his letter in which he offers his prayers for the soul of Constantinople and a promise of further aid.
+    <<DiplomaticStoryAid papacy major>>
+    Their transports unload and return home; these vessels do not join the battle fleet. The Papal expedition is entered as delivered in your diplomatic ledger.
     <<else>>
-    The Pope sends 2 ships packed with food, carrying money and 200 archers, along with his letter in which he offers his prayers for the soul of Constantinople.
-    <<Change iProvisions 1000>>
-    <<Change iMoney 10000>> 
-    <<Change iArchers 200>>
-    <<Change iShips 2>> 
+    The Pope sends two transports packed with food, carrying money and 200 archers, along with his letter in which he offers his prayers for the soul of Constantinople.
+    <<DiplomaticStoryAid papacy minor>>
+    Their transports unload and return home; these vessels do not join the battle fleet. The Papal expedition is entered as delivered in your diplomatic ledger.
     <<endif>>
 -> <color=\#B8CFDA><i>\[Focus - Diplomacy and Spycraft\]</i></color> As we have accepted Catholicism fully, send our envoy to the Pope and request him to launch a new crusade to help us! <<if GetInt("iReligion") == 1 && GetInt("iFocus") == 4>>  #focus:4
     <<set $chance = dice(100)>>
@@ -281,27 +277,27 @@ title: story8
     <<Change iInfantry 400>>
     <<Change iArchers 200>>
     <<Change iCavalry 100>>
-    <<Change iShips 1>>
+    The vessel lands its passengers and resumes its own voyage.
     <<else>>
     In our days, Orthodox realms are few and weak. They close their eyes and ears to your pleas.
     <<endif>>
--> Make a general call for help to all the Christian realms. You know that your success here will depend greatly on how you managed to mend the Schism...
+-> Make a general call for help to all the Christian realms. You know that your success here will depend greatly on how you managed to mend the Schism... <<if GetInt("iReligion") != 1 || CanDiplomaticStoryAid("hospitallers")>>
     <<if GetInt("iReligion") == 0>>
     In our days, Orthodox realms are few and weak, but they answer the call. Georgian nobility sends 50 young knights and soon a ship of volunteers from Ruthenia arrives, adding another 200 infantry.
     <<Change iInfantry 200>>
     <<Change iCavalry 50>>
-    <<Change iShips 1>>
+    The vessel lands its passengers and resumes its own voyage.
     <<elseif GetInt("iReligion") == 1>>
-    Your recent conversion to Catholicism has moved the hearts of believers. Knights Hospitaller have sent their fleet from Rhodes to support you, bringing 100 knights, 200 archers, 200 infantry and 5 ships.
-    <<Change iInfantry 200>>
-    <<Change iArchers 200>>
-    <<Change iCavalry 100>>
-    <<Change iShips 5>> 
+    Your recent conversion to Catholicism has moved the hearts of believers. The Knights Hospitaller send 100 cavalry, 200 archers and 200 infantry from Rhodes. They also place five warships, with their crews, in your naval service. The fighting ships will remain under your orders after the soldiers have landed.
+    <<DiplomaticStoryAid hospitallers fleet>>
+    The Rhodian expedition is entered as delivered in your diplomatic ledger.
     <<elseif GetInt("iReligion") == 2>>
     While you are not enforcing Union of Florence, pragmatically minded Italians nonetheless see an opportunity to find a place for themselves in your new Empire. Venetian and Genoese mercenaries soon arrive, bringing 400 infantry and 400 archers to support the defence of your city.
     <<Change iInfantry 400>>
     <<Change iArchers 400>>
     <<endif>>
+-> Let our envoys pursue the undertakings already made. <<if GetInt("iReligion") == 1 && GetInt("iFocus") != 4 && CanDiplomaticStoryAid("papacy") == false && CanDiplomaticStoryAid("hospitallers") == false>>
+    Your envoys concentrate on the undertakings already secured. No additional aid is granted; existing expeditions continue their journeys. A resident envoy may renew an answered appeal.
 ===
 title: story9
 ---

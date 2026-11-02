@@ -1,0 +1,91 @@
+BESIEGED VERSION 36.11 - MONASTERIES AND EMBASSIES
+2 November 2026
+
+PLAY
+Close any earlier game instance and open the desktop Besieged-Latest shortcut,
+or run Besieged.exe in this Version-36.11 folder. Older published builds remain.
+The newest archive with each filename is copied from earlier Version folders.
+
+MONASTIC RESEARCH
+Open Military and recruitment > Specialists > the monk/infirmary entry, or
+Technologies > Monastic Research. Both open Infirmary and Monasteries.
+The existing infirmary is at the top; scroll down to Monastic Research.
+
+Choose a whole number of research monks and Apply allocation. Reassignment is
+free and uses no major action. The slider previews medical capacity and research;
+the confirmed assignment begins the next calendar day. Other monks tend patients.
+New recruits begin in the infirmary. Losses clamp allocations to surviving monks.
+
+Each research monk adds 1 progress per calendar day. Every 100 progress produces
+1 Secret. Progress is retained while paused; overflow and multiple discoveries
+are preserved. A month-long preparation turn processes each actual calendar day,
+including recruitment and allocation dates, and combines discoveries in its report.
+The progress bar, current/projected discovery estimates and pending assignment
+appear together. The Technology summary reads this same saved state.
+
+Existing patients remain when staffing falls. Treatment capacity falls with the
+number of infirmary monks: excess patients wait without losing prior treatment.
+Patients are not evicted. Moving monks away therefore has a medical consequence.
+Old archives initialise with all monks in the infirmary and no retroactive research.
+
+ALSO INTEGRATED
+- Engineer and envoy training, reserved construction crews and specialist records.
+- Five-person cannon crews and fifty-person ship crews include their engineer.
+- Engineer-based wall repair slider, upfront costs, repair range and recuperation.
+- Advanced Masonry, wounded engineers, timed damaged-ship repairs and crew accounting.
+- Resident envoys, dated travel, country goodwill/attitude, renewed appeals,
+  approved Union modifiers and the editable country/aid/intervention table.
+- Successful foreign war negotiations create Allied status and finite disruption
+  of actual Ottoman supplies after mobilisation. They do not simulate field battles.
+- Named story aid shares the ordinary initial aid entitlement. Transport ships
+  return home; only explicit warship gifts add ships to the player's fleet.
+- Preserved Version-36.10 market rules, header/event artwork and regional map.
+
+DETAILS AND REVIEW
+The repository Documentation folder contains:
+  Integrated mechanics 36.11.txt - rules and links between systems.
+  Mechanics review queue 36.11.txt - eight outstanding design/balance questions.
+
+Research intentionally keeps the requested 100-progress threshold and 1 progress
+per monk/day. At 100 researchers, all 33 Secrets required by the current fourteen
+technology catalogue can be earned in 33 days, before considering other spending.
+This is a balance issue for review, not an undisclosed change to the approved rate.
+Active fleet defeats still do not generate damaged hulls; the new repair queue
+handles existing damaged hulls. The review queue distinguishes this and other
+remaining event-integration issues from implemented mechanics.
+
+VERIFICATION
+Inspected: shared monk/medical accounting; dated campaign personnel ordering;
+archive compatibility; crew commitments; wall costs and casualties; country rules;
+aid routing and story entitlements; intervention hooks; existing market/UI changes.
+
+Compiled: the complete gameplay assembly and final Unity 2022.3.15f1 Windows
+development export completed successfully. Final build marker recorded.
+
+Exercised in the exported Unity player with automated scenarios:
+- Monastic research: 30 focused checks.
+- Wall repairs: 738 checks.
+- Finite foreign interventions: 27 checks.
+- Naval personnel and battle diplomacy: 24 checks.
+- Diplomacy mechanics: 27 checks.
+- Combined campaign: real save write/read/load, pending allocation, reserved crews,
+  dated recruitment, 31-day preparation advance, envoy travel/residence, combined
+  medical returns and research, and repeated-date protection.
+- Actual controls and text-fit checks at 1600x900 and 1280x720, including free
+  Apply allocation and consistent current/pending displays.
+- Turn-action/interface suite: 424 checks, including an isolated paid wall repair
+  and slider visibility after repeated wall selection at both resolutions.
+- Preserved market: 38 checks, purchases and save reload.
+- Preserved regional map: 678 checks.
+
+Additional isolated backend tests: 53 specialist/personnel, 55 diplomacy/story
+adapter and 30 monastic checks; 17 pure wall-preview checks. These are separate
+from the exported-player verification above.
+
+Visual review covered representative infirmary, research/pending, specialist,
+technology, embassy and fleet screens, plus repaired wall controls at both tested
+resolutions. This is targeted interface verification, not a complete campaign
+balance playthrough or a claim that every screen was manually inspected.
+
+No player archive is used by the test scenarios. Development captures and their
+test archives are excluded from this published build folder.

@@ -25,8 +25,8 @@ public static class ReliefStormSystem {
         lines.Add(enemyLoss>0?"Ottoman losses: "+enemyLoss+" ships sunk.":"No Ottoman ships remain at sea to be lost.");
         int ours=CouncilActions.Int("iShips");
         if(Exposed(CouncilActions.Int("iFleet")) && ours>0) {
-            int loss=Mathf.Min(ours,Mathf.Clamp(ourRoll,0,5));VariableSingleton.ChangeInt("iShips",-loss);
-            lines.Add(loss>0?"Our ships were operating in open waters: "+loss+" lost, "+CouncilActions.Int("iShips")+" remain.":"Our captains ride out the storm in open waters. Every ship returns.");
+            int loss=NavalState.SinkShips(Mathf.Clamp(ourRoll,0,5));
+            lines.Add(loss>0?"Our ships were operating in open waters: "+loss+" lost, "+CouncilActions.Int("iShips")+" remain. Their "+(loss*SpecialistPersonnel.ShipCrew)+" crew are lost, including "+loss+" ship engineers.":"Our captains ride out the storm in open waters. Every ship returns.");
         } else lines.Add(ours>0?"Our fleet is sheltered in the Golden Horn. None of our ships are lost.":"We have no ships at sea to lose.");
         lastReport=string.Join("\n\n",lines);
     }

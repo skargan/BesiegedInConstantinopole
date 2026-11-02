@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public static class MedicalRecovery
 {
     public const int TreatmentDays=15, MonkCost=200, RecruitmentDays=5;
-    public static readonly string[] Units={"iInfantry","iArchers","iCavalry","iVarangians"};
+    // Keep the first four indices stable: existing saves store patients by index.
+    public static readonly string[] Units={"iInfantry","iArchers","iCavalry","iVarangians","iEngineers"};
     static int Day => TrainingPool.Day(VariableSingleton.GetDate());
     static int I(string key) => Math.Max(0,DailyLifeEvents.I(key));
     static void Put(string key,int value) => VariableSingleton.SetInt(key,Math.Max(0,value));
@@ -14,16 +15,16 @@ public static class MedicalRecovery
     static string ReturnedKey(int unit) => "iMedicalReturned"+unit;
     static int Bounded(long count) => (int)Math.Min(int.MaxValue,Math.Max(0L,count));
     public static int Monks => I("iHealers");
-    public static int Capacity => Monks;
+    public static int Capacity => MonasticResearch.InfirmaryMonks;
     public static int Total { get {long n=0;foreach(string unit in Units)n+=CountFor(unit);return Bounded(n);} }
     public static int RegularWounded => Bounded((long)CountFor(Units[0])+CountFor(Units[1])+CountFor(Units[2]));
     public static int FreePlaces => Math.Max(0,Capacity-Total);
     public static int DailyProvisionNeed => (int)(((long)Math.Min(Total,Capacity)+4)/5);
     public static int QueuedMonks { get {long n=0;foreach(var o in TrainingPool.Orders)if(o.unit=="iHealers")n+=o.quantity;return Bounded(n);} }
-    public static int SoonestReturnDays { get {for(int d=1;d<=TreatmentDays;d++)for(int u=0;u<4;u++)if(I(PatientKey(u,d))>0)return d;return 0;} }
+    public static int SoonestReturnDays { get {for(int d=1;d<=TreatmentDays;d++)for(int u=0;u<Units.Length;u++)if(I(PatientKey(u,d))>0)return d;return 0;} }
     public static int CountFor(string unit) {int u=Array.IndexOf(Units,unit);if(u<0)return 0;long n=0;for(int d=1;d<=TreatmentDays;d++)n+=I(PatientKey(u,d));return Bounded(n);}
     public static int RecoveredFor(string unit) {int u=Array.IndexOf(Units,unit);return u<0?0:I(ReturnedKey(u));}
-    public static string TreatmentSummary => Total==0?"The infirmary has no wounded soldiers. Monks stand ready to receive casualties.":
+    public static string TreatmentSummary => Total==0?"The infirmary has no wounded patients. Monks assigned here stand ready to receive casualties.":
         "Recovery takes 15 treatment days. "+
         (Capacity<Total? (Total-Capacity).ToString("N0")+" patients must wait each day: there are too few monks. ":"")+
         (I("iProvisions")<DailyProvisionNeed?"Supplies are insufficient for a full day of treatment. ":"")+
@@ -35,7 +36,7 @@ public static class MedicalRecovery
 
     public static void ResetForRestore()
     {
-        for(int u=0;u<4;u++){Put(ReturnedKey(u),0);for(int d=1;d<=TreatmentDays;d++)Put(PatientKey(u,d),0);}
+        for(int u=0;u<Units.Length;u++){Put(ReturnedKey(u),0);for(int d=1;d<=TreatmentDays;d++)Put(PatientKey(u,d),0);}
         foreach(string k in new[]{"LastDay","ReportDay","LastTreated","LastReturned","LastCost","LastWaiting"})Put("iMedical"+k,0);
     }
 
@@ -43,10 +44,10 @@ public static class MedicalRecovery
     // small mixed groups. No additional gameplay RNG is consumed by medical accounting.
     static int[] Allocate(int target,int[] counts)
     {
-        var result=new int[4];long total=0;foreach(int n in counts)total+=n;if(target<=0||total==0)return result;
-        var remainder=new long[4];int assigned=0;
-        for(int u=0;u<4;u++){long share=(long)target*counts[u];result[u]=(int)(share/total);remainder[u]=share%total;assigned+=result[u];}
-        while(assigned<target){int best=-1;for(int u=0;u<4;u++)if(result[u]<counts[u]&&(best<0||remainder[u]>remainder[best]))best=u;if(best<0)break;result[best]++;remainder[best]=-1;assigned++;}
+        var result=new int[counts.Length];long total=0;foreach(int n in counts)total+=n;if(target<=0||total==0)return result;
+        var remainder=new long[counts.Length];int assigned=0;
+        for(int u=0;u<counts.Length;u++){long share=(long)target*counts[u];result[u]=(int)(share/total);remainder[u]=share%total;assigned+=result[u];}
+        while(assigned<target){int best=-1;for(int u=0;u<counts.Length;u++)if(result[u]<counts[u]&&(best<0||remainder[u]>remainder[best]))best=u;if(best<0)break;result[best]++;remainder[best]=-1;assigned++;}
         return result;
     }
 
@@ -70,6 +71,17 @@ public static class MedicalRecovery
             (FreePlaces==0?"No free medical places. ":"No recoverable wounded were brought back. ")+total.ToString("N0")+" permanent losses; no wounded admitted.";
     }
 
+    // The repair task has already removed this engineer from available duty.
+    // A wounded survivor waits if all beds are occupied; no patient is evicted,
+    // and no treatment happens without an infirmary monk and provisions.
+    public static void AdmitWoundedEngineers(int count)
+    {
+        if(count<=0)return;
+        int u=Array.IndexOf(Units,"iEngineers");
+        Put(PatientKey(u,TreatmentDays),Bounded((long)I(PatientKey(u,TreatmentDays))+count));
+        if(I("iMedicalLastDay")==0)Put("iMedicalLastDay",Day);
+    }
+
     public static string Advance(DateTime date)
     {
         int target=TrainingPool.Day(date),last=I("iMedicalLastDay");
@@ -81,9 +93,9 @@ public static class MedicalRecovery
             int treated=0,todayReturned=0;
             // Ascending remaining days means moved patients cannot be processed twice.
             for(int d=1;d<=TreatmentDays&&treated<limit;d++){
-                var group=new int[4];long groupTotal=0;for(int u=0;u<4;u++){group[u]=I(PatientKey(u,d));groupTotal+=group[u];}
+                var group=new int[Units.Length];long groupTotal=0;for(int u=0;u<Units.Length;u++){group[u]=I(PatientKey(u,d));groupTotal+=group[u];}
                 var chosen=Allocate(Math.Min(limit-treated,Bounded(groupTotal)),group);
-                for(int u=0;u<4;u++){
+                for(int u=0;u<Units.Length;u++){
                     int n=chosen[u];if(n==0)continue;Put(PatientKey(u,d),group[u]-n);treated+=n;
                     if(d>1)Put(PatientKey(u,d-1),Bounded((long)I(PatientKey(u,d-1))+n));
                     else{VariableSingleton.ChangeInt(Units[u],n);Put(ReturnedKey(u),Bounded((long)RecoveredFor(Units[u])+n));todayReturned+=n;}
@@ -96,7 +108,7 @@ public static class MedicalRecovery
         }
         Put("iMedicalLastDay",target);
         if(!hadPatients)return "";
-        return "Infirmary: "+(returned>0?returned.ToString("N0")+" recovered soldiers return to their units. ":"")+
+        return "Infirmary: "+(returned>0?returned.ToString("N0")+" recovered patients return to duty. ":"")+
             cost.ToString("N0")+" provisions used for treatment; "+Total.ToString("N0")+" remain wounded."+
             (I("iMedicalLastWaiting")>0?" Treatment paused for "+I("iMedicalLastWaiting").ToString("N0")+" patients: insufficient monks or provisions.":"")+"\n\n";
     }

@@ -75,9 +75,12 @@ public static class ProvinceCampaign {
    foreach(string id in losses)s.Append(Resolve(id,false,day));foreach(string id in wins)s.Append(Resolve(id,true,day));s.Append(StartRebellions());Set("LastDay",day);
   }return s.Length>0?"\n\nWar Beyond the Walls"+s+"\n":"";
  }
- public static string TakeDeliveryReport(){if(Get("DeliveryReport")==0)return "";Set("DeliveryReport",0);return "\nOttoman provincial deliveries: "+Get("DeliveryFood")+" food-days, "+Get("DeliveryMen")+" troops, "+Get("DeliveryGuns")+" cannons and "+Get("DeliveryAmmo")+" ammunition stocks.\n";}
- public static string SupplyDay(){Ensure();int day=VariableSingleton.CompletedSiegeDays;if(Get("FoodTick")>=day)return "";Set("FoodTick",day);int food=0,men=0,guns=0,ammo=0;
-  for(int i=0;i<WarTheatre.ProvinceIds.Length;i++)for(int w=0;w<5;w++){string k=i+"_"+w,id=WarTheatre.ProvinceIds[i];if(Get("Done"+k)>0||Get("Due"+k)>day)continue;Set("Done"+k,1);if(Rebellion(id)||Free(id))continue;food+=Get("Food"+k);
+ public static string TakeDeliveryReport(){string intervention=WarInterventions.TakeReport();if(Get("DeliveryReport")==0)return intervention;Set("DeliveryReport",0);return "\nOttoman provincial deliveries: "+Get("DeliveryFood")+" food-days, "+Get("DeliveryMen")+" troops, "+Get("DeliveryGuns")+" cannons and "+Get("DeliveryAmmo")+" ammunition stocks.\n"+intervention;}
+ public static string SupplyDay(){if(!VariableSingleton.HasSiegeStarted())return "";Ensure();int day=VariableSingleton.CompletedSiegeDays;if(Get("FoodTick")>=day)return "";Set("FoodTick",day);int food=0,men=0,guns=0,ammo=0;
+  for(int i=0;i<WarTheatre.ProvinceIds.Length;i++)for(int w=0;w<5;w++){string k=i+"_"+w,id=WarTheatre.ProvinceIds[i];if(Get("Done"+k)>0||Get("Due"+k)>day)continue;
+   if(Rebellion(id)||Free(id)){Set("Done"+k,1);continue;}
+   if(WarInterventions.TryDelayShipment(i,w,day))continue;
+   Set("Done"+k,1);food+=Get("Food"+k);
    // Each of 55 parcels owns an exact portion of the finite reserve, including remainders.
    int parcel=i*5+w;for(int t=0;t<3;t++){int total=Get("Reserve"+t),n=total/55+(parcel<total%55?1:0);VariableSingleton.ChangeInt(Troops[t],n);men+=n;}
    if(i==0||i==3){guns++;ammo+=12;}

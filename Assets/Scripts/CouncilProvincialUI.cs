@@ -8,8 +8,7 @@ public partial class CouncilUI
     {
         BodyHeight(top+90);
         var row=SpyPanel("Beyond the siege lines",top,78);
-        CampaignHUD.MakeButton(row.transform,"War Beyond the Walls",new Vector2(.02f,.12f),new Vector2(.65f,.88f),WarTheatreUI.Show);
-        CampaignHUD.MakeButton(row.transform,"Specialists",new Vector2(.67f,.12f),new Vector2(.98f,.88f),Specialists);
+        CampaignHUD.MakeButton(row.transform,"War Beyond the Walls",new Vector2(.02f,.12f),new Vector2(.98f,.88f),WarTheatreUI.Show);
     }
     string provincialSelection="macedonia";
     public void ProvincialOperationsFor(string province){provincialSelection=province;ProvincialOperations();}
@@ -36,11 +35,5 @@ public partial class CouncilUI
     {
         if(reason==null)return;button.interactable=false;button.GetComponentInChildren<TMP_Text>().text=reason;
     }
-    public void Specialists()
-    {
-        Open("Specialists","Your people have different duties. An agent sent abroad cannot also work in the Ottoman camp.");BodyHeight(620);
-        string[] names={"Engineers","Monks","Agents","Envoys"};
-        string[] detail={CouncilActions.Int("iEngineers")+" available.\nEngineers support construction and specialised assignments.",MedicalRecovery.Monks+" monks · "+MedicalRecovery.Total+" wounded in care.\n"+MedicalRecovery.FreePlaces+" free care places · 15 treatment days to return.",CouncilActions.Int("iSpies")+" in the Ottoman camp · "+ProvinceCampaign.Assigned+" assigned abroad.\n"+"Agents develop separate local networks in each province.","Resident-envoy assignments are not available yet.\nOrdinary diplomatic appeals remain available through messengers."};
-        for(int i=0;i<4;i++){var row=SpyPanel(names[i],i*145,133);CampaignHUD.Label(row.transform,names[i],new Vector2(.03f,.68f),new Vector2(.97f,.98f),26);CampaignHUD.Explanation(row.transform,detail[i],new Vector2(.03f,.08f),new Vector2(i==1?.70f:.97f,.66f),22);if(i==1)CampaignHUD.MakeButton(row.transform,"Infirmary",new Vector2(.73f,.12f),new Vector2(.97f,.66f),Infirmary);}
-    }
+    public void Specialists()=>SpecialistRoster();
 }

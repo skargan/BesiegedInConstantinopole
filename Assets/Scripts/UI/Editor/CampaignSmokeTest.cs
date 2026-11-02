@@ -440,7 +440,7 @@ public class CampaignSmokeProbe : MonoBehaviour
         SceneManager.LoadScene("Continue Game");
         yield return Frames(10);
         Check(!VariableSingleton.Instance.EnduringWall.CityLost && VariableSingleton.Turn == 0, "Restart resets campaign");
-        Check(CouncilActions.Allies.Length==17,"All seventeen diplomatic powers present");
+        Check(CouncilActions.Allies.Length==25&&CountryDiplomacy.Definitions.Length==25,"All twenty-five diplomatic powers present");
         Check(!SultanNegotiations.Available(1),"Literary conversations locked before siege");
         VariableSingleton.Instance.overrideTurn=VariableSingleton.EffectiveSiegeTurn;VariableSingleton.IncrementTurn();
         string talk;int dayTurn=VariableSingleton.Turn;int gold=CouncilActions.Int("iMoney");

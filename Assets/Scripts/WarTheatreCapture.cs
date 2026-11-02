@@ -61,7 +61,7 @@ public sealed class WarTheatreCapture : MonoBehaviour
         Check(CouncilActions.Int("iAidState17")==1&&CouncilActions.Int("iAidDays17")==35,"Pending Aq appeal survives save round trip");
         int gold=CouncilActions.Int("iMoney"),food=CouncilActions.Int("iProvisions");
         string arrival=CouncilActions.AdvanceAid(35);
-        Check(CouncilActions.Int("iAidState17")==2&&CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300&&arrival.Contains("Turkmen Confederations"),"Aq promised supplies arrive on time");
+        Check(CouncilActions.Int("iAidState17")==2&&CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300&&arrival.Contains("Aq Qoyunlu"),"Aq promised supplies arrive on time");
         CouncilActions.AdvanceAid(1);
         Check(CouncilActions.Int("iMoney")==gold+3000&&CouncilActions.Int("iProvisions")==food+300,"Aq aid cannot be delivered twice");
         VariableSingleton.Instance.RestoreValidated(baseline);
@@ -127,7 +127,7 @@ public sealed class WarTheatreCapture : MonoBehaviour
             WarTheatreUI.Show();yield return null;groups=Groups();
             var aq=groups["aq_qoyunlu"][0];Click(aq);Button("Diplomatic relations");yield return null;
             Check(Map()==null,suffix+" map closes into diplomacy");
-            var council=GameObject.Find("Council screen");Check(council!=null&&Text(council).Contains("Turkmen Confederations"),suffix+" Aq profile opens directly");
+            var council=GameObject.Find("Council screen");Check(council!=null&&Text(council).Contains("Aq Qoyunlu"),suffix+" Aq profile opens directly");
             yield return Capture("aq-diplomacy-"+suffix);
             council.GetComponentsInChildren<Button>().First(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="The realm and its interests")).onClick.Invoke();yield return null;
             council=GameObject.Find("Council screen");

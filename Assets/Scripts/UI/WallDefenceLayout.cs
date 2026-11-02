@@ -76,18 +76,44 @@ public static class WallDefenceLayout
         var oldCostCells=options.transform.Find("Repair Cost");
         if(oldCostCells!=null)oldCostCells.gameObject.SetActive(false);
         foreach(var image in options.GetComponentsInChildren<Image>(true))
-            if(image.GetComponent<Button>()==null){image.sprite=null;image.color=Color.clear;}
+            if(image.GetComponent<Button>()==null && image.GetComponentInParent<Slider>(true)==null){image.sprite=null;image.color=Color.clear;}
         var border=options.transform.Find("Imperial goldwork");if(border!=null)border.gameObject.SetActive(false);
-        Place(title.transform,.025f,.79f,.975f,.99f);
+        Place(title.transform,.025f,.85f,.975f,.99f);
         title.font=ImperialTheme.Font;title.color=ImperialTheme.Ivory;title.enableAutoSizing=true;title.fontSizeMin=17;title.fontSizeMax=25;title.alignment=TextAlignmentOptions.Center;
-        Place(cost.transform,.03f,.35f,.97f,.78f);
-        cost.font=ImperialTheme.Font;cost.color=ImperialTheme.Ivory;cost.enableAutoSizing=true;cost.fontSizeMin=16;cost.fontSizeMax=21;cost.alignment=TextAlignmentOptions.Center;
-        Place(repair.transform,.02f,.025f,.55f,.29f);Place(abandon.transform,.59f,.025f,.98f,.29f);
+        Place(cost.transform,.03f,.225f,.97f,.585f);
+        cost.font=ImperialTheme.Font;cost.color=ImperialTheme.Ivory;cost.enableAutoSizing=true;cost.fontSizeMin=14;cost.fontSizeMax=19;cost.alignment=TextAlignmentOptions.Center;
+        Place(repair.transform,.02f,.025f,.55f,.205f);Place(abandon.transform,.59f,.025f,.98f,.205f);
         repair.GetComponentInChildren<TMP_Text>(true).text="Repair";
         abandon.GetComponentInChildren<TMP_Text>(true).text="Abandon wall";
         ImperialTheme.Button(repair);ImperialTheme.Button(abandon);
         TurnActionButton.Mark(repair);TurnActionButton.Mark(abandon);
         foreach(var button in new[]{repair,abandon})foreach(var text in button.GetComponentsInChildren<TMP_Text>(true)){text.enableAutoSizing=true;text.fontSizeMin=16;text.fontSizeMax=22;}
+    }
+
+    public static Slider EngineerSlider(Transform parent, out TMP_Text caption, UnityEngine.Events.UnityAction<float> changed)
+    {
+        caption=CampaignHUD.Label(parent,"Engineers",new Vector2(.025f,.735f),new Vector2(.975f,.835f),20);
+        caption.name="Engineer assignment caption";
+        caption.alignment=TextAlignmentOptions.Center;caption.enableAutoSizing=true;caption.fontSizeMin=14;caption.fontSizeMax=20;caption.raycastTarget=false;
+        var root=new GameObject("Engineer assignment",typeof(RectTransform),typeof(Image),typeof(Slider));root.transform.SetParent(parent,false);
+        Place(root.transform,.045f,.605f,.955f,.725f);
+        root.GetComponent<Image>().color=Color.clear; // broad click/drag target around a slim track
+        var track=CampaignHUD.Panel(root.transform,"Track",new Vector2(.015f,.39f),new Vector2(.985f,.61f));
+        track.GetComponent<Image>().color=ImperialTheme.Surface;track.GetComponent<Image>().raycastTarget=false;
+        var fillArea=new GameObject("Fill area",typeof(RectTransform));fillArea.transform.SetParent(root.transform,false);Place(fillArea.transform,.015f,.39f,.985f,.61f);
+        var fill=CampaignHUD.Panel(fillArea.transform,"Gold fill",Vector2.zero,Vector2.one);fill.GetComponent<Image>().color=ImperialTheme.Gold;fill.GetComponent<Image>().raycastTarget=false;
+        var handleArea=new GameObject("Handle area",typeof(RectTransform));handleArea.transform.SetParent(root.transform,false);Place(handleArea.transform,.015f,.5f,.985f,.5f);
+        var handle=CampaignHUD.Panel(handleArea.transform,"Gold seal",Vector2.zero,Vector2.zero);
+        var handleRect=handle.GetComponent<RectTransform>();handleRect.sizeDelta=new Vector2(15,15);handleRect.localRotation=Quaternion.Euler(0,0,45);
+        handle.GetComponent<Image>().color=ImperialTheme.Gold;handle.GetComponent<Image>().raycastTarget=false;
+        var centre=CampaignHUD.Panel(handle.transform,"Ivory inset",new Vector2(.30f,.30f),new Vector2(.70f,.70f));centre.GetComponent<Image>().color=ImperialTheme.Ivory;centre.GetComponent<Image>().raycastTarget=false;
+        var slider=root.GetComponent<Slider>();slider.wholeNumbers=true;slider.minValue=1;slider.maxValue=10;slider.fillRect=fill.GetComponent<RectTransform>();slider.handleRect=handleRect;slider.targetGraphic=handle.GetComponent<Image>();
+        slider.onValueChanged.AddListener(changed);StyleEngineerSlider(slider);return slider;
+    }
+
+    public static void StyleEngineerSlider(Slider slider)
+    {
+        var colours=slider.colors;colours.normalColor=ImperialTheme.Gold;colours.highlightedColor=ImperialTheme.Ivory;colours.pressedColor=Color.white;colours.selectedColor=ImperialTheme.Ivory;colours.disabledColor=new Color(.42f,.38f,.29f,.65f);slider.colors=colours;
     }
 
     static void Label(Transform parent,string text,float left,float bottom,float right,float top,float size)

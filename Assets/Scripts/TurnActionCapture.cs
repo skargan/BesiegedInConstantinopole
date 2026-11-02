@@ -76,6 +76,11 @@ public sealed class TurnActionCapture : MonoBehaviour
         if(!manager.gameObject.activeSelf)manager.gameObject.SetActive(true);
         CampaignHUD.Instance.DismissReport();ControlSingleton.Instance.ClearHistory();
     }
+    void PrepareWallFixture()
+    {
+        VariableSingleton.SetInt("iEngineers",30);
+        VariableSingleton.ChangePercentFloat("fOuterWall",.5f-VariableSingleton.GetFloatVariable("fOuterWall"));
+    }
     IEnumerator Start()
     {
         File.WriteAllText(Path.Combine(output,"checks.txt"),"RUNNING");
@@ -118,7 +123,7 @@ public sealed class TurnActionCapture : MonoBehaviour
             Restore();var restButton=manager.GetComponentsInChildren<Button>().First(b=>b.name=="ButtonToContinue");
             Canvas.ForceUpdateCanvases();Marked(restButton,true,suffix+" council rest");
             yield return Capture("council-rest-"+suffix);yield return Hover(restButton,"rest-"+suffix);
-            Restore();manager.BringUpSiegeUI();yield return null;
+            Restore();PrepareWallFixture();manager.BringUpSiegeUI();yield return null;
             walls=Field<GameObject>(manager,"siegeUI");var actions=walls.GetComponentInChildren<DefenseActions>(true);
             actions.GetSelection("fOuterWall");Canvas.ForceUpdateCanvases();
             var repair=Field<Button>(actions,"repairButton");var abandon=Field<Button>(actions,"abandonButton");
@@ -129,13 +134,21 @@ public sealed class TurnActionCapture : MonoBehaviour
             Check(Icon(repair).sprite==emblem&&repair.GetComponentsInChildren<TurnActionButton>(true).Length==1&&repair.GetComponentsInChildren<Image>().Count(i=>i.name=="Turn hourglass")==1,suffix+" repeated wall selection preserves one emblem");
             Check(labels.Select((t,i)=>(t.rectTransform.offsetMax-offsets[i]).sqrMagnitude<.01f).All(v=>v),suffix+" repeated wall selection preserves caption padding");
             string cost=Field<TMP_Text>(actions,"repairCostDisplay").text;
-            Check(cost.Contains(WallRepairRules.Labour.ToString("N0")+" gold")&&cost.Contains(WallRepairRules.Materials("fOuterWall")+" materials"),suffix+" repair labour and material costs visible");
+            var assignment=Field<Slider>(actions,"engineerSlider");
+            Check(assignment.fillRect.GetComponent<Image>().color.a>.9f&&assignment.handleRect.GetComponent<Image>().color.a>.9f&&assignment.fillRect.rect.width>1&&assignment.handleRect.rect.width>5,suffix+" slider remains visibly gold after repeated wall selection");
+            var preview=WallRepairRules.Preview("fOuterWall",Mathf.RoundToInt(assignment.value));
+            Check(cost.Contains(preview.Gold.ToString("N0")+" gold")&&cost.Contains(preview.Materials+" materials"),suffix+" assigned repair labour and material costs visible");
+            Check(assignment.wholeNumbers&&assignment.minValue==1&&assignment.maxValue==preview.MaximumEngineers&&walls.GetComponentsInChildren<Slider>().Count(s=>s.name=="Engineer assignment")==1,suffix+" one whole-engineer slider with current assignment limit");
+            string sliderState=State(),sliderRng=Rng();float previousAssignment=assignment.value;assignment.value=3;Canvas.ForceUpdateCanvases();
+            Check(Field<TMP_Text>(actions,"repairCostDisplay").text.Contains(WallRepairRules.Preview("fOuterWall",3).Gold.ToString("N0")+" gold")&&State()==sliderState&&Rng()==sliderRng,suffix+" dragging refreshes price without spending resources or randomness");
+            assignment.value=previousAssignment;Canvas.ForceUpdateCanvases();
+            Check(!Field<TMP_Text>(actions,"repairCostDisplay").isTextOverflowing&&!Field<TMP_Text>(actions,"engineerLabel").isTextOverflowing,suffix+" engineer preview fits the compact wall panel");
             NoActionProse(walls,suffix+" wall actions");yield return Capture("walls-"+suffix);yield return Hover(repair,"walls-"+suffix);
 
             Restore();council.Market();yield return null;
-            var market=ScreenRoot();var buys=market.GetComponentsInChildren<Button>().Where(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text.StartsWith("Buy\n"))).ToArray();
+            var market=ScreenRoot();var buys=market.GetComponentsInChildren<Button>().Where(b=>b.name.StartsWith("Market buy ")).ToArray();
             Check(buys.Length==3,suffix+" three resource purchases");foreach(var b in buys)Marked(b,false,suffix+" "+b.GetComponentInChildren<TMP_Text>().text.Replace("\n"," "));
-            Marked(FindButton(market,"Collect emergency tax"),true,suffix+" emergency tax");NoActionProse(market,suffix+" market");
+            Marked(market.GetComponentsInChildren<Button>().Single(b=>b.name=="Market emergency levy"),true,suffix+" emergency tax");NoActionProse(market,suffix+" market");
             yield return Capture("market-"+suffix);
             ScrollBottom(market);yield return Capture("market-tax-"+suffix);
 
@@ -146,7 +159,9 @@ public sealed class TurnActionCapture : MonoBehaviour
 
             Restore();council.DiplomaticPower(0);yield return null;
             var aid=ScreenRoot().GetComponentsInChildren<Button>().First(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text.StartsWith("Request aid")));
-            Marked(aid,true,suffix+" request aid");yield return Capture("aid-"+suffix);
+            Marked(aid,false,suffix+" review aid");aid.onClick.Invoke();yield return null;Canvas.ForceUpdateCanvases();
+            var aidConfirm=ScreenRoot().GetComponentsInChildren<Button>().Single(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text.StartsWith("Confirm · Request aid")));
+            Marked(aidConfirm,true,suffix+" confirm aid");yield return Capture("aid-"+suffix);
 
             council.FleetOrders();yield return null;
             var reviews=ScreenRoot().GetComponentsInChildren<Button>().Where(b=>b.GetComponentsInChildren<TMP_Text>().Any(t=>t.text.StartsWith("Review"))).ToArray();
@@ -163,7 +178,7 @@ public sealed class TurnActionCapture : MonoBehaviour
             Marked(FindButton(ScreenRoot(),"Confirm training"),true,suffix+" quality training confirmation");
         }
         // Invoke the same handler used by the serialized repair button: affordability is a rule guard.
-        Restore();manager.BringUpSiegeUI();yield return null;walls=Field<GameObject>(manager,"siegeUI");
+        Restore();PrepareWallFixture();manager.BringUpSiegeUI();yield return null;walls=Field<GameObject>(manager,"siegeUI");
         var defence=walls.GetComponentInChildren<DefenseActions>(true);defence.GetSelection("fOuterWall");
         VariableSingleton.SetInt("iMoney",0);defence.GetSelection("fOuterWall");
         string stateBefore=State(),rngBefore=Rng();var rest=Field<GameObject>(manager,"restPhaseUI");var probe=rest.AddComponent<TurnActionRestProbe>();
@@ -171,13 +186,16 @@ public sealed class TurnActionCapture : MonoBehaviour
         defence.RepairSelected();yield return null;
         Check(!rest.activeSelf&&probe.Enables==0&&stateBefore==State()&&rngBefore==Rng(),"Unaffordable repair cannot spend resources, RNG or advance phase");
         VariableSingleton.SetInt("iMoney",100000);defence.GetSelection("fOuterWall");
-        int gold=CouncilActions.Int("iMoney"),materials=CouncilActions.Int("iMaterials"),labour=WallRepairRules.Labour,costMaterials=WallRepairRules.Materials("fOuterWall"),turn=VariableSingleton.Turn;
+        var confirmed=WallRepairRules.Preview("fOuterWall",Mathf.RoundToInt(Field<Slider>(defence,"engineerSlider").value));
+        int gold=CouncilActions.Int("iMoney"),materials=CouncilActions.Int("iMaterials"),labour=confirmed.Gold,costMaterials=confirmed.Materials,turn=VariableSingleton.Turn;
         float integrity=VariableSingleton.GetFloatVariable("fOuterWall");
         Field<Button>(defence,"repairButton").onClick.Invoke();yield return null;yield return null;
         Check(CouncilActions.Int("iMoney")==gold-labour&&CouncilActions.Int("iMaterials")==materials-costMaterials,"Confirmed repair deducts exact displayed gold and materials once");
         float change=VariableSingleton.GetFloatVariable("fOuterWall")-integrity;
-        Check(change>=.0799f&&change<=.1101f,"Confirmed repair restores configured integrity range");
+        Check(change>=confirmed.MinimumRestored/100f-.0001f&&change<=confirmed.MaximumRestored/100f+.0001f,"Confirmed repair restores the displayed engineer-based integrity range");
         Check(rest.activeSelf&&!walls.activeSelf&&!manager.gameObject.activeSelf&&probe.Enables==1&&VariableSingleton.Turn==turn,"Confirmed repair reaches RestUI once without prematurely advancing calendar");
+        string committed=State(),committedRng=Rng();defence.RepairSelected();yield return null;
+        Check(State()==committed&&Rng()==committedRng&&probe.Enables==1,"Duplicate repair callback cannot debit or complete the action twice");
         Marked(FindButton(rest,"Hear the next petition"),false,"Report acknowledgement");
         yield return Capture("completed-repair");
     }

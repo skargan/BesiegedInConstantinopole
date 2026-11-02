@@ -24,7 +24,7 @@ public static class DefencePosture {
   }
   if(!OttomanDirector.Active&&due==0&&day>=Mathf.Max(4,DailyLifeEvents.I("iSeaNextWindow"))&&(!NavalState.Uncontested||HornOpen)){VariableSingleton.SetInt("iSeaRaidDue",day+1);return "COASTAL WARNING: Ottoman landing boats gather for siege day "+(day+1)+". Review the sea-wall garrison. Land assaults may happen on the same day.\n\n";}return "";
  }
- public static int RepairMaterials=>Mathf.CeilToInt(40*TechnologySystem.RepairMultiplier);
+ public static int RepairMaterials=>Mathf.CeilToInt(40*TechnologySystem.SeaRepairMultiplier);
  public static bool Repair(out string report){report="Requires 500 gold, "+RepairMaterials+" materials and damaged sea walls.";if(Integrity>=100||CouncilActions.Int("iMoney")<500||CouncilActions.Int("iMaterials")<RepairMaterials)return false;VariableSingleton.ChangeInt("iMoney",-500);VariableSingleton.ChangeInt("iMaterials",-RepairMaterials);VariableSingleton.SetInt("iSeaIntegrity",Mathf.Min(100,Integrity+20));VariableSingleton.SetInt("iAchievementWallRepaired",1);report="Sea-wall repairs: integrity +20 points, now "+Integrity+"%. Gold −500; materials −"+RepairMaterials+".";return true;}
  public static void Show(ManagerUI manager,Action after){
   var panel=CampaignHUD.Panel(manager.transform.parent,"Defence dispositions",new Vector2(.035f,.04f),new Vector2(.965f,.865f));ImperialTheme.Panel(panel);panel.transform.SetAsLastSibling();

@@ -124,7 +124,7 @@ public static class PreparationCampaign
         VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. No preparation bonus is renewed.";return true;
     }
     [YarnCommand("PrepFleet")] public static void PrepareFleet(int mission){if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))throw new InvalidOperationException("Fleet mission unavailable");VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",1);}
-    [YarnCommand("FleetRetreat")] public static void Retreat(){int sailed=I("iShips"),survived=(sailed+1)/2;VariableSingleton.SetInt("iShips",survived);Add("iDamagedShips",(sailed-survived)/2);VariableSingleton.SetInt("iFleet",3);VariableSingleton.SetInt("iFleetPrepared",0);}
+    [YarnCommand("FleetRetreat")] public static void Retreat(){int sailed=Mathf.Max(0,I("iShips")),survived=(sailed+1)/2,damaged=(sailed-survived)/2;NavalState.SinkShips(sailed-survived-damaged);VariableSingleton.SetInt("iShips",survived);Add("iDamagedShips",damaged);VariableSingleton.SetInt("iFleet",3);VariableSingleton.SetInt("iFleetPrepared",0);}
     [YarnCommand("PrepGrain")] public static void Grain(int route)
     {
         int[] costs={4000,6000,3000},cargo={3000,5000,2500},days={30,45,21};if(route<0||route>2||I("iMoney")<costs[route]||(route==1&&!B("bStraitsOpen"))||(route==2&&GalataState==3))throw new InvalidOperationException("Grain mission unavailable");
@@ -157,7 +157,7 @@ public static class PreparationCampaign
         bool raid=(mission==0||mission==1)&&I("iNavalBase")>0;
         if(pilots)bonus+=.25f;if(raid)bonus+=.5f;
         if(consume){VariableSingleton.SetInt("iFleetPrepared",0);if(I("iNavalStores")>0)Add("iNavalStores",-1);if(pilots)Add("iNavalPilots",-1);if(raid&&UnityEngine.Random.Range(0,100)<20)VariableSingleton.SetInt("iNavalBase",0);
-            if(I("iNavalRepair")>0&&I("iDamagedShips")>0){int ships=Mathf.Min(2,I("iDamagedShips"));Add("iShips",ships);Add("iDamagedShips",-ships);Add("iNavalRepair",-1);}}
+            if(I("iNavalRepair")>0&&SpecialistPersonnel.AvailableDamagedShips>0){int ships=Mathf.Min(2,SpecialistPersonnel.AvailableDamagedShips);Add("iShips",ships);Add("iDamagedShips",-ships);Add("iNavalRepair",-1);}}
         return 1+bonus;
     }
     public static string GalataActionUnavailable(int action) {

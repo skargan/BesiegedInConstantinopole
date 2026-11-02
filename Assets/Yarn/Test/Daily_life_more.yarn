@@ -147,14 +147,11 @@ title: lifeLights
 
 title: lifeGunnerResult
 ---
-<<SetInt iLifeMentorDue 0>>
-<<Change iEngineers 1>>
+<<LifeMentorComplete>>
 <b>The Gunner's Examination</b>: <br> The engineer returns from his five days of instruction and presents his pupil for examination.
 <<if LifeInt("iLifeMentorSuccess") == 1>>
-<<Change iEngineers 1>>
 The apprentice measures the charge, checks the barrel and explains every precaution. His mentor nods. Both enter your available engineer roster: the returning instructor and one newly qualified man.
 <<else>>
-<<Change iInfantry 1>>
 The apprentice has learned enough to understand why he should remain an infantryman. The engineer returns to duty; the soldier rejoins his company, considerably less certain that gunnery is easy.
 <<endif>>
 -> Thank the instructor and return them to duty.

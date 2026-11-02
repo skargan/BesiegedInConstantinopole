@@ -88,6 +88,14 @@ public class ManagerUI : UIWindowFam
             var help=CampaignHUD.MakeButton(recruitmentPanel,"Lethality & unit roles",new Vector2(.02f,.93f),new Vector2(.54f,.995f),()=>CampaignHUD.Instance.ShowReport("Quality and unit roles",MilitaryExplanation,()=>CampaignHUD.Instance.DismissReport()));
             help.name="Quality and roles";
         }
+        if(recruitmentPanel.Find("Specialist recruitment")==null)
+        {
+            // Use the space vacated by the retired Conscription row, below all six units.
+            var link=CampaignHUD.MakeButton(recruitmentPanel,"Specialists · engineers, monks, agents and envoys",new Vector2(.02f,.065f),new Vector2(.98f,.14f),()=>{troopsUI.SetActive(false);CouncilUI.For(this).Specialists();});
+            link.name="Specialist recruitment";
+            link.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().ignoreLayout=true;
+            ImperialTheme.Button(link);
+        }
         ControlSingleton.Instance.LogToEsc(this.gameObject, troopsUI);
     }
 

@@ -4,18 +4,22 @@ using UnityEngine.UI;
 
 public partial class CouncilUI
 {
+    Transform medicalCanvas;
     public void Infirmary() => InfirmaryPage("");
 
     private void InfirmaryPage(string message)
     {
-        const string title="The infirmary";
+        const string title="Infirmary and Monasteries";
         Open(title,"Hold the position and monks can rescue up to half its casualties, if places are free. Recovery takes fifteen treatment days.");
         ControlSingleton.Instance.ReturnAction=Training;
 
-        // A single page gives the strength of the service and the cost of its work.
-        var scroll=body.parent.GetComponent<ScrollRect>();
-        if(scroll.verticalScrollbar!=null)scroll.verticalScrollbar.gameObject.SetActive(false);
-        body.parent.gameObject.SetActive(false);
+        // Preserve the infirmary arrangement, then continue down to shared allocation.
+        BodyHeight(1260);
+        var sheet=CampaignHUD.Panel(body,"Infirmary service",Vector2.zero,Vector2.one);
+        var sheetRect=sheet.GetComponent<RectTransform>();
+        sheetRect.anchorMin=new Vector2(0,1);sheetRect.anchorMax=Vector2.one;sheetRect.pivot=new Vector2(.5f,1);
+        sheetRect.anchoredPosition=Vector2.zero;sheetRect.sizeDelta=new Vector2(0,590);
+        sheet.GetComponent<Image>().color=Color.clear;medicalCanvas=sheet.transform;
         foreach(var label in screen.GetComponentsInChildren<TMP_Text>())
             if(label.transform.parent==screen.transform && label!=notice && label.text!="Return") {
                 label.alignment=TextAlignmentOptions.Center;
@@ -26,7 +30,7 @@ public partial class CouncilUI
         notice.text=message;
         notice.enableAutoSizing=true;notice.fontSizeMin=18;notice.fontSizeMax=21;
 
-        MedicalMetric(.035f,.335f,"MONKS",MedicalRecovery.Monks.ToString("N0"),"One care place per monk");
+        MedicalMetric(.035f,.335f,"MONKS IN THE INFIRMARY",MonasticResearch.InfirmaryMonks.ToString("N0"),"Of "+MedicalRecovery.Monks+" monks · one care place each");
         MedicalMetric(.350f,.650f,"WOUNDED IN CARE",MedicalRecovery.Total.ToString("N0"),MedicalRecovery.FreePlaces.ToString("N0")+" free of "+MedicalRecovery.Capacity.ToString("N0")+" places");
         MedicalMetric(.665f,.965f,"TREATMENT PROVISIONS",MedicalRecovery.DailyProvisionNeed.ToString("N0")+" / day","1 provision per 5 patients treated");
 
@@ -34,10 +38,10 @@ public partial class CouncilUI
         MedicalText(patients.transform,"UNIT",new Vector2(.045f,.81f),new Vector2(.49f,.96f),22);
         MedicalText(patients.transform,"IN CARE",new Vector2(.50f,.81f),new Vector2(.72f,.96f),22,TextAlignmentOptions.Right);
         MedicalText(patients.transform,"RETURNED",new Vector2(.74f,.81f),new Vector2(.955f,.96f),22,TextAlignmentOptions.Right);
-        string[] units={"iInfantry","iArchers","iCavalry","iVarangians"};
-        string[] names={"Infantry","Archers","Cavalry","Varangian Guard"};
+        string[] units=MedicalRecovery.Units;
+        string[] names={"Infantry","Archers","Cavalry","Varangian Guard","Engineers"};
         for(int i=0;i<units.Length;i++) {
-            float top=.80f-i*.15f;
+            float top=.80f-i*.12f;
             MedicalText(patients.transform,names[i],new Vector2(.045f,top-.14f),new Vector2(.49f,top),25);
             var wounded=MedicalText(patients.transform,MedicalRecovery.CountFor(units[i]).ToString("N0"),new Vector2(.50f,top-.14f),new Vector2(.72f,top),27,TextAlignmentOptions.Right);
             wounded.color=ImperialTheme.Ivory;
@@ -68,11 +72,13 @@ public partial class CouncilUI
             else {submitted=false;notice.text=result;}
         });
         recruit.name="Recruit five monks";recruit.interactable=affordable;ImperialTheme.Button(recruit);
+        MonasticResearchPanel();
     }
 
     private GameObject MedicalCard(string name,Vector2 min,Vector2 max)
     {
-        var panel=CampaignHUD.Panel(screen.transform,name,min,max);
+        min.y=(min.y-.115f)/.69f;max.y=(max.y-.115f)/.69f;
+        var panel=CampaignHUD.Panel(medicalCanvas,name,min,max);
         ImperialTheme.Panel(panel,false);
         return panel;
     }

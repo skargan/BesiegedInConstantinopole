@@ -32,7 +32,7 @@ public static class TechnologySystem
 
         new Technology("CounterCannons","Counter-battery artillery",3,"Unlock counter-battery fire: spend 3 ammunition to destroy 1–5 Ottoman cannons.","Gunners mark the enemy batteries on their charts. Powder is measured, ranges called and the first counter-battery crews take their stations."),
 
-        new Technology("RomanConcrete","Repair mortar and masonry",3,"Wall repair materials −25% (rounded up).","Lime kilns burn through the night. Masons prepare fresh mortar while labourers sort stone for the breaches."),
+        new Technology("RomanConcrete","Advanced Masonry",3,"Assign up to 20 engineers to a land-wall repair instead of 10. Sea-wall repairs retain their separate 25% material saving.","Lime kilns burn through the night. Foremen divide the breach into work faces, allowing twice as many engineers to direct the masons at once."),
 
         new Technology("RomanTraining","Roman Tactics",3,"Infantry trained lethality +25%.","Veterans take charge of the drill yards. By evening, recruits hold formation through the press of shields and the noise of shouted orders."),
 
@@ -66,8 +66,6 @@ public static class TechnologySystem
 
         if(index<0 || index>=All.Length) return false;
 
-        if(index==2) {report="This workshop is unavailable.";return false;}
-
         var item=All[index];
 
         if(VariableSingleton.GetBoolVariable(item.Key)) {report="Already active; no secrets spent.";return false;}
@@ -78,7 +76,7 @@ public static class TechnologySystem
 
         VariableSingleton.ChangeBool(item.Key,true);
 
-        report=item.Name+" adopted.\n\n"+item.History+"\n\n"+item.Effect+"\n\nSecrets spent: "+item.Cost+". Remaining: "+VariableSingleton.GetIntVariable("iSecrets")+".";
+        report=item.Name+" researched.\n\n"+item.History+"\n\n"+item.Effect+"\n\nSecrets spent: "+item.Cost+". Remaining: "+VariableSingleton.GetIntVariable("iSecrets")+".";
 
         return true;
 
@@ -96,7 +94,9 @@ public static class TechnologySystem
     }
 
 
-    public static float RepairMultiplier => Has("RomanConcrete")?.75f:1f;
+    public static int WallRepairEngineerCap => Has("RomanConcrete") ? 20 : 10;
+    // The sea-wall action retains its existing price/output in this land-wall revision.
+    public static float SeaRepairMultiplier => Has("RomanConcrete") ? .75f : 1f;
 
     public static int FleetDefence => VariableSingleton.GetIntVariable("iFleet")==3 ? VariableSingleton.GetIntVariable("iShips")*(Has("ArtilleryShips")?2:1):0;
 

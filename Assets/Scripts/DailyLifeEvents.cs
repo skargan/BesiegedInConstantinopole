@@ -20,7 +20,8 @@ public static class DailyLifeEvents
     [YarnFunction("LifeCanSurprise")] public static bool CanSurprise()=>I("iEnemyDelay")==0&&I("iBazouks")>0;
     [YarnCommand("LifeSurprise")] public static void Surprise()=>VariableSingleton.SetInt("iLifeSurprise",1);
     // Only The Apprentice Gunner event uses this five-day assignment; it is not a general training system.
-    [YarnCommand("LifeMentor")] public static void Mentor(){if(I("iLifeMentorDue")>0||I("iEngineers")<1||I("iInfantry")<1)return;VariableSingleton.ChangeInt("iEngineers",-1);VariableSingleton.ChangeInt("iInfantry",-1);VariableSingleton.SetInt("iLifeMentorDue",Day+5);VariableSingleton.SetInt("iLifeMentorSuccess",Random.Range(0,100)<80?1:0);}
+    [YarnCommand("LifeMentor")] public static void Mentor(){if(!SpecialistPersonnel.BeginMentoring())return;VariableSingleton.SetInt("iLifeMentorDue",Day+5);VariableSingleton.SetInt("iLifeMentorSuccess",Random.Range(0,100)<80?1:0);}
+    [YarnCommand("LifeMentorComplete")] public static void CompleteMentor()=>SpecialistPersonnel.CompleteMentoring();
     [YarnCommand("LifeRepair")] public static void Repair()=>VariableSingleton.ChangePercentFloat("f"+VariableSingleton.Instance.EnduringWall.GetCodeName(),.01f);
 }
 public static class PopulationAccounting

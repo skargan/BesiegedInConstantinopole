@@ -1,0 +1,61 @@
+MECHANICS REVIEW QUEUE — NOT SILENTLY IMPLEMENTED
+
+Priority | Finding | Current behaviour | Suggested next decision
+
+1 | Preparation research can exhaust the technology catalogue.
+The current starting roster has 100 monks. At the approved 1 progress/monk/day and
+100 progress/Secret, assigning all 100 generates 1 Secret/day. Fourteen technologies
+cost 33 Secrets in total. Even 10 new monks (2,000 gold) produce 33 Secrets in 330 research
+days, within preparation. By comparison, camp intelligence costs 1,000 gold for a
+risky immediate 0–2 Secrets. Research also produces Secrets spendable on espionage.
+Keep approved rates for this playtest. Ask the balance agent to test research-first
+campaigns. Prefer adjusting one clear research rate or preparation opportunity
+cost after evidence, rather than adding another currency or hidden diminishing
+returns. No costs, technology prices or spy rewards were changed in this patch.
+
+2 | Ship repairs need a dependable source of damaged hulls.
+The active defeated-fleet event creates survivors and sunk ships. The existing
+retreat helper can create damaged ships, but currently has no active Yarn caller.
+Repair queues now work, but damage generation deserves an explicit rule. Proposed:
+divide non-returning hulls into damaged recoverable hulls and actual sinkings,
+with the ratio informed by mission and battle result. Not implemented here.
+
+3 | Automatic repair yards overlap with paid repairs.
+Queued hulls are protected from duplicate repair. The older preparation benefit
+still repairs otherwise unreserved hulls automatically. Review whether it should
+instead shorten paid repairs or waive a limited number of commissions. Preserve
+the player's existing preparation reward until that replacement is approved.
+
+4 | Crusade prose and timing disagree.
+Aggregate crusading volunteer choices describe arrivals over months but grant
+their large packages immediately. Named state packages now share canonical aid
+state; broad crusade volunteers remain separate. Future work should schedule
+those arrivals in dated waves, then check total troops and food against pacing.
+
+5 | Morean resources are not yet finite across dynastic and ordinary aid.
+Some story choices recall the whole garrison/every able-bodied man, while the
+small new Morean country package can later be renewed. Reconcile this through the
+brothers' cooperation story and remembered commitments. Do not add another
+resource meter unless it earns its interface space.
+
+6 | Foreign treaty consequences need enacted choices to attach to.
+Saved once-only relationship APIs exist, but trade privileges, dynastic marriage,
+honoured/broken signed agreements and foreign merchant confiscation need concrete
+authored events. Do not treat domestic disputes as foreign treaty breaches.
+Galata remains a local political relationship. Its seizure should eventually
+apply an explicit, visible Genoa penalty and Venice benefit, with approved values.
+
+7 | Specialist recruitment is deliberately asymmetric.
+Engineer/envoy/monk recruitment is a timed paid commission. Recruiting a camp
+agent remains the existing risky intelligence major action and can raise camp
+alert. This is now visible before confirmation. Consider a later distinction
+between recruiting a home-trained agent and buying an enemy-camp contact.
+
+8 | Off-map diplomacy is not absent diplomacy.
+Crimea/Mamluks now have country panels and modest aid. They have no generic war
+button or invented negotiated intervention chain. Ragusa, Ionian lordships and
+Theodoro remain planned additions. The map's Turkmen umbrella colour still routes
+the current embassy specifically to AqQoyunlu, not a fictional united government.
+
+Retained assumption pending preference:50 gold per repair engineer is the base
+price; Notaras's existing 5%/15% labour discount remains applicable.

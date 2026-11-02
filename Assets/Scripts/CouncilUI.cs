@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.10 · Market and illustrations";
+    public const string BuildLabel="Version 36.11 · Monasteries and embassies";
 
 
 
@@ -662,20 +662,22 @@ public partial class CouncilUI : MonoBehaviour
         ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.BringUpTroopsUI();};
         var orders=new System.Collections.Generic.List<TrainingPool.Order>(TrainingPool.Orders);orders.Sort((a,b)=>a.readyDay.CompareTo(b.readyDay));
         var lines=new System.Collections.Generic.List<string>();
-        foreach(var o in orders)lines.Add(TrainingPool.Name(o.unit)+" · "+o.quantity.ToString("N0")+"\nReady "+TrainingPool.ReadyDate(o).ToString("d MMM")+" · "+TrainingPool.Remaining(o)+" days");
+        foreach(var o in orders)lines.Add(TrainingPool.OrderName(o)+" · "+o.quantity.ToString("N0")+"\nReady "+TrainingPool.ReadyDate(o).ToString("d MMM")+" · "+TrainingPool.Remaining(o)+" days"+(o.engineersReserved>0?" · "+o.engineersReserved+" engineers committed":""));
         for(int i=0;i<3;i++)if(TroopTraining.Due(i)>0){var ready=new DateTime((long)TroopTraining.Due(i)*TimeSpan.TicksPerDay);lines.Add(TroopTraining.Units[i]+" · advanced drills\nReady "+ready.ToString("d MMM"));}
-        float height=Mathf.Max(560,90+lines.Count*100);BodyHeight(height);
+        float height=Mathf.Max(620,90+lines.Count*100);BodyHeight(height+92);
         var queue=SpyPanel("Recruitment queue",0,height-8);var qr=queue.GetComponent<RectTransform>();qr.anchorMax=new Vector2(.51f,1);
-        var stock=SpyPanel("Manpower and losses",0,552);var sr=stock.GetComponent<RectTransform>();sr.anchorMin=new Vector2(.51f,1);
+        var stock=SpyPanel("Manpower and losses",0,612);var sr=stock.GetComponent<RectTransform>();sr.anchorMin=new Vector2(.51f,1);
         var heading=CampaignHUD.Label(queue.transform,"RECRUITMENT & CONSTRUCTION",Vector2.zero,Vector2.one,26);heading.rectTransform.anchorMin=new Vector2(.04f,1);heading.rectTransform.anchorMax=new Vector2(.96f,1);heading.rectTransform.offsetMin=new Vector2(0,-64);heading.rectTransform.offsetMax=new Vector2(0,-10);
         if(lines.Count==0)lines.Add("No orders in progress.");
         for(int i=0;i<lines.Count;i++){var label=CampaignHUD.Label(queue.transform,lines[i],Vector2.zero,Vector2.one,24);label.rectTransform.anchorMin=new Vector2(.04f,1);label.rectTransform.anchorMax=new Vector2(.96f,1);label.rectTransform.offsetMin=new Vector2(0,-164-i*100);label.rectTransform.offsetMax=new Vector2(0,-74-i*100);}
         CampaignHUD.Label(stock.transform,"AVAILABLE MANPOWER",new Vector2(.05f,.87f),new Vector2(.95f,.97f),26);
         CampaignHUD.Label(stock.transform,RecruitmentLogistics.AvailableManpower.ToString("N0"),new Vector2(.05f,.73f),new Vector2(.95f,.88f),42);
-        CampaignHUD.Label(stock.transform,"Recruitment pool: "+RecruitmentLogistics.ManpowerPool.ToString("N0")+"\nServing: "+RecruitmentLogistics.Serving.ToString("N0")+" · In recruitment: "+RecruitmentLogistics.Queued.ToString("N0")+"\nRecovering: "+MedicalRecovery.RegularWounded.ToString("N0")+" regular soldiers",new Vector2(.05f,.54f),new Vector2(.95f,.73f),24);
+        CampaignHUD.Label(stock.transform,"Recruitment pool: "+RecruitmentLogistics.ManpowerPool.ToString("N0")+"\nServing: "+RecruitmentLogistics.Serving.ToString("N0")+" · In recruitment: "+RecruitmentLogistics.Queued.ToString("N0")+"\nRecovering: "+MedicalRecovery.RegularWounded.ToString("N0")+" regular soldiers\nSpecialists and crews committed: "+SpecialistPersonnel.LocalManpowerCommitted.ToString("N0"),new Vector2(.05f,.53f),new Vector2(.95f,.73f),21);
         CampaignHUD.Label(stock.transform,"LOSSES · INCLUDES WOUNDED",new Vector2(.05f,.43f),new Vector2(.95f,.53f),26);
         string[] keys={"iInfantry","iArchers","iCavalry","iVarangians"};string[] names={"Infantry","Archers","Cavalry","Varangian Guard"};
         for(int i=0;i<4;i++){float y=.40f-i*.09f;CampaignHUD.Label(stock.transform,names[i],new Vector2(.05f,y-.08f),new Vector2(.68f,y),24);var value=CampaignHUD.Label(stock.transform,RecruitmentLogistics.LossText(keys[i]),new Vector2(.70f,y-.08f),new Vector2(.95f,y),24);value.alignment=TextAlignmentOptions.Right;}
+        var specialistLink=SpyPanel("Specialist recruitment",height,80);
+        CampaignHUD.MakeButton(specialistLink.transform,"Specialists · engineers, monks, agents and envoys",new Vector2(.03f,.12f),new Vector2(.97f,.88f),Specialists);
     }
 
     private GameObject SpyPanel(string name,float top,float height)
@@ -760,9 +762,9 @@ public partial class CouncilUI : MonoBehaviour
 
         var building=new System.Collections.Generic.List<string>();int queued=0;
 
-        foreach(var o in TrainingPool.Orders) if(o.unit=="iShips") {queued+=o.quantity;building.Add(o.quantity+" warships · ready "+TrainingPool.ReadyDate(o).ToString("d MMM yyyy")+" ("+TrainingPool.Remaining(o)+" days)");}
+        foreach(var o in TrainingPool.Orders) if(o.unit=="iShips") {if(o.kind!=TrainingPool.ShipRepair)queued+=o.quantity;building.Add(o.quantity+" "+(o.kind==TrainingPool.ShipRepair?"warships · Repairing":"warships · Building")+" · ready "+TrainingPool.ReadyDate(o).ToString("d MMM yyyy")+" ("+TrainingPool.Remaining(o)+" days)");}
 
-        float yardHeight=Mathf.Max(170,100+building.Count*38);
+        float yardHeight=Mathf.Max(240,150+building.Count*40);
 
         BodyHeight(1050+yardHeight);
 
@@ -772,7 +774,7 @@ public partial class CouncilUI : MonoBehaviour
 
         FleetText(strength.transform,ships.ToString(),.02f,.30f,.32f,.67f,38);
 
-        FleetText(strength.transform,queued+" under construction",.02f,.06f,.32f,.30f,20);
+        FleetText(strength.transform,queued+" building · "+SpecialistPersonnel.RepairingShips+" repairing",.02f,.06f,.32f,.30f,20);
 
         FleetText(strength.transform,"CONTROL OF THE SEA",.34f,.66f,.66f,.94f,22);
 
@@ -830,9 +832,10 @@ public partial class CouncilUI : MonoBehaviour
 
         var yard=SpyPanel("The shipyards",920,yardHeight);
 
-        FleetText(yard.transform,"SHIPYARDS · "+queued+" warships under construction",.03f,.72f,.97f,.96f,25);
+        FleetText(yard.transform,"SHIPYARDS · "+queued+" building · "+SpecialistPersonnel.RepairingShips+" repairing",.03f,.79f,.97f,.97f,25);
 
-        FleetText(yard.transform,building.Count==0?"No orders in progress. Build ships through Military and recruitment.":string.Join("\n",building),.03f,.06f,.97f,.70f,22);
+        FleetText(yard.transform,building.Count==0?"No orders in progress. Build ships through Military and recruitment.":string.Join("\n",building),.03f,.28f,.97f,.77f,22);
+        CampaignHUD.MakeButton(yard.transform,"Repair damaged ships · "+SpecialistPersonnel.AvailableDamagedShips+" available",new Vector2(.03f,.04f),new Vector2(.97f,.25f),RepairDamagedShips);
 
         var preparation=SpyPanel("Fleet preparation",934+yardHeight,100);
 
@@ -893,73 +896,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public void DiplomaticRelations()
-
-    {
-
-        Open("Diplomatic relations","One appeal per ally per campaign. Appeal: 1,000 gold; sea routes also require an available ship. Expedite: 1,000 gold, up to 5 days sooner. Scroll for all allies.");
-
-
-
-        ControlSingleton.Instance.ReturnAction=Diplomacy;
-
-        BodyHeight(CouncilActions.Allies.Length*180);
-
-
-
-        for(int i=0;i<CouncilActions.Allies.Length;i++)
-
-
-
-        {
-
-
-
-            int allyIndex=i;var ally=CouncilActions.Allies[i];int state=CouncilActions.Int("iAidState"+i);
-
-
-
-            var row=Row(i,180);
-
-
-
-            string status=state==0?$"{CouncilActions.AidChance(i)}% acceptance · {ally.Days} days travel":state==1?$"Aid due in {CouncilActions.Int("iAidDays"+i)} days":state==2?"Aid delivered":state==4?"Relief fleet lost at sea":"Appeal declined";
-
-
-
-            CampaignHUD.Label(row.transform,ally.Name+" — "+status,new Vector2(.02f,.70f),new Vector2(.74f,.97f),25);
-
-
-
-            CampaignHUD.Explanation(row.transform,ally.Description+"\n"+AidRouting.Route(i)+" · Package: "+AidRouting.Cargo(i),new Vector2(.02f,.07f),new Vector2(.57f,.68f),20);
-
-
-
-            var profile=DiplomaticChronicles.All[i];
-
-            var faith=CampaignHUD.MakeButton(row.transform,profile.Religion,new Vector2(.59f,.12f),new Vector2(.74f,.66f),()=>Chronicle(allyIndex));
-
-            faith.GetComponentInChildren<TMP_Text>().fontSize=17;
-
-            faith.GetComponentInChildren<TMP_Text>().rectTransform.anchorMax=new Vector2(1,.44f);
-
-            IllustratedIdentity.Faith(faith.transform,profile.Religion,profile.Orthodox,new Vector2(.22f,.42f),new Vector2(.78f,.98f));
-
-
-
-            var button=CampaignHUD.MakeTurnButton(row.transform,state==1?"Expedite aid\n1,000 gold":state==0?"Request aid\n1,000 gold":"Resolved",new Vector2(.76f,.18f),new Vector2(.98f,.82f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(allyIndex,out result):CouncilActions.RequestAid(allyIndex,out result);Finish(ok,result);});
-
-
-
-            button.interactable=(state==0 || state==1) && CouncilActions.Int("iMoney")>=1000 && (state==1 || !AidRouting.BySea(i) || CouncilActions.Int("iShips")>0) && (state!=1 || CouncilActions.Int("iAidDays"+i)>1);
-
-
-
-        }
-
-
-
-    }
+    public void DiplomaticRelations() => UnifiedDiplomaticRelations();
 
 
 
@@ -970,22 +907,7 @@ public partial class CouncilUI : MonoBehaviour
         DiplomaticPower(index);
     }
 
-    public void DiplomaticPower(int index)
-    {
-        if(index<0 || index>=CouncilActions.Allies.Length) { DiplomaticRelations(); return; }
-        var ally=CouncilActions.Allies[index];int state=CouncilActions.Int("iAidState"+index);
-        var profile=DiplomaticChronicles.All[index];
-        Open(ally.Name,profile.Religion+" · Diplomatic relations");
-        ControlSingleton.Instance.ReturnAction=DiplomaticRelations;
-        BodyHeight(400);var row=Row(0,400);
-        string status=state==0?CouncilActions.AidChance(index)+"% acceptance · "+ally.Days+" days travel":state==1?"Aid due in "+CouncilActions.Int("iAidDays"+index)+" days":state==2?"Aid delivered":state==4?"Relief fleet lost at sea":"Appeal declined";
-        string terms=state==0?"Appeal: 1,000 gold"+(AidRouting.BySea(index)?" · Requires an available ship":""):state==1?"Expedite: 1,000 gold · Up to 5 days sooner":"One appeal per campaign";
-        CampaignHUD.Label(row.transform,status,new Vector2(.04f,.80f),new Vector2(.96f,.96f),27);
-        CampaignHUD.Explanation(row.transform,ally.Description+"\n\n"+AidRouting.Route(index)+" · Package: "+AidRouting.Cargo(index)+"\n"+terms,new Vector2(.04f,.30f),new Vector2(.96f,.79f),23);
-        var action=CampaignHUD.MakeTurnButton(row.transform,state==1?"Expedite aid · 1,000 gold":state==0?"Request aid · 1,000 gold":"Appeal resolved",new Vector2(.04f,.06f),new Vector2(.58f,.23f),()=>{string result;bool ok=state==1?CouncilActions.HurryAid(index,out result):CouncilActions.RequestAid(index,out result);Finish(ok,result);});
-        action.interactable=(state==0 || state==1) && CouncilActions.Int("iMoney")>=1000 && (state==1 || !AidRouting.BySea(index) || CouncilActions.Int("iShips")>0) && (state!=1 || CouncilActions.Int("iAidDays"+index)>1);
-        CampaignHUD.MakeButton(row.transform,"The realm and its interests",new Vector2(.62f,.06f),new Vector2(.96f,.23f),()=>{Chronicle(index);ControlSingleton.Instance.ReturnAction=()=>DiplomaticPower(index);});
-    }
+    public void DiplomaticPower(int index) => UnifiedDiplomaticPower(index);
 
     public void Chronicle(int index)
 
@@ -1168,7 +1090,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        Open("Technologies and workshops","Secrets represent expertise and contacts. Obtain secrets through events or Spies > Gather secrets. Scroll to see every research option.");
+        Open("Technologies and workshops","Recover knowledge in the monasteries, gather secrets through agents, or learn through events. Research strengthens the city's defence.");
 
 
 
@@ -1176,7 +1098,8 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        BodyHeight(TechnologySystem.All.Length*240);
+        BodyHeight(170+TechnologySystem.All.Length*240);
+        MonasticTechnologySummary();
 
 
 
@@ -1189,6 +1112,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
             int choice=i;var technology=TechnologySystem.All[i];var row=Row(i,240);
+            row.GetComponent<RectTransform>().anchoredPosition+=new Vector2(0,-170);
 
 
 
@@ -1220,7 +1144,6 @@ public partial class CouncilUI : MonoBehaviour
 
             if(active) { var colours=button.colors;colours.disabledColor=new Color(1f,.78f,.32f,1);button.colors=colours;row.GetComponent<Image>().color=new Color(.22f,.17f,.075f,1);button.GetComponentInChildren<TMP_Text>().color=new Color(1f,.9f,.57f); }
 
-            if(i==2 && !active) {button.interactable=false;button.GetComponentInChildren<TMP_Text>().text="Not yet available";}
 
 
 

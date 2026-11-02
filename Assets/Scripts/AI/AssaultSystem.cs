@@ -82,6 +82,7 @@ public class AssaultSystem : MonoBehaviour
         int cavalryLoss=Mathf.Min(cavalry,Mathf.Max(0,archerLoss-archers));archerLoss=Mathf.Min(archerLoss,archers);
         VarangiansDeployed=Mathf.Min(VariableSingleton.GetIntVariable("iVarangians"),Mathf.Max(0,VarangiansDeployed));
         string medical=MedicalRecovery.ApplyCombatLosses(isWallHeld,infantryLoss,archerLoss,cavalryLoss,VarangiansDeployed);
+        medical+=DiplomaticBattleEvents.HeldLandDefence(attackerNumbers,isWallHeld,VariableSingleton.GetFloatVariable("fHealth")>0);
         if(!isWallHeld)VariableSingleton.ChangeFloat("fSiegeRamp",-VariableSingleton.GetFloatVariable("fSiegeRamp"));
         else{VariableSingleton.ChangeBool("bSiegeTower",false);VariableSingleton.ChangeBool("bBatteringRam",false);}
         playerLossDisplay.SetLossesInfo(infantryLoss,archerLoss,cavalryLoss,VarangiansDeployed,isWallHeld);

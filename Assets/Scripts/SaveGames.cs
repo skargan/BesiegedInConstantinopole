@@ -73,7 +73,7 @@ public static class SaveGames {
         keys.Clear();foreach(var v in c.bools)if(v==null||string.IsNullOrEmpty(v.key)||v.key.Length>128||!v.key.StartsWith("b")||!keys.Add(v.key))throw new InvalidDataException("Invalid or duplicate flag.");
         keys.Clear();foreach(var v in c.floats)if(v==null||string.IsNullOrEmpty(v.key)||v.key.Length>128||!v.key.StartsWith("f")||!keys.Add(v.key)||float.IsNaN(v.value)||float.IsInfinity(v.value))throw new InvalidDataException("Invalid or duplicate numeric value.");
         if(!keys.Contains("fHealth"))throw new InvalidDataException("Missing Emperor health.");
-        foreach(var order in c.training)if(order==null||!TrainingPool.Units.Contains(order.unit)||order.quantity<0||order.readyDay<0||order.readyDay>3652058)throw new InvalidDataException("Missing training order.");
+        foreach(var order in c.training)if(!TrainingPool.IsValidOrder(order))throw new InvalidDataException("Invalid training or personnel order.");
         if(!new[]{"council","action","event","advance","ended"}.Contains(a.phase))throw new InvalidDataException("Unknown resume phase.");
         if(a.phase=="event"&&string.IsNullOrWhiteSpace(a.node))throw new InvalidDataException("Missing event continuation.");
         if(a.sequence<0||string.IsNullOrWhiteSpace(a.campaignId)||SafeId(a.campaignId)!=a.campaignId)throw new InvalidDataException("Invalid campaign identity.");

@@ -6,7 +6,7 @@ public static class DiplomaticReplies
     {
         bool alternate=(variant&1)!=0;
         bool union=religion==1||religion==2;
-        if(power=="Georgia"||power=="Trebizond")
+        if(power=="Georgia"||power=="Trebizond"||power=="Wallachia"||power=="Moldavia"||power=="Serbia")
         {
             if(union&&!accepted)return religion==1
                 ?"You have bent the imperial crown before Rome and called it salvation. Let those who bought your obedience now purchase your deliverance."
@@ -41,6 +41,13 @@ public static class DiplomaticReplies
             case "Karaman": return accepted?"You and I do not kneel in the same faith. Yet Mehmed would have us both kneel before him. His pride could drag his people into the pit of Iblis; take this aid and keep him occupied.":alternate?"You ask a Muslim ruler to save your Christian throne? Your envoy has a bold tongue. Tell him boldness is not a currency accepted in our treasury.":"Mehmed is no friend of ours. That does not make your quarrel a war we can afford. Do not mistake our pleasure at his difficulties for a promise to rescue you.";
             case "Turkmen Confederations":
             case "Aq Qoyunlu": return accepted?"Mehmed's triumph would cast a longer shadow across Anatolia. We shall send what we can spare through Trebizond. Do not mistake these purses for a pledge of all our horsemen.":alternate?"Our riders answer many lords, and too many banners already threaten Amid. We cannot purchase your safety with our own ruin.":"We have heard your envoy. The Sultan is not the only enemy in this world, and those nearer our tents leave us nothing to promise your City.";
+            case "Wallachia":return accepted?"A river is a poor defence when one watches it alone. Accept what we can spare, and make the Sultan pay dearly for every day before your walls.":"Your messenger rides away. Our villages cannot. Before you call us timid, consider who bears the answer when Mehmed learns of it.";
+            case "Moldavia":return accepted?"The road is long, and our means are small. What we have promised will nevertheless set out; let neither distance nor despair waste it.":"Our neighbours count our horses as closely as we do. We cannot send away the men whose absence would invite them across the frontier.";
+            case "Serbia":return accepted?"We have learned the price of surviving beneath another man's shadow. Take this assistance, and do not ask us to pretend that giving it is easy.":"You speak of duty as if we had never paid for it. Our obligations leave us no freedom to make the promise your envoy demands.";
+            case "Bosnia":return accepted?"Our hills have taught us that a greater army need not have the last word. We send what our households can provide.":"Every lord approves your cause until the reckoning reaches his own purse. Our council has found agreement only in postponement.";
+            case "Crimean Khanate":return accepted?"The Black Sea has room for more than one master's ships. What we send serves our interests as well as yours; remember both halves of that bargain.":"Your envoy describes the danger to your harbour. He has not yet explained why our horses and silver must cure it.";
+            case "Mamluk Sultanate":return accepted?"We have heard your petition. Accept this measured assistance without imagining that it purchases our sword or directs our policy.":"Your emperor's distress does not make it our obligation. We have frontiers to guard and a treasury intended for their defence.";
+            case "Morea":return accepted?"Brother, the seal upon this letter is easier to send than the men who follow it. They are coming. May our arguments survive long enough to trouble us again.":"You know the dangers here as well as any messenger can tell them. We cannot save the family in Constantinople by abandoning its last lands in the south.";
             default:return accepted?"Our own burdens are heavy, but we shall send what we have pledged. May it reach you in time.":"We have war upon our own doorstep. We can offer sympathy, Emperor, but no men to accompany it.";
         }
     }
@@ -48,5 +55,22 @@ public static class DiplomaticReplies
     {
         string court=power=="Turkmen Confederations"?"the Aq Qoyunlu court":power;
         return "\n\nThe reply bears the seal of "+court+":\n<i>“"+Quote(power,accepted,religion,variant)+"”</i>";
+    }
+    public static string FormatWar(string countryId,string power,bool accepted,int religion)
+    {
+        string quote;
+        if(!accepted)quote="Your envoy asks for a declaration, and a declaration brings an army to our own doors. Our council will not undertake this war today.";
+        else switch(countryId) {
+            case "venice":quote="The Senate has committed itself. Our captains will make the Sultan's coastal traffic pay for his ambitions. Give us time to assemble them.";break;
+            case "genoa":quote="This undertaking bears the republic's seal. Our captains shall act against the Sultan's maritime supply routes; the preparations begin now.";break;
+            case "naples":quote="Our ports have received their orders. When the ships are ready, the Sultan's coast will learn that your appeal found more than courteous listeners.";break;
+            case "karaman":quote="Let Mehmed discover how much of Anatolia he can guard while boasting before your walls. Our preparations have begun.";break;
+            case "aq_qoyunlu":quote="This letter promises more than silver. Our captains are gathering their riders; the Sultan's eastern roads will not remain undisturbed.";break;
+            case "albania":quote="We shall draw his men towards our hills and away from your City. A common enemy makes this a bargain neither of us can afford to neglect.";break;
+            default:quote="Our council has agreed. The commanders have orders to gather their forces and trouble the roads that feed the Sultan's siege. Hold until they are ready.";break;
+        }
+        if((countryId=="georgia"||countryId=="trebizond"||countryId=="wallachia"||countryId=="moldavia"||countryId=="serbia")&&religion!=0)
+            quote=accepted?"Our quarrel over Rome remains. It will not prevent us from striking a common enemy. "+quote:"Your concessions to Rome have won you little confidence here. "+quote;
+        return "\n\nThe reply bears the seal of "+power+":\n<i>“"+quote+"”</i>";
     }
 }

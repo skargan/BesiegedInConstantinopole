@@ -25,7 +25,8 @@ public class WarTheatreUI : MonoBehaviour
         if(powerShapes.TryGetValue(key,out var shapes))foreach(var shape in shapes)shape.SetHighlighted(true);
         var power=WarTheatre.DiplomaticPower(region);
         string title=power.name+(power.id==region.id?"":" · "+region.name);
-        hover.text=title+" · "+(region.kind=="province"?WarTheatre.Status(region):region.kind=="capital"?"Enter the Palace":region.kind=="neutral"?"Independent territory":"All possessions highlighted · Select for diplomacy");
+        bool hasCourt=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group)>=0;
+        hover.text=title+" · "+(region.kind=="province"?WarTheatre.Status(region):region.kind=="capital"?"Enter the Palace":hasCourt?"All possessions highlighted · Select for diplomacy":"Independent territory");
     }
     void OnDisable(){ClearHover();}
     bool provinces=true,allies=true; float zoom=1; Vector2 fit;
@@ -84,7 +85,7 @@ public class WarTheatreUI : MonoBehaviour
                 var text=CampaignHUD.Label(overlays,eastern?"Turkmen\nConfederations":r.name,r.label-half,r.label+half,r.kind=="capital"?14:16);text.alignment=TextAlignmentOptions.Center;text.raycastTarget=false;text.fontStyle=FontStyles.Bold;text.enableAutoSizing=true;text.fontSizeMin=10;text.fontSizeMax=16;text.color=new Color(1,.95f,.78f);text.gameObject.AddComponent<Shadow>().effectDistance=new Vector2(1,-1);if(r.kind=="capital")text.rectTransform.anchoredPosition+=new Vector2(0,-19);}
             if(r.kind=="province"){int icon=WarTheatre.Captured(r)?3:WarTheatre.Resistance(r)>=2?2:WarTheatre.Resistance(r)==1?1:ProvinceCampaign.Agent(r.id)>0?0:-1;if(icon>=0)Icon(overlays,icon,r.label+new Vector2(0,.046f),32,()=>Select(r));}
         }
-        foreach(var r in WarTheatre.Data.regions.Where(r=>r.id==r.group&&r.kind=="ally"&&WarTheatre.AtWar(r)))Icon(overlays,new[]{"venice","genoa","naples","cyprus"}.Contains(r.group)?5:4,r.front,38,()=>WarReport(r));
+        foreach(var r in WarTheatre.Data.regions.Where(r=>r.id==r.group&&CountryDiplomacy.Index(r.group)>=0&&WarTheatre.AtWar(r)))Icon(overlays,new[]{"venice","genoa","naples","cyprus"}.Contains(r.group)?5:4,r.front,38,()=>WarReport(r));
     }
     static void Icon(Transform parent,int index,Vector2 point,float size,UnityEngine.Events.UnityAction action=null){
         var go=new GameObject("Theatre marker "+index,typeof(RectTransform),typeof(RawImage));go.transform.SetParent(parent,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=point;rt.sizeDelta=Vector2.one*size;var image=go.GetComponent<RawImage>();image.texture=Resources.Load<Texture2D>("UI/Maps/WarTheatreSymbols");image.uvRect=new Rect(index%4*.25f,(3-index/4)*.25f,.25f,.25f);image.raycastTarget=action!=null;if(action!=null)go.AddComponent<Button>().onClick.AddListener(action);
@@ -92,16 +93,18 @@ public class WarTheatreUI : MonoBehaviour
     void Select(WarTheatre.Region r){
         if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}Clear(detail);
         var power=WarTheatre.DiplomaticPower(r);
+        int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
         CampaignHUD.Label(detail,power.name,new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
         string text;
         if(r.kind=="province")text=WarTheatre.Status(r)+" · Authority "+WarTheatre.Control(r)+"% · Resistance "+ProvinceCampaign.Resistance(r.id)+"%\n"+r.referenceName+" · "+r.role+"\n"+(ProvinceCampaign.Agent(r.id)>0?ProvinceCampaign.Status(r.id):"No imperial agent assigned here.");
+        else if(country>=0)text=CountryDiplomacy.Attitude(country)+" · "+CountryDiplomacy.FinalChance(country).ToString("0.##")+"% acceptance · "+CountryDiplomacy.WarStatus(country)+"\n"+CountryDiplomacy.EnvoyStatus(country)+"\n"+r.note;
         else if(r.kind=="neutral")text=r.referenceName+"\n"+r.note;
         else text=(power.id==r.id?"Realm and dependencies":r.name+" · "+power.name+" connection")+" · "+(WarTheatre.AtWar(power)?"War reported":"No regional war reported")+"\n"+r.note;
         var body=CampaignHUD.Explanation(detail,text,new Vector2(.02f,.06f),new Vector2(.73f,.71f),20);body.enableAutoSizing=true;body.fontSizeMin=17;body.fontSizeMax=20;
         if(r.kind=="province")CampaignHUD.MakeButton(detail,"Provincial operations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).ProvincialOperationsFor(r.id);});
-        else if(r.kind!="neutral")CampaignHUD.MakeButton(detail,"Diplomatic relations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelationsFor(power.group);});
+        else if(country>=0)CampaignHUD.MakeButton(detail,"Diplomatic relations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);});
         CampaignHUD.Label(detail,r.kind=="province"?"Supply exports stop during\nrebellion and after liberation.":"An aid expedition does not\nautomatically mean a foreign war.",new Vector2(.76f,.06f),new Vector2(.98f,.4f),17);
     }
-    void WarReport(WarTheatre.Region r){Clear(detail);CampaignHUD.Label(detail,r.name+" · Ottoman front",new Vector2(.02f,.7f),new Vector2(.98f,.98f),28);CampaignHUD.Explanation(detail,"War reported on this front. Provincial control and independent commitments will be recorded here as the regional warfare system develops.\nNo battle strength or casualties have been invented for this report.",new Vector2(.02f,.08f),new Vector2(.98f,.66f),22);}
+    void WarReport(WarTheatre.Region r){var power=WarTheatre.DiplomaticPower(r);Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelationsFor(power.group);}
     void Legend(){Clear(detail);string[] names={"Agent","Network","Insurrection","Imperial control","Land battle","Naval battle","Army","Fleet","Provisions","Artillery","Garrison","Revenue","Sabotage","Envoy","Liberation","Order"};for(int i=0;i<16;i++){float x=.06f+(i%8)*.126f,y=i<8?.73f:.26f;Icon(detail,i,new Vector2(x,y),43);var label=CampaignHUD.Label(detail,names[i],new Vector2(x-.06f,y-.24f),new Vector2(x+.06f,y-.12f),14);label.alignment=TextAlignmentOptions.Center;label.raycastTarget=false;}}
 }

@@ -44,63 +44,10 @@ public static class CouncilActions
 
     // Append only: numeric ally keys are retained in campaign saves.
     public const int AqQoyunluIndex = 17;
-    public static readonly Ally[] Allies = {
+    public static readonly Ally[] Allies = CountryDiplomacy.CreateAllies();
 
-        new Ally("Hungary", "A potential landward counterweight to the Ottomans; aid is uncertain.",70,27,5000,0,500,0,0,0),
-
-        new Ally("Venice", "Maritime interests and the defenders already in the City do not guarantee a state expedition.",70,18,500,500,0,5,0,0),
-
-        new Ally("Genoa", "Giustiniani's volunteers, Galata and the Genoese government have distinct interests.",70,22,500,500,0,5,0,0),
-
-        new Ally("The Papacy", "Church Union strengthens this appeal; an Orthodox ruler can still request modest aid.",50,20,0,200,0,2,20000,200),
-
-        new Ally("Albania", "A shared enemy offers an opening for cooperation.",70,14,300,0,100,0,0,0),
-
-        new Ally("Knights Hospitaller", "A small maritime reinforcement motivated by faith and regional defence.",35,6,100,100,50,2,0,0),
-
-        new Ally("Naples", "Royal ambitions and resources compete with other commitments.",35,17,0,750,0,0,30000,0),
-
-        new Ally("Holy Roman Empire", "Imperial sympathy does not ensure a coordinated expedition.",10,40,1000,300,100,0,10000,0),
-        new Ally("France", "An appeal for a royal expedition and funds for the defence.",15,48,1500,500,250,2,10000,0),
-        new Ally("Athens", "Seek troops and provisions from the Frankish court.",15,12,300,100,50,1,0,100),
-        new Ally("Georgia", "Ask for warriors and archers to cross the Black Sea.",25,28,500,500,150,0,0,150),
-        new Ally("Trebizond", "Request ships carrying soldiers and grain.",30,18,200,200,0,2,0,300),
-        new Ally("Cyprus", "Seek an expedition from the island kingdom.",20,16,200,150,50,2,2000,100),
-        new Ally("Poland and Lithuania", "Appeal for cavalry, volunteers and a war subsidy.",15,42,500,250,500,0,5000,0),
-        new Ally("Teutonic Order", "Request an armed brotherhood and its supporting troops.",15,50,500,250,200,1,0,0),
-        new Ally("England", "Ask for archers, ships and funds for the City's defence.",15,60,300,750,100,2,5000,0),
-        new Ally("Karaman", "Ibrahim Bey's rivalry with the Sultan opens a route for discreet funds and supplies.",20,25,0,0,0,0,3000,300),
-        new Ally("Turkmen Confederations", "Rival eastern Turkmen powers. Seek discreet Aq Qoyunlu funds and provisions through Trebizond.",20,35,0,0,0,0,3000,300)
-
-    };
-
-    // Map possessions share their parent realm's appeal and saved commitment.
-    // Unimplemented diplomatic powers return -1 rather than borrowing another realm's index.
-    public static int AllyIndexForRealm(string group)
-    {
-        switch(group)
-        {
-            case "hungary": return 0;
-            case "venice": return 1;
-            case "genoa": return 2;
-            case "papacy": return 3;
-            case "albania": return 4;
-            case "hospitallers": return 5;
-            case "naples": return 6;
-            case "holy_roman_empire": return 7;
-            case "france": return 8;
-            case "athens": return 9;
-            case "georgia": return 10;
-            case "trebizond": return 11;
-            case "cyprus": return 12;
-            case "poland_lithuania": return 13;
-            case "teutonic_order": return 14;
-            case "england": return 15;
-            case "karaman": return 16;
-            case "aq_qoyunlu": return AqQoyunluIndex;
-            default: return -1;
-        }
-    }
+    // Map possessions resolve to the same append-only country record as ordinary diplomacy.
+    public static int AllyIndexForRealm(string group) => CountryDiplomacy.Index(group);
 
     public static readonly string[] FactionKeys = {"fTroopRep","fPeopleRep","fNobleRep","fPriestRep","fGalataRep"};
 
@@ -227,21 +174,9 @@ public static class CouncilActions
 
     }
 
-    public static int AidChance(int index)
-
-    {
-
-        int chance=Allies[index].Chance;
-
-        if(index==3) chance=Int("iReligion")==1?90:Int("iReligion")==2?70:35;
-
-        if(Int("iFocus")==4) chance+=10;
-
-        chance+=Mathf.RoundToInt(CourtRoster.Bonus(4,10,20));
-
-        return Mathf.Clamp(chance,0,95);
-
-    }
+    // Rounded legacy accessor retained for existing scripts; UI and rolls use the exact value.
+    public static int AidChance(int index) => Mathf.RoundToInt(CountryDiplomacy.FinalChance(index));
+    public static float ExactAidChance(int index) => CountryDiplomacy.FinalChance(index);
 
     public static bool RequestAid(int index, out string report)
 
@@ -251,20 +186,21 @@ public static class CouncilActions
 
         if(index<0 || index>=Allies.Length) return false;
 
-        if(Int("iAidState"+index)!=0) {report="This ally has already answered your appeal this campaign.";return false;}
-
-        if(Int("iMoney")<1000 || (AidRouting.BySea(index) && Int("iShips")<1)) {report="An appeal requires 1,000 gold. Sea appeals also require an available ship; it is not consumed.";return false;}
+        report=CountryDiplomacy.AidRequestReason(index);
+        if(report!=null)return false;
 
         var before=VariableSingleton.Instance.CaptureState();
 
         VariableSingleton.ChangeInt("iMoney",-1000);
 
-        bool accepted=UnityEngine.Random.Range(0,100)<AidChance(index);
+        CountryDiplomacy.ConsumeAidPermission(index);
+        DiplomaticStoryAid.ClearLastPackage(index);
+        bool accepted=UnityEngine.Random.Range(0f,100f)<ExactAidChance(index);
 
         VariableSingleton.SetInt("iAidWarships"+index,0);
         VariableSingleton.SetInt("iAidState"+index,accepted?1:3);
 
-        if(accepted) VariableSingleton.SetInt("iAidDays"+index,Allies[index].Days);
+        VariableSingleton.SetInt("iAidDays"+index,accepted?Allies[index].Days:0);
 
         report=Report(before,accepted?$"{Allies[index].Name} commits aid. Expected in {Allies[index].Days} calendar days.\nPromised: {Allies[index].Cargo}. {AidRouting.Route(index)}; transports do not join our fleet.":$"{Allies[index].Name} declines your appeal. No reinforcements are promised.");
         report+=DiplomaticReplies.Format(Allies[index].Name,accepted,Int("iReligion"),index+VariableSingleton.Turn);

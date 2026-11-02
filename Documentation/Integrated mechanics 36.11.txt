@@ -1,0 +1,96 @@
+BESIEGED — SPECIALISTS, DIPLOMACY AND MONASTIC RESEARCH
+Implementation record. Playtest balance values are rules, not historical measurements.
+
+MONKS: ONE WORKFORCE, TWO DUTIES
+Open Military and recruitment > Specialists > Infirmary and Monasteries.
+The Technology screen opens the same service through its Monastic Research summary.
+
+System                      Rule                                      Tied to
+Research allocation         Integer slider; remainder serves patients Shared iHealers roster
+Apply allocation            Free; effective next calendar day         Active/pending counts and date
+Research                    1 progress/monk/day; 100 = 1 Secret       Existing Secrets currency
+Overflow                    Carry remainder; award every discovery    Saved progress and date guard
+Infirmary                   Only assigned infirmary monks give care   Existing 15 treatment days
+Too few monks               Patients wait; no eviction/progress loss  Capacity, provisions, wounded
+New monks                   Arrive into infirmary duty                Existing five-day recruitment
+Calendar                    Resolve each intervening date             Training arrivals, recovery, envoys
+
+Rates are editable in Assets/Resources/Content/MonasticResearch.json. Research
+operates during preparation as well as siege. Screen visits and real time do not
+produce knowledge. Existing saves begin with all monks in the infirmary and no
+retroactive research. Pending choices, progress and processed dates are saved.
+
+ENGINEERS AND CREWS
+Order               Gold        Materials   Engineers              Ordinary manpower   Time
+Engineer            250         —           1 instructor           1                   10 days
+Envoy               750         —           none                   1                   10 days
+Five monks          1,000       —           none                   existing rule       5 days
+Cannon              existing    10          2; one stays aboard    4                   10 days
+Warship             existing    30          5; one stays aboard    49                  30 days
+Repair damaged ship 250         5           2; both return         10 replacements     5 days
+
+Total cannon crew is five and total ship crew is fifty, including the permanent
+engineer. Ordinary crew is reserved at construction confirmation. Existing ships,
+cannons and old unfinished orders are grandfathered; loading never creates a
+retroactive manpower bill. Foreign crewed gifts do not consume local recruits.
+Sunk ships do not return their fifty crew to the recruitment pool. Damage and
+withdrawal are distinct from sinking. A hull already in a repair queue is excluded
+from the older automatic repair-yard benefit.
+
+When no engineer is available, one trainee may learn without an instructor at
+normal price and duration. Only one such order can be active, including when the
+other engineers are committed to other jobs. Availability is shared across jobs.
+
+LAND-WALL REPAIRS
+Assign N available engineers, normally 1–10. Advanced Masonry raises this to 20.
+Gold: 50 N base, with Notaras's existing labour discount preserved.
+Materials: outer 3 N; middle 2 N; innerN.
+Restoration: one uniform integer roll from N to floor(1.5 N) percentage points,
+capped at 100% integrity. The preview shows the capped range and affordability.
+Repair occurs before the following attack. One separate task casualty roll:
+95% none; 2% one killed; 3% one wounded. Surviving engineers return onD+2;
+wounded engineers enter medical care instead. Restoration is not reduced after
+the casualty roll. Sea-wall repairs remain a separate action/rule.
+Advanced Masonry retains the RomanConcrete save ID and its separate old sea-wall
+material saving. Its former land-wall material discount is replaced by team size.
+
+DIPLOMACY
+Twenty-five stable country records now share the country screen and map routes.
+Three envoys begin available. Dispatch, residence and recall use calendar dates.
+New envoys may be trained. One envoy cannot occupy two courts or work en route.
+
+Attitude     Daily goodwill while resident
+Hostile      +0.10
+Wary         +0.25
+Neutral      +0.50
+Friendly     +1.00
+Allied       +1.50
+
+Goodwill and attitude are separate. Gifts cost 3,000 gold and grant 10 goodwill;
+their 50% attitude improvement can reach Friendly, never create Allied status.
+The displayed final acceptance chance is the exact value rolled, capped at 95%.
+Approved Church Union modifiers are ongoing chance modifiers, not permanent
+changes to base goodwill. Repudiation penalties expire after 30 calendar days.
+
+Action             Requirement                         Result
+Initial aid        1,000 gold; no resident needed        Existing cargo/arrival rules
+Renew aid appeal   Resident; prior aid resolved         1,000 gold +10 resident days
+Request war        Resident; Friendly; chance at least 75%; eligible court
+                                                       Success: Allied, then mobilisation
+Renew war appeal   Failed previous war request          Separate retry permission
+
+One renewal project per court at a time. Each permission is consumed once;
+recalling an envoy pauses resident work. Sea transport vessels return home.
+Only explicitly donated warships join the fleet. Named Papal/Hospitaller story
+packages share their country's initial aid entitlement, preventing duplicate aid.
+
+Regional intervention delays a finite number of actual Ottoman shipments after
+mobilisation. It does not invent armies, battles or casualties. Shipment budgets,
+target provinces and delays are editable in DiplomaticPowers.json. A parcel
+already stopped by rebellion/liberation is not disrupted again by an ally.
+Major held defences and major naval victories have bounded, saved goodwill rewards.
+
+VERIFICATION RECORD
+Final Unity Windows export and automated gameplay/UI checks passed. Real archive
+load, a month-long preparation advance and dated personnel/research were exercised.
+See Version36.11 release.txt for exact suites, targeted visual review and limits.

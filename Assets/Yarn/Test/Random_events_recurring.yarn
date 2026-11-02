@@ -106,7 +106,7 @@ title: random3
     <<ChangeFraction fTroopRep 0.1>>
 -> Deploy fire ships in the storm to confuse the enemy fleet — -1 ships; -2 enemy supply days <<if GetInt("iShips") >= 1>>
     Taking advantage of the storm's chaos, the Emperor orders the deployment of fire ships to confuse and disrupt the enemy fleet. The storm provides additional cover for the Byzantine naval forces to execute this manoeuvre. The fire ships create confusion among the enemy fleet, causing some vessels to scatter.
-    <<Change iShips -1>>
+    <<SinkShips 1>>
     <<Change iFood -2>>
 -> Use the cover of the storm to scout out enemy positions and take prisoners — +1 secrets
     Recognising the storm's potential to obscure activities, the Emperor initiates a scouting operation, aiming to better understand the enemy positions and take prisoners. Soon your soldiers return with a few blindfolded captives, whom they squeeze until they have all the information about the current situation in the enemy camp. This increases our available intelligence.

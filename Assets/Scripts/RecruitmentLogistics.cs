@@ -22,9 +22,14 @@ public static class RecruitmentLogistics
             return Count(count);
         }
     }
-    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued - MedicalRecovery.RegularWounded);
-    public static bool CanRecruit(string unit, int quantity) => quantity > 0 && (!IsRegular(unit) || quantity <= AvailableManpower);
-    public static int MaximumOrder(string unit, int affordable) => Math.Max(0, IsRegular(unit) ? Math.Min(affordable, AvailableManpower) : affordable);
+    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted);
+    public static bool CanRecruit(string unit, int quantity)
+    {
+        if(quantity<=0)return false;
+        if(IsRegular(unit))return quantity<=AvailableManpower;
+        return SpecialistPersonnel.CanStart(unit,quantity,out _);
+    }
+    public static int MaximumOrder(string unit, int affordable) => SpecialistPersonnel.MaximumOrder(unit,Math.Max(0, IsRegular(unit) ? Math.Min(affordable, AvailableManpower) : affordable));
 
     public static bool LossesTracked => DailyLifeEvents.I(TrackedKey) == 1;
     public static int Losses(string unit) => Array.IndexOf(LossUnits, unit) < 0 ? 0 : NonNegative(LossKey(unit));

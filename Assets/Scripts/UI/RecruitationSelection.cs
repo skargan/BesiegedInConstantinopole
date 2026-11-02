@@ -23,13 +23,15 @@ public class RecruitationSelection : MonoBehaviour
         troopVariableName = VariableSingleton.Instance.RecruitmentPricelist[newIndex].GetVariableName();
         displayName.text = VariableSingleton.Instance.RecruitmentPricelist[newIndex].GetName();
 
-        troopCost = VariableSingleton.Instance.RecruitmentPricelist[newIndex].GetCost();
+        troopCost = TrainingPool.UnitPrice(troopVariableName,VariableSingleton.Instance.RecruitmentPricelist[newIndex].GetCost());
         displayCost.text = troopCost.ToString()+" gold / unit · Ready in "+TrainingPool.Duration(troopVariableName)+" days\n"+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(troopVariableName)).ToString("d MMM yyyy");
         if(RecruitmentLogistics.IsRegular(troopVariableName)) displayCost.text += "\nAvailable manpower: " + RecruitmentLogistics.AvailableManpower.ToString("N0");
+        if(troopVariableName=="iShips"||troopVariableName=="iCannons")displayCost.text+="\nPer unit: "+SpecialistPersonnel.MaterialsPerUnit(troopVariableName)+" materials · "+SpecialistPersonnel.EngineersPerUnit(troopVariableName)+" engineers · "+SpecialistPersonnel.OrdinaryManpowerPerUnit(troopVariableName)+" crew";
         displayCost.fontStyle |= FontStyles.Italic;
+        displayCost.enableAutoSizing=true;displayCost.fontSizeMin=14;displayCost.fontSizeMax=24;
         displayMultiplied.TroopCost = troopCost;
 
-        costDeterminant.SetMaxAffordable(RecruitmentLogistics.MaximumOrder(troopVariableName, troopCost > 0 ? VariableSingleton.GetIntVariable("iMoney") / troopCost : 0));
+        costDeterminant.SetMaxAffordable(TrainingPool.MaximumOrder(troopVariableName,troopCost));
 
 
         LogRecruitationToEsc();
@@ -78,16 +80,15 @@ public class RecruitationSelection : MonoBehaviour
         bool placed=TrainingPool.Place(troopVariableName,troopsOrdered,troopCost);
         if(!placed)
         {
-            string reason = RecruitmentLogistics.IsRegular(troopVariableName) &&
-                (RecruitmentLogistics.AvailableManpower == 0 || troopsOrdered > RecruitmentLogistics.AvailableManpower) ?
-                "Available manpower: " + RecruitmentLogistics.AvailableManpower.ToString("N0") :
-                troopsOrdered <= 0 ? "Select a quantity to recruit." : "Insufficient gold.";
+            TrainingPool.CanPlace(troopVariableName,troopsOrdered,troopCost,out string reason);
             CampaignHUD.Instance.ShowReport("Recruitment unavailable",reason,()=>CampaignHUD.Instance.DismissReport());
             return;
         }
         
 
         ControlSingleton.Instance.GoBack();
-        if(placed) CampaignHUD.Instance.ShowReport("Recruitment order placed",troopsOrdered.ToString("N0")+" "+TrainingPool.Name(troopVariableName)+" will be ready on "+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(troopVariableName)).ToString("d MMM yyyy")+" ("+TrainingPool.Duration(troopVariableName)+" days).\n\nPaid "+((long)troopsOrdered*troopCost).ToString("N0")+" gold.\nView outstanding orders in Recruitment logistics.",()=>CampaignHUD.Instance.DismissReport());
+        string commitments="";
+        if(troopVariableName=="iShips"||troopVariableName=="iCannons")commitments="\nMaterials spent: "+troopsOrdered*SpecialistPersonnel.MaterialsPerUnit(troopVariableName)+". Engineers reserved: "+troopsOrdered*SpecialistPersonnel.EngineersPerUnit(troopVariableName)+". Ordinary crew reserved: "+troopsOrdered*SpecialistPersonnel.OrdinaryManpowerPerUnit(troopVariableName)+".\nOne engineer per completed unit remains in its crew; the other builders return.";
+        if(placed) CampaignHUD.Instance.ShowReport("Recruitment order placed",troopsOrdered.ToString("N0")+" "+TrainingPool.Name(troopVariableName)+" will be ready on "+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(troopVariableName)).ToString("d MMM yyyy")+" ("+TrainingPool.Duration(troopVariableName)+" days).\n\nPaid "+((long)troopsOrdered*troopCost).ToString("N0")+" gold."+commitments+"\nView outstanding orders in Recruitment logistics.",()=>CampaignHUD.Instance.DismissReport());
     }
 }
