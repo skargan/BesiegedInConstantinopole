@@ -118,6 +118,8 @@ public class AI: MonoBehaviour
             VariableSingleton.SetInt("iLifeSurprise",0);
             if(VariableSingleton.GetIntVariable("iBazouks")>0){OttomanDirector.MarkAssault();AIBashiBazoukAssault();return;}
         }
+        // Only an operation that survives supply/delay/emergency checks can use the paid postponement.
+        if(CandarDiplomacy.DelayOperation(planned,out var candarReport)){LastReport=candarReport;return;}
         string operationReport=OttomanSiegeOperations.Execute(this,planned);
         if(operationReport!=null)LastReport=operationReport;
     }
