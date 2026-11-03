@@ -1,0 +1,8 @@
+VERSION 36.15 - GALATA HARBOUR
+
+Galatan diplomacy now has a dedicated illustrated harbour background, with a compact navy-and-gold panel on the right. More than half the view remains clear. Goodwill, defences, Giovanni's loyalty, diplomatic claims and outstanding credit remain visible. All ten existing orders are grouped under Relations, Claims and Giovanni. Unavailable orders follow available orders; Details explains their requirements. Every commitment has a review screen showing its cost and consequence before confirmation.
+
+Diplomatic costs, rewards, availability and turn advancement retain their existing rules. Includes the Version36.14 court banners and standing visitors, plus the separately verified maritime map indicators.
+
+Verification: GALATA_DESK_CHECKS 1987 passed; all ten choices, all four control states, review/cancel and two resolutions.
+Screenshots visually reviewed at 1600x900 and 1280x720. Prior Version36 saves preserved and hash-verified. No save-format changes.

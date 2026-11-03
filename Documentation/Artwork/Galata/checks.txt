@@ -1,0 +1,1 @@
+GALATA_DESK_CHECKS 1987 passed; all ten choices, all four control states, review/cancel and two resolutions.

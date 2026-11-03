@@ -1,1 +1,10 @@
-{"id":"aq_qoyunlu","method":"Sourced original emblem, displayed on an ivory UI banner; generated banner unavailable","title":"Tamga of Bayandur (Aq Qoyunlu version)","author":"Minorsky, V.; Wikimedia Commons uploader Beshogur","source":"https://commons.wikimedia.org/wiki/File:Tamga_of_Bayandur_(Aq_Qoyunlu_version).png","license":"CC BY-SA 3.0","licenseUrl":"https://creativecommons.org/licenses/by-sa/3.0/","changes":"Original PNG bytes unchanged; resized only for on-screen display over an ivory backing. This is a dynastic emblem, not a verified 1452 national flag."}
+{
+  "id": "aq_qoyunlu",
+  "method": "Generated reconstruction using sourced Bayandur coin emblem",
+  "title": "Tamga of Bayandur (Aq Qoyunlu version)",
+  "author": "Minorsky, V.; Wikimedia Commons uploader Beshogur",
+  "source": "https://commons.wikimedia.org/wiki/File:Tamga_of_Bayandur_(Aq_Qoyunlu_version).png",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "changes": "Recreated the black emblem on ivory cloth with gold edging. Replaced the earlier sourced-emblem UI fallback in Version36.14. Banner composition is an artistic reconstruction, not a verified surviving period flag."
+}

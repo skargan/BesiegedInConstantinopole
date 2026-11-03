@@ -7,10 +7,10 @@ public static class BuildPresentationPatch
 {
     public static void Build()
     {
-        PlayerSettings.bundleVersion="36.14";
+        PlayerSettings.bundleVersion="36.15";
         var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{
             scenes=EditorBuildSettings.scenes.Where(s=>s.enabled).Select(s=>s.path).ToArray(),
-            locationPathName="Builds/Version-36.14/Besieged.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.Development});
+            locationPathName="Builds/Version-36.15/Besieged.exe",target=BuildTarget.StandaloneWindows64,options=BuildOptions.Development});
         if(report.summary.result!=BuildResult.Succeeded)throw new Exception("Presentation build failed: "+report.summary.result);
         UnityEngine.Debug.Log("PRESENTATION_BUILD_COMPLETE");
     }

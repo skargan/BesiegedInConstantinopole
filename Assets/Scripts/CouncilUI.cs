@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.14 · Banners and court";
+    public const string BuildLabel="Version 36.15 · Galata harbour";
 
 
 
