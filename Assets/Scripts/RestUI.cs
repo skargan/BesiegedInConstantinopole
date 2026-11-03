@@ -37,6 +37,8 @@ public class RestUI : UIWindowFam
 
     public void ContinueToEvent()
     {
+        // A provincial decision caused by the current action must resolve before advancing.
+        if(ProvincialConflictUI.Intercept(ContinueToEvent))return;
         // Dated milestones cannot be displaced by due narrative continuations.
         if(VariableSingleton.Instance.StoryScheduled()) {
             string milestone=PreparationCampaign.Active?PreparationCampaign.FixedNode(VariableSingleton.Turn):"story"+VariableSingleton.Turn;

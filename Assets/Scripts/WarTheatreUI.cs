@@ -88,7 +88,7 @@ public class WarTheatreUI : MonoBehaviour
                 Vector2 centre=new Vector2(Mathf.Clamp(r.label.x,half.x,1-half.x),Mathf.Clamp(r.label.y,half.y,1-half.y));
                 if(r.id=="savoy")centre.y-=.028f;
                 var text=CampaignHUD.Label(overlays,caption,centre-half,centre+half,r.kind=="capital"?14:compact?13:16);text.alignment=TextAlignmentOptions.Center;text.raycastTarget=false;text.fontStyle=FontStyles.Bold;text.enableAutoSizing=true;text.fontSizeMin=10;text.fontSizeMax=compact?13:16;text.color=new Color(1,.95f,.78f);text.gameObject.AddComponent<Shadow>().effectDistance=new Vector2(1,-1);if(r.kind=="capital")text.rectTransform.anchoredPosition+=new Vector2(0,-19);}
-            if(r.kind=="province"){int icon=WarTheatre.Captured(r)?3:WarTheatre.Resistance(r)>=2?2:WarTheatre.Resistance(r)==1?1:ProvinceCampaign.Agent(r.id)>0?0:-1;if(icon>=0)Icon(overlays,icon,r.label+new Vector2(0,.046f),32,()=>Select(r));}
+            if(r.kind=="province")ProvincialMapMarkers.Add(overlays,r);
         }
         foreach(var r in WarTheatre.Data.regions.Where(r=>r.id==r.group&&CountryDiplomacy.Index(r.group)>=0&&WarTheatre.AtWar(r)))Icon(overlays,new[]{"venice","genoa","naples","cyprus"}.Contains(r.group)?5:4,r.front,38,()=>WarReport(r));
         MaritimeMapMedallions.Add(overlays,detail,hover,ClearHover);
@@ -97,7 +97,7 @@ public class WarTheatreUI : MonoBehaviour
         var go=new GameObject("Theatre marker "+index,typeof(RectTransform),typeof(RawImage));go.transform.SetParent(parent,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=point;rt.sizeDelta=Vector2.one*size;var image=go.GetComponent<RawImage>();image.texture=Resources.Load<Texture2D>("UI/Maps/WarTheatreSymbols");image.uvRect=new Rect(index%4*.25f,(3-index/4)*.25f,.25f,.25f);image.raycastTarget=action!=null;if(action!=null)go.AddComponent<Button>().onClick.AddListener(action);
     }
     void Select(WarTheatre.Region r){
-        if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}Clear(detail);
+        if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}if(r.kind=="province"){ProvincialConflictUI.Show(r.id);return;}Clear(detail);
         var power=WarTheatre.DiplomaticPower(r);
         int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
         CampaignHUD.Label(detail,power.name,new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
@@ -109,7 +109,7 @@ public class WarTheatreUI : MonoBehaviour
         var body=CampaignHUD.Explanation(detail,text,new Vector2(.02f,.06f),new Vector2(.73f,.71f),20);body.enableAutoSizing=true;body.fontSizeMin=17;body.fontSizeMax=20;
         if(r.kind=="province")CampaignHUD.MakeButton(detail,"Provincial operations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).ProvincialOperationsFor(r.id);});
         else if(country>=0)CampaignHUD.MakeButton(detail,"Diplomatic relations",new Vector2(.76f,.45f),new Vector2(.98f,.83f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);});
-        CampaignHUD.Label(detail,r.kind=="province"?"Supply exports stop during\nrebellion and after liberation.":"An aid expedition does not\nautomatically mean a foreign war.",new Vector2(.76f,.06f),new Vector2(.98f,.4f),17);
+        CampaignHUD.Label(detail,r.kind=="province"?"Output follows Wealth; chaos halts exports.\nImperial provinces send tribute.":"An aid expedition does not\nautomatically mean a foreign war.",new Vector2(.76f,.06f),new Vector2(.98f,.4f),17);
     }
     void WarReport(WarTheatre.Region r){var power=WarTheatre.DiplomaticPower(r);Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelationsFor(power.group);}
     void Legend(){Clear(detail);string[] names={"Agent","Network","Insurrection","Imperial control","Land battle","Naval battle","Army","Fleet","Provisions","Artillery","Garrison","Revenue","Sabotage","Envoy","Liberation","Order"};for(int i=0;i<16;i++){float x=.06f+(i%8)*.126f,y=i<8?.73f:.26f;Icon(detail,i,new Vector2(x,y),43);var label=CampaignHUD.Label(detail,names[i],new Vector2(x-.06f,y-.24f),new Vector2(x+.06f,y-.12f),14);label.alignment=TextAlignmentOptions.Center;label.raycastTarget=false;}}

@@ -1,0 +1,124 @@
+using System;
+using System.Linq;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+// Reuses the existing map symbols, court flags, fonts and gold/mosaic controls.
+public sealed class ProvincialConflictUI : MonoBehaviour
+{
+    static GameObject root;static string selected;static int armySlot;static Action continuation;
+    static ProvincialWar.Province P=>ProvincialWar.Find(selected);
+    static Transform Surface=>root.transform;
+    public static bool Open=>root!=null;
+    public static bool Back(){if(!Open)return false;if(!P.Pending)Exit();return true;}
+    public static void Close(){if(root!=null){root.SetActive(false);Destroy(root);root=null;}}
+    public static bool Intercept(Action next)
+    {
+        var pending=ProvincialWar.Ready?ProvincialWar.Pending:null;if(pending==null)return false;
+        continuation=next;Show(pending.Id);return true;
+    }
+    public static void Show(string id,int slot=0)
+    {
+        ProvinceCampaign.Ensure();selected=id;armySlot=slot;WarTheatreUI.Close();Draw();
+    }
+    static TMP_Text Text(string s,float x,float y,float w,float h,int font=22)
+    {
+        var t=CampaignHUD.Label(Surface,s,new Vector2(x,y),new Vector2(x+w,y+h),font);return t;
+    }
+    static void Button(string s,float x,float y,float w,float h,Action action,bool enabled=true)
+    {
+        var b=CampaignHUD.MakeButton(Surface,s,new Vector2(x,y),new Vector2(x+w,y+h),()=>action());b.interactable=enabled;
+    }
+    static void Commit(Action action){action();SaveGames.Checkpoint(SaveGames.Phase,null,"Provincial command",ActionResults.Instance==null?"":ActionResults.Instance.GetActionText());Draw();}
+    static void Exit()
+    {
+        Close();if(continuation!=null){var next=continuation;continuation=null;if(!Intercept(next))next();}else WarTheatreUI.Show();
+    }
+    static void Draw()
+    {
+        Close();root=new GameObject("Provincial command",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster),typeof(Image));
+        var canvas=root.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=245;
+        var scaler=root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);scaler.matchWidthOrHeight=.5f;
+        root.GetComponent<Image>().color=ImperialTheme.Navy;ImperialTheme.Panel(root);
+        Text(P.Name+" · War Beyond the Walls",.035f,.91f,.93f,.07f,32);
+        if(P.Get("BattleStage")>0){Battle();return;}
+        if(P.Get("Settlement")>0){Settlement();return;}
+        if(P.Get("Continuation")>0){Continuation();return;}
+        if(P.Get("Assistance")>0){Assistance();return;}
+        Overview();
+    }
+    static void Overview()
+    {
+        var p=P;var c=p.Config;
+        Text(ProvinceCampaign.Status(p.Id),.035f,.85f,.93f,.05f,21);
+        Text("Authority  "+p.Authority+" / "+p.Ceiling+"\nResistance  "+p.Resistance+"\nWealth  "+p.Wealth+"%",.04f,.66f,.29f,.17f,25);
+        Text("Ottoman garrison\n"+(p.Known?p.Garrison.ToString("N0")+" / "+c.Garrison.ToString("N0"):"Exact strength unknown")+"\nNon-Ottoman territory  "+(p.TotalControl/100f).ToString("0.##")+"%",.35f,.66f,.29f,.17f,24);
+        string economy="Economic importance: "+string.Join(", ",new[]{c.FoodDays>0?"food":null,c.Recruits>0?"recruits":null,c.Ships>0?"shipbuilding":null,c.Cannons>0?"artillery":null,c.Gold>0?"revenue":null}.Where(x=>x!=null));
+        Text(economy+"\n"+(p.Known?"Normal fortnightly output: "+c.FoodDays+" food-days, "+c.Recruits+" troops, "+c.Gold+" gold, "+c.Cannons+" cannons, "+c.Ships+" ships.":"Send a resident agent for exact enemy strengths and local supply figures."),.66f,.66f,.30f,.17f,19);
+        Text("Provincial armies",.04f,.59f,.92f,.05f,25);
+        var forces=p.Present.ToArray();if(forces.Length==0)Text("No rebel or allied army is present.",.04f,.49f,.92f,.07f);
+        else {
+            int current=Array.FindIndex(forces,a=>a.Slot==armySlot);if(current<0)current=0;armySlot=forces[current].Slot;var a=forces[current];
+            Button("‹",.04f,.49f,.045f,.07f,()=>{armySlot=forces[(current+forces.Length-1)%forces.Length].Slot;Draw();});
+            Button("›",.91f,.49f,.045f,.07f,()=>{armySlot=forces[(current+1)%forces.Length].Slot;Draw();});
+            Text(a.Name+"  ·  "+a.Troops.ToString("N0")+" troops  ·  "+(a.Control/100f).ToString("0.##")+"% territory  ·  "+(current+1)+" / "+forces.Length,.11f,.49f,.77f,.07f,23);
+            Text("Order: "+a.Stance+(a.Protected?" · Hidden Muster: "+Mathf.Max(0,p.Get("MusterUntil")-ProvincialWar.I("LastDay"))+" days remaining":"")+(a.Rebel?" · Recruit from Resistance":" · Committed replacements: "+ProvincialWar.I("Reserve"+a.Country)),.04f,.43f,.92f,.05f,20);
+            string[] titles={"Gather Strength","Seek Battle","Capture Territory","Skirmish","Pillage","Hold position"};
+            for(int i=0;i<6;i++){var order=(ProvincialWar.Order)i;string reason=ProvincialWar.OrderReason(a,order);Button(titles[i],.04f+(i%3)*.31f,.33f-(i/3)*.09f,.29f,.075f,()=>Commit(()=>ProvincialWar.GiveOrder(a,order,out _)),reason==null);}
+            Text(a.Troops<ProvincialWar.Rules.MinimumArmy?"Below 1,000 troops: gather strength or defend; offensive orders are unavailable.":a.Protected?"Any offensive order ends Hidden Muster immediately.":"Orders persist. Territory claims strengthen an ally's claim at settlement.",.04f,.18f,.92f,.05f,18);
+        }
+        Button("Launch rebellion · 1,000 troops",.04f,.09f,.32f,.07f,()=>Commit(()=>ProvincialWar.Launch(p.Id,out _)),ProvincialWar.LaunchReason(p)==null);
+        Button("Agent and network",.38f,.09f,.29f,.07f,()=>{Close();FindObjectOfType<CouncilUI>(true).ProvincialOperationsFor(p.Id);});
+        Button("Return to map",.69f,.09f,.27f,.07f,Exit);
+        Text(ProvincialWar.LaunchReason(p)??"Requires 30 Resistance. The founding army and Hidden Muster are available once per province.",.04f,.025f,.92f,.045f,17);
+    }
+    static void Continuation()
+    {
+        var p=P;string power=CountryDiplomacy.Definitions[p.Owner-ProvincialWar.AllyOwnerOffset].Name;
+        Text("Our ally's next campaign",.04f,.80f,.92f,.08f,32);
+        Text(power+" now holds "+p.Name+". Its captains send their sovereign's instructions: they may consolidate their gains, make a separate peace, or continue against a neighbouring Ottoman province.\n\nTheir decision has already been made; it will not change if this letter is opened again.",.07f,.40f,.86f,.32f,26);
+        Button("Read their reply",.30f,.19f,.40f,.10f,()=>{string report="";Commit(()=>report=ProvincialWar.ContinueAlly(p));Close();CampaignHUD.Instance.ShowReport("Our ally's intentions",report,()=>{CampaignHUD.Instance.DismissReport();Exit();});});
+    }
+    static void Assistance()
+    {
+        var p=P;var r=ProvincialWar.Rules;Text("The price of restoration",.04f,.80f,.92f,.08f,32);
+        Text("The magistrates of "+p.Name+" send accounts stained by rain and hurried hands. Their workshops stand idle; the men who accepted the imperial seal now ask whether Constantinople can help them make it mean something.\n\nSend "+r.AssistanceCost+" gold to restore "+r.AssistanceWealth+" Wealth, or refuse. Refusal costs "+r.AssistanceWealth+" Wealth and carries a "+r.AssistanceChaosChance+"% risk of administrative collapse.",.07f,.39f,.86f,.35f,25);
+        for(int i=0;i<2;i++){bool pay=i==0;Button(pay?"Send assistance":"They must find their own means",.06f+i*.47f,.19f,.43f,.11f,()=>{string report="";Commit(()=>report=ProvincialWar.Assistance(p,pay));Close();CampaignHUD.Instance.ShowReport("The provincial magistrates",report,()=>{CampaignHUD.Instance.DismissReport();Exit();});},!pay||CouncilActions.Int("iMoney")>=r.AssistanceCost);}
+    }
+    static void Battle()
+    {
+        var p=P;int stage=p.Get("BattleStage");
+        string title=stage<=2?"I · Maneuver":stage<=4?"II · Clash":stage==5?"III · Aftermath":"Battle concluded";
+        Text(title,.04f,.82f,.92f,.07f,29);
+        var report=Text(ProvincialBattle.Report(p),.06f,.31f,.88f,.49f,25);report.enableAutoSizing=true;report.fontSizeMin=20;report.fontSizeMax=25;
+        if(stage==1){for(int i=0;i<3;i++){int choice=i;string[] descriptions={"Caution\nBetter effectiveness and withdrawal","Speed\nEngage only part of the enemy","Coordination\nBring cooperating forces into battle"};Button(descriptions[i],.04f+i*.31f,.13f,.29f,.13f,()=>Commit(()=>ProvincialBattle.Maneuver(p,choice)),i!=2||ProvincialBattle.CanCoordinate(p));}}
+        else if(stage==3){for(int i=0;i<3;i++){int choice=i;Button(ProvincialBattle.Tactics[i],.04f+i*.31f,.13f,.29f,.13f,()=>Commit(()=>ProvincialBattle.Clash(p,choice)));}}
+        else if(stage==5){string[] options=p.Get("BResult")>0?new[]{"Pursue","Consolidate"}:p.Get("BResult")<0?new[]{"Withdraw","Cover the Retreat","Fight On"}:new[]{"Disengage","Renew the Attack"};for(int i=0;i<options.Length;i++){int choice=i;Button(options[i],.04f+i*.31f,.13f,.29f,.13f,()=>Commit(()=>ProvincialBattle.Aftermath(p,choice)));}}
+        else Button(stage==6?"Acknowledge result":"Continue",.34f,.13f,.32f,.10f,()=>{Commit(()=>ProvincialBattle.Continue(p));if(!p.Pending)Exit();});
+        Text("This encounter resolves within the current day. Opening it again preserves its situation and decisions.",.04f,.035f,.92f,.055f,18);
+    }
+    static void Settlement()
+    {
+        var p=P;var r=ProvincialWar.Rules;var ally=ProvincialWar.QualifyingAlly(p);int restore=p.Resistance>=r.StrongResistance?r.StrongRestoreChance:r.RestoreChance;
+        Text("Who Shall Govern?",.04f,.81f,.92f,.08f,32);
+        Text("The officials can no longer enforce their writ. Local leaders, armed companies and the men who fought here now ask whose seal shall stand above the gates.\n\nChoose a settlement for "+p.Name+". Failure leaves the province in chaos for "+r.ChaosDays+" days; no exports leave during that time.",.06f,.55f,.88f,.24f,25);
+        string[] titles={"Proclaim Imperial Restoration · "+r.RestoreCost+" gold · "+restore+"% success",ally==null?"Entrust to our ally · no qualifying claimant":"Entrust to "+ally.Name+" · "+r.EndorseChance+"% success","Leave settlement to local leaders · "+r.LocalChance+"% imperial allegiance"};
+        for(int i=0;i<3;i++){int choice=i;Button(titles[i],.10f,.41f-i*.12f,.80f,.10f,()=>{string report="";bool ok=false;Commit(()=>ok=ProvincialWar.Settle(p,choice,out report));if(ok){Close();CampaignHUD.Instance.ShowReport("The provincial settlement",report,()=>{CampaignHUD.Instance.DismissReport();Exit();});}},i==0?CouncilActions.Int("iMoney")>=r.RestoreCost:i!=1||ally!=null);}
+        Text("An ally must hold more than 10% and lead every other ally. Ties do not select a ruler automatically. Gold is paid even if restoration fails.",.10f,.055f,.80f,.08f,18);
+    }
+}
+
+// Gate only management time: historical petitions and assaults retain their existing sequence.
+public sealed class ProvincialConflictGate : MonoBehaviour
+{
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static void Attach(){var go=new GameObject("Provincial pending-event gate");go.AddComponent<ProvincialConflictGate>();}
+    void LateUpdate()
+    {
+        if(!VariableSingleton.IsInitialized||!ProvincialWar.Ready||ProvincialConflictUI.Open||ProvincialWar.Pending==null)return;
+        var manager=FindObjectOfType<ManagerUI>();if(manager==null||!manager.isActiveAndEnabled)return;
+        if(CampaignHUD.Instance==null||CampaignHUD.Instance.HasModal||CampaignHUD.Instance.HasEnded||GameObject.Find("War Beyond the Walls map")!=null)return;
+        ProvincialConflictUI.Show(ProvincialWar.Pending.Id);
+    }
+}

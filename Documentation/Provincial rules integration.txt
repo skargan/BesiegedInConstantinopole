@@ -1,0 +1,36 @@
+WAR BEYOND THE WALLS — PROVINCIAL RULES INTEGRATION
+
+Authority: user's "rules for the war beyond the walls.docx". The final LATER ADDITION takes precedence over the earlier launch/mustering rules. The opening document's former defaults must not be reapplied.
+
+Implemented systems and their connections
+---------------------------------------
+Province state: Authority, Resistance, Wealth, a real garrison, separate rebel/allied troop pools and territorial claims. Information access follows the resident agent; the player's own/allied armies remain visible.
+Rebellion: deliberate launch at Resistance 30, 1,000 founding troops, saved 20–50-day Hidden Muster, and no automatic rebellion at low Authority. Offensive orders end protection. Recruitment spends Resistance; offensive missions require 1,000 men.
+Standing orders: Gather, Seek Battle, Capture Territory, Skirmish, Pillage, Hold. Allied recruitment draws on finite committed reserves. Authority ceilings follow total lost territory; Wealth and quiet Authority recovery are processed once per calendar day.
+Ottoman response: garrison replacement and force-sensitive orders; one encounter roll per province per day and a 14-day battle cooldown. Hidden rebels are protected; exposed foreign armies are not.
+Encounter: maneuver, clash and aftermath, with one possible renewed clash. Saved phase seeds preserve outcomes on reload. Actual participating troop pools, simultaneous casualty caps and proportional allocation prevent invented/duplicated casualties. Provincial losses do not enter the city infirmary.
+Settlement: imperial restoration, eligible allied rule or local rule; failed settlements may create 90 days of chaos. Existing armies survive chaos without exporting supplies or conducting offensives. Allied continuation letters resolve pause, separate peace or an onward operation.
+Economy: fourteen-day departures, Wealth-scaled output with fractional carry, immutable in-transit cargo, and ownership-based destinations. Chaos stops departures. Imperial provinces send tribute. These replace the legacy finite supply waves and automatic Ottoman daily ship grant.
+Interface: province overview and army order selection, compact agent network, map army/decision markers, saved multi-step battle decisions, settlement/continuation/assistance prompts. Pending consequences are resolved before another ordinary day advances.
+Market: once the siege begins, daily purchases are capped at ten provisions, ten materials and ten ammunition. Preparation allowances remain separate. Multiple purchases share the same daily stock counters.
+Map: Dulkadir and the Ramadanid marches are folded into the Mamluk region, with their shared internal edges removed. The outer footprint is preserved; neither is a separate diplomacy target.
+
+Editable defaults
+-----------------
+Assets/Resources/Content/ProvincialWarRules.json is the balance source. It includes battle chances/caps, muster range, recruitment, orders, settlement, continuation, province outputs, travel times and allied commitments.
+Province output quantities, allied army/reserve sizes, terrain weights and imperial assistance costs/frequency are implementation playtest proposals where the document did not supply complete numbers. They are game values, not historical measurements.
+Imperial assistance defaults: every thirty days, 20% chance; 500 gold for +10 Wealth; refusal loses 10 Wealth with 20% chance of chaos. Review these during balance testing.
+
+Save continuity
+---------------
+New state uses namespaced integer keys within the established campaign save envelope rather than changing its checksum schema. Old provincial agent state and pending intelligence orders are retained. Legacy rebellions/ownership are migrated once; the migration does not create another founding army. Future legacy supply parcels are retired; resources already delivered remain in stores.
+
+Scope boundaries
+----------------
+Strongpoints, named provincial generals, detailed raids, additional troop types, a larger logistics model and further negotiated liberation scenarios remain future work. The regional Albania trial remains a separate historical prototype, not a second source of campaign casualties or supplies.
+Legacy provincial/war-intervention diagnostic expectations describe the replaced model; use ProvincialWarChecks and ProvincialWarCapture for the new implementation. Do not treat old scenario assertions as proof of compatibility with the new rules.
+
+Validation
+----------
+The initial integrated player passed 1,351 engine/runtime checks, including eighty seeded battle save replays, casualty/territory bounds, launch/mustering, settlement/chaos, shipment cargo persistence and siege market caps. This is implementation verification, not evidence that long-campaign balance is final.
+The final release report records the final build, current check totals and the screens visually inspected.

@@ -1,0 +1,480 @@
+{
+  "Version": 1,
+  "MinimumArmy": 1000,
+  "LaunchResistance": 30,
+  "LaunchTroops": 1000,
+  "MusterMin": 20,
+  "MusterMax": 50,
+  "RecruitsPerResistance": 100,
+  "BattleChance": 20,
+  "BattleCooldown": 14,
+  "ShipmentInterval": 14,
+  "ChaosDays": 90,
+  "AuthorityRecoveryDays": 7,
+  "PauseGarrisonDuringUprising": false,
+  "TerritoryMin": 1,
+  "TerritoryMax": 3,
+  "PillageMin": 1,
+  "PillageMax": 3,
+  "PillageGold": 100,
+  "SkirmishMin": 1,
+  "SkirmishMax": 50,
+  "WealthRecovery": 1,
+  "ClandestineMin": 1,
+  "ClandestineMax": 2,
+  "SecretsAward": 2,
+  "PlanCost": 1000,
+  "RestoreCost": 500,
+  "RestoreChance": 70,
+  "StrongRestoreChance": 90,
+  "StrongResistance": 50,
+  "EndorseChance": 90,
+  "LocalChance": 40,
+  "AllyClaimThreshold": 10,
+  "CessationChance": 60,
+  "PeaceChance": 20,
+  "CessationDays": 60,
+  "AssistanceInterval": 30,
+  "AssistanceChance": 20,
+  "AssistanceCost": 500,
+  "AssistanceWealth": 10,
+  "AssistanceChaosChance": 20,
+  "EnemyRenewChance": 25,
+  "CautionPlains": 50,
+  "CautionOther": 70,
+  "SpeedPlains": 70,
+  "SpeedOther": 50,
+  "CoordinationChance": 70,
+  "SpeedParticipation": 75,
+  "CautionBonus": 15,
+  "TacticBonus": 25,
+  "LocalBonus": 10,
+  "LocalMinimum": 10,
+  "ManeuverLossMin": 0,
+  "ManeuverLossMax": 3,
+  "ManeuverCap": 5,
+  "ClashCap": 50,
+  "InconclusiveChance": 20,
+  "WinnerLossMin": 4,
+  "WinnerLossMax": 8,
+  "LoserLossMin": 10,
+  "LoserLossMax": 18,
+  "DrawLossMin": 6,
+  "DrawLossMax": 10,
+  "RoutLow": 20,
+  "RoutMedium": 40,
+  "RoutHigh": 60,
+  "CoverCost": 2,
+  "CoverChance": 50,
+  "CounterChance": 25,
+  "PursuitLossMin": 1,
+  "PursuitLossMax": 4,
+  "ConsolidateLossMin": 0,
+  "ConsolidateLossMax": 1,
+  "CounterLossMin": 3,
+  "CounterLossMax": 8,
+  "WithdrawalMin": [
+    0,
+    5,
+    15,
+    30
+  ],
+  "WithdrawalMax": [
+    3,
+    12,
+    30,
+    50
+  ],
+  "EscapeWeights": [
+    20,
+    70,
+    10,
+    40,
+    50,
+    10,
+    30,
+    50,
+    20
+  ],
+  "VictoryAuthority": 10,
+  "DecisiveAuthority": 20,
+  "VictoryTerritory": 5,
+  "DecisiveTerritory": 10,
+  "OttomanSeekStrong": 125,
+  "OttomanSeekWeak": 80,
+  "OttomanLowAuthority": 40,
+  "Provinces": [
+    {
+      "Id": "thrace",
+      "Garrison": 6000,
+      "Replacement": 10,
+      "FoodDays": 6,
+      "Recruits": 900,
+      "Gold": 500,
+      "Cannons": 2,
+      "Ammunition": 12,
+      "Ships": 0,
+      "TravelDays": 5,
+      "Tribute": 600,
+      "Terrain": [
+        70,
+        20,
+        10
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "bulgaria",
+      "Garrison": 4000,
+      "Replacement": 8,
+      "FoodDays": 5,
+      "Recruits": 700,
+      "Gold": 350,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 8,
+      "Tribute": 500,
+      "Terrain": [
+        40,
+        40,
+        20
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "macedonia",
+      "Garrison": 4500,
+      "Replacement": 8,
+      "FoodDays": 5,
+      "Recruits": 700,
+      "Gold": 350,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 9,
+      "Tribute": 500,
+      "Terrain": [
+        35,
+        30,
+        35
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "bithynia",
+      "Garrison": 4000,
+      "Replacement": 8,
+      "FoodDays": 4,
+      "Recruits": 600,
+      "Gold": 450,
+      "Cannons": 1,
+      "Ammunition": 10,
+      "Ships": 7,
+      "TravelDays": 5,
+      "Tribute": 500,
+      "Terrain": [
+        50,
+        30,
+        20
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "karasi",
+      "Garrison": 2500,
+      "Replacement": 6,
+      "FoodDays": 3,
+      "Recruits": 400,
+      "Gold": 250,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 7,
+      "TravelDays": 8,
+      "Tribute": 350,
+      "Terrain": [
+        45,
+        35,
+        20
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "aydin",
+      "Garrison": 2500,
+      "Replacement": 6,
+      "FoodDays": 3,
+      "Recruits": 400,
+      "Gold": 350,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 10,
+      "Tribute": 400,
+      "Terrain": [
+        50,
+        25,
+        25
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "mentese",
+      "Garrison": 2000,
+      "Replacement": 5,
+      "FoodDays": 2,
+      "Recruits": 300,
+      "Gold": 250,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 12,
+      "Tribute": 300,
+      "Terrain": [
+        25,
+        35,
+        40
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "germiyan",
+      "Garrison": 3000,
+      "Replacement": 6,
+      "FoodDays": 3,
+      "Recruits": 500,
+      "Gold": 300,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 10,
+      "Tribute": 400,
+      "Terrain": [
+        40,
+        20,
+        40
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "anatolia",
+      "Garrison": 3500,
+      "Replacement": 7,
+      "FoodDays": 3,
+      "Recruits": 600,
+      "Gold": 350,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 12,
+      "Tribute": 450,
+      "Terrain": [
+        50,
+        20,
+        30
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "armeniakon",
+      "Garrison": 3000,
+      "Replacement": 6,
+      "FoodDays": 2,
+      "Recruits": 400,
+      "Gold": 300,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 15,
+      "Tribute": 350,
+      "Terrain": [
+        20,
+        30,
+        50
+      ],
+      "RebelCap": 12000
+    },
+    {
+      "Id": "candar",
+      "Garrison": 2500,
+      "Replacement": 5,
+      "FoodDays": 2,
+      "Recruits": 400,
+      "Gold": 250,
+      "Cannons": 0,
+      "Ammunition": 0,
+      "Ships": 0,
+      "TravelDays": 12,
+      "Tribute": 350,
+      "Terrain": [
+        20,
+        50,
+        30
+      ],
+      "RebelCap": 12000
+    }
+  ],
+  "Allies": [
+    {
+      "Id": "hungary",
+      "Troops": 8000,
+      "Cap": 8000,
+      "Reserve": 8000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "bulgaria",
+        "thrace"
+      ]
+    },
+    {
+      "Id": "venice",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "karasi",
+        "aydin"
+      ]
+    },
+    {
+      "Id": "genoa",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "bithynia",
+        "candar"
+      ]
+    },
+    {
+      "Id": "albania",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "macedonia"
+      ]
+    },
+    {
+      "Id": "naples",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "mentese",
+        "aydin"
+      ]
+    },
+    {
+      "Id": "athens",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "macedonia"
+      ]
+    },
+    {
+      "Id": "georgia",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "armeniakon",
+        "candar"
+      ]
+    },
+    {
+      "Id": "trebizond",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "candar",
+        "armeniakon"
+      ]
+    },
+    {
+      "Id": "karaman",
+      "Troops": 8000,
+      "Cap": 8000,
+      "Reserve": 8000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "anatolia",
+        "germiyan"
+      ]
+    },
+    {
+      "Id": "aq_qoyunlu",
+      "Troops": 8000,
+      "Cap": 8000,
+      "Reserve": 8000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "armeniakon",
+        "anatolia"
+      ]
+    },
+    {
+      "Id": "wallachia",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "bulgaria"
+      ]
+    },
+    {
+      "Id": "moldavia",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "bulgaria",
+        "thrace"
+      ]
+    },
+    {
+      "Id": "serbia",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "macedonia",
+        "bulgaria"
+      ]
+    },
+    {
+      "Id": "bosnia",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "macedonia"
+      ]
+    },
+    {
+      "Id": "morea",
+      "Troops": 5000,
+      "Cap": 5000,
+      "Reserve": 5000,
+      "DailyReplacement": 100,
+      "Targets": [
+        "macedonia"
+      ]
+    }
+  ],
+  "BalanceNotes": "Editable prototype defaults. Food is in existing Ottoman food-days, not city provisions. Regional garrisons are separate from siege reinforcements. Ship output replaces the previous daily +1 (7 ships each from Bithynia and Karasi per 14 days at full wealth). No new regional infirmary. Initial ally caps and provincial output are provisional playtest values."
+}

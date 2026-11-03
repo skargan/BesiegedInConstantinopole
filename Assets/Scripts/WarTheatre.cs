@@ -17,13 +17,13 @@ public static class WarTheatre
     // Possessions remain separate polygons, but share one diplomatic identity.
     public static string HighlightKey(Region r)=>r.kind=="province"||r.kind=="neutral"||r.kind=="capital"?r.id:r.group;
     public static Region DiplomaticPower(Region r)=>r.kind=="province"||r.kind=="neutral"||r.kind=="capital"?r:Find(r.group)??r;
-    public static int Control(Region r)=>Mathf.Clamp(100-DailyLifeEvents.I("iWbwControlLoss_"+r.id),0,100);
+    public static int Control(Region r)=>r.kind=="province"?ProvinceCampaign.Authority(r.id):100;
     public static int Resistance(Region r)=>ProvinceCampaign.Rebellion(r.id)?2:ProvinceCampaign.Resistance(r.id)>0?1:0;
     public static bool Captured(Region r)=>DailyLifeEvents.I("iWbwCaptured_"+r.id)>0;
     public static bool AtWar(Region r){if(r==null)return false;int country=CountryDiplomacy.Index(string.IsNullOrEmpty(r.group)?r.id:r.group);return country>=0&&CountryDiplomacy.IsIntervening(country);}
-    public static string Status(Region r)=>Captured(r)?"Under imperial control":Resistance(r)>=2?"Armed insurrection":Resistance(r)==1?"Resistance network":Control(r)<60?"Ottoman authority weakened":"Ottoman administration";
+    public static string Status(Region r)=>r.kind=="province"&&ProvincialWar.Ready?ProvinceCampaign.Status(r.id):Captured(r)?"Under imperial control":Resistance(r)>=2?"Armed insurrection":Resistance(r)==1?"Resistance network":Control(r)<60?"Ottoman authority weakened":"Ottoman administration";
     public static Color Tint(Region r){
-        if(r.kind=="province"){if(Captured(r))return new Color(.59f,.25f,.77f,.48f);if(Resistance(r)>=2)return new Color(.95f,.35f,.10f,.48f);return Color.Lerp(new Color(.85f,.60f,.13f,.43f),new Color(.12f,.56f,.40f,.36f),Control(r)/100f);}
+        if(r.kind=="province"){if(ProvincialWar.Ready&&ProvincialWar.Find(r.id).Owner==ProvincialWar.Chaos)return new Color(.36f,.34f,.32f,.55f);if(ProvincialWar.Ready&&ProvincialWar.Find(r.id).Owner>=ProvincialWar.AllyOwnerOffset)return Color.HSVToRGB((ProvincialWar.Find(r.id).Owner*47%360)/360f,.4f,.55f)*new Color(1,1,1,.45f);if(Captured(r))return new Color(.59f,.25f,.77f,.48f);if(Resistance(r)>=2)return new Color(.95f,.35f,.10f,.48f);return Color.Lerp(new Color(.85f,.60f,.13f,.43f),new Color(.12f,.56f,.40f,.36f),Control(r)/100f);}
         if(r.kind=="neutral")return new Color(.60f,.57f,.46f,.28f);
         if(r.id=="morea"||r.kind=="capital")return new Color(.66f,.28f,.82f,.5f);
         int hash=0;foreach(char c in r.group)hash=(hash*31+c)&0x7fffffff;

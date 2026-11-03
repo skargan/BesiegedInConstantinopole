@@ -9,7 +9,8 @@ public static class NavalState
     public static bool Uncontested=>CouncilActions.Int("iShips")>EnemyShips;
     public static string SeaControl=>Uncontested?"Uncontested seas":"Contested seas";
     public static void Initialise(){VariableSingleton.SetInt("iTurkShips",StartingShips);VariableSingleton.SetInt("iNavalLastDay",0);VariableSingleton.SetInt("iNavalBattles",0);VariableSingleton.SetInt("iGalataCastles",0);VariableSingleton.SetInt("iNavalOurLoss",0);VariableSingleton.SetInt("iNavalEnemyLoss",0);VariableSingleton.SetInt("iNavalDiplomacyReward",0);VariableSingleton.SetInt("iArtilleryConvoy",0);}
-    public static void CompleteDay(){int day=TrainingPool.Day(VariableSingleton.GetDate());if(CouncilActions.Int("iNavalLastDay")==day)return;VariableSingleton.SetInt("iNavalLastDay",day);VariableSingleton.ChangeInt("iTurkShips",1);VariableSingleton.SetInt("iOttShipSource",day%2);Sync();}
+    public static void CompleteDay(){int day=TrainingPool.Day(VariableSingleton.GetDate());if(CouncilActions.Int("iNavalLastDay")==day)return;VariableSingleton.SetInt("iNavalLastDay",day);// Provincial departures now provide all replacement ships.
+        Sync();}
     public static void Sync()=>VariableSingleton.ChangeBool("bTurkFleet",EnemyShips>0);
     public static int VictoryChance=>Mathf.Clamp(10+CouncilActions.Int("iShips")+Mathf.RoundToInt((StartingShips-EnemyShips)*.5f),5,95);
     public static string LastReport=>"Our ships lost: "+CouncilActions.Int("iNavalOurLoss")+" · Ottoman ships lost: "+CouncilActions.Int("iNavalEnemyLoss")+"\nCrews lost: "+(CouncilActions.Int("iNavalOurLoss")*SpecialistPersonnel.ShipCrew)+" (including "+CouncilActions.Int("iNavalOurLoss")+" ship engineers).\nSurviving ships: "+CouncilActions.Int("iShips")+" ours · "+EnemyShips+" Ottoman · "+SeaControl+(DailyLifeEvents.I("iNavalDiplomacyReward")>0?"\nVenice, Genoa, the Hospitallers, Cyprus and Naples gain +10 goodwill after this major victory.":"");

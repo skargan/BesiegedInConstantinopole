@@ -44,7 +44,7 @@ public partial class CouncilUI
     public void ReviewNavalBattle()
     {
         Open("Commit the fleet","Victory and defeat both cost ships.");ControlSingleton.Instance.ReturnAction=FleetOrders;BodyHeight(440);
-        var terms=Row(0,290);CampaignHUD.Explanation(terms.transform,"Our ships: "+CouncilActions.Int("iShips")+" · Ottoman vessels: "+NavalState.EnemyShips+"\nVictory chance: "+NavalState.VictoryChance+"%\nVictory: lose 5–15% of our ships; enemy loses 40–65%.\nDefeat: lose 25–50% of our ships; enemy loses 10–25%.\nThe Ottomans receive one replacement ship each siege day.",new Vector2(.04f,.08f),new Vector2(.96f,.94f),25);
+        var terms=Row(0,290);CampaignHUD.Explanation(terms.transform,"Our ships: "+CouncilActions.Int("iShips")+" · Ottoman vessels: "+NavalState.EnemyShips+"\nVictory chance: "+NavalState.VictoryChance+"%\nVictory: lose 5–15% of our ships; enemy loses 40–65%.\nDefeat: lose 25–50% of our ships; enemy loses 10–25%.\nOttoman provincial shipyards dispatch reinforcements fortnightly; output depends on Wealth and ownership.",new Vector2(.04f,.08f),new Vector2(.96f,.94f),25);
         bool submitted=false;var controls=Row(2,145);CampaignHUD.MakeButton(controls.transform,"Return",new Vector2(.04f,.1f),new Vector2(.45f,.9f),FleetOrders);CampaignHUD.MakeTurnButton(controls.transform,"Confirm battle",new Vector2(.52f,.1f),new Vector2(.96f,.9f),()=>{if(submitted||CouncilActions.Int("iShips")<=0||NavalState.EnemyShips<=0)return;submitted=true;bool won=Random.Range(0,100)<NavalState.VictoryChance;NavalState.Battle(won);Finish(true,(won?"The enemy yields the sea.\n":"Our captains withdraw to the harbour.\n")+NavalState.LastReport);});
     }
 }

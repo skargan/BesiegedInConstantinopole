@@ -1,0 +1,17 @@
+VERSION 36.17 — FLEET, TRAINING AND PROVINCIAL WAR
+
+Training and equipment: original three-soldier artwork; all three training rows and specialist equipment visible on one screen. Rank, lethality, technology effects, costs and time remain visible. Existing training confirmation and availability rules are preserved. Specialist fleet text now describes actual per-ship casualties.
+
+Fleet: compact right-side command desk leaves the harbour visible. Strength, sea control, current mission, report timing, harbour defence, admiral status, last battle, construction and repair controls fit without scrolling. The full construction/repair queue remains reachable through All shipyard orders. Order and battle confirmations retain the existing rules.
+
+Intelligence: the other developer's enemy-spy summary is included, hidden as ? until eight camp agents reveal it. Version36.16 infirmary and monastic-research presentation is retained.
+
+War Beyond the Walls: implements the supplied provincial rules and final addendum, including real garrisons/armies, deliberate rebellions, hidden muster, six standing orders, saved multi-stage encounters, territorial settlement, chaos, allied continuation and Wealth-scaled fortnightly shipments. Editable playtest values are in Assets/Resources/Content/ProvincialWarRules.json. See Documentation/Provincial rules integration.txt for migration and design boundaries. The old automatic Ottoman daily ship grant is removed.
+
+Map: Dulkadir and Ramadanid marches are absorbed into the Mamluk region without internal borders; circular maritime medallions retain their own outline styling. The provincial agent footer fits on screen.
+
+Market: during the siege only ten provisions, ten materials and ten ammunition may be purchased per day. Preparation allowances remain separate; repeated purchases share the daily cap, including after save/load.
+
+Verification: COMPACT_MILITARY_CHECKS 808 passed; PROVINCIAL_CHECKS 1357 passed. Compact screens checked at1280x720,1600x900,1920x1080, including pending training, empty fleet, hidden intelligence, button bounds, text fit and navigation. Provincial checks include eighty seeded battle save replays, casualty and territory bounds, immutable shipment cargo, settlement/chaos, actual archive save/load and market persistence. Visual review covers both compact screens at all three resolutions and provincial/map screens. These checks do not establish final long-campaign balance.
+
+Separate work still owned by the main developer: palace hotspots/art, Our Turks, Decision Journal and the latest unit-role explanation. Those requests are not claimed as completed here. Moving aid-convoy map markers remain a follow-up.

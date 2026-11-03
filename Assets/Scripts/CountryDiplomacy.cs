@@ -213,9 +213,9 @@ public static class CountryDiplomacy
     public static WarCommitment WarState(int i){Ensure();return (WarCommitment)(Valid(i)?ReadWar(i):0);}
     public static int MobilisationDeadline(int i){Ensure();return I(K("WarDue",i));}
     public static DateTime MobilisationDue(int i)=>Date(MobilisationDeadline(i));
-    public static bool IsIntervening(int i)=>WarState(i)==WarCommitment.Intervening;
+    public static bool IsIntervening(int i)=>WarState(i)==WarCommitment.Intervening&&ProvincialWar.I("Peace"+i)==0;
     public static IEnumerable<int> ActiveInterventions=>Enumerable.Range(0,Definitions.Length).Where(IsIntervening);
-    public static string WarStatus(int i)=>WarState(i)==WarCommitment.Mobilising?"Mobilising · ready "+MobilisationDue(i).ToString("d MMM yyyy"):WarState(i)==WarCommitment.Intervening?"Intervening":WarState(i)==WarCommitment.Refused?"War appeal declined":"No war commitment";
+    public static string WarStatus(int i)=>ProvincialWar.I("Peace"+i)>0?"Separate peace":ProvincialWar.I("Pause"+i)>ProvincialWar.I("LastDay")?"Campaign paused":WarState(i)==WarCommitment.Mobilising?"Mobilising · ready "+MobilisationDue(i).ToString("d MMM yyyy"):WarState(i)==WarCommitment.Intervening?"Intervening":WarState(i)==WarCommitment.Refused?"War appeal declined":"No war commitment";
     public static string WarReason(int i)
     {
         Ensure();if(!Valid(i))return "Unknown court";
@@ -234,7 +234,7 @@ public static class CountryDiplomacy
         float chance=FinalChance(i);Put(K("WarRenewReady",i),0);
         bool success=UnityEngine.Random.Range(0f,100f)<chance;Put(K("War",i),success?2:1);
         if(success) {Put(K("Attitude",i),4);Put(K("WarDue",i),Day+Definitions[i].MobilisationDays);}
-        report=success?Definitions[i].Name+" agrees to intervene. The court is now Allied; mobilisation completes on "+MobilisationDue(i).ToString("d MMM yyyy")+". "+Definitions[i].InterventionType+" can delay up to "+Definitions[i].ShipmentBudget+" eligible Ottoman deliveries by "+Definitions[i].DelayDays+" days each.":Definitions[i].Name+" refuses war. A resident envoy can renew this war appeal after ten further days of paid diplomatic work.";
+        report=success?Definitions[i].Name+" agrees to intervene. The court is now Allied; mobilisation completes on "+MobilisationDue(i).ToString("d MMM yyyy")+". "+WarInterventions.Terms(i):Definitions[i].Name+" refuses war. A resident envoy can renew this war appeal after ten further days of paid diplomatic work.";
         report+=DiplomaticReplies.FormatWar(Definitions[i].Id,Definitions[i].Name,success,Policy);return true;
     }
 

@@ -1,7 +1,7 @@
 using System;
 
 // One shared allowance per council turn: preparation month before siege, day afterwards.
-// These three proposed values remain provisional pending the designer's reply.
+// Preparation allowances are monthly; siege emergency purchases are limited to ten of each resource daily.
 public static class MarketPurchaseLimits
 {
     public const int ProvisionsPerTurn = 500;
@@ -13,6 +13,7 @@ public static class MarketPurchaseLimits
     public static int Limit(string resource)
     {
         int index=Index(resource);
+        if(index>=0&&VariableSingleton.HasSiegeStarted())return 10;
         return index==0?ProvisionsPerTurn:index==1?MaterialsPerTurn:index==2?AmmunitionPerTurn:0;
     }
     public static int Purchased(string resource)

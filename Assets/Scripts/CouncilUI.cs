@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.16 · Infirmary and monasteries";
+    public const string BuildLabel="Version 36.17 · Fleet, training and provincial war";
 
 
 
@@ -558,69 +558,8 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public void TroopUpgrades(int selected=0)
+    public void TroopUpgrades(int selected=0) => CompactTroopUpgrades(selected);
 
-    {
-
-        Open("Training and equipment","Drills improve your soldiers over five days. Technologies add their own bonuses. Troops remain ready to fight throughout training.");
-
-        ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.BringUpTroopsUI();};
-
-        BodyHeight(1200);
-
-        string[] technologyNames={"Roman Tactics","Upgraded Crossbows","Cataphract Armour"};
-
-        string[] technologyKeys={"RomanTraining","UpgradedCrossbows","PlateArmour"};
-
-        for(int i=0;i<3;i++) {
-
-            int unit=i;var row=Row(i,300);int rank=TroopTraining.Rank(i);
-
-            CampaignHUD.Label(row.transform,TroopTraining.Units[i]+" · "+TroopTraining.Ranks[rank],new Vector2(.03f,.82f),new Vector2(.69f,.98f),28);
-
-            for(int j=0;j<5;j++) {
-
-                var pip=CampaignHUD.Panel(row.transform,"Training level "+j,new Vector2(.03f+j*.128f,.69f),new Vector2(.15f+j*.128f,.77f));
-
-                pip.GetComponent<Image>().color=j<=rank?new Color(.65f,.49f,.22f):new Color(.12f,.10f,.11f);
-
-                var label=CampaignHUD.Label(pip.transform,TroopTraining.Ranks[j],Vector2.zero,Vector2.one,15);label.alignment=TextAlignmentOptions.Center;
-
-            }
-
-            string tech=technologyNames[i]+": "+(TechnologySystem.Has(technologyKeys[i])?"active (+25%)":"not adopted");
-
-            if(i==0) tech+=" · Grenades: "+(TechnologySystem.Has("Grenades")?"+0.25":"not adopted");
-
-            if(i==1) tech+=" · Handcannons: "+(TechnologySystem.Has("Handcannons")?"+0.5":"not adopted");
-
-            if(i==2) tech+="\nDismounted Champions: "+(TechnologySystem.Has("DismountedChampions")?"active":"not adopted");
-
-            CampaignHUD.Explanation(row.transform,tech,new Vector2(.03f,.40f),new Vector2(.69f,.66f),20);
-
-            CampaignHUD.Label(row.transform,TroopTraining.Breakdown(i),new Vector2(.03f,.07f),new Vector2(.69f,.39f),22);
-
-            string reason=TroopTraining.Unavailable(i);
-
-            string text=TroopTraining.Due(i)>0?"Drills complete in\n"+Mathf.Max(0,TroopTraining.Due(i)-TrainingPool.Day(VariableSingleton.GetDate()))+" days":reason??"Upgrade training\n5,000 gold · 5 days";
-
-            var button=CampaignHUD.MakeButton(row.transform,text,new Vector2(.73f,.20f),new Vector2(.97f,.77f),()=>ReviewTraining(unit));button.interactable=reason==null;
-
-        }
-
-        var specialists=Row(3,300);
-
-        CampaignHUD.Label(specialists.transform,"Specialist forces",new Vector2(.03f,.78f),new Vector2(.97f,.96f),28);
-
-        CampaignHUD.Explanation(specialists.transform,"Varangian Drills: "+(TechnologySystem.Has("VarangianDrills")?"active · lethality +20%":"not adopted")+"\nGrapeshot: "+(TechnologySystem.Has("Grapeshot")?"active · cannon lethality ×3.5":"not adopted")+"\nArtillery Ships: "+(TechnologySystem.Has("ArtilleryShips")?"active · defensive fleet reports inflict 200 casualties":"not adopted · defensive fleet reports inflict 100 casualties"),new Vector2(.03f,.15f),new Vector2(.70f,.76f),23);
-
-        CampaignHUD.MakeButton(specialists.transform,"Technologies",new Vector2(.74f,.25f),new Vector2(.97f,.68f),Technologies);
-
-        Canvas.ForceUpdateCanvases();
-
-        var upgradeScroll=body.GetComponentInParent<ScrollRect>();upgradeScroll.verticalNormalizedPosition=1-Mathf.Clamp01(selected/3f);
-
-    }
 
 
 
@@ -746,102 +685,8 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public void Fleet()
+    public void Fleet() => CompactFleet();
 
-    {
-
-        Open("The Imperial Fleet", "Command the sea: compare fleets, issue orders and inspect the harbour's defences.");
-
-        int ships=CouncilActions.Int("iShips"),order=Mathf.Clamp(CouncilActions.Int("iFleet"),0,5);
-
-        bool known=CouncilActions.Int("iSpies")>=2;
-
-        string[] orders={"Raid Ottoman supplies","Raid coastal shipping","Bring grain from Crimea","Defend the Golden Horn","Bring volunteers","Awaiting new orders"};
-
-        string[] effects={"Successful report: remove 3 days of Ottoman food stores.","Successful report: gain 750 gold.","Successful report: gain 150 provisions.","Successful report: inflict "+RecurringEvents.FleetDefensiveDamage+" enemy casualties.","Successful report: gain 50 infantry and 25 archers.","The previous fleet was lost. Issue fresh orders to the surviving or newly built ships."};
-
-        var building=new System.Collections.Generic.List<string>();int queued=0;
-
-        foreach(var o in TrainingPool.Orders) if(o.unit=="iShips") {if(o.kind!=TrainingPool.ShipRepair)queued+=o.quantity;building.Add(o.quantity+" "+(o.kind==TrainingPool.ShipRepair?"warships · Repairing":"warships · Building")+" · ready "+TrainingPool.ReadyDate(o).ToString("d MMM yyyy")+" ("+TrainingPool.Remaining(o)+" days)");}
-
-        float yardHeight=Mathf.Max(240,150+building.Count*40);
-
-        BodyHeight(1050+yardHeight);
-
-        var strength=SpyPanel("Naval balance",0,170);
-
-        FleetText(strength.transform,"IMPERIAL WARSHIPS",.02f,.66f,.32f,.94f,22);
-
-        FleetText(strength.transform,ships.ToString(),.02f,.30f,.32f,.67f,38);
-
-        FleetText(strength.transform,queued+" building · "+SpecialistPersonnel.RepairingShips+" repairing",.02f,.06f,.32f,.30f,20);
-
-        FleetText(strength.transform,"CONTROL OF THE SEA",.34f,.66f,.66f,.94f,22);
-
-        FleetText(strength.transform,NavalState.SeaControl,.34f,.30f,.66f,.67f,29);
-
-        FleetText(strength.transform,"Uncontested when our ships outnumber theirs",.34f,.04f,.66f,.30f,18);
-
-        FleetText(strength.transform,"OTTOMAN VESSELS",.68f,.66f,.98f,.94f,22);
-
-        FleetText(strength.transform,known?NavalState.EnemyShips.ToString():"Unknown",.68f,.30f,.98f,.67f,38);
-
-        FleetText(strength.transform,known?"+1/day · "+NavalState.ReplacementSource:"Requires 2 agents in the enemy camp",.68f,.04f,.98f,.30f,19);
-
-        var controls=SpyPanel("Fleet command",184,90);
-
-        CampaignHUD.MakeButton(controls.transform,"Change mission",new Vector2(.02f,.15f),new Vector2(.33f,.85f),FleetOrders);
-
-        var battle=CampaignHUD.MakeButton(controls.transform,"Review naval battle",new Vector2(.35f,.15f),new Vector2(.66f,.85f),ReviewNavalBattle);
-
-        battle.interactable=ships>0&&NavalState.EnemyShips>0;
-
-        CampaignHUD.MakeButton(controls.transform,"Build warships",new Vector2(.68f,.15f),new Vector2(.98f,.85f),()=>{Hide();manager.BringUpTroopsUI();});
-
-        var mission=SpyPanel("Current mission",288,180);
-
-        FleetText(mission.transform,"CURRENT ORDERS · "+orders[order],.03f,.69f,.97f,.95f,27);
-
-        FleetText(mission.transform,ships==0?"No ships available. New warships take 30 days to build.":effects[order],.03f,.37f,.97f,.68f,24);
-
-        FleetText(mission.transform,"Routine report in "+FleetOperations.DaysRemaining+" active siege days. Reports follow a 14–21-day cycle; changing mission starts a new cycle.",.03f,.05f,.97f,.35f,20);
-
-        var harbour=SpyPanel("Harbour and command",482,250);
-
-        FleetText(harbour.transform,"HARBOUR DEFENCE",.03f,.79f,.97f,.96f,26);
-
-        float bonus=ships>0&&order==3?CourtRoster.Bonus(1,.05f,.15f)*100:0;
-
-        FleetText(harbour.transform,"Great Chain: "+(VariableSingleton.GetBoolVariable("bGoldenHornChain")?"intact":"removed"),.03f,.59f,.48f,.78f,24);
-
-        FleetText(harbour.transform,"Artillery Ships: "+(TechnologySystem.Has("ArtilleryShips")?"active":"not researched"),.52f,.59f,.97f,.78f,24);
-
-        FleetText(harbour.transform,"Alvise Diedo: "+CourtRoster.Status(1),.03f,.39f,.97f,.58f,22);
-
-        FleetText(harbour.transform,"Current archer support: +"+bonus.ToString("0")+"% · Diedo assists wall archers while the fleet defends the Golden Horn.",.03f,.19f,.97f,.38f,21);
-
-        FleetText(harbour.transform,"Harbour reports: 4 casualties per ship; Artillery Ships doubles this effect.",.03f,.03f,.97f,.18f,20);
-
-        var report=SpyPanel("Latest naval engagement",746,160);
-
-        FleetText(report.transform,"LATEST NAVAL BATTLE",.03f,.70f,.97f,.95f,25);
-
-        FleetText(report.transform,CouncilActions.Int("iNavalBattles")>0?"Our ships lost: "+CouncilActions.Int("iNavalOurLoss")+"     Ottoman ships lost: "+CouncilActions.Int("iNavalEnemyLoss"):"No naval battle has been fought.",.03f,.36f,.97f,.68f,23);
-
-
-
-        var yard=SpyPanel("The shipyards",920,yardHeight);
-
-        FleetText(yard.transform,"SHIPYARDS · "+queued+" building · "+SpecialistPersonnel.RepairingShips+" repairing",.03f,.79f,.97f,.97f,25);
-
-        FleetText(yard.transform,building.Count==0?"No orders in progress. Build ships through Military and recruitment.":string.Join("\n",building),.03f,.28f,.97f,.77f,22);
-        CampaignHUD.MakeButton(yard.transform,"Repair damaged ships · "+SpecialistPersonnel.AvailableDamagedShips+" available",new Vector2(.03f,.04f),new Vector2(.97f,.25f),RepairDamagedShips);
-
-        var preparation=SpyPanel("Fleet preparation",934+yardHeight,100);
-
-        FleetText(preparation.transform,CouncilActions.Int("iFleetPrepared")>0?"Prepared expedition: +50% to the next successful report. Changing mission removes this bonus.":"Preparation bonus: none.",.03f,.12f,.97f,.88f,22);
-
-    }
 
 
 
