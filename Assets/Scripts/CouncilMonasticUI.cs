@@ -7,36 +7,35 @@ public partial class CouncilUI
 {
     void MonasticResearchPanel()
     {
-        var card=SpyPanel("Monastic Research",615,620);ImperialTheme.Panel(card,false);
-        MedicalText(card.transform,"MONASTIC RESEARCH",new Vector2(.035f,.91f),new Vector2(.965f,.98f),28,TextAlignmentOptions.Center);
-        MedicalText(card.transform,"Monks compare manuscripts, translate neglected works and recover knowledge useful to the defence.",new Vector2(.035f,.80f),new Vector2(.965f,.91f),23,TextAlignmentOptions.Center);
-        MedicalText(card.transform,MonasticResearch.TotalMonks+" monks · "+MonasticResearch.InfirmaryMonks+" tending the wounded · "+MonasticResearch.ResearchMonks+" researching",new Vector2(.04f,.735f),new Vector2(.96f,.80f),24,TextAlignmentOptions.Center);
-        var track=CampaignHUD.Panel(card.transform,"Research progress",new Vector2(.05f,.68f),new Vector2(.95f,.72f));
+        var card=MedicalCard("Monastic Research",new Vector2(.025f,.245f),new Vector2(.975f,.78f));
+        MedicalText(card.transform,"Recover knowledge from manuscripts and neglected works.",new Vector2(.03f,.88f),new Vector2(.97f,.98f),22);
+        MedicalText(card.transform,MonasticResearch.Progress+" / "+MonasticResearch.Rules.ProgressPerSecret+" toward the next Secret · +"+MonasticResearch.DailyProgress+" / day",new Vector2(.03f,.80f),new Vector2(.97f,.88f),22);
+        var track=CampaignHUD.Panel(card.transform,"Research progress",new Vector2(.035f,.755f),new Vector2(.965f,.78f));
         track.GetComponent<Image>().color=new Color(.04f,.08f,.12f);track.GetComponent<Image>().raycastTarget=false;
         var fill=CampaignHUD.Panel(track.transform,"Knowledge recovered",Vector2.zero,new Vector2(Mathf.Clamp01((float)MonasticResearch.Progress/MonasticResearch.Rules.ProgressPerSecret),1));
         fill.GetComponent<Image>().color=ImperialTheme.Gold;fill.GetComponent<Image>().raycastTarget=false;
-        MedicalText(card.transform,MonasticResearch.Progress+" / "+MonasticResearch.Rules.ProgressPerSecret+" toward the next Secret.",new Vector2(.04f,.61f),new Vector2(.96f,.675f),23,TextAlignmentOptions.Center);
-        string current=MonasticResearch.ResearchMonks==0?"No monks assigned—progress preserved.":"Current: +"+MonasticResearch.DailyProgress+" progress/day · next discovery in "+MonasticResearch.DaysToDiscovery(MonasticResearch.ResearchMonks)+" days.";
-        MedicalText(card.transform,current,new Vector2(.04f,.55f),new Vector2(.96f,.615f),22,TextAlignmentOptions.Center);
-        var pending=MedicalText(card.transform,MonasticResearch.HasPending?"Pending for "+MonasticResearch.PendingDate.ToString("d MMM")+": "+MonasticResearch.PendingResearchMonks+" researching, "+(MonasticResearch.TotalMonks-MonasticResearch.PendingResearchMonks)+" in the infirmary.":"No allocation change pending.",new Vector2(.04f,.48f),new Vector2(.96f,.55f),22,TextAlignmentOptions.Center);
+        string current=MonasticResearch.ResearchMonks==0?"Research paused · progress preserved":"Next discovery in "+MonasticResearch.DaysToDiscovery(MonasticResearch.ResearchMonks)+" days at the current allocation";
+        MedicalText(card.transform,current,new Vector2(.03f,.675f),new Vector2(.97f,.75f),21);
+        var pending=MedicalText(card.transform,MonasticResearch.HasPending?"From "+MonasticResearch.PendingDate.ToString("d MMM")+": "+MonasticResearch.PendingResearchMonks+" researching · "+(MonasticResearch.TotalMonks-MonasticResearch.PendingResearchMonks)+" in care":"No allocation change pending",new Vector2(.03f,.59f),new Vector2(.97f,.675f),21);
         pending.color=MonasticResearch.HasPending?ImperialTheme.Gold:ImperialTheme.Ivory;
         int selected=MonasticResearch.PendingResearchMonks;
-        var preview=MedicalText(card.transform,"",new Vector2(.04f,.21f),new Vector2(.96f,.37f),23,TextAlignmentOptions.Center);
+        var preview=MedicalText(card.transform,"",new Vector2(.03f,.21f),new Vector2(.97f,.48f),22);
         Button apply=null;
         Action refresh=()=>{
             int capacity=MonasticResearch.TotalMonks-selected;
-            string estimate=selected==0?"research paused":"next discovery in "+MonasticResearch.DaysToDiscovery(selected)+" days at this allocation";
-            preview.text="Preview: "+selected+" researching · +"+MonasticResearch.ProgressFor(selected)+" progress/day\nInfirmary: "+MonasticResearch.InfirmaryMonks+" → "+capacity+" care places · "+estimate+
-                (MedicalRecovery.Total>capacity?"\n"+(MedicalRecovery.Total-capacity)+" patients would wait each day; their progress is preserved.":"");
+            string estimate=selected==0?"research paused":"next Secret in "+MonasticResearch.DaysToDiscovery(selected)+" days";
+            preview.text="Preview: "+selected+" researching · +"+MonasticResearch.ProgressFor(selected)+" progress/day\nCare places: "+MonasticResearch.InfirmaryMonks+" → "+capacity+" · "+estimate+
+                (MedicalRecovery.Total>capacity?"\n"+(MedicalRecovery.Total-capacity)+" patients would wait; their progress is preserved.":"");
             if(apply!=null)apply.interactable=selected!=MonasticResearch.PendingResearchMonks;
         };
         var slider=MonasticSlider(card.transform,selected,value=>{selected=Mathf.RoundToInt(value);refresh();});
-        apply=CampaignHUD.MakeButton(card.transform,"Apply allocation · begins tomorrow",new Vector2(.17f,.095f),new Vector2(.83f,.195f),()=>{
-            if(MonasticResearch.ApplyAllocation(selected,out var report)){InfirmaryPage(report);Canvas.ForceUpdateCanvases();body.parent.GetComponent<ScrollRect>().verticalNormalizedPosition=0;}
-            else notice.text=report;
+        var sliderRect=slider.GetComponent<RectTransform>();sliderRect.anchorMin=new Vector2(.08f,.485f);sliderRect.anchorMax=new Vector2(.92f,.585f);
+        apply=CampaignHUD.MakeButton(card.transform,"Apply allocation · tomorrow",new Vector2(.08f,.085f),new Vector2(.92f,.195f),()=>{
+            if(MonasticResearch.ApplyAllocation(selected,out var report))InfirmaryPage(report);
+            else {notice.text=report;notice.transform.parent.gameObject.SetActive(true);}
         });
         apply.name="Apply monk allocation";ImperialTheme.Button(apply);
-        MedicalText(card.transform,"Free reassignment · no major action · new recruits join the infirmary",new Vector2(.04f,.02f),new Vector2(.96f,.085f),20,TextAlignmentOptions.Center);
+        MedicalText(card.transform,"Free reassignment · recruits join the infirmary",new Vector2(.03f,.01f),new Vector2(.97f,.075f),19,TextAlignmentOptions.Center);
         refresh();
     }
     Slider MonasticSlider(Transform parent,int value,UnityEngine.Events.UnityAction<float> changed)

@@ -1,0 +1,1 @@
+INFIRMARY_DESK_CHECKS 1507 passed; two resolutions, care and research states, recruitment, preview, apply, persistence.
