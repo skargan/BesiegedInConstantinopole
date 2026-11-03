@@ -74,6 +74,7 @@ public partial class CouncilUI
         notice.fontSize=19;notice.fontSizeMin=16;notice.fontSizeMax=19;notice.enableAutoSizing=true;notice.alignment=TextAlignmentOptions.Center;notice.text="";
         var back=CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.20f,.02f),new Vector2(.80f,.075f),()=>ControlSingleton.Instance.GoBack());
         back.gameObject.name="Market return";MarketButtonText(back,23);
+        MarketMerchant.Attach(screen);
     }
 
     static TMP_Text MarketText(Transform parent,string text,Vector2 min,Vector2 max,int size)

@@ -1,0 +1,10 @@
+VERSION 36.18 - THE MARKET SPEAKS
+
+The grain merchant has a corrected face in both peacetime and wartime paintings, retaining his dark hair, beard and red cap. He turns toward the player with a knowing smile. Hovering traces his visible silhouette in gold and displays one of thirty fictional remarks, shuffled without repetition until the set is exhausted.
+
+The speech panel leaves the merchant and purchase desk visible. Hover regions follow image cropping at different aspect ratios. Chatter uses its own random source and does not affect campaign outcomes. This build also includes the rewritten Lethality and unit roles guide.
+
+Verification: MERCHANT_CHECKS 1477 passed; both market paintings, 30 remarks, three resolutions, raycasts and campaign state isolation.
+Runtime checks cover both paintings at 1600x900, 1280x720 and 1280x960, all thirty remarks, pointer entry/exit, raycast targeting, text overflow, purchase-control access and campaign-state/random-stream isolation. Screenshots reviewed for the hover treatment and guide. Prior Version36 archives are copied and hash-verified. Testing uses isolated archives.
+
+Our Turks, Decision Journal and the palace hotspot requests remain pending; this release does not mark them complete.

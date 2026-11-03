@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.17 · Fleet, training and provincial war";
+    public const string BuildLabel="Version 36.18 · The market speaks";
 
 
 

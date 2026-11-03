@@ -1,0 +1,1 @@
+MERCHANT_CHECKS 1477 passed; both market paintings, 30 remarks, three resolutions, raycasts and campaign state isolation.

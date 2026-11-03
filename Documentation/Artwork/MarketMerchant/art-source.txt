@@ -1,0 +1,6 @@
+Built-in image_gen, 3 November 2026. Edited existing market-peace.png and market-war.png.
+Prompt summary: preserve original scene, lighting, bodies, hands and scale; correct the red-capped grain merchant face/nose, retaining dark hair and beard, turn him toward the viewer with a natural knowing smile. No UI, glow or outlines baked in.
+Generated outputs:
+Peace: exec-819cef69-1861-43f3-855b-7d06c120cb7e.png
+War: exec-44721dac-b3bc-4ec2-91a6-6414930cb4db.png
+Folder: C:/Users/Dainius/.codex/generated_images/01a0a8e2-b837-7953-bbb3-acf52c000d0c
