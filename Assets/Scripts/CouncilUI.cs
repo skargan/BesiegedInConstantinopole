@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.19 · Lithuania and Poland";
+    public const string BuildLabel="Version 36.20 · Council navigation";
 
 
 
@@ -411,7 +411,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        ControlSingleton.Instance.ReturnAction=Hide;
+        ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.gameObject.SetActive(true);};
 
         BodyHeight(5*120);
 

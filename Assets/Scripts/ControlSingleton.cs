@@ -90,7 +90,7 @@ public class ControlSingleton : MonoBehaviour
             if(ProvincialConflictUI.Back())return;
             if(EventCardArt.ClosePreview()||AudioSettingsUI.Close()||AlbaniaWarTrialUI.Close()||WorldMapUI.Close()||WarTheatreUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
             if (CampaignHUD.Instance != null && CampaignHUD.Instance.HasModal) { CampaignHUD.Instance.TogglePause(); return; }
-            if (escActive)
+            if (escActive || ReturnAction != null)
             {
                 GoBack();
             }
