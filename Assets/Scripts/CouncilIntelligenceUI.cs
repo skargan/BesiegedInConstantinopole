@@ -18,11 +18,16 @@ public partial class CouncilUI
         int agents=CouncilActions.Int("iSpies");
         var network=CampaignHUD.Panel(desk.transform,"Intelligence network",new Vector2(0,.845f),Vector2.one);
         ImperialTheme.Panel(network,false);
-        IntelligenceText(network.transform,"CAMP AGENTS  "+agents+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     GOLD  "+CouncilActions.Int("iMoney").ToString("N0"),new Vector2(.02f,.47f),new Vector2(.65f,.94f),23);
-        IntelligenceText(network.transform,"Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.02f,.06f),new Vector2(.65f,.49f),19);
-        var alert=IntelligenceText(network.transform,"OTTOMAN CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.68f,.47f),new Vector2(.98f,.94f),23);
+        IntelligenceText(network.transform,"CAMP AGENTS  "+agents+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     GOLD  "+CouncilActions.Int("iMoney").ToString("N0"),new Vector2(.02f,.47f),new Vector2(.445f,.94f),23);
+        IntelligenceText(network.transform,"Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.02f,.06f),new Vector2(.445f,.49f),19);
+        // Match intelligence tier VIII; do not even read the hidden count below the threshold.
+        string enemySpies=agents>=8?CouncilActions.Int("iTurkSpies").ToString("N0"):"?";
+        var counter=IntelligenceText(network.transform,"ENEMY SPIES  "+enemySpies,new Vector2(.46f,.47f),new Vector2(.675f,.94f),23);
+        counter.name="Enemy spies summary";
+        IntelligenceText(network.transform,"In the City · revealed at 8 agents",new Vector2(.46f,.06f),new Vector2(.675f,.49f),18);
+        var alert=IntelligenceText(network.transform,"OTTOMAN CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.70f,.47f),new Vector2(.98f,.94f),23);
         alert.color=EspionageSystem.Alert>=50?new Color(1f,.65f,.49f):ImperialTheme.Ivory;
-        IntelligenceText(network.transform,"Falls 1–10 points/turn"+(EspionageSystem.AlertFloor>0?" · Minimum "+EspionageSystem.AlertFloor+"%":""),new Vector2(.68f,.06f),new Vector2(.98f,.49f),19);
+        IntelligenceText(network.transform,"Falls 1–10 points/turn"+(EspionageSystem.AlertFloor>0?" · Minimum "+EspionageSystem.AlertFloor+"%":""),new Vector2(.70f,.06f),new Vector2(.98f,.49f),19);
 
         var reports=IntelligenceButton(desk.transform,"Reports",new Vector2(0,.753f),new Vector2(.18f,.827f),()=>IntelligenceMenu(false));
         reports.name="Intelligence reports tab";
