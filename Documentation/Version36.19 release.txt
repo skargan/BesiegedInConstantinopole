@@ -1,0 +1,8 @@
+VERSION 36.19 - LITHUANIA AND POLAND
+
+The shared court now leads with Lithuania, displaying paired Vytis and Polish eagle banners. Casimir's introduction foregrounds Lithuania's southern frontier and Black Sea interests, retains his brother's death at Varna, and distinguishes his titles as Grand Duke of Lithuania and King of Poland. Existing court ID, embassy, aid balance and save structure remain unchanged.
+
+Also includes the separately requested gold-and-sapphire monk allocation slider. Allocation and research rules are unchanged.
+
+Verification: DIPLOMATIC_ART_CHECKS 180 passed; all courts and five attitudes at two resolutions. No diplomatic actions committed.
+Infirmary and research checks: 1507 passed at two resolutions. Existing saves copied and hash-verified. Our Turks, Decision Journal and palace hotspot requests remain pending.

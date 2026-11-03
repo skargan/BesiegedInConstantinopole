@@ -65,7 +65,7 @@ public sealed class DiplomaticArtworkCapture : MonoBehaviour
                 if(ScreenRoot().GetComponentsInChildren<DiplomaticMaskBadge>().Length>0)issues.Add("legacy mask still drawn");
                 Check(issues.Count==0,context+" list page"+(page+1)+": "+string.Join(" | ",issues));Check(before==State()&&rng==Rng(),context+" list inspection preserves state/RNG");
                 Check(DiplomaticArtwork.CachedCount<=16,context+" cache bounded after page transition");
-                if(page==0||page==pages-1)yield return Capture("courts-"+(page+1)+"-"+context);
+                if(page==0||page==1||page==pages-1)yield return Capture("courts-"+(page+1)+"-"+context);
             }
             Check(seen.Count==count,context+" every court has a flag on its list card");
             for(int index=0;index<count;index++){
@@ -74,6 +74,10 @@ public sealed class DiplomaticArtworkCapture : MonoBehaviour
                 foreach(var view in header.GetComponentsInChildren<DiplomaticArtworkView>())foreach(var button in ScreenRoot().GetComponentsInChildren<Button>())if(Overlap(Bounds((RectTransform)view.transform),Bounds((RectTransform)button.transform)))issues.Add("art overlaps action "+button.name);
                 Check(issues.Count==0,context+" detail "+d.Id+": "+string.Join(" | ",issues));if(before!=State()||rng!=Rng()){File.WriteAllText(Path.Combine(output,"before.json"),before);File.WriteAllText(Path.Combine(output,"after.json"),State());File.WriteAllText(Path.Combine(output,"rng-diff.txt"),rng+"\n"+Rng());}Check(before==State()&&rng==Rng(),context+" detail inspection preserves state/RNG "+d.Id);
             }
+            Check(CountryDiplomacy.Index("lithuania")==13&&CountryDiplomacy.Index("poland")==13,"Lithuania and Poland retain one existing embassy");
+            Check(CountryDiplomacy.Definitions[13].Name=="Lithuania and Poland","Lithuania leads the displayed court name");
+            council.DiplomaticPower(13);yield return Capture("lithuania-poland-"+context);
+            CampaignHUD.Instance.ShowReport("Lithuania and Poland",DiplomaticChronicles.Article(13),()=>council.DiplomaticPower(13));yield return Capture("lithuania-chronicle-"+context);CampaignHUD.Instance.DismissReport();
             for(int level=0;level<5;level++){
                 CountryDiplomacy.SetAttitude(0,(CountryDiplomacy.AttitudeLevel)level);string before=State(),rng=Rng();council.DiplomaticPower(0);yield return new WaitForSecondsRealtime(.25f);
                 var issues=ArtAndText(GameObject.Find("Relationship").transform,CountryDiplomacy.Definitions[0].Id,((CountryDiplomacy.AttitudeLevel)level).ToString());Check(issues.Count==0,context+" attitude "+level+": "+string.Join(" | ",issues));Check(before==State()&&rng==Rng(),context+" attitude artwork has no effects");

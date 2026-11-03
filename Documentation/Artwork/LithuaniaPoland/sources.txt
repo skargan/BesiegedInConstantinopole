@@ -1,0 +1,10 @@
+Lithuania and Poland, Version36.19
+Historical reconstruction for game use, not an exact surviving flag. Two separate embroidered banners; Vytis at left, crowned Polish eagle at right. Existing court ID poland_lithuania and index13 retained, all aid quantities/chances/routes unchanged.
+
+Sources:
+https://www.lrs.lt/sip/portal.show?p_k=2&p_r=38110 - Vytis history and fifteenth-century heraldry.
+https://www.pinigumuziejus.lt/en/news/vytis-knight-on-the-lithuanian-money - mounted knight, sword and shield.
+https://ipn.gov.pl/download/1/810678/AguidetothehistoryofPolandinternet.pdf - Casimir, shared rule and Varna succession.
+https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CC%5CA%5CCasimirIVJagielloK0czyk.htm - grand duke from1440, king from1447.
+
+Art: built-in image_gen edit of existing flag. Prompt: two separate adjacent crimson embroidered banners, Lithuania LEFT with silver Vytis, raised sword, blue shield and gold double cross; Poland RIGHT with crowned white eagle; retain woven silk and gold trim, no text or later Commonwealth quartering. Output: C:\Users\Dainius\.codex\generated_images\01a0a8e2-b837-7953-bbb3-acf52c000d0c\exec-569a1ab2-d01a-4557-a8c7-108d6c9b1a40.png

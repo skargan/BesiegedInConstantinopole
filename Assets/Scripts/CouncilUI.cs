@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.18 · The market speaks";
+    public const string BuildLabel="Version 36.19 · Lithuania and Poland";
 
 
 

@@ -389,8 +389,8 @@
     },
     {
       "Id": "poland_lithuania",
-      "Name": "Poland and Lithuania",
-      "Description": "Appeal for cavalry, volunteers and a war subsidy.",
+      "Name": "Lithuania and Poland",
+      "Description": "Appeal to Casimir, Grand Duke of Lithuania and King of Poland, for cavalry, volunteers and a war subsidy.",
       "StartingGoodwill": 15,
       "StartingAttitude": 2,
       "EnvoyDays": 30,

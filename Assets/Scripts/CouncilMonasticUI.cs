@@ -40,17 +40,7 @@ public partial class CouncilUI
     }
     Slider MonasticSlider(Transform parent,int value,UnityEngine.Events.UnityAction<float> changed)
     {
-        var root=CampaignHUD.Panel(parent,"Research monk allocation",new Vector2(.08f,.385f),new Vector2(.92f,.46f));
-        root.GetComponent<Image>().color=Color.clear;
-        var rail=CampaignHUD.Panel(root.transform,"Slider rail",new Vector2(0,.42f),new Vector2(1,.58f));rail.GetComponent<Image>().color=new Color(.18f,.23f,.28f);
-        var fill=CampaignHUD.Panel(rail.transform,"Gold allocation",Vector2.zero,Vector2.one);fill.GetComponent<Image>().color=ImperialTheme.Gold;
-        var handleArea=CampaignHUD.Panel(root.transform,"Handle area",Vector2.zero,Vector2.one);handleArea.GetComponent<Image>().color=Color.clear;
-        var handle=CampaignHUD.Panel(handleArea.transform,"Monk allocation handle",new Vector2(0,.5f),new Vector2(0,.5f));
-        handle.GetComponent<RectTransform>().sizeDelta=new Vector2(23,23);handle.GetComponent<Image>().color=ImperialTheme.Gold;
-        var slider=root.AddComponent<Slider>();slider.wholeNumbers=true;slider.minValue=0;slider.maxValue=MonasticResearch.TotalMonks;
-        slider.fillRect=fill.GetComponent<RectTransform>();slider.handleRect=handle.GetComponent<RectTransform>();slider.targetGraphic=handle.GetComponent<Image>();
-        slider.SetValueWithoutNotify(value);slider.onValueChanged.AddListener(changed);slider.interactable=MonasticResearch.TotalMonks>0;
-        return slider;
+        return ImperialAllocationSlider.Create(parent,value,MonasticResearch.TotalMonks,changed);
     }
     void MonasticTechnologySummary()
     {
