@@ -39,7 +39,8 @@ public class MainMenuUI : UIWindowFam
             var button=ordered[i];float step=.56f/Mathf.Max(1,ordered.Count);float top=.66f-i*step;var rect=button.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.09f,top-step*.80f);rect.anchorMax=new Vector2(.91f,top);rect.offsetMin=rect.offsetMax=Vector2.zero;
             var background=button.GetComponent<UnityEngine.UI.Image>();if(background!=null){ImperialTheme.Button(button);}
             var outline=button.GetComponent<UnityEngine.UI.Outline>()??button.gameObject.AddComponent<UnityEngine.UI.Outline>();outline.effectColor=new Color(.64f,.49f,.25f,.8f);outline.effectDistance=new Vector2(1,-1);
-            var caption=button.GetComponentInChildren<TMPro.TMP_Text>();if(caption!=null){caption.font=font;caption.fontSize=32;caption.fontSizeMin=20;caption.fontSizeMax=32;caption.enableAutoSizing=true;caption.color=new Color(.94f,.88f,.73f);}
+            var caption=button.GetComponentInChildren<TMPro.TMP_Text>();if(caption!=null){caption.font=font;caption.fontSize=30;caption.enableAutoSizing=false;caption.fontStyle=TMPro.FontStyles.Normal;caption.alignment=TMPro.TextAlignmentOptions.Center;caption.enableWordWrapping=false;caption.characterSpacing=0;caption.wordSpacing=0;caption.margin=new Vector4(8,2,8,2);caption.color=new Color(.94f,.88f,.73f);
+                var labelRect=caption.rectTransform;labelRect.anchorMin=Vector2.zero;labelRect.anchorMax=Vector2.one;labelRect.offsetMin=labelRect.offsetMax=Vector2.zero;}
             if(button.name=="ButtonContinue")button.interactable=VariableSingleton.HasSave();
         }
         var version=CampaignHUD.Label(transform,CouncilUI.BuildLabel,new Vector2(.06f,.025f),new Vector2(.94f,.08f),17);version.alignment=TMPro.TextAlignmentOptions.Center;
