@@ -1,0 +1,66 @@
+CANDAR UI AND APPROVED REMARKS — VERSION 38 STAGE
+
+Scope: only candar-next/ui was edited. No Unity launch, live files, map edits or art generation.
+
+Integrate matching paths:
+Assets/Scripts/CouncilCandarUI.cs
+Assets/Scripts/CandarRulerRemarks.cs
+Assets/Resources/Content/CandarRemarks.json
+
+CouncilDiplomacyUI.patch appends one dedicated Candar tile without adding a normal
+country definition or changing existing country indices. It changes the page total
+and adds one guarded branch in the existing tile loop. No other courts are changed.
+Apply alongside the mechanics owner's CandarDiplomacy.cs and its AI hooks.
+Root owns the independent map-routing and territory-identity correction.
+
+The remarks resource is a BYTE-FOR-BYTE copy of ../content/approved-remarks.json:
+30 distinct approved lines, unchanged, including line 6's supplied wording.
+Loaded through JsonUtility Catalogue {speaker:string, lines:string[]}.
+Cosmetic System.Random is separate from campaign randomness; no immediate repeat.
+Pointer entry, click and keyboard focus share one global ten-second cooldown.
+One line stays for ten seconds on the current page; pointer motion does not reroll.
+Speak with Ismail Bey is a conventional keyboard-focusable button sharing the hover.
+
+Expects these original scene resource keys (original paintings currently unavailable):
+UI/MidnightMosaic/Scenes/candar-open
+UI/MidnightMosaic/Scenes/candar-closed
+Art is fitted without cropping so polygon coordinates remain aligned.
+The right panel uses x=.57 to .985, y=.025 to .975 of the fitted artwork.
+Artist should supply Resources/Content/CandarHoverShape.json:
+{"points":[{"x":0.1,"y":0.2}, ...]}
+Coordinates are normalized Unity bottom-left on the open painting.
+The original Candar paintings could not be recovered in the bounded art search.
+The existing diplomacy painting remains the explicit fallback. No invisible Ismail
+silhouette hotspot is activated on that generic picture. The visible Speak button
+still provides all approved remarks through click, hover and keyboard focus.
+When the original open painting AND verified shape are installed, LocationHotspot
+automatically enables the game's existing gold outline around the painted figure.
+
+The secrets indicator reuses UI/MidnightMosaic/Council/spies parchment/quill artwork
+as approved by root, replacing the Unicode envelope. No new decorative asset added.
+
+Every paid action first shows full price, timing, probabilities/ranges and caps.
+Confirm rechecks the backend, saves only on success and displays a clipped report.
+Cancel leaves resources and time alone. Immediate deals still cost NO major action
+and do not advance the calendar. This behaviour was not changed to Ragusa's rules.
+Disabled opening button displays both the open-strait and Orhan requirements.
+Those remain opening-only conditions, as in the approved backend.
+Main court does not scroll; terms, reports and realm prose have clipped scroll areas.
+ReturnAction is set for court, review, opening and report navigation.
+
+Historical context remains in-world and present tense. Provenance belongs here:
+Ismail Bey and Candar's position are historical; these secret dealings, opening
+scene and dialogue are game fiction. The UI makes no prediction of the later annexation.
+
+Validation:
+- prepare_stage.py checked 30 unique lines and exact byte equality with the approved JSON.
+- Full consolidation runtime source + staged UI + new mechanics/CandarDiplomacy.cs
+  + both actual updated AI scheduler files + the actual modified diplomatic tile file
+  compiled against Version 37 managed dependencies with exit 0 (checks/compile.log).
+- No Unity runtime or visual verification claimed. Final geometry/art integration,
+  save/reload and deferred-operation tests remain with the relevant owners.
+
+Integration smoke checks: locked opening shows both conditions; opening with both
+conditions succeeds; review/cancel changes no resources; paid confirm does not advance
+the turn; unavailable deals retain readable terms and disabled confirmation; mouse and
+keyboard remarks preserve ten-second cooldown; both report scrollbar ends stay clipped.

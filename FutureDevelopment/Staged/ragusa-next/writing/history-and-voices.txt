@@ -1,0 +1,62 @@
+RAGUSA — VERSION 38 WRITING PACKAGE
+4 November 2026
+
+HISTORY THAT SHOULD SHAPE THE SCREEN
+
+Ragusa is a self-governing patrician republic acknowledging Hungarian royal overlordship in 1452–53. Its rector's term is one month. Gazulus and Cotrugli should be recurring contacts, not its hereditary rulers or two alternating rectors. The regular Ottoman tributary arrangement starts in 1458; do not give it to this starting scenario. [S1]
+
+The Republic is fighting Stjepan Vukčić Kosača in 1451–54. This provides a concrete reason for caution. The conflict and losses at home are preferable to a generic 'we are neutral' excuse. A peace on 10 April 1454 is historical, but should not be assumed during 1452–53 dialogue. [S2, S3]
+
+Johannes Gazulus (Gjin Gazulli, Ivan Gazulić), born about 1400, is an Albanian-born Dominican, astronomer/astrologer and diplomat employed by Ragusa. A learned diplomatic contact is credible. His exact appearance and the conversations here are inventions. Do not call him a cardinal, rector or contemporary adviser to Matthias Corvinus in 1453: that king's invitation dates to 1459. [S4]
+
+Benedetto Cotrugli (Benedikt Kotruljević), born about 1416, is a Ragusan merchant and diplomatic/business intermediary. The Croatian Biographical Lexicon places him on Ragusan business in Naples in 1448–53 and the settlement of his family there in 1453; Treccani instead gives his departure as 1451. Treat him as a visiting commercial contact, often abroad, rather than a permanent official sitting in Ragusa. His famous mercantile treatise is still unwritten in 1453 (1458). His particular role negotiating imperial relief is game fiction. [S5, S6]
+
+ART GUIDANCE
+
+Gazulus: approximately fifty-two; Dominican white habit and black outer cloak, a worn manuscript or small brass instrument, practical travel shoes. His face is an imagined design, not a recovered likeness. Avoid episcopal insignia.
+Cotrugli: approximately thirty-six; prosperous lay merchant, fine but restrained wool, dark cap, ledger and letter case, alert rather than corpulent or comically avaricious. His face is imagined.
+The background should be a fifteenth-century Gothic harbour/civic setting. Avoid the later round Minčeta tower, Bokar fortress, Kaše breakwater and Renaissance Sponza frontage. A precise modern Dubrovnik postcard view brings later architecture into 1453. [S1]
+
+VOICES
+
+Gazulus speaks carefully because a sentence can commit a city. He is dry, observant and occasionally pedantic; his caution is a form of care for the people who must live with a treaty. He does not give lectures every time someone approaches. He can respect Cotrugli's usefulness while distrusting an unsigned understanding. Behind the formal refusal he may identify a lawful route the player can pursue. Avoid making him a secret puppeteer or a sanctimonious obstacle.
+
+Cotrugli notices freight, weather, credit, human vanity and whether a promise has a responsible person behind it. He enjoys negotiating and dislikes waste. He is neither a money dispenser nor a man who would sell his own city for a good line. His mockery of Gazulus becomes respectful when actual lives are at stake. Keep the merchant's longer horizon: an emperor who survives can be a customer again, but an empty harbour cannot.
+
+Their mutual need is the centre of the pairing. Gazulus protects the legal and diplomatic room in which Cotrugli can transact. Cotrugli gives Gazulus something more useful to report than an impeccably worded refusal. Let them disagree over details while respecting competence.
+
+IMPLEMENTATION / WRITING BOUNDARIES
+
+All spoken lines in this package are newly written fictional dialogue, not historical quotations. This note belongs in authoring/provenance records, not beside each in-game line.
+The 24 hover remarks are cosmetic. They must not consume simulation randomness, grant resources, change goodwill or reveal a roll.
+If the counterpart is physically absent, the remarks still refer to a known colleague. Do not imply that either is permanently in the player's court. Rotate remarks without immediate repeats; do not interrupt the current hover line by rerolling on every pointer movement.
+The passages are keyed openings/outcomes. Bind them to the actual agreement and campaign state; the speaker's presence never creates a second ruler or rector. Historical peace in 1454 is background context, not an automatic cancellation of an unfinished alternate-history campaign contract. The older gazulus_official_refusal passage is for an active local war only; do not reuse it as the paid food transaction response.
+
+The current food design charges 2,500 gold, schedules 500 provisions after the proposed fourteen-day voyage, and does not make an acceptance roll. The two food_denial keys are successful purchase/dispatch text despite the official refusal. food_albanian_arrival is played on actual delivery, when provisions are awarded. An invented discretionary delay outcome has been removed; existing campaign storm rules, if applicable, own actual delays.
+
+The war contract is resolved on day 90. war_day90_victory accompanies the immediate 10,000-gold reward and schedules troops to return fourteen days later; it does not restore any soldiers. war_day90_defeat likewise precedes the return passage. The two day104 keys belong to actual return and roster restoration. The surviving troop counts and all costs remain in the mechanical preview/results rather than being duplicated in this prose.
+
+The monthly chair rotation between these contacts is a fictional presentation convention. It must not be described as a historical alternation of Ragusa's rectors.
+The realm profile's last paragraph is a gameplay interpretation grounded in their occupations, not a claim that these two men historically negotiated this relief scheme together.
+
+SOURCES
+
+[S1] Croatian Encyclopaedia, 'Dubrovačka Republika', Miroslav Krleža Institute of Lexicography. Government, Hungarian acknowledgement, one-month rector, tributary chronology, architecture.
+https://www.enciklopedija.hr/clanak/dubrovacka-republika
+
+[S2] Croatian Encyclopaedia, 'Kosača, Stjepan Vukčić'. War with Dubrovnik 1451–54 and regional context.
+https://www.enciklopedija.hr/clanak/kosaca-stjepan-vukcic
+
+[S3] Museum of the Bosnian Kingdom, 'Calendar of medieval Bosnia'. Peace at Novi, 10 April 1454; Ragusan coalition in 1452.
+https://muzejbosanskogkraljevstva.ba/en/calendar-of-medieval-bosnia/
+
+[S4] Croatian Encyclopaedia, 'Gazulli, Gjin'. Dominican, astronomy, Ragusan diplomacy, approximate birth and later Hungarian invitation.
+https://www.enciklopedija.hr/clanak/gazulli-gjin
+
+[S5] Croatian Biographical Lexicon, 'KOTRULJEVIĆ, Benedikt'. Ragusan business at Naples, travel, family settlement and later writings.
+https://hbl.lzmk.hr/clanak/kotruljevic-benedikt
+
+[S6] Treccani, 'Cotrugli, Benedetto', Il Contributo italiano alla storia del Pensiero: Economia. Alternative 1451 departure chronology.
+https://www.treccani.it/enciclopedia/benedetto-cotrugli_%28Il-Contributo-italiano-alla-storia-del-Pensiero%3A-Economia%29/
+
+Source check: web search and the cited encyclopaedia entries, 3–4 November 2026. No archival attendance record for either man's presence at the invented meeting has been established.

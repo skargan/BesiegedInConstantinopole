@@ -1,0 +1,10 @@
+--- a/Assets/Scripts/CouncilDiplomacyUI.cs
++++ b/Assets/Scripts/CouncilDiplomacyUI.cs
+@@ -30,6 +30,7 @@
+     string AidStanding(int index)
+     {
+         int state=DailyLifeEvents.I("iAidState"+index);
++        if(CountryDiplomacy.Definitions[index].Id=="ragusa")return RagusaDiplomacy.FoodStatus+"\n"+RagusaDiplomacy.ContractStatus+(state==1?"\nEarlier state aid due in "+DailyLifeEvents.I("iAidDays"+index)+" days":"");
+         if(state==1)return "Aid due in "+DailyLifeEvents.I("iAidDays"+index)+" days";
+         if(CountryDiplomacy.RenewalReady(index,false))return "Renewed aid request available";
+         if(CountryDiplomacy.RenewalDays(index,false)>0)return "Aid renewal: "+CountryDiplomacy.RenewalDays(index,false)+" resident days remain";

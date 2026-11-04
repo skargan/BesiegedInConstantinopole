@@ -1,0 +1,8 @@
+{
+  "release": "38 only; excluded from 37",
+  "checkout": "C:\\Users\\Dainius\\Documents\\Codex\\Besieged-release18",
+  "files": {
+    "Assets\\Scripts\\DailyLifeEvents.cs": "ccdb1a050f9a1bb061eecce88221d7b3f446c4d9159ed34ec4fa56336ddbe6df",
+    "Assets\\Resources\\Content\\EventArtwork.json": "19771af46e92a027df6817a503e87a205a71e804de45f679c4cfb611ac5696fd"
+  }
+}

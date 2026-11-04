@@ -408,6 +408,7 @@ public class VariableSingleton : MonoBehaviour
     public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
+        CharacterChatter.ResetForRestore();
         DecisionJournal.Entries=data.journal??new List<DecisionJournal.Entry>();
         // Appended realms must not inherit a later campaign's appeal when loading an older save.
         // Omitted warship promises stay absent so legacy pending expeditions retain their original cargo.

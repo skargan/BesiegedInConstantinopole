@@ -1,0 +1,89 @@
+RAGUSA — VERSION 38 INTEGRATION HANDOFF
+JohanX to ConstantineX, 4 November 2026
+
+Scope: a dedicated Ragusan court, two alternating representatives, monthly private
+food shipments and a timed overseas troop contract. Version 37 is already
+published; this package belongs to Version 38. No live shared source was changed.
+
+REVIEW THE WRITING
+writing/full-dialogue-review.txt is the complete readable packet: character
+descriptions, realm profile, 24 remarks (12 per man), and 16 meeting/outcome passages.
+The underlying JSON files are the authoring source. ui/prepare_authoring_data.py
+rebuilds the Unity-compatible Resources/Content/RagusaNarrative.json.
+writing/history-and-voices.txt records sources and the boundary between historical
+context and the invented monthly pairing/dialogue. Both men are representatives,
+not claimed to be historical rectors.
+
+NEW ASSETS — COPY TO MATCHING PROJECT PATHS
+mechanics/RagusaDiplomacy.cs -> Assets/Scripts/RagusaDiplomacy.cs
+ui/Assets/Scripts/CouncilRagusaUI.cs -> Assets/Scripts/CouncilRagusaUI.cs
+ui/Assets/Scripts/RagusaText.cs -> Assets/Scripts/RagusaText.cs
+ui/Assets/Resources/Content/RagusaNarrative.json -> same relative project path
+art/ragusa-gazulus-foreground.png -> Assets/Resources/UI/Diplomacy/Ragusa/GazulusForeground.png
+art/ragusa-cotrugli-foreground.png -> Assets/Resources/UI/Diplomacy/Ragusa/CotrugliForeground.png
+
+Texture settings: max 2048, no compression, no mipmaps, clamp, preserve aspect.
+The two finished paintings include figures and measured silhouette polygons.
+They are not transparent sprites. Existing LocationHotspot gives gold hover
+outlines; the right 36.5% holds the compact controls. Monthly alternation does not
+move those controls. Hover lines use cosmetic counters, not campaign randomness.
+
+SHARED HOOKS — APPLY NARROW PATCHES, DO NOT OVERWRITE CURRENT FILES
+ui/CouncilDiplomacyUI.patch: route only Ragusa to CouncilUI.RagusanCourt().
+mechanics/*.cs.patch: campaign calendar, training/return orders, recruitment
+manpower accounting, existing relief storms, country diplomacy, and dated journal
+entries. Consult mechanics/HANDOFF.txt and baseline.json for the precise list.
+If a baseline changed, transplant the small hook into the current source.
+In particular preserve ConstantineX's Version 38 shared food/economy changes.
+
+SharedProvisions.cs is a dependency already supplied by ConstantineX. Delivery
+calls SharedProvisions.Add(SharedProvisions.City, 500) once, when cargo arrives.
+Do not import the test stubs, test executable, compilecheck folder or frozen source
+copies into Assets. No second food model, storm model or save file is introduced.
+
+IMPLEMENTED RULES
+Gazulus chairs January 1452; Cotrugli February; alternate each calendar month.
+Their personal favour is stored separately, initially 50. National goodwill stays
+in CountryDiplomacy. Personal favour is tracked and shown but does not yet alter
+prices, probabilities or unlock new dialogue. Do not describe those future effects
+as implemented.
+
+Food: 2,500 gold buys 500 provisions; 14-day sea journey; once per calendar month,
+one private shipment pending at a time. Official refusal accompanies a committed
+purchase: no acceptance roll. Existing storms can delay or destroy the cargo.
+The transport does not join the player's fleet. Price and transit are editable
+playtest choices, not historical measurements.
+
+War: commit 500 infantry, 500 archers and 200 cavalry immediately. Receive 5,000
+gold, +5 Ragusan goodwill and +5 favour with the signing representative. Resolve
+after 90 calendar days with a single 50/50 roll. Victory loses 1–20% independently
+per troop category, pays another 10,000 gold and grants +10 goodwill/+10 signing
+representative favour. Defeat loses 1–50% independently per category. Survivors
+return 14 days after resolution through the existing recruitment arrival list.
+Only one contract at a time. Departing troops are deployment, not casualties;
+only actual losses enter casualty records. Deployed/returning men remain reserved.
+Signing either agreement uses the existing major-action flow; inspection and
+cancellation are free. Confirmation shows the full cost and commitment first.
+
+VERIFICATION AND REMAINING RELEASE CHECKS
+mechanics/check-results.txt contains the current targeted test result.
+compilecheck/result.json and compile.log contain the combined real C# compilation
+against frozen Version 37 source plus the actual Ragusa hooks and current shared
+provisions implementation. This is not a Unity runtime or visual test.
+
+Integration owner should check: map/list entry to Ragusa; January/February art
+swap; both hover polygons; readable 1920x1080 and 1366x768 layouts; cancel spends
+nothing; signing spends the action once; food arrives only on its due date;
+storm delay/loss; day 90 outcome and day 104 returning soldiers; saved campaign
+round trip if desired for current-version state. Old save compatibility is not a
+release requirement. Existing calendar notices provide the visible arrival/result
+screen and the journal records the logical dates.
+
+RELEASE NOTE
+Ragusa now has its own court: Gazulus and Cotrugli trade monthly duties and dry
+remarks, arrange discreet supplies and hire imperial troops for overseas service.
+
+OWNERSHIP
+JohanX owns this staged package. ConstantineX owns import, shared-source conflict
+resolution, Unity build/runtime checks and Version 38 publication. Other unfinished
+features are outside this package and must not delay the already playable Version 37.

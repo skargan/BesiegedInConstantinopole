@@ -1,0 +1,62 @@
+RAGUSA SPECIAL DIPLOMACY BACKEND — VERSION 38 STAGED
+4 November 2026. Owner: JohanX / tavern_finish.
+
+STATUS
+Standalone RagusaDiplomacy.cs and seven bounded integration patches prepared against consolidation. No live/consolidation files edited, no Unity editor launched, no commit or publication. UI and canonical writing are owned by parent/other worker.
+
+FILES TO IMPORT / REVIEW
+RagusaDiplomacy.cs -> Assets/Scripts/RagusaDiplomacy.cs
+CampaignPersonnelCalendar.cs.patch: append RagusaDiplomacy.Advance(date) after CountryDiplomacy.Advance(date), inside the existing daily calendar loop.
+TrainingPool.cs.patch: recognise and label expeditionReturn orders; these regular troops return automatically through the existing persisted order system.
+RecruitmentLogistics.cs.patch: deduct RagusaDiplomacy.CommittedTroops while contingent is abroad. Once survivors enter return orders, the existing Queued count covers them, without counting both.
+ReliefStormSystem.cs.patch: include private provision shipment as distinct storm target -38. Existing state-aid targets and old pending Ragusa aid remain separate.
+CountryDiplomacy.cs.patch: future generic Ragusa aid requests and renewal requests redirect to its specialised monthly arrangements. Existing committed aid remains eligible for ordinary arrival; no cancellation or rewriting of old cargo.
+
+DecisionJournal.cs.patch: preserve Record callers and add RecordAt(DateTime date,string id,string title,string text,bool decision=false). Ragusa records delivery, day90 outcome and day104 return against their logical due dates, even during month jumps.
+CouncilDiplomacyUI.cs.patch: AidStanding uses Ragusa FoodStatus and ContractStatus; preserves an additional earlier state-aid ETA if present. This is the actual location of AidStanding, not CountryDiplomacy. Merge this method-only patch with the UI worker's DiplomaticPower routing hook; do not replace their entire file.
+
+Exact file SHA-256 baselines: baseline.json. Preserved originals: baseline/. Review copies: updated/. Do not overwrite current shared files wholesale if their baseline changed. The integration owner should transplant the narrow hook or regenerate its patch.
+
+SHARED FOOD ADAPTER
+Private DeliverFood(int) now calls SharedProvisions.Add(SharedProvisions.City, quantity), the verified canonical API in consolidation/Assets/Scripts/SharedProvisions.cs. It preserves fractional existing stock and delivers the cargo once when due. No daily production, no recurring income and no mutation before the discrete arrival. The existing ReliefStormSystem hook provides delay/loss; no separate storm engine. This package does not edit SharedProvisions, SupplyEconomy, ProvinceCampaign, VariableSingleton or the enemy food code.
+
+PERSISTENCE
+Every mutable field uses iDiplomacyRagusa... campaign integers. Existing CountryDiplomacy.ResetForRestore clears the iDiplomacy prefix before saved integers are restored; new campaigns reset it too. No transient result/RNG field or second save file. Returning troops use TrainingPool.Order.Copy and the normal save validation (new order kind is explicitly accepted).
+
+PUBLIC UI API
+ActiveRepresentative: int; January1452=0 Gazulus, February=1 Cotrugli, alternates by calendar month.
+RepresentativeName(int), ActiveRepresentativeName: display strings.
+Favour(int): separate saved 0–100 values, initially50. ChangeFavour(int,int) clamps; does not change Ragusa goodwill.
+Relations: canonical CountryDiplomacy.Goodwill(Index("ragusa")).
+FoodRequestReason(): null if available, otherwise user-facing reason.
+RequestFood(out string report): true if committed; false if unavailable. Call only once on confirmed user action.
+FoodStatus, FoodAtSea: display/status properties.
+ContractReason(), StartContract(out string report), ContractStatus, ContractActive, CommittedTroops.
+Advance(DateTime): calendar-only; returns visible news text. UI reads never advance contracts or roll randomness.
+ApplyFoodStorm(int severity): ten-day delay if1, permanent cargo loss otherwise.
+
+NARRATIVE
+RagusaText.Get(string key,string fallback="") is supplied by the UI/writing worker. Backend calls food_denial_gazulus/cotrugli, food_albanian_arrival, war_contract_gazulus/cotrugli, war_day90_victory/defeat, war_day104_victory_return/defeat_return. Authoritative quantities, actual casualty counts and dates are appended after the narrative. Content loader absence is a compile dependency: import the worker's RagusaText.cs with this class. Missing text keys use its fallback parameter.
+
+EDITABLE BALANCE DEFAULTS
+Food:500 provisions,2,500 gold,14 calendar days, once per calendar month, no overlapping private shipment.5gold/unit sits between current local2preparation and10siege prices. The words are a comic denial; the paid shipment is actually committed, with no acceptance/refusal RNG. Storms can delay/destroy it; no ship is gifted and there is no refund on loss. A failed unaffordable click spends nothing and does not consume the month.
+Contract:500 infantry+500 archers+200 cavalry removed at signing;5,000gold and+5Ragusa relations/+5contracting representative favour then. One active contract through the return journey.90calendar days later, a single50/50 campaign RNG roll determines victory/defeat. Each troop type independently loses an integer1–20percent on victory or1–50percent on defeat. Victory pays10,000gold and+10relations/+10favour to the representative who signed it; no unapproved defeat relation penalty. Survivors return14days after the logical resolution date.
+The initial50personal favour and+5/+10relationship values are editable playtest choices, not historical measurements. Food request does not use favour as an invented refusal chance.
+
+CASUALTY / MANPOWER ACCOUNTING
+Use SetInt for the transfer out: existing ChangeInt would incorrectly record all1,200departing troops as deaths. At the day90result, actual losses reach RecruitmentLogistics.RecordLoss and Achievements.TroopLoss once. Survivors stay reserved in Queued while returning, and are only returned to available troops by TrainingPool.CompleteDueOrders at day104. No new recruitment manpower becomes available just because the contingent sailed away.
+
+VISIBLE RESULT PATH
+CampaignPersonnelCalendar.Advance return -> VariableSingleton.ArrivalNotice -> ManagerUI.OnEnable -> CampaignHUD.ShowReport("Daily council report", ...). This is an existing visible modal screen, in addition to DecisionJournal.Record. Signing uses parent's existing Finish(report). Parent approved this first-pass presentation; no new hidden event queue required. State aid and private shipment may both appear in the same daily council report.
+The Army logistics screen already renders TrainingPool.OrderName/quantity/ready date. The new kind appears there as 'Infantry/Archers/Cavalry · Returning from Ragusan service'. For clarity, parent UI should label the stock figure 'In training or returning', and show 'On Ragusan service: CommittedTroops' while deployed. The numerical manpower calculation is already corrected by the patch.
+
+CHECKS RUN
+57 standalone checks passed using actual staged RagusaDiplomacy + patched TrainingPool, RecruitmentLogistics, ReliefStormSystem and CampaignPersonnelCalendar, together with the actual canonical SharedProvisions and extracted actual staged DecisionJournal Record/RecordAt/Copy methods compiled with Unity's bundled Mono compiler and narrow remaining dependencies stubbed.
+Coverage: month alternation; separate bounded favour/canonical goodwill; no UI RNG; monthly food gating/paid denial; no instant cargo/ships; independent legacy aid; storm delay/loss; late arrival idempotence; unavailable contract; immediate deployment/signing gold; no false deaths; no freed manpower while abroad; one active contract; day90roll timing; victory/defeat loss endpoints per type; prize and contracting representative; persisted return-order copies; no reroll/duplicate pay; day104return; logical calendar catch-up through1452preparation months.
+Month test uses actual CampaignPersonnelCalendar:Jan→Feb→Mar no result;Apr1 observes the logical March31/day90result but no return;May1 has processed April14/day104return. The report retains both outcome and return news when a month spans their dates. Prize is not delayed until return. Actual journal method tests confirm result date31March, return date14April, existing signing date1January, copy/deduplication preservation, and food date15January despite February advancement. All seven patches pass git apply --check against their consolidation baseline.
+Shared-stock checks start at200.125 provisions: unchanged throughday13,700.125 afterday14, still700.125 after repeated advancement. Actual SharedProvisions implementation is included in that check, rather than replacing its API with a fake stock.
+
+NOT YET VERIFIED
+Unity project/Yarn compilation; actual SaveGames disk round trip; modal/UI rendering; full project integration of the known shared-food API; integrated storm gameplay. Checks validate this package and the included shared stock/order/calendar code; they do not constitute a whole-game playtest.
+
+Do not import RagusaChecks.cs or its executable into Assets; they contain test stubs. They remain staging-only verification tools.

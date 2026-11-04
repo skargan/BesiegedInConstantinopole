@@ -1,0 +1,81 @@
+CANDAR — RECONCILED SECRET NEGOTIATIONS
+JohanX to ConstantineX, 4 November 2026
+
+This package extends the existing OrbanX work in candar-work, rather than replacing
+the feature. Original branch commits: 093e222 and 4520e16. None of its three feature
+scripts were present in consolidation at the start of this update.
+
+The latest user-approved list of 30 remarks is authoritative:
+content/approved-remarks.json and content/Approved remarks - review.txt.
+The wording is preserved exactly, including the supplied wording in line 6.
+Four lines differ from the former implementation: 6, 24, 27 and 28.
+
+IMPORT
+mechanics/CandarDiplomacy.cs -> Assets/Scripts/CandarDiplomacy.cs
+ui/Assets/ -> matching project paths (dedicated UI, remarks loader and text resource).
+ui/CouncilDiplomacyUI.patch -> the special diplomatic-list tile only.
+mechanics/patches or root .patch files, as listed in mechanics/HANDOFF.txt -> narrow
+hooks in OttomanDirector.cs and AI/AI.cs. Preserve current shared food changes.
+Use the supplied baselines; never replace either whole live scheduler file with
+the older candar-work version.
+
+RULES
+Open secret negotiations requires bStraitsOpen and Orhan in service. Both are
+shown even on the disabled button. They are opening conditions; an established
+understanding does not require Orhan to remain in service. No claim or rebellion
+is started, and Candar has no ordinary envoy, aid or alliance controls.
+
+Ransom: 3,000 gold, one convoy per seven calendar days. Independent inclusive
+rolls: infantry 20–60, archers 15–30 and total population 150–300 guaranteed;
+cavalry, engineers and monks each 50% for 1–5; envoy 5% for one; guards 10% for 1–3.
+The total population includes those entering service. One payment and one combined
+arrival report. The seven-day limit follows the adopted existing implementation.
+
+Secrets: 2,000 gold, one immediate secret, three distinct named purchases per
+campaign. Failed purchases spend nothing and do not consume the remaining count.
+
+Disruption: 2,500 gold, one eligible land operation deferred by one calendar day,
+seven-day purchase cooldown, no overlapping unconsumed credit. The calendar,
+supplies and naval pressure continue. Current emergency priorities remain ahead
+of deferred orders; invalid obsolete orders are discarded. The next available
+date is visible. Transactions retain the earlier zero-turn-cost rule and now have
+a terms review before payment; cancelling is free.
+
+ARTWORK STATUS — NOT INSTALLED
+The original workstream generated candar-open and candar-closed scenes but its
+transfer was rejected. The clean PNGs were not found in either checkout, relevant
+local generated-art output or the checked source session. No screenshot was
+cropped and no substitute was silently generated. The UI retains the established
+diplomacy-background fallback. When the originals are recovered, install at:
+Assets/Resources/UI/MidnightMosaic/Scenes/candar-open.png
+Assets/Resources/UI/MidnightMosaic/Scenes/candar-closed.png
+The bespoke artwork and an accurately measured ruler silhouette remain pending.
+
+MAP IDENTITY — DO NOT IMPORT THE OLD REGION CLICK HIJACK
+The old internal province ID candar currently means Ottoman Paphlagonia in the
+map and provincial simulation. ConstantineX confirmed the user's earlier explicit
+instruction to preserve Paphlagonia as Ottoman. This package therefore adds the
+special diplomatic-list entry only. A separate Sinop court marker is the narrow
+future map hook; do not redirect the province polygon or change its output.
+No province ownership or food production was changed here.
+
+VERIFICATION
+mechanics/HANDOFF.txt: 71 focused checks passed, using the actual backend,
+patched OttomanDirector and extracted actual AI.TakeAIAction with other services
+stubbed. Both narrow scheduler patches applied cleanly to their recorded baseline.
+UI compilation evidence and runtime limits are in ui/HANDOFF.txt.
+No live checkout, Unity session, built player, or numbered publication changed.
+Integration/runtime verification remains with ConstantineX. Old-save compatibility
+is not required. A current-campaign save round trip should preserve finite secrets,
+cooldowns and a pending deferred operation.
+
+HISTORICAL PROVENANCE
+https://islamansiklopedisi.org.tr/candarogullari
+Use Ismail Bey, ruler of Sinop and Kastamonu, not Sultan. His proposed 1453 private
+bargaining and all dialogue are game fiction. This provenance stays in development
+notes; player-facing text describes his present interests and predicament.
+
+RELEASE NOTE
+Candar opens discreet transactions through Orhan: ransom captives, acquire three
+distinct secrets, and pay to delay an Ottoman operation. Ismail Bey's thirty
+reviewed remarks accompany the dedicated negotiation screen.

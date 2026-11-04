@@ -1,0 +1,1576 @@
+[
+  {
+    "path": "FutureDevelopment\\Prototypes\\brutal-murder-investigation.zip",
+    "source": "origin/codex/brutal-murder-investigation",
+    "commit": "55da6a59ada78241f53e5144ae4e366a80f8cd20",
+    "files": 26,
+    "sha256": "6a3800198de3617670875c7df6ed543aae3175478e63478d3899406c97dc410d"
+  },
+  {
+    "path": "FutureDevelopment\\Prototypes\\candar-secret-negotiations-20261103.zip",
+    "source": "origin/codex/candar-secret-negotiations-20261103",
+    "commit": "4520e16b54cf5eea699b0d0e380e90818b7c545d",
+    "files": 12,
+    "sha256": "625b41028c6d962a04b0b6ab2be66c68ad32ba5ef55c0db5273c61af63643967"
+  },
+  {
+    "path": "FutureDevelopment\\Prototypes\\city-map-navigation.zip",
+    "source": "origin/codex/city-map-navigation",
+    "commit": "5221abfca896029ad98bcbe37a0bc71a439203b9",
+    "files": 12,
+    "sha256": "75b86c043d068246e6e32b255e93b863bb0e875a4d7d0d34604ca5c39ee83806"
+  },
+  {
+    "path": "FutureDevelopment\\Prototypes\\court-integration-base.zip",
+    "source": "origin/codex/court-integration-base",
+    "commit": "cd82847481ce543f58bc3e272f1565982d98f94d",
+    "files": 38,
+    "sha256": "4c0a97cffdaed2b949b80ab4ad8b49387cb3881607858c2eec7d4a3bce958ffc"
+  },
+  {
+    "path": "FutureDevelopment\\Prototypes\\emperor-court-dialogues.zip",
+    "source": "origin/codex/emperor-court-dialogues",
+    "commit": "2a06a436573f60b6be500e3a7ab0748acad81b39",
+    "files": 97,
+    "sha256": "e5e591f9910b712a4dca946f1e82ac0eb2a383bbcdbe93a597a952d54f1e8f2d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\HANDOFF.txt",
+    "sha256": "7bc418435c080a8858861d0f1207e0510265cf9c69081b6c1106d683f4fec4ab"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\art\\art-manifest.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\art\\art-manifest.json",
+    "sha256": "760c68e8e744b5ce73ae152a10736b10fa4d896b77295f62272625f5a7cd34b2"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\art\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\art\\HANDOFF.txt",
+    "sha256": "a5e22a29e65d878a24560f023978b8351fb17132e00925c3812138fbc79a51bf"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\art\\prepare_manifest.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\art\\prepare_manifest.py",
+    "sha256": "89aa47abd2b47fbe87d8ede0a5750eee5111b493cf05086934268848ea526f3a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\art\\prompts-provenance.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\art\\prompts-provenance.json",
+    "sha256": "736282cae1628b6d531b418f779a35fa80d4bf342d308cd715de2d2714734586"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\art\\ragusa-cotrugli-foreground.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\art\\ragusa-cotrugli-foreground.png",
+    "sha256": "eeed6ebf993dbc468cd630d2fbd07b7ab884ef68e8b51d3d36b4c15f92a4d501"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\art\\ragusa-gazulus-foreground.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\art\\ragusa-gazulus-foreground.png",
+    "sha256": "aa057400ee9c5f824087c6cc1081f58da8ca552b22cf5008b8478e0f0592da41"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline.json",
+    "sha256": "4665d60fcbd1f4a833c9e87031953bc6d0fe06ba302a3a901196023a3e53371e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\CampaignPersonnelCalendar.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\CampaignPersonnelCalendar.cs.patch",
+    "sha256": "fc4b501d60499c8386db351e7348918152cb36f3be05f4378b1cca6735d70196"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\check-results.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\check-results.txt",
+    "sha256": "c2feb69d9cb1f7e85599d84b91a21da2678b6dba0d0c09b5a5ad20bac8b040fe"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\CouncilDiplomacyUI.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\CouncilDiplomacyUI.cs.patch",
+    "sha256": "f273b955a99ae50d6bb443e446b81d7c22be1dfcf71f6b23dcaaf19db3fac6a1"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\CountryDiplomacy.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\CountryDiplomacy.cs.patch",
+    "sha256": "d19775dae7fc5c265963a9124deaa88920b51fa255da6a6bea3e837d347bf2b5"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\DecisionJournal.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\DecisionJournal.cs.patch",
+    "sha256": "55dfd7a8ee9b24fc41e1a4956e61a1f94d97feea3bc4e209f66995ae3c819386"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\DecisionJournalMethods.generated.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\DecisionJournalMethods.generated.cs",
+    "sha256": "503f6d5c55fe1372fbda668e8a83e9cfff980af93188312c08063ee0622c6e96"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\HANDOFF.txt",
+    "sha256": "09afc9338e0ade113c43954e3d9b036dafc78cc5df468e3957dc0d5b9075c745"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\RagusaChecks.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\RagusaChecks.cs",
+    "sha256": "9acfa5612458618c5a1b345da208729d38cc22b646deaadd66d5f4ad2ec1b11b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\RagusaDiplomacy.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\RagusaDiplomacy.cs",
+    "sha256": "857f2f800f386940c2a626b87f390972bf933f22e6d8a6bc7269710ed37ec91c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\RecruitmentLogistics.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\RecruitmentLogistics.cs.patch",
+    "sha256": "987ee66b1ddd51a2a8b364f651740e43526cca8292a470b93104ba65abb5d84c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\ReliefStormSystem.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\ReliefStormSystem.cs.patch",
+    "sha256": "aa01ff514e49f3bbcd0d3f2511ed95ca69135c51267e1a4f1df762ab6cc7b96b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\stage_hooks.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\stage_hooks.py",
+    "sha256": "10617e40effa4bff5678a0c2145bd0bbfb411cf2910b6725416bf2b516ac97c9"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\TrainingPool.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\TrainingPool.cs.patch",
+    "sha256": "4f357ab35284f3fcee4dae3d598d6dae8c91176c29f705c5f6a3e5273283da68"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\baseline-sha256.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\baseline-sha256.json",
+    "sha256": "af41754c8626e24438035cdc486f6d08eda77ea96bde6db9b09158a68ffc6656"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\compile_stage.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\compile_stage.py",
+    "sha256": "1c92def488aea23f27594a06827815bb4ff5edb03be22766fa6001c77a4189ff"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\CouncilDiplomacyUI.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\CouncilDiplomacyUI.patch",
+    "sha256": "a99421eb0100e36e87f80ffb832cc889a90a96d081d812d5257fa4f9f4b7282e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\HANDOFF.txt",
+    "sha256": "19f9839b935189e61b9efb899cf56516e59cfeff329622b518f4910187fdd44b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\prepare_authoring_data.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\prepare_authoring_data.py",
+    "sha256": "493f6cc2e3a7ee5f94f51016f5e661db628ebf0b77f8a550669930f47466f836"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\character-descriptions.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\character-descriptions.json",
+    "sha256": "68ec8a000a6991373b12a193734af9f671d08b596696ed86b3f8e91da7d98710"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\extend_passages.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\extend_passages.py",
+    "sha256": "c2fb07d3ce119736a0bc1c991c505cbc21204038fe05a190510676b035dc5a2c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\full-dialogue-review.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\full-dialogue-review.txt",
+    "sha256": "1272fe0aedba28413365eaf41f570f843f848e4926bfddfef2e70a3ac315d25a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\history-and-voices.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\history-and-voices.txt",
+    "sha256": "9526ffff5d87491a69bc55b6de16a7c541bebd2e0a2e65009942133c9d858436"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\hover-remarks.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\hover-remarks.json",
+    "sha256": "44728ec6bad233f4998069e78863f7f0b76337972897dfd36bc874dbedd6454e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\meeting-passages.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\meeting-passages.json",
+    "sha256": "c209161342314fe3f755f64c0ed0f28085296c469c5b9d73a3f5db0cfa9a780d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\writing\\realm-profile.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\writing\\realm-profile.json",
+    "sha256": "c2336cc983587a859bfd29947ae8db0407a7a82e28fca6f470a5defc96f11658"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\CampaignPersonnelCalendar.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\CampaignPersonnelCalendar.cs",
+    "sha256": "1ee11206afc23cf95fa6f91e853f031b82a1cafc7a6b0c09dd63edb83ac0b3ae"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\CouncilDiplomacyUI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\CouncilDiplomacyUI.cs",
+    "sha256": "8c60783f8a30dc990270df0b01571a2b197a08b9b256c6520ab1a8d213e0b9c2"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\CountryDiplomacy.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\CountryDiplomacy.cs",
+    "sha256": "486655b5ae7334ae4868c3c626bc914eb6858921e9cab8feb8a23ee50470f076"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\DecisionJournal.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\DecisionJournal.cs",
+    "sha256": "1e3e0736d3daac50be494cff0627efd0bfd12acd56539248caf80ce23bcb94fe"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\RecruitmentLogistics.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\RecruitmentLogistics.cs",
+    "sha256": "e826b8481e700ef72b3ff3bf55506236887e15f7ee1078f04ea09a7e5ee84b5f"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\ReliefStormSystem.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\ReliefStormSystem.cs",
+    "sha256": "0f230a2e0160127726188c0afcbc36f31b5120b3e8cf69202e25366fa06f727d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\baseline\\TrainingPool.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\baseline\\TrainingPool.cs",
+    "sha256": "2739744174ffb6ef7af678df9de251a3667e715c2de08aa261dcfc824ebd18f9"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\CampaignPersonnelCalendar.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\CampaignPersonnelCalendar.cs",
+    "sha256": "138af48ea43b92df24dee4a14fafbd05c8d5d0940bf4e01b6eb940a1be669f73"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\CouncilDiplomacyUI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\CouncilDiplomacyUI.cs",
+    "sha256": "5a0e8f66e1c47d52f50268d2137bf7d6c5474be528e13f64101fae95365f5e2a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\CountryDiplomacy.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\CountryDiplomacy.cs",
+    "sha256": "566b8f66a6a63f0a13e02fbf59c42c1b0c5a6d39f8f2ced56159ad45b7d6474f"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\DecisionJournal.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\DecisionJournal.cs",
+    "sha256": "237daad247e2a42d6d04431e9e0fbfeaef18dd0b649510e1086572bbcf6c655a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\RecruitmentLogistics.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\RecruitmentLogistics.cs",
+    "sha256": "7486b2f6560cb9f8cc5ee2aae012673edf602e0126c5b8c344d0ca45c98339f7"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\ReliefStormSystem.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\ReliefStormSystem.cs",
+    "sha256": "1e815822af58bd7f640e5ce5946a657561f75c3dd2b07809ba5078fdb964bd2b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\mechanics\\updated\\TrainingPool.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\mechanics\\updated\\TrainingPool.cs",
+    "sha256": "71da381f2e98a35509e17c535d7d6de3c17b97a459f3e0866cbc24426487230d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\Assets\\Scripts\\CouncilRagusaUI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\Assets\\Scripts\\CouncilRagusaUI.cs",
+    "sha256": "57122e7a32f2b588a970cfc5c9ebf050719c5baf5e6164c2738011ce068651fe"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\Assets\\Scripts\\RagusaText.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\Assets\\Scripts\\RagusaText.cs",
+    "sha256": "88a08245cce710c6e274c9668cf91b8bb6a3e39df5828642a94dc68340d8ca0c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ragusa-next\\ui\\Assets\\Resources\\Content\\RagusaNarrative.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ragusa-next\\ui\\Assets\\Resources\\Content\\RagusaNarrative.json",
+    "sha256": "38e22b76f203afc970ad8e175d08a7dc87055e5e99347112c7d8923e953d645d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\HANDOFF.txt",
+    "sha256": "9ee0e180d806ee7b854b1ce132f34fbf2bf1141e01a38bfb1e4e2d9a42b6b1cb"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\art\\RECOVERY-STATUS.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\art\\RECOVERY-STATUS.txt",
+    "sha256": "ef9348d5b0044030fdb33dd36589f02b3b50273aca78b843a4824ac0819c065b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\content\\Approved remarks - review.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\content\\Approved remarks - review.txt",
+    "sha256": "c4af4d9fdf6976671d7770cd815c3bc8314c206615cdc94311efe82cdfb4746a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\content\\approved-remarks.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\content\\approved-remarks.json",
+    "sha256": "b737f8756c6f25fa88ce516fc0e765abe63faaa1b9a6b5755f2efb3b5b759341"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\AI.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\AI.cs.patch",
+    "sha256": "4216c7eeb3962fab32f322a07ebe1ebf63a74ef1a8f77122363f8eed6de246c6"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\AITakeAction.generated.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\AITakeAction.generated.cs",
+    "sha256": "61acb597bf3b46c443468faf6ab396da72b5ffc626ed1e57b5c4ceab62dc410b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\baseline.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\baseline.json",
+    "sha256": "f03357f856510962301247d3341e1a7c50f0961f764ac48339060e265ac95ba0"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\CandarChecks.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\CandarChecks.cs",
+    "sha256": "58ff6ce967c5b8ce5ee5fad8f2d0c9596b0df358d04f9b05808336ad2401ea4f"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\CandarDiplomacy.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\CandarDiplomacy.cs",
+    "sha256": "0c1ab10697b6ed414873c080165231fd1acfa1ba3cbce228a52a1598136d535e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\HANDOFF.txt",
+    "sha256": "1b6b9a208e93a8e04453ee515381dcb6761947e878819b869742282a0451e5c8"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\OttomanDirector.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\OttomanDirector.cs.patch",
+    "sha256": "30f5b8a362aa74ae16898493c8af94ef6021660a54d63c7b8d1a1c3cc377715e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\stage.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\stage.py",
+    "sha256": "70029cf2fd3a08d549ee59023f28305d9c99e5d0c2b631698855992256c0de00"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\baseline-sha256.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\baseline-sha256.json",
+    "sha256": "a4cd294a8a2e3b6d2f79aef281bde6ecf2cc03aee3c5f8a3d7b4e7cc488930ab"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\compile_stage.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\compile_stage.py",
+    "sha256": "172129b2de331397802a25bc68067d5f76ace754a514d5a6b008a61082e50e19"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\CouncilDiplomacyUI.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\CouncilDiplomacyUI.patch",
+    "sha256": "6259f1f0b3dabc35f59ea54319798f1414614e7cbe872e0382b8a7d807f5ec59"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\HANDOFF.txt",
+    "sha256": "d2e42039d364a63f6433bc5d03b747c31c9c2cba98995c47c594a6f5b9e746ec"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\prepare_stage.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\prepare_stage.py",
+    "sha256": "327a8fd7b8fc8bc0d42382a7e57390ec169d2b9a903753c637c738e6359c77c1"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\baseline\\AI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\baseline\\AI.cs",
+    "sha256": "51595fedb86fffcde401816fca0941402467196df0faa7551d5c7a6985b665ae"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\baseline\\OttomanDirector.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\baseline\\OttomanDirector.cs",
+    "sha256": "dc335e018b644b1c1e30d113918f40c2964a337b7ec5844d5fb020cd34352ce8"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\updated\\AI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\updated\\AI.cs",
+    "sha256": "d49583b266c274284b1e6e44cbdc5c939333979683466ba723bd13eb3374557c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\mechanics\\updated\\OttomanDirector.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\mechanics\\updated\\OttomanDirector.cs",
+    "sha256": "cc9c6ee2807477346a63f1520bf72a9ad6d4214d5c78168721b4066a1091624e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\Assets\\Scripts\\CandarRulerRemarks.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\Assets\\Scripts\\CandarRulerRemarks.cs",
+    "sha256": "eb04cce56dd997a5368a22b1bad2365c6bd7d3e8e53b54008f7d49a174fe65df"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\Assets\\Scripts\\CouncilCandarUI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\Assets\\Scripts\\CouncilCandarUI.cs",
+    "sha256": "8cad56096bbe8f87f98b5cf532bbdac0b651a4c1a43c4a8256693a7a3600bf10"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\Assets\\Resources\\Content\\CandarRemarks.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\Assets\\Resources\\Content\\CandarRemarks.json",
+    "sha256": "b737f8756c6f25fa88ce516fc0e765abe63faaa1b9a6b5755f2efb3b5b759341"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\candar-next\\ui\\checks\\updated\\CouncilDiplomacyUI.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\candar-next\\ui\\checks\\updated\\CouncilDiplomacyUI.cs",
+    "sha256": "344634d81d66f9f57c73820bda4e7a33f61a3c244d4ef01538011fe4d8bd9246"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\diplomatic-expansion\\art-provenance.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomatic-expansion\\art-provenance.txt",
+    "sha256": "a32065474614b4054d450bb043405b0c40c6e514e20fc9699cc5fc02e7fd28b4"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\diplomatic-expansion\\caffa-harbour.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomatic-expansion\\caffa-harbour.png",
+    "sha256": "05fa6bdfcf2748a7ca073d6e67a7f01f5fc4325298c7d40b1e95e086acfdcab3"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\diplomatic-expansion\\historical-cast-and-rules.md",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomatic-expansion\\historical-cast-and-rules.md",
+    "sha256": "077915789fd5eac90457c3180a4f42ae57f858fa128d6889eea1618ae34043e1"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\diplomatic-expansion\\implementation-brief.md",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomatic-expansion\\implementation-brief.md",
+    "sha256": "ce21b8235db26bf35ff327b4f37dcca0776fbbfeed319969c160a18d851a54c0"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\diplomatic-expansion\\MALTA-MERCENARIES-DLC-DESIGN.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\diplomatic-expansion\\MALTA-MERCENARIES-DLC-DESIGN.txt",
+    "sha256": "bba07cfb4ade0b5b1fb38e8dba039e70013d2b32d3d434e8a18a4691082883ef"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ending-art\\army.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ending-art\\army.png",
+    "sha256": "d439297cbf095fa974355c9de52555944a010c680c8a84c26ed7de5d0963f6bb"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ending-art\\assassination.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ending-art\\assassination.png",
+    "sha256": "21eaad83801fdea2566e68ce56e119ed2b344fafe41d8f88450eaafc3ffbc2c8"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ending-art\\clergy.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ending-art\\clergy.png",
+    "sha256": "e6f375923f4e24755dccd424bc58d3adcea8833bd986279a729cb19b683dc61e"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ending-art\\conquest.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ending-art\\conquest.png",
+    "sha256": "6f2e1535792b5f50dfaa810d05b53941f811b57b85907ce1f1ae1db52ef624b0"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ending-art\\nobles.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ending-art\\nobles.png",
+    "sha256": "481c03518d55e594fb62f54f00aba3e3775eb8ab1d30759ac94ec4ef3a88c364"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\ending-art\\people.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\ending-art\\people.png",
+    "sha256": "3fe0961f79bfe239541c00688033edb8a88cafdf7ceae58ead55a1332b27e4e1"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\baseline.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\baseline.json",
+    "sha256": "2ddcfebe8616844747f590f581c0b57961dcbe6efda1ef02ba3125cecb67a63a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\check-results.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\check-results.txt",
+    "sha256": "39955332b0f5302d028d358a57a8b1fd5deaf2ad12691b75509ec57c8ca35737"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\check_content.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\check_content.py",
+    "sha256": "1e82723044b22a8b3f6e8d7cd3ebadcb743e49af067f03011fa103d0c897a346"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\DailyLifeEvents.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\DailyLifeEvents.cs.patch",
+    "sha256": "8c94f8c8c420e7bc3e0706ecba778ba4718f88530f086343787283da445c6033"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\Evening_in_a_Tavern.yarn",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\Evening_in_a_Tavern.yarn",
+    "sha256": "ca43c8fad8e5d872c72b270cca9aff5bfbcea19d0852465806aee2fb57db9530"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\EventArtwork.additions.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\EventArtwork.additions.json",
+    "sha256": "a651382694b5564ddfda1cd3b20c23cd242de88fd515e24159b7964bf46242d6"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\HANDOFF.txt",
+    "sha256": "f12a4f51178de69c82236f93ed1404c75ca86ec062a190e26e7e4e991262a9bf"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\lifeTavern.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\lifeTavern.png",
+    "sha256": "90198ada73f4ec4579dd144ab5fa72f3627daa5aa63373e426a9272c0cc2e74d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\stage.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\stage.py",
+    "sha256": "f6de2b92cffbe28948bf103eaccdd5869995cd7b9def37f74fccaaa808f89f2b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\TavernChecks.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\TavernChecks.cs",
+    "sha256": "389fc75a4642d598d84f778576b1e7ac7705edbf4d8cdbf02e7818d5da53f020"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\baseline\\DailyLifeEvents.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\baseline\\DailyLifeEvents.cs",
+    "sha256": "ccdb1a050f9a1bb061eecce88221d7b3f446c4d9159ed34ec4fa56336ddbe6df"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\tavern-event\\updated\\DailyLifeEvents.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\tavern-event\\updated\\DailyLifeEvents.cs",
+    "sha256": "0660b233fc0bb17703ebb4ba853c81d610eebbccfbedd971e4e4faa832ab1173"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\HANDOFF.txt",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\HANDOFF.txt",
+    "sha256": "511389a780fb8c7bc03983de5c787f1069057b882c2cd524b6312b69580ab959"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\manifest.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\manifest.json",
+    "sha256": "37efe1856d07e6a1daeda90ef2624698755096060c0a6604894c94f8f56dba56"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\stage_art.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\stage_art.py",
+    "sha256": "437c2483cc360f1057fb9bcb6937df8a6a83e6641f6d3789e9a165ca2a40393a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\validate_art.py",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\validate_art.py",
+    "sha256": "1e7589acede2dc64a0f63941355c7c5758d0d985fac72dba03bc1de83ff35407"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\validation.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\validation.json",
+    "sha256": "64f94aab2fdbcad17fe75f62c8ea881cf8414b0ec2ba320843603271f598bddd"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\patches\\CharacterPortraits.cs.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\patches\\CharacterPortraits.cs.patch",
+    "sha256": "96017de213d3906460cd79ac2af2f386c8cd51a00b8b35ddcd28619c52cdf961"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\patches\\CourtFigures.json.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\patches\\CourtFigures.json.patch",
+    "sha256": "f5edbb15ccf97727f453871423ef0b3d25d6ce597c17b41887a4a733fee804ff"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\patches\\EventArtwork.json.patch",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\patches\\EventArtwork.json.patch",
+    "sha256": "0e1b8c6f2bc270baee0a7c4cf599306fe8e7ed3b74255128552c12e2140fe8b8"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Scripts\\CharacterPortraits.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Scripts\\CharacterPortraits.cs",
+    "sha256": "c681e130311077fbbb7c020c6762b40e52e5c30518c116708f7988a98af9a08c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Resources\\Content\\CourtFigures.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Resources\\Content\\CourtFigures.json",
+    "sha256": "7f3aac135da8aa9b54a194772aff31bb020ee3d357aa6a5fb31f20d421cd490c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Resources\\Content\\EventArtwork.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Resources\\Content\\EventArtwork.json",
+    "sha256": "19771af46e92a027df6817a503e87a205a71e804de45f679c4cfb611ac5696fd"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Resources\\EventArt\\Covers\\story5.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Resources\\EventArt\\Covers\\story5.png",
+    "sha256": "2013351c5eddaaebc3ef3bb5e217928ed4dbba8a21d2501772a43184f77bdc03"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Resources\\EventArt\\Covers\\story5.png.meta",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Resources\\EventArt\\Covers\\story5.png.meta",
+    "sha256": "36fc1ff62d33082310b40464229ca4873451fdf1ee7ed5ce86e71f3c9dae864b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png",
+    "sha256": "60a94cd82db4bd2e6e4c0d5ce2d42150cf0c5b89e68272ab3be29c0e0cbf7a6a"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\baseline\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png.meta",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\baseline\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png.meta",
+    "sha256": "8838f0ff8c51cec85177e7a73fcd72054e4dcaa849fd147b7e843163101919ae"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Scripts\\CharacterPortraits.cs",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Scripts\\CharacterPortraits.cs",
+    "sha256": "aaf0da17f3b392c49dad1350e91b4a2392562553e6001356ecfc4e0c130be33d"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\Content\\CourtFigures.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\Content\\CourtFigures.json",
+    "sha256": "2d08f1f07c03a9377780e0a138eb5baa554690a85fd9fdbf11b3c461953850c5"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\Content\\EventArtwork.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\Content\\EventArtwork.json",
+    "sha256": "538961248b52d59650568985803e67180c5a67c28048d6deef8db0dbd624f53c"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\EventArt\\Covers\\story5.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\EventArt\\Covers\\story5.png",
+    "sha256": "c9475447502fc929d3f339b4282213d01e9ac3d64a9f6743641d2604ddf72b51"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\EventArt\\Covers\\story5.png.meta",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\EventArt\\Covers\\story5.png.meta",
+    "sha256": "36fc1ff62d33082310b40464229ca4873451fdf1ee7ed5ce86e71f3c9dae864b"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\Characters\\0.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\Characters\\0.png",
+    "sha256": "07ad223453ed898822347e60b2745efdf3a3ff6341e85d37fae1e70a4bf5f416"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\Characters\\0.png.meta",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\Characters\\0.png.meta",
+    "sha256": "fd6ac73b35b6d726e702324e760836038f74edac33886437c0656e2fee8ae085"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png",
+    "sha256": "ee3d938a6f0900a25fff4e7f50e3fd42d9e78b16f607ac6925578e2987e322b7"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png.meta",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Assets\\Resources\\UI\\Identity\\CourtFigures\\0.png.meta",
+    "sha256": "8838f0ff8c51cec85177e7a73fcd72054e4dcaa849fd147b7e843163101919ae"
+  },
+  {
+    "path": "FutureDevelopment\\Staged\\giustiniani-art\\updated\\Documentation\\Artwork\\Giustiniani-2026-11-03.json",
+    "source": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\giustiniani-art\\updated\\Documentation\\Artwork\\Giustiniani-2026-11-03.json",
+    "sha256": "dbad6fd6de61539d56e5f8fa6946e648a64a60af87f3b2e4eddaad7ba75b0d12"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\Besieged_art_coverage.csv",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "2a301fdc72ee03392c6dde12df73cf57da3844cd31f1915308e30cfa18d60cd9"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\Besieged_art_manifest.json",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b403a27e0da26e797f7f53b91233b25a640e32a5c2fabe03a18ce93b946f15fd"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\README.txt",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "387f4a088a8fa8888a2ef133038560eae61b6953d57c37e6cf0fad30a708c1e4"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\SHA256SUMS.txt",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "a466670558f4cb6c5dbcbad69cfc83ca2b0e725b705c8c001da3dc1626aff3cf"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\SOURCE_VERIFICATION.json",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "bcc91c92a4c87536a9f70cccc32f2afc8188d034e5ecaf2546591cdc5af936d2"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\combatAssassin.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "c09e1449743ea5fb26a29ccd516dd8b20f3890bb6b37faf69e1054e64222f85c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\courtLady.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d2c6cdffeac618b18aad3e051639896b3295b2c3765b8e5eb44c45c9385fa307"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\courtLadyLetters.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "056077e9c5204f381314118cf46aef198686d755a0e219a3ff39ca91d039af02"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\courtLadyMarriage.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "52fc15fa83853470a48b95bc0e9c13a262e9fbcd213e476777235ab107977cf8"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\foodShortage.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d59f6d06f6c03185db0a4c267808cb8de6dddcb3bc8095fa894fb29e7ff9b233"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata26.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "0ea3bbcd1c2f890de0ed72241766015d59fd09678da96ecd0bd1346d1d1551b8"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata27.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "89992960604849f669579e48a2d68103e32234a6716b47c24fc2abc0aed0482a"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata28.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "0850ba9d1307dd53cd05769aa7f37d5248cd345966e3fcd45d0e54e4bc8364da"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata29.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e5f78ef11bfb771cd8857822b1ef38299074a361a02853be3a737769fc94797d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata30.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "32fd023abbebb4645980feee7203e840840feb05cd7dc9d80c21c69bed444728"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata31.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "4958733a9e4e81a37a3cfba642cd58d357acdf58b62bea00268f312540a7d4c2"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\galata32.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "6e6c22486bcc55986a5bbf5c992eb61b504fbf1adea6a92f07605d857315ee53"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\giovanniThrone.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "5853fa37081f6c2785b21e87f6106279049b0bdb68cf66495327dd9dfd2abe86"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\giovanniWarning.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "ab1736d5c6e34d1fa2ece17569fe39e0d79cea2b1fcfa235c7340d1898b7e328"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardBrothel.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "2325c426feb93281c83c8df895bbd26091e8e2f5c2eb79af112f62035a1535ae"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardCatastrophicStorm.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "ffa91c1e492cffb2456080824b2c451065f89852113a6b2ea007a620bc9b1444"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardChild.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "9d967c9c1dc31688c70042a8ca8e8b29e931c940862658ee9de2e6a3f5bdb228"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardCistern.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "23cd113a2822f73d24e26773239cefe6667e2bea8a2210ded6171518843ca7cd"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardCoin.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "7025d0022b08f40998c372b322331bcd9df00c5bd806ef56e4e7ceca57d5e7c1"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardDead.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "19c4000b864c2b28084e1c606b3ed5845913ecdb5bdb2766ebae88b92deea7ae"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardFavourite.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "0886874012d23623be2ecde6d2990868d2c1aa99e7c8bb63f7f190f0950dddb0"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardGrave.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "7d5af0d277d75f0a092751d0d8d8e87b26c45983b70025c820c37f2b06fa5ecf"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardGrave1.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "854e3627afd60a64b56b254d93a974524b0074c72f2eec0a16b021c79a40c50c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardGrave2.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "c4b546b3c286e3f1b28eaf76cdc8e307c2dc47446f2f8c6472c9ffbc80eccad0"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardHead.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "962c2cb74659eb6d053119dbea35359d18758f5bd2267aac9c45475a49274710"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardHorse.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "68c38837fc1f17a8f38d42e5bb063ddc34354366ce869244c292b262e07f2d23"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardItch.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "4bf9097d8487582c86708b146ab16d044fd453d8c45018120ae6c9da9d2ee6d8"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardMissing.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "5d6bd6281988c2d1e54c98c96c2fca40d5b9a8a93e637836eb2f0c2f5d0e7907"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardMissing1.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "ee9a34238b78e973b2a4bde63e8348c396faa96570b87dfb24d4a69a19fc8ece"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardMissing2.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e83a487757d52f9432d595bb981f45c26b5da95043592b83059d11653198d49f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardRats.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "c8b913e7c930e3af4143f1108b09bf30e8543f6b91f6750b71773a21c7d4dbaa"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardSand.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "8b51b3e45fb0add7a5e42f70baeae31c13b14a6146dcf6484e4a8b55ddb13f41"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardSand1.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "ed9232fd3da8e3848d02d3676c0d4f95d7dc7f26774c349a8ed0a2e13fd42f9a"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardScreams.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e331d7353260f03b4681b79778a78145984d69e62d6524cf7bf1f6327b911b70"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardStorm.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f64c3cdb0be38b797ecc2ef7adfc3ef48b6935af881b6adfcf2e5c44a8bae408"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\hardWoman.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "017fa81ad4a951ee21ffa98ec580604ff09451777e16ab1d686cd058a9e3169e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeBarrel.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d350fb9febb7db08e9ad31d40594cc703e0ec4aa0a55e278e6d7e765015e631f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeBarrelOwner.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "8d4b2e59bec1326d334612d49a34d2a646145105bfda11250d822da7a1d1994f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeBread.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e948e5c821bf3c52f0818e540d3ed4bebd271781b53207d1f1f471ee08900cf1"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeCandles.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "51b42d9045f1e3cc5585a136334b2692d25021f6075bf36f60de7f65b1a855a7"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeCobbler.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f9048648c3bd47c9e46a024d5d4210ee6fb03df194756b40ead9d8c8158d3d22"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeCoin.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "31bfedee81729a5c71674c269cef84ea4eb24c06de08b26d05bdf2993b9dbbfb"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeDrawing.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "5052cea50d7bd5209c76ed19114e139a82eb362b65e03fddc9d5c6d02367e63c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeFalseHope.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "00d9fb34c36e39058d2256993ae97e5324f4d72200916683da790ca22054d9c0"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeGenerosity.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "77837d255f97286ecfba1d251b725af3080cdba6290a120b7c916a393ea82a9b"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeGhost.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "5498e6f3ac5e60f856fc28b9631d29e4b8fde78e1426fb8c78f66f7c6c99d36e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeGunner.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e572c6abbd4665221aa1adf926b3af1f2bfa1b33f471498faa5147f94a8fd70d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeGunnerResult.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "de48b810a3c189ceb2787c79a7d88069e81a878caa191681b9f2616578f80dd8"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeInsult.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "cb7e4d5f4adb58b8e6c3c5e3d5055c99769e66b0b18629e57c5b2e55348e6bbc"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeLights.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b8e38f5d0a68dc7cad1ad28813bc94df376b47a0a7555236f78e16a894f83d89"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeMercenaries.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "10c4b21c1bc6f17f01748760c11549c3a1d8b10df8a511209742192b87286e70"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeMorea.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "cf90f0b52df91e2f0a6223bd9afdc67b48bd02097e1325ea189dd42dbda9350e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeOnions.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "cb345082676c29b9dd23761313e7c034a5911786e34af7927713e26f20c95734"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeQuiet.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "3791883407ad98ba9de50f9f00d76992ac9735bf612eb63b3964e98b84f953b0"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeRefugees.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "acf7cf1bfb949052fd23bd5271d8dfdc272a35f42e4cabd98a2ce006f4900ace"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeRoof.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "eae3064bf43c59f2a84e1b1a597e93087ece9acf8cbe8d7d97c36ef5dc3ee7f6"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeSails.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "448d422e00f95f77935027e8f1e6bc33b845409c9d3fbdb9be607b0f07619f5f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeSaints.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "807a02ae4d5bfed436d4553fff102a4fe740ffe94c068ff5784ba2ead67f804b"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeSong.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "bd45072e974c667cfdfd6e5bf519ed00fb2d89d8deef17d3b57b5b1968c34ff8"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeStones.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "22b04b2b404652c09fb1569bebd8d510370d37acb4582338ab332305a3734a94"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeSurprise.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f415bdfeca9cc5f19270810073ea01f1b4f3480f90b91e78240f3307e8a6bc1c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeWedding.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b2d01aed4be4cdaa80b293372ad2fed17010147e12653ceec3d1874dae8c314c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\lifeWell.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e53cc77427558861e94519b64c6eb45e37a3abf81be570ea48b354bd64456f0d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\politicalDemand.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "90b18cce28f3ee85b59bed327fcb66c0bb32717cdcfdb8556b8c17c87b37b371"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepAdventurers.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "41fa2712e082da9b47b8fc2520ae8a767ecacad03602409e82c6caa932a4f23d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepFortress.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b073367cbc855aa9dfadcb2ae1691ea80195d09330dd3312f3d4dae712b7cdfe"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepGalataGovernor.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "4901cb3ba9adc33ecdf14ce24878f4d0b36fe1965e241c988b9e2f8001b95237"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepGrain.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "86e13f8f9e498f9f737c992e297dade1d5c6719bb944cfede1dc7a270767e1ec"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepIntelligence.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "dd65dcd080125a5598bec8f8030899a2afd361c7d597b5636103f01aef3362ac"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepNaval.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "afc36c73425d33f7bdd5bde8388da51e3ed132268c71611f9853d3e5de19dfd7"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\prepScorched.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d418427342df6d8f1a6ad11264ba6ca3d18abb398c5d96f7e522b76d9cd1b581"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random0.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "9ec839a84a4bea58acac6f18c15ee550ba71d46c822fdf4360a55057ba307247"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random1.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f4bef9cd63f5cdf8f4156722b3cbe760fdaea65196e0527280d0e06a304d6d05"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random10.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "3057f93a0cddb5f023678f34dcf306190e0a485d69211437e088f4e75d1fe0dd"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random11.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "2339573bc4f30b177b44c2e05b431c1ddd6cf7c64c1bb21ed557c863a97afcfc"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random12.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "069ffdd1cc77e8043903c76723312696e708534f138579bc3825b61e0b8e9677"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random13.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "ad922b25d7c7757822c292f1320796af4066d19e0642a0fc1c53d5d82b969aed"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random14.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "8888d99e316ce75e0f9d14f382c9b5a6fe4f32c099217d98ebafee924ff509e5"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random15.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "661c9ef8493157bf777170545cdbf1b28b39ca5008288a1fd3aa2c3906651eef"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random16.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "306f0c7b44d1f86cfde7372a2b99bce86d2d8e6fccd9ef896c1c892f245b3949"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random17.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b1936ea7c2d9f4262168683a94c61793d42d5f23bb9df3b8c6c28c514b84c6fe"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random19.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "6b2fbd308d3bf591628b0b6a2da6608145c30f691d1d805569b66d13b50b5ef1"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random2.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b67977652a12bca2ca2b411821dc421a3fc012e902030816e4c958fd8dc58f10"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random20.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "81e81ff7a1737df977d24da83b44b44ae1d63d211bd6620cc06243d05f431c4e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random21.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "dcaee79c44177c5ff075a8955776057b18d0dabfe978c4e133f16ab3aa162c2e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random22.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "e0860ea68f3cc5dca1a4f4969d48f324b74c3eb4ff10723d3357085eb6acef03"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random23.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f5e7fbe1c3e4dc9d5f276cf935363f34186b6b6999edcac71fc659da01ae82f5"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random3.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f533d72485c87f188adb7cab8e736404cebaf4b26490527576da1ce9f1d2ed71"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random4.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "23fc2172f98b07359109cba7cc29d33accf2fa9d2c05b7af4ee2be470ac48c57"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random5.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "245ae3a86686e0052d2e3c810a6cb3ee0e2993f32b66a0f2a354744abe1e02fb"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random6.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "a6476b6800295ee55336a39fb28bb24ecf6ba5f1291e1884aa62971f751a9ff1"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random7.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "c78a5cb0df362527914235842c46bd7401a2f0a58a2d06d99f0f240df2bd2809"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random8.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "291a5d2833bbc6e2431dcf284d0d3e8603d7312cb4c39df803031566b0155057"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random8a.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d883a2d935d3a9b59537142dde66d353cc9e10dc993e5f1ef9e6fdf4d0591083"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\random9.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "9d701af27634264f5d3800047dddd32fd79694d5b8c2ffdd7f96faf0bd70961d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\sermonPride.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "fe934225b65cd113fd28bfd87a370b514c8ff4e7632944a41a61f93b5d5e984f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\shah1.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "8d9480bc82ae0654522792e3624fc9e961c5598ac88ffeaff9aa2216e3525a04"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\shah2.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "80d7b95bcef1ec0242f1b666847707ab5cf0faf76ac02bda36b9698c92e1fe50"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\shah3.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "46531edc98356671babdac570360985b4839b05eaa963e473ed9b2c8628f162f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story0.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "9dfe1b4c434b65d935da1857524cb212c91f229490fc1a926ab13931ed0994de"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story1.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "819a330c5723e8a56f8297323161bab524066f113a7ac0bfd788369995a80531"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story10.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b306f2b6f45d7b0acb9b91d21730ed128c487ad5f047b04c181ad141acb66f6d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story12.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "78e5066b52ed53d40e15c58ba5709c3e1d4ee9c680096db6a915adc1c4cc8e71"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story13.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "9bcefbb534421629fc1476b7832f196396fd76b057f4bda575add1409ab3b199"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story14.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f4ec10b0c14657f7e1d65eda0cf5c814ed408cb75737315334852b435677800e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story15.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d8261ec8f58a7f4c79bcc89fcd30345bed4a37957e2a6cfc2721b14b4010a7b3"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story16.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "a232bb8db93f624cd73ce80e713c698b72ad2797b1be432f948cc364e1bf9c12"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story17.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "7e1ee6ca9a32c2cb54775bd21dd37fef1e139db14debcdf6f542f3a2f12e35b0"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story18.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d90a5255d15f790b5bfa80c0bd9d3ad299fc5b2e6e69f8a6607130e961247f83"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story18b.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "a6f0a47651e1002b2cdf0dc5a0b5e4c9ee093f87f8f70e7a6aba9a45422b8795"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story19.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "5b91ed35bb6c3d8528899f5b013ecd5d67de655f9bb5e02da1c9feb93d42b533"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story20.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "606ea7a1c15740ad292ca760e9fc545127f511fff7d92792dcd17955a3878b09"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story22.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "28e558428764111bc6704805d158198115a5e09990c9fde851cbe6d0caa8e71a"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story23.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "11fb0c72a20da64b19456fa8685b234b1a667a482b80078467f64dd0e038688c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story3.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "6b7e2efb06f45a527eec9c6567861417d6b6ac39e20172da9838790a195d5593"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story4.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b87ff1fd9701b391973b062d575a6ffa005d2cb8ff5644da0ddf24369be13dd5"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story5.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "2013351c5eddaaebc3ef3bb5e217928ed4dbba8a21d2501772a43184f77bdc03"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story6.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "ec3a3973c36b32c184b7beda6a71401dce228247fcd894f3fc8ab7a4a4dfe17a"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story7.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "cb020cdd947d1c526f8cfbb562fdcec09bebefba96ac1a976bed5af6b8134b8c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story8.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "93cb4024c237c243d021bfbc10db4386e5b4e6083387d100b21274f695d961a5"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\event-covers\\story9.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "dbedc6ac5a1eed388ac91f8048ab91c632bf9d36116eb5163c402bf8eacb55e8"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\archers.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "3b17f174d5a5a3166fe4fdc88d18ed331144592018dde98ba39fd79833be0bab"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\archers.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "923460e9ac81694309463ee0d0a2733c83cd39409eac5bb14e0566a27358db00"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\army-support.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "1891ebd60a98573a13c3ee9597a26365125298783d49ead529a21856d86a3257"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\army-support.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "7d5dd34ab73fb6561a8b40715c082858d51e14f3ec23ecca7a2751b21e61d0b7"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\cavalry.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "7788fd74b22c5431baf7e3f1ce8ccbd0f54057e6f9947227d7c08a413fa54888"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\cavalry.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "27d1d1a658432fac7ec4f8c3ad9786a4b049b1256c8db21675e441c1018e9620"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\clergy-support.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d6c4dcd7107025372e96b2b377d60b515a49773f668625eb469330947293675c"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\clergy-support.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "0e33917e7738ab8f2ead42a501a38a247c58ec48edb33b4e7b1f369ebfc29dfb"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\food.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "a23f93156a60ae5dbad9594b8ed100642bc4bdbe2acf941fb7d43c400b40c14a"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\food.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "0c2b3878b5e4314df3eaa616504eb2befe62413d4e8d155998e4ccd141d510f9"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\gold.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "4642d91e00f13d750beeee95381f198e6d2e927e209c3eb1b39f2f8d6f0f9afc"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\gold.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "7687178887140b91737ecb8aa429eb1ae91995d26f76c742101337a18892d63f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\guard.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "6d8d38f31227e7003dcc33bdedd3779b11a4da466d73c2cdfc64dfe3983a250b"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\guard.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "9c7804605a8b14eae11bd461b4a853eca4f006ce938b82dedc2440f77d3e1773"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\health.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "18d8f789ee52cfaa77626fc28e7874b5ba476a14388af4003415999f9e5d85f2"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\health.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "020ac9bbdfc9ecfe52041c62009363db4811c994632e05ff0608f0d9f57dbed6"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\infantry.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "1bfef6317761d6da460789dc32987edda79bd09da4ed81edc613b76c6f92aa13"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\infantry.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "3a067b3e9441c7d04a4cf5f4f6b497e0787814e781b7a9a09994f5f90c53778f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\materials.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "b1f9b9e7aa20ad60f93af40b63c642bc7c3f38ce3970daf8e4df5c3e8672891f"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\materials.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "bcd72c2b87c166592c50971574154789ed85269cd946d8a8649725bf999879eb"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\nobles-support.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "d3c3300d25112876481ba9d179569f5be3414fb49b6759d18827c3498934c1df"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\nobles-support.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "22f5d077ef95941d714419b189dcb658aaef7c3c3050526a7f61c57d6ceac7d6"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\people.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "fe3aed11ef2260aaa715b78136c5d6880b1fe3845f95df8e59c53a8032dbf902"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\people.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "4555574da64aa325373e63809f69b0a0d35f0c9b7ef8a0bf4b8b101e5a983fb0"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\public-support.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f964c375730fd926ac98c3751774a387486930b4da71775bae34d72bedfef03d"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\public-support.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "f1f1ebba76450cba30dcffd15518f32cf52d99a7c07f875c8547431fa755ec79"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\secrets.png",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "902f0c9f8fee597d7f20a6ba679432da8bfbdefa0685dcf9d818246094c8f91e"
+  },
+  {
+    "path": "FutureDevelopment\\OriginalArt\\stat-icons\\secrets.png.meta",
+    "source": "origin/codex/final-art-handover-20261102",
+    "commit": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+    "sha256": "36b2559750630213d165836718903c007b03c3679e04bf318183ba85acb9ebdf"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "gazulus": {
+    "name": "Johannes Gazulus",
+    "role": "Diplomat and scholar",
+    "description": "A Dominican astronomer employed on Ragusan diplomatic business. Gazulus measures his words with the care he gives his instruments. He can make a refusal sound final, then quietly identify the small, lawful opening through which something useful might still pass."
+  },
+  "cotrugli": {
+    "name": "Benedetto Cotrugli",
+    "role": "Merchant and commercial intermediary",
+    "description": "A Ragusan merchant with business across the Mediterranean and close ties to Naples. Cotrugli likes an agreement with names, dates and a captain responsible for the cargo. He enjoys mocking official caution, but relies upon it more than he admits."
+  }
+}

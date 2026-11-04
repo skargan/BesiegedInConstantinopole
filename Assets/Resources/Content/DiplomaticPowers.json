@@ -770,7 +770,7 @@
     {
       "Id": "ionian_tocco",
       "Name": "Ionian lordships",
-      "Description": "The Tocco island lordships can spare a small body of armed men and provisions; their own harbours must remain defended.",
+      "Description": "The Tocco island lordships negotiate refugee shelter and personal refuge through Raimondina Ventimiglia. A resident envoy opens these private agreements; ordinary relief expeditions are unavailable.",
       "StartingGoodwill": 20,
       "StartingAttitude": 1,
       "EnvoyDays": 10,

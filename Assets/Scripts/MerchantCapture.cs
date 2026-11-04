@@ -16,7 +16,7 @@ public sealed class MerchantCapture : MonoBehaviour
         string folder=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Merchant"));Directory.CreateDirectory(folder);SaveGames.TestRoot=Path.Combine(folder,"Saves");Directory.CreateDirectory(SaveGames.TestRoot);VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
         var go=new GameObject("Merchant verification");DontDestroyOnLoad(go);go.AddComponent<MerchantCapture>().output=folder;}
     void Check(bool ok,string text){if(!ok)throw new InvalidOperationException(text);results.Add("PASS "+text);}
-    string State()=>JsonUtility.ToJson(VariableSingleton.Instance.CaptureState());
+    string State(){var state=VariableSingleton.Instance.CaptureState();state.ints.RemoveAll(p=>p.key.StartsWith("iChatter_",StringComparison.Ordinal));return JsonUtility.ToJson(state);}
     GameObject Root()=>GameObject.Find("Council screen");
     Button Button(string name)=>Root().GetComponentsInChildren<Button>().Single(b=>b.name==name);
     IEnumerator Start(){File.WriteAllText(Path.Combine(output,"checks.txt"),"RUNNING");var stack=new Stack<IEnumerator>();stack.Push(Run());
@@ -44,7 +44,8 @@ public sealed class MerchantCapture : MonoBehaviour
                 var hits=new List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointer,hits);
                 Check(hits.Count>0&&hits[0].gameObject==spot.gameObject,"merchant receives pointer above the painting");
                 string before=State(),rng=JsonUtility.ToJson(UnityEngine.Random.state);var lines=new HashSet<string>();
-                for(int i=0;i<30;i++){
+                for(int i=0;i<3;i++){
+                    VariableSingleton.SetInt("iChatter_grain_merchant_UntilSeconds",0);VariableSingleton.SetInt("iChatter_grain_merchant_UntilMillis",0);
                     UnityEngine.EventSystems.ExecuteEvents.Execute(merchant.gameObject,pointer,UnityEngine.EventSystems.ExecuteEvents.pointerEnterHandler);
                     Check(merchant.Speaking&&lines.Add(merchant.CurrentRemark),"each hover yields a distinct remark within the shuffled deck");
                     Canvas.ForceUpdateCanvases();foreach(var label in GameObject.Find("Merchant speech").GetComponentsInChildren<TMP_Text>()){label.ForceMeshUpdate();Check(!label.isTextOverflowing,"remark fits: "+label.text);}
@@ -52,7 +53,9 @@ public sealed class MerchantCapture : MonoBehaviour
                     foreach(var graphic in GameObject.Find("Merchant speech").GetComponentsInChildren<UnityEngine.UI.Graphic>())Check(!graphic.raycastTarget,"speech cannot steal mouse input");
                     UnityEngine.EventSystems.ExecuteEvents.Execute(merchant.gameObject,pointer,UnityEngine.EventSystems.ExecuteEvents.pointerExitHandler);Check(!merchant.Speaking,"exit hides quote and highlight");
                 }
-                Check(State()==before&&JsonUtility.ToJson(UnityEngine.Random.state)==rng,"merchant chatter never changes campaign or random stream");
+                VariableSingleton.SetInt("iChatter_grain_merchant_UntilSeconds",0);VariableSingleton.SetInt("iChatter_grain_merchant_UntilMillis",0);
+                merchant.Speak();Check(merchant.CurrentRemark==CharacterChatter.MerchantFarewell,"daily limit ends with merchant farewell");
+                Check(State()==before&&JsonUtility.ToJson(UnityEngine.Random.state)==rng,"merchant chatter only changes saved chatter state, not gameplay or random stream");
                 var buy=Button("Market buy iMaterials");var corners=new Vector3[4];((RectTransform)buy.transform).GetWorldCorners(corners);
                 pointer.position=RectTransformUtility.WorldToScreenPoint(null,(corners[0]+corners[2])*.5f);hits.Clear();UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointer,hits);
                 Check(hits.Count>0&&hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>()==buy,"purchasing remains unobstructed");

@@ -1,0 +1,68 @@
+RAGUSA COMPACT UI — VERSION 38 STAGE
+
+Ownership: ragusa-next/ui only. No live game source or Unity session changed.
+
+Copy these staged assets to matching project paths:
+Assets/Scripts/CouncilRagusaUI.cs
+Assets/Scripts/RagusaText.cs
+Assets/Resources/Content/RagusaNarrative.json
+
+Apply CouncilDiplomacyUI.patch: a single Ragusa route at the beginning of
+UnifiedDiplomaticPower. Other countries keep their existing screen and actions.
+baseline-sha256.json records the read baseline and sibling stage inputs.
+
+Required sibling integrations:
+- mechanics/RagusaDiplomacy.cs and its calendar/persistence hooks.
+- art/ragusa-gazulus-foreground.png -> Resources/UI/Diplomacy/Ragusa/GazulusForeground.png
+- art/ragusa-cotrugli-foreground.png -> Resources/UI/Diplomacy/Ragusa/CotrugliForeground.png
+Use the art agent's import settings and preserve the texture aspect ratio.
+
+Entry point: CouncilUI.RagusanCourt().
+RagusaText.Get(string key, string fallback="") exposes every prose passage.
+RagusaText.Data contains characters, hover remarks, realm profile and scene polygons.
+The single resource uses serializable arrays/objects compatible with JsonUtility.
+Canonical prose and polygons are copied without editing from writing/ and art/.
+prepare_authoring_data.py rebuilds the resource and validates counts.
+
+The artwork is fitted, never stretched or cropped. Its hotspot coordinates share
+that exact fitted rectangle. Rear silhouette is created first; foreground wins
+the hit test where the robes overlap. Gold outline uses existing LocationHotspot.
+The fixed right panel occupies 36.5% of the painting. The main menu has no scroll.
+Only long reviews and profiles receive an independently clipped reading panel.
+Both visible character buttons provide the same profile action as their silhouettes.
+Focus and pointer entry show a line; pointer movement does not change the line.
+Local cosmetic counters never consume UnityEngine.Random or write campaign state.
+
+Provision and troop-contract buttons first show all material terms. Confirm is
+MakeTurnButton -> RagusaDiplomacy -> existing Finish(success, report), retaining
+major-action and outcome behaviour. Cancel/Return and reading have no action cost.
+Failed backend validation leaves the screen open and displays its actual reason.
+The dedicated court does not expose generic aid, renewed aid or generic war entry.
+Existing envoy dispatch/recall reviews are retained in a compact final button.
+
+Narrative keys (16):
+gazulus_opening, cotrugli_opening, gazulus_official_refusal,
+cotrugli_private_offer, cargo_agreed, chair_gazulus, chair_cotrugli,
+food_denial_gazulus, food_denial_cotrugli, food_albanian_arrival,
+war_contract_gazulus, war_contract_cotrugli,
+war_day90_victory, war_day90_defeat,
+war_day104_victory_return, war_day104_defeat_return.
+
+Validation:
+- All consolidation runtime sources + new UI/provider + Ragusa backend compiled
+  against Version 37 managed dependencies, compiler exit 0; checks/compile.log.
+- Authoring data validated: 2 characters, 24 hover lines, 16 unique passage keys,
+  2 art variants, all measured polygons preserved.
+- Runtime visual/interaction verification remains for the integration owner;
+  no Unity launch or claim of visual QA was made here.
+
+Integration smoke checks:
+Open Ragusa from both diplomatic list and map; check January/February foreground
+swap, foreground-over-rear hit priority, keyboard character access, long review
+scroll clipping, cancel without resource changes, successful turn-cost actions,
+unaffordable/active-contract reasons, and expected return to the Ragusan court
+after an envoy review. Check at 1920x1080 and 1366x768.
+
+One integration consideration: the existing overview card AidStanding line still
+describes generic aid. This narrow route patch intentionally does not edit that
+shared formatter; owner may separately display RagusaDiplomacy.FoodStatus there.

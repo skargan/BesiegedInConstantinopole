@@ -1,0 +1,13 @@
+{
+  "checkout": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\consolidation",
+  "targetRelease": 38,
+  "files": {
+    "Assets/Scripts/DecisionJournal.cs": "1e3e0736d3daac50be494cff0627efd0bfd12acd56539248caf80ce23bcb94fe",
+    "Assets/Scripts/CouncilDiplomacyUI.cs": "8c60783f8a30dc990270df0b01571a2b197a08b9b256c6520ab1a8d213e0b9c2",
+    "Assets/Scripts/CampaignPersonnelCalendar.cs": "1ee11206afc23cf95fa6f91e853f031b82a1cafc7a6b0c09dd63edb83ac0b3ae",
+    "Assets/Scripts/RecruitmentLogistics.cs": "e826b8481e700ef72b3ff3bf55506236887e15f7ee1078f04ea09a7e5ee84b5f",
+    "Assets/Scripts/TrainingPool.cs": "2739744174ffb6ef7af678df9de251a3667e715c2de08aa261dcfc824ebd18f9",
+    "Assets/Scripts/ReliefStormSystem.cs": "0f230a2e0160127726188c0afcbc36f31b5120b3e8cf69202e25366fa06f727d",
+    "Assets/Scripts/CountryDiplomacy.cs": "486655b5ae7334ae4868c3c626bc914eb6858921e9cab8feb8a23ee50470f076"
+  }
+}

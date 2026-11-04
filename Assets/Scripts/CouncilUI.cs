@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 38 · Provisions and hunger";
+    public const string BuildLabel="Version 39 · Consolidated playtest";
 
 
 
@@ -179,7 +179,10 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        CampaignHUD.MakeButton(manager.transform,"Decision Journal",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>DecisionJournal.Show());
+        var journalButton=CampaignHUD.MakeButton(manager.transform,"Decision Journal",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>DecisionJournal.Show());
+        CouncilEmblems.Add(journalButton.transform,11);
+        var journalCaption=journalButton.GetComponentInChildren<TMP_Text>();
+        journalCaption.rectTransform.anchorMin=new Vector2(.23f,.03f);journalCaption.rectTransform.anchorMax=new Vector2(.96f,.97f);
     }
 
 

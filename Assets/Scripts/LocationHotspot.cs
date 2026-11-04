@@ -9,6 +9,9 @@ public class LocationHotspot:MaskableGraphic,ICanvasRaycastFilter,IPointerEnterH
     public Vector2[] Shape;
     public UnityAction Action;
     private bool highlighted;
+    private bool spent;
+    public bool Spent=>spent;
+    public void SetSpent(bool value){if(spent==value)return;spent=value;SetVerticesDirty();}
     private RectTransform caption;
     public static LocationHotspot Create(Transform painting,string label,Vector2[] polygon,UnityAction action)
     {
@@ -52,7 +55,8 @@ public class LocationHotspot:MaskableGraphic,ICanvasRaycastFilter,IPointerEnterH
         vh.AddVert(new Vector2(r.xMin,r.yMin),Color.clear,Vector2.zero);vh.AddVert(new Vector2(r.xMax,r.yMin),Color.clear,Vector2.zero);vh.AddVert(new Vector2(r.xMax,r.yMax),Color.clear,Vector2.zero);vh.AddVert(new Vector2(r.xMin,r.yMax),Color.clear,Vector2.zero);vh.AddTriangle(0,1,2);vh.AddTriangle(0,2,3);
         if(!highlighted||Shape==null)return;
         float scale=canvas==null?1:Mathf.Max(.1f,canvas.scaleFactor);
-        Stroke(vh,r,7/scale,new Color(.95f,.63f,.18f,.10f));Stroke(vh,r,3.5f/scale,new Color(1f,.76f,.3f,.27f));Stroke(vh,r,1.5f/scale,new Color(1f,.87f,.52f,.95f));
+        if(spent){Stroke(vh,r,7/scale,new Color(.25f,.44f,.58f,.10f));Stroke(vh,r,3.5f/scale,new Color(.36f,.54f,.68f,.27f));Stroke(vh,r,1.5f/scale,new Color(.48f,.65f,.77f,.95f));}
+        else {Stroke(vh,r,7/scale,new Color(.95f,.63f,.18f,.10f));Stroke(vh,r,3.5f/scale,new Color(1f,.76f,.3f,.27f));Stroke(vh,r,1.5f/scale,new Color(1f,.87f,.52f,.95f));}
     }
     private void Stroke(VertexHelper vh,Rect r,float width,Color tint)
     {

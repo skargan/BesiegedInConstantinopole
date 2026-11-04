@@ -1,0 +1,12 @@
+--- a/Assets/Scripts/CampaignPersonnelCalendar.cs
++++ b/Assets/Scripts/CampaignPersonnelCalendar.cs
+@@ -22,7 +22,8 @@
+             }
+             researching|=MonasticResearch.ResearchMonks>0;
+             discoveries+=MonasticResearch.Advance(date);
+-            reports.Append(CountryDiplomacy.Advance(date));
++            reports.Append(CountryDiplomacy.Advance(date));
++            reports.Append(RagusaDiplomacy.Advance(date));
+         }
+         if(medicalActivity)reports.Append("Infirmary: ").Append(medicalReturns.ToString("N0")).Append(" recovered patients return to duty; ")
+             .Append(medicalProvisions.ToString("N0")).Append(" provisions used; ").Append(MedicalRecovery.Total.ToString("N0")).Append(" remain wounded.")

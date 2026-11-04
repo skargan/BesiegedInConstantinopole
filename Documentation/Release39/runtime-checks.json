@@ -1,0 +1,67 @@
+[
+  {
+    "suite": "provisions38",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 7.3,
+    "report": "PROVISIONS38_CHECKS 149 passed; fractional stocks, ration headcounts, shortages, desertion, transfers, actual archive persistence, provincial reserves and presentation captures.",
+    "evidence": "Builds\\Version-39\\Captures\\Provisions38\\checks.txt"
+  },
+  {
+    "suite": "technology-desk",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 7.7,
+    "report": "TECHNOLOGY_DESK_CHECKS 11277 passed; catalogue selection, affordability, artwork, navigation, new-campaign split and saved allocation.",
+    "evidence": "Builds\\Version-39\\Captures\\TechnologyDesk\\checks.txt"
+  },
+  {
+    "suite": "ionian",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 9.4,
+    "report": "IONIAN_CHECKS 188 passed",
+    "evidence": "Builds\\Version-39\\Captures\\Ionian\\checks.txt"
+  },
+  {
+    "suite": "chatter",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 26.2,
+    "report": "CHATTER_CHECKS 198 passed",
+    "evidence": "Builds\\Version-39\\Captures\\Chatter\\checks.txt"
+  },
+  {
+    "suite": "art-integration",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 13.7,
+    "report": "ART_INTEGRATION_CHECKS 3723 passed; 14 header sprites, all 132 manifest entries, and aspect-preserving rendering checked at 1600x900 / 1280x720. Ten representative event-art fixtures captured at each resolution. No event choices executed.",
+    "evidence": "Builds\\Version-39\\Captures\\ArtIntegration\\checks.txt"
+  },
+  {
+    "suite": "event-frame",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 16.6,
+    "report": "EVENT_FRAME_CHECKS 8294 passed across six PC resolutions; no event decisions executed.",
+    "evidence": "Builds\\Version-39\\Captures\\EventFrames\\checks.txt"
+  },
+  {
+    "suite": "provincial-art",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 8.3,
+    "report": "PROVINCIAL_CHECKS 104 passed",
+    "evidence": "Builds\\Version-39\\Captures\\ProvincialArt\\checks.txt"
+  },
+  {
+    "suite": "chamber",
+    "exitCode": 0,
+    "passed": true,
+    "seconds": 12.4,
+    "report": "CHAMBER_CHECKS 106 passed; chamber scaling, lifecycle, still mode, fallback, quotation, campaign isolation, journal persistence and menu navigation.",
+    "evidence": "Builds/Version-39/Captures/Chamber/checks.txt",
+    "runnerCorrection": "Corrected evidence directory CouncilChamber to Chamber; report and successful process exit already existed from this run. No test was rerun or result inferred."
+  }
+]

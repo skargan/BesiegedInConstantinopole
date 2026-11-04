@@ -1,0 +1,21 @@
+--- a/Assets/Scripts/TrainingPool.cs
++++ b/Assets/Scripts/TrainingPool.cs
+@@ -22,7 +22,7 @@
+     public static readonly int[] Days={5,10,15,20,30,10,MedicalRecovery.RecruitmentDays,SpecialistPersonnel.EngineerTrainingDays,SpecialistPersonnel.EnvoyTrainingDays};
+     public static int Duration(string unit) {int i=Array.IndexOf(Units,unit);return i<0?0:Days[i];}
+     public static string Name(string unit) {int i=Array.IndexOf(Units,unit);return i<0?unit:Names[i];}
+-    public static string OrderName(Order order)=>order.kind==ShipRepair?"Warships · Repairing":order.kind==Recuperation?"Engineers · Recuperating":Name(order.unit)+(order.instructorFree?" · No instructor":"");
++    public static string OrderName(Order order)=>order.kind==RagusaDiplomacy.ExpeditionReturn?Name(order.unit)+" · Returning from Ragusan service":order.kind==ShipRepair?"Warships · Repairing":order.kind==Recuperation?"Engineers · Recuperating":Name(order.unit)+(order.instructorFree?" · No instructor":"");
+     public static int Day(DateTime date) => (int)(date.Ticks/TimeSpan.TicksPerDay);
+     public static DateTime ReadyDate(Order order) => new DateTime((long)order.readyDay*TimeSpan.TicksPerDay);
+     public static int Remaining(Order order) => Math.Max(0,order.readyDay-Day(VariableSingleton.GetDate()));
+@@ -31,7 +31,8 @@
+     {
+         if(order==null||!Units.Contains(order.unit)||order.quantity<0||order.readyDay<0||order.readyDay>3652058||order.accountingVersion<0||order.accountingVersion>1||order.engineersReserved<0||order.manpowerReserved<0)return false;
+         if(order.accountingVersion==0)return string.IsNullOrEmpty(order.kind)&&order.engineersReserved==0&&order.manpowerReserved==0&&!order.instructorFree;
+-        if(order.quantity==0)return false;
++        if(order.quantity==0)return false;
++        if(order.kind==RagusaDiplomacy.ExpeditionReturn)return RecruitmentLogistics.IsRegular(order.unit)&&order.engineersReserved==0&&order.manpowerReserved==0&&!order.instructorFree;
+         long quantity=order.quantity;
+         if(order.kind==Recuperation)return order.unit=="iEngineers"&&order.engineersReserved==0&&order.manpowerReserved==0&&!order.instructorFree;
+         if(order.kind==ShipRepair)return order.unit=="iShips"&&order.engineersReserved==quantity*SpecialistPersonnel.ShipRepairEngineers&&order.manpowerReserved==quantity*SpecialistPersonnel.ShipRepairManpower&&!order.instructorFree;

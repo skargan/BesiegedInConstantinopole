@@ -91,7 +91,8 @@ public sealed class ArtIntegrationCapture : MonoBehaviour
             // The new integration uses a real Image/Sprite; dividers/backgrounds do not.
             var icons=cell.GetComponentsInChildren<Image>().Where(i=>i.sprite!=null&&i.gameObject.name=="Stat symbol "+index).ToArray();
             Check(icons.Length==1,label+" one raster stat icon "+index);
-            var icon=icons[0];var sprite=CampaignStatArt.Get((CampaignStatArt.Stat)index);
+            // Public support deliberately shares the citizens art; the raised-hand icon is retired.
+            var icon=icons[0];var sprite=CampaignStatArt.Get(index==11?CampaignStatArt.Stat.People:(CampaignStatArt.Stat)index);
             Check(sprite!=null&&icon.sprite==sprite&&icon.color.a>0,label+" mapped sprite rendered "+index);
             Check(!icon.raycastTarget&&icon.preserveAspect,label+" icon preserves aspect and cannot block tooltip "+index);
             var cellBounds=Bounds((RectTransform)cell.transform);bounds.Add(cellBounds);

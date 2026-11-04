@@ -4,8 +4,8 @@ using UnityEngine.UI;
 // Council subjects are independent of the five strategic focus symbols.
 public static class CouncilEmblems
 {
-    public static readonly string[] Names={"overview","military","fleet","spies","palace","rest","walls","society","diplomacy","technology","treasury"};
-    private static readonly Sprite[] Cache=new Sprite[11];
+    public static readonly string[] Names={"overview","military","fleet","spies","palace","rest","walls","society","diplomacy","technology","treasury","journal"};
+    private static readonly Sprite[] Cache=new Sprite[Names.Length];
     public static void Add(Transform parent,int index)
     {
         if(index<0||index>=Names.Length)return;

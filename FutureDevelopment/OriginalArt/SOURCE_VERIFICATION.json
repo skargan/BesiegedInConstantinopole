@@ -1,0 +1,3138 @@
+{
+  "audit_at_utc": "2026-11-01T22:57:29.565271+00:00",
+  "repository": "skargan/BesiegedInConstantinopole",
+  "version": "Version36.9",
+  "commit_sha": "28fa420ac58c222574c8f5b3d43cf871543ffb7a",
+  "audit_scope": "Exact case-sensitive event-node mapping compatibility for the 121 supplied final cover assets and 11 explicit reuse aliases against current Version36.9 Yarn sources. No gameplay, Unity import, rendering or scheduling test is claimed.",
+  "project": {
+    "path": "Assets/Yarn/Test/NewProject.yarnproject",
+    "git_blob_sha": "d3c4e6955ceca9cf9b8e9fb3fe53bd5f0a570ebe",
+    "sourceFiles": [
+      "**/*.yarn"
+    ],
+    "excludeFiles": [
+      "**/*~/*"
+    ],
+    "baseLanguage": "en"
+  },
+  "counts": {
+    "retrieved_files": 14,
+    "active_yarn_files": 13,
+    "project_files": 1,
+    "all_active_source_nodes": 139,
+    "unique_active_source_node_ids": 139,
+    "expected_handover_nodes": 132,
+    "dedicated_cover_nodes": 121,
+    "reuse_nodes": 11,
+    "case_exact_found_nodes": 132,
+    "uniquely_matched_nodes": 132,
+    "missing_expected_nodes": 0,
+    "duplicate_active_source_node_ids": 0,
+    "source_blob_hash_matches": 14
+  },
+  "all_checks_passed": true,
+  "missing_event_ids": [],
+  "duplicate_active_source_nodes": {},
+  "duplicate_expected_event_ids": {},
+  "source_path_changes": [],
+  "issues": [],
+  "source_files": [
+    {
+      "path": "Assets/Yarn/Test/Artillery_convoy.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Artillery_convoy.yarn",
+      "git_blob_sha": "36421e45790013a2b2871a7dd8e362e90e32f470",
+      "computed_git_blob_sha": "36421e45790013a2b2871a7dd8e362e90e32f470",
+      "git_blob_sha_matches": true,
+      "content_sha256": "5a2f95cc8386c26a8fdd41777adcf80aa3e7ad5550d5fca2cc4a8182c19b8bec",
+      "byte_size": 785,
+      "initial_utf8_bom": true,
+      "active_yarn_source": true,
+      "node_count": 1
+    },
+    {
+      "path": "Assets/Yarn/Test/Character_preparations.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Character_preparations.yarn",
+      "git_blob_sha": "325dfb1d75f22f225523638b0d3844b90859bc3f",
+      "computed_git_blob_sha": "325dfb1d75f22f225523638b0d3844b90859bc3f",
+      "git_blob_sha_matches": true,
+      "content_sha256": "5fb9f0e3ddcad145f062445e6dd7558fd36b204eb6929278235548b2058ebf9c",
+      "byte_size": 2670,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 1
+    },
+    {
+      "path": "Assets/Yarn/Test/Court_intrigue.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Court_intrigue.yarn",
+      "git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+      "computed_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+      "git_blob_sha_matches": true,
+      "content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3",
+      "byte_size": 5637,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 3
+    },
+    {
+      "path": "Assets/Yarn/Test/Daily_life.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Daily_life.yarn",
+      "git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+      "computed_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+      "git_blob_sha_matches": true,
+      "content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865",
+      "byte_size": 15966,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 19
+    },
+    {
+      "path": "Assets/Yarn/Test/Daily_life_more.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Daily_life_more.yarn",
+      "git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+      "computed_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+      "git_blob_sha_matches": true,
+      "content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0",
+      "byte_size": 10705,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 11
+    },
+    {
+      "path": "Assets/Yarn/Test/FoodShortage.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/FoodShortage.yarn",
+      "git_blob_sha": "574d064e0d205cec330b521b45a79d04c608494d",
+      "computed_git_blob_sha": "574d064e0d205cec330b521b45a79d04c608494d",
+      "git_blob_sha_matches": true,
+      "content_sha256": "793fd649a428f3008912f72ee7b224cf9af5a35f713167501d1546fbeecf9be7",
+      "byte_size": 1551,
+      "initial_utf8_bom": true,
+      "active_yarn_source": true,
+      "node_count": 1
+    },
+    {
+      "path": "Assets/Yarn/Test/NewProject.yarnproject",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/NewProject.yarnproject",
+      "git_blob_sha": "d3c4e6955ceca9cf9b8e9fb3fe53bd5f0a570ebe",
+      "computed_git_blob_sha": "d3c4e6955ceca9cf9b8e9fb3fe53bd5f0a570ebe",
+      "git_blob_sha_matches": true,
+      "content_sha256": "0b7f4bfa5d4364ef30ed224515c6bf7dd89d061fd41adc84d09b97dfe1f796da",
+      "byte_size": 182,
+      "initial_utf8_bom": true,
+      "active_yarn_source": false
+    },
+    {
+      "path": "Assets/Yarn/Test/PoliticalDemands.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/PoliticalDemands.yarn",
+      "git_blob_sha": "13900193c25a76343411405b3aa928bb2b147b0e",
+      "computed_git_blob_sha": "13900193c25a76343411405b3aa928bb2b147b0e",
+      "git_blob_sha_matches": true,
+      "content_sha256": "0550b7445fb6d85690ff1d1de0a1e54f272092f8de1e46d2bb808836ae9b1fd5",
+      "byte_size": 194,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 1
+    },
+    {
+      "path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Preparation_campaign.yarn",
+      "git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+      "computed_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+      "git_blob_sha_matches": true,
+      "content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc",
+      "byte_size": 14777,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 16
+    },
+    {
+      "path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Random_events_recurring.yarn",
+      "git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+      "computed_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+      "git_blob_sha_matches": true,
+      "content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e",
+      "byte_size": 54437,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 24
+    },
+    {
+      "path": "Assets/Yarn/Test/Relief_storms.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Relief_storms.yarn",
+      "git_blob_sha": "460a6251409a5c99b80020e83f2a5807e33b28af",
+      "computed_git_blob_sha": "460a6251409a5c99b80020e83f2a5807e33b28af",
+      "git_blob_sha_matches": true,
+      "content_sha256": "b50dfd508209b94319005761c1c01b0970eb57da30ff09b103ef04e0f69c95e0",
+      "byte_size": 1179,
+      "initial_utf8_bom": true,
+      "active_yarn_source": true,
+      "node_count": 2
+    },
+    {
+      "path": "Assets/Yarn/Test/Shaherezade.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Shaherezade.yarn",
+      "git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+      "computed_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+      "git_blob_sha_matches": true,
+      "content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba",
+      "byte_size": 6561,
+      "initial_utf8_bom": true,
+      "active_yarn_source": true,
+      "node_count": 3
+    },
+    {
+      "path": "Assets/Yarn/Test/Siege_hardships.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Siege_hardships.yarn",
+      "git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+      "computed_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+      "git_blob_sha_matches": true,
+      "content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a",
+      "byte_size": 35206,
+      "initial_utf8_bom": true,
+      "active_yarn_source": true,
+      "node_count": 29
+    },
+    {
+      "path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/blob/28fa420ac58c222574c8f5b3d43cf871543ffb7a/Assets/Yarn/Test/Story_events_YARN_11.yarn",
+      "git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+      "computed_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+      "git_blob_sha_matches": true,
+      "content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69",
+      "byte_size": 94856,
+      "initial_utf8_bom": false,
+      "active_yarn_source": true,
+      "node_count": 28
+    }
+  ],
+  "event_nodes": [
+    {
+      "event_id": "story7",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story7",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 213,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story9",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story9",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 306,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story12",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story12",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 406,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story13",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story13",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 423,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story17",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story17",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 557,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story16",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story16",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 514,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story20",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story20",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 666,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepScorched",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepScorched",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 17,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepGrain",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepGrain",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 73,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepAdventurers",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepAdventurers",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Character_preparations.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Character_preparations.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Character_preparations.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "325dfb1d75f22f225523638b0d3844b90859bc3f",
+          "source_content_sha256": "5fb9f0e3ddcad145f062445e6dd7558fd36b204eb6929278235548b2058ebf9c"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random1",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random1",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 37,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random3",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random3",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 93,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random4",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random4",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 116,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random5",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random5",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 140,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random6",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random6",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 158,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random8",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random8",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 207,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random9",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random9",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 238,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random15",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random15",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 386,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random19",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random19",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 467,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random22",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random22",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 540,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeWedding",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeWedding",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 218,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeGhost",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeGhost",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 118,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeCandles",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeCandles",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 194,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeSong",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeSong",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 66,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeDrawing",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeDrawing",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 182,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardCoin",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardCoin",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 229,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random2",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random2",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 69,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random7",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random7",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 179,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random10",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random10",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 259,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random21",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random21",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 509,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeSails",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeSails",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeCobbler",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeCobbler",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 167,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeStones",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeStones",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeRoof",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeRoof",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 50,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeSaints",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeSaints",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 13,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeLights",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeLights",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 131,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardCistern",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardCistern",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardSand",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardSand",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 245,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random13",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random13",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 307,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random14",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random14",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 369,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeBread",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeBread",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 69,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeWell",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeWell",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 95,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeBarrel",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeBarrel",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 137,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeCoin",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeCoin",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 206,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeQuiet",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeQuiet",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 242,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeGunner",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeGunner",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 110,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardHorse",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardHorse",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 23,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardRats",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardRats",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 45,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random17",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random17",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 439,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random11",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random11",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 289,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story0",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story0",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story1",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story1",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 22,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story3",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story3",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 75,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story4",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story4",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 119,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story5",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story5",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 163,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story8",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story8",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 235,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story15",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story15",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 471,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story19",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story19",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 646,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story22",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story22",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 704,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story23",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story23",
+      "origin_group": "earlier60",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 741,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story6",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story6",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 186,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story10",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story10",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 324,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story18",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story18",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 597,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story14",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story14",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 436,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepNaval",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepNaval",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 88,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepIntelligence",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepIntelligence",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepFortress",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepFortress",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 39,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeOnions",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeOnions",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 230,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeInsult",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeInsult",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 276,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random0",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random0",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeGenerosity",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeGenerosity",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 78,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random12",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random12",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 298,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random20",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random20",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 493,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random23",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random23",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Artillery_convoy.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Artillery_convoy.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Artillery_convoy.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "36421e45790013a2b2871a7dd8e362e90e32f470",
+          "source_content_sha256": "5a2f95cc8386c26a8fdd41777adcf80aa3e7ad5550d5fca2cc4a8182c19b8bec"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random16",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random16",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 417,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardDead",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardDead",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 66,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardGrave",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardGrave",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 82,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardItch",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardItch",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 134,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardBrothel",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardBrothel",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 150,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardWoman",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardWoman",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 166,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardFavourite",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardFavourite",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 198,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardChild",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardChild",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 214,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardHead",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardHead",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 296,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardScreams",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardScreams",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 317,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardMissing",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardMissing",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 339,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonPride",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "sermonPride",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 397,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "random8a",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "random8a",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Random_events_recurring.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Random_events_recurring.yarn",
+          "node_header_line": 221,
+          "source_git_blob_sha": "b859eab89ecb6f515215fe09f9a719e60e596d92",
+          "source_content_sha256": "db63d696452c55ba051482da020acbbdaf32b11cdd09f359f81e92040442c08e"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardGrave1",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardGrave1",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 98,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardGrave2",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardGrave2",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 115,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardSand1",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardSand1",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 260,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardMissing1",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardMissing1",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 358,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardMissing2",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardMissing2",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 376,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata26",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata26",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 135,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata27",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata27",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 145,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata28",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata28",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 155,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata29",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata29",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 166,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata30",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata30",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 176,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata31",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata31",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 187,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "galata32",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "galata32",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 197,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "giovanniWarning",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "giovanniWarning",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 208,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "giovanniThrone",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "giovanniThrone",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 221,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "prepGalataGovernor",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "prepGalataGovernor",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Preparation_campaign.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Preparation_campaign.yarn",
+          "node_header_line": 110,
+          "source_git_blob_sha": "239d68339991042fa3284e7b48716c5bda1bd924",
+          "source_content_sha256": "dfbbd9d6a77ad77750832ac57de23bbab3020911b319741e704c0f25c90f95cc"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "courtLady",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "courtLady",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Court_intrigue.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+          "source_content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "foodShortage",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "foodShortage",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/FoodShortage.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/FoodShortage.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/FoodShortage.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "574d064e0d205cec330b521b45a79d04c608494d",
+          "source_content_sha256": "793fd649a428f3008912f72ee7b224cf9af5a35f713167501d1546fbeecf9be7"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "politicalDemand",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "politicalDemand",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/PoliticalDemands.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/PoliticalDemands.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/PoliticalDemands.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "13900193c25a76343411405b3aa928bb2b147b0e",
+          "source_content_sha256": "0550b7445fb6d85690ff1d1de0a1e54f272092f8de1e46d2bb808836ae9b1fd5"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardStorm",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardStorm",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Relief_storms.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Relief_storms.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Relief_storms.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "460a6251409a5c99b80020e83f2a5807e33b28af",
+          "source_content_sha256": "b50dfd508209b94319005761c1c01b0970eb57da30ff09b103ef04e0f69c95e0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardCatastrophicStorm",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "hardCatastrophicStorm",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Relief_storms.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Relief_storms.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Relief_storms.yarn",
+          "node_header_line": 9,
+          "source_git_blob_sha": "460a6251409a5c99b80020e83f2a5807e33b28af",
+          "source_content_sha256": "b50dfd508209b94319005761c1c01b0970eb57da30ff09b103ef04e0f69c95e0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "shah1",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "shah1",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Shaherezade.yarn",
+          "node_header_line": 1,
+          "source_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+          "source_content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story18b",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "story18b",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 624,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeFalseHope",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeFalseHope",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 12,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeMorea",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeMorea",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 25,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeMercenaries",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeMercenaries",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 41,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeRefugees",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeRefugees",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 54,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeBarrelOwner",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeBarrelOwner",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 154,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeSurprise",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeSurprise",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life.yarn",
+          "node_header_line": 259,
+          "source_git_blob_sha": "2954b4e096160ea1dfc9621c1b62d47e51ca5900",
+          "source_content_sha256": "18d9b16e258c71a2675851a0111fe42851ce1cd2ce0eac76d2140f8b03782865"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "combatAssassin",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "combatAssassin",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 96,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeGunnerResult",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "lifeGunnerResult",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 148,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "courtLadyLetters",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "courtLadyLetters",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Court_intrigue.yarn",
+          "node_header_line": 30,
+          "source_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+          "source_content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "courtLadyMarriage",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "courtLadyMarriage",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Court_intrigue.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Court_intrigue.yarn",
+          "node_header_line": 48,
+          "source_git_blob_sha": "f93450517a570c2dc501d2e120e9fdf0bea23972",
+          "source_content_sha256": "2145579b3ac3701a43dd335c6bdd84f5e327d6e9877683ded517064a2a8504a3"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "shah2",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "shah2",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Shaherezade.yarn",
+          "node_header_line": 18,
+          "source_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+          "source_content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "shah3",
+      "coverage_kind": "dedicated",
+      "asset_event_id": "shah3",
+      "origin_group": "completion61",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Shaherezade.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Shaherezade.yarn",
+          "node_header_line": 36,
+          "source_git_blob_sha": "956935efe87b38e882ebdf908988defa51875a17",
+          "source_content_sha256": "001f1bc8e41a6b01bfe9567f15530753be5f6852c60e69b7265c73745de494ba"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "story18a",
+      "coverage_kind": "reuse",
+      "asset_event_id": "story18",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Story_events_YARN_11.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Story_events_YARN_11.yarn",
+          "node_header_line": 631,
+          "source_git_blob_sha": "49a0c7d818678daa78f4759b078d76c3670975b7",
+          "source_content_sha256": "3de9cae8d62b7ac19073c215822bded51531116a3c17e4950f424eb0de86ae69"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeSaintsDebate",
+      "coverage_kind": "reuse",
+      "asset_event_id": "lifeSaints",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 22,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "lifeSaintsQuestion",
+      "coverage_kind": "reuse",
+      "asset_event_id": "lifeSaints",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Daily_life_more.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "node_header_line": 35,
+          "source_git_blob_sha": "ac7caed39dcb76b75aedc2e026cd4d541e9c8b6f",
+          "source_content_sha256": "826713d98a8f5240e3aaf01a6e5292c8a3ebc1133d355ffb8dfe45c0231707d0"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardWoman1",
+      "coverage_kind": "reuse",
+      "asset_event_id": "hardWoman",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 184,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "hardSand2",
+      "coverage_kind": "reuse",
+      "asset_event_id": "hardSand1",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 276,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonGreed",
+      "coverage_kind": "reuse",
+      "asset_event_id": "sermonPride",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 418,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonLust",
+      "coverage_kind": "reuse",
+      "asset_event_id": "sermonPride",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 438,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonEnvy",
+      "coverage_kind": "reuse",
+      "asset_event_id": "sermonPride",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 463,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonGluttony",
+      "coverage_kind": "reuse",
+      "asset_event_id": "sermonPride",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 483,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonWrath",
+      "coverage_kind": "reuse",
+      "asset_event_id": "sermonPride",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 503,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    },
+    {
+      "event_id": "sermonSloth",
+      "coverage_kind": "reuse",
+      "asset_event_id": "sermonPride",
+      "origin_group": "reuse_alias",
+      "original_source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "case_exact_node_match_count": 1,
+      "source_yarn_paths": [
+        "Assets/Yarn/Test/Siege_hardships.yarn"
+      ],
+      "source_matches": [
+        {
+          "source_yarn_path": "Assets/Yarn/Test/Siege_hardships.yarn",
+          "node_header_line": 523,
+          "source_git_blob_sha": "8a0090af32630acc54995a2daac6f42ca689c802",
+          "source_content_sha256": "a6b12be42d696ebd58a7e95770f72cce409e45384956d96f31d7d4bd8ae7eb9a"
+        }
+      ],
+      "mapping_compatible": true
+    }
+  ],
+  "other_active_source_node_ids_not_in_handover": [
+    "prepPass",
+    "quietDay",
+    "random18",
+    "story11",
+    "story2",
+    "story21",
+    "story24"
+  ],
+  "stat_icons": {
+    "count": 14,
+    "original_generated_bytes_equal_pr5_png_bytes": true,
+    "all_png_and_metadata_git_blob_hashes_match": true,
+    "provenance": {
+      "url": "https://github.com/skargan/BesiegedInConstantinopole/pull/5",
+      "state": "open",
+      "draft": true,
+      "merged": false,
+      "branch": "codex/menu-stat-icons-20261101",
+      "commit": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "base": "codex/prototype-first-playtest",
+      "base_sha": "99d8349567970d7ecbb6cc897818d18874ef867e"
+    }
+  }
+}

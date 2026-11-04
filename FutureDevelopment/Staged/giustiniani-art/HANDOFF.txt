@@ -1,0 +1,38 @@
+GIUSTINIANI ART — VERSION 38 IMPORT
+JohanX workstream, 3 November 2026
+
+Scope
+Three user-supplied artworks replace Giovanni Giustiniani's full-body room figure, dialogue portrait and The Genoese Arrive illustration. All supplied PNG bytes are unchanged. No balance, event choice, recruitment or loyalty changes.
+
+Staged folder
+C:/Users/Dainius/.codex/.chatgpt-projects/g-p-6ac0165a668c81918bad6145652b1e89/giustiniani-art
+
+Baseline
+Read-only snapshot from workspace/consolidation. Exact source hashes and original copies are in manifest.json and baseline/. Do not replace the complete JSON files over newer work: apply the small patches in patches/ or merge their individual ID-0/story5 records.
+
+Import
+1. Replace Assets/Resources/UI/Identity/CourtFigures/0.png and Assets/Resources/EventArt/Covers/story5.png with their staged updated/ equivalents. Preserve existing .meta files byte-for-byte (also included for comparison).
+2. Add Assets/Resources/UI/Identity/Characters/0.png and its new .meta. This is a separate portrait; the shared nine-character atlas remains intact.
+3. Apply patches/CharacterPortraits.cs.patch, CourtFigures.json.patch and EventArtwork.json.patch. The portrait uses an in-view square crop of the left two thirds of the supplied scene, keeping the face larger than displaying the entire landscape inside a portrait frame. The original bitmap remains available unchanged.
+4. Add updated/Documentation/Artwork/Giustiniani-2026-11-03.json. Earlier PalaceFigures manifests and portrait notes are historical records; this dated file records the replacement provenance, hashes and current crop.
+
+Important details
+Giustiniani is stable character ID 0. His arrival is story5, not story7 or story8.
+The full sprite has real transparency (RGBA; alpha 0-254). Very faint edge noise exists beyond the silhouette. CourtFigures.json now uses the measured alpha>=16 silhouette: source 1024x1536, Unity bottom-left rect x141/y10/w687/h1510. This keeps his sword, head and feet and prevents old crop coordinates cutting his legs off.
+PalaceFigureArt.cs needs NO change: its existing runtime crop reader already consumes this record. Differences between live and consolidation versions of that file were line endings only when inspected.
+Portrait source 1536x1024, view UV (0,0,2/3,1). Arrival source 1672x941, existing contain mode retained.
+All texture importers use no mipmaps, no compression, clamp and max size2048. The full sprite remains readable for silhouette hit-testing. The new portrait does not require readability.
+
+Verification
+Run validate_art.py with the bundled Python interpreter. validation.json records static checks for original-byte fidelity, alpha/rect bounds, unchanged other characters and event mappings, preserved GUIDs and sharp UI importer settings.
+No Unity process was started; no live or consolidation files were written. This package is not yet compiled, playtested or published.
+
+Version38 acceptance checks after import
+- Dialogue and roster portrait: new face, useful square framing, no atlas neighbour.
+- Palace/garden/cathedral figure wherever existing visitor placement uses ID0: transparent silhouette, complete feet/sword, correct hover hit-test.
+- story5 arrival event and enlarged illustration: supplied scene, no previous artwork cached.
+- Confirm Diedo/Notaras and one non-atlas portrait still render unchanged.
+- Reopen player after import to discard static sprite caches.
+
+Suggested release-note sentence
+Updated Giustiniani's room figure, dialogue portrait and arrival illustration with the designer's new matching artwork.

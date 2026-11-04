@@ -1,0 +1,27 @@
+RAGUSA DIPLOMACY ART — VERSION 38
+4 November 2026; artwork-only stage for JohanX.
+
+Final files
+ragusa-gazulus-foreground.png — Gazulus at the chess table; Cotrugli by the loggia balustrade.
+ragusa-cotrugli-foreground.png — same place and clothing; Cotrugli now at the chess table, Gazulus behind.
+
+Both files are 1672 x 941 RGB PNGs. Their aspect is approximately 16:9. They are original built-in image_gen outputs copied unchanged into the project workspace. The second was an edit of the first to maintain setting, light, camera and identities.
+
+Composition
+Both men and the chess table remain left of approximately54% of the painting. Keep the compact controls inside the rightmost38%, starting at x=.62. No black panel or UI was painted into the scene. The background remains attractive if the UI is hidden.
+
+Hover implementation
+art-manifest.json includes separate character polygons for each image, both top-left and Unity bottom-left coordinates. These are measured approximations of the generated silhouettes, not alpha masks. Apply them to the fitted image rectangle; do not assume the entire screen is the painting. Give the foreground man priority where the robes overlap. These scenes contain baked figures; they are not transparent character sprites.
+
+Suggested resource names
+UI/Diplomacy/Ragusa/GazulusForeground
+UI/Diplomacy/Ragusa/CotrugliForeground
+
+Import settings
+Texture2D, max size2048, no compression, no mipmaps, clamp, bilinear. UI display should preserve aspect ratio. Both images intentionally share scene composition for monthly alternation without moving the controls.
+
+Provenance and limits
+Exact prompts and generation paths are in prompts-provenance.json. This is an evocative mid-fifteenth-century Ragusan Gothic loggia and harbour, with invented artistic likenesses. It is not a measured reconstruction of a particular surviving room or proof of the men's historical appearance.
+
+Reviewed
+Both images visually inspected: two men present, identities and costumes retained across the position swap, hands coherent, chess table readable, right-hand control region clear, no labels or UI baked in. No Unity compilation or runtime test was performed in this artwork-only task. No live repository or game source files were changed.

@@ -1,0 +1,1 @@
+Version 39: combined player verified; archive indexed and hashed; release docs prepared. Next: commit, archive tags, fast-forward main, package and upload ZIP, verify release, remove obsolete remote branches. Preserve unrelated .vscode edit. No gameplay scope expansion.

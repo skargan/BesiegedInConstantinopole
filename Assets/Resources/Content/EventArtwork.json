@@ -46,7 +46,7 @@
     {
       "node": "prepFortress",
       "path": "EventArt/Covers/prepFortress",
-      "source": "Scouts Observe Rumeli Hisarı-7.png",
+      "source": "Scouts Observe Rumeli HisarÄ±-7.png",
       "fit": "contain",
       "focusY": 0.5
     },
@@ -130,7 +130,7 @@
     {
       "node": "random10",
       "path": "EventArt/Covers/random10",
-      "source": "Citizens Repair Constantinople’s Wall-9.png",
+      "source": "Citizens Repair Constantinopleâ€™s Wall-9.png",
       "fit": "contain",
       "focusY": 0.5
     },
@@ -179,7 +179,7 @@
     {
       "node": "lifeDrawing",
       "path": "EventArt/Covers/lifeDrawing",
-      "source": "Guards Study a Child’s Siege Sketch-5.png",
+      "source": "Guards Study a Childâ€™s Siege Sketch-5.png",
       "fit": "contain",
       "focusY": 0.5
     },
@@ -200,7 +200,7 @@
     {
       "node": "random14",
       "path": "EventArt/Covers/random14",
-      "source": "Inspecting the Cracks in Constantinople’s Wall-10.png",
+      "source": "Inspecting the Cracks in Constantinopleâ€™s Wall-10.png",
       "fit": "contain",
       "focusY": 0.5
     },
@@ -403,7 +403,525 @@
     {
       "node": "random9",
       "path": "EventArt/Covers/random9",
-      "source": "Wit in Constantinople’s Grand Market-6.png",
+      "source": "Wit in Constantinopleâ€™s Grand Market-6.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story16",
+      "path": "EventArt/Covers/Handover/story16",
+      "source": "event-covers/story16.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random3",
+      "path": "EventArt/Covers/Handover/random3",
+      "source": "event-covers/random3.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random4",
+      "path": "EventArt/Covers/Handover/random4",
+      "source": "event-covers/random4.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random13",
+      "path": "EventArt/Covers/Handover/random13",
+      "source": "event-covers/random13.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story6",
+      "path": "EventArt/Covers/Handover/story6",
+      "source": "event-covers/story6.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story10",
+      "path": "EventArt/Covers/Handover/story10",
+      "source": "event-covers/story10.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story18",
+      "path": "EventArt/Covers/Handover/story18",
+      "source": "event-covers/story18.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepNaval",
+      "path": "EventArt/Covers/Handover/prepNaval",
+      "source": "event-covers/prepNaval.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepIntelligence",
+      "path": "EventArt/Covers/Handover/prepIntelligence",
+      "source": "event-covers/prepIntelligence.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeOnions",
+      "path": "EventArt/Covers/Handover/lifeOnions",
+      "source": "event-covers/lifeOnions.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeInsult",
+      "path": "EventArt/Covers/Handover/lifeInsult",
+      "source": "event-covers/lifeInsult.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random0",
+      "path": "EventArt/Covers/Handover/random0",
+      "source": "event-covers/random0.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeGenerosity",
+      "path": "EventArt/Covers/Handover/lifeGenerosity",
+      "source": "event-covers/lifeGenerosity.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random12",
+      "path": "EventArt/Covers/Handover/random12",
+      "source": "event-covers/random12.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random20",
+      "path": "EventArt/Covers/Handover/random20",
+      "source": "event-covers/random20.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random23",
+      "path": "EventArt/Covers/Handover/random23",
+      "source": "event-covers/random23.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random16",
+      "path": "EventArt/Covers/Handover/random16",
+      "source": "event-covers/random16.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardDead",
+      "path": "EventArt/Covers/Handover/hardDead",
+      "source": "event-covers/hardDead.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardGrave",
+      "path": "EventArt/Covers/Handover/hardGrave",
+      "source": "event-covers/hardGrave.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardItch",
+      "path": "EventArt/Covers/Handover/hardItch",
+      "source": "event-covers/hardItch.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardBrothel",
+      "path": "EventArt/Covers/Handover/hardBrothel",
+      "source": "event-covers/hardBrothel.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardWoman",
+      "path": "EventArt/Covers/Handover/hardWoman",
+      "source": "event-covers/hardWoman.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardFavourite",
+      "path": "EventArt/Covers/Handover/hardFavourite",
+      "source": "event-covers/hardFavourite.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardChild",
+      "path": "EventArt/Covers/Handover/hardChild",
+      "source": "event-covers/hardChild.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardHead",
+      "path": "EventArt/Covers/Handover/hardHead",
+      "source": "event-covers/hardHead.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardScreams",
+      "path": "EventArt/Covers/Handover/hardScreams",
+      "source": "event-covers/hardScreams.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardMissing",
+      "path": "EventArt/Covers/Handover/hardMissing",
+      "source": "event-covers/hardMissing.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonPride",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "random8a",
+      "path": "EventArt/Covers/Handover/random8a",
+      "source": "event-covers/random8a.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardGrave1",
+      "path": "EventArt/Covers/Handover/hardGrave1",
+      "source": "event-covers/hardGrave1.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardGrave2",
+      "path": "EventArt/Covers/Handover/hardGrave2",
+      "source": "event-covers/hardGrave2.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardSand1",
+      "path": "EventArt/Covers/Handover/hardSand1",
+      "source": "event-covers/hardSand1.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardMissing1",
+      "path": "EventArt/Covers/Handover/hardMissing1",
+      "source": "event-covers/hardMissing1.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardMissing2",
+      "path": "EventArt/Covers/Handover/hardMissing2",
+      "source": "event-covers/hardMissing2.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata26",
+      "path": "EventArt/Covers/Handover/galata26",
+      "source": "event-covers/galata26.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata27",
+      "path": "EventArt/Covers/Handover/galata27",
+      "source": "event-covers/galata27.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata28",
+      "path": "EventArt/Covers/Handover/galata28",
+      "source": "event-covers/galata28.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata29",
+      "path": "EventArt/Covers/Handover/galata29",
+      "source": "event-covers/galata29.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata30",
+      "path": "EventArt/Covers/Handover/galata30",
+      "source": "event-covers/galata30.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata31",
+      "path": "EventArt/Covers/Handover/galata31",
+      "source": "event-covers/galata31.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "galata32",
+      "path": "EventArt/Covers/Handover/galata32",
+      "source": "event-covers/galata32.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "giovanniWarning",
+      "path": "EventArt/Covers/Handover/giovanniWarning",
+      "source": "event-covers/giovanniWarning.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "giovanniThrone",
+      "path": "EventArt/Covers/Handover/giovanniThrone",
+      "source": "event-covers/giovanniThrone.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "prepGalataGovernor",
+      "path": "EventArt/Covers/Handover/prepGalataGovernor",
+      "source": "event-covers/prepGalataGovernor.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "courtLady",
+      "path": "EventArt/Covers/Handover/courtLady",
+      "source": "event-covers/courtLady.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "foodShortage",
+      "path": "EventArt/Covers/Handover/foodShortage",
+      "source": "event-covers/foodShortage.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "politicalDemand",
+      "path": "EventArt/Covers/Handover/politicalDemand",
+      "source": "event-covers/politicalDemand.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardStorm",
+      "path": "EventArt/Covers/Handover/hardStorm",
+      "source": "event-covers/hardStorm.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardCatastrophicStorm",
+      "path": "EventArt/Covers/Handover/hardCatastrophicStorm",
+      "source": "event-covers/hardCatastrophicStorm.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "shah1",
+      "path": "EventArt/Covers/Handover/shah1",
+      "source": "event-covers/shah1.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story18b",
+      "path": "EventArt/Covers/Handover/story18b",
+      "source": "event-covers/story18b.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeFalseHope",
+      "path": "EventArt/Covers/Handover/lifeFalseHope",
+      "source": "event-covers/lifeFalseHope.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeMorea",
+      "path": "EventArt/Covers/Handover/lifeMorea",
+      "source": "event-covers/lifeMorea.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeMercenaries",
+      "path": "EventArt/Covers/Handover/lifeMercenaries",
+      "source": "event-covers/lifeMercenaries.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeRefugees",
+      "path": "EventArt/Covers/Handover/lifeRefugees",
+      "source": "event-covers/lifeRefugees.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeBarrelOwner",
+      "path": "EventArt/Covers/Handover/lifeBarrelOwner",
+      "source": "event-covers/lifeBarrelOwner.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeSurprise",
+      "path": "EventArt/Covers/Handover/lifeSurprise",
+      "source": "event-covers/lifeSurprise.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "combatAssassin",
+      "path": "EventArt/Covers/Handover/combatAssassin",
+      "source": "event-covers/combatAssassin.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeGunnerResult",
+      "path": "EventArt/Covers/Handover/lifeGunnerResult",
+      "source": "event-covers/lifeGunnerResult.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "courtLadyLetters",
+      "path": "EventArt/Covers/Handover/courtLadyLetters",
+      "source": "event-covers/courtLadyLetters.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "courtLadyMarriage",
+      "path": "EventArt/Covers/Handover/courtLadyMarriage",
+      "source": "event-covers/courtLadyMarriage.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "shah2",
+      "path": "EventArt/Covers/Handover/shah2",
+      "source": "event-covers/shah2.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "shah3",
+      "path": "EventArt/Covers/Handover/shah3",
+      "source": "event-covers/shah3.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "story18a",
+      "path": "EventArt/Covers/Handover/story18",
+      "source": "event-covers/story18.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeSaintsDebate",
+      "path": "EventArt/Covers/Handover/lifeSaints",
+      "source": "event-covers/lifeSaints.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeSaintsQuestion",
+      "path": "EventArt/Covers/Handover/lifeSaints",
+      "source": "event-covers/lifeSaints.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardWoman1",
+      "path": "EventArt/Covers/Handover/hardWoman",
+      "source": "event-covers/hardWoman.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "hardSand2",
+      "path": "EventArt/Covers/Handover/hardSand1",
+      "source": "event-covers/hardSand1.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonGreed",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonLust",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonEnvy",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonGluttony",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonWrath",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "sermonSloth",
+      "path": "EventArt/Covers/Handover/sermonPride",
+      "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
       "fit": "contain",
       "focusY": 0.5
     }

@@ -29,6 +29,7 @@ public partial class CouncilUI
     void DiplomacyAttitude(Transform parent,int index,Vector2 min,Vector2 max)=>DiplomaticArtwork.DrawAttitude(parent,CountryDiplomacy.Attitude(index).ToString(),min,max);
     string AidStanding(int index)
     {
+        if(IonianDiplomacy.IsCountry(index))return IonianDiplomacy.Standing;
         int state=DailyLifeEvents.I("iAidState"+index);
         if(state==1)return "Aid due in "+DailyLifeEvents.I("iAidDays"+index)+" days";
         if(CountryDiplomacy.RenewalReady(index,false))return "Renewed aid request available";
@@ -52,7 +53,7 @@ public partial class CouncilUI
             attitudeFrame.GetComponent<Image>().raycastTarget=false;
             DiplomacyAttitude(attitudeFrame.transform,index,new Vector2(.015f,.12f),new Vector2(.075f,.88f));
 
-            var attitude=DiplomacyText(attitudeFrame.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.09f,.08f),new Vector2(.985f,.92f),20);
+            var attitude=DiplomacyText(attitudeFrame.transform,CountryDiplomacy.Attitude(index)+(IonianDiplomacy.IsCountry(index)?" · Private agreements":" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance"),new Vector2(.09f,.08f),new Vector2(.985f,.92f),20);
 
             attitude.alignment=TextAlignmentOptions.MidlineLeft;attitude.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];attitude.gameObject.name="Court attitude text";
 
@@ -65,6 +66,7 @@ public partial class CouncilUI
     void UnifiedDiplomaticPower(int index)
     {
         if(index<0||index>=CountryDiplomacy.Definitions.Length){DiplomaticRelations();return;}
+        if(IonianDiplomacy.IsCountry(index)){IonianCourt();return;}
         var d=CountryDiplomacy.Definitions[index];var ally=CouncilActions.Allies[index];
         var stage=DiplomacyPage(d.Name,DiplomaticChronicles.All[index].Religion+" · "+CountryDiplomacy.EnvoyStatus(index),DiplomaticRelations);
         var heading=CampaignHUD.Panel(stage,"Relationship",new Vector2(0,.73f),Vector2.one);ImperialTheme.Panel(heading,false);

@@ -1,0 +1,18 @@
+--- a/Assets/Scripts/CountryDiplomacy.cs
++++ b/Assets/Scripts/CountryDiplomacy.cs
+@@ -185,6 +185,7 @@
+     public static string RenewReason(int i,bool war)
+     {
+         Ensure();if(!Valid(i))return "Unknown court";
++        if(!war&&Definitions[i].Id=="ragusa")return "Ragusa uses monthly private provision arrangements, not renewed state aid appeals.";
+         if(ReadEnvoy(i)!=2)return "Requires a resident envoy";
+         if(RenewalDays(i,war)>0)return "This appeal is already being renewed";
+         if(RenewalDays(i,!war)>0)return "Your envoy must finish the other renewal project first";
+@@ -203,6 +204,7 @@
+     {
+         Ensure();if(!Valid(i))return "Unknown court";
+         int state=DailyLifeEvents.I("iAidState"+i);
++        if(Definitions[i].Id=="ragusa")return "Ragusa arranges private monthly provisions through its representatives.";
+         if(state==1)return "Aid is already travelling";
+         if(state!=0&&!RenewalReady(i,false))return "This appeal has been answered. A resident envoy can renew it.";
+         if(DailyLifeEvents.I("iMoney")<1000)return "Requires 1,000 gold";

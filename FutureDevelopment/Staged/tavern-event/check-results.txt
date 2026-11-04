@@ -1,0 +1,3 @@
+3 November 2026
+TAVERN_LOGIC_CHECKS: 24 passed. Actual staged C# with stubs; not Unity/runtime/Yarn compilation.
+TAVERN_CONTENT_CHECKS: node structure, four choices, three hidden 50/50 branches, cooldown, guarded payout, artwork and source baselines passed. Not a Yarn compiler or visual playtest.

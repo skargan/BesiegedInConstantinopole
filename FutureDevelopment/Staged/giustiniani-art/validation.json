@@ -1,0 +1,102 @@
+{
+  "status": "static checks passed; not Unity compiled or visually playtested",
+  "checksPassed": 24,
+  "checks": [
+    {
+      "passed": true,
+      "check": "full_sprite preserves supplied PNG byte-for-byte"
+    },
+    {
+      "passed": true,
+      "check": "full_sprite recorded hash matches staged asset"
+    },
+    {
+      "passed": true,
+      "check": "full_sprite decodes as a complete PNG"
+    },
+    {
+      "passed": true,
+      "check": "full_sprite preserves sharp UI import settings"
+    },
+    {
+      "passed": true,
+      "check": "full_sprite existing meta and GUID unchanged"
+    },
+    {
+      "passed": true,
+      "check": "arrival preserves supplied PNG byte-for-byte"
+    },
+    {
+      "passed": true,
+      "check": "arrival recorded hash matches staged asset"
+    },
+    {
+      "passed": true,
+      "check": "arrival decodes as a complete PNG"
+    },
+    {
+      "passed": true,
+      "check": "arrival preserves sharp UI import settings"
+    },
+    {
+      "passed": true,
+      "check": "arrival existing meta and GUID unchanged"
+    },
+    {
+      "passed": true,
+      "check": "portrait preserves supplied PNG byte-for-byte"
+    },
+    {
+      "passed": true,
+      "check": "portrait recorded hash matches staged asset"
+    },
+    {
+      "passed": true,
+      "check": "portrait decodes as a complete PNG"
+    },
+    {
+      "passed": true,
+      "check": "portrait preserves sharp UI import settings"
+    },
+    {
+      "passed": true,
+      "check": "new portrait resource does not overwrite an existing individual portrait"
+    },
+    {
+      "passed": true,
+      "check": "all other court figure bounds unchanged"
+    },
+    {
+      "passed": true,
+      "check": "full-body sprite has real transparency, not a black rectangle"
+    },
+    {
+      "passed": true,
+      "check": "Unity bottom-left crop matches measured silhouette, including head, sword and feet"
+    },
+    {
+      "passed": true,
+      "check": "court figure crop remains inside source texture"
+    },
+    {
+      "passed": true,
+      "check": "event manifest changes only story5 source provenance; all routing and fitting unchanged"
+    },
+    {
+      "passed": true,
+      "check": "arrival remains bound to story5 and shows the full illustration"
+    },
+    {
+      "passed": true,
+      "check": "Giustiniani portrait uses supplied individual asset"
+    },
+    {
+      "passed": true,
+      "check": "portrait square view keeps the face prominent without editing original PNG"
+    },
+    {
+      "passed": true,
+      "check": "atlas cropping and rendering for all other characters unchanged"
+    }
+  ]
+}

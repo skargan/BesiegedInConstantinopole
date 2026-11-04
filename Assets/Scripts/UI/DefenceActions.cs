@@ -30,7 +30,7 @@ public class DefenseActions : MonoBehaviour
         Options.SetActive(false);
         wallSelected = variableName;
         abandonable = variableName == "f" + VariableSingleton.Instance.EnduringWall.GetCodeName();
-        selectionName.text = variableName == "fOuterWall" ? "Theodosian Wall" : variableName == "fMiddleWall" ? "Constantinian Wall" : "Severan Wall";
+        selectionName.text = (variableName == "fOuterWall" ? "Theodosian Wall" : variableName == "fMiddleWall" ? "Constantinian Wall" : "Severan Wall") + " repairs";
         ImperialTheme.Panel(Options, false);
         WallDefenceLayout.StyleOptions(Options, selectionName, repairCostDisplay, repairButton, abandonButton);
         if (engineerSlider == null)
@@ -60,9 +60,7 @@ public class DefenseActions : MonoBehaviour
             string bonus = plan.BonusCapped ? " · capped at full integrity" : "";
             string discount = WallRepairRules.LabourDiscount > 0 ? " (Notaras −" + Mathf.RoundToInt(WallRepairRules.LabourDiscount * 100) + "%)" : "";
             repairCostDisplay.text = plan.Gold.ToString("N0") + " gold" + discount + " · " + plan.Materials + " materials\n"
-                + "Restore " + plan.MinimumRestored.ToString("0.#") + "–" + plan.MaximumRestored.ToString("0.#") + " points" + bonus + "\n"
-                + "Integrity: " + plan.Before.ToString("0.#") + "% → " + (plan.Before + plan.MinimumRestored).ToString("0.#") + "–" + (plan.Before + plan.MaximumRestored).ToString("0.#") + "%\n"
-                + "Engineers return " + WallRepairRules.ReturnDate.ToString("d MMM") + "; wounded require treatment.";
+                + "Restore " + plan.MinimumRestored.ToString("0.#") + "–" + plan.MaximumRestored.ToString("0.#") + " points" + bonus;
         }
         else repairCostDisplay.text = plan.Unavailable ?? "Choose the engineers to assign.";
         repairCostDisplay.fontStyle = FontStyles.Normal;

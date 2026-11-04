@@ -1,0 +1,37 @@
+EVENING IN A TAVERN — VERSION 38 STAGING ONLY
+3 November 2026. Owner: JohanX / tavern_finish. Release 37 is explicitly excluded.
+
+User request implemented in staged content: a recurring clandestine tavern visit, four choices, modest uncertain consequences, supplied artwork, and the chance of five infantry plus five archers swearing service the following morning. Authorial direction follows the existing Daily_life.yarn: second-person narration, concrete small incidents and dry humour. Probabilities and numbers are not exposed in the choice wording.
+
+IMPORT MAP (relative to Unity checkout)
+Evening_in_a_Tavern.yarn -> Assets/Yarn/Test/Evening_in_a_Tavern.yarn
+lifeTavern.png -> Assets/Resources/EventArt/Covers/lifeTavern.png
+DailyLifeEvents.cs.patch -> apply to Assets/Scripts/DailyLifeEvents.cs
+EventArtwork.additions.json -> append both entries to Assets/Resources/Content/EventArtwork.json entries array, preserving all other entries.
+
+The staged updated/DailyLifeEvents.cs is provided for review, not permission to overwrite a changed current file. baseline.json contains exact SHA-256 hashes and checkout. baseline/DailyLifeEvents.cs is the preserved original. If baseline drift occurred, transplant just the narrow changes. NewProject.yarnproject already includes **/*.yarn. Let Unity create new asset metadata; use the neighbouring event cover's TextureImporter settings for the new PNG. No existing asset GUID needs replacing.
+
+OUTCOMES
+Drink with mercenaries: hidden 50% next-day pledge (+5 infantry, +5 archers, +1 army support point); otherwise lose up to 25 gold and 1 army support point.
+Watch maidens quarrel: hidden 50% +1 public support point; otherwise -1 noble support point.
+Talk to traveller: hidden 50% +40 gold from an outstanding debt settled; otherwise lose up to 20 gold.
+Leave: no effects.
+All money losses are limited to the current nonnegative purse. Support effects use the existing fractional support API. No retired merchant-favour mechanic is introduced.
+
+SCHEDULING / STATE
+lifeTavern is appended to DailyLifeEvents.Roots. Existing LifeSeen gives the same 30-calendar-day repeat cooldown as the other daily events. Pending recruits prevent another tavern root even if another chain delays them beyond that cooldown.
+iLifeTavernDue is scheduled for Day+1. No extra event roll or new random generator is added: three Yarn dice(100) <= 50 branches use the existing game/Yarn random pathway.
+The pledge follows existing sails/barrel/mentor followups in DailyLifeEvents.DueNode; it never replaces a fixed milestone. RestUI already places dated milestones before this queue. If a milestone or earlier due chapter occupies the next day, the pledge waits for the next free narrative slot. This preserves approved scheduling; 'the following morning' describes the intended arrival rather than a new bypass of milestones.
+LifeTavernPledgeComplete checks that the due date exists and has arrived, then clears the flag and grants the complete reward in one synchronous command. Calling it twice cannot duplicate troops/support. The Yarn node has no separate troop-reward commands.
+The iLife prefix already participates in normal campaign variable persistence/reset. No parallel save store or scene object is introduced.
+
+VALIDATION COMPLETED
+- Compiled actual staged DailyLifeEvents.cs with narrow Unity/Yarn/VariableSingleton stubs using Unity's bundled Mono C# compiler; 24 logic checks passed.
+- Checked initial/pre-siege eligibility, repeat cooldown, next-day timing, duplicate scheduling, early/duplicate completion, older followup priority, restored dictionary-only state, reward quantities, small/empty purses, negative-price protection and pending-pledge exclusion.
+- Static content checks passed: unique two-node structure, exactly four choices, three balanced hidden 50/50 branches, guarded rewards, artwork entries, readable supplied PNG and unchanged source baselines.
+- This is NOT a Unity compile, Yarn compiler pass, actual campaign save/load playtest or visual review of the integrated event. The logic-state restoration check proves no extra transient field is required; it does not substitute for real SaveGames testing.
+
+INTEGRATION CHECKS STILL REQUIRED FOR VERSION 38
+Compile the Unity project and import NewProject.yarnproject. Verify both nodes appear. Force each branch at least once; verify next-day recruitment occurs once, and a fixed milestone leaves it pending. Save/load while pending and after completing it. Review supplied image at normal and expanded view, the long outcome text and the four choices at supported resolutions. Regenerate the developer event map when its importer is next run; no separate map state has been edited here.
+
+No files in the live checkout or consolidation checkout were edited. No Unity editor/build process was launched. No commit, GitHub push or publication performed by this staging task.

@@ -185,6 +185,7 @@ public static class CountryDiplomacy
     public static string RenewReason(int i,bool war)
     {
         Ensure();if(!Valid(i))return "Unknown court";
+        if(Definitions[i].Id=="ionian_tocco")return "The Ionian Isles negotiate shelter and exile, not relief appeals";
         if(ReadEnvoy(i)!=2)return "Requires a resident envoy";
         if(RenewalDays(i,war)>0)return "This appeal is already being renewed";
         if(RenewalDays(i,!war)>0)return "Your envoy must finish the other renewal project first";
@@ -202,6 +203,7 @@ public static class CountryDiplomacy
     public static string AidRequestReason(int i)
     {
         Ensure();if(!Valid(i))return "Unknown court";
+        if(Definitions[i].Id=="ionian_tocco")return "The Ionian Isles negotiate shelter and exile, not ordinary aid";
         int state=DailyLifeEvents.I("iAidState"+i);
         if(state==1)return "Aid is already travelling";
         if(state!=0&&!RenewalReady(i,false))return "This appeal has been answered. A resident envoy can renew it.";

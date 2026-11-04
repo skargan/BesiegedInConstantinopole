@@ -1,0 +1,139 @@
+{
+  "figures": [
+    {
+      "id": 0,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 141,
+      "y": 10,
+      "width": 687,
+      "height": 1510
+    },
+    {
+      "id": 1,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 240,
+      "y": 35,
+      "width": 566,
+      "height": 1473
+    },
+    {
+      "id": 2,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 114,
+      "y": 9,
+      "width": 760,
+      "height": 1519
+    },
+    {
+      "id": 3,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 184,
+      "y": 38,
+      "width": 645,
+      "height": 1487
+    },
+    {
+      "id": 4,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 201,
+      "y": 25,
+      "width": 619,
+      "height": 1483
+    },
+    {
+      "id": 5,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 226,
+      "y": 27,
+      "width": 574,
+      "height": 1493
+    },
+    {
+      "id": 6,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 158,
+      "y": 20,
+      "width": 698,
+      "height": 1502
+    },
+    {
+      "id": 7,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 101,
+      "y": 14,
+      "width": 733,
+      "height": 1513
+    },
+    {
+      "id": 100,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 162,
+      "y": 19,
+      "width": 710,
+      "height": 1500
+    },
+    {
+      "id": 101,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 191,
+      "y": 21,
+      "width": 637,
+      "height": 1496
+    },
+    {
+      "id": 102,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 212,
+      "y": 25,
+      "width": 629,
+      "height": 1492
+    },
+    {
+      "id": 103,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 242,
+      "y": 24,
+      "width": 579,
+      "height": 1493
+    },
+    {
+      "id": 104,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 213,
+      "y": 27,
+      "width": 606,
+      "height": 1498
+    },
+    {
+      "id": 105,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 239,
+      "y": 25,
+      "width": 569,
+      "height": 1502
+    },
+    {
+      "id": 200,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 170,
+      "y": 28,
+      "width": 649,
+      "height": 1494
+    }
+  ]
+}

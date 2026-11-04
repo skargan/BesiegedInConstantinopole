@@ -1,0 +1,189 @@
+{
+  "realm": "The Tocco lordships hold Cephalonia, Zante and Leucas, among the Ionian islands west of Greece. Their Latin rulers govern Greek subjects, bargain with Venice and watch the Ottoman advance. Raimondina Ventimiglia, widow of Carlo II Tocco, guards the inheritance of their young son Leonardo III. Since the loss of Arta in 1449, the sea has become a particularly valuable neighbour.\n\nYour connection to this household began with a war. In 1427–28, you and your brother John VIII campaigned against Carlo I Tocco over his possessions in the Morea. His defeat brought a settlement: in July 1428, aged twenty-four, you married his niece Madalena Tocco. Glarentza and other Tocco lands came with her dowry. The families had found a way to conclude a war that required both a priest and an accountant.\n\nMadalena Tocco died in November 1429, little more than a year after the wedding. Her brother Carlo II later married Raimondina, in 1436. Raimondina is therefore the widow of your late wife's brother; Leonardo is your nephew by marriage. The connection gives you an introduction, not a claim to his inheritance.\n\nNow the household you once joined through a peace settlement may offer refuge if your own war is lost. Raimondina has a son's future to protect, harbours to keep open and limited room for imperial ambitions. A resident envoy can negotiate shelter for refugees or a private household for you. The island lords offer no ordinary relief expedition. These visits represent correspondence through your envoy; you remain in Constantinople.",
+  "about": "“My son is Leonardo. The land is his; the correspondence, for the present, is mine. That is how regency works. One receives the responsibility and borrows the chair.”\n\nShe turns the seal on her finger.\n\n“Carlo left me accounts, obligations, and people who suddenly discovered how much advice they had always wished to give him. I listen to them. Occasionally I even find a use for it.”\n\nOf Arta she speaks without ornament. There were letters to answer, households to settle, names to trace among the arrivals.\n\n“You have lost land too. You will know that a map can be corrected in an afternoon. A household takes longer.”",
+  "siege": "“Your councillors must tell you whether the walls will hold. Mine ask how many boats may come if they do not.”\n\nShe has asked her steward about empty houses and the grain set aside for winter. These are small calculations beside yours; she makes them without apology.\n\n“I will not advise you to surrender a city I have never been charged to defend. But allow me to make arrangements for the people who might leave it. They will not become less hungry because we refused to imagine them.”\n\nAfter a pause: “And you, Constantine. You are permitted to imagine a morning in which nobody brings you a casualty list.”",
+  "shelter": "Secure the island lords' promise to receive refugees if Constantinople falls. Raimondina will arrange lodgings and reception at their harbours. Families must still reach the islands; this agreement supplies neither ships nor immunity from the blockade.",
+  "exile": "Ask Raimondina to reserve a household for you if you must leave Constantinople. This is an arrangement for personal refuge, not an order to flee, a marriage, or a transfer of sovereignty. If your eventual terms permit exile, the islands will be your agreed destination.",
+  "remarks": [
+    {
+      "id": 1,
+      "text": "There you are. I had begun to suspect your councillors had nailed you to the throne.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 2,
+      "text": "Your Majesty… Actually, do you mind if I call you Constantine? We are almost family, after all. You will excuse the impropriety, I hope.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 3,
+      "text": "In your last letter, you spent three pages describing your wall defences. You might spare a sentence for yourself in the next.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 4,
+      "text": "I heard you fought the Tocco family when you were a young prince in the Morea. Then the peace settlement brought you a wife: Madalena Tocco. Quite a way to meet the family.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 5,
+      "text": "When you married Madalena, her family gave you the port of Glarentza and their lands in the Morea as her dowry. Should you marry again, do try to leave the bride’s family somewhere to live.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 6,
+      "text": "Madalena died years before I married her brother Carlo. The family could tell me all about the lands that changed hands at her wedding, but very little about the woman herself. What was she like?",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 7,
+      "text": "If you ever wish to tell me about your first wife, I should like to hear something that would not belong in a chronicle.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 8,
+      "text": "How curious. Carlo was your wife’s brother, and I was Carlo’s wife before he died. How the world turns.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 9,
+      "text": "Has your council found you another bride? Or are they still deciding which country ought to accompany her?",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 10,
+      "text": "You need not offer me a crown to keep my attention. I have been listening quite carefully without one.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 11,
+      "text": "Carlo, my late husband, came from a family with roots in Benevento, in southern Italy. He could turn a disagreement over dinner into a speech before the Senate. I used to let him finish before asking him to pass the wine.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 12,
+      "text": "The wind is strong today. My steward has spent the morning chasing letters across the terrace. At least someone is getting through the correspondence.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 13,
+      "text": "My son Leonardo is still a boy, and already he has plenty of men telling him how to rule. Fortunately, he has a very clever woman as his regent. Me.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 14,
+      "text": "A husband would be welcome. Another man explaining my own accounts to me would be less so.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 15,
+      "text": "They say I lost Arta in 1449. What I actually did, was I kept this house from collapsing under the Ottoman onslaught, and all they can speak of is what I failed to save. Vaffanculo a tutti.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 16,
+      "text": "You should see the harbour when a boat comes from the mainland. Everyone has someone they hope will step ashore. The loss of our mainland territories still weighs heavily on this house.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 17,
+      "text": "When the Turks attacked, I was determined to save our family relics. Now, when I remember that day, it is the people we left behind who weigh on my heart. I hope you never have to make that choice. Constantinople is a very large city to evacuate.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 18,
+      "text": "My family is Sicilian. I was not entirely unprepared for a household in which everyone has a cousin with a claim.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 19,
+      "text": "Most of our islanders speak Greek, while the ruling families have Italian names and ties across the sea. You hear both languages in this household—sometimes in the same argument. We have had plenty of practice living together.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 20,
+      "text": "Cephalonia, Zante, Leucas. Say them slowly. Even the names give a tired messenger a little rest. Greece is the best part of the world, and this is the best part of Greece.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 21,
+      "text": "Captains are always dismissive of storms while drinking in the tavern. Ask them to sail the next morning, and suddenly they can read a warning in every cloud.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 22,
+      "text": "The Venetians are concerned for our independence. They would prefer to keep it somewhere they can supervise it.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 23,
+      "text": "I have asked the other lords about receiving your people when your city falls. Forgive me for making arrangements in advance, but everyone can see the writing on the wall.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 24,
+      "text": "Tell me how many families might come. I would rather argue with my steward now than turn them away later.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 25,
+      "text": "Bring the children before the silver, if it comes to that. We have enough plates for everyone.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 26,
+      "text": "I shall not ask you to abandon Constantinople. I will ask you to consider who would lead your people afterwards.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 27,
+      "text": "I have a son, Constantine. Of course I have considered what your presence would mean. You may still believe that I wish you here.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 28,
+      "text": "There is a room facing the garden. I have told the steward to leave it unoccupied. He assumes I have my reasons.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 29,
+      "text": "You may bring your title. I cannot promise that the local fishermen will be impressed by it, but better a crownless emperor on the beach than a dead one on the throne.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    },
+    {
+      "id": 30,
+      "text": "Write again when you can. It need not be about anything important.",
+      "unmarriedOnly": false,
+      "beforeShelter": false
+    }
+  ]
+}

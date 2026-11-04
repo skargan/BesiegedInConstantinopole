@@ -1,0 +1,15 @@
+--- a/Assets/Scripts/CharacterPortraits.cs
++++ b/Assets/Scripts/CharacterPortraits.cs
+@@ -3,9 +3,11 @@
+ // Stable character IDs; portraits never affect recruitment, loyalty or availability.
+ public static class CharacterPortraits {
+  public static readonly int[] People={0,1,2,3,4,5,6,7,8,100,101,102,103,104,105,200,201,202};
+- public static string Resource(int id)=>id>=0&&id<=8?"UI/Identity/court-portraits":System.Array.IndexOf(People,id)>=0?"UI/Identity/Characters/"+id:null;
++ public static string Resource(int id)=>id==0?"UI/Identity/Characters/0":id>=1&&id<=8?"UI/Identity/court-portraits":System.Array.IndexOf(People,id)>=0?"UI/Identity/Characters/"+id:null;
+  public static Texture2D Texture(int id){var path=Resource(id);return path==null?null:Resources.Load<Texture2D>(path);}
+  public static Rect UV(int id){
++  // Supplied Giustiniani portrait: retain the original bitmap; crop the empty right-hand room in the view only.
++  if(id==0)return new Rect(0,0,2f/3f,1);
+   if(id<0||id>8)return new Rect(0,0,1,1);
+   // Sheet boundaries measured on the supplied 1223 x 1286 artwork, not assumed equal cells.
+   float[] x={0,416f/1223,809f/1223,1},y={0,416f/1286,822f/1286,1};int c=id%3,r=id/3;

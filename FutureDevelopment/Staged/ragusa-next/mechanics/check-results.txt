@@ -1,0 +1,7 @@
+RAGUSA_CHECKS: 57 passed. Actual staged mechanics and patched TrainingPool, RecruitmentLogistics, ReliefStormSystem, CampaignPersonnelCalendar, plus canonical SharedProvisions and extracted actual staged journal Record/RecordAt/Copy methods compiled/executed with narrow remaining dependencies stubbed.
+SharedProvisions.cs SHA-256: 071def4c5b877d0cc66ebda9f436608acb46c25da215b4c751e132f7176fb436.
+Delivery adapter now calls SharedProvisions.Add(SharedProvisions.City, quantity). The checks verify delayed arrival, preserved fractional stock and exactly-once delivery.
+Unity compilation, actual save-file validation, visual/modal review and full project integration remain pending.
+
+Final narrow fix: logical journal dates tested across preparation jumps (31 March result viewed 1 April; 14 April return viewed 1 May; 15 January food arrival viewed 1 February). Existing Record API, deduplication and copied journal dates preserved.
+All seven integration patches pass git apply --check against consolidation. CouncilDiplomacyUI.AidStanding contains special Ragusa shipment/contract statuses; combined compile pending with giustiniani_audit.

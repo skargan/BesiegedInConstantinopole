@@ -1,0 +1,2308 @@
+{
+  "baseline": "f67de8ab2da75a441e3abce84d200d4d2dcab219",
+  "branches": [
+    {
+      "ref": "origin/codex/brutal-murder-investigation",
+      "sha": "55da6a59ada78241f53e5144ae4e366a80f8cd20",
+      "base": "f771e252508a7741cfcf5196ac8f415039ae9fda",
+      "aheadBehind": "47\t1",
+      "changes": [
+        {
+          "path": "Assets/Scripts/MurderCapture.cs",
+          "state": "missing",
+          "sha": "557b77d4097cfd2904c314117cc6b2c48ce15396",
+          "bytes": 8040
+        },
+        {
+          "path": "Assets/Scripts/MurderCapture.cs.meta",
+          "state": "missing",
+          "sha": "1724a892d94a5ce62f918618f1379c720edfdd2c",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/MurderMystery.cs",
+          "state": "missing",
+          "sha": "b23d16a3713d9728b8470c5395fdc30a1026c450",
+          "bytes": 20650
+        },
+        {
+          "path": "Assets/Scripts/MurderMystery.cs.meta",
+          "state": "missing",
+          "sha": "2b5241df4c5124b5b401aebff8f635df10a66f3a",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/RestUI.cs",
+          "state": "different",
+          "sha": "ff21bafcd6d372e91c357e8a8012947def0a8db8",
+          "bytes": 4725
+        },
+        {
+          "path": "Assets/Scripts/UI/CampaignHUD.cs",
+          "state": "different",
+          "sha": "950b8c0fe50b05b56240a7717455d971b75e4469",
+          "bytes": 13101
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildMurderPreview.cs",
+          "state": "missing",
+          "sha": "9a5f143da52d8a845d15eff1b45774b6a62bc0c7",
+          "bytes": 1108
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildMurderPreview.cs.meta",
+          "state": "missing",
+          "sha": "0a48383e512a6e7c06271e7b5457ac20500e0546",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Yarn/Test/Brutal_murder.yarn",
+          "state": "missing",
+          "sha": "b833cc32ee9df1e11fbfdac633198ee7bfa3bdea",
+          "bytes": 3157
+        },
+        {
+          "path": "Assets/Yarn/Test/Brutal_murder.yarn.meta",
+          "state": "missing",
+          "sha": "cd486e373f682c3b92e48b2780fabc81388986d9",
+          "bytes": 285
+        },
+        {
+          "path": "Documentation/Brutal Murder - Event chain.json",
+          "state": "missing",
+          "sha": "3f6fd0f787859a622a49c91b98c7e5ce66f8d526",
+          "bytes": 15835
+        },
+        {
+          "path": "Documentation/Brutal Murder - Story review.txt",
+          "state": "missing",
+          "sha": "8497a8923e923de9e464db2ff7294cd1198b9e60",
+          "bytes": 11232
+        },
+        {
+          "path": "Documentation/Brutal Murder - The Names Beneath the Wax.txt",
+          "state": "missing",
+          "sha": "d9e7970746c5f175c4e073a3d68fe1a670db26fc",
+          "bytes": 9374
+        },
+        {
+          "path": "Tools/BesiegedEventMap/Besieged Event Map.html",
+          "state": "different",
+          "sha": "d2da602a19be3915bdac076da5e8bf201eeb00ed",
+          "bytes": 3275429
+        },
+        {
+          "path": "Tools/BesiegedEventMap/README.md",
+          "state": "different",
+          "sha": "7701510c79476307a353edf10cefbdf878056622",
+          "bytes": 3331
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/data.js",
+          "state": "different",
+          "sha": "67f5a961f6c8fc7c6a1ac0b86b422b99e26f6bd9",
+          "bytes": 3174590
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/data.json",
+          "state": "different",
+          "sha": "08012f9ed00dcbaeb2b2befc898c71dd241e4829",
+          "bytes": 3929797
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Brutal Murder chain.json",
+          "state": "missing",
+          "sha": "3f6fd0f787859a622a49c91b98c7e5ce66f8d526",
+          "bytes": 15835
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Brutal Murder design.txt",
+          "state": "missing",
+          "sha": "d9e7970746c5f175c4e073a3d68fe1a670db26fc",
+          "bytes": 9374
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique event source audit.json",
+          "state": "missing",
+          "sha": "213a28bfe93e46b16439e79e2123ef3f5d6d402e",
+          "bytes": 34859
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique event source audit.txt",
+          "state": "missing",
+          "sha": "be79fb177d5a6c663e49556c9559f1a66c535542",
+          "bytes": 5813
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique expansion handover.txt",
+          "state": "missing",
+          "sha": "2df2b0b63729941f2e14af60c151905a6dd3ed5a",
+          "bytes": 3665
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique stories expansion.json",
+          "state": "missing",
+          "sha": "0348facda81c9a8cbf7f2ef4807dc9fe5de6460a",
+          "bytes": 72122
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique stories for review.txt",
+          "state": "missing",
+          "sha": "6f6a0eb00991cd35f95a9e1b938595faf756106b",
+          "bytes": 41759
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/apply_murder.py",
+          "state": "missing",
+          "sha": "6a6bf96098f2a0c8b49864a391f81289f2c86c3b",
+          "bytes": 3875
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/next_campaign_review.py",
+          "state": "different",
+          "sha": "01b9906a32d4b5da8e2c8c75fccc21b68ea5d6f8",
+          "bytes": 9486
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/candar-secret-negotiations-20261103",
+      "sha": "4520e16b54cf5eea699b0d0e380e90818b7c545d",
+      "base": "513bba903e9a59cbf6d9cfd4d169dfe93dea6497",
+      "aheadBehind": "10\t2",
+      "changes": [
+        {
+          "path": "Assets/Scripts/AI/AI.cs",
+          "state": "different",
+          "sha": "986debaf8fad9b0f15bd7882175c14c944a97ce2",
+          "bytes": 14898
+        },
+        {
+          "path": "Assets/Scripts/CandarDiplomacy.cs",
+          "state": "missing",
+          "sha": "2d669070427833c510cf50f05a1a39856157aff9",
+          "bytes": 9849
+        },
+        {
+          "path": "Assets/Scripts/CandarDiplomacy.cs.meta",
+          "state": "missing",
+          "sha": "bdd20b18a72d5094fd53a20fe8fcf4082ceb4a26",
+          "bytes": 60
+        },
+        {
+          "path": "Assets/Scripts/CandarRulerRemarks.cs",
+          "state": "missing",
+          "sha": "b11bb390d6d02244ac82b06f6492fedd72210dcc",
+          "bytes": 3242
+        },
+        {
+          "path": "Assets/Scripts/CandarRulerRemarks.cs.meta",
+          "state": "missing",
+          "sha": "d38734bacb4fe9d898aa1f70c5051d99c73f58e6",
+          "bytes": 60
+        },
+        {
+          "path": "Assets/Scripts/CouncilCandarUI.cs",
+          "state": "missing",
+          "sha": "2bd63f8938d5ead26bf2c4c2be42e038d9b9f7b7",
+          "bytes": 5881
+        },
+        {
+          "path": "Assets/Scripts/CouncilCandarUI.cs.meta",
+          "state": "missing",
+          "sha": "4970de8af5ada8fccd834588feda95cf2ddddf14",
+          "bytes": 60
+        },
+        {
+          "path": "Assets/Scripts/CouncilDiplomacyUI.cs",
+          "state": "different",
+          "sha": "4f199b40e08efec57f3a4feaf472fb1146d43b4b",
+          "bytes": 17542
+        },
+        {
+          "path": "Assets/Scripts/OttomanDirector.cs",
+          "state": "different",
+          "sha": "03dcd7d691243fa12479ae834f38b5742fa6290f",
+          "bytes": 12082
+        },
+        {
+          "path": "Assets/Scripts/WarTheatreUI.cs",
+          "state": "different",
+          "sha": "4911b07954b925f8c7fdd3f3f788527ddd0011b4",
+          "bytes": 13871
+        },
+        {
+          "path": "Documentation/Candar-integration.md",
+          "state": "missing",
+          "sha": "0e78cca339bbc68c791edea057e243e2fb75d369",
+          "bytes": 3021
+        },
+        {
+          "path": "Tools/Candar/CandarChecks.cs",
+          "state": "missing",
+          "sha": "a1ec15c724e01e22c4896d064ef8558400f65b4c",
+          "bytes": 1097
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/city-map-navigation",
+      "sha": "5221abfca896029ad98bcbe37a0bc71a439203b9",
+      "base": "f771e252508a7741cfcf5196ac8f415039ae9fda",
+      "aheadBehind": "47\t1",
+      "changes": [
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/city-map.png",
+          "state": "missing",
+          "sha": "89ea1f31c64a52327c7cc1f47b24a302d3628683",
+          "bytes": 3503934
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/city-map.png.meta",
+          "state": "missing",
+          "sha": "15e0c821db48d7b02787e835190fd7a0d4ba9da8",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Scripts/CityMapCapture.cs",
+          "state": "missing",
+          "sha": "043380f2e0ff47cbf0fd853264b28d88649eae62",
+          "bytes": 8093
+        },
+        {
+          "path": "Assets/Scripts/CityMapCapture.cs.meta",
+          "state": "missing",
+          "sha": "aef4b589e6982406b3d02e373b828773c1d66688",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CityMapView.cs",
+          "state": "missing",
+          "sha": "bfb538ec55b34f9dffcb84021bbd5d65ba7fcc79",
+          "bytes": 6176
+        },
+        {
+          "path": "Assets/Scripts/CityMapView.cs.meta",
+          "state": "missing",
+          "sha": "858a65aee828dc2a1fb37ab19f55d01f582d7079",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CouncilUI.cs",
+          "state": "different",
+          "sha": "556286bfbd0503257a99b311283526fa6f7a1789",
+          "bytes": 67112
+        },
+        {
+          "path": "Assets/Scripts/MainMenuUI.cs",
+          "state": "different",
+          "sha": "2fdc916b9a02955665ba21a13d47f0bf56a96cb2",
+          "bytes": 5986
+        },
+        {
+          "path": "Assets/Scripts/ManagerUI.cs",
+          "state": "different",
+          "sha": "12c3e3fad31ea4b5aa6789194c3a368c010cc31b",
+          "bytes": 8964
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildCityMapPreview.cs",
+          "state": "missing",
+          "sha": "e006297cf91dc0e9c656d2add1b67a299f2c81d0",
+          "bytes": 717
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildCityMapPreview.cs.meta",
+          "state": "missing",
+          "sha": "b4d7e5897239f459ead950a87f78454e445672a1",
+          "bytes": 243
+        },
+        {
+          "path": "Documentation/City map - Integration.txt",
+          "state": "missing",
+          "sha": "fa5751e02c60ee28ef584e16f030f634e10ee474",
+          "bytes": 1940
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/consolidation-20261103",
+      "sha": "781d7ed17914118874da3cb1f7a958c888ced0bf",
+      "base": "781d7ed17914118874da3cb1f7a958c888ced0bf",
+      "aheadBehind": "6\t0",
+      "changes": []
+    },
+    {
+      "ref": "origin/codex/court-integration-base",
+      "sha": "cd82847481ce543f58bc3e272f1565982d98f94d",
+      "base": "f771e252508a7741cfcf5196ac8f415039ae9fda",
+      "aheadBehind": "47\t3",
+      "changes": [
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/city-map.png",
+          "state": "missing",
+          "sha": "89ea1f31c64a52327c7cc1f47b24a302d3628683",
+          "bytes": 3503934
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/city-map.png.meta",
+          "state": "missing",
+          "sha": "15e0c821db48d7b02787e835190fd7a0d4ba9da8",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Scripts/CityMapCapture.cs",
+          "state": "missing",
+          "sha": "043380f2e0ff47cbf0fd853264b28d88649eae62",
+          "bytes": 8093
+        },
+        {
+          "path": "Assets/Scripts/CityMapCapture.cs.meta",
+          "state": "missing",
+          "sha": "aef4b589e6982406b3d02e373b828773c1d66688",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CityMapView.cs",
+          "state": "missing",
+          "sha": "bfb538ec55b34f9dffcb84021bbd5d65ba7fcc79",
+          "bytes": 6176
+        },
+        {
+          "path": "Assets/Scripts/CityMapView.cs.meta",
+          "state": "missing",
+          "sha": "858a65aee828dc2a1fb37ab19f55d01f582d7079",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CouncilUI.cs",
+          "state": "different",
+          "sha": "556286bfbd0503257a99b311283526fa6f7a1789",
+          "bytes": 67112
+        },
+        {
+          "path": "Assets/Scripts/MainMenuUI.cs",
+          "state": "different",
+          "sha": "2fdc916b9a02955665ba21a13d47f0bf56a96cb2",
+          "bytes": 5986
+        },
+        {
+          "path": "Assets/Scripts/ManagerUI.cs",
+          "state": "different",
+          "sha": "12c3e3fad31ea4b5aa6789194c3a368c010cc31b",
+          "bytes": 8964
+        },
+        {
+          "path": "Assets/Scripts/MurderCapture.cs",
+          "state": "missing",
+          "sha": "557b77d4097cfd2904c314117cc6b2c48ce15396",
+          "bytes": 8040
+        },
+        {
+          "path": "Assets/Scripts/MurderCapture.cs.meta",
+          "state": "missing",
+          "sha": "1724a892d94a5ce62f918618f1379c720edfdd2c",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/MurderMystery.cs",
+          "state": "missing",
+          "sha": "b23d16a3713d9728b8470c5395fdc30a1026c450",
+          "bytes": 20650
+        },
+        {
+          "path": "Assets/Scripts/MurderMystery.cs.meta",
+          "state": "missing",
+          "sha": "2b5241df4c5124b5b401aebff8f635df10a66f3a",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/RestUI.cs",
+          "state": "different",
+          "sha": "ff21bafcd6d372e91c357e8a8012947def0a8db8",
+          "bytes": 4725
+        },
+        {
+          "path": "Assets/Scripts/UI/CampaignHUD.cs",
+          "state": "different",
+          "sha": "950b8c0fe50b05b56240a7717455d971b75e4469",
+          "bytes": 13101
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildCityMapPreview.cs",
+          "state": "missing",
+          "sha": "e006297cf91dc0e9c656d2add1b67a299f2c81d0",
+          "bytes": 717
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildCityMapPreview.cs.meta",
+          "state": "missing",
+          "sha": "b4d7e5897239f459ead950a87f78454e445672a1",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildMurderPreview.cs",
+          "state": "missing",
+          "sha": "9a5f143da52d8a845d15eff1b45774b6a62bc0c7",
+          "bytes": 1108
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildMurderPreview.cs.meta",
+          "state": "missing",
+          "sha": "0a48383e512a6e7c06271e7b5457ac20500e0546",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Yarn/Test/Brutal_murder.yarn",
+          "state": "missing",
+          "sha": "b833cc32ee9df1e11fbfdac633198ee7bfa3bdea",
+          "bytes": 3157
+        },
+        {
+          "path": "Assets/Yarn/Test/Brutal_murder.yarn.meta",
+          "state": "missing",
+          "sha": "cd486e373f682c3b92e48b2780fabc81388986d9",
+          "bytes": 285
+        },
+        {
+          "path": "Documentation/Brutal Murder - Event chain.json",
+          "state": "missing",
+          "sha": "3f6fd0f787859a622a49c91b98c7e5ce66f8d526",
+          "bytes": 15835
+        },
+        {
+          "path": "Documentation/Brutal Murder - Story review.txt",
+          "state": "missing",
+          "sha": "8497a8923e923de9e464db2ff7294cd1198b9e60",
+          "bytes": 11232
+        },
+        {
+          "path": "Documentation/Brutal Murder - The Names Beneath the Wax.txt",
+          "state": "missing",
+          "sha": "d9e7970746c5f175c4e073a3d68fe1a670db26fc",
+          "bytes": 9374
+        },
+        {
+          "path": "Documentation/City map - Integration.txt",
+          "state": "missing",
+          "sha": "fa5751e02c60ee28ef584e16f030f634e10ee474",
+          "bytes": 1940
+        },
+        {
+          "path": "Tools/BesiegedEventMap/Besieged Event Map.html",
+          "state": "different",
+          "sha": "d2da602a19be3915bdac076da5e8bf201eeb00ed",
+          "bytes": 3275429
+        },
+        {
+          "path": "Tools/BesiegedEventMap/README.md",
+          "state": "different",
+          "sha": "7701510c79476307a353edf10cefbdf878056622",
+          "bytes": 3331
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/data.js",
+          "state": "different",
+          "sha": "67f5a961f6c8fc7c6a1ac0b86b422b99e26f6bd9",
+          "bytes": 3174590
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/data.json",
+          "state": "different",
+          "sha": "08012f9ed00dcbaeb2b2befc898c71dd241e4829",
+          "bytes": 3929797
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Brutal Murder chain.json",
+          "state": "missing",
+          "sha": "3f6fd0f787859a622a49c91b98c7e5ce66f8d526",
+          "bytes": 15835
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Brutal Murder design.txt",
+          "state": "missing",
+          "sha": "d9e7970746c5f175c4e073a3d68fe1a670db26fc",
+          "bytes": 9374
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique event source audit.json",
+          "state": "missing",
+          "sha": "213a28bfe93e46b16439e79e2123ef3f5d6d402e",
+          "bytes": 34859
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique event source audit.txt",
+          "state": "missing",
+          "sha": "be79fb177d5a6c663e49556c9559f1a66c535542",
+          "bytes": 5813
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique expansion handover.txt",
+          "state": "missing",
+          "sha": "2df2b0b63729941f2e14af60c151905a6dd3ed5a",
+          "bytes": 3665
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique stories expansion.json",
+          "state": "missing",
+          "sha": "0348facda81c9a8cbf7f2ef4807dc9fe5de6460a",
+          "bytes": 72122
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique stories for review.txt",
+          "state": "missing",
+          "sha": "6f6a0eb00991cd35f95a9e1b938595faf756106b",
+          "bytes": 41759
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/apply_murder.py",
+          "state": "missing",
+          "sha": "6a6bf96098f2a0c8b49864a391f81289f2c86c3b",
+          "bytes": 3875
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/next_campaign_review.py",
+          "state": "different",
+          "sha": "01b9906a32d4b5da8e2c8c75fccc21b68ea5d6f8",
+          "bytes": 9486
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/emperor-court-dialogues",
+      "sha": "2a06a436573f60b6be500e3a7ab0748acad81b39",
+      "base": "a82a5c5a7192b19993436ec120e45acb45450d38",
+      "aheadBehind": "46\t3",
+      "changes": [
+        {
+          "path": "Assets/Resources/Court.meta",
+          "state": "missing",
+          "sha": "f285f79f5190d0240df46e4f4fe19d7584d51605",
+          "bytes": 172
+        },
+        {
+          "path": "Assets/Resources/Court/court-conversations.json",
+          "state": "missing",
+          "sha": "924fa9097ec70c1cc9f2398a1b2b7748234692d3",
+          "bytes": 41864
+        },
+        {
+          "path": "Assets/Resources/Court/court-conversations.json.meta",
+          "state": "missing",
+          "sha": "cfc8b9d3130a707fbd4d3b7812ccb0ce815917ba",
+          "bytes": 158
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes.meta",
+          "state": "missing",
+          "sha": "68fb9f327799cd984b053e54da3dcef6277af5d9",
+          "bytes": 172
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes/charisma.png",
+          "state": "missing",
+          "sha": "7d471f34a33fa9d6dfda1a1e838b9de2b6866386",
+          "bytes": 2658658
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes/charisma.png.meta",
+          "state": "missing",
+          "sha": "cc1c468e48363fc0b3b26643249c16fb67777959",
+          "bytes": 2978
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes/intellect.png",
+          "state": "missing",
+          "sha": "567cd3ef8e726c49a443d9715e11886877114059",
+          "bytes": 2114466
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes/intellect.png.meta",
+          "state": "missing",
+          "sha": "b7da58e8d0a964ed7d7932a6c92fd63e5488bc2d",
+          "bytes": 2978
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes/martial.png",
+          "state": "missing",
+          "sha": "522ef53d2d31450d0111751539176c7db81c727a",
+          "bytes": 1997589
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Attributes/martial.png.meta",
+          "state": "missing",
+          "sha": "b735e33e48694f2b0db8b92f000250692616c787",
+          "bytes": 2978
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing.meta",
+          "state": "missing",
+          "sha": "ba16cabfd4bdc4b761085f952b81107dc3922c41",
+          "bytes": 172
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing/0.png",
+          "state": "missing",
+          "sha": "8eee697c5d80d7b808e57e0aacf576bbbc4da7f3",
+          "bytes": 2249651
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing/0.png.meta",
+          "state": "missing",
+          "sha": "6f59739dfa39c12c5b761f45c4bb29bbc09936b0",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing/2.png",
+          "state": "missing",
+          "sha": "3b30ecc6afed04b3718abb07f24cf42455c65e78",
+          "bytes": 2467604
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing/2.png.meta",
+          "state": "missing",
+          "sha": "6794b02d120322c790068922938beea84d45e49b",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing/200.png",
+          "state": "missing",
+          "sha": "6df8b0d3730bc2d13e59a4ea64125891e6220f06",
+          "bytes": 2243749
+        },
+        {
+          "path": "Assets/Resources/UI/Identity/Standing/200.png.meta",
+          "state": "missing",
+          "sha": "34e27c0c8b168d66d828c7381f20353bb5425e2c",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/city-map.png",
+          "state": "missing",
+          "sha": "89ea1f31c64a52327c7cc1f47b24a302d3628683",
+          "bytes": 3503934
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/city-map.png.meta",
+          "state": "missing",
+          "sha": "15e0c821db48d7b02787e835190fd7a0d4ba9da8",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/palace-mirror.png",
+          "state": "missing",
+          "sha": "b36cdf7d3957399b472ea6d100f2bef9acf817b1",
+          "bytes": 3145235
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Locations/palace-mirror.png.meta",
+          "state": "missing",
+          "sha": "c66477eaf027397cfbe1210b9eb34246040244e5",
+          "bytes": 2979
+        },
+        {
+          "path": "Assets/Scripts/CityMapCapture.cs",
+          "state": "missing",
+          "sha": "043380f2e0ff47cbf0fd853264b28d88649eae62",
+          "bytes": 8093
+        },
+        {
+          "path": "Assets/Scripts/CityMapCapture.cs.meta",
+          "state": "missing",
+          "sha": "aef4b589e6982406b3d02e373b828773c1d66688",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CityMapView.cs",
+          "state": "missing",
+          "sha": "bfb538ec55b34f9dffcb84021bbd5d65ba7fcc79",
+          "bytes": 6176
+        },
+        {
+          "path": "Assets/Scripts/CityMapView.cs.meta",
+          "state": "missing",
+          "sha": "858a65aee828dc2a1fb37ab19f55d01f582d7079",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CouncilEmperorUI.cs",
+          "state": "missing",
+          "sha": "e735e376b514108e962c0ab37ed8ef6651b5d59e",
+          "bytes": 2905
+        },
+        {
+          "path": "Assets/Scripts/CouncilEmperorUI.cs.meta",
+          "state": "missing",
+          "sha": "4b156f4f946eb9baf171ba0d25e6f24e2ac6d581",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CouncilGardenUI.cs",
+          "state": "different",
+          "sha": "e326a90554dc7639722da77d1daa44fe859c3867",
+          "bytes": 4995
+        },
+        {
+          "path": "Assets/Scripts/CouncilLocationsUI.cs",
+          "state": "different",
+          "sha": "6afe23edb09d35843a8eb7586adf5092c4a9b25f",
+          "bytes": 5784
+        },
+        {
+          "path": "Assets/Scripts/CouncilUI.cs",
+          "state": "different",
+          "sha": "ceadc9c13a368f55db6e79811287fab0c95757f3",
+          "bytes": 67631
+        },
+        {
+          "path": "Assets/Scripts/CourtCharacterWriting.cs",
+          "state": "missing",
+          "sha": "acee2ca728dec5c51631dc428c5fde90a61cd235",
+          "bytes": 9390
+        },
+        {
+          "path": "Assets/Scripts/CourtCharacterWriting.cs.meta",
+          "state": "missing",
+          "sha": "3a03b904a1af55f942e3b34d0a2cbfb0ddb8d76a",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CourtConversationData.cs",
+          "state": "missing",
+          "sha": "1cace0d55971f2761c848f6125e4085850a79ede",
+          "bytes": 4687
+        },
+        {
+          "path": "Assets/Scripts/CourtConversationData.cs.meta",
+          "state": "missing",
+          "sha": "dc7cf9e57727b6c23e80669dafe702f49ca58095",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CourtConversationUI.cs",
+          "state": "missing",
+          "sha": "a75f0326f06b6cd7fbd3be7f71fa3b39fb4ef3d9",
+          "bytes": 10680
+        },
+        {
+          "path": "Assets/Scripts/CourtConversationUI.cs.meta",
+          "state": "missing",
+          "sha": "3e37ec92da7a165e9834fdb87a7a1dbad9117466",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/CourtStandingSprites.cs",
+          "state": "missing",
+          "sha": "27da11e8163e78bbb153aa86c967b2dc69134ebb",
+          "bytes": 2244
+        },
+        {
+          "path": "Assets/Scripts/CourtStandingSprites.cs.meta",
+          "state": "missing",
+          "sha": "cdde36fb2b3cecac689bf3805046e10fe3159c79",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/EmperorAttributeBadge.cs",
+          "state": "missing",
+          "sha": "832ca8e65cff238b8cf431d3302881b74db1be52",
+          "bytes": 4106
+        },
+        {
+          "path": "Assets/Scripts/EmperorAttributeBadge.cs.meta",
+          "state": "missing",
+          "sha": "0ed474b8d15cd0ec3a8f897cb61e6024b808e48c",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/EmperorCapture.cs",
+          "state": "missing",
+          "sha": "7a3cbb88b22c88807f77b4889c60a620db05d6d1",
+          "bytes": 14849
+        },
+        {
+          "path": "Assets/Scripts/EmperorCapture.cs.meta",
+          "state": "missing",
+          "sha": "bb53f87e06f8b15e7e5c212eee9dcbfa99ad477e",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/EmperorCombat.cs",
+          "state": "different",
+          "sha": "08e5c7c1c4858e49f81e08f9c5defbe56d2e0ff9",
+          "bytes": 2255
+        },
+        {
+          "path": "Assets/Scripts/EmperorProfile.cs",
+          "state": "missing",
+          "sha": "eaccfad0ca488b97321e7d18f5d25bb7bc5d5cc8",
+          "bytes": 3275
+        },
+        {
+          "path": "Assets/Scripts/EmperorProfile.cs.meta",
+          "state": "missing",
+          "sha": "488a78b41036ccb411fb2f76958daa86b8631de5",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/EmperorProfileUI.cs",
+          "state": "missing",
+          "sha": "93b866086cc6cac1e685712d0f9c8a63586111fc",
+          "bytes": 5680
+        },
+        {
+          "path": "Assets/Scripts/EmperorProfileUI.cs.meta",
+          "state": "missing",
+          "sha": "7115d6682c625b4c6fd1e1edafab1fe84ed7d642",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/GardenConversations.cs",
+          "state": "different",
+          "sha": "f5a52553db82309d313f10fb7b8c50a31e813d8d",
+          "bytes": 16076
+        },
+        {
+          "path": "Assets/Scripts/MainMenuUI.cs",
+          "state": "different",
+          "sha": "2fdc916b9a02955665ba21a13d47f0bf56a96cb2",
+          "bytes": 5986
+        },
+        {
+          "path": "Assets/Scripts/ManagerUI.cs",
+          "state": "different",
+          "sha": "ea744f22fea4e24126aa6ce3f17b55c531febb10",
+          "bytes": 9177
+        },
+        {
+          "path": "Assets/Scripts/MurderCapture.cs",
+          "state": "missing",
+          "sha": "557b77d4097cfd2904c314117cc6b2c48ce15396",
+          "bytes": 8040
+        },
+        {
+          "path": "Assets/Scripts/MurderCapture.cs.meta",
+          "state": "missing",
+          "sha": "1724a892d94a5ce62f918618f1379c720edfdd2c",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/MurderMystery.cs",
+          "state": "missing",
+          "sha": "b23d16a3713d9728b8470c5395fdc30a1026c450",
+          "bytes": 20650
+        },
+        {
+          "path": "Assets/Scripts/MurderMystery.cs.meta",
+          "state": "missing",
+          "sha": "2b5241df4c5124b5b401aebff8f635df10a66f3a",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/RestUI.cs",
+          "state": "different",
+          "sha": "59caf493af49b619122b079f89b3db7ebf4fe4f2",
+          "bytes": 4760
+        },
+        {
+          "path": "Assets/Scripts/SiegeCharacterContext.cs",
+          "state": "missing",
+          "sha": "fc5242c0ee35e2243018c8a5826eaf2c1be04308",
+          "bytes": 5107
+        },
+        {
+          "path": "Assets/Scripts/SiegeCharacterContext.cs.meta",
+          "state": "missing",
+          "sha": "f419efff55c38a1843fdf299a31ef436f4ca7c72",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/UI/CampaignHUD.cs",
+          "state": "different",
+          "sha": "13d572780aedd15217db3943a40f9896ecc80ada",
+          "bytes": 13279
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildCityMapPreview.cs",
+          "state": "missing",
+          "sha": "e006297cf91dc0e9c656d2add1b67a299f2c81d0",
+          "bytes": 717
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildCityMapPreview.cs.meta",
+          "state": "missing",
+          "sha": "b4d7e5897239f459ead950a87f78454e445672a1",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildEmperorPreview.cs",
+          "state": "missing",
+          "sha": "d637942c1fa386e52a4928fe4f2b7f202238fbf8",
+          "bytes": 1541
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildEmperorPreview.cs.meta",
+          "state": "missing",
+          "sha": "19e2ef961d929e0b8ba2fd690ad8bce31ec11db6",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildMurderPreview.cs",
+          "state": "missing",
+          "sha": "9a5f143da52d8a845d15eff1b45774b6a62bc0c7",
+          "bytes": 1108
+        },
+        {
+          "path": "Assets/Scripts/UI/Editor/BuildMurderPreview.cs.meta",
+          "state": "missing",
+          "sha": "0a48383e512a6e7c06271e7b5457ac20500e0546",
+          "bytes": 243
+        },
+        {
+          "path": "Assets/Scripts/VariableSingleton.cs",
+          "state": "different",
+          "sha": "84a6e81d9ea1c57951bd0cf56b0269f47683532c",
+          "bytes": 17018
+        },
+        {
+          "path": "Assets/Yarn/Test/Brutal_murder.yarn",
+          "state": "missing",
+          "sha": "b833cc32ee9df1e11fbfdac633198ee7bfa3bdea",
+          "bytes": 3157
+        },
+        {
+          "path": "Assets/Yarn/Test/Brutal_murder.yarn.meta",
+          "state": "missing",
+          "sha": "cd486e373f682c3b92e48b2780fabc81388986d9",
+          "bytes": 285
+        },
+        {
+          "path": "Assets/Yarn/Test/Daily_life_more.yarn",
+          "state": "different",
+          "sha": "44435295e21394884f76e01ea9f6c1ff48a78e5c",
+          "bytes": 10717
+        },
+        {
+          "path": "Assets/Yarn/Test/Emperor_health.yarn",
+          "state": "missing",
+          "sha": "155d0950f00a6aa0046fea377c207c8910882097",
+          "bytes": 3270
+        },
+        {
+          "path": "Assets/Yarn/Test/Emperor_health.yarn.meta",
+          "state": "missing",
+          "sha": "b241b900f2aa104f1e8e2bd388ab66cdfed5bc09",
+          "bytes": 285
+        },
+        {
+          "path": "Documentation/Brutal Murder - Event chain.json",
+          "state": "missing",
+          "sha": "3f6fd0f787859a622a49c91b98c7e5ce66f8d526",
+          "bytes": 15835
+        },
+        {
+          "path": "Documentation/Brutal Murder - Story review.txt",
+          "state": "missing",
+          "sha": "8497a8923e923de9e464db2ff7294cd1198b9e60",
+          "bytes": 11232
+        },
+        {
+          "path": "Documentation/Brutal Murder - The Names Beneath the Wax.txt",
+          "state": "missing",
+          "sha": "d9e7970746c5f175c4e073a3d68fe1a670db26fc",
+          "bytes": 9374
+        },
+        {
+          "path": "Documentation/City map - Integration.txt",
+          "state": "missing",
+          "sha": "fa5751e02c60ee28ef584e16f030f634e10ee474",
+          "bytes": 1940
+        },
+        {
+          "path": "Documentation/Emperor and Court - Playtest guide.txt",
+          "state": "missing",
+          "sha": "25b80375ea9209ad151ca7d087fa5a8f41bc69fc",
+          "bytes": 5185
+        },
+        {
+          "path": "Documentation/Siege as the Main Plot.txt",
+          "state": "missing",
+          "sha": "d31885e12477b57569c083fe264f726ba10f9cbf",
+          "bytes": 4342
+        },
+        {
+          "path": "Documentation/The Court beneath the Siege.txt",
+          "state": "missing",
+          "sha": "e0d08daeb3df97218182a204b2aadcb5444dbb1c",
+          "bytes": 3961
+        },
+        {
+          "path": "Tools/BesiegedEventMap/Besieged Event Map.html",
+          "state": "different",
+          "sha": "d295bc25f046f888b1bb20d96b1d2e378b947399",
+          "bytes": 3394490
+        },
+        {
+          "path": "Tools/BesiegedEventMap/README.md",
+          "state": "different",
+          "sha": "b094594386ae7b48aac425129ac61fbbd4db9439",
+          "bytes": 4341
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/Conversation Map.html",
+          "state": "missing",
+          "sha": "bd15fc0640a4ae143c9f2b283d068f9ac4317337",
+          "bytes": 85674
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/app.js",
+          "state": "different",
+          "sha": "072686c20f63c83e958bb2db4933d67ffe02f071",
+          "bytes": 55975
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/data.js",
+          "state": "different",
+          "sha": "a165fb1dff635ea412e08ff9a5571696c8791b8c",
+          "bytes": 3189628
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/data.json",
+          "state": "different",
+          "sha": "bed7a8060a41d4f917197bfac185a31f7b262a62",
+          "bytes": 3946733
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/index.html",
+          "state": "different",
+          "sha": "22a7fde36d4fc166fa8ffe89d0f99b88b5d5796c",
+          "bytes": 112910
+        },
+        {
+          "path": "Tools/BesiegedEventMap/dist/style.css",
+          "state": "different",
+          "sha": "e63c0eff78fdf7dd458bf618b78e9ce9cb136b5e",
+          "bytes": 21498
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Brutal Murder chain.json",
+          "state": "missing",
+          "sha": "3f6fd0f787859a622a49c91b98c7e5ce66f8d526",
+          "bytes": 15835
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Brutal Murder design.txt",
+          "state": "missing",
+          "sha": "d9e7970746c5f175c4e073a3d68fe1a670db26fc",
+          "bytes": 9374
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique event source audit.json",
+          "state": "missing",
+          "sha": "213a28bfe93e46b16439e79e2123ef3f5d6d402e",
+          "bytes": 34859
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique event source audit.txt",
+          "state": "missing",
+          "sha": "be79fb177d5a6c663e49556c9559f1a66c535542",
+          "bytes": 5813
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique expansion handover.txt",
+          "state": "missing",
+          "sha": "2df2b0b63729941f2e14af60c151905a6dd3ed5a",
+          "bytes": 3665
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique stories expansion.json",
+          "state": "missing",
+          "sha": "0348facda81c9a8cbf7f2ef4807dc9fe5de6460a",
+          "bytes": 72122
+        },
+        {
+          "path": "Tools/BesiegedEventMap/planning/next-campaign/Unique stories for review.txt",
+          "state": "missing",
+          "sha": "6f6a0eb00991cd35f95a9e1b938595faf756106b",
+          "bytes": 41759
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/apply_emperor.py",
+          "state": "missing",
+          "sha": "34a11c003171dff749fd078edbb5e8a3580189e7",
+          "bytes": 2954
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/apply_murder.py",
+          "state": "missing",
+          "sha": "6a6bf96098f2a0c8b49864a391f81289f2c86c3b",
+          "bytes": 3875
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/build_conversations.py",
+          "state": "missing",
+          "sha": "0573b064965719369086b0244c1fe92dd9fb6d60",
+          "bytes": 12049
+        },
+        {
+          "path": "Tools/BesiegedEventMap/scripts/next_campaign_review.py",
+          "state": "different",
+          "sha": "01b9906a32d4b5da8e2c8c75fccc21b68ea5d6f8",
+          "bytes": 9486
+        },
+        {
+          "path": "Tools/BesiegedEventMap/tests/current-flow.test.cjs",
+          "state": "different",
+          "sha": "44561a1596e8528431ef4b38d6f7cb844e4ed16e",
+          "bytes": 7665
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/final-art-handover-20261102",
+      "sha": "e9bacf04ca9c3b19d956419ceeb0d227a29e957e",
+      "base": "28fa420ac58c222574c8f5b3d43cf871543ffb7a",
+      "aheadBehind": "24\t3",
+      "changes": [
+        {
+          "path": "ArtHandover/FinalEventArt/Besieged_art_coverage.csv",
+          "state": "missing",
+          "sha": "d1b4f48f0eebdf19e516737df6aced4162d23a47",
+          "bytes": 43552
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/Besieged_art_manifest.json",
+          "state": "missing",
+          "sha": "11a5eb7491737df73c347a5bdf669a4413d15448",
+          "bytes": 186671
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/README.txt",
+          "state": "missing",
+          "sha": "4b264c39682a46b66ba8dca47131a9806cf6e9ae",
+          "bytes": 2689
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/SHA256SUMS.txt",
+          "state": "missing",
+          "sha": "4c3669770cb61734bd7f46d93a672d284a6494db",
+          "bytes": 14242
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/SOURCE_VERIFICATION.json",
+          "state": "missing",
+          "sha": "a40630816611541444200cc25fcc856fa5b0428a",
+          "bytes": 110038
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/combatAssassin.png",
+          "state": "missing",
+          "sha": "526a2fff03389c21b8662c3b1758220631598b57",
+          "bytes": 2933562
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/courtLady.png",
+          "state": "missing",
+          "sha": "fbe24d82782e54e0d95d4300820859cca8ce62b9",
+          "bytes": 2734879
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/courtLadyLetters.png",
+          "state": "missing",
+          "sha": "ab1a17316ef3f0e58fd3afb0669f8b66b295cd75",
+          "bytes": 2374323
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/courtLadyMarriage.png",
+          "state": "missing",
+          "sha": "6d90a64f678ad707c6b050971b60a2309216352b",
+          "bytes": 2442855
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/foodShortage.png",
+          "state": "missing",
+          "sha": "2dd3af651c4a095bd98669dbbda9718523e62269",
+          "bytes": 2761364
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata26.png",
+          "state": "missing",
+          "sha": "ba3d791ae13d32d3460ec697598e673ebd532684",
+          "bytes": 2635628
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata27.png",
+          "state": "missing",
+          "sha": "8c1331afc0320858c7a77eb5b2480e8df8ef58fa",
+          "bytes": 2453549
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata28.png",
+          "state": "missing",
+          "sha": "e67e32cf1333be8a3916e392f123fcb65b3bb723",
+          "bytes": 3150595
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata29.png",
+          "state": "missing",
+          "sha": "fd6ab78ad82901dd9cfe2ab7f791424750b4b041",
+          "bytes": 2497042
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata30.png",
+          "state": "missing",
+          "sha": "09002a8280e0cf706deb92a9ec6adb32a500491e",
+          "bytes": 2839048
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata31.png",
+          "state": "missing",
+          "sha": "8e8e82361d5d88955815875a5a1904f1a9f4210d",
+          "bytes": 2308768
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/galata32.png",
+          "state": "missing",
+          "sha": "4ee6bdb43b3cda6aabbcbc304ec7f0861de34ddb",
+          "bytes": 2624074
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/giovanniThrone.png",
+          "state": "missing",
+          "sha": "3f52affe918f87cd5a234be875b5797d78a17afc",
+          "bytes": 3015487
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/giovanniWarning.png",
+          "state": "missing",
+          "sha": "f90ef2bdab943be9db41d01163202a483e91c3ca",
+          "bytes": 2676969
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardBrothel.png",
+          "state": "missing",
+          "sha": "8f4926a67ed0f7f88c08ae4d8d69217852826047",
+          "bytes": 2467859
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardCatastrophicStorm.png",
+          "state": "missing",
+          "sha": "5397e6722e83d2eb20a2f65e6b1c00f0682ffbc9",
+          "bytes": 2979015
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardChild.png",
+          "state": "missing",
+          "sha": "777cc59ebf8b4a05360710b070bec0ad39faaa62",
+          "bytes": 2715492
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardCistern.png",
+          "state": "missing",
+          "sha": "2c88ae935f4b51470edfd98d70ddaf3d3e81e9be",
+          "bytes": 2549538
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardCoin.png",
+          "state": "missing",
+          "sha": "859a33b109ad8089c2bea42c8b6da28698b19bed",
+          "bytes": 2416884
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardDead.png",
+          "state": "missing",
+          "sha": "386ff62b97f1bf00225bd126fa2e3801611a5001",
+          "bytes": 3327125
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardFavourite.png",
+          "state": "missing",
+          "sha": "50c5297fa0f5f9a76d26ce6a93e556fa21db682b",
+          "bytes": 2574609
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardGrave.png",
+          "state": "missing",
+          "sha": "314492386f7e09d65c10badd4af6539581e1d791",
+          "bytes": 2603074
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardGrave1.png",
+          "state": "missing",
+          "sha": "9aa744ecf7554ea5ad0f675e4f22ec481b534891",
+          "bytes": 2667442
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardGrave2.png",
+          "state": "missing",
+          "sha": "ae382736f637e2c838389ca241b7be9a871608aa",
+          "bytes": 2537690
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardHead.png",
+          "state": "missing",
+          "sha": "17a65d4be092297e5d8488ccc4e7a6c491ac1775",
+          "bytes": 2736758
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardHorse.png",
+          "state": "missing",
+          "sha": "ef1e37c588df50a575556b901a9562891835b599",
+          "bytes": 3225487
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardItch.png",
+          "state": "missing",
+          "sha": "cd8bb6ab57930e13e9779941f5482bf5734ab61d",
+          "bytes": 2708361
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardMissing.png",
+          "state": "missing",
+          "sha": "04397607ee820079b4ce380e4e76be3301fabe76",
+          "bytes": 2786745
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardMissing1.png",
+          "state": "missing",
+          "sha": "80d82377c514f9a336ac62695de49457dbc7dc05",
+          "bytes": 2345648
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardMissing2.png",
+          "state": "missing",
+          "sha": "1cea738c3ef45762a92d097e0785fe5a6afa5dbc",
+          "bytes": 2986651
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardRats.png",
+          "state": "missing",
+          "sha": "2b791dddd4ef6850413954c032764b9f730c687d",
+          "bytes": 2738790
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardSand.png",
+          "state": "missing",
+          "sha": "08dd3b838e62d955711115a33607b84cf3c7b6bd",
+          "bytes": 2691975
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardSand1.png",
+          "state": "missing",
+          "sha": "b66d1921f358e5d9acdf7b772cf27bab21403dc0",
+          "bytes": 2565299
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardScreams.png",
+          "state": "missing",
+          "sha": "b6d44e8a2a6a30b9af2e251aeecea84649165e96",
+          "bytes": 2584909
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardStorm.png",
+          "state": "missing",
+          "sha": "caeb7ed9f28980b13e6dcf351499b134fb4bee8f",
+          "bytes": 2560875
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/hardWoman.png",
+          "state": "missing",
+          "sha": "802d62894e8acb765987063d876a543678b247ec",
+          "bytes": 2941481
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeBarrel.png",
+          "state": "missing",
+          "sha": "88e017fa5aae759030541de4e32e9fbfa4b438c0",
+          "bytes": 3155181
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeBarrelOwner.png",
+          "state": "missing",
+          "sha": "af79d01b5e7c1c4648f826d93d913553fa3109a9",
+          "bytes": 2353677
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeBread.png",
+          "state": "missing",
+          "sha": "71cf1747787b83a618806cff76886d28a854069d",
+          "bytes": 3066412
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeCandles.png",
+          "state": "missing",
+          "sha": "9fdc267bb7e032a471a7a8a380d8101b49640012",
+          "bytes": 2500449
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeCobbler.png",
+          "state": "missing",
+          "sha": "a6da3cc3c8958bf1378145971810b0f1b6a0fb33",
+          "bytes": 3005986
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeCoin.png",
+          "state": "missing",
+          "sha": "f3c765e02c5aca30f73a31a80299fe279584581a",
+          "bytes": 2249540
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeDrawing.png",
+          "state": "missing",
+          "sha": "ffd3d7b9087de22bd33f1f5cdc25a4329dddabd9",
+          "bytes": 2750003
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeFalseHope.png",
+          "state": "missing",
+          "sha": "17d086bceddcdd1fa8215b40f91a0c3f667b62af",
+          "bytes": 2898464
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeGenerosity.png",
+          "state": "missing",
+          "sha": "ce237481d2ee8da27956569ebd99edcab093dc14",
+          "bytes": 2952231
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeGhost.png",
+          "state": "missing",
+          "sha": "743a34d0ade53132dced600496618e57d616d219",
+          "bytes": 2686622
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeGunner.png",
+          "state": "missing",
+          "sha": "ace8a73c6e9ae93b2636689568c2191e161c5862",
+          "bytes": 2990432
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeGunnerResult.png",
+          "state": "missing",
+          "sha": "4f68803fa716f2184b48bacbf48158776d58e84e",
+          "bytes": 2785665
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeInsult.png",
+          "state": "missing",
+          "sha": "ea976fb3ba80c850211e7a1a68c747fcf0538932",
+          "bytes": 2863550
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeLights.png",
+          "state": "missing",
+          "sha": "e78d86a3e1220ca5a2ecb02005a81824557d757e",
+          "bytes": 2350436
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeMercenaries.png",
+          "state": "missing",
+          "sha": "f91459db09122d19a166a29f774080abfb4b3701",
+          "bytes": 2744090
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeMorea.png",
+          "state": "missing",
+          "sha": "dc388c7d5fc3fd02b6a3ff7aaee310f82948bdbf",
+          "bytes": 3085169
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeOnions.png",
+          "state": "missing",
+          "sha": "9dcc85e5327da2e4c5a73e5d8f0cb0d5c0e37052",
+          "bytes": 2855657
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeQuiet.png",
+          "state": "missing",
+          "sha": "e0cef1bd59edf7f1ba2cb11fbb93f4c228559bb1",
+          "bytes": 2693621
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeRefugees.png",
+          "state": "missing",
+          "sha": "bf46cc1cdd02bfbfc34491eac273f56d428db0b5",
+          "bytes": 3019072
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeRoof.png",
+          "state": "missing",
+          "sha": "fe479717e0bdba73eaf3d4f93037d5b60b63f628",
+          "bytes": 2514333
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeSails.png",
+          "state": "missing",
+          "sha": "cb6caa8a0fa48f272788cfbdf2b0bdf4a8c31f4f",
+          "bytes": 3074039
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeSaints.png",
+          "state": "missing",
+          "sha": "17c5b137f0c997a61db54ebe3e9e779299388a2a",
+          "bytes": 2815972
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeSong.png",
+          "state": "missing",
+          "sha": "e97d26e8eaff4bc308e8fb472ebd5a4fcd30ca7b",
+          "bytes": 2501288
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeStones.png",
+          "state": "missing",
+          "sha": "81afa55439a2d26e78612ba38aa5dd32e092f6b7",
+          "bytes": 3053699
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeSurprise.png",
+          "state": "missing",
+          "sha": "141e76dab29ab65b25365beb774924b6359406d2",
+          "bytes": 3134997
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeWedding.png",
+          "state": "missing",
+          "sha": "81f7f1476feb70081695a00d423708f3cc37c14d",
+          "bytes": 2936671
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/lifeWell.png",
+          "state": "missing",
+          "sha": "f53ce869aa6e24214d00c1e59663a85e50b08038",
+          "bytes": 3346104
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/politicalDemand.png",
+          "state": "missing",
+          "sha": "0ecbc32aacd45f7ea8c26adcc3ddf194ae4bd735",
+          "bytes": 2618997
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepAdventurers.png",
+          "state": "missing",
+          "sha": "3de46782a007d1e9d7931e4a7315d4eb6e857c1d",
+          "bytes": 2868168
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepFortress.png",
+          "state": "missing",
+          "sha": "881059d092318ad869167e97d11eb3287f27b8d0",
+          "bytes": 3067780
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepGalataGovernor.png",
+          "state": "missing",
+          "sha": "174d9ff4b5ef62c9b3f8f08eb1f5530120574d28",
+          "bytes": 2571867
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepGrain.png",
+          "state": "missing",
+          "sha": "6dfa91c2fbf43e3146f1c28ec4bb81d66cec329d",
+          "bytes": 3005267
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepIntelligence.png",
+          "state": "missing",
+          "sha": "b3562c8ec4d6d16df2151ecc4068f49dbb8591a7",
+          "bytes": 2579929
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepNaval.png",
+          "state": "missing",
+          "sha": "a357a56c6472b5778af4747dc2d01f4487a6f68e",
+          "bytes": 2998647
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/prepScorched.png",
+          "state": "missing",
+          "sha": "24884d07739b6da976271ee5f81d1f13d4d8b6f1",
+          "bytes": 3709984
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random0.png",
+          "state": "missing",
+          "sha": "eabbc2f82acc5c457411e3f67fa30e48c6259759",
+          "bytes": 3103887
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random1.png",
+          "state": "missing",
+          "sha": "5bee948dfedadb438e497690a4741bc2007816e6",
+          "bytes": 3186021
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random10.png",
+          "state": "missing",
+          "sha": "ee767721b442b07b5886848db857024c10f64ebd",
+          "bytes": 3276908
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random11.png",
+          "state": "missing",
+          "sha": "80cd8f2c58ea49d12532da71cf103a96192000e7",
+          "bytes": 2284347
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random12.png",
+          "state": "missing",
+          "sha": "9ca43103af5c575381155aa374f32d7fe66bc80c",
+          "bytes": 2583157
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random13.png",
+          "state": "missing",
+          "sha": "1ff9685bd778b7ec9c5183293e526b9e5045de96",
+          "bytes": 2421731
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random14.png",
+          "state": "missing",
+          "sha": "dd80a57f53b1559a5bc82b2f2e91ff844488e2a0",
+          "bytes": 3136727
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random15.png",
+          "state": "missing",
+          "sha": "f2cfc5e624f3fccc54ee28babd604d509fcc1ed3",
+          "bytes": 2263065
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random16.png",
+          "state": "missing",
+          "sha": "a065220c10055ebbd8741ce2c4ee369b7aae998c",
+          "bytes": 2808521
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random17.png",
+          "state": "missing",
+          "sha": "cac2b339a2138fb1a0565fb6df3470d6e6cb2e22",
+          "bytes": 2921572
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random19.png",
+          "state": "missing",
+          "sha": "c06bfd384986d87a9431cd8879ffcf95bc4c4172",
+          "bytes": 2947249
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random2.png",
+          "state": "missing",
+          "sha": "42d58a05ffc7da84fd0e27b33734c91736d6f316",
+          "bytes": 3275371
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random20.png",
+          "state": "missing",
+          "sha": "b499fe49db0fbfecc9052baf25f88dbb0fdc54ca",
+          "bytes": 2928003
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random21.png",
+          "state": "missing",
+          "sha": "74eb1f1883423ef0f5bd60fd995db350e8c92e73",
+          "bytes": 2443975
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random22.png",
+          "state": "missing",
+          "sha": "001e1b79eb75facc47b3b1c0a9584729c6409bfa",
+          "bytes": 2861759
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random23.png",
+          "state": "missing",
+          "sha": "c2ee202a84ee2afb5c5cf25363d848074d374a08",
+          "bytes": 2938487
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random3.png",
+          "state": "missing",
+          "sha": "f145e35353e46c84b2ceb4da5b9e31d0017a9bbd",
+          "bytes": 3417547
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random4.png",
+          "state": "missing",
+          "sha": "2f455584670512b17c18c56ae8092658f047cb55",
+          "bytes": 2319641
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random5.png",
+          "state": "missing",
+          "sha": "1fa1ca341210cf290dcc254397ad3ce2080ee1be",
+          "bytes": 3342282
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random6.png",
+          "state": "missing",
+          "sha": "e5c8e77c3791a77202e9ab4223d18664854a913b",
+          "bytes": 2492110
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random7.png",
+          "state": "missing",
+          "sha": "4105e0c11103565b5e210c244538ae7502d38f82",
+          "bytes": 3087059
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random8.png",
+          "state": "missing",
+          "sha": "7e98e9b9a20f729394c9d8765b3ef010eec6bbc6",
+          "bytes": 3452113
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random8a.png",
+          "state": "missing",
+          "sha": "ffd1b92b74356afe19d4f87e7d9205a84d5dd7a3",
+          "bytes": 3162272
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/random9.png",
+          "state": "missing",
+          "sha": "96b90d3016c5f04ded2ec071adf437cef179c161",
+          "bytes": 3104432
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/sermonPride.png",
+          "state": "missing",
+          "sha": "f6a4718d2fc6d3d424468c458b817c98e2ece977",
+          "bytes": 2849940
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/shah1.png",
+          "state": "missing",
+          "sha": "18d6a3877d4503b4ac85fe66c4f1855a0f755e62",
+          "bytes": 2528821
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/shah2.png",
+          "state": "missing",
+          "sha": "492f383b0621fa1c756363f4c442be24607b7dc8",
+          "bytes": 2551589
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/shah3.png",
+          "state": "missing",
+          "sha": "ed82934eae9ba0acf2317c234f6be972ef89e889",
+          "bytes": 2317768
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story0.png",
+          "state": "missing",
+          "sha": "927352aa052dcc9f19cce2e57c160c654519a385",
+          "bytes": 2937701
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story1.png",
+          "state": "missing",
+          "sha": "9e48fe619d071d261001e68a80fc01c57c65bcf4",
+          "bytes": 2614331
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story10.png",
+          "state": "missing",
+          "sha": "3d7d9aa57016501d3c73b6d8b3934c9b0aea8638",
+          "bytes": 2891829
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story12.png",
+          "state": "missing",
+          "sha": "917094d0cd4ba52c8c753276e353b0e31acba39e",
+          "bytes": 2766902
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story13.png",
+          "state": "missing",
+          "sha": "f8e7bffce87a5811069a248390103c65b90372bc",
+          "bytes": 2800054
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story14.png",
+          "state": "missing",
+          "sha": "48c12a968faea6595ad52bfb7ab1a5faf0ea8952",
+          "bytes": 2913840
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story15.png",
+          "state": "missing",
+          "sha": "803cc5008ffc1e2bf5b7b2fc11a654c27bbfb8ac",
+          "bytes": 2903018
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story16.png",
+          "state": "missing",
+          "sha": "62fd80b9a1879327cf9c9f45d2fd52af83682f04",
+          "bytes": 3323286
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story17.png",
+          "state": "missing",
+          "sha": "f85f396cae8aeb6ab6103f6e6d04830097a9e6b8",
+          "bytes": 2427823
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story18.png",
+          "state": "missing",
+          "sha": "238f50d19cda6dd838465ec5c8080a16db7a92a3",
+          "bytes": 2756631
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story18b.png",
+          "state": "missing",
+          "sha": "5ca00c45def451644dbec9d2f345960b67327963",
+          "bytes": 3213144
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story19.png",
+          "state": "missing",
+          "sha": "f7f338231951939c20195aa6524e88111a54d154",
+          "bytes": 3036830
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story20.png",
+          "state": "missing",
+          "sha": "6ee591d07b604837976515b332bd25cf7cc9ffee",
+          "bytes": 3334847
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story22.png",
+          "state": "missing",
+          "sha": "e1e830d404803b1e670eb9862a2e5e0e76973fc4",
+          "bytes": 2839684
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story23.png",
+          "state": "missing",
+          "sha": "b2d58b9e31db220b1a08fae5dd2c5c4bb44dc224",
+          "bytes": 3120560
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story3.png",
+          "state": "missing",
+          "sha": "869fc1e2bb413a9b28361af4c489736ca9411885",
+          "bytes": 2700497
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story4.png",
+          "state": "missing",
+          "sha": "ad6154378b0a79b2e87f48371d9e5b13e599055a",
+          "bytes": 2811539
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story5.png",
+          "state": "missing",
+          "sha": "7e943a6c99f2d97ba7b96aea06d8341e48878796",
+          "bytes": 3353877
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story6.png",
+          "state": "missing",
+          "sha": "1ebad915f614aed6697685c53e706ad9fbd0ba81",
+          "bytes": 2580108
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story7.png",
+          "state": "missing",
+          "sha": "f682fe34f0d4eb6523242b293b18a3bf58fd92a7",
+          "bytes": 2617688
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story8.png",
+          "state": "missing",
+          "sha": "5ed657c3391370ce16740fc47886ae8d7aedd3ac",
+          "bytes": 2640219
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/event-covers/story9.png",
+          "state": "missing",
+          "sha": "08e5ea337a3b6182afdd7e85f18bfdff5a4ef98f",
+          "bytes": 2480591
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/archers.png",
+          "state": "missing",
+          "sha": "2e10cf02772a7efbd32b1877f24d78e886ebae00",
+          "bytes": 606677
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/archers.png.meta",
+          "state": "missing",
+          "sha": "b59cfc1a42278ed27b711a62b7443f7588b601ff",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/army-support.png",
+          "state": "missing",
+          "sha": "6c2fc2b5688331e1f99e365e54625b13ac4ddc54",
+          "bytes": 707641
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/army-support.png.meta",
+          "state": "missing",
+          "sha": "3001fdc91c76bc00b174a164a00bc5fa7e290c5c",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/cavalry.png",
+          "state": "missing",
+          "sha": "147cb3c1c9e5ee364201ab6744609c568541bad4",
+          "bytes": 1145037
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/cavalry.png.meta",
+          "state": "missing",
+          "sha": "fef1daf6d2f67378fdf7dfc4d28a6e1b32f3f5e2",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/clergy-support.png",
+          "state": "missing",
+          "sha": "6ac1bdad80530720e828f1c8d5fa06f60bcdfb94",
+          "bytes": 743376
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/clergy-support.png.meta",
+          "state": "missing",
+          "sha": "f5724f9494a38c47e2cb0c222a5372329432074f",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/food.png",
+          "state": "missing",
+          "sha": "2c509935301c7e4739b8457b1ed73189ffcadd0a",
+          "bytes": 896785
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/food.png.meta",
+          "state": "missing",
+          "sha": "2f8f2b2092101d26b74c89aa3c01249d5605c9c5",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/gold.png",
+          "state": "missing",
+          "sha": "5bc9aad831a06fcc8f880164ebb1cee9e85a97e4",
+          "bytes": 1131176
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/gold.png.meta",
+          "state": "missing",
+          "sha": "7cee529fd1c70d9b6c808fac23b78ddb11591182",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/guard.png",
+          "state": "missing",
+          "sha": "be7d708cc1a98d51586c10ae15711aa53f538286",
+          "bytes": 568934
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/guard.png.meta",
+          "state": "missing",
+          "sha": "df25fbc9ce5dc225e20f065e03fc0a0a1bdd61cf",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/health.png",
+          "state": "missing",
+          "sha": "9284bbf19afa4132899693dcc782f4f9caafd68c",
+          "bytes": 934202
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/health.png.meta",
+          "state": "missing",
+          "sha": "9ae17d35dc67f78fbd99ff63ccca04df06a87a3a",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/infantry.png",
+          "state": "missing",
+          "sha": "b789fe97c258cb5a7395511f7c75cd5701dfabc8",
+          "bytes": 580326
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/infantry.png.meta",
+          "state": "missing",
+          "sha": "d14c8628e2709f5d7aa7296154773ae784772e12",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/materials.png",
+          "state": "missing",
+          "sha": "fe1c2383c00b3b411cf91c28dbb94ce822ca468d",
+          "bytes": 1006956
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/materials.png.meta",
+          "state": "missing",
+          "sha": "e179aa2d749709510bf49de606f7bb4575817ab6",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/nobles-support.png",
+          "state": "missing",
+          "sha": "6dcf4c93befad031c00e1e578c00afc1198b5213",
+          "bytes": 835623
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/nobles-support.png.meta",
+          "state": "missing",
+          "sha": "20b7924133928728bbeda2b8cced4cd8bb4f5e74",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/people.png",
+          "state": "missing",
+          "sha": "693feeedc8c5ecb67e4e0da2947ef146a1eeb43e",
+          "bytes": 1120039
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/people.png.meta",
+          "state": "missing",
+          "sha": "c2557e2212fdd924debd0e372a96313c4b6d0e7e",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/public-support.png",
+          "state": "missing",
+          "sha": "5397acf800a36090db3e95c79ea88a02ce84cf74",
+          "bytes": 957679
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/public-support.png.meta",
+          "state": "missing",
+          "sha": "9a9a9673f17a2b4283fc8663b7cfb397d8eca577",
+          "bytes": 2229
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/secrets.png",
+          "state": "missing",
+          "sha": "bc81632ba626f847b91a77952e66518448172ce1",
+          "bytes": 706809
+        },
+        {
+          "path": "ArtHandover/FinalEventArt/stat-icons/secrets.png.meta",
+          "state": "missing",
+          "sha": "3abe571a3094e5ae398043c4fb7baa52c24f29b4",
+          "bytes": 2229
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/menu-stat-icons-20261101",
+      "sha": "b8a3d858bb8b8867940b4a0bb12eebc3f5b8683d",
+      "base": "99d8349567970d7ecbb6cc897818d18874ef867e",
+      "aheadBehind": "39\t1",
+      "changes": [
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats.meta",
+          "state": "identical",
+          "sha": "caed3482bf58a4fa6961f5c4d51b7e9779f90d69",
+          "bytes": 172
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/archers.png",
+          "state": "identical",
+          "sha": "2e10cf02772a7efbd32b1877f24d78e886ebae00",
+          "bytes": 606677
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/archers.png.meta",
+          "state": "identical",
+          "sha": "b59cfc1a42278ed27b711a62b7443f7588b601ff",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/army-support.png",
+          "state": "identical",
+          "sha": "6c2fc2b5688331e1f99e365e54625b13ac4ddc54",
+          "bytes": 707641
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/army-support.png.meta",
+          "state": "identical",
+          "sha": "3001fdc91c76bc00b174a164a00bc5fa7e290c5c",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/cavalry.png",
+          "state": "identical",
+          "sha": "147cb3c1c9e5ee364201ab6744609c568541bad4",
+          "bytes": 1145037
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/cavalry.png.meta",
+          "state": "identical",
+          "sha": "fef1daf6d2f67378fdf7dfc4d28a6e1b32f3f5e2",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/clergy-support.png",
+          "state": "identical",
+          "sha": "6ac1bdad80530720e828f1c8d5fa06f60bcdfb94",
+          "bytes": 743376
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/clergy-support.png.meta",
+          "state": "identical",
+          "sha": "f5724f9494a38c47e2cb0c222a5372329432074f",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/food.png",
+          "state": "identical",
+          "sha": "2c509935301c7e4739b8457b1ed73189ffcadd0a",
+          "bytes": 896785
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/food.png.meta",
+          "state": "identical",
+          "sha": "2f8f2b2092101d26b74c89aa3c01249d5605c9c5",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/gold.png",
+          "state": "identical",
+          "sha": "5bc9aad831a06fcc8f880164ebb1cee9e85a97e4",
+          "bytes": 1131176
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/gold.png.meta",
+          "state": "identical",
+          "sha": "7cee529fd1c70d9b6c808fac23b78ddb11591182",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/guard.png",
+          "state": "identical",
+          "sha": "be7d708cc1a98d51586c10ae15711aa53f538286",
+          "bytes": 568934
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/guard.png.meta",
+          "state": "identical",
+          "sha": "df25fbc9ce5dc225e20f065e03fc0a0a1bdd61cf",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/health.png",
+          "state": "identical",
+          "sha": "9284bbf19afa4132899693dcc782f4f9caafd68c",
+          "bytes": 934202
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/health.png.meta",
+          "state": "identical",
+          "sha": "9ae17d35dc67f78fbd99ff63ccca04df06a87a3a",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/infantry.png",
+          "state": "identical",
+          "sha": "b789fe97c258cb5a7395511f7c75cd5701dfabc8",
+          "bytes": 580326
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/infantry.png.meta",
+          "state": "identical",
+          "sha": "d14c8628e2709f5d7aa7296154773ae784772e12",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/materials.png",
+          "state": "identical",
+          "sha": "fe1c2383c00b3b411cf91c28dbb94ce822ca468d",
+          "bytes": 1006956
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/materials.png.meta",
+          "state": "identical",
+          "sha": "e179aa2d749709510bf49de606f7bb4575817ab6",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/nobles-support.png",
+          "state": "identical",
+          "sha": "6dcf4c93befad031c00e1e578c00afc1198b5213",
+          "bytes": 835623
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/nobles-support.png.meta",
+          "state": "identical",
+          "sha": "20b7924133928728bbeda2b8cced4cd8bb4f5e74",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/people.png",
+          "state": "identical",
+          "sha": "693feeedc8c5ecb67e4e0da2947ef146a1eeb43e",
+          "bytes": 1120039
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/people.png.meta",
+          "state": "identical",
+          "sha": "c2557e2212fdd924debd0e372a96313c4b6d0e7e",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/public-support.png",
+          "state": "identical",
+          "sha": "5397acf800a36090db3e95c79ea88a02ce84cf74",
+          "bytes": 957679
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/public-support.png.meta",
+          "state": "identical",
+          "sha": "9a9a9673f17a2b4283fc8663b7cfb397d8eca577",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/secrets.png",
+          "state": "identical",
+          "sha": "bc81632ba626f847b91a77952e66518448172ce1",
+          "bytes": 706809
+        },
+        {
+          "path": "Assets/Resources/UI/MidnightMosaic/Stats/secrets.png.meta",
+          "state": "identical",
+          "sha": "3abe571a3094e5ae398043c4fb7baa52c24f29b4",
+          "bytes": 2229
+        },
+        {
+          "path": "Assets/Scripts/UI/CampaignStatArt.cs",
+          "state": "identical",
+          "sha": "e45cfba32a309ca29989273b4abb1f3fc258c67d",
+          "bytes": 4665
+        },
+        {
+          "path": "Assets/Scripts/UI/CampaignStatArt.cs.meta",
+          "state": "identical",
+          "sha": "73b400975946cdd7278a07bc7604cf2ebcf64655",
+          "bytes": 243
+        },
+        {
+          "path": "Documentation/Menu-stat-icons-integration.txt",
+          "state": "identical",
+          "sha": "0e84b8047770c67582e1df2d25f22673a45c0481",
+          "bytes": 3530
+        }
+      ]
+    },
+    {
+      "ref": "origin/codex/prototype-first-playtest",
+      "sha": "fc5ad71ac5a69279adaa49cd79a9730def31c04f",
+      "base": "fc5ad71ac5a69279adaa49cd79a9730def31c04f",
+      "aheadBehind": "8\t0",
+      "changes": []
+    },
+    {
+      "ref": "origin/main",
+      "sha": "bf4b76d3f2a71f033f38ac435be62bef1f300f10",
+      "base": "bf4b76d3f2a71f033f38ac435be62bef1f300f10",
+      "aheadBehind": "57\t0",
+      "changes": []
+    }
+  ]
+}

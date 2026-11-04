@@ -126,6 +126,8 @@ public class CampaignHUD : MonoBehaviour
         if (reason == null) return;
 
         if(MehmedAssassination.Victory || reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.") { PreparationCampaign.HonourVictory(); Achievements.Unlock(0); Achievements.Victory(); }
+        bool ionianVictory=MehmedAssassination.Victory || reason=="The Ottoman field army has been destroyed. The siege is broken." || reason=="After 240 days, the Ottoman siege collapses. Constantinople endures.";
+        reason+=IonianDiplomacy.EndingReflection(ionianVictory);
         SaveGames.End("Campaign ended",reason+"\n\nSiege days survived: "+VariableSingleton.CompletedSiegeDays);
         ended = true;
 

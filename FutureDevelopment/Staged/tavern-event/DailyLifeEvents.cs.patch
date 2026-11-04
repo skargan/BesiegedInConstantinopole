@@ -1,0 +1,22 @@
+--- a/Assets/Scripts/DailyLifeEvents.cs
++++ b/Assets/Scripts/DailyLifeEvents.cs
+@@ -6,12 +6,16 @@
+ {
+     public static int I(string key,int fallback=0){try{return VariableSingleton.GetIntVariable(key);}catch(KeyNotFoundException){return fallback;}}
+     static int Day=>TrainingPool.Day(VariableSingleton.GetDate());
+-    public static readonly string[] Roots={"lifeSails","lifeBread","lifeWell","lifeGhost","lifeBarrel","lifeCobbler","lifeDrawing","lifeCandles","lifeCoin","lifeWedding","lifeOnions","lifeQuiet","lifeInsult","lifeStones","lifeSaints","lifeRoof","lifeSong","lifeGenerosity","lifeGunner","lifeLights"};
+-    public static IEnumerable<string> Available(){if(!VariableSingleton.HasSiegeStarted())yield break;foreach(var n in Roots)if(Day>=I("iLifeCooldown"+n)&&(n!="lifeSails"||I("iLifeSailsDue")==0)&&(n!="lifeBarrel"||I("iLifeBarrelDue")==0))yield return n;}
++    public static readonly string[] Roots={"lifeSails","lifeBread","lifeWell","lifeGhost","lifeBarrel","lifeCobbler","lifeDrawing","lifeCandles","lifeCoin","lifeWedding","lifeOnions","lifeQuiet","lifeInsult","lifeStones","lifeSaints","lifeRoof","lifeSong","lifeGenerosity","lifeGunner","lifeLights","lifeTavern"};
++    public static IEnumerable<string> Available(){if(!VariableSingleton.HasSiegeStarted())yield break;foreach(var n in Roots)if(Day>=I("iLifeCooldown"+n)&&(n!="lifeSails"||I("iLifeSailsDue")==0)&&(n!="lifeBarrel"||I("iLifeBarrelDue")==0)&&(n!="lifeTavern"||I("iLifeTavernDue")==0))yield return n;}
+     [YarnCommand("LifeSeen")] public static void Seen(string node)=>VariableSingleton.SetInt("iLifeCooldown"+node,Day+30);
+-    public static string DueNode {get {if(I("iLifeSailsDue")>0&&Day>=I("iLifeSailsDue"))return new[]{"lifeFalseHope","lifeMorea","lifeMercenaries","lifeRefugees"}[I("iLifeSailsResult")];if(I("iLifeBarrelDue")>0&&Day>=I("iLifeBarrelDue"))return "lifeBarrelOwner";if(I("iLifeMentorDue")>0&&Day>=I("iLifeMentorDue"))return "lifeGunnerResult";return null;}}
++    public static string DueNode {get {if(I("iLifeSailsDue")>0&&Day>=I("iLifeSailsDue"))return new[]{"lifeFalseHope","lifeMorea","lifeMercenaries","lifeRefugees"}[I("iLifeSailsResult")];if(I("iLifeBarrelDue")>0&&Day>=I("iLifeBarrelDue"))return "lifeBarrelOwner";if(I("iLifeMentorDue")>0&&Day>=I("iLifeMentorDue"))return "lifeGunnerResult";if(I("iLifeTavernDue")>0&&Day>=I("iLifeTavernDue"))return "lifeTavernPledge";return null;}}
+     public static int SailsOutcome(int roll)=>roll<15?1:roll<30?2:roll<45?3:0;
+     [YarnCommand("LifeSails")] public static void Sails(int announced){VariableSingleton.SetInt("iLifeAnnounced",announced);VariableSingleton.SetInt("iLifeSailsResult",SailsOutcome(Random.Range(0,100)));VariableSingleton.SetInt("iLifeSailsDue",Day+1);if(announced==1)VariableSingleton.ChangePercentFloat("fPeopleRep",.05f);}
++    [YarnCommand("LifeTavernPledge")] public static void TavernPledge(){if(I("iLifeTavernDue")==0)VariableSingleton.SetInt("iLifeTavernDue",Day+1);}
++    // The due flag guards the complete reward, including replay of a restored narrative node.
++    [YarnCommand("LifeTavernPledgeComplete")] public static void CompleteTavernPledge(){if(I("iLifeTavernDue")<=0||Day<I("iLifeTavernDue"))return;VariableSingleton.SetInt("iLifeTavernDue",0);VariableSingleton.ChangeInt("iInfantry",5);VariableSingleton.ChangeInt("iArchers",5);VariableSingleton.ChangePercentFloat("fTroopRep",.01f);}
++    [YarnCommand("LifeTavernPay")] public static void TavernPay(int price)=>VariableSingleton.ChangeInt("iMoney",-System.Math.Min(System.Math.Max(0,I("iMoney")),System.Math.Max(0,price)));
+     [YarnFunction("LifeInt")] public static int Read(string key)=>I(key);
+     [YarnCommand("LifeBarrel")] public static void Barrel(int use){VariableSingleton.SetInt("iLifeBarrelUse",use);VariableSingleton.SetInt("iLifeBarrelDue",Day+3);}
+     // Compatibility entry point for older narrative checkpoints; merchant favour is retired.

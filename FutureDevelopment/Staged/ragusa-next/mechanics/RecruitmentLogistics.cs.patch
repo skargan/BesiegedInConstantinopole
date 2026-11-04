@@ -1,0 +1,11 @@
+--- a/Assets/Scripts/RecruitmentLogistics.cs
++++ b/Assets/Scripts/RecruitmentLogistics.cs
+@@ -22,7 +22,7 @@
+             return Count(count);
+         }
+     }
+-    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted);
++    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted - RagusaDiplomacy.CommittedTroops);
+     public static bool CanRecruit(string unit, int quantity)
+     {
+         if(quantity<=0)return false;

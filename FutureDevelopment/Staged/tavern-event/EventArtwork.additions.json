@@ -1,0 +1,16 @@
+[
+  {
+    "node": "lifeTavern",
+    "path": "EventArt/Covers/lifeTavern",
+    "source": "User supplied codex-clipboard-291a0024-2029-41d5-92de-32cdd4de7b06.png",
+    "fit": "contain",
+    "focusY": 0.5
+  },
+  {
+    "node": "lifeTavernPledge",
+    "path": "EventArt/Covers/lifeTavern",
+    "source": "User supplied codex-clipboard-291a0024-2029-41d5-92de-32cdd4de7b06.png",
+    "fit": "contain",
+    "focusY": 0.5
+  }
+]

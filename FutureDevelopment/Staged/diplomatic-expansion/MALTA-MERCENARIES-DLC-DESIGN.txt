@@ -1,0 +1,102 @@
+MALTA MERCENARY BROKERS — DEFERRED DLC DESIGN
+Updated 4 November 2026 by ConstantineX
+Status: design only. No gameplay, assets, save schema or balancing implementation authorised in this discussion.
+This specification supersedes the earlier Malta-only contract assumptions in implementation-brief.md. It does not silently replace the separate Circassian trading-outpost proposal.
+
+CONFIRMED DIRECTION
+Malta is a convenient broker encounter, not a claim that it historically housed a mercenary exchange. Companies depart from regional ports. Distinct fictional captains represent historically grounded military traditions. Minor chronological latitude is acceptable; do not resurrect dead captains or companies ruined within the preceding five years. Every named historical exception needs individual verification.
+Monthly offers partially rotate. Most companies contain 150–500 combatants. At least three offers in the full roster include their own fighting ships. Sprite silhouettes, troop composition, price, journey and contractual reliability distinguish them. On arrival troops merge into existing categories. No separate tactical company simulation, wages, captain court system or ethnic combat bonuses.
+
+PORTS AND TRANSPORT
+Use Caffa for Black Sea recruitment, Venice for northern Italian/Alpine/Balkan recruitment, Malta for central/western Mediterranean recruitment, and Famagusta in Cyprus for eastern Mediterranean recruitment. These are departure hubs; quoted duration includes assembly and transfers before the visible sea voyage as appropriate. A Georgian company's Caffa departure is a muster abstraction, not a claim that Caffa is in Georgia.
+Terms: Chartered passage / Company flotilla. Flotilla contracts list actual warships and their crews; ordinary hired transports do not become player warships. Earlier guaranteed naval arrival was superseded by the user's explicit 99% weather baseline and route hazards.
+CONFIRMED: maximum advertised baseline journey is75 days. Storms and other incidents may extend the actual arrival beyond75 days. Display the revised expected arrival date after a delay; do not silently cap the incident's duration.
+
+PROPOSED ROSTER — FICTIONAL COMPANIES, NOT CLAIMED HISTORICAL UNITS
+I = infantry; A = archers (including crossbowmen); C = cavalry; S = warships.
+Prices are proposed multipliers of the comparable domestic package at signing, rounded up to an even gold total for equal instalments. Domestic package must include replacement value of hulls, equipment and crew; no double-counting crew as listed fighting troops. Absolute prices require a later balance pass against the live price catalogue. Multipliers are proposals, not tested balance.
+Name / tradition | Package | Departure / baseline days | Price multiplier | Visual and gameplay identity
+The Emir's Exiles / Circassian Mamluk retainers | 120 C, 80 A | Famagusta / 32 | 1.45 | Small, expensive mounted household; mail, lamellar and composite bows. Fictional exiles, not the Mamluk state's army for sale.
+The Red Oars / Catalan maritime company | 180 I, 80 A, 2 S | Malta / 30 | 1.30 | Boarding infantry, crossbows, red cloth and shipboard equipment. Not the fourteenth-century Grand Catalan Company surviving unchanged.
+The Messina Brotherhood / Sicilian company | 220 I, 60 A, 2 S | Malta / 26 | 1.25 | Practical ship soldiers, mixed armour, spears; relatively quick reinforcement with hulls.
+The White Cross / Savoyard company | 100 C, 160 I | Venice / 45 | 1.35 | Alpine men-at-arms and retainers, white-cross standard; avoid duplicating a historical household without evidence.
+The Steppe Falcons / Crimean Tatar company | 150 C, 150 A | Caffa / 20 | 1.20 | Mounted bowmen and horse retainers; user's example has 20-point unreliability, attached to this captain's record rather than ethnicity.
+The Ashen Standard / Turkmen company | 180 C, 80 A | Famagusta / 35 | 1.20 | Mobile horsemen, bows, varied felt caps and mail; a displaced captain's following, not a whole polity.
+The Tunisian Crescent / Tunisian corsair company | 140 I, 80 A, 3 S | Malta / 38 | 1.25 | Strong naval component, boarding tools, diverse seafarers; no later Barbary-famous captain or later Ottoman uniform.
+The Mountain Spurs / Balkan cavalry | 200 C, 50 I | Venice / 32 | 1.25 | Light horsemen with lances, shields and mixed local equipment; mercenary troop categories remain unchanged.
+The Candian Bow / Cretan archers | 260 A, 40 I | Venice / 28 | 1.30 | Archer-heavy wall reinforcement, restrained island dress; bow emphasis is a design choice, not proof of an exact historical company. Venice is the contracted muster hub.
+The Crossbows of San Giorgio / Ligurian crossbowmen | 300 A, 80 I | Malta / 36 | 1.35 | Crossbows, pavises and sallets; archers category mechanically. No automatic connection to Giustiniani's existing contingent.
+The Alpine Pike / Swiss infantry | 400 I | Venice / 50 | 1.40 | Dense pikes, halberds, restrained livery; no later Landsknecht costume. No new pike subsystem or automatic elite multiplier.
+Company of the Grey Lance / condottieri A | 160 C, 100 I | Venice / 42 | 1.45 | Prestigious mounted retinue, polished harness, costly and compact.
+Company of the Broken Bridge / condottieri B | 250 I, 150 A | Venice / 34 | 1.25 | Practical siege veterans, battered pavises and working kit; balanced wall contingent.
+Company of the Black Purse / condottieri C | 120 I, 80 A, 100 C | Malta / 40 | 1.20 | Cheaper mixed contract, conspicuous captain and uneven equipment; proposed greater contractual risk.
+The Iberian Lances / Georgian company | 120 C, 100 I, 80 A | Caffa / 30 | 1.35 | Georgian/Iberian naming explained to avoid confusion with Spain; mail, lances and a cross banner. Fictional following, not a verified named 1453 mercenary company.
+
+FIVE ADDITIONAL CANDIDATES
+The Bohemian Fellowship | 280 I, 120 A | Venice / 48 | 1.30 | Veteran infantry and crossbows. Hussite-era inspiration; do not introduce a separate wagon-fort mechanic.
+The Adriatic Brotherhood | 120 I, 80 A, 2 S | Venice / 24 | 1.30 | Fourth naval option: mixed Adriatic mariners, visibly distinct from Tunisian and Catalan crews.
+The Moreote Exiles | 180 I, 60 A, 60 C | Malta / 22 | Negotiated | Refugees and displaced retainers; sanctuary bargain. Malta staging is fictional. Do not recruit an intact historically ruined named band.
+The Rhodian Detachment | 120 I, 60 A, 1 S | Famagusta / 18 | Negotiated | Hospitaller sergeants, sailors and a few brothers; politically authorised aid, not an order freely sold by brokers. Avoid duplicating an existing diplomatic aid shipment.
+The Master's Train | 100 I, 10 engineers, 2 cannons | Venice / 45 | 1.50 | Gun founders, guards and specialists; full crew and equipment included. Requires checking specialist/cannon delivery accounting before implementation.
+
+NAMING AND HISTORICAL GUARDRAILS
+These names and packages are suggestions; no captain biographies are asserted. Attach fictional captain names in the next approved writing pass. Historical traditions are not evidence that these exact formations existed or could be hired in 1453. Circassian/Mamluk, Savoyard and other evidence from Cyprus in the later 1450s/1460s can support regional context, not an undocumented 1453 named contract. Swiss foreign service is attested in the period but that does not establish a Swiss company at Constantinople.
+Sources consulted for context: Nicholas Coureas, King James II of Cyprus and His Multicultural Mercenaries (in Mercenaries and Crusaders volume, https://real.mtak.hu/196159/1/Mercenaries_0206_v%C3%A9gleges.pdf); Historical Dictionary of Switzerland, Fremde Dienste, https://hls-dhs-dss.ch/de/articles/008608/2023-10-31/ ; Treccani, Jacopo Piccinino, https://www.treccani.it/enciclopedia/jacopo-piccinino_%28Dizionario-Biografico%29/ . Some contextual evidence falls after the permitted five-year latitude and must not be used to transplant its named actors without further verification.
+
+PAYMENT AND ARRIVAL
+Pay half the agreed price at signing and the other half at arrival. Display both instalments and included troops/hulls before confirmation. No recurring wages proposed. A company that is turned away for refusal/inability to pay joins the Ottomans: add its land combatants as generic Ottoman infantry. Do not continue its voyage or award player troops. Fate of its warships/engineers/cannons requires a decision; recommendation is to transfer only explicitly approved asset types, never infer that everything becomes infantry.
+Proposed default: lost or cancelled company forfeits deposit, cancels the unpaid balance, and grants no refund unless a specific outcome says otherwise. Surcharges use the original total price and do not replace the original arrival balance.
+
+ONE PERSISTED VOYAGE OUTCOME
+At signing, make one seeded, persisted roll assigning either uninterrupted arrival or exactly one scheduled incident. Schedule the incident during its voyage, persist its date and display the moving map token until resolution. No reroll on reopen, load, delay or scene change. The displayed probability is Arrival without incident, not probability of eventually receiving troops.
+Use additive mutually exclusive percentage-point buckets. Do not independently roll weather, unreliability and patrols: that would contradict the user's arithmetic and allow multiple incidents.
+Chartered passage weather: 2% catastrophic storm, 3% blown off course (+10 days), 95% before other risks.
+Company flotilla weather: 1% catastrophic storm, 99% before other risks.
+Unreliability: company-specific U percentage points, split among eligible incident types. Proposed equal weights initially; configurable weights later without a trait system. Do not classify whole ethnicities as unreliable.
+Open-sea Byzantine dominance: 0 patrol risk. Contested: 3% destruction in naval engagement plus 3% evasion delay. Ottoman dominance: 6% each. Destruction sinks 1–3 actual Ottoman ships, capped at ships available. Evasion delays 8–16 days inclusive.
+User's Crimean example U=20: uninterrupted probability 95-20=75%; contested 69%; Ottoman dominance 63%, BEFORE any separate closed-strait rule.
+CONFIRMED: closed Bosphorus adds50% interception destruction for chartered passage,15% for company flotillas, STACKING with ordinary patrol risk. Crimean example with U20 under Ottoman dominance:100-5-20-12-50=13% arrival without incident. Event: Ambush in the Straits. The company is intercepted and destroyed attempting to run the Bosphorus blockade. Do not name Straitcutter or assume a specific surviving fortress: closure may arise from batteries, blockade or another cause. Future art: dramatic shore cannon fire across ships in the passage. This is a separate exclusive bucket in the single voyage roll, not a second independent check.
+At signing freeze the risk table used for the roll. Later sea-control changes must not reroll existing contracts. A reactive protection system would require a separately approved design.
+Validate each configured probability table totals <=100. Do not silently normalise malformed design values.
+
+INCIDENTS
+Horrible storm: destroy company, remove token, no troops or hulls delivered.
+Blown off course: chartered companies only, +10 days.
+Unreliable mercenaries — Greedy: pay additional20% of original total; voyage resumes. Refuse: company disappears.
+Unreliable mercenaries — Traitors: Sultan buys the company; remove token and add land combatants to Ottoman infantry once. No additional journey simulation.
+Unreliable mercenaries — Cowards: company abandons contract and disappears.
+Unreliable mercenaries — A disputed command: captain overthrown/killed, son and supporters survive. Spend one camp agent to remove usurper, or pay an additional50% original total to new captain, or abandon contract. CONFIRMED: agent is spent permanently, removed from camp intelligence immediately and never returned. No separate assassination minigame. Show permanent cost before confirmation; agent option unavailable at zero agents, with pay/abandon still available.
+Unreliable mercenaries — An unexpected engagement: +15 days. Narrative sequence: drunken coastal quarrel kills3 guards; transports leave; second-in-command marries a local lord's daughter; feud kills17 levies and rival lord; patron gains half a village,50 sheep and6 households; new passage finally arranged. These are flavour facts only, not player loot, Ottoman casualties or new tracked resources.
+Ottoman fleet — Evading patrols: +8–16 days.
+Ottoman fleet — An unequal battle: company destroyed; Ottoman ships lost1–3 capped at fleet strength. Art/text should show escorts or fighting ships, not unarmed horse transports casually defeating warships.
+Only one scheduled incident per contract. Resolving a recoverable incident permits eventual normal arrival and its outstanding balance; no second random roll.
+
+NON-CASH OFFERS — PROPOSALS, NOT CONFIRMED NUMBERS
+Use existing support, diplomacy, population, food, materials and journal fields; no promise/debt simulator.
+Sanctuary: Moreote exiles offer300 troops for entry with100 dependants; proposed noble support-3, population+400 at arrival, troop+300 once, all included once in daily food demand. No gold or cheap surplus population as free income. Final-payment default event does not apply.
+Prize rights: corsairs offer a reduced gold contract plus noble support-3 on signature for recognised prize rights; record a story flag. Ships and troops are specified. Do not promise a share of future captures unless that payout is actually implemented. Alternative: exchange half of the next successful coastal-raid gold report, but this requires one extra persisted entitlement; omit for simplest version.
+Diplomatic backing: allied detachment requires an existing relationship threshold and a specific existing diplomatic choice, potentially with a stated relations cost toward a rival. Record public backing. No new diplomatic currency or guaranteed future-war promise.
+Amnesty: a displaced rebel band offers troops for a pardon and noble support-5; journal flag. Do not make an active province's entire rebel force simultaneously available in the city.
+Supplies in lieu of coin: company accepts a priced package of existing provisions/materials. Explicit costs before signing. Particularly interesting only when the player has genuine surplus; never hide food consumption inside a narrative bargain.
+Recommend at most one non-cash offer among five available listings. Terms are fulfilled at signature/arrival, never unbounded future obligations. Alternative terms need their own contract type and payment rules; avoid applying 50/50 cash default punishment to zero-cash offers.
+
+BROKER INTRODUCTION — PROPOSED PLAYER TEXT
+Soldiers cross the sea as readily as merchants, though their cargo is less peaceable. Here at Malta, brokers carry letters from captains seeking their next employer: horsemen gathering at Caffa, crossbowmen awaiting passage in Venice, shipmasters taking on men in Cyprus. Some promise swords for gold; others ask for sanctuary or a share of what they capture. Examine their terms carefully. A captain's signature is worth something. His arrival is worth rather more.
+
+MINIMAL IMPLEMENTATION BOUNDARY — FUTURE DLC, NOT NOW
+Keep a company definition (identity, portrait/sprite, troop/cargo package, origin, quoted time, price and risk parameters) separate from its persisted contract (deposit, remaining payment, selected outcome/date, journey state and resolution flags). States: offered, contracted, travelling, awaiting decision, awaiting settlement, delivered/lost/defected/cancelled. Settlement must be idempotent. Catalogue and outcomes data-driven.
+Existing source inspected: NavalState currently exposes binary Uncontested/Contested; three-way dominance requires a shared definition. AidRouting currently indexes diplomatic allies; mercenary voyages require independent shipment IDs even if sharing the map renderer and clocks. Ship casualties already touch SpecialistPersonnel, so crew accounting cannot be bypassed.
+Need: common campaign clock; deterministic saved RNG outcome; reusable journey rendering; support/resource changes; existing troop/population integration; explicit foreign reinforcement entry on Ottoman defection. No new base-game military unit category required. Imported soldiers and sailors must count in population/food correctly without drawing from domestic recruitment manpower or being counted twice. No duplicate hulls or crews when same figure appears in an offer and shipment.
+DLC can be deferred without blocking the base game. Before implementation decide how saves with outstanding DLC contracts behave if DLC is disabled. Do not rename/base-break existing aid IDs. Do not retroactively alter base diplomacy or the separate Circassian outpost contract without approval.
+
+OPEN DECISIONS
+1 RESOLVED: closed Bosphorus risk stacks with patrol risk; generic blockade destruction narrative.
+2 RESOLVED: the leadership-dispute agent is spent permanently.
+3 RESOLVED:75-day maximum baseline; incidents may extend the actual journey.
+4 Definition of Byzantine/contested/Ottoman sea dominance; proposed contested band +/-25% fleet advantage, unapproved.
+5 Naval/specialist assets on defection: fate not defined by user's infantry-only simplification.
+6 Final company prices, reliability weights and non-cash numeric terms are proposals requiring balance approval.
+7 Baseline source-port timing vs visible embarkation timing must be shown honestly if some quoted duration represents muster.
+
+NEXT STEP
+User selects/cuts roster, answers route/agent/timing questions, approves contract rules. Then bounded implementation planning and tests; no code before that approval.

@@ -1,0 +1,7 @@
+--- a/Assets/Scripts/CouncilDiplomacyUI.cs
++++ b/Assets/Scripts/CouncilDiplomacyUI.cs
+@@ -60,3 +60,4 @@
+     {
+         if(index<0||index>=CountryDiplomacy.Definitions.Length){DiplomaticRelations();return;}
++        if(CountryDiplomacy.Definitions[index].Id=="ragusa"){RagusanCourt();return;}
+         var d=CountryDiplomacy.Definitions[index];var ally=CouncilActions.Allies[index];

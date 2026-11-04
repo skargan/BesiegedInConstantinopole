@@ -1,0 +1,43 @@
+CANDAR BACKEND RECONCILIATION — VERSION 38 STAGING
+4 November 2026. Owner: JohanX / tavern_finish.
+
+SCOPE / OWNERSHIP
+This package owns only candar-next/mechanics. Nothing in consolidation, candar-work or a live checkout was edited. No Unity launch. Main owns current OttomanDirector/shared food code; use the two narrow patches rather than overwriting those files. No old-save compatibility work or expanded rules have been added.
+
+IMPORT
+CandarDiplomacy.cs -> Assets/Scripts/CandarDiplomacy.cs.
+OttomanDirector.cs.patch -> Assets/Scripts/OttomanDirector.cs. One appended planner clause selects a due, still-legal Candar order AFTER current fallen-wall, shared-food and general-delay priorities.
+AI.cs.patch -> Assets/Scripts/AI/AI.cs. One interception before OttomanSiegeOperations.Execute, AFTER current supply resolution, broad delay and immediate surprise assault consequences.
+Exact original file hashes in baseline.json; originals and review copies in baseline/ and updated/. stage.py regenerates only this package. Do not import the test files or generated AI wrapper into Assets.
+
+WHAT WAS REUSED
+Existing CandarDiplomacy's numerical rules, public UI API, campaign integer state and random draws are preserved. No additional ordinary country definition is needed or wanted. Candar is a separate special UI route, not an envoy/aid/alliance court. Current DiplomaticPowers contains Candar only as a target province reference, not a Powers Id. Parent/UI worker owns navigation and remarks.
+
+CORRECTIONS
+1. The old deferred-order hook ran before every normal planner priority. It could force a deferred bombardment despite a fallen wall or new supply emergency. The new planner clause follows all three critical priorities and keeps the current SharedProvisions.Camp/OttomanDemand logic intact.
+2. A deferred operation is checked for a valid enum, eligibility and present legality before reuse. A completed moat or other obsolete target no longer forces an invalid action; its already-used postponement is cleared.
+3. NavalAssault, OverlandShips and ChainBattery are excluded from the paid land disruption. So are Resupply, AwaitOrders, Reinforce and mandatory Advance. Other tactical land operations can be held for one calendar day. Daily calendar, supply resolution and the separate naval systems are untouched.
+4. Pending deferrals are not silently consumed by emergency or naval operations. A due valid order resumes after an intervening mandatory emergency permits it; the purchase does not add another delay day.
+
+PUBLIC API (UNCHANGED)
+Unlocked, StraitOpen, OrhanInService, UnlockReason; OpenNegotiations(out string).
+RansomReason, RansomAvailableDate; Ransom(out string).
+SecretNames, SecretsRemaining, SecretReason; PurchaseSecret(out string).
+DisruptionReason, DisruptionAvailableDate, DelayPending; Disrupt(out string).
+Eligible(Operation), DeferredOperation(out Operation), DelayOperation(Operation,out string).
+RollRansom(Func<int,int,int>) uses Unity's minimum-inclusive / maximum-exclusive RNG contract.
+
+EXACT RULES
+Opening requires bStraitsOpen and CourtRoster.InService(3), the existing Prince Orhan slot. Opening changes only iDiplomacyCandarUnlocked, with no claim, rebellion, ordinary envoy, aid or alliance. Requirements apply to opening negotiations, as briefed; no invented later transaction gate.
+Ransom:3,000 gold; once every7 calendar days. Every row draws independently. Infantry20–60, archers15–30 and total population150–300 always arrive. Cavalry, engineers and monks each independently50percent for1–5. Envoy5percent for1. Guards10percent for1–3. All ranges inclusive. The total population already includes every volunteer; it is not added again for military/specialist entries. Only specialists/envoy/guards are additionally committed in SpecialistPersonnel because regular troops already appear in serving manpower.
+Secrets:2,000 gold each; three distinct finite pieces, chosen without replacement, each adds1 available secret. No payment/RNG when unavailable.
+Disruption:2,500 gold,7-day cooldown and only one unconsumed purchase. It postpones one eligible land tactical order until the next calendar day. No calendar pause, supply pause or sea-system pause. Resolved attacks are not reversed.
+All changes use existing iDiplomacyCandar... campaign integers. No transient purchase flags or independent random generator.
+
+VERIFICATION
+71 focused standalone checks pass. Compiled/executed actual staged CandarDiplomacy, complete patched current OttomanDirector and the exact patched AI.TakeAIAction method extracted into a narrow test shell. Unity/resource services and concrete operation effects are stubbed; the scheduler ordering itself is actual code.
+Checks cover opening prerequisites, no extra politics, unaffordable/locked transaction idempotence, exact payment, independent inclusive rows and exact probability thresholds, total population, specialist commitments, overflow preflight,7-day replenishment, three finite secrets, no stacked disruption, once-per-turn execution, next-calendar-day pending-order restoration, supply call before tactical interception, critical planner priorities, independent naval execution, forced surprise consequence, obsolete target handling, preparation protection and persisted integer restoration.
+Two scheduler patches pass git apply --check against current consolidation. This is not a Unity playtest or a whole-game build. Full project compilation, live presentation and actual save-file round trips remain integration-owner checks.
+
+FREEZE
+This is a bounded backend package. Do not copy old candar-work/OttomanDirector.cs or AI.cs wholesale: those predate main's shared-food changes. Preserve the new current source and apply only these hooks.

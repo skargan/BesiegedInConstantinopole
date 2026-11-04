@@ -1,0 +1,17 @@
+--- a/Assets/Resources/Content/CourtFigures.json
++++ b/Assets/Resources/Content/CourtFigures.json
+@@ -4,10 +4,10 @@
+       "id": 0,
+       "sourceWidth": 1024,
+       "sourceHeight": 1536,
+-      "x": 160,
+-      "y": 56,
+-      "width": 643,
+-      "height": 1472
++      "x": 141,
++      "y": 10,
++      "width": 687,
++      "height": 1510
+     },
+     {
+       "id": 1,

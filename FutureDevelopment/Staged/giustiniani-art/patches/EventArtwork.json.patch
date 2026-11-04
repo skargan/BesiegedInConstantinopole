@@ -1,0 +1,11 @@
+--- a/Assets/Resources/Content/EventArtwork.json
++++ b/Assets/Resources/Content/EventArtwork.json
+@@ -172,7 +172,7 @@
+     {
+       "node": "story5",
+       "path": "EventArt/Covers/story5",
+-      "source": "Giustiniani's Arrival at the Golden Horn-5.png",
++      "source": "codex-clipboard-2b430e2a-2ae7-4821-92d2-da6d6f9d0421.png (user-supplied Giustiniani arrival, 3 November 2026)",
+       "fit": "contain",
+       "focusY": 0.5
+     },

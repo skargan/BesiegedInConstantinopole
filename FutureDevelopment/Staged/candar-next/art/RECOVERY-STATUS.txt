@@ -1,0 +1,21 @@
+CANDAR ART RECOVERY — 4 November 2026
+
+Status: original generated candar-open and candar-closed paintings not recovered.
+No image has been regenerated, cropped from a screenshot, or substituted.
+
+Evidence and bounded search:
+- candar-work/Documentation/Candar-integration.md and CANDAR-COORDINATION.txt state that two scenes were generated but installation was rejected by a transfer script size review.
+- The prior working session records the same missing-assets condition and supplies no retrievable original scene mapping.
+- The current chat inventory and local session title index did not expose WORK designer OrbanX.
+- The separate ChatGPT conversation titled Candar (6ae9bf1f-e108-83ed-a943-131372bf1a0b) did not identify these clean original paintings; it is not the OrbanX working chat.
+
+Integration consequence:
+Retain the existing diplomatic background fallback. The UI recovery hook accepts Resources/Content/CandarHoverShape.json, with points in normalized Unity bottom-left coordinates on the fitted OPEN painting. Do not invent a ruler hover silhouette or claim verified alignment until the exact painting is available.
+
+Pending deliverables when originals are recovered:
+- Assets/Resources/UI/MidnightMosaic/Scenes/candar-open.png
+- Assets/Resources/UI/MidnightMosaic/Scenes/candar-closed.png
+- Texture importer metadata; original-file hashes and provenance.
+- Verified Ismail Bey hover polygon for the open scene.
+
+No live project, game source, UI or backend files were changed during this recovery task.

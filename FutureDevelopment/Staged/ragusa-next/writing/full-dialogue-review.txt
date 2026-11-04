@@ -1,0 +1,141 @@
+RAGUSA — FULL DIALOGUE REVIEW
+Version 38 staging; 4 November 2026.
+All spoken dialogue below is original game fiction.
+
+CHARACTERS
+
+Johannes Gazulus — Diplomat and scholar
+A Dominican astronomer employed on Ragusan diplomatic business. Gazulus measures his words with the care he gives his instruments. He can make a refusal sound final, then quietly identify the small, lawful opening through which something useful might still pass.
+
+Benedetto Cotrugli — Merchant and commercial intermediary
+A Ragusan merchant with business across the Mediterranean and close ties to Naples. Cotrugli likes an agreement with names, dates and a captain responsible for the cargo. He enjoys mocking official caution, but relies upon it more than he admits.
+
+REALM AND ITS INTERESTS
+
+Ragusa holds a narrow stretch of the Adriatic coast, its harbour opening onto routes far greater than its territory. The Republic acknowledges the Hungarian crown while governing its own affairs through its patrician councils. Its rector serves for only a month; an agreement with Ragusa must therefore rest on more than one man's goodwill.
+
+In 1452–53 it is already at war with Stjepan Vukčić Kosača, whose forces have contested its lands around Konavle. Constantinople's danger is understood here, but the councillors have households and exposed possessions of their own. They will count what helping you might invite upon them.
+
+For the Emperor, Ragusa's value lies in merchants, credit, shipping contacts and news carried along commercial routes. An official refusal may still leave room for a private agreement. Johannes Gazulus speaks with the caution of a diplomat entrusted with another man's instructions; Benedetto Cotrugli looks for a bargain that can actually be carried out. Neither can make the Senate's promises merely by standing beside its harbour.
+
+HOVER REMARKS
+
+JOHANNES GAZULUS
+01. Benedetto has asked whether the stars favour the voyage. He has already hired the ship, so I imagine they had better.
+
+02. You may trust his arithmetic. It is the little sentence beneath the arithmetic that requires attention.
+
+03. He speaks as though bread travels from a field to a hungry man by the unaided grace of merchants. Still, it does arrive.
+
+04. Benedetto is absent? Then we may discuss a matter without discovering that someone has already purchased it.
+
+05. I have told him that a promise is binding even when no notary hears it. He asked whether the notary's fee could then be omitted.
+
+06. He knows a captain for every difficulty. Ask who pays the captain if the difficulty becomes Turkish.
+
+07. Benedetto says I take too long to answer. He has never had to bring a sentence home through three hostile courts.
+
+08. His letters from Naples are useful. Read the account of the harbour before the account of his reception at court.
+
+09. The Senate has given me precise instructions. Benedetto will be pleased; precise instructions have edges one can work around.
+
+10. Do not mistake his bargaining for indifference. He dislikes waste, and a city full of people is a considerable thing to waste.
+
+11. Yesterday he called our caution expensive. I asked him to price another war. He has been quieter this morning.
+
+12. If he offers to settle the matter privately, ask what he intends to say when it becomes public. He usually has an answer.
+
+BENEDETTO COTRUGLI
+01. Master Gazulus is still considering your request. A promising sign: he has stopped explaining why it cannot be considered.
+
+02. Ask him what the Senate permits. Then ask me what the ship can carry. Those are separate questions; we prefer to keep them so.
+
+03. He told me the heavens do not revolve around trade. I agreed. It saved a morning, and neither of us lost a customer.
+
+04. When Gazulus says 'regrettably', stay seated. There are usually another two paragraphs before you learn what he has actually refused.
+
+05. He knows kings, cardinals and the distances between stars. I know a warehouse with a sound roof. Today you may need us both.
+
+06. He has made me remove the word 'guaranteed'. Fair enough. I had not yet spoken to the captain.
+
+07. Gazulus thinks a seal improves a letter. I find it improves the price of carrying it through a blockade.
+
+08. Our learned friend worries what will be written about us. I worry who will still be here to read it.
+
+09. He has found a lawful objection. Give him a moment; he takes almost as much pleasure in finding a lawful way round it.
+
+10. Do listen when he mentions the war at home. I complain about cautious men, but I do not offer to bury their sons.
+
+11. He calls this a charitable undertaking. I have agreed to leave that heading in the accounts, provided the expenses may follow it.
+
+12. You will get no rash promise from Gazulus. That is inconvenient at the table and comforting once you have left it.
+
+
+MEETINGS AND OUTCOMES
+Food agreement: 2,500 gold; 500 provisions after the proposed fourteen-day voyage. Official denial always accompanies dispatch, with no acceptance roll.
+War: day 90 victory credits 10,000 gold now; troops return fourteen days later. Day 104 is the return event, not an extra award.
+
+
+GAZULUS OPENING
+Johannes Gazulus
+Gazulus finishes a line before rising. He leaves a strip of paper across the page, weighs it down with a brass instrument, and offers you the chair by the window. 'The Senate has read your appeal, Majesty. I have been asked to convey its profound concern.' He waits until the clerk has withdrawn. 'Now we may discuss what that concern might bear.'
+
+COTRUGLI OPENING
+Benedetto Cotrugli
+Cotrugli is arguing with a man whose sleeves smell of wet rope. He settles the dispute by counting out three coins, then turns to you. 'A damaged cask. According to the porter it was damaged before he touched it; according to the owner it became damaged upon being touched. They will both be happy enough by supper. Have you come with a letter for the Republic, or a cargo that needs finding?'
+
+GAZULUS OFFICIAL REFUSAL
+Johannes Gazulus
+'We have fields in Konavle which their owners cannot safely reach. The Senate will not promise you a war while it is occupied with its own.' Gazulus lays down the refusal with the seal towards you. 'I cannot change the answer by making it less plain. But a merchant's lawful cargo is another matter. If you intend to speak with Benedetto, do so before his ship leaves.'
+
+COTRUGLI PRIVATE OFFER
+Benedetto Cotrugli
+'I cannot pledge Ragusa,' Cotrugli says. 'You would be buying something I do not own.' He takes a clean sheet and rules it into columns. 'I can ask which merchants have goods, which captains will take them, and what they require against the danger. There will be names on this paper. If any man fails you, you will at least know which name to curse.'
+
+CARGO AGREED
+Benedetto Cotrugli
+Cotrugli reads the terms aloud, including the part everyone hoped he would overlook. Gazulus corrects one word concerning the Republic; Cotrugli corrects the freight. At last the merchant folds the paper. 'The captain will receive his instructions. Pray for a fair passage, Majesty. I have allowed for several difficulties, but I should prefer not to pay for all of them.'
+
+CHAIR GAZULUS
+Johannes Gazulus
+This month Gazulus has the chair. He has moved the accounts aside to make room for his instructions. Cotrugli, standing beside the window, points out that the accounts were also instructions. Gazulus invites you to sit before they pursue the distinction.
+
+CHAIR COTRUGLI
+Benedetto Cotrugli
+Cotrugli has taken the chair and brought the table closer to the light. Gazulus remains within reach of the correspondence. 'A temporary arrangement,' the scholar says. 'Naturally,' replies Cotrugli. 'Almost everything profitable is.'
+
+FOOD DENIAL GAZULUS
+Johannes Gazulus
+'The Republic cannot imperil its relations with the Sultan by supplying Constantinople.' Gazulus gives the sentence its full weight, then puts the sealed answer aside. Your payment is entered in a merchant's account. 'There is, however, a captain leaving for Albania. Your harbourmaster should make him welcome if his business brings him further east.'
+
+FOOD DENIAL COTRUGLI
+Benedetto Cotrugli
+'Ragusa must decline,' Cotrugli says, signing the receipt for your money. He notices your expression. 'That is the Republic's answer. This is a purchase. An Albanian captain will attend to it, and I strongly advise against asking him why his cook speaks like my cousin.'
+
+FOOD ALBANIAN ARRIVAL
+The harbourmaster
+A vessel from Albania unloads five hundred measures of provisions. Its captain is unusually anxious to establish that he has never met a Ragusan councillor. The harbourmaster hears him out while the porters count the sacks. At the bottom of the manifest, in a familiar hand, someone has written: 'Please acknowledge safe receipt. Privately.'
+
+WAR CONTRACT GAZULUS
+Johannes Gazulus
+Gazulus reads the terms back to you before sealing them. 'You are sending men whom your own walls may need. I shall not insult you by pretending the decision is small.' He checks the rolls against the agreement. Cotrugli has already summoned the clerk who will arrange their passage. For once, neither man has anything to add.
+
+WAR CONTRACT COTRUGLI
+Benedetto Cotrugli
+Cotrugli turns the agreement so you can read it in the light. 'The service, the reward and the return passage are all here. I prefer an argument before a signature.' When you have signed, he sets the troop rolls beside the contract. Gazulus asks for a second copy to be made for the captain.
+
+WAR DAY90 VICTORY
+Ragusan dispatch
+The dispatch carries good news and an order for payment. Your contingent has helped Ragusa prevail. The promised ten thousand gold is credited to your treasury; the soldiers are still abroad, awaiting the passage home. Gazulus's letter names the men commended by their officers. Cotrugli's addition is shorter: 'Their return has been arranged. Expect them in a fortnight.'
+
+WAR DAY90 DEFEAT
+Ragusan dispatch
+The first page describes positions abandoned and orders overtaken by events. The second gives the names. Your contingent has not brought Ragusa the victory it sought. The returning men remain abroad while passage is arranged. 'A fortnight,' Cotrugli writes. Below it, Gazulus has added: 'Their officers will give you a fuller account when they reach you.'
+
+WAR DAY104 VICTORY RETURN
+The returning contingent
+The transports enter the harbour with your men aboard. Their officers come ashore first, carrying the rolls and the Ragusan letters of commendation. The soldiers have been paid and have opinions about the wine. By evening they are back on the City's strength, telling their comrades how the fighting went.
+
+WAR DAY104 DEFEAT RETURN
+The returning contingent
+Your men come ashore without a welcome procession. Their captain presents the rolls, then asks to speak where he cannot be overheard. There will be time to examine the orders and to decide where the fault lay. For now, those who have returned are entered back on the City's strength.

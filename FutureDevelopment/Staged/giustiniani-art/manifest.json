@@ -1,0 +1,148 @@
+{
+  "releaseTarget": "Version38",
+  "baselineCheckout": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\consolidation",
+  "liveReferenceCheckout": "C:\\Users\\Dainius\\Documents\\Codex\\Besieged-release18",
+  "date": "2026-11-03",
+  "characterId": 0,
+  "arrivalNode": "story5",
+  "assets": [
+    {
+      "role": "full_sprite",
+      "source": "C:\\Users\\Dainius\\AppData\\Local\\Temp\\codex-clipboard-00abfb2b-baaa-46ba-a723-c9855b5e4ede.png",
+      "destination": "Assets/Resources/UI/Identity/CourtFigures/0.png",
+      "sha256": "ee3d938a6f0900a25fff4e7f50e3fd42d9e78b16f607ac6925578e2987e322b7",
+      "bytes": 1430459,
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "originalBytesPreserved": true,
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "bboxAlpha16TopLeftExclusive": [
+        141,
+        16,
+        828,
+        1526
+      ],
+      "spriteRectBottomLeftXYWH": [
+        141,
+        10,
+        687,
+        1510
+      ],
+      "metaPolicy": "preserve existing GUID and importer byte-for-byte"
+    },
+    {
+      "role": "arrival",
+      "source": "C:\\Users\\Dainius\\AppData\\Local\\Temp\\codex-clipboard-2b430e2a-2ae7-4821-92d2-da6d6f9d0421.png",
+      "destination": "Assets/Resources/EventArt/Covers/story5.png",
+      "sha256": "c9475447502fc929d3f339b4282213d01e9ac3d64a9f6743641d2604ddf72b51",
+      "bytes": 3365178,
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "originalBytesPreserved": true,
+      "metaPolicy": "preserve existing GUID and importer byte-for-byte"
+    },
+    {
+      "role": "portrait",
+      "source": "C:\\Users\\Dainius\\AppData\\Local\\Temp\\codex-clipboard-1268fa78-3910-4869-babc-36709ad6439a.png",
+      "destination": "Assets/Resources/UI/Identity/Characters/0.png",
+      "sha256": "07ad223453ed898822347e60b2745efdf3a3ff6341e85d37fae1e70a4bf5f416",
+      "bytes": 2663235,
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "originalBytesPreserved": true,
+      "metaPolicy": "new standalone Texture2D; no mipmaps, no compression, clamp, max size 2048"
+    }
+  ],
+  "portraitViewUV": [
+    0,
+    0,
+    0.6666666666666666,
+    1
+  ],
+  "oldFigure": {
+    "id": 0,
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "x": 160,
+    "y": 56,
+    "width": 643,
+    "height": 1472
+  },
+  "newFigure": {
+    "id": 0,
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "x": 141,
+    "y": 10,
+    "width": 687,
+    "height": 1510
+  },
+  "oldArrivalEntry": {
+    "node": "story5",
+    "path": "EventArt/Covers/story5",
+    "source": "Giustiniani's Arrival at the Golden Horn-5.png",
+    "fit": "contain",
+    "focusY": 0.5
+  },
+  "newArrivalEntry": {
+    "node": "story5",
+    "path": "EventArt/Covers/story5",
+    "source": "codex-clipboard-2b430e2a-2ae7-4821-92d2-da6d6f9d0421.png (user-supplied Giustiniani arrival, 3 November 2026)",
+    "fit": "contain",
+    "focusY": 0.5
+  },
+  "baselineFiles": [
+    {
+      "path": "Assets/Resources/Content/CourtFigures.json",
+      "sha256": "7f3aac135da8aa9b54a194772aff31bb020ee3d357aa6a5fb31f20d421cd490c",
+      "liveSha256": "7f3aac135da8aa9b54a194772aff31bb020ee3d357aa6a5fb31f20d421cd490c"
+    },
+    {
+      "path": "Assets/Resources/Content/EventArtwork.json",
+      "sha256": "19771af46e92a027df6817a503e87a205a71e804de45f679c4cfb611ac5696fd",
+      "liveSha256": "19771af46e92a027df6817a503e87a205a71e804de45f679c4cfb611ac5696fd"
+    },
+    {
+      "path": "Assets/Resources/EventArt/Covers/story5.png",
+      "sha256": "2013351c5eddaaebc3ef3bb5e217928ed4dbba8a21d2501772a43184f77bdc03",
+      "liveSha256": "2013351c5eddaaebc3ef3bb5e217928ed4dbba8a21d2501772a43184f77bdc03"
+    },
+    {
+      "path": "Assets/Resources/EventArt/Covers/story5.png.meta",
+      "sha256": "36fc1ff62d33082310b40464229ca4873451fdf1ee7ed5ce86e71f3c9dae864b",
+      "liveSha256": "36fc1ff62d33082310b40464229ca4873451fdf1ee7ed5ce86e71f3c9dae864b"
+    },
+    {
+      "path": "Assets/Resources/UI/Identity/CourtFigures/0.png",
+      "sha256": "60a94cd82db4bd2e6e4c0d5ce2d42150cf0c5b89e68272ab3be29c0e0cbf7a6a",
+      "liveSha256": "60a94cd82db4bd2e6e4c0d5ce2d42150cf0c5b89e68272ab3be29c0e0cbf7a6a"
+    },
+    {
+      "path": "Assets/Resources/UI/Identity/CourtFigures/0.png.meta",
+      "sha256": "8838f0ff8c51cec85177e7a73fcd72054e4dcaa849fd147b7e843163101919ae",
+      "liveSha256": "8838f0ff8c51cec85177e7a73fcd72054e4dcaa849fd147b7e843163101919ae"
+    },
+    {
+      "path": "Assets/Scripts/CharacterPortraits.cs",
+      "sha256": "c681e130311077fbbb7c020c6762b40e52e5c30518c116708f7988a98af9a08c",
+      "liveSha256": "c681e130311077fbbb7c020c6762b40e52e5c30518c116708f7988a98af9a08c"
+    }
+  ],
+  "noChangeNeeded": [
+    "PalaceFigureArt.cs reads the existing ID-0 rectangle from CourtFigures.json; no code patch required.",
+    "Other eight atlas portraits and the shared atlas bitmap remain unchanged.",
+    "Arrival event ID, choices and effects remain unchanged."
+  ]
+}
