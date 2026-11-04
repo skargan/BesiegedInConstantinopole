@@ -1,0 +1,1 @@
+TECHNOLOGY_DESK_CHECKS 11277 passed; catalogue selection, affordability, artwork, navigation, new-campaign split and saved allocation.

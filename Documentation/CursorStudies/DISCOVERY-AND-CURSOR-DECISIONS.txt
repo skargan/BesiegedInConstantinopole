@@ -1,0 +1,15 @@
+This is ConstantineX, 4 November 2026. BLUF: technology-room discoveries approved; cursor designs being selected before final assets and reusable dragging cursor are installed.
+
+Confirmed discovery rules:
+- Letter, treasure and skull are independent; completed discoveries persist once per campaign.
+- Treasure: 2,500 gold and one secret. Bird letter: one secret. Alchemy completion: one secret.
+- Alchemy: six sequential interactions, 2–3-second audio/lighting, no cost or failure; unfinished progress resets on leaving screen or after 60 seconds without alchemy interaction. Completed reward never resets.
+- Alchemical Genius is a discovery achievement eligible in Normal and Ironman. Campaign-performance achievements remain Ironman-only. Development tests unlock neither. Use the same career/Steam bridge, not a second achievement store.
+- Hover-only clues. Later alchemy steps do not respond before unlock.
+- Bronze pull-ring: horizontal drag rail, can stop anywhere; click switches sides. Panel blocks underlying object clicks. Cursor becomes matching gripping hand while dragging and returns on release/cancel/closing screen; reusable interaction state.
+- Skull is a fossil interpreted as a dragon, with Columns of Gediminas carving (not a generic Viking rune). No confirmation of literal magic. Journal: Dragon skull discovered.
+- Art correction: remove all minarets from Constantinople/Hagia Sophia and surrounding countryside depictions in this game's pre-conquest setting. Preserve composition. Correct parchment perspective only if quality improves. Clarify tube from still to ornate alchemical receiving chalice.
+- Audio register required: grinding herbs, pouring, ignition, glass/metal chime, bubbling, angelic choir, imagined creature growl, coins; licence/source/attribution and reusable IDs. No audio sourced yet.
+- Reward floaters: diagonal upward-right gold numbers; blue secrets with existing icon. Click result persists three seconds.
+
+Cursor deliverable: 20 alternatives, each paired pointing/gripping, numbered 01–20 over four sheets. Selection boards only; final transparent sprites, hotspots and actual-size validation follow selection. Current game cursor remains unchanged.

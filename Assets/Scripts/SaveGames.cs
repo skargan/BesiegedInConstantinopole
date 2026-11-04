@@ -57,6 +57,7 @@ public static class SaveGames {
     public static bool CanCheckpointCouncil=>VariableSingleton.IsInitialized&&!Terminal&&Phase=="council"&&PhasedAssaultUI.Current==null&&AssaultDuelUI.Current==null&&LadderDefenceUI.Current==null&&UnityEngine.Object.FindObjectOfType<ManagerUI>(true)!=null&&UnityEngine.Object.FindObjectOfType<EventUI>()==null&&UnityEngine.Object.FindObjectOfType<RestUI>()==null&&UnityEngine.Object.FindObjectOfType<AssaultUI>()==null;
     public static bool CanManualSave=>CanCheckpointCouncil&&!Ironman;
     public static bool AchievementEligible=>VariableSingleton.IsInitialized&&Ironman&&!Terminal&&!Automated&&(PhasedAssaultUI.Current==null||!PhasedAssaultUI.Current.Battle.Practice)&&!AssaultPractice.Active;
+    public static bool DiscoveryAchievementEligible=>VariableSingleton.IsInitialized&&!Terminal&&!Automated&&(PhasedAssaultUI.Current==null||!PhasedAssaultUI.Current.Battle.Practice)&&!AssaultPractice.Active;
     public static void PrepareNew(bool ironman){RequestedFile=null;RequestedIronman=ironman;NewRequested=true;}
     public static void BeginNew(){Ironman=NewRequested&&RequestedIronman;Terminal=false;CampaignId=Guid.NewGuid().ToString("N");Sequence=0;Phase="council";PendingResume=null;NewRequested=false;LastError="";VariableSingleton.LastCheckpointTurn=-1;}
     public static string Hash(VariableSingleton.CampaignSave data){using(var sha=SHA256.Create())return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(JsonUtility.ToJson(data)))).Replace("-","");}

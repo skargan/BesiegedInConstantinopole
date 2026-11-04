@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-// Extra edge light for the shared mosaic buttons; captions and click targets stay unchanged.
+// Warm side lanterns (approved concept B); centre, captions and click targets stay unchanged.
 public sealed class ImperialButtonLight : MaskableGraphic, IPointerEnterHandler, IPointerExitHandler
 {
     Selectable owner;bool hovered,selected;float amount;
@@ -22,15 +22,23 @@ public sealed class ImperialButtonLight : MaskableGraphic, IPointerEnterHandler,
     void Update(){float target=(hovered||selected)&&owner!=null&&owner.IsInteractable()?1:0;float next=Mathf.MoveTowards(amount,target,Time.unscaledDeltaTime/ .12f);if(next!=amount){amount=next;SetVerticesDirty();}}
     protected override void OnPopulateMesh(VertexHelper vh)
     {
-        vh.Clear();if(amount<=0)return;var r=rectTransform.rect;float width=Mathf.Min(r.width*.22f,70);
-        for(int side=0;side<2;side++)for(int row=0;row<4;row++){
-            float outer=side==0?r.xMin:r.xMax,inner=outer+(side==0?width:-width);int start=vh.currentVertCount;
-            float y0=Mathf.Lerp(r.yMin,r.yMax,row/4f),y1=Mathf.Lerp(r.yMin,r.yMax,(row+1)/4f);
-            float fade0=row==0?0:1,fade1=row==3?0:1;
-            var low=new Color(1,.91f,.70f,.10f*amount*fade0);var high=new Color(1,.91f,.70f,.10f*amount*fade1);var clear=new Color(1,.91f,.70f,0);
-            vh.AddVert(new Vector2(outer,y0),low,Vector2.zero);vh.AddVert(new Vector2(inner,y0),clear,Vector2.zero);
-            vh.AddVert(new Vector2(inner,y1),clear,Vector2.zero);vh.AddVert(new Vector2(outer,y1),high,Vector2.zero);
-            vh.AddTriangle(start,start+1,start+2);vh.AddTriangle(start,start+2,start+3);
+        vh.Clear();if(amount<=0)return;var r=rectTransform.rect;float width=Mathf.Min(r.width*.24f,110);
+        const int columns=12,rows=8;
+        for(int side=0;side<2;side++){
+            int start=vh.currentVertCount;
+            for(int row=0;row<=rows;row++)for(int column=0;column<=columns;column++){
+                float u=(float)column/columns,v=(float)row/rows;
+                // Rounded pools of amber light fade completely before reaching the caption centre.
+                float horizontal=Mathf.Pow(1-u,2)*Mathf.Exp(-2*u*u);
+                float vertical=Mathf.Pow(Mathf.Sin(v*Mathf.PI),1.4f);
+                var tint=new Color(1f,.72f,.30f,.34f*amount*horizontal*vertical);
+                float x=side==0?r.xMin+u*width:r.xMax-u*width;
+                vh.AddVert(new Vector2(x,Mathf.Lerp(r.yMin,r.yMax,v)),tint,Vector2.zero);
+            }
+            for(int row=0;row<rows;row++)for(int column=0;column<columns;column++){
+                int a=start+row*(columns+1)+column,b=a+1,c=a+columns+2,d=a+columns+1;
+                vh.AddTriangle(a,b,c);vh.AddTriangle(a,c,d);
+            }
         }
     }
 }

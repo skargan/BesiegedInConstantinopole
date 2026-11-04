@@ -1,0 +1,7 @@
+4 November 2026 — ConstantineX
+Technology discoveries complete in private preview.
+Implemented: nine painting-aligned hotspots; six-step experiment, 60-second idle/leave reset; independent letter/skull/treasure; once-per-campaign saved rewards and four journal entries; discovery achievements in Normal/Ironman, no test unlocks; draggable/click-toggle bronze ring; realistic cursor14 point/grip; eight sourced sound clips; floating resource rewards; corrected room artwork; research affordability refresh after discoveries.
+Verification: Unity build success/exit0. Exported-player DiscoveryCapture: 208 checks passed, covering ordered steps, busy guard, no repeat rewards, archive read/load, journal persistence, eligibility in both modes, idle/leave reset, cursor grip/release, click/drag/clamp, actual raycast occlusion at four resolutions, loaded sound clips and text fit. Screens reviewed at 1280x720 and 1600x900; captures also cover1920x1200 and2560x1080. Technology catalogue regression previously passed11277 checks.
+Audio mix is provisional; runtime loading/duration and settings connection checked, no claim of acoustic listening QA. Credits/licences and adapted growl ship in StreamingAssets/Credits.
+Private build: Builds/TechnologyPreview/Besieged.exe. Not a new desktop/public release. JohanX owns pending map work; do not include unverified map edits in a release.
+Word coordination rendering is deferred to the next publication; current implementation status is in this checkpoint and the coordination source.

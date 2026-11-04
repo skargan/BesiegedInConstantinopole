@@ -28,7 +28,8 @@ public class Settings : MonoBehaviour
     System.Collections.IEnumerator ApplyDisplay(bool enabled){
         int w=desktopWidth>0?desktopWidth:1920,h=desktopHeight>0?desktopHeight:1080;
         Screen.SetResolution(enabled?w:Mathf.Min(1600,Mathf.RoundToInt(w*.85f)),enabled?h:Mathf.Min(900,Mathf.RoundToInt(h*.85f)),enabled?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed);
-        yield return null;yield return null;Screen.fullScreen=enabled;yield return null;AudioSettingsUI.RefreshDisplay();displayChange=null;
+        yield return null;yield return null;
+        Canvas.ForceUpdateCanvases();AudioSettingsUI.RefreshDisplay();displayChange=null;
     }
     void Update(){if(Input.GetKeyDown(KeyCode.F11)||(Input.GetKeyDown(KeyCode.Return)&&(Input.GetKey(KeyCode.LeftAlt)||Input.GetKey(KeyCode.RightAlt))))SetFullscreen(!Screen.fullScreen);}
     private void OnValidate() { ApplyVolume(); }
@@ -42,10 +43,17 @@ public class Settings : MonoBehaviour
         MusicVolume=PlayerPrefs.GetFloat("Besieged.MusicVolume",MusicVolume);
         // Explicit capture/window arguments take precedence over saved display preferences.
         var args=System.Environment.GetCommandLineArgs();
-        if(!args.Contains("-besieged-capture")&&!args.Contains("-screen-fullscreen"))
-            Screen.fullScreenMode=PlayerPrefs.GetInt("Besieged.Fullscreen",1)==1?FullScreenMode.FullScreenWindow:FullScreenMode.Windowed;
+        if(!args.Contains("-besieged-capture")&&!args.Contains("-screen-fullscreen")&&!args.Contains("-screen-width")&&!args.Contains("-screen-height"))
+            displayChange=StartCoroutine(InitialDisplay());
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += ConnectSettings;
+    }
+    System.Collections.IEnumerator InitialDisplay()
+    {
+        // Let the native window initialise before selecting its render resolution.
+        // Mode alone can stretch a remembered low-resolution backbuffer to desktop size.
+        yield return null;
+        yield return ApplyDisplay(PlayerPrefs.GetInt("Besieged.Fullscreen",1)==1);
     }
     private void OnDestroy() { SceneManager.sceneLoaded -= ConnectSettings; }
     private void ConnectSettings(Scene scene, LoadSceneMode mode)

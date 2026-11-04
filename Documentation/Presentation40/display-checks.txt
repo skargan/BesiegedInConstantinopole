@@ -1,0 +1,4 @@
+PASS
+Startup: 2560x1440 / desktop 2560x1440; native fullscreen=True
+Windowed dimensions correct=True
+Fullscreen restoration correct=True

@@ -12,9 +12,11 @@ public partial class CouncilUI
         SceneBackdrop.Apply(screen,"technologies",1f); // Keep the courier and pigeon in view on ultrawide screens.
         foreach(Transform child in screen.transform)
             if(child.name!="Scene artwork"&&child.name!="Imperial goldwork")child.gameObject.SetActive(false);
+        TechnologyDiscoveryRoom.Attach(screen);
         var desk=CampaignHUD.Panel(screen.transform,"Technology desk",new Vector2(.505f,.025f),new Vector2(.985f,.975f));
         ImperialTheme.Panel(desk,false);
-        MedicalText(desk.transform,"TECHNOLOGIES",new Vector2(.025f,.91f),new Vector2(.63f,.985f),30);
+
+        MedicalText(desk.transform,"TECHNOLOGIES",new Vector2(.025f,.91f),new Vector2(.59f,.985f),30);
         TechnologySecretsCounter.Attach(desk.transform);
         var counter=desk.transform.Find("Available research secrets").GetComponent<RectTransform>();
         counter.anchorMin=new Vector2(.68f,.895f);counter.anchorMax=new Vector2(.975f,.985f);
@@ -37,29 +39,43 @@ public partial class CouncilUI
             if(active)label.color=new Color(.62f,.82f,.67f);
             if(i==selectedTechnology){button.GetComponent<Image>().color=new Color(.28f,.22f,.10f);label.color=ImperialTheme.Gold;}
         }
-        var detail=CampaignHUD.Panel(desk.transform,"Selected technology",new Vector2(.385f,.19f),new Vector2(.975f,.88f));
+        var detail=CampaignHUD.Panel(desk.transform,"Selected technology",new Vector2(.385f,.34f),new Vector2(.975f,.88f));
         ImperialTheme.Panel(detail,false);
         var tech=TechnologySystem.All[selectedTechnology];bool unlocked=VariableSingleton.GetBoolVariable(tech.Key);
-        MedicalText(detail.transform,tech.Name,new Vector2(.04f,.885f),new Vector2(.96f,.985f),28,TextAlignmentOptions.Center);
-        TechnologyArtwork.Attach(detail.transform,tech.Key,new Vector2(.035f,.49f),new Vector2(.965f,.88f));
-        var description=MedicalText(detail.transform,tech.Effect+"\n\n<color=#B8CFDA><i>"+tech.History+"</i></color>",new Vector2(.045f,.16f),new Vector2(.955f,.48f),22);
+        MedicalText(detail.transform,tech.Name,new Vector2(.04f,.85f),new Vector2(.96f,.985f),28,TextAlignmentOptions.Center);
+        TechnologyArtwork.Attach(detail.transform,tech.Key,new Vector2(.035f,.025f),new Vector2(.965f,.84f));
+        var description=MedicalText(desk.transform,tech.Effect+"\n\n<color=#B8CFDA><i>"+tech.History+"</i></color>",new Vector2(.395f,.115f),new Vector2(.965f,.33f),22);
         description.name="Technology description";description.fontSizeMin=18;
         int choice=selectedTechnology;bool submitted=false;
         string caption=unlocked?"Active":CouncilActions.Int("iSecrets")<tech.Cost?"Requires "+tech.Cost+" secrets":"Research · "+tech.Cost+" secrets";
-        var research=CampaignHUD.MakeTurnButton(detail.transform,caption,new Vector2(.06f,.025f),new Vector2(.94f,.14f),()=>{
+        var research=CampaignHUD.MakeTurnButton(desk.transform,caption,new Vector2(.66f,.025f),new Vector2(.975f,.095f),()=>{
             if(submitted)return;submitted=true;
             bool ok=TechnologySystem.Unlock(choice,out var report);Finish(ok,report);
             if(!ok)submitted=false;
         });
         research.name="Research selected technology";research.interactable=!unlocked&&CouncilActions.Int("iSecrets")>=tech.Cost;ImperialTheme.Button(research);
-        var summary=MedicalText(desk.transform,MonasticResearch.ResearchMonks+" monks researching · +"+MonasticResearch.DailyProgress+" progress/day\n"+MonasticResearch.Progress+" / "+MonasticResearch.Rules.ProgressPerSecret+" toward the next secret",new Vector2(.025f,.105f),new Vector2(.63f,.18f),20);
+        TechnologyResearchAvailability.Attach(research,choice);
+        var summary=MedicalText(desk.transform,MonasticResearch.ResearchMonks+" monks researching\n+"+MonasticResearch.DailyProgress+"/day · "+MonasticResearch.Progress+"/"+MonasticResearch.Rules.ProgressPerSecret+" next secret",new Vector2(.025f,.105f),new Vector2(.365f,.18f),20);
         summary.name="Technology monastery summary";
-        var monastery=CampaignHUD.MakeButton(desk.transform,"Monasteries",new Vector2(.66f,.105f),new Vector2(.975f,.18f),()=>{
+        var monastery=CampaignHUD.MakeButton(desk.transform,"Monasteries",new Vector2(.025f,.025f),new Vector2(.325f,.095f),()=>{
             Infirmary();ControlSingleton.Instance.ReturnAction=Technologies;
         });ImperialTheme.Button(monastery);monastery.name="Technology monasteries";
-        var back=CampaignHUD.MakeButton(desk.transform,"Return",new Vector2(.25f,.025f),new Vector2(.75f,.085f),()=>ControlSingleton.Instance.GoBack());
+        var back=CampaignHUD.MakeButton(desk.transform,"Return",new Vector2(.35f,.025f),new Vector2(.635f,.095f),()=>ControlSingleton.Instance.GoBack());
         ImperialTheme.Button(back);back.name="Technology return";
+        TechnologyPanelRail.Attach((RectTransform)desk.transform);
         // Retain a visible error surface for a balance change between opening and confirming.
         notice=MedicalText(screen.transform,"",new Vector2(.025f,.025f),new Vector2(.425f,.12f),23);
+    }
+}
+
+// Discoveries can change affordability while the desk remains open.
+public sealed class TechnologyResearchAvailability:MonoBehaviour
+{
+    Button button;int index,lastSecrets=int.MinValue;bool lastUnlocked;
+    public static void Attach(Button button,int index){var view=button.gameObject.AddComponent<TechnologyResearchAvailability>();view.button=button;view.index=index;view.Update();}
+    void Update(){if(!VariableSingleton.IsInitialized)return;var tech=TechnologySystem.All[index];int secrets=CouncilActions.Int("iSecrets");bool unlocked=VariableSingleton.GetBoolVariable(tech.Key);
+        if(secrets==lastSecrets&&unlocked==lastUnlocked)return;lastSecrets=secrets;lastUnlocked=unlocked;
+        button.interactable=!unlocked&&secrets>=tech.Cost;
+        button.GetComponentInChildren<TMP_Text>().text=unlocked?"Active":secrets<tech.Cost?"Requires "+tech.Cost+" secrets":"Research · "+tech.Cost+" secrets";
     }
 }

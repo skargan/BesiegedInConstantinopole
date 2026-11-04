@@ -1,0 +1,74 @@
+[
+  {
+    "key": "grind",
+    "creator": "qubodup",
+    "url": "https://opengameart.org/content/20-rustles-dry-leaves",
+    "licence": "CC0-1.0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "rustle04.flac; first 2.5 seconds; leaf texture stands in for grinding herbs; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "ba81b93a4af97aa1c5207981129e691ed0e31168e26bdf4a7ef8b1faa25f2346"
+  },
+  {
+    "key": "pour",
+    "creator": "erxer1",
+    "url": "https://opengameart.org/content/water-flowing-sound",
+    "licence": "CC-BY-3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "water_0.ogg; 5.0–7.5 seconds; flowing water used for pouring; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "8fdfba3112ff1448ec8bfa02a9c725a95d3e5eeb746728ef856af7305f0ca0a7"
+  },
+  {
+    "key": "fire",
+    "creator": "spookymodem",
+    "url": "https://opengameart.org/content/torch-fire-spell",
+    "licence": "CC-BY-3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "Waving Torch.wav; 0.15–2.65 seconds; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "12b55ee2559d1bc6e112bd9b25b50c1f5d633d6b937b12597235ba55d69bd030"
+  },
+  {
+    "key": "bell",
+    "creator": "Brandon75689 (submitted by HaelDB)",
+    "url": "https://opengameart.org/content/point-bell",
+    "licence": "CC0-1.0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "sd_0.wav; complete sound; CC0 option selected from dual licensing; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "32a05dd64ed6cc468b8561d287968d9f807e5208aaa25d37a29f7ee917465c9e"
+  },
+  {
+    "key": "boil",
+    "creator": "TinyWorlds",
+    "url": "https://opengameart.org/content/boiling-water-loops",
+    "licence": "CC0-1.0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "cooking_without_cover_01_0.ogg; 2.0–4.5 seconds; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "6e1b8e9fb64cde659f02e5c5282751f25d46b37700ff1092d86f46c7f76c4894"
+  },
+  {
+    "key": "choir",
+    "creator": "Zodik",
+    "url": "https://opengameart.org/content/zodik-deep-choir",
+    "licence": "CC0-1.0",
+    "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "zodik_-_deep_choir.mp3; 30.0–32.5 seconds; synthetic choir; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "cb28b5d06daf2970afba3a4b1a256451c2411e97a6dcdc1ea214f76ebc860abf"
+  },
+  {
+    "key": "growl",
+    "creator": "Michael Klier",
+    "url": "https://opengameart.org/content/large-monster",
+    "licence": "CC-BY-SA-3.0",
+    "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "changes": "Large Monster Death 01.wav; complete sound; imagined creature, not a scientific dinosaur reconstruction; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "2ffaca06a7310777d50db0d879eef6279a87be70aeadbd113b81bd7484ccec16"
+  },
+  {
+    "key": "coins",
+    "creator": "Jesús Lastra (jalastram)",
+    "url": "https://opengameart.org/content/coins-sounds",
+    "licence": "CC-BY-3.0",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+    "changes": "3_Coins.ogg; complete sound; mono 44.1 kHz PCM, peak normalisation, fades",
+    "sha256": "bfc6fb9657c06b14a8c720e9bd686cd966c181fa171ccb38b3234b59e677c825"
+  }
+]

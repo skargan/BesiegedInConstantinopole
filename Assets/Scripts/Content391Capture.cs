@@ -17,7 +17,15 @@ public sealed class Content391Capture:MonoBehaviour {
   var obj=new GameObject("Content391 checks");DontDestroyOnLoad(obj);obj.AddComponent<Content391Capture>().output=path;
  }
  IEnumerator Start(){
-  yield return new WaitForSecondsRealtime(2);yield return Capture("main-menu");SaveMenu.StartCampaign(false);
+  yield return new WaitForSecondsRealtime(2);
+  if(Environment.GetCommandLineArgs().Contains("-warm-lantern-preview")){
+   var buttons=FindObjectOfType<MainMenuUI>().GetComponentsInChildren<Button>().Where(b=>b.IsInteractable()).ToArray();
+   for(int i=0;i<buttons.Length;i++){
+    var light=buttons[i].GetComponent<ImperialButtonLightDriver>();if(light!=null)light.Light.SetSelected(i%2==0);
+   }
+   yield return new WaitForSecondsRealtime(.3f);yield return Capture("warm-lanterns");Application.Quit();yield break;
+  }
+  yield return Capture("main-menu");SaveMenu.StartCampaign(false);
   yield return new WaitForSecondsRealtime(3);
   try { Run(); }catch(Exception e){File.WriteAllText(Path.Combine(output,"checks.txt"),"FAILED "+e);Debug.LogException(e);Application.Quit(1);yield break;}
   var baseline=VariableSingleton.Instance.CaptureState();

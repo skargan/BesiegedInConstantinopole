@@ -1,0 +1,208 @@
+PASS isolated player archives
+PASS room installed
+PASS test runs cannot unlock career achievements
+PASS audio imported grind
+PASS audio imported pour
+PASS audio imported fire
+PASS audio imported bell
+PASS audio imported boil
+PASS audio imported choir
+PASS audio imported growl
+PASS audio imported coins
+PASS Normal allows discovery only
+PASS Ironman allows both categories
+PASS research initially unaffordable
+PASS cannot skip alchemy step
+PASS letter independent of alchemy
+PASS letter gives one secret immediately
+PASS discovery refreshes research affordability without reopening
+PASS letter revisitable
+PASS letter cannot duplicate reward
+PASS first alchemy step
+PASS step advances after interaction
+PASS leaving room resets incomplete experiment
+PASS leaving preserves independent discovery
+PASS alchemy sequence 0
+PASS busy guard 0
+PASS alchemy sequence 1
+PASS busy guard 1
+PASS alchemy sequence 2
+PASS busy guard 2
+PASS alchemy sequence 3
+PASS busy guard 3
+PASS alchemy sequence 4
+PASS busy guard 4
+PASS alchemy sequence 5
+PASS busy guard 5
+PASS alchemy reward exactly one secret
+PASS completed alchemy cannot farm rewards
+PASS grab cursor selected
+PASS cursor released
+PASS ring click moves panel left
+PASS drag stays at intermediate rail position
+PASS rail clamps left edge
+PASS skull independent discovery
+PASS skull gives journal entry only
+PASS treasure discovery
+PASS all rewards correct
+PASS four unique journal entries
+PASS archive load succeeds: 
+PASS save/load flag Letter
+PASS save/load no repeat reward Letter
+PASS save/load flag Alchemy
+PASS save/load no repeat reward Alchemy
+PASS save/load flag Skull
+PASS save/load no repeat reward Skull
+PASS save/load flag Treasure
+PASS save/load no repeat reward Treasure
+PASS journal survives save/load
+PASS idle before timeout
+PASS idle resets at sixty seconds
+PASS opaque desk blocks hidden skull (1600, 900)
+PASS nine hotspots (1600, 900)
+PASS mapped target Hotspot · Grind the herbs (1600, 900)
+PASS mapped target Hotspot · Pour the water (1600, 900)
+PASS mapped target Hotspot · Light the furnace (1600, 900)
+PASS mapped target Hotspot · Tap the little bell (1600, 900)
+PASS mapped target Hotspot · Watch the retort (1600, 900)
+PASS mapped target Hotspot · Taste the distillate (1600, 900)
+PASS mapped target Hotspot · The pigeon's letter (1600, 900)
+PASS mapped target Hotspot · A curious skull (1600, 900)
+PASS mapped target Hotspot · A concealed catch (1600, 900)
+PASS exposed skull receives pointer (1600, 900)
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Technology description
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Technology monastery summary
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS text fits (1600, 900) Text
+PASS opaque desk blocks hidden skull (1280, 720)
+PASS nine hotspots (1280, 720)
+PASS mapped target Hotspot · Grind the herbs (1280, 720)
+PASS mapped target Hotspot · Pour the water (1280, 720)
+PASS mapped target Hotspot · Light the furnace (1280, 720)
+PASS mapped target Hotspot · Tap the little bell (1280, 720)
+PASS mapped target Hotspot · Watch the retort (1280, 720)
+PASS mapped target Hotspot · Taste the distillate (1280, 720)
+PASS mapped target Hotspot · The pigeon's letter (1280, 720)
+PASS mapped target Hotspot · A curious skull (1280, 720)
+PASS mapped target Hotspot · A concealed catch (1280, 720)
+PASS exposed skull receives pointer (1280, 720)
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Technology description
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Technology monastery summary
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS text fits (1280, 720) Text
+PASS opaque desk blocks hidden skull (1920, 1200)
+PASS nine hotspots (1920, 1200)
+PASS mapped target Hotspot · Grind the herbs (1920, 1200)
+PASS mapped target Hotspot · Pour the water (1920, 1200)
+PASS mapped target Hotspot · Light the furnace (1920, 1200)
+PASS mapped target Hotspot · Tap the little bell (1920, 1200)
+PASS mapped target Hotspot · Watch the retort (1920, 1200)
+PASS mapped target Hotspot · Taste the distillate (1920, 1200)
+PASS mapped target Hotspot · The pigeon's letter (1920, 1200)
+PASS mapped target Hotspot · A curious skull (1920, 1200)
+PASS mapped target Hotspot · A concealed catch (1920, 1200)
+PASS exposed skull receives pointer (1920, 1200)
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Technology description
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Technology monastery summary
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS text fits (1920, 1200) Text
+PASS opaque desk blocks hidden skull (2560, 1080)
+PASS nine hotspots (2560, 1080)
+PASS mapped target Hotspot · Grind the herbs (2560, 1080)
+PASS mapped target Hotspot · Pour the water (2560, 1080)
+PASS mapped target Hotspot · Light the furnace (2560, 1080)
+PASS mapped target Hotspot · Tap the little bell (2560, 1080)
+PASS mapped target Hotspot · Watch the retort (2560, 1080)
+PASS mapped target Hotspot · Taste the distillate (2560, 1080)
+PASS mapped target Hotspot · The pigeon's letter (2560, 1080)
+PASS mapped target Hotspot · A curious skull (2560, 1080)
+PASS mapped target Hotspot · A concealed catch (2560, 1080)
+PASS exposed skull receives pointer (2560, 1080)
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Technology description
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Technology monastery summary
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
+PASS text fits (2560, 1080) Text
