@@ -1,0 +1,24 @@
+This is ConstantineX — 4 November 2026. Update BLUF: all eight provincial battle illustrations are installed and verified in an isolated preview.
+
+Completed
+- Original 1672x941 PNGs copied unchanged, SHA-256 verified; full-size uncompressed imports, bilinear filtering.
+- Opening selects plains/woodland/mountains from persisted BTerrain. Stage 2 manoeuvres; stages 3/4 clash; stage 5 neutral aftermath.
+- Stage 6 shows pursuit only after allied victory and chosen pursuit, excluding renewed clashes and successful counterattacks. Organised allied withdrawal art excludes routs; other outcomes use neutral aftermath.
+- Right-hand navy report and vertical controls leave more than half the scene unobscured. Existing battle callbacks and combat rules retained.
+
+Verification
+Unity 2022.3.15f1 Windows development build succeeded. Isolated -provincial-art-capture completed 104 checks, including exhaustive routing over 1,728 combinations, unchanged campaign state on display, all eight resource loads, report/button overflow at 1600x900 and 1280x720, and actual button invocation through manoeuvre, clash, aftermath and return to map. This is focused presentation/interaction testing, not a balance run. Captures of opening choices, manoeuvres, clash choices, clash results and pursuit reviewed visually.
+
+Source
+Assets/Scripts/ProvincialConflictUI.cs
+Assets/Scripts/ProvincialBattleArt.cs
+Assets/Scripts/ProvincialBattleArtCapture.cs
+Assets/Scripts/UI/Editor/BuildProvincialArtPreview.cs
+Assets/Resources/UI/MidnightMosaic/Scenes/ProvincialBattles/*
+
+Preview
+Builds/Version-38-ArtPreview/Besieged.exe
+Captures/ProvincialArt/checks.txt and details.txt record results. Saves isolated under capture directory. Published desktop Version 38 unchanged. Journal icon changes from JohanX preserved and included in preview working tree, not part of this owned source change.
+
+Limitations
+Generic manoeuvre/clash paintings are reused across terrain. No separate Ottoman pursuit/rout painting exists, so neutral aftermath is intentional. No combat mechanics, randomness or save schema changed. Full release publication remains separate.

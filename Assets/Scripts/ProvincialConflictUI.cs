@@ -41,8 +41,8 @@ public sealed class ProvincialConflictUI : MonoBehaviour
         var canvas=root.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=245;
         var scaler=root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);scaler.matchWidthOrHeight=.5f;
         root.GetComponent<Image>().color=ImperialTheme.Navy;ImperialTheme.Panel(root);
-        Text(P.Name+" · War Beyond the Walls",.035f,.91f,.93f,.07f,32);
         if(P.Get("BattleStage")>0){Battle();return;}
+        Text(P.Name+" · War Beyond the Walls",.035f,.91f,.93f,.07f,32);
         if(P.Get("Settlement")>0){Settlement();return;}
         if(P.Get("Continuation")>0){Continuation();return;}
         if(P.Get("Assistance")>0){Assistance();return;}
@@ -93,14 +93,23 @@ public sealed class ProvincialConflictUI : MonoBehaviour
     static void Battle()
     {
         var p=P;int stage=p.Get("BattleStage");
-        string title=stage<=2?"I · Maneuver":stage<=4?"II · Clash":stage==5?"III · Aftermath":"Battle concluded";
-        Text(title,.04f,.82f,.92f,.07f,29);
-        var report=Text(ProvincialBattle.Report(p),.06f,.31f,.88f,.49f,25);report.enableAutoSizing=true;report.fontSizeMin=20;report.fontSizeMax=25;
-        if(stage==1){for(int i=0;i<3;i++){int choice=i;string[] descriptions={"Caution\nBetter effectiveness and withdrawal","Speed\nEngage only part of the enemy","Coordination\nBring cooperating forces into battle"};Button(descriptions[i],.04f+i*.31f,.13f,.29f,.13f,()=>Commit(()=>ProvincialBattle.Maneuver(p,choice)),i!=2||ProvincialBattle.CanCoordinate(p));}}
-        else if(stage==3){for(int i=0;i<3;i++){int choice=i;Button(ProvincialBattle.Tactics[i],.04f+i*.31f,.13f,.29f,.13f,()=>Commit(()=>ProvincialBattle.Clash(p,choice)));}}
-        else if(stage==5){string[] options=p.Get("BResult")>0?new[]{"Pursue","Consolidate"}:p.Get("BResult")<0?new[]{"Withdraw","Cover the Retreat","Fight On"}:new[]{"Disengage","Renew the Attack"};for(int i=0;i<options.Length;i++){int choice=i;Button(options[i],.04f+i*.31f,.13f,.29f,.13f,()=>Commit(()=>ProvincialBattle.Aftermath(p,choice)));}}
-        else Button(stage==6?"Acknowledge result":"Continue",.34f,.13f,.32f,.10f,()=>{Commit(()=>ProvincialBattle.Continue(p));if(!p.Pending)Exit();});
-        Text("This encounter resolves within the current day. Opening it again preserves its situation and decisions.",.04f,.035f,.92f,.055f,18);
+        SceneBackdrop.Apply(root,"ProvincialBattles/"+ProvincialBattleArt.Key(p));
+        var panel=new GameObject("Battle dispatch",typeof(RectTransform),typeof(Image));
+        panel.transform.SetParent(Surface,false);
+        var rect=panel.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.555f,.025f);rect.anchorMax=new Vector2(.985f,.975f);rect.offsetMin=rect.offsetMax=Vector2.zero;
+        panel.GetComponent<Image>().color=new Color(.018f,.043f,.063f,.95f);
+        Text(p.Name,.575f,.905f,.39f,.045f,29);
+        string title=stage<=2?"I · Manoeuvre":stage<=4?"II · Clash":stage==5?"III · Aftermath":"Battle concluded";
+        Text(title,.575f,.845f,.39f,.045f,24);
+        bool choices=stage==1||stage==3||stage==5;
+        var report=Text(ProvincialBattle.Report(p),.575f,choices?.365f:.245f,.39f,choices?.455f:.575f,23);
+        report.name="Battle report";report.enableAutoSizing=true;report.fontSizeMin=18;report.fontSizeMax=23;
+        report.alignment=TextAlignmentOptions.TopLeft;
+        if(stage==1){for(int i=0;i<3;i++){int choice=i;string[] descriptions={"Caution · Protect the withdrawal route","Speed · Divide the enemy's strength","Coordination · Bring allies into battle"};Button(descriptions[i],.575f,.275f-i*.085f,.39f,.07f,()=>Commit(()=>ProvincialBattle.Maneuver(p,choice)),i!=2||ProvincialBattle.CanCoordinate(p));}}
+        else if(stage==3){for(int i=0;i<3;i++){int choice=i;Button(ProvincialBattle.Tactics[i],.575f,.275f-i*.085f,.39f,.07f,()=>Commit(()=>ProvincialBattle.Clash(p,choice)));}}
+        else if(stage==5){string[] options=p.Get("BResult")>0?new[]{"Pursue","Consolidate"}:p.Get("BResult")<0?new[]{"Withdraw","Cover the Retreat","Fight On"}:new[]{"Disengage","Renew the Attack"};for(int i=0;i<options.Length;i++){int choice=i;Button(options[i],.575f,.275f-i*.085f,.39f,.07f,()=>Commit(()=>ProvincialBattle.Aftermath(p,choice)));}}
+        else Button(stage==6?"Acknowledge result":"Continue",.575f,.12f,.39f,.08f,()=>{Commit(()=>ProvincialBattle.Continue(p));if(!p.Pending)Exit();});
+        Text("War Beyond the Walls · The encounter resolves today",.575f,.045f,.39f,.035f,16);
     }
     static void Settlement()
     {
