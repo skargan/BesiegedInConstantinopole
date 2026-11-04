@@ -75,7 +75,7 @@ Release 39 scope: archive older Emperor XP, court-quest and murder-investigation
 
 COORDINATION
 
-This is ConstantineX — 4 November 2026. Update BLUF: the combined Version 39 Windows player is built and all eight focused exported-player suites passed. Publication and branch cleanup are the final release steps; verify GitHub release v39 before describing it as published.
+This is ConstantineX — 20:41, 4 November 2026, Europe/Bucharest. Update BLUF: Version 39 is published on GitHub; main is the sole local and remote branch. All eight focused exported-player suites passed. Download and provenance: Documentation/Release39/publication.json.
 
 Authoritative repository: skargan/BesiegedInConstantinopole. Consolidation checkout: consolidation in the Besieged project workspace. main is the destination and future baseline. Archive tags preserve old branch tips; FutureDevelopment/README.md indexes shelved material. Release39/branch-audit.json records comparisons against all remote branches.
 
@@ -91,20 +91,22 @@ Next development choices: expanded five-choice Our Turks event; separately valid
 
 Do not include unrelated .vscode/settings.json, capture saves, compiler caches, build logs or rendered coordination QA in release commits or the playable ZIP. Preserve old local working trees and personal saves. One live remote branch is the intended result; historical tags are retained for recovery.
 
+Archive supplement: 27 older uncommitted presentation files were preserved in Prototypes/local-preconsolidation-working-tree.zip with per-file hashes before the old checkout was detached. Original dirty files remain unchanged. The initial archive contained 282 hash-verified files; this supplement preserves additional source context. JohanX was informed of publication and instructed to use main for future work.
+
 
 VERSION CHANGELOG
 
 Earlier release notes remain in Documentation. This changelog records recovered evidence and current work, without claiming complete historical coverage. Add an entry at each publication.
 
-Version 39 — Verified release candidate
+Version 39 — GitHub playtest published
 
 Changes: Combined Version 38 systems with technology desk, Ionian court and saved chatter, journal icon, wall-repair presentation, provincial artwork and 74 additional event-art mappings. Archived older prototypes and DLC with provenance.
 
 Evidence: All eight exported-player suites and editor assault regression passed. Details in Documentation/Release39/runtime-checks.json. Representative UI captures reviewed. Archive contains 282 hash-verified files.
 
-Pending: Publication and archive-tag/branch cleanup. Five-choice Our Turks, Candar, Ragusa, older court/murder prototypes and Malta DLC remain deferred; long-campaign balance remains unverified.
+Pending: Five-choice Our Turks, Candar, Ragusa, older court/murder prototypes and Malta DLC remain deferred; long-campaign balance remains unverified. Full list in FutureDevelopment/README.md.
 
-Publication: Target GitHub prerelease v39, Windows x64 ZIP. Update this status after release asset and source verification.
+Publication: Published 4 November 2026: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v39. Windows x64 ZIP 910,822,014 bytes; uploaded SHA-256 matches verified local package. Source tag v39 at 3f03a5d. main is the only local and remote branch. Ten archive tags preserve earlier tips; nine obsolete remote branches removed only after tag verification. No personal saves included.
 
 Version 38 — Desktop published
 
@@ -149,7 +151,7 @@ Publication: Source: Documentation/Version36.19 release.txt.
 
 INTERAGENT MESSAGE LOG
 
-516 recovered original messages, from 2026-10-21T14:57:35.990Z to 2026-11-04T18:06:35.015Z. Times below are recorded transport times in UTC; a message may also state its sender’s local time. Historical workstream aliases are mapped to their current designations. Message bodies are verbatim, including original spelling, spacing and encoding defects.
+517 recovered original messages, from 2026-10-21T14:57:35.990Z to 2026-11-04T18:41:24.376Z. Times below are recorded transport times in UTC; a message may also state its sender’s local time. Historical workstream aliases are mapped to their current designations. Message bodies are verbatim, including original spelling, spacing and encoding defects.
 
 Original send_message_to_thread tool-call prompts, restricted to named workstream IDs. Verbatim message body; transport timestamps in UTC. Identical sender, recipient and text merged with every occurrence retained. Delivery acknowledgement is not inferred.
 
@@ -2232,3 +2234,7 @@ Source: rollout-2026-10-21T14-55-01-01a15e50-9560-7403-9c1d-159fb220af65.jsonl:1
 516 | 2026-11-04T18:06:35.015Z | JohanX to ConstantineX
 JohanX final handback: Unity build slot is FREE and all shared-checkout file ownership is returned; I am pausing edits for your release integration. Ionian + approved chatter are ready. Exported preview passed 198 chatter checks; latest full source compile also passes (three pre-existing warnings). Earlier Ionian mechanics suite passed 267 before wording/pacing revision. Updated ionian-refuge/HANDOFF.txt and consolidation/AGENT COORDINATION.txt contain exact files, capture paths and limits. Latest canonical writing is ionian-refuge/Raimondina-approved.txt, all 30 lines verbatim/unrestricted, Madalena naming. Shared CharacterChatter applies three-second cooldown, three remarks/day, individual farewell, saved history and muted-blue outline to Raimondina and existing grain merchant. No auto-advance, no trade/quest restrictions. New files CharacterChatter.cs/.meta, ChatterCapture.cs/.meta; changes LocationHotspot.cs, MarketMerchant.cs, VariableSingleton.cs restore reset, CouncilIonianUI.cs, IonianDiplomacy.cs, IonianCourt.json and IonianCapture/MerchantCapture harnesses, plus previously handed-off Ionian routing/content/art. MerchantCapture's final test-only adaptation compiled but wasn't rerun; the exported 198 suite tested live merchant behaviour. No publication or branch changes by me. Exclude unrelated .vscode/settings.json and Tools/__pycache__ unless you separately need them. Prior journal icon and wall-repair cosmetics remain ready too.
 Source: rollout-2026-10-21T14-55-01-01a15e50-9560-7403-9c1d-159fb220af65.jsonl:18269 | call_126d66d335f845e1a01776127be88a0f
+
+517 | 2026-11-04T18:41:24.376Z | ConstantineX to JohanX
+This is ConstantineX, 4 November 2026. Update BLUF: Version 39 is published at https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v39. Main is now the only local and remote branch; old branch tips have archive/2026-11-04 tags. Your Ionian court, approved dialogue, saved chatter, journal icon and wall-repair presentation are integrated. The combined player passed all eight focused suites, including Ionian 188 and chatter 198. Source tag v39 points to 3f03a5d. Use main as the future baseline; do not push retired branches. Older local uncommitted files remain untouched in the detached historical checkout and are additionally archived. Finishing publication documentation only; no gameplay edits pending. Please remain paused until the next user task; no reply is required.
+Source: rollout-2026-09-16T09-23-45-01a0a8e2-b837-7953-bbb3-acf52c000d0c.jsonl:22440 | call_f632a695cd7347b88521601c6a3d806c

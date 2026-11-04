@@ -52,25 +52,26 @@
     [
       "COORDINATION",
       [
-        "This is ConstantineX — 4 November 2026. Update BLUF: the combined Version 39 Windows player is built and all eight focused exported-player suites passed. Publication and branch cleanup are the final release steps; verify GitHub release v39 before describing it as published.",
+        "This is ConstantineX — 20:41, 4 November 2026, Europe/Bucharest. Update BLUF: Version 39 is published on GitHub; main is the sole local and remote branch. All eight focused exported-player suites passed. Download and provenance: Documentation/Release39/publication.json.",
         "Authoritative repository: skargan/BesiegedInConstantinopole. Consolidation checkout: consolidation in the Besieged project workspace. main is the destination and future baseline. Archive tags preserve old branch tips; FutureDevelopment/README.md indexes shelved material. Release39/branch-audit.json records comparisons against all remote branches.",
         "ConstantineX owns integration, build and publication. JohanX returned all shared-file ownership and freed the Unity slot; edits are paused. Ionian court, current approved dialogue, chatter, journal icon and wall-repair presentation are integrated and tested in the combined player. OrbanX is inactive; no assignments.",
         "Checks: provisions 149; technology 11277; Ionian 188; chatter 198; art integration 3723; event frames 8294; provincial art 104; chamber/journal 106. Editor phased-assault regressions passed. Runtime-checks.json contains exact evidence. These are assertions, not full playthrough counts. Art/capture suites do not resolve all event choices.",
         "Two verification-harness corrections: the public-support header intentionally uses the People artwork, so its stale sprite expectation was corrected; the chamber report path is Captures/Chamber, not CouncilChamber. No gameplay changes were made to satisfy these checks.",
         "Archive: 282 retained files checksum-verified. Five prototype ZIPs preserve changed source with provenance; original event art and staged content are indexed separately. Full historic trees remain recoverable from Git tags. The original menu-stat icon branch was already fully integrated.",
         "Next development choices: expanded five-choice Our Turks event; separately validated Candar/Ragusa integration; Malta mercenary DLC; long-campaign supply/war balance. Existing Decision Journal is live, but additional event-specific flags and epilogue uses remain incomplete. See the archive index for the bounded backlog.",
-        "Do not include unrelated .vscode/settings.json, capture saves, compiler caches, build logs or rendered coordination QA in release commits or the playable ZIP. Preserve old local working trees and personal saves. One live remote branch is the intended result; historical tags are retained for recovery."
+        "Do not include unrelated .vscode/settings.json, capture saves, compiler caches, build logs or rendered coordination QA in release commits or the playable ZIP. Preserve old local working trees and personal saves. One live remote branch is the intended result; historical tags are retained for recovery.",
+        "Archive supplement: 27 older uncommitted presentation files were preserved in Prototypes/local-preconsolidation-working-tree.zip with per-file hashes before the old checkout was detached. Original dirty files remain unchanged. The initial archive contained 282 hash-verified files; this supplement preserves additional source context. JohanX was informed of publication and instructed to use main for future work."
       ]
     ]
   ],
   "changelog": [
     {
       "version": "39",
-      "status": "Verified release candidate",
+      "status": "GitHub playtest published",
       "changes": "Combined Version 38 systems with technology desk, Ionian court and saved chatter, journal icon, wall-repair presentation, provincial artwork and 74 additional event-art mappings. Archived older prototypes and DLC with provenance.",
       "evidence": "All eight exported-player suites and editor assault regression passed. Details in Documentation/Release39/runtime-checks.json. Representative UI captures reviewed. Archive contains 282 hash-verified files.",
-      "pending": "Publication and archive-tag/branch cleanup. Five-choice Our Turks, Candar, Ragusa, older court/murder prototypes and Malta DLC remain deferred; long-campaign balance remains unverified.",
-      "publication": "Target GitHub prerelease v39, Windows x64 ZIP. Update this status after release asset and source verification."
+      "pending": "Five-choice Our Turks, Candar, Ragusa, older court/murder prototypes and Malta DLC remain deferred; long-campaign balance remains unverified. Full list in FutureDevelopment/README.md.",
+      "publication": "Published 4 November 2026: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v39. Windows x64 ZIP 910,822,014 bytes; uploaded SHA-256 matches verified local package. Source tag v39 at 3f03a5d. main is the only local and remote branch. Ten archive tags preserve earlier tips; nine obsolete remote branches removed only after tag verification. No personal saves included."
     },
     {
       "version": "38",

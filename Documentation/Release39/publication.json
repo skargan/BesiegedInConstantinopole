@@ -1,0 +1,20 @@
+{
+  "publishedUtc": "2026-11-04T18:41:24Z",
+  "release": "https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v39",
+  "releaseSource": "3f03a5d373af8d43668d2ed3b8ed22b2053e5c59",
+  "tag": "v39",
+  "remainingRemoteBranches": [
+    "main"
+  ],
+  "remainingLocalBranches": [
+    "main"
+  ],
+  "preservedArchiveTags": 10,
+  "removedRemoteBranches": 9,
+  "zip": "Besieged-Version-39-Windows-x64.zip",
+  "bytes": 910822014,
+  "sha256": "7edebc693d03a65705c390bb01e9eb443ec3a46fb4a0e388fbc1ded4f991610a",
+  "githubAssetDigestMatches": true,
+  "extractedPayloadHashesVerified": true,
+  "olderWorkingTreeFilesPreserved": 27
+}

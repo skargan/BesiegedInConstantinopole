@@ -36,3 +36,7 @@ This is the retrieval index for unfinished, superseded and DLC work preserved du
 `../Documentation/Release39/branch-audit.json` records the pre-integration comparison of every remote branch. `art-integration.json` lists precisely which artwork mappings were added. Existing worktrees are retained locally; they must be treated as historical/staging copies, not publication sources.
 
 To resume an item: read its handover, identify the current owner, compare against `main`, take only the relevant changes, and validate the affected game flow. Never copy an entire old `CouncilUI.cs` or `VariableSingleton.cs` over the current version.
+
+## Older local working files
+
+`Prototypes/local-preconsolidation-working-tree.zip` additionally preserves 27 uncommitted files from the earlier Besieged-release18 checkout, based on fc5ad71. Much of this is superseded presentation work. Its internal manifest records original paths and SHA-256 hashes. The original checkout is retained, detached at its previous commit, with dirty files unchanged. Do not import these older whole files over current main.
