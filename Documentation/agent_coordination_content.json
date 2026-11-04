@@ -1,7 +1,7 @@
 {
   "title": "AGENT COORDINATION",
   "subtitle": "Besieged in Constantinople development instructions and handovers",
-  "snapshot": "3 November 2026",
+  "snapshot": "4 November 2026",
   "sections": [
     [
       "AGENT INSTRUCTIONS",
@@ -15,7 +15,7 @@
         "Recovery after failure: mark the workstream inactive, preserve its files and branches, inspect unfinished changes, then explicitly reassign ownership. Never assume an inactive agent completed or abandoned its edits.",
         "Efficiency: batch independent reads; test the changed behaviour first; reuse passing evidence until changes invalidate it. Avoid repeated status polling, duplicate research and speculative subsystems. Keep simulation separate from presentation, preserve stable IDs and save compatibility, and leave sources/ read-only.",
         "Every publication includes a player-readable feature and change list, validation scope, known unfinished items and the actual build location. Update VERSION CHANGELOG in this guide at publication. The final INTERAGENT MESSAGE LOG preserves original coordination messages with source evidence; never rewrite old messages to match later outcomes. Keep historical messages distinct from current instructions.",
-        "Disciplined engineering: state the intended outcome and acceptance criteria before work. Keep a short prioritised queue and deliver small, complete chunks. Delegate bounded tasks with explicit ownership and handover requirements. Search first, then read only relevant material. Match verification to the change and its risks. After two attempts without meaningful progress, stop repeating the approach, diagnose the cause and change method or escalate the blocker. Leave a compact checkpoint of completed work, current state, evidence and next action. Report outcomes from evidence, with limits stated clearly. Continue autonomously within authorised scope; ask only for information or decisions that materially affect the result."
+        "Disciplined engineering: state the outcome and acceptance criteria, then stay on that objective; put unrelated discoveries in the backlog. Keep a short prioritised queue and deliver small, complete chunks. Delegate bounded tasks with explicit ownership and handovers. Search first and read selectively. Use proportional, focused checks; stop when they pass unless new evidence justifies more. After two attempts without progress, diagnose the cause and change method or escalate the blocker. Leave a compact checkpoint of completed work, state, evidence and next action. Report evidence-based outcomes and limits. Continue autonomously within authorised scope; ask only for decisions or information that materially affect the result."
       ]
     ],
     [
@@ -25,7 +25,8 @@
         "CouncilUI and CampaignHUD present the campaign; ControlSingleton handles return navigation. Check both screen visibility and return callbacks when adding a nested menu. Presentation must not consume simulation randomness or alter campaign state.",
         "OttomanDirector is the strategic decision entry point. Event choices, diplomacy, provincial systems and assault outcomes feed persistent campaign values. Changes affecting those values require save/load and downstream outcome checks. This is an entry-point map, not a completed dependency audit.",
         "New CouncilChamber is decorative UI, loaded from Resources with editable JSON candle anchors. It is clipped and non-interactive, pauses when hidden and supports still presentation. Its capture checks cover campaign/RNG isolation and navigation.",
-        "First campaign Decision Journal integration now exists in the consolidation candidate: daily notes and persistent decision records, a council entry, and save-state inclusion. This is separate from the assault journal. Event-specific Our Turks records and final epilogue integration remain unfinished; do not infer those from the presence of the journal screen."
+        "The campaign Decision Journal was published in Version 37: daily notes and persistent decision records, a council entry, and save-state inclusion. It is separate from the assault journal. Event-specific Our Turks records and final epilogue integration remain unfinished.",
+        "Version 38 uses SharedProvisions as the common physical-food ledger for city, Ottoman camp, provincial reserves and convoy cargo, preserving fractions through existing campaign values. ProvincialWar debits reserves at departure and transfers surviving cargo on arrival. Medical treatment adds its selected food charge. Version 38 compiled, passed 149 focused runtime checks and was desktop published; a full long-campaign balance pass remains future work."
       ]
     ],
     [
@@ -34,39 +35,51 @@
         "Confirmed by user: ConstantineX leads the taskgroup. OrbanX is inactive after a critical error and must not receive new assignments. JohanX remains an active workstream. Rationale: maintain one accountable integration owner and explicit recovery.",
         "Confirmed by user: keep this record updated under AGENT INSTRUCTIONS, ARCHITECTURE, DECISIONS and COORDINATION. Use named, timestamped BLUF updates. Rationale: readable context survives chat loss and future handovers.",
         "Confirmed art direction: council centre uses an atmospheric Byzantine desk chamber, broad city-facing windows and informally arranged objects, with gentle candle animation. Keep existing council navigation and quotation presentation.",
-        "Confirmed standing gameplay decisions relevant to integration: factions, merchant favour and general engineer mentorship were retired; do not reintroduce them through old notes. Population counts individuals; provisions round population to the nearest thousand. Ironman earns career achievements; normal campaigns do not. Implementation status must be checked separately.",
+        "Confirmed standing gameplay decisions: factions, merchant favour and general engineer mentorship are retired. Population counts individuals. Ironman earns career achievements; normal campaigns do not. The newer shared-food decision below supersedes the earlier nearest-thousand food-consumption rule for Version 38.",
         "Implementation protocol chosen by ConstantineX: one editor regenerates Word and a diffable text companion from one source. This is an operational convention, not a new gameplay rule. Proposed mechanics remain labelled proposals until approved.",
-        "Confirmed 3 November: publish the present integrated update as Version 37; use whole version numbers for major updates. Reserve unfinished changes for Version 38. The standalone Albanian war test is retired; the provincial war framework remains authoritative. Decision Journal occupies the council location formerly used for Development Options; development tools move into the campaign menu."
+        "Confirmed 3 November: publish the present integrated update as Version 37; use whole version numbers for major updates. Reserve unfinished changes for Version 38. The standalone Albanian war test is retired; the provincial war framework remains authoritative. Decision Journal occupies the council location formerly used for Development Options; development tools move into the campaign menu.",
+        "Version 38 approved shared-food model: one provision feeds 1,000 people for one day, preserving fractional demand and stock. Provincial reserves are finite. A fall in Wealth destroys stored food in the same proportion: remaining reserve equals the previous reserve multiplied by new Wealth divided by previous Wealth. Fortnightly shipments debit real cargo from reserves; raids and deliveries affect that actual cargo. Continued food deprivation escalates its consequences rather than remaining a flat repeated interaction.",
+        "Provisional Version 38 balancing assumptions: summer harvest runs June–August; total opening provincial reserve is 13,200 provisions. These are tuning values pending playtesting, not final historical claims.",
+        "Confirmed medical-food decision: charge one extra provision per 20 patients actually treated per day, in addition to ordinary population consumption. This supersedes the earlier no-extra-charge assumption; implementation and verification must follow the treated-patient count.",
+        "Map continuity: Paphlagonia remains Ottoman-controlled under the existing approved simplification. A separate Sinop marker for Candar is a proposal only; staged Candar work does not authorise changing the province owner."
       ]
     ],
     [
       "COORDINATION",
       [
-        "Snapshot: 3 November 2026. Repository: https://github.com/skargan/BesiegedInConstantinopole. Current integration checkout: consolidation/ in the Besieged ChatGPT workspace; branch codex/consolidation-20261103, initially based on fc5ad71. The earlier live checkout is C:/Users/Dainius/Documents/Codex/Besieged-release18. Verify branch and dirty files before editing either tree. The consolidation branch is not yet declared merged to main.",
-        "ConstantineX is the sole integration, Unity build and publication owner. Version 37 is published on the desktop with verified latest and version-specific shortcuts. No prior saves were copied, at user request. Fresh Version 37 exported player: 225 checks passed (79 chamber, journal and navigation; 146 event presentation). Journal screenshots visually inspected. GitHub source backup remains unconfirmed.",
-        "JohanX owns staged event and presentation work, including event cards, option layout, HUD presentation and fleet chain artwork. Its earlier 146 presentation checks and final visual pass were reported. New Tavern and Giustiniani material, Our Turks and defeat-ending integration are reserved for Version 38 unless ConstantineX explicitly changes the release scope. Shared-method edits require a handover.",
+        "Snapshot: 4 November 2026. Repository: https://github.com/skargan/BesiegedInConstantinopole. Integration checkout: consolidation/ in the Besieged ChatGPT workspace; branch codex/consolidation-20261103. Version 37 source was committed and pushed as 1349264. The earlier live checkout is C:/Users/Dainius/Documents/Codex/Besieged-release18. Verify branch and dirty files before editing either tree; a branch push does not establish a merge to main.",
+        "ConstantineX is the sole integration, Unity build and publication owner. Version 38 is desktop published after a successful Unity build and 149 focused runtime checks, with key screens inspected at 1280×720 and 1600×900. The desktop copy was hash verified and Besieged-Latest points to Version-38/Besieged.exe. Version 37 remains preserved; no old saves were copied. Version 38 source commit/push is pending; Version 37 is backed up as 1349264.",
+        "JohanX owns staged event and presentation work. Ragusa, Candar and the new journal icon remain staged for a separate integration chunk. Tavern, Giustiniani, Our Turks and dedicated defeat-ending work are not claimed as completed by this release record. Shared-method edits require explicit handover.",
         "This documentation subtask owns only the coordination guide, its generation source and message archive. It does not change gameplay code, build, commit or publish. ConstantineX updates release status after confirming the actual desktop publication and source push.",
         "OrbanX is inactive after the user-reported critical error. No new assignments. Recovered files and unfinished scope require inspection and explicit reassignment before integration. This archive contains messages sent to OrbanX but does not have its own outbound session history.",
-        "Next actions: complete source backup and record its commit; report outstanding work to the user before starting Version 38. The playable desktop publication and focused Version 37 checks are complete.",
+        "Short queue: ConstantineX commits and pushes the reviewed Version 38 source and coordination record; then reports remaining work and selects the next bounded integration chunk. Ragusa, Candar and the journal icon remain staged. Keep provisional harvest/reserve tuning and a full long-campaign balance pass on the backlog.",
         "Learning notes: compiled is not published; a screenshot is not full gameplay verification; an assault journal is not a campaign journal; a Word binary cannot safely merge simultaneous edits. Keep current instructions short, and preserve the long history in the final archive rather than allowing obsolete assignments to govern new work.",
-        "4 November update: Version 37 remains frozen. ConstantineX owns the next shared provisions implementation for Version 38. Do not include unfinished Version 38 work in the published Version 37 files."
+        "Checkpoint 4 November: Version 38 desktop publication, 149 focused checks and affected-screen review are complete; source backup is the remaining release step. Shared provisions, the patient food charge, centred HUD groups and the vertical new-campaign menu are included. Version 37 remains preserved. Paphlagonia ownership is unchanged; the separate Sinop marker is still a proposal."
       ]
     ]
   ],
   "changelog": [
+    {
+      "version": "38",
+      "status": "Desktop published",
+      "changes": "Shared physical provisions and fractions; finite provincial reserves; actual fortnightly convoy cargo; proportional Wealth destruction; capped summer harvest; escalating city hunger and Ottoman desertion; one extra provision per 20 patients treated; corrected earlier-save state reset. Centred HUD groups and vertically ordered new-campaign choices with hover explanations.",
+      "evidence": "Unity Windows development build succeeded. 149 focused runtime checks passed, including actual save/load, food conservation, hunger, treatment and menu states. Key menus, hover text, HUD, market, intelligence, infirmary and province reports visually inspected at 1280×720 and 1600×900.",
+      "pending": "Ragusa, Candar and new journal icon remain staged. June–August harvest and 13,200 opening provincial provisions remain provisional; long-campaign balance testing is future work. Paphlagonia stays Ottoman; separate Sinop marker is a proposal.",
+      "publication": "Published 4 November 2026 to C:/Users/Dainius/Desktop/GAMES/Besieged/BesiegedInConstantinopole-codex-prototype-first-playtest/Builds/Version-38; desktop copy hash verified; Besieged-Latest points to its executable. Version 37 preserved, no old saves copied. Source commit/push pending. Details: Documentation/Version38 release.txt."
+    },
     {
       "version": "37",
       "status": "Desktop published",
       "changes": "Atmospheric Byzantine council chamber; integrated event, HUD and fleet-chain presentation; first persistent Decision Journal and council access; development tools moved into the campaign menu; standalone Albanian war test removed in favour of the provincial framework.",
       "evidence": "Fresh Version 37 exported player: 225 checks passed — 79 chamber, journal and navigation checks (including actual save/load, legacy checksum and tamper handling), plus 146 event-presentation checks. Journal screenshots visually inspected by ConstantineX. Earlier internal 36.22 candidate also passed 58 chamber checks.",
       "pending": "Our Turks five-choice rewrite and defeat causes with dedicated endings remain for Version 38. New JohanX Tavern and Giustiniani content remains staged.",
-      "publication": "Published 3 November 2026 at C:/Users/Dainius/Desktop/GAMES/Besieged/BesiegedInConstantinopole-codex-prototype-first-playtest/Builds/Version-37. Besieged-Latest and Besieged-Version37 desktop shortcuts verified by release owner. Fresh saves: prior saves were not copied, as requested by the user. GitHub source backup remains pending confirmation."
+      "publication": "Published 3 November 2026 at C:/Users/Dainius/Desktop/GAMES/Besieged/BesiegedInConstantinopole-codex-prototype-first-playtest/Builds/Version-37. Besieged-Latest and Besieged-Version37 desktop shortcuts verified by release owner. Fresh saves: prior saves were not copied, as requested by the user. Source committed and pushed as 1349264 on codex/consolidation-20261103; merge to main is not asserted."
     },
     {
       "version": "36.21",
       "status": "Historical integration evidence",
-      "changes": "Council chamber and event/HUD/chain presentation work formed the baseline for the present integration.",
-      "evidence": "Chamber: 58 runtime checks reported; event presentation: 146 checks reported. Do not treat these as proof of all later candidate changes.",
+      "changes": "Council chamber and event/HUD/chain presentation supplied the baseline for Version 37.",
+      "evidence": "58 chamber runtime checks and 146 event-presentation checks reported; these do not verify later changes.",
       "pending": "Replaced by the Version 37 release effort.",
       "publication": "Consult original release handover messages for exact earlier build locations."
     },
@@ -75,9 +88,9 @@
       "status": "Archived release note",
       "changes": "Lithuania and Poland court identity, paired Vytis and eagle banners, Lithuanian frontier narrative, and gold-and-sapphire monk allocation slider. Existing court ID, embassy and aid balance retained.",
       "evidence": "Archived note reports 180 diplomatic-art checks and 1,507 infirmary/research checks at two resolutions, with existing saves copied and hash-verified. These were not rerun for this documentation update.",
-      "pending": "Original note listed Our Turks, Decision Journal and palace hotspots as pending; later entries supersede that historical state.",
+      "pending": "The original note listed Our Turks, Decision Journal and palace hotspots as pending. Later entries supersede that status.",
       "publication": "Source: Documentation/Version36.19 release.txt."
     }
   ],
-  "history_note": "This changelog begins with verified release material recovered during consolidation. It is not a reconstructed claim of complete earlier release history. Earlier per-version release notes remain in Documentation. Add one entry at each publication, retaining older entries."
+  "history_note": "Earlier release notes remain in Documentation. This changelog records recovered evidence and current work, without claiming complete historical coverage. Add an entry at each publication."
 }

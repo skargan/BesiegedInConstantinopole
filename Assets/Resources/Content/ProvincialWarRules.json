@@ -121,7 +121,11 @@
         20,
         10
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 2112,
+      "MaxFoodReserve": 2112,
+      "FortnightlyProvisions": 528,
+      "SummerHarvestDaily": 37.714285714285715
     },
     {
       "Id": "bulgaria",
@@ -140,7 +144,11 @@
         40,
         20
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 2112,
+      "MaxFoodReserve": 2112,
+      "FortnightlyProvisions": 440,
+      "SummerHarvestDaily": 31.428571428571427
     },
     {
       "Id": "macedonia",
@@ -159,7 +167,11 @@
         30,
         35
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 2112,
+      "MaxFoodReserve": 2112,
+      "FortnightlyProvisions": 440,
+      "SummerHarvestDaily": 31.428571428571427
     },
     {
       "Id": "bithynia",
@@ -178,7 +190,11 @@
         30,
         20
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 1320,
+      "MaxFoodReserve": 1320,
+      "FortnightlyProvisions": 352,
+      "SummerHarvestDaily": 25.142857142857142
     },
     {
       "Id": "karasi",
@@ -197,7 +213,11 @@
         35,
         20
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 880,
+      "MaxFoodReserve": 880,
+      "FortnightlyProvisions": 264,
+      "SummerHarvestDaily": 18.857142857142858
     },
     {
       "Id": "aydin",
@@ -216,7 +236,11 @@
         25,
         25
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 1056,
+      "MaxFoodReserve": 1056,
+      "FortnightlyProvisions": 264,
+      "SummerHarvestDaily": 18.857142857142858
     },
     {
       "Id": "mentese",
@@ -235,7 +259,11 @@
         35,
         40
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 528,
+      "MaxFoodReserve": 528,
+      "FortnightlyProvisions": 176,
+      "SummerHarvestDaily": 12.571428571428571
     },
     {
       "Id": "germiyan",
@@ -254,7 +282,11 @@
         20,
         40
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 880,
+      "MaxFoodReserve": 880,
+      "FortnightlyProvisions": 264,
+      "SummerHarvestDaily": 18.857142857142858
     },
     {
       "Id": "anatolia",
@@ -273,7 +305,11 @@
         20,
         30
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 880,
+      "MaxFoodReserve": 880,
+      "FortnightlyProvisions": 264,
+      "SummerHarvestDaily": 18.857142857142858
     },
     {
       "Id": "armeniakon",
@@ -292,7 +328,11 @@
         30,
         50
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 792,
+      "MaxFoodReserve": 792,
+      "FortnightlyProvisions": 176,
+      "SummerHarvestDaily": 12.571428571428571
     },
     {
       "Id": "candar",
@@ -311,7 +351,11 @@
         50,
         30
       ],
-      "RebelCap": 12000
+      "RebelCap": 12000,
+      "InitialFoodReserve": 528,
+      "MaxFoodReserve": 528,
+      "FortnightlyProvisions": 176,
+      "SummerHarvestDaily": 12.571428571428571
     }
   ],
   "Allies": [
@@ -476,5 +520,8 @@
       ]
     }
   ],
-  "BalanceNotes": "Editable prototype defaults. Food is in existing Ottoman food-days, not city provisions. Regional garrisons are separate from siege reinforcements. Ship output replaces the previous daily +1 (7 ships each from Bithynia and Karasi per 14 days at full wealth). No new regional infirmary. Initial ally caps and provincial output are provisional playtest values."
+  "BalanceNotes": "Editable provisional balance. Food is shared provisions: one unit feeds 1,000 people per day. Provincial campaign reserves initially total 13,200 (150 days at the 88-provision reference ration); these are exportable campaign supplies, not household food. Physical fortnightly contributions retain the former food-day weighting multiplied by the fixed 88 reference. June-August harvest replenishes each reserve daily at one fortnightly contribution per 14 days, scaled by Wealth, up to its editable cap; winter never replenishes it. Wealth recovery does not create food. Allied-controlled provinces retain their reserve but do not export; imperial provinces retain the existing gold-tribute-only rule. Regional garrisons remain separate from siege reinforcements. Ship output replaces daily +1. No new regional infirmary. All supply rates and capacities are provisional playtest values.",
+  "HarvestStartMonth": 6,
+  "HarvestEndMonth": 8,
+  "FoodReferenceRation": 88
 }

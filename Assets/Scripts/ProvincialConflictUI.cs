@@ -55,7 +55,11 @@ public sealed class ProvincialConflictUI : MonoBehaviour
         Text("Authority  "+p.Authority+" / "+p.Ceiling+"\nResistance  "+p.Resistance+"\nWealth  "+p.Wealth+"%",.04f,.66f,.29f,.17f,25);
         Text("Ottoman garrison\n"+(p.Known?p.Garrison.ToString("N0")+" / "+c.Garrison.ToString("N0"):"Exact strength unknown")+"\nNon-Ottoman territory  "+(p.TotalControl/100f).ToString("0.##")+"%",.35f,.66f,.29f,.17f,24);
         string economy="Economic importance: "+string.Join(", ",new[]{c.FoodDays>0?"food":null,c.Recruits>0?"recruits":null,c.Ships>0?"shipbuilding":null,c.Cannons>0?"artillery":null,c.Gold>0?"revenue":null}.Where(x=>x!=null));
-        Text(economy+"\n"+(p.Known?"Normal fortnightly output: "+c.FoodDays+" food-days, "+c.Recruits+" troops, "+c.Gold+" gold, "+c.Cannons+" cannons, "+c.Ships+" ships.":"Send a resident agent for exact enemy strengths and local supply figures."),.66f,.66f,.30f,.17f,19);
+        Text(economy+"\n"+(p.Known||!p.Hostile?
+            "Food reserve: "+SharedProvisions.Format(p.FoodReserve)+" provisions\n"+
+            "Fortnightly capacity: "+SharedProvisions.Format(c.FortnightlyProvisions*p.Wealth/100d)+" provisions\n"+
+            "Base output: "+c.Recruits+" troops · "+c.Gold+" gold · "+c.Cannons+" cannons · "+c.Ships+" ships":
+            "Send a resident agent for exact enemy strengths and local supply figures."),.66f,.64f,.30f,.19f,18);
         Text("Provincial armies",.04f,.59f,.92f,.05f,25);
         var forces=p.Present.ToArray();if(forces.Length==0)Text("No rebel or allied army is present.",.04f,.49f,.92f,.07f);
         else {

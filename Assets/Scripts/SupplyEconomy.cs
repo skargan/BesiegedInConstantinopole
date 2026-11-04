@@ -3,12 +3,12 @@ using Yarn.Unity;
 
 public static class SupplyEconomy
 {
-    public static int DailyNeed=>PopulationAccounting.Food(false);
+    public static int DailyNeed=>(int)System.Math.Ceiling(SharedProvisions.CityDemand);
     // Compatibility helper for older checks; faction ration discounts are retired.
     public static int FoodAfterPolitics(int need)=>need;
     public static long Cost(string resource,int quantity)=>(long)Price(resource)*quantity;
     public static int Price(string resource)=>resource=="iProvisions"?(VariableSingleton.HasSiegeStarted()?10:2):resource=="iMaterials"?10:resource=="iAmmunition"?50:0;
-    public static int DaysLeft=>DailyNeed==0?0:CouncilActions.Int("iProvisions")/DailyNeed;
+    public static int DaysLeft=>(int)System.Math.Floor(SharedProvisions.CityDays);
     public static string PurchaseUnavailable(string resource,int quantity) {
         int price=Price(resource);long cost=Cost(resource,quantity);
         if(price==0 || quantity<=0 || cost>int.MaxValue)return "Enter a valid whole quantity.";
@@ -25,12 +25,9 @@ public static class SupplyEconomy
         report=quantity.ToString("N0")+" "+(resource=="iProvisions"?"provisions":resource=="iMaterials"?"materials":"ammunition")+" bought for "+cost.ToString("N0")+" gold.";return true;
     }
     public static string CompleteDay() {
-        int need=FoodAfterPolitics(PopulationAccounting.Food(true)),stock=CouncilActions.Int("iProvisions"),consumed=Mathf.Min(need,stock);
-        VariableSingleton.ChangeInt("iProvisions",-consumed);VariableSingleton.SetInt("iFoodShortfall",need-consumed);
-        VariableSingleton.SetInt("iHungerDays",stock<need?CouncilActions.Int("iHungerDays")+1:0);
-        return "Daily provisions: "+consumed.ToString("N0")+" consumed; "+CouncilActions.Int("iProvisions").ToString("N0")+" remain. "+(stock<need?"The stores could not provide a full ration.":DaysLeft+" full days of food remain.")+"\n\n";
+        return SharedProvisions.ConsumeCityDay();
     }
-    public static string PendingNode=>CouncilActions.Int("iFoodShortfall")>0 && CouncilActions.Int("iProvisions")==0 && CouncilActions.Int("iHungerOfferedDay")!=TrainingPool.Day(VariableSingleton.GetDate())?"foodShortage":null;
+    public static string PendingNode=>null; // Daily hunger is resolved once by shared provisions; no repeated mandatory ration event.
     public static bool EmergencyTax(out string report) {
         var before=VariableSingleton.Instance.CaptureState();VariableSingleton.ChangeInt("iMoney",DailyNeed*100);VariableSingleton.ChangePercentFloat("fPeopleRep",-.15f);
         report="Collectors call on the households and merchants for an emergency levy.\n\n"+EventOutcome.Describe(before,VariableSingleton.Instance.CaptureState());return true;

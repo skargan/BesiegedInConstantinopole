@@ -18,7 +18,7 @@ public partial class CouncilUI
         var panel=CampaignHUD.Panel(screen.transform,"Market desk",new Vector2(.515f,.025f),new Vector2(.985f,.975f));
         ImperialTheme.Panel(panel,false);
         MarketText(panel.transform,"TREASURY AND MARKET",new Vector2(.04f,.93f),new Vector2(.96f,.985f),29);
-        MarketText(panel.transform,"Gold "+CouncilActions.Int("iMoney").ToString("N0")+"  ·  Food "+SupplyEconomy.DaysLeft.ToString("N0")+" days\nDaily ration: "+SupplyEconomy.DailyNeed.ToString("N0")+" provisions",new Vector2(.04f,.845f),new Vector2(.96f,.93f),23);
+        MarketText(panel.transform,"Gold "+CouncilActions.Int("iMoney").ToString("N0")+"  ·  Food "+SupplyEconomy.DaysLeft.ToString("N0")+" days\nDaily ration: "+SharedProvisions.Format(SharedProvisions.CityDemand)+" provisions",new Vector2(.04f,.845f),new Vector2(.96f,.93f),23);
         MarketText(panel.transform,"Quantity step",new Vector2(.04f,.785f),new Vector2(.43f,.835f),21);
         int[] steps={1,10,100};
         for(int i=0;i<steps.Length;i++) {
@@ -33,7 +33,7 @@ public partial class CouncilUI
             int index=i;string resource=resources[i];float top=.77f-i*.185f;
             var row=CampaignHUD.Panel(panel.transform,"Market "+resource,new Vector2(.025f,top-.175f),new Vector2(.975f,top));
             ImperialTheme.Panel(row,false);row.GetComponent<Image>().color=ImperialTheme.Surface;
-            MarketText(row.transform,names[i]+"  "+CouncilActions.Int(resource).ToString("N0"),new Vector2(.025f,.72f),new Vector2(.975f,.985f),26);
+            MarketText(row.transform,names[i]+"  "+(resource==SharedProvisions.City?SharedProvisions.Format(SharedProvisions.Stock(resource)):CouncilActions.Int(resource).ToString("N0")),new Vector2(.025f,.72f),new Vector2(.975f,.985f),26);
             string period=VariableSingleton.HasSiegeStarted()?"today":"this month";
             MarketText(row.transform,SupplyEconomy.Price(resource)+" gold each  ·  Available "+period+": "+MarketPurchaseLimits.Remaining(resource).ToString("N0")+" / "+MarketPurchaseLimits.Limit(resource).ToString("N0"),new Vector2(.025f,.49f),new Vector2(.975f,.72f),20);
 

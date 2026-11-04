@@ -121,6 +121,7 @@ public class VariableSingleton : MonoBehaviour
     [YarnCommand("SetInt")]
     static  public void SetInt(string varName, int newValue) 
     {
+        SharedProvisions.ClearFraction(varName);
         iDict[varName] = varName=="iCampAlert"?EspionageSystem.ClampAlert(newValue):newValue;
         if(varName=="iReligion")CountryDiplomacy.SynchronisePolicy();
         if(varName=="iHealers"&&DailyLifeEvents.I("iMonasticVersion")>0)MonasticResearch.ValidateAllocation();
@@ -173,6 +174,7 @@ public class VariableSingleton : MonoBehaviour
 
     static public void ChangeInt(string varName, int delta)
     {
+        if(varName==SharedProvisions.City||varName==SharedProvisions.Camp){SharedProvisions.Add(varName,delta);return;}
         Achievements.TroopLoss(varName,Math.Min(iDict[varName],Math.Max(0,-delta)));
         RecruitmentLogistics.RecordLoss(varName,Math.Min(iDict[varName],Math.Max(0,-delta)));
         if (iDict[varName] + delta < 0)
@@ -284,9 +286,11 @@ public class VariableSingleton : MonoBehaviour
         PreparationCampaign.InitializeDefaults();
         DefencePosture.Initialise();
         IsInitialized = true;
+        SharedProvisions.Ensure();
         OttomanDirector.Ensure();
         Achievements.BeginCampaign();
         RecruitmentLogistics.BeginCampaign();
+        SharedProvisions.ResetForRestore();
         MedicalRecovery.ResetForRestore();
         MonasticResearch.ResetForRestore();
         MonasticResearch.Ensure();
@@ -412,6 +416,7 @@ public class VariableSingleton : MonoBehaviour
             if(key.StartsWith("iAidState") || key.StartsWith("iAidDays") || key.StartsWith("iAidWarships")) iDict.Remove(key);
         RecruitmentLogistics.ResetForRestore();
         MarketPurchaseLimits.ResetForRestore();
+        SharedProvisions.ResetForRestore();
         MedicalRecovery.ResetForRestore();
         MonasticResearch.ResetForRestore();
         SpecialistPersonnel.ResetForRestore();

@@ -2,9 +2,11 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-// Editable playtest defaults. Troops are headcounts; Ottoman food retains its existing food-day unit.
+// Editable playtest defaults. Food is physical provisions: one provision feeds 1,000 people for one day.
 [Serializable] public sealed class ProvincialWarRules
 {
+    public int HarvestStartMonth,HarvestEndMonth;
+    public double FoodReferenceRation;
     public int Version,MinimumArmy,LaunchResistance,LaunchTroops,MusterMin,MusterMax,RecruitsPerResistance;
     public int BattleChance,BattleCooldown,ShipmentInterval,ChaosDays,AuthorityRecoveryDays;
     public bool PauseGarrisonDuringUprising;
@@ -19,7 +21,7 @@ using UnityEngine;
     public int[] WithdrawalMin,WithdrawalMax,EscapeWeights;
     public int VictoryAuthority,DecisiveAuthority,VictoryTerritory,DecisiveTerritory,OttomanSeekStrong,OttomanSeekWeak,OttomanLowAuthority;
     public Province[] Provinces;public Ally[] Allies;public string BalanceNotes;
-    [Serializable] public sealed class Province {public string Id;public int Garrison,Replacement,FoodDays,Recruits,Gold,Cannons,Ammunition,Ships,TravelDays,Tribute,RebelCap;public int[] Terrain;}
+    [Serializable] public sealed class Province {public string Id;public int Garrison,Replacement,FoodDays,Recruits,Gold,Cannons,Ammunition,Ships,TravelDays,Tribute,RebelCap;public int[] Terrain;public double InitialFoodReserve,MaxFoodReserve,FortnightlyProvisions,SummerHarvestDaily;}
     [Serializable] public sealed class Ally {public string Id;public int Troops,Cap,Reserve,DailyReplacement;public string[] Targets;}
     static ProvincialWarRules data;
     public static ProvincialWarRules Data {
@@ -28,11 +30,14 @@ using UnityEngine;
             return data;
         }
     }
+    static bool ValidFood(double value)=>!double.IsNaN(value)&&!double.IsInfinity(value)&&value>=0&&value<=int.MaxValue;
     public static void Validate(ProvincialWarRules r)
     {
         if(r==null||r.Version!=1||r.Provinces==null||r.Provinces.Length!=WarTheatre.ProvinceIds.Length||r.MinimumArmy<1||r.ShipmentInterval<1||r.BattleCooldown<1||r.RecruitsPerResistance<1||r.MusterMin<0||r.MusterMax<r.MusterMin)throw new Exception("Invalid provincial war rules");
         if(r.Provinces.Select(x=>x.Id).Distinct().Count()!=r.Provinces.Length)throw new Exception("Duplicate province rules");
         foreach(var p in r.Provinces)if(!WarTheatre.ProvinceIds.Contains(p.Id)||p.Garrison<1||p.Replacement<0||p.TravelDays<1||p.Terrain.Length!=3||p.Terrain.Sum()!=100||p.RebelCap<r.LaunchTroops)throw new Exception("Invalid province "+p.Id);
+        if(r.HarvestStartMonth<1||r.HarvestStartMonth>12||r.HarvestEndMonth<1||r.HarvestEndMonth>12||!ValidFood(r.FoodReferenceRation)||r.FoodReferenceRation<=0)throw new Exception("Invalid provincial harvest rules");
+        foreach(var p in r.Provinces)if(!ValidFood(p.InitialFoodReserve)||!ValidFood(p.MaxFoodReserve)||p.InitialFoodReserve>p.MaxFoodReserve||!ValidFood(p.FortnightlyProvisions)||!ValidFood(p.SummerHarvestDaily))throw new Exception("Invalid provincial food reserve "+p.Id);
         foreach(var a in r.Allies)if(CountryDiplomacy.Index(a.Id)<0||a.Targets.Any(x=>!WarTheatre.ProvinceIds.Contains(x))||a.Troops<1||a.Cap<a.Troops||a.Reserve<0)throw new Exception("Invalid ally "+a.Id);
     }
 }

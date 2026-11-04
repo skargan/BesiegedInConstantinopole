@@ -13,7 +13,7 @@ public partial class CouncilUI
         var panel=SpyPanel("City at a Glance",0,650);
         CampaignHUD.Label(panel.transform,"CITY AT A GLANCE",new Vector2(.018f,.94f),new Vector2(.98f,.995f),28);
         var city=new List<string[]>();for(int i=0;i<6;i++)city.Add(StatRow(i));
-        city.Add(Pair("City rations / day",N(SupplyEconomy.DailyNeed)));city.Add(Pair("City ration days",SupplyEconomy.DaysLeft+" days"));
+        city.Add(Pair("City rations / day",SharedProvisions.Format(SharedProvisions.CityDemand)));city.Add(Pair("Food shortage",DailyLifeEvents.I("iHungerDays")+" days · public −"+SharedProvisions.Format(SharedProvisions.Stock("cityPenalty"))+" today"));
         var troops=new List<string[]>();for(int i=6;i<10;i++)troops.Add(StatRow(i));
         troops.Add(Pair("Cannons",I("iCannons")));troops.Add(Pair("Ammunition",I("iAmmunition")));troops.Add(Pair("Warships",I("iShips")));troops.Add(Pair("Damaged ships",I("iDamagedShips")));
         var support=new List<string[]>();for(int i=10;i<14;i++)support.Add(StatRow(i));
@@ -43,7 +43,7 @@ public partial class CouncilUI
 
 
         var medical=SpyPanel("Medical service summary",664,88);
-        var care=CampaignHUD.Label(medical.transform,"<b>MEDICAL SERVICE</b>   Wounded: "+N(MedicalRecovery.Total)+"   ·   Capacity: "+N(MedicalRecovery.Capacity)+"   ·   Free places: "+N(MedicalRecovery.FreePlaces)+"\nTreatment provisions: "+N(MedicalRecovery.DailyProvisionNeed)+" / day"+(MedicalRecovery.Total>0?"   ·   Earliest recovery: "+MedicalRecovery.SoonestReturnDays+" treatment days":""),new Vector2(.022f,.08f),new Vector2(.77f,.94f),22);
+        var care=CampaignHUD.Label(medical.transform,"<b>MEDICAL SERVICE</b>   Wounded: "+N(MedicalRecovery.Total)+"   ·   Capacity: "+N(MedicalRecovery.Capacity)+"   ·   Free places: "+N(MedicalRecovery.FreePlaces)+"\nExtra care: "+SharedProvisions.Format(MedicalRecovery.DailyProvisionNeed)+" provisions / day"+(MedicalRecovery.Total>0?"   ·   Earliest recovery: "+MedicalRecovery.SoonestReturnDays+" treatment days":""),new Vector2(.022f,.08f),new Vector2(.77f,.94f),22);
         care.enableAutoSizing=true;care.fontSizeMin=18;care.fontSizeMax=22;
         CampaignHUD.MakeButton(medical.transform,"Infirmary",new Vector2(.80f,.18f),new Vector2(.98f,.82f),Infirmary);
         var summary=SpyPanel("City briefing",766,96);

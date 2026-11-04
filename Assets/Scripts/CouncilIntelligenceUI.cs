@@ -91,7 +91,7 @@ public partial class CouncilUI
     {
         if(mission!=0&&CouncilActions.Int("iSpies")<1)return "Recruit an agent first";
         if(paySecret?CouncilActions.Int("iSecrets")<1:CouncilActions.Int("iMoney")<1000)return paySecret?"Requires 1 secret":"Requires 1,000 gold";
-        if(mission==1&&CouncilActions.Int("iTurkCannons")==0||mission==2&&CouncilActions.Int("iFood")==0||mission==3&&CouncilActions.Int("iTurkSpies")==0)return "No targets remain";
+        if(mission==1&&CouncilActions.Int("iTurkCannons")==0||mission==2&&SharedProvisions.Stock(SharedProvisions.Camp)<=0||mission==3&&CouncilActions.Int("iTurkSpies")==0)return "No targets remain";
         return null;
     }
 

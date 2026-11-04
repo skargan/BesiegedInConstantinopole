@@ -59,7 +59,7 @@ public static class RecurringEvents
         if(mission<0||mission>4)return;
         float multiplier=PreparationCampaign.FleetMultiplier(mission,true);
         switch(mission) {
-            case 0: VariableSingleton.ChangeInt("iFood",UnityEngine.Mathf.RoundToInt(-3*multiplier));break;
+            case 0: SharedProvisions.ChangeEnemyFoodDays(UnityEngine.Mathf.RoundToInt(-3*multiplier));break;
             case 1: VariableSingleton.ChangeInt("iMoney",UnityEngine.Mathf.RoundToInt(750*multiplier));break;
             case 2: VariableSingleton.ChangeInt("iProvisions",UnityEngine.Mathf.RoundToInt(150*multiplier));break;
             case 3: VariableSingleton.ChangeInt("iBazouks",UnityEngine.Mathf.RoundToInt(-FleetDefensiveDamage*multiplier));break;

@@ -8,7 +8,7 @@ public static class CampaignStatistics
     {
         public readonly string Name, ShortName, Key, Meaning;
         public Stat(string name, string shortName, string key, string meaning) { Name=name; ShortName=shortName; Key=key; Meaning=meaning; }
-        public string Value => Key=="population" ? Number(PopulationAccounting.People) : Key.StartsWith("f") ? VariableSingleton.GetPercentFloat(Key) : Number(CouncilActions.Int(Key));
+        public string Value => Key=="population" ? Number(PopulationAccounting.People) : Key==SharedProvisions.City ? SharedProvisions.Format(SharedProvisions.Stock(Key)) : Key.StartsWith("f") ? VariableSingleton.GetPercentFloat(Key) : Number(CouncilActions.Int(Key));
     }
     public static string Number(long value) => value.ToString("N0", CultureInfo.InvariantCulture);
     public static readonly Stat[] Header = {

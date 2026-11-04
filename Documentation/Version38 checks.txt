@@ -1,0 +1,101 @@
+PROVISIONS38_CHECKS 149 passed; fractional stocks, ration headcounts, shortages, desertion, transfers, actual archive persistence, provincial reserves and presentation captures.
+
+PASS loading an earlier save clears later hunger and convoy fractional state
+PASS 100,499 residents consume 100.499 provisions, without rounding to a thousand
+PASS serving soldiers and queued local recruits are already included in city population
+PASS inconsistent small population never feeds fewer than serving and queued local personnel
+PASS stock preserves six decimal places
+PASS one millionth can be added
+PASS fractional debit leaves exact whole stock
+PASS existing whole-number rewards preserve fractional stock
+PASS explicit integer stock assignment clears old fraction
+PASS oversized debit cannot make negative stock
+PASS last complete city ration consumes exact balance
+PASS last full ration is not starvation Â· fPeopleRep
+PASS last full ration is not starvation Â· fTroopRep
+PASS last full ration is not starvation Â· fPriestRep
+PASS last full ration is not starvation Â· fNobleRep
+PASS city daily tick cannot run twice on one date
+PASS city shortage day 1 Â· fPeopleRep
+PASS city shortage day 1 Â· fTroopRep
+PASS city shortage day 1 Â· fPriestRep
+PASS city shortage day 1 Â· fNobleRep
+PASS city shortage day 2 Â· fPeopleRep
+PASS city shortage day 2 Â· fTroopRep
+PASS city shortage day 2 Â· fPriestRep
+PASS city shortage day 2 Â· fNobleRep
+PASS city shortage day 3 Â· fPeopleRep
+PASS city shortage day 3 Â· fTroopRep
+PASS city shortage day 3 Â· fPriestRep
+PASS city shortage day 3 Â· fNobleRep
+PASS full rations stop penalties without restoring lost support Â· fPeopleRep
+PASS full rations stop penalties without restoring lost support Â· fTroopRep
+PASS full rations stop penalties without restoring lost support Â· fPriestRep
+PASS full rations stop penalties without restoring lost support Â· fNobleRep
+PASS new shortage starts at day one after recovery Â· fPeopleRep
+PASS new shortage starts at day one after recovery Â· fTroopRep
+PASS new shortage starts at day one after recovery Â· fPriestRep
+PASS new shortage starts at day one after recovery Â· fNobleRep
+PASS half ration gives half the first-day penalty Â· fPeopleRep
+PASS half ration gives half the first-day penalty Â· fTroopRep
+PASS half ration gives half the first-day penalty Â· fPriestRep
+PASS half ration gives half the first-day penalty Â· fNobleRep
+PASS 10,000 camp soldiers consume 10 provisions
+PASS camp endurance derives from actual troop demand
+PASS last full Ottoman ration causes no desertion
+PASS Ottoman daily tick cannot run twice on one date
+PASS Ottoman shortage day 1 loses 100 soldiers at full deprivation
+PASS desertion respects the three troop groups on day 1
+PASS Ottoman shortage day 2 loses 200 soldiers at full deprivation
+PASS desertion respects the three troop groups on day 2
+PASS Ottoman shortage day 3 loses 300 soldiers at full deprivation
+PASS desertion respects the three troop groups on day 3
+PASS Ottoman shortage day 4 loses 400 soldiers at full deprivation
+PASS desertion respects the three troop groups on day 4
+PASS Ottoman shortage day 5 loses 500 soldiers at full deprivation
+PASS desertion respects the three troop groups on day 5
+PASS five hungry days lose exactly 1,500 soldiers
+PASS restored Ottoman rations do not restore deserters
+PASS renewed Ottoman shortage returns to the first-day rate
+PASS half Ottoman ration halves first-day desertion to 50
+PASS fewer than four camp agents cannot reveal enemy consumption
+PASS low intelligence hides exact Ottoman desertion losses
+PASS four camp agents reveal the actual consumption and shortage report
+PASS small mixed groups receive fair integer shares without wiping out the smallest group
+PASS desertion is capped at remaining soldiers in a tiny camp
+PASS empty camp creates no demand or phantom deserters
+PASS event summaries do not reveal camp food below three agents
+PASS tier three stock report does not indirectly reveal tier four demand
+PASS tier four may also show endurance at current camp strength
+PASS cross-camp transfer conserves the exact same provisions quantity
+PASS transfer cannot create food when the sending stock runs out
+PASS fractional shortage checkpoint saved through real archive system
+PASS fractional shortage archive loads:
+PASS both fractions and surviving troop mix survive save/load
+PASS fractional desertion carry and consecutive shortage days survive save/load
+PASS save/load preserves support Â· fPeopleRep
+PASS save/load preserves support Â· fTroopRep
+PASS save/load preserves support Â· fPriestRep
+PASS save/load preserves support Â· fNobleRep
+PASS loading and reopening cannot repeat today's hunger penalties or ration debit
+PASS next day after loading uses persisted fractional carry and current survivor ration demand
+PASS campaign initialised
+PASS ProvincialFoodChecks and MedicalProvisionsChecks completed 51 checks
+PASS market ration information visible at 1600
+PASS intelligence food report visible at 1600
+PASS unavailable siege entry retains its hover explanation at 1600
+PASS three campaign choices have the requested order at 1600
+PASS campaign buttons have equal size and a shared centre at 1600
+PASS campaign explanations remain hidden until hover at 1600
+PASS replay screen has no redundant campaign-mode heading at 1600
+PASS both replay modes preserve availability at 1600
+PASS market ration information visible at 1280
+PASS intelligence food report visible at 1280
+PASS infirmary shows the extra treatment ration rule
+PASS resident agent reveals provincial physical food reserve
+PASS unavailable siege entry retains its hover explanation at 1280
+PASS three campaign choices have the requested order at 1280
+PASS campaign buttons have equal size and a shared centre at 1280
+PASS campaign explanations remain hidden until hover at 1280
+PASS replay screen has no redundant campaign-mode heading at 1280
+PASS both replay modes preserve availability at 1280

@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 37 · Council journal playtest";
+    public const string BuildLabel="Version 38 · Provisions and hunger";
 
 
 
@@ -193,7 +193,7 @@ public partial class CouncilUI : MonoBehaviour
             committed++;int days=DailyLifeEvents.I("iAidDays"+i);
             if(days<soonest){soonest=days;aid="Next relief: "+CouncilActions.Allies[i].Name+" · "+days+" days";}
         }
-        return "Food remaining: "+SupplyEconomy.DaysLeft+" days · Daily consumption: "+SupplyEconomy.DailyNeed+" provisions\nLowest support: "+weakest+" "+Mathf.RoundToInt(support*100)+"%\n"+aid+(committed>1?" · "+committed+" expeditions committed":"");
+        return "Food remaining: "+SupplyEconomy.DaysLeft+" days · Daily consumption: "+SharedProvisions.Format(SharedProvisions.CityDemand)+" provisions\nLowest support: "+weakest+" "+Mathf.RoundToInt(support*100)+"%\n"+aid+(committed>1?" · "+committed+" expeditions committed":"");
     }
 
     public void Hide() { if(screen!=null) screen.SetActive(false); }

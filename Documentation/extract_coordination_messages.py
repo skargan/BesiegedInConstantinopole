@@ -37,6 +37,11 @@ for source in SOURCES:
                 if target not in IDS:continue
                 body=value(piece,'prompt')
                 if body is None:
+                    alias=re.search(r'\bprompt\s*:\s*([A-Za-z_$][\w$]*)',piece)
+                    alias=alias.group(1) if alias else 'prompt'
+                    definition=re.search(r'\b(?:const|let|var)\s+'+re.escape(alias)+r'\s*=\s*('+literal+r')\s*;',code,re.S)
+                    if definition:body=value('prompt:'+definition.group(1),'prompt')
+                if body is None:
                     unresolved.append({'source':str(source),'line':lineno,'timestamp':data.get('timestamp'),'reason':'Nonliteral prompt requires manual recovery','code':piece[:2000]});continue
                 key=(sender,IDS[target],body)
                 evidence={'source':str(source),'line':lineno,'call_id':p.get('call_id'),'timestamp':data.get('timestamp')}

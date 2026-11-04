@@ -26,8 +26,8 @@ public static class EspionageSystem
         switch(level) {
             case 0: return (CouncilActions.Int("iBalkans")+CouncilActions.Int("iBazouks")+CouncilActions.Int("iJanissaries")).ToString("N0");
             case 1: return CouncilActions.Int("iTurkCannons")+" cannons · "+NavalState.EnemyShips+" vessels"+(DailyLifeEvents.I("iOttGrandCannon")>0?" · great bombard deployed":"");
-            case 2: return CouncilActions.Int("iFood")+" days";
-            case 3: return "1 day of stores / siege day";
+            case 2: return SharedProvisions.CampStockReport;
+            case 3: return SharedProvisions.CampConsumptionReport;
             case 4: return VariableSingleton.GetPercentFloat("fSultanRage");
             case 5: return CouncilActions.Int("iMorale").ToString();
             case 6: return OttomanDirector.PlanReport;

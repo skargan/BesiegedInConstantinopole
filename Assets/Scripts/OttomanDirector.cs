@@ -44,7 +44,7 @@ public static class OttomanDirector
         var table=Rules.strategies.First(s=>s.strategy==CurrentStrategy.ToString());var weights=(BuildingUp?table.buildup:table.operations).Select(r=>new {Op=(Operation)Enum.Parse(typeof(Operation),r.action),Weight=Weight((Operation)Enum.Parse(typeof(Operation),r.action),r.weight)}).Where(r=>r.Weight>0&&Legal(r.Op)).ToArray();
         Operation chosen=Operation.Reconnaissance;
         if(weights.Length>0){int roll=UnityEngine.Random.Range(0,weights.Sum(r=>r.Weight));foreach(var r in weights){roll-=r.Weight;if(roll<0){chosen=r.Op;break;}}}
-        if(VariableSingleton.Instance.EnduringWall.GetHealth()<=0)chosen=Operation.Advance;else if(Own("iFood")<=1)chosen=Operation.Resupply;else if(Own("iEnemyDelay")>0)chosen=Operation.AwaitOrders;
+        if(VariableSingleton.Instance.EnduringWall.GetHealth()<=0)chosen=Operation.Advance;else if(SharedProvisions.Stock(SharedProvisions.Camp)<SharedProvisions.OttomanDemand)chosen=Operation.Resupply;else if(Own("iEnemyDelay")>0)chosen=Operation.AwaitOrders;
         Set("Plan",(int)chosen);Set("PlanTurn",VariableSingleton.Turn);
     }
     static void Reassess()
@@ -69,7 +69,7 @@ public static class OttomanDirector
     }
     public static bool Legal(Operation op)
     {
-        switch(op){case Operation.Resupply:return Own("iFood")<=1;case Operation.AwaitOrders:return Own("iEnemyDelay")>0;case Operation.FillMoat:return VariableSingleton.GetFloatVariable("fMoat")>0;case Operation.ChainBattery:return !DefencePosture.HornOpen&&Own("iTurkCannons")>0&&I("Ammo")>0;case Operation.Bombard:case Operation.Carcasses:return Own("iTurkCannons")>0&&I("Ammo")>0;
+        switch(op){case Operation.Resupply:return SharedProvisions.Stock(SharedProvisions.Camp)<SharedProvisions.OttomanDemand;case Operation.AwaitOrders:return Own("iEnemyDelay")>0;case Operation.FillMoat:return VariableSingleton.GetFloatVariable("fMoat")>0;case Operation.ChainBattery:return !DefencePosture.HornOpen&&Own("iTurkCannons")>0&&I("Ammo")>0;case Operation.Bombard:case Operation.Carcasses:return Own("iTurkCannons")>0&&I("Ammo")>0;
             case Operation.Tower:return !VariableSingleton.GetBoolVariable("bSiegeTower");case Operation.Ram:return !VariableSingleton.GetBoolVariable("bBatteringRam");case Operation.Ramp:return VariableSingleton.GetFloatVariable("fSiegeRamp")<1;case Operation.ArrowScreens:return I("ArrowScreens")==0;
             case Operation.BalkanAssault:return Own("iBalkans")>0&&VariableSingleton.CompletedSiegeDays-I("LastLandAssault")>=2;case Operation.IrregularAssault:return Own("iBazouks")>0&&VariableSingleton.CompletedSiegeDays-I("LastLandAssault")>=2;case Operation.JanissaryAssault:return Own("iJanissaries")>0&&VariableSingleton.CompletedSiegeDays-I("LastLandAssault")>=2;
             case Operation.OverlandShips:return Own("iTurkShips")>0&&!DefencePosture.HornOpen;case Operation.NavalAssault:return Own("iTurkShips")>0&&DailyLifeEvents.I("iSeaRaidDue")==0;case Operation.SabotageFood:return Own("iTurkSpies")>0&&Own("iProvisions")>0;case Operation.Infiltrate:return Own("iTurkSpies")<10;case Operation.GalataAttack:return PreparationCampaign.CanAttackGalata;case Operation.Advance:return VariableSingleton.Instance.EnduringWall.GetHealth()<=0;default:return true;}

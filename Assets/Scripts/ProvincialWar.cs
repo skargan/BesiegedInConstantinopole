@@ -25,7 +25,16 @@ public static class ProvincialWar
         public void Set(string k,int v)=>Put(Id+"_"+k,v);
         public int Owner {get=>Get("Owner");set=>Set("Owner",value);}
         public int Garrison {get=>Get("Garrison");set=>Set("Garrison",Mathf.Max(0,value));}
-        public int Wealth {get=>Ready?Get("Wealth"):100;set=>Set("Wealth",Mathf.Clamp(value,0,100));}
+        public double FoodReserve {get=>SharedProvisions.Stock("reserve_"+Id);set=>SharedProvisions.Set("reserve_"+Id,value);}
+        public int Wealth {
+            get=>Ready?Get("Wealth"):100;
+            set {
+                int previous=Wealth,next=Mathf.Clamp(value,0,100);
+                // Damage destroys only food still in the province, once at the mutation boundary.
+                if(next<previous)FoodReserve=next==0?0:FoodReserve*next/previous;
+                Set("Wealth",next);
+            }
+        }
         public int Resistance {get=>ProvinceCampaign.Get("R_"+Id);set=>ProvinceCampaign.Set("R_"+Id,Mathf.Clamp(value,0,100));}
         public int Authority {get=>Mathf.Clamp(100-DailyLifeEvents.I("iWbwControlLoss_"+Id),0,Ceiling);set=>VariableSingleton.SetInt("iWbwControlLoss_"+Id,100-Mathf.Clamp(value,0,Ceiling));}
         public int TotalControl=>Armies.Sum(a=>a.Control);
@@ -62,24 +71,56 @@ public static class ProvincialWar
     public static Province Pending=>Provinces.FirstOrDefault(p=>p.Pending);
     public static void Ensure()
     {
-        if(Ready||!VariableSingleton.HasSiegeStarted())return;
+        if(!VariableSingleton.HasSiegeStarted())return;
+        SharedProvisions.Ensure();
+        if(Ready){EnsureFoodReserves();return;}
         bool legacy=ProvinceCampaign.Get("Ready")>0;
         Put("Ready",1);Put("LastDay",Day);Put("SupplyTick",VariableSingleton.CompletedSiegeDays-1);
         ProvinceCampaign.Set("Ready",1);ProvinceCampaign.Set("LastDay",Day);
-        if(!legacy&&VariableSingleton.CompletedSiegeDays==0){VariableSingleton.SetInt("iFood",Mathf.Max(0,90-ProvinceCampaign.Get("PreparationFoodLoss")));VariableSingleton.SetInt("iTurkCannons",Mathf.Max(0,12-ProvinceCampaign.Get("PreparationGunLoss")));}
+        if(!legacy&&VariableSingleton.CompletedSiegeDays==0){SharedProvisions.Set(SharedProvisions.Camp,Math.Max(0,90-ProvinceCampaign.Get("PreparationFoodLoss"))*SharedProvisions.OttomanDemand);VariableSingleton.SetInt("iTurkCannons",Mathf.Max(0,12-ProvinceCampaign.Get("PreparationGunLoss")));}
         foreach(var p in Provinces)
         {
-            p.Garrison=p.Config.Garrison;p.Wealth=100;p.Set("NextShipment",Day+Rules.ShipmentInterval);
+            p.Garrison=p.Config.Garrison;p.FoodReserve=p.Config.InitialFoodReserve;p.Wealth=100;p.Set("LastHarvestDay",Day);p.Set("NextShipment",Day+Rules.ShipmentInterval);
             if(DailyLifeEvents.I("iWbwCaptured_"+p.Id)>0){p.Owner=Imperial;p.Garrison=0;p.Authority=0;}
             if(ProvinceCampaign.Get("Battle_"+p.Id)>0){p.Set("Launched",1);p.Rebels.Troops=Rules.LaunchTroops;}
             if(DailyLifeEvents.I("iWbwLedger_"+p.Id)>0||(p.Id=="macedonia"&&DailyLifeEvents.I("iWbwLedger")>0))p.Set("Plans",1);
         }
+        Put("FoodVersion",1);
+        SharedProvisions.Set("provincial_reference_ration",Rules.FoodReferenceRation);
         if(ProvincialIntelligence.Assigned>0&&!Provinces.Any(p=>ProvinceCampaign.Agent(p.Id)>0)){
             string id=ProvincialIntelligence.ProvinceId;int state=(int)ProvincialIntelligence.State;
             ProvinceCampaign.Set("Agent_"+id,state==4?3:state==1?1:state==3?4:2);ProvinceCampaign.Set("Arrival_"+id,Mathf.Max(Day,ProvincialIntelligence.I("Due")));
         }
         if(ProvincialIntelligence.State==ProvincialIntelligence.CellState.Operating)ProvinceCampaign.Set("LegacyPending",1);
         else {VariableSingleton.SetInt("iWbwState",0);ProvinceCampaign.Set("LegacyPending",0);}
+    }
+    static void EnsureFoodReserves()
+    {
+        if(I("FoodVersion")>0)return;
+        foreach(var p in Provinces){p.FoodReserve=p.Config.InitialFoodReserve*p.Wealth/100.0;p.Set("LastHarvestDay",I("LastDay"));}
+        SharedProvisions.Set("provincial_reference_ration",Rules.FoodReferenceRation);Put("FoodVersion",1);
+    }
+    public static double Harvest(Province p,int day)
+    {
+        if(p.Get("LastHarvestDay")>=day)return 0;
+        p.Set("LastHarvestDay",day);
+        int month=new DateTime((long)day*TimeSpan.TicksPerDay).Month;
+        bool summer=Rules.HarvestStartMonth<=Rules.HarvestEndMonth
+            ?month>=Rules.HarvestStartMonth&&month<=Rules.HarvestEndMonth
+            :month>=Rules.HarvestStartMonth||month<=Rules.HarvestEndMonth;
+        if(!summer)return 0;
+        double before=p.FoodReserve;
+        p.FoodReserve=Math.Max(before,Math.Min(p.Config.MaxFoodReserve,before+p.Config.SummerHarvestDaily*p.Wealth/100.0));
+        return p.FoodReserve-before;
+    }
+    public static double ConvoyFood(int serial)=>serial<1||serial>I("ConvoyCount")||I("C"+serial+"_Done")>0?0:SharedProvisions.Stock("cargo_"+serial);
+    // Interception consumes the remaining food once. Other cargo continues on its existing route.
+    public static double InterceptFood(int serial,string recipient)
+    {
+        if(recipient!=null&&recipient!=SharedProvisions.City&&recipient!=SharedProvisions.Camp)throw new ArgumentException("Unknown food recipient",nameof(recipient));
+        double food=ConvoyFood(serial);if(food<=0)return 0;
+        if(recipient==null)return SharedProvisions.Take("cargo_"+serial,food);
+        return SharedProvisions.Transfer("cargo_"+serial,recipient,food);
     }
     public static string LaunchReason(Province p)=>!Ready?"Available during the siege":!p.Hostile?"Province is not Ottoman-held":p.Pending?"Resolve the provincial event first":p.Get("Launched")>0?"This province has already raised its founding army":p.Resistance<Rules.LaunchResistance?"Requires "+Rules.LaunchResistance+" Resistance":null;
     public static bool Launch(string id,out string report)
@@ -152,6 +193,7 @@ public static class ProvincialWar
             foreach(var p in Provinces)
             {
                 AdvanceAgent(p,day,report);
+                Harvest(p,day);
                 if(p.Owner==Chaos){if(day>=p.Get("ChaosUntil")){ChangeOwner(p,Ottoman);p.Authority=25;p.Set("QuietDays",0);report.AppendLine(p.Name+": Ottoman administration returns; surviving forces resume operations.");}else continue;}
                 if(p.Owner>=AllyOwnerOffset){int country=p.Owner-AllyOwnerOffset;if(I("Pause"+country)>0&&I("Pause"+country)<=day){Put("Pause"+country,0);MoveOn(p,country,report);}}
                 if(p.Owner==Imperial&&day>=p.Get("AssistanceAfter")){p.Set("AssistanceAfter",day+Rules.AssistanceInterval);if(Roll(0,99)<Rules.AssistanceChance){p.Set("Assistance",1);p.Set("AssistanceRoll",Roll(0,99));}}
@@ -243,10 +285,12 @@ public static class ProvincialWar
     {
         if(p.Get("NextShipment")>day)return;p.Set("NextShipment",day+Rules.ShipmentInterval);
         if(p.Owner>=AllyOwnerOffset)return;
-        var c=p.Config;int[] cargo=p.Owner==Imperial?new[]{0,0,Output(p,2,c.Tribute),0,0,0}:new[]{Output(p,0,c.FoodDays),Output(p,1,c.Recruits),Output(p,2,c.Gold),Output(p,3,c.Cannons),Output(p,4,c.Ammunition),Output(p,5,c.Ships)};
+        var c=p.Config;int[] cargo=p.Owner==Imperial?new[]{0,0,Output(p,2,c.Tribute),0,0,0}:new[]{0,Output(p,1,c.Recruits),Output(p,2,c.Gold),Output(p,3,c.Cannons),Output(p,4,c.Ammunition),Output(p,5,c.Ships)};
         int serial=I("ConvoyCount")+1;Put("ConvoyCount",serial);string k="C"+serial+"_";
         Put(k+"Due",day+c.TravelDays);Put(k+"Imperial",p.Owner==Imperial?1:0);Put(k+"Province",Array.IndexOf(WarTheatre.ProvinceIds,p.Id));
         for(int i=0;i<cargo.Length;i++)Put(k+"Cargo"+i,cargo[i]);
+        double food=p.Owner==Ottoman?SharedProvisions.Take("reserve_"+p.Id,c.FortnightlyProvisions*p.Wealth/100.0):0;
+        SharedProvisions.Set("cargo_"+serial,food);
     }
     static void Arrive(int day,StringBuilder report)
     {
@@ -254,18 +298,21 @@ public static class ProvincialWar
         {
             string k="C"+n+"_";if(I(k+"Done")>0||I(k+"Due")>day)continue;Put(k+"Done",1);
             if(I(k+"Imperial")>0){VariableSingleton.ChangeInt("iMoney",I(k+"Cargo2"));report.AppendLine("Provincial tribute arrives: "+I(k+"Cargo2")+" gold.");continue;}
-            int food=I(k+"Cargo0"),pressure=ImperialSupply.GetSupplyPressure(),lost=Mathf.Min(food,pressure);VariableSingleton.SetInt("iWbwSupplyLoss",pressure-lost);food-=lost;
-            VariableSingleton.ChangeInt("iFood",food);VariableSingleton.ChangeInt("iBalkans",I(k+"Cargo1"));Put("OttomanGold",I("OttomanGold")+I(k+"Cargo2"));
+            double food=SharedProvisions.Stock("cargo_"+n);
+            // Legacy disruption orders were measured in days. Freeze their physical value at the campaign's configured reference ration.
+            double queued=SharedProvisions.Stock("provincial_disruption")+ImperialSupply.GetSupplyPressure()*SharedProvisions.Stock("provincial_reference_ration");
+            VariableSingleton.SetInt("iWbwSupplyLoss",0);
+            double lost=Math.Min(food,queued);SharedProvisions.Take("cargo_"+n,lost);SharedProvisions.Set("provincial_disruption",queued-lost);
+            food=SharedProvisions.Transfer("cargo_"+n,SharedProvisions.Camp,food-lost);VariableSingleton.ChangeInt("iBalkans",I(k+"Cargo1"));Put("OttomanGold",I("OttomanGold")+I(k+"Cargo2"));
             VariableSingleton.ChangeInt("iTurkCannons",I(k+"Cargo3"));OttomanDirector.AddAmmo(I(k+"Cargo4"));VariableSingleton.ChangeInt("iTurkShips",I(k+"Cargo5"));NavalState.Sync();
             var p=Find(WarTheatre.ProvinceIds[I(k+"Province")]);
-            if(p.Known)report.AppendLine(p.Name+" convoy reaches the siege: "+food+" food-days, "+I(k+"Cargo1")+" troops, "+I(k+"Cargo2")+" gold, "+I(k+"Cargo3")+" cannons, "+I(k+"Cargo4")+" ammunition and "+I(k+"Cargo5")+" ships.");
+            if(p.Known)report.AppendLine(p.Name+" convoy reaches the siege: "+SharedProvisions.Format(food)+" provisions, "+I(k+"Cargo1")+" troops, "+I(k+"Cargo2")+" gold, "+I(k+"Cargo3")+" cannons, "+I(k+"Cargo4")+" ammunition and "+I(k+"Cargo5")+" ships.");
             else report.AppendLine("An Ottoman supply convoy reaches the siege. Its cargo is unknown.");
         }
     }
     public static string SupplyDay()
     {
         Ensure();if(!Ready||I("SupplyTick")>=VariableSingleton.CompletedSiegeDays)return "";Put("SupplyTick",VariableSingleton.CompletedSiegeDays);
-        VariableSingleton.SetInt("iFood",Mathf.Max(0,CouncilActions.Int("iFood")-1));if(CouncilActions.Int("iFood")>0)return "";
-        int lost=Mathf.CeilToInt(Mathf.Max(0,CouncilActions.Int("iBazouks"))*.01f);VariableSingleton.ChangeInt("iBazouks",-lost);return "Ottoman stores are exhausted. Foraging interrupts today's attack; "+lost+" irregulars desert.";
+        return SharedProvisions.ConsumeOttomanDay();
     }
 }

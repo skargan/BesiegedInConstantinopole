@@ -40,18 +40,27 @@ public static class EventOutcome
 
     private static string Name(string key) => Names.TryGetValue(key,out var value) ? value : System.Text.RegularExpressions.Regex.Replace(key.Substring(1),"([a-z])([A-Z])","$1 $2");
 
+    static double FoodBalance(VariableSingleton.CampaignSave state,string key)=>
+        (state.ints.FirstOrDefault(v=>v.key==key)?.value??0)+(state.ints.FirstOrDefault(v=>v.key=="iProvisionPart_"+key)?.value??0)/1000000d;
     public static string Describe(VariableSingleton.CampaignSave before, VariableSingleton.CampaignSave after)
 
     {
 
         var report=new StringBuilder();
         report.Append(PopulationAccounting.Report(before,after));
+        foreach(string food in new[]{SharedProvisions.City,SharedProvisions.Camp}) {
+            if(food==SharedProvisions.Camp&&DailyLifeEvents.I("iSpies")<3)continue;
+            double prior=FoodBalance(before,food),current=FoodBalance(after,food),delta=current-prior;
+            if(System.Math.Abs(delta)>.0000005)report.AppendLine(Name(food)+": "+(delta>0?"+":"")+SharedProvisions.Format(delta)+"  →  now "+SharedProvisions.Format(current));
+        }
 
         var ints=before.ints.ToDictionary(v=>v.key,v=>v.value);
 
         foreach(var v in after.ints)
 
         {
+            if(v.key==SharedProvisions.City||v.key==SharedProvisions.Camp)continue;
+            if(v.key.StartsWith("iProvision")&&v.key!="iProvisions")continue;
 
             if(v.key.StartsWith("iWbw") || v.key.StartsWith("iOtt") || v.key.StartsWith("iHard") || v.key.StartsWith("iCombat") || v.key=="iEmperorAtWall" || v.key=="iFencing" || v.key.StartsWith("iLife") || v.key.StartsWith("iPopulation") || v.key=="iMerchantFavor")continue;
             if(v.key.StartsWith("iPrepDone") || v.key.StartsWith("iGalataEvent") || v.key=="iPreparationVersion" || v.key.StartsWith("iShah") || v.key=="iFoodShortfall" || v.key=="iHungerDays" || v.key=="iHungerOfferedDay") continue;

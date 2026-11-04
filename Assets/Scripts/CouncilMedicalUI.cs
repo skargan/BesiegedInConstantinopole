@@ -51,7 +51,7 @@ public partial class CouncilUI
         var metrics=MedicalCard("Treatment overview",new Vector2(.025f,.665f),new Vector2(.975f,.78f));
         MedicalText(metrics.transform,MedicalRecovery.Total.ToString("N0")+" in care  ·  "+MedicalRecovery.FreePlaces.ToString("N0")+" free / "+MedicalRecovery.Capacity.ToString("N0")+" places",
             new Vector2(.025f,.50f),new Vector2(.975f,.96f),24);
-        MedicalText(metrics.transform,"Treatment: "+MedicalRecovery.DailyProvisionNeed.ToString("N0")+" provisions/day · 1 per 5 patients",new Vector2(.025f,.04f),new Vector2(.975f,.50f),21);
+        MedicalText(metrics.transform,"Extra care: "+SharedProvisions.Format(MedicalRecovery.DailyProvisionNeed)+" provisions/day · 1 per 20 patients",new Vector2(.025f,.04f),new Vector2(.975f,.50f),21);
         var patients=MedicalCard("Wounded roster",new Vector2(.025f,.405f),new Vector2(.975f,.65f));
         MedicalText(patients.transform,"UNIT",new Vector2(.025f,.83f),new Vector2(.49f,.99f),20);
         MedicalText(patients.transform,"IN CARE",new Vector2(.50f,.83f),new Vector2(.72f,.99f),20,TextAlignmentOptions.Right);
@@ -73,12 +73,11 @@ public partial class CouncilUI
                 ()=>{CampaignHUD.Instance.DismissReport();InfirmaryPage("");});
         });report.name="Infirmary latest report";ImperialTheme.Button(report);
         // Shortage warnings belong in the overview, not behind the details control.
-        int waiting=Mathf.Max(0,MedicalRecovery.Total-MedicalRecovery.Capacity);
-        bool shortFood=DailyLifeEvents.I("iProvisions")<MedicalRecovery.DailyProvisionNeed;
-        if(waiting>0||shortFood) {
+        int waiting=Mathf.Max(0,MedicalRecovery.Total-MedicalRecovery.TreatableToday);
+        if(waiting>0) {
             var label=medicalCanvas.GetComponentsInChildren<TMP_Text>();
             foreach(var text in label)if(text.text=="15 treatment days · One care place per monk"){
-                text.text=(waiting>0?waiting.ToString("N0")+" waiting for care":"")+(waiting>0&&shortFood?" · ":"")+(shortFood?"Insufficient provisions":"");
+                text.text=waiting.ToString("N0")+" waiting · insufficient monks or provisions";
                 text.color=new Color(.94f,.66f,.38f);break;
             }
         }

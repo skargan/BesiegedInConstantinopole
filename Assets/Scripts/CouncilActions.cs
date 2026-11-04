@@ -126,7 +126,7 @@ public static class CouncilActions
 
         if(Int(resource)<cost) {report=paySecret?"You need one secret.":"You need 1,000 gold.";return false;}
 
-        if(index==1 && Int("iTurkCannons")==0 || index==2 && Int("iFood")==0 || index==3 && Int("iTurkSpies")==0)
+        if(index==1 && Int("iTurkCannons")==0 || index==2 && SharedProvisions.Stock(SharedProvisions.Camp)<=0 || index==3 && Int("iTurkSpies")==0)
 
         {report="No targets remain for this mission.";return false;}
 
@@ -145,7 +145,7 @@ public static class CouncilActions
 
             case 1: VariableSingleton.ChangeInt("iTurkCannons",-UnityEngine.Random.Range(1,4)); break;
 
-            case 2: VariableSingleton.ChangeInt("iFood",-UnityEngine.Random.Range(1,11)); break;
+            case 2: SharedProvisions.ChangeEnemyFoodDays(-UnityEngine.Random.Range(1,11)); break;
 
             case 3:
 

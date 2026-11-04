@@ -107,7 +107,7 @@ title: random3
 -> Deploy fire ships in the storm to confuse the enemy fleet — -1 ships; -2 enemy supply days <<if GetInt("iShips") >= 1>>
     Taking advantage of the storm's chaos, the Emperor orders the deployment of fire ships to confuse and disrupt the enemy fleet. The storm provides additional cover for the Byzantine naval forces to execute this manoeuvre. The fire ships create confusion among the enemy fleet, causing some vessels to scatter.
     <<SinkShips 1>>
-    <<Change iFood -2>>
+    <<EnemyFoodDays -2>>
 -> Use the cover of the storm to scout out enemy positions and take prisoners — +1 secrets
     Recognising the storm's potential to obscure activities, the Emperor initiates a scouting operation, aiming to better understand the enemy positions and take prisoners. Soon your soldiers return with a few blindfolded captives, whom they squeeze until they have all the information about the current situation in the enemy camp. This increases our available intelligence.
     <<Change iSecrets 1>>
@@ -334,7 +334,7 @@ title: random13
     <<set $chance = dice(100)>>
     <<if $chance <= 90>>
     Orhan's hand-picked Turkish defectors blend into the Ottoman camp, taking out key guards and sabotaging supplies before escaping. This is a great victory for us, sowing chaos and terror among our enemies.
-    <<Change iFood -3>>
+    <<EnemyFoodDays -3>>
     <<Change iBazouks -150>>
     <<else>>
     Unfortunately Orhan's infiltrators are caught and executed - their screams wake the City in the morning as they are tortured to death in front of the Walls. Even worse, some among our own are whispering that maybe Orhan is only pretending to be on our side and he made our plan fail. While you know that this is nonsense and that Prince Orhan would be the first one to lose his head if Mehmed took the City, these rumours lower morale of the troops.
@@ -344,7 +344,7 @@ title: random13
     <<set $chance = dice(100)>>
     <<if $chance <= 75>>
     In a spot where neither side usually attacks, we launch a surprise strike. The Turks are taken completely by surprise, allowing us to break through their lines, burn their food stores and inflict significant damage to their forces.
-    <<Change iFood -4>>
+    <<EnemyFoodDays -4>>
     <<Change iBazouks -250>>
     <<else>>
     Unfortunately the Turk spies catch wind of our plan and anticipate the attack. We don't manage to achieve our goals, but neither do we suffer any serious casualties ourselves.
@@ -355,7 +355,7 @@ title: random13
     <<if $chance <= 90>>
     Using secret passages, our best soldiers attack the Ottoman camp from the rear, targeting supplies, cannons and sleeping soldiers. This is a devastating attack, that significantly weakens our enemies. In the aftermath of the attack the tunnels collapse, so unfortunately we will not be able to use them again.
     <<Change bSecretRomanTunnel false>>
-    <<Change iFood -5>>
+    <<EnemyFoodDays -5>>
     <<Change iTurkCannons -1>>
     <<else>>
     Unfortunately the Turk spies catch wind of our plan and anticipate the attack. The tunnels are discovered, and your elite troops are trapped and slaughtered, a serious loss for us. In the aftermath of the attack the tunnels collapse, so unfortunately we will not be able to use them again.

@@ -1,0 +1,24 @@
+BESIEGED IN CONSTANTINOPLE — VERSION 38
+Provisions, hunger and menu polish | 4 November 2026
+
+CHANGES
+- Constantinople and the Ottoman camp now use physical provisions: one provision feeds 1,000 people for a day. Fractional quantities are preserved.
+- Provincial food reserves are finite. Destructive Wealth loss destroys the same share of remaining undispatched food; Wealth recovery does not replace it.
+- Fortnightly convoys draw from actual reserves at departure. Later damage cannot remove cargo already travelling. Interception transfers or destroys that cargo once.
+- Summer harvest replenishes reserves up to editable caps; winter shipping can continue from stored food.
+- Consecutive city shortages escalate public morale losses, with half-rate rounded-down penalties to army, clergy and nobles. Partial shortages scale the losses.
+- Ottoman hunger causes escalating, proportional desertion across land troops. Five entirely unfed days lose 1,500 men; surviving strength determines future demand.
+- A fully supplied day resets escalation. Fractional stocks, convoy cargo, shortage counters and desertion remainders survive saves.
+- Infirmary treatment costs one extra provision per 20 patients actually treated, in addition to ordinary city rations. Food and monk availability limit treatment.
+- Food reports respect intelligence levels. Fixed an earlier-save restore issue that could retain later shortage/cargo data.
+- Top statistics have centred labels and icon/value pairs, consistent number sizes and clearer grouping.
+- Begin your reign has three vertically ordered choices: Normal campaign, Start at the Siege, Ironman. Explanations appear on hover; replay heading and note are centred.
+- Updated AGENT COORDINATION instructions, design decisions and release record.
+
+VERIFICATION
+Unity Windows development build succeeded. 149 focused runtime checks passed against the actual game systems, including save/load, conservation, hunger, medical treatment and menu states. Screens inspected at 1280x720 and 1600x900, including hover text, market, intelligence, infirmary and provincial food reporting.
+
+PLAYTEST NOTES
+Use a fresh Version 38 campaign. Existing Version 37 travelling food used a different representation and is not fully migrated. Old saves are not copied into this release.
+Initial provincial reserves total 13,200 provisions. June-August harvest rates and provincial capacities are editable provisional balance values; a full long-campaign balance pass remains future work.
+Ragusa, Candar and the new journal icon from JohanX remain staged for a separate integration chunk.

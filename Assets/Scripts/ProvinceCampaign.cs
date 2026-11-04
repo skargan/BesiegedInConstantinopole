@@ -41,7 +41,8 @@ public static class ProvinceCampaign
         report="Requires a resident agent.";if(Agent(id)!=2)return false;Set("Agent_"+id,3);Set("Arrival_"+id,Day+7);report="Your agent begins the seven-day return journey. Exact local enemy intelligence is no longer available; the rebel army remains.";return true;
     }
     public static void Mode(string id,int mode){if(Agent(id)==2)Set("Mode_"+id,Mathf.Clamp(mode,0,1));}
-    public static int PendingFood(string id)=>ProvincialWar.Find(id).Config.FoodDays;
+    // Compatibility name: returns remaining undispatched provisions, not abstract food-days.
+    public static int PendingFood(string id)=>(int)Math.Floor(ProvincialWar.Find(id).FoodReserve);
     public static string Reason(string id,int op)
     {
         Ensure();var p=ProvincialWar.Find(id);

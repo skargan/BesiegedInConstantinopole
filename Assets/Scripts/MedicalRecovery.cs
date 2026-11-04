@@ -19,7 +19,10 @@ public static class MedicalRecovery
     public static int Total { get {long n=0;foreach(string unit in Units)n+=CountFor(unit);return Bounded(n);} }
     public static int RegularWounded => Bounded((long)CountFor(Units[0])+CountFor(Units[1])+CountFor(Units[2]));
     public static int FreePlaces => Math.Max(0,Capacity-Total);
-    public static int DailyProvisionNeed => (int)(((long)Math.Min(Total,Capacity)+4)/5);
+    // Ordinary meals are already counted in city population; this is the extra treatment ration.
+    public static double DailyProvisionNeed => Math.Min(Total,Capacity)/20d;
+    public static int TreatableToday => Math.Min(Math.Min(Total,Capacity),(int)Math.Min(int.MaxValue,Math.Floor(SharedProvisions.Stock(SharedProvisions.City)*20d+.0000001)));
+    public static double LastProvisionCost => SharedProvisions.Stock("medicalLastCost");
     public static int QueuedMonks { get {long n=0;foreach(var o in TrainingPool.Orders)if(o.unit=="iHealers")n+=o.quantity;return Bounded(n);} }
     public static int SoonestReturnDays { get {for(int d=1;d<=TreatmentDays;d++)for(int u=0;u<Units.Length;u++)if(I(PatientKey(u,d))>0)return d;return 0;} }
     public static int CountFor(string unit) {int u=Array.IndexOf(Units,unit);if(u<0)return 0;long n=0;for(int d=1;d<=TreatmentDays;d++)n+=I(PatientKey(u,d));return Bounded(n);}
@@ -27,17 +30,18 @@ public static class MedicalRecovery
     public static string TreatmentSummary => Total==0?"The infirmary has no wounded patients. Monks assigned here stand ready to receive casualties.":
         "Recovery takes 15 treatment days. "+
         (Capacity<Total? (Total-Capacity).ToString("N0")+" patients must wait each day: there are too few monks. ":"")+
-        (I("iProvisions")<DailyProvisionNeed?"Supplies are insufficient for a full day of treatment. ":"")+
+        "Extra care uses one provision per 20 patients treated each day, in addition to their ordinary city ration. Treatment pauses when food is insufficient. " +
         "Patients closest to recovery are treated first. Waiting days do not count towards recovery.";
     public static string LastReport => I("iMedicalReportDay")==0?"No treatment report yet.":
         "Last treatment report · "+new DateTime((long)I("iMedicalReportDay")*TimeSpan.TicksPerDay).ToString("d MMM")+"\n"+
-        I("iMedicalLastTreated").ToString("N0")+" treated · "+I("iMedicalLastReturned").ToString("N0")+" returned · "+I("iMedicalLastCost")+" provisions used"+
+        I("iMedicalLastTreated").ToString("N0")+" treated · "+I("iMedicalLastReturned").ToString("N0")+" returned · "+SharedProvisions.Format(LastProvisionCost)+" extra provisions"+
         (I("iMedicalLastWaiting")>0?" · "+I("iMedicalLastWaiting").ToString("N0")+" waiting":"");
 
     public static void ResetForRestore()
     {
         for(int u=0;u<Units.Length;u++){Put(ReturnedKey(u),0);for(int d=1;d<=TreatmentDays;d++)Put(PatientKey(u,d),0);}
         foreach(string k in new[]{"LastDay","ReportDay","LastTreated","LastReturned","LastCost","LastWaiting"})Put("iMedical"+k,0);
+        SharedProvisions.Set("medicalLastCost",0);
     }
 
     // Hamilton allocation preserves the actual casualty mix and exact total, including
@@ -73,7 +77,7 @@ public static class MedicalRecovery
 
     // The repair task has already removed this engineer from available duty.
     // A wounded survivor waits if all beds are occupied; no patient is evicted,
-    // and no treatment happens without an infirmary monk and provisions.
+    // and treatment needs both an infirmary monk and its additional care ration.
     public static void AdmitWoundedEngineers(int count)
     {
         if(count<=0)return;
@@ -87,9 +91,9 @@ public static class MedicalRecovery
         int target=TrainingPool.Day(date),last=I("iMedicalLastDay");
         if(last==0){Put("iMedicalLastDay",target);return "";}
         if(target<=last)return "";
-        int returned=0,cost=0;bool hadPatients=Total>0;
+        int returned=0;double cost=0;bool hadPatients=Total>0;
         for(int day=last+1;day<=target&&Total>0;day++){
-            int patients=Total,limit=Math.Min(patients,Math.Min(Capacity,Bounded((long)I("iProvisions")*5)));
+            int patients=Total,limit=TreatableToday;
             int treated=0,todayReturned=0;
             // Ascending remaining days means moved patients cannot be processed twice.
             for(int d=1;d<=TreatmentDays&&treated<limit;d++){
@@ -101,15 +105,16 @@ public static class MedicalRecovery
                     else{VariableSingleton.ChangeInt(Units[u],n);Put(ReturnedKey(u),Bounded((long)RecoveredFor(Units[u])+n));todayReturned+=n;}
                 }
             }
-            int dailyCost=(int)(((long)treated+4)/5);if(dailyCost>0)VariableSingleton.ChangeInt("iProvisions",-dailyCost);
-            Put("iMedicalReportDay",day);Put("iMedicalLastTreated",treated);Put("iMedicalLastReturned",todayReturned);Put("iMedicalLastCost",dailyCost);Put("iMedicalLastWaiting",patients-treated);
+            double dailyCost=SharedProvisions.Take(SharedProvisions.City,treated/20d);
+            SharedProvisions.Set("medicalLastCost",dailyCost);
+            Put("iMedicalReportDay",day);Put("iMedicalLastTreated",treated);Put("iMedicalLastReturned",todayReturned);Put("iMedicalLastCost",(int)Math.Floor(dailyCost));Put("iMedicalLastWaiting",patients-treated);
             returned+=todayReturned;cost+=dailyCost;
             if(treated==0)break;
         }
         Put("iMedicalLastDay",target);
         if(!hadPatients)return "";
         return "Infirmary: "+(returned>0?returned.ToString("N0")+" recovered patients return to duty. ":"")+
-            cost.ToString("N0")+" provisions used for treatment; "+Total.ToString("N0")+" remain wounded."+
+            Total.ToString("N0")+" remain wounded. Extra care used "+SharedProvisions.Format(cost)+" provisions."+
             (I("iMedicalLastWaiting")>0?" Treatment paused for "+I("iMedicalLastWaiting").ToString("N0")+" patients: insufficient monks or provisions.":"")+"\n\n";
     }
 

@@ -181,7 +181,7 @@ title: galata30
     <<Change fGalataRep 0.05>>
     The cargo is withdrawn.
 -> Allow the trade. Ottoman food +5 days.
-    <<Change iFood 5>>
+    <<EnemyFoodDays 5>>
     The supplies enter the enemy camp.
 ===
 title: galata31
