@@ -37,7 +37,14 @@ public sealed class CouncilChamberCapture : MonoBehaviour
                 var flame=(RectTransform)chamber.transform.Find("Candle effects/Anchored flame "+i);var point=i==0?chamber.settings.left:chamber.settings.right;
                 Check(Vector2.Distance(flame.anchorMin,point)<.0001f&&flame.anchoredPosition==Vector2.zero&&flame.pivot==new Vector2(.5f,0),"flame anchored to reference wick");
             }
+            var menuButton=manager.GetComponentsInChildren<Button>().First(b=>b.GetComponent<ImperialButtonLightDriver>()!=null&&b.interactable);
+            var edge=menuButton.GetComponentInChildren<ImperialButtonLight>();Check(edge!=null&&!edge.raycastTarget,"shared edge highlight cannot intercept clicks");
+            menuButton.GetComponent<ImperialButtonLightDriver>().OnPointerEnter(null);yield return new WaitForSecondsRealtime(.2f);
             yield return Capture("chamber-"+size.x+"x"+size.y);
+            menuButton.GetComponent<ImperialButtonLightDriver>().OnPointerExit(null);
+            var haze=(RectTransform)chamber.transform.Find("Candle effects/Window haze 0");var hazeBefore=haze.anchorMin;
+            yield return new WaitForSecondsRealtime(.5f);Check(chamber.IsStill||haze.anchorMin!=hazeBefore,"window haze moves when animation enabled");
+            yield return Capture("chamber-motion-"+size.x+"x"+size.y);
             float elapsed=chamber.Elapsed;manager.gameObject.SetActive(false);yield return new WaitForSecondsRealtime(.25f);Check(chamber.Elapsed==elapsed,"hidden chamber stops animation");
             manager.gameObject.SetActive(true);yield return null;Check(chamber.Elapsed-elapsed<=.051f,"reopen has no time jump");Check(manager.GetComponentsInChildren<CouncilChamber>(true).Length==1,"no duplicate animation component");
             chamber.ForceStill=true;yield return null;elapsed=chamber.Elapsed;yield return new WaitForSecondsRealtime(.15f);Check(chamber.Elapsed==elapsed,"reduced-motion frame stays still");yield return Capture("chamber-still-"+size.x);chamber.ForceStill=false;

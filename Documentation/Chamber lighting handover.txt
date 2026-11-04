@@ -1,0 +1,13 @@
+This is ConstantineX — 4 November 2026. Update BLUF: shared button edge-lighting and chamber atmosphere strengthened and verified in Version-38-ArtPreview; desktop release unchanged.
+
+Implemented: shared ImperialTheme mosaic buttons receive a pale feathered edge light on hover/keyboard selection, without changing labels or clicks. Disabled actions do not light up. Chamber gains a procedural corner shade with the upper window protected; candle glow intensity increases from 0.16 to 0.24, with faster and more visible flicker; separate restrained moving sky wisps avoid distorting the painted city. Original painted clouds remain static. Reduced motion/particles preference, inactive lifecycle and non-interactive decoration retained.
+
+Evidence: Unity Windows development build succeeded; existing chamber capture extended for edge-light raycast isolation and moving haze. 106 checks passed at 1600x900, 1280x720 and 1280x960, including campaign/RNG isolation, still mode, fallback and navigation. Final 1600x900 render visually reviewed. Initial overly gold hover and broad bloom softened after visual inspection. Not a controlled performance benchmark.
+
+Files: UI/ImperialTheme.cs; UI/ImperialButtonLight.cs; CouncilChamber.cs; Resources/Content/CouncilChamber.json; CouncilChamberCapture.cs. Other workstream changes preserved.
+
+PROPOSALS ONLY, NOT IMPLEMENTED OR APPROVED:
+- Keep Imperial Council name unless user chooses otherwise; Imperial Chamber and Emperor's Study offered as alternatives.
+- Separate sky, skyline/water, room foreground and local lighting for a 2.5D scene. Campaign determines dusk/night/dawn; ambience animates within it. Historical May 29 midnight is a possible symbolic milestone, not an enforced loss or real clock. Early victory should override it.
+- Smoke tied to bombardment/fire outcomes; Ottoman ships only after relevant naval events; distant camp lights where geographically visible; relief sails when actually approaching; worn map, petitions, shutters, rain and seasonal foliage as restrained state-based cues.
+- No full day/night cycle, calendar coupling, smoke, camps or ships added in this change.

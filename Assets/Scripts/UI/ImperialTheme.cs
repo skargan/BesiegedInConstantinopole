@@ -81,6 +81,7 @@ public static class ImperialTheme
         if(words.StartsWith("accept terms") || words.StartsWith("confirm surrender"))colors.normalColor=new Color(1,.42f,.37f,1);
         colors.disabledColor=words=="active"?new Color(1f,.78f,.32f,1):new Color(.25f,.29f,.32f,1);colors.fadeDuration=.12f;button.colors=colors;
         Frame(button.gameObject);
+        ImperialButtonLight.Attach(button);
         var outline=button.GetComponent<Outline>();if(outline!=null)outline.enabled=false;
         foreach(var label in button.GetComponentsInChildren<TMP_Text>(true)) { label.font=Font;label.color=Ivory; }
     }

@@ -2,6 +2,6 @@
   "left": {"x": 0.2153, "y": 0.7344},
   "right": {"x": 0.9147, "y": 0.508},
   "flameHeight": 0.028,
-  "glowIntensity": 0.16,
-  "shadowIntensity": 0.09
+  "glowIntensity": 0.24,
+  "shadowIntensity": 0.16
 }
