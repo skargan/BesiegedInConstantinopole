@@ -61,6 +61,14 @@ public static class SaveGames {
     public static void BeginNew(){Ironman=NewRequested&&RequestedIronman;Terminal=false;CampaignId=Guid.NewGuid().ToString("N");Sequence=0;Phase="council";PendingResume=null;NewRequested=false;LastError="";VariableSingleton.LastCheckpointTurn=-1;}
     public static string Hash(VariableSingleton.CampaignSave data){using(var sha=SHA256.Create())return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(JsonUtility.ToJson(data)))).Replace("-","");}
     public static string Integrity(Archive a){string original=a.payloadHash;a.payloadHash=null;try {using(var sha=SHA256.Create())return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(JsonUtility.ToJson(a)))).Replace("-","");}finally{a.payloadHash=original;}}
+    static string PreJournalIntegrity(Archive a){
+        string original=a.payloadHash;a.payloadHash=null;
+        try {
+            // The journal is additive. Older archives hashed the same schema without this field.
+            string json=System.Text.RegularExpressions.Regex.Replace(JsonUtility.ToJson(a),",\"journal\":(?:\\[\\]|null)","");
+            using(var sha=SHA256.Create())return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(json))).Replace("-","");
+        }finally{a.payloadHash=original;}
+    }
     public static void Validate(Archive a){
         if(a==null||a.campaign==null)throw new InvalidDataException("This is not a Besieged campaign save.");
         if(a.saveFormat!=Format)throw new InvalidDataException("Save format "+a.saveFormat+" is not supported by this build (format "+Format+").");
@@ -85,7 +93,12 @@ public static class SaveGames {
         if(!json.Contains("\"saveFormat\"")){
             var legacy=JsonUtility.FromJson<VariableSingleton.CampaignSave>(json);
             a=new Archive{campaign=legacy,build="Legacy playtest (before Version 29)",campaignId="legacy-"+Path.GetFileNameWithoutExtension(path).Replace(".","-"),name="Legacy campaign",savedUtc=f.LastWriteTimeUtc.ToString("o"),ironman=false,phase="council"};a.payloadHash=Integrity(a);
-        }else a=JsonUtility.FromJson<Archive>(json);
+        }else {
+            a=JsonUtility.FromJson<Archive>(json);
+            bool hasJournal=System.Text.RegularExpressions.Regex.IsMatch(json,@"(?<!\\)""journal""\s*:");
+            if(a!=null&&a.campaign!=null&&!hasJournal&&string.Equals(a.payloadHash,PreJournalIntegrity(a),StringComparison.Ordinal))
+                a.payloadHash=Integrity(a); // Verify the original checksum before accepting the additive migration.
+        }
         Validate(a);return a;
     }
     public static void AtomicWrite(string path,string content){

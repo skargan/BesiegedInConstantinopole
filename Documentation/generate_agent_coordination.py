@@ -1,46 +1,67 @@
+"""Regenerate Word and text from editable content and original message JSON files."""
 from pathlib import Path
+import json
 from docx import Document
-from docx.shared import Inches,Pt,RGBColor
-sections=[('AGENT INSTRUCTIONS',[
-'Every developer reads this record before work, then verifies the current branch, dirty files, active assignments and build ownership. ConstantineX leads integration. User instructions override this coordination record. Work in bounded segments under 15 minutes; report meaningful progress and blockers.',
-'Begin every user-facing update and agent message: This is [workstream designation] — [HH:mm, date, timezone]. Update BLUF: [one plain-language sentence stating the outcome or request]. Use Europe/Bucharest time, verified when posting. Then give only the details needed to act. Identify uncertainty and the next owner. Occasional humour and individual personality are welcome; keep decisions and evidence unambiguous.',
-'Claim exact files or methods before editing. One owner per shared change. Use separate staging files or branches for independent work; agree on integration before touching another owner’s area. Never revert unknown changes. Do not assume a delivered message was acknowledged.',
-'One Unity build owner and one release/version owner at a time. Handover states version, build path, process completion, tests and unresolved issues. Never overwrite an active capture player. Preserve saves. Commit only reviewed owned files.',
-'Use evidence labels: proposed, approved, staged, installed, compiled, runtime checked, visually reviewed, committed, pushed, desktop published. None implies the next. Report checks and their scope; test counts alone do not establish gameplay quality.',
-'ConstantineX maintains this document and its text companion from the same content. Other workstreams send updates rather than concurrently editing the Word binary. Refresh at handover, scope change, blocker, design decision and release. Replace stale current assignments; retain concise decisions and lessons. Future agents verify snapshots before acting.',
-'Recovery after failure: mark the workstream inactive, preserve its files and branches, inspect unfinished changes, then explicitly reassign ownership. Never assume an inactive agent completed or abandoned its edits.',
-'Efficiency: batch independent reads; test the changed behaviour first; reuse passing evidence until changes invalidate it. Avoid repeated status polling, duplicate research and speculative subsystems. Keep simulation separate from presentation, preserve stable IDs and save compatibility, and leave sources/ read-only.'
-]),('ARCHITECTURE',[
-'Verified entry points in the Unity checkout: VariableSingleton stores campaign values and exposes CaptureState and restore paths. SaveGames handles campaign saves. CouncilActions changes campaign state and uses EventOutcome for results. These are existing integration points; avoid parallel state stores.',
-'CouncilUI and CampaignHUD present the campaign; ControlSingleton handles return navigation. Check both screen visibility and return callbacks when adding a nested menu. Presentation must not consume simulation randomness or alter campaign state.',
-'OttomanDirector is the strategic decision entry point. Event choices, diplomacy, provincial systems and assault outcomes feed persistent campaign values. Changes affecting those values require save/load and downstream outcome checks. This is an entry-point map, not a completed dependency audit.',
-'New CouncilChamber is decorative UI, loaded from Resources with editable JSON candle anchors. It is clipped and non-interactive, pauses when hidden and supports still presentation. Its capture checks cover campaign/RNG isolation and navigation.',
-'Known integration gap: no general campaign Decision Journal or epilogue API has been verified in the current source. The assault journal must not be mistaken for a campaign chronicle. New agreements need durable flags and an agreed journal interface before claiming journal or ending integration.'
-]),('DECISIONS',[
-'Confirmed by user: ConstantineX leads the taskgroup. OrbanX is inactive after a critical error and must not receive new assignments. JohanX remains an active workstream. Rationale: maintain one accountable integration owner and explicit recovery.',
-'Confirmed by user: keep this record updated under AGENT INSTRUCTIONS, ARCHITECTURE, DECISIONS and COORDINATION. Use named, timestamped BLUF updates. Rationale: readable context survives chat loss and future handovers.',
-'Confirmed art direction: council centre uses an atmospheric Byzantine desk chamber, broad city-facing windows and informally arranged objects, with gentle candle animation. Keep existing council navigation and quotation presentation.',
-'Confirmed standing gameplay decisions relevant to integration: factions, merchant favour and general engineer mentorship were retired; do not reintroduce them through old notes. Population counts individuals; provisions round population to the nearest thousand. Ironman earns career achievements; normal campaigns do not. Implementation status must be checked separately.',
-'Implementation protocol chosen by ConstantineX: one editor regenerates Word and a diffable text companion from one source. This is an operational convention, not a new gameplay rule. Proposed mechanics remain labelled proposals until approved.'
-]),('COORDINATION',[
-'Snapshot: 3 November 2026, Europe/Bucharest. Repository: https://github.com/skargan/BesiegedInConstantinopole. Branch: codex/prototype-first-playtest. Active checkout: C:/Users/Dainius/Documents/Codex/Besieged-release18. Confirm current HEAD and dirty tree before edits.',
-'ConstantineX owns integration, coordination record, CouncilUI.BuildManagementMenu, CouncilChamber.cs, CouncilChamberCapture.cs, CouncilChamber.json and council-chamber.png. Chamber compiled in 36.21; 58 runtime checks passed. The 1600 by 900 capture was visually inspected. Other captured resolutions still require visual review before claiming complete visual QA.',
-'JohanX owns OptionButton.cs, OptionListButtons.cs, EventCardArt.cs, CampaignHUD.cs, CampaignStatusStrip.cs, FleetChainBackdrop.cs, Fleet hook in CouncilCompactMilitaryUI.cs, two no-chain fleet images, EventPresentationCapture.cs and BuildEventPresentation.cs. Initial 146 checks passed. Final narrative mask padding build succeeded; final capture and visual handover pending.',
-'Build handover: JohanX released Unity to ConstantineX and requested combined commit/publication. ConstantineX accepted. Do not overwrite Version-36.21 while final event capture runs. Final publication remains pending review. Ionian refuge, Raimondina and Theodoro are JohanX staging scope; claim shared methods before installing.',
-'OrbanX: inactive by user report. Previous scope and unfinished files are unverified. No ownership automatically transfers; ConstantineX must inspect any recovered handover before reassignment.',
-'Next actions: receive final JohanX visual pass; finish chamber screenshot review; commit owned combined changes; publish versioned playable build with saves preserved; update this record with release evidence. Recover OrbanX work only when a concrete artifact or branch is identified.',
-'Learning notes: compiled is not published; a screenshot is not full gameplay verification; an assault journal is not a campaign journal; a Word binary cannot merge simultaneous edits usefully. Keep one source for documentation and one accountable owner for each handover.'
-])]
-d=Document();s=d.sections[0];s.top_margin=s.bottom_margin=Inches(.65)
-for n in ['Normal','Title','Heading 1']:
- d.styles[n].font.name='Calibri';d.styles[n].font.color.rgb=RGBColor(0,0,0)
-d.styles['Normal'].font.size=Pt(10);d.styles['Normal'].paragraph_format.space_after=Pt(8)
+from docx.shared import Inches, Pt, RGBColor
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+HERE=Path(__file__).resolve().parent
+OUT=HERE.parent
+c=json.loads((HERE/'agent_coordination_content.json').read_text(encoding='utf8'))
+a=json.loads((HERE/'agent_coordination_messages.json').read_text(encoding='utf8'))
+d=Document(); s=d.sections[0]
+s.top_margin=s.bottom_margin=Inches(.62)
+s.left_margin=s.right_margin=Inches(.7)
+for name in ['Normal','Title','Heading 1','Heading 2']:
+    style=d.styles[name];style.font.name='Calibri';style.font.color.rgb=RGBColor(0,0,0)
+d.styles['Normal'].font.size=Pt(10)
+d.styles['Normal'].paragraph_format.space_after=Pt(7)
+d.styles['Heading 1'].font.size=Pt(16)
+d.styles['Heading 2'].font.size=Pt(11)
+d.styles['Title'].font.size=Pt(24)
 for e in d.styles.element.xpath('//w:pBdr'):e.getparent().remove(e)
-d.add_heading('AGENT COORDINATION',0)
-d.add_paragraph('Besieged in Constantinople | Standing instructions and current handovers')
-for i,(title,items) in enumerate(sections):
- if i:d.add_page_break()
- d.add_heading(title,1)
- for item in items:d.add_paragraph(item)
-d.save('AGENT COORDINATION.docx')
-Path('AGENT COORDINATION.txt').write_text('AGENT COORDINATION\n\n'+'\n\n'.join(t+'\n\n'+'\n\n'.join(x) for t,x in sections),encoding='utf-8')
+foot=s.footer.paragraphs[0];foot.alignment=2
+foot.add_run('Besieged • Agent coordination | ').font.size=Pt(8)
+field=OxmlElement('w:fldSimple');field.set(qn('w:instr'),'PAGE');foot._p.append(field)
+text=[c['title'],c['subtitle'],'Snapshot: '+c['snapshot']]
+d.add_paragraph(c['title'],'Title');d.add_paragraph(c['subtitle'])
+d.add_paragraph('Current instructions and ownership appear first. Confirmed decisions and release evidence follow. The final archive preserves original messages; historical instructions there may have been superseded.')
+for index,(title,paragraphs) in enumerate(c['sections']):
+    heading=d.add_heading(title,1)
+    if index:heading.paragraph_format.page_break_before=True
+    text.extend(['',title,''])
+    for para in paragraphs:d.add_paragraph(para);text.extend([para,''])
+d.add_heading('VERSION CHANGELOG',1).paragraph_format.page_break_before=True
+text.extend(['','VERSION CHANGELOG','',c['history_note'],''])
+d.add_paragraph(c['history_note'])
+for entry in c['changelog']:
+    heading='Version '+entry['version']+' — '+entry['status']
+    d.add_heading(heading,2);text.extend([heading,''])
+    for field in ['changes','evidence','pending','publication']:
+        value=field.capitalize()+': '+entry[field]
+        d.add_paragraph(value);text.extend([value,''])
+d.add_heading('INTERAGENT MESSAGE LOG',1).paragraph_format.page_break_before=True
+messages=a['messages'];coverage=a['coverage']
+intro=f"{len(messages)} recovered original messages, from {messages[0]['timestamp']} to {messages[-1]['timestamp']}. Times below are recorded transport times in UTC; a message may also state its sender’s local time. Historical workstream aliases are mapped to their current designations. Message bodies are verbatim, including original spelling, spacing and encoding defects."
+notes=[intro,coverage['method'],coverage['gaps'],'The archive records attempted sends, not proof of acknowledgement. Source references use the original session filename, line and call ID. No unrelated private chat content is included. Earlier snapshot instructions and release claims do not override the current sections above.']
+text.extend(['','INTERAGENT MESSAGE LOG',''])
+for note in notes:d.add_paragraph(note);text.extend([note,''])
+for i,m in enumerate(messages,1):
+    heading=f"{i:03d} | {m['timestamp']} | {m['sender']} to {m['recipient']}"
+    p=d.add_paragraph();p.paragraph_format.space_before=Pt(7);p.paragraph_format.space_after=Pt(3);p.paragraph_format.keep_with_next=True
+    r=p.add_run(heading);r.bold=True;r.font.size=Pt(9.5)
+    p=d.add_paragraph(m['text']);p.paragraph_format.space_after=Pt(3);p.paragraph_format.line_spacing=1
+    for r in p.runs:r.font.size=Pt(9.5)
+    refs=[f"{Path(ref['source']).name}:{ref['line']} | {ref['call_id']}" for ref in m['occurrences']]
+    provenance='Source: '+'; '.join(refs)
+    # Keep provenance with at least the final body line, without forcing an
+    # entire long message onto one page or changing the original message body.
+    p.paragraph_format.widow_control=True
+    p.add_run().add_break()
+    source_run=p.add_run(provenance)
+    source_run.font.size=Pt(7.5);source_run.font.color.rgb=RGBColor(80,80,80)
+    p.paragraph_format.space_after=Pt(5)
+    text.extend([heading,m['text'],provenance,''])
+d.save(OUT/'AGENT COORDINATION.docx')
+(OUT/'AGENT COORDINATION.txt').write_text('\n'.join(text),encoding='utf8')
+print(f'Generated guide and {len(messages)} verbatim messages')

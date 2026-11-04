@@ -256,6 +256,7 @@ public class VariableSingleton : MonoBehaviour
 
     private void InitializeVariables()
     {
+        DecisionJournal.Entries.Clear();
         ArrivalNotice="";
         TrainingOrders.Clear();
         bDict.Clear();
@@ -363,6 +364,7 @@ public class VariableSingleton : MonoBehaviour
     [Serializable] public class CampaignSave
     {
         public int version = 2;
+        public List<DecisionJournal.Entry> journal = new List<DecisionJournal.Entry>();
         public List<TrainingPool.Order> training = new List<TrainingPool.Order>();
         public int turn;
         public string wall;
@@ -385,6 +387,7 @@ public class VariableSingleton : MonoBehaviour
             randomState = UnityEngine.Random.state,
             story = new List<int>(possibleStory), randomEvents = new List<int>(possibleRandom)
         };
+        data.journal=DecisionJournal.Copy();
         foreach(var order in TrainingOrders) data.training.Add(order.Copy());
         foreach (var pair in bDict) data.bools.Add(new BoolValue { key = pair.Key, value = pair.Value });
         foreach (var pair in iDict) data.ints.Add(new IntValue { key = pair.Key, value = pair.Value });
@@ -402,6 +405,7 @@ public class VariableSingleton : MonoBehaviour
     public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
+        DecisionJournal.Entries=data.journal??new List<DecisionJournal.Entry>();
         // Appended realms must not inherit a later campaign's appeal when loading an older save.
         // Omitted warship promises stay absent so legacy pending expeditions retain their original cargo.
         foreach(string key in new List<string>(iDict.Keys))

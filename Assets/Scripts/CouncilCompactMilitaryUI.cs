@@ -78,6 +78,7 @@ public partial class CouncilUI
     void CompactFleet()
     {
         var pane=MilitaryCanvas("The Imperial Fleet",SceneBackdrop.Phase("fleet"),"Keep the harbour. Command the sea.");
+        FleetChainBackdrop.Attach(screen);
         int ships=CouncilActions.Int("iShips"),order=Mathf.Clamp(CouncilActions.Int("iFleet"),0,5);
         bool known=CouncilActions.Int("iSpies")>=2;int queued=0;
         var building=new List<string>();

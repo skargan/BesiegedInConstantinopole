@@ -64,7 +64,7 @@ public static class EventCardArt
         var frame = parent.Find("Event artwork");
         if (frame == null)
         {
-            frame = CampaignHUD.Panel(parent, "Event artwork", new Vector2(.025f, .69f), new Vector2(.43f, .965f)).transform;
+            frame = CampaignHUD.Panel(parent, "Event artwork", new Vector2(.018f, .51f), new Vector2(.448f, .975f)).transform;
             var picture = new GameObject("Illustration", typeof(RectTransform), typeof(RawImage));
             picture.transform.SetParent(frame, false);
         }

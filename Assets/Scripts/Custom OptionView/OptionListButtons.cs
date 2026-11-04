@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -44,9 +44,14 @@ namespace Yarn.Unity
         {
             if(choiceScroll!=null) return;
             ImperialTheme.Panel(gameObject);
+            var eventRoot=GetComponentInParent<EventUI>();
+            if(eventRoot!=null){var er=(RectTransform)eventRoot.transform;er.anchorMin=new Vector2(0,0);er.anchorMax=new Vector2(1,.88f);er.offsetMin=er.offsetMax=Vector2.zero;}
+            var controller=GetComponentInParent<DialogueController>();
+            if(controller!=null){var cr=(RectTransform)controller.transform;cr.anchorMin=Vector2.zero;cr.anchorMax=Vector2.one;cr.offsetMin=cr.offsetMax=Vector2.zero;}
+            var own=(RectTransform)transform;own.anchorMin=new Vector2(.012f,.018f);own.anchorMax=new Vector2(.988f,.982f);own.offsetMin=own.offsetMax=Vector2.zero;
             var viewport=new GameObject("Scrollable choices",typeof(RectTransform),typeof(UnityEngine.UI.Image),typeof(UnityEngine.UI.RectMask2D),typeof(UnityEngine.UI.ScrollRect));
             viewport.transform.SetParent(optionPanel.parent,false);
-            var r=viewport.GetComponent<RectTransform>();r.anchorMin=optionPanel.anchorMin;r.anchorMax=optionPanel.anchorMax;r.offsetMin=optionPanel.offsetMin;r.offsetMax=optionPanel.offsetMax;
+            var r=viewport.GetComponent<RectTransform>();r.anchorMin=new Vector2(.465f,.025f);r.anchorMax=new Vector2(.985f,.975f);r.offsetMin=r.offsetMax=Vector2.zero;
             viewport.GetComponent<UnityEngine.UI.Image>().color=ImperialTheme.Navy;
             choiceScroll=viewport.GetComponent<UnityEngine.UI.ScrollRect>();choiceScroll.viewport=r;choiceScroll.horizontal=false;choiceScroll.vertical=true;choiceScroll.scrollSensitivity=45;
             choiceScroll.movementType=UnityEngine.UI.ScrollRect.MovementType.Clamped;
@@ -54,16 +59,16 @@ namespace Yarn.Unity
             choiceScroll.content=optionPanel;
             CampaignHUD.AddScrollbar(choiceScroll,viewport.transform,new Vector2(.984f,.01f),new Vector2(1,.99f));
             var hint=transform.Find("Choice scroll hint");if(hint!=null) hint.gameObject.SetActive(false);
-            var story=CampaignHUD.Panel(transform,"Event narrative",new Vector2(.025f,.035f),new Vector2(.43f,.675f));
+            var story=CampaignHUD.Panel(transform,"Event narrative",new Vector2(.018f,.025f),new Vector2(.448f,.49f));
             story.GetComponent<UnityEngine.UI.Image>().color=ImperialTheme.Navy;ImperialTheme.Frame(story);
-            story.AddComponent<UnityEngine.UI.RectMask2D>();
+            story.AddComponent<UnityEngine.UI.RectMask2D>().padding=new Vector4(8,12,18,12);
             storyScroll=story.AddComponent<UnityEngine.UI.ScrollRect>();storyScroll.horizontal=false;storyScroll.scrollSensitivity=45;
             storyScroll.movementType=UnityEngine.UI.ScrollRect.MovementType.Clamped;
             storyScroll.viewport=story.GetComponent<RectTransform>();
             lastLineText.transform.SetParent(story.transform,false);
             var textRect=lastLineText.rectTransform;textRect.anchorMin=new Vector2(0,1);textRect.anchorMax=Vector2.one;textRect.pivot=new Vector2(.5f,1);
             textRect.offsetMin=textRect.offsetMax=Vector2.zero;
-            lastLineText.fontStyle=FontStyles.Normal;lastLineText.font=ImperialTheme.Font;lastLineText.enableAutoSizing=false;lastLineText.fontSize=24;lastLineText.margin=new Vector4(12,12,28,12);
+            lastLineText.maskable=true;lastLineText.RecalculateMasking();lastLineText.fontStyle=FontStyles.Normal;lastLineText.font=ImperialTheme.Font;lastLineText.enableAutoSizing=false;lastLineText.fontSize=24;lastLineText.margin=new Vector4(12,12,28,12);
             storyScroll.content=textRect;CampaignHUD.AddScrollbar(storyScroll,story.transform,new Vector2(.98f,.01f),new Vector2(1,.99f));
             Canvas.ForceUpdateCanvases();
         }

@@ -63,11 +63,11 @@ public class CampaignHUD : MonoBehaviour
 
         ImperialTheme.Panel(bar);
 
-        status = Label(bar.transform, "", new Vector2(.015f,.73f), new Vector2(.735f,.98f), 19);
-        status.enableAutoSizing=true;status.fontSizeMin=15;status.fontSizeMax=19;status.enableWordWrapping=false;
+        status = Label(bar.transform, "", new Vector2(.889f,.33f), new Vector2(.988f,.56f), 19);
+        status.alignment=TextAlignmentOptions.Center;status.enableAutoSizing=true;status.fontSizeMin=15;status.fontSizeMax=19;status.enableWordWrapping=false;
         CampaignStatusStrip.Create(bar.transform);
-        back=MakeButton(bar.transform,"Return",new Vector2(.742f,.735f),new Vector2(.819f,.975f),()=>ControlSingleton.Instance.GoBack());
-        var menu=MakeButton(bar.transform,"Campaign menu",new Vector2(.826f,.735f),new Vector2(.987f,.975f),TogglePause);
+        back=MakeButton(bar.transform,"Return",new Vector2(.889f,.065f),new Vector2(.988f,.30f),()=>ControlSingleton.Instance.GoBack());
+        var menu=MakeButton(bar.transform,"Campaign menu",new Vector2(.889f,.60f),new Vector2(.988f,.95f),TogglePause);
         foreach(var control in new[]{back,menu}) {
             ImperialTheme.Button(control);
             var label=control.GetComponentInChildren<TMP_Text>();label.fontSizeMin=14;label.fontSizeMax=19;label.margin=new Vector4(6,0,6,0);
@@ -87,9 +87,7 @@ public class CampaignHUD : MonoBehaviour
 
         back.gameObject.SetActive(ControlSingleton.Instance != null && ControlSingleton.Instance.CanGoBack && !HasModal);
 
-        status.text = "CONSTANTINOPLE   /   " + VariableSingleton.GetDate().ToString("d MMM yyyy") +
-
-            "   /   " + CouncilUI.BuildLabel + "   /   " + (VariableSingleton.HasSiegeStarted() ? "Siege day " + VariableSingleton.SiegeDay : "Preparations");
+        status.text = VariableSingleton.GetDate().ToString("d MMM yyyy");
 
 
     }
@@ -225,11 +223,13 @@ public class CampaignHUD : MonoBehaviour
         modal.GetComponent<Image>().color=new Color(0,.015f,.025f,.82f);
         var card=Panel(modal.transform,"Campaign menu card",new Vector2(.31f,.18f),new Vector2(.69f,.82f));ImperialTheme.Panel(card,false);
         var title=Label(card.transform,"Campaign menu",new Vector2(.10f,.83f),new Vector2(.90f,.95f),34);title.alignment=TextAlignmentOptions.Center;
+        var version=Label(card.transform,CouncilUI.BuildLabel,new Vector2(.06f,.025f),new Vector2(.94f,.085f),16);version.alignment=TextAlignmentOptions.Center;version.enableAutoSizing=true;version.fontSizeMin=12;version.fontSizeMax=16;
         var mode=Explanation(card.transform,SaveGames.Ironman?"Ironman · achievements enabled":"Normal campaign · achievements disabled",new Vector2(.08f,.73f),new Vector2(.92f,.83f),21);mode.alignment=TextAlignmentOptions.Center;
-        ImperialTheme.Button(MakeButton(card.transform,"Resume",new Vector2(.12f,.56f),new Vector2(.88f,.68f),TogglePause));
-        ImperialTheme.Button(MakeButton(card.transform,"Save / load",new Vector2(.12f,.41f),new Vector2(.88f,.53f),()=>SaveMenu.Show(canvas.transform)));
-        ImperialTheme.Button(MakeButton(card.transform,"Settings",new Vector2(.12f,.26f),new Vector2(.88f,.38f),()=>AudioSettingsUI.Show(canvas.transform)));
-        ImperialTheme.Button(MakeButton(card.transform,"Return to main menu",new Vector2(.12f,.11f),new Vector2(.88f,.23f),()=>{if(SaveGames.CanCheckpointCouncil)VariableSingleton.Instance.Save();SceneManager.LoadScene("Menu");}));
+        ImperialTheme.Button(MakeButton(card.transform,"Resume",new Vector2(.12f,.59f),new Vector2(.88f,.69f),TogglePause));
+        ImperialTheme.Button(MakeButton(card.transform,"Save / load",new Vector2(.12f,.47f),new Vector2(.88f,.57f),()=>SaveMenu.Show(canvas.transform)));
+        ImperialTheme.Button(MakeButton(card.transform,"Settings",new Vector2(.12f,.35f),new Vector2(.88f,.45f),()=>AudioSettingsUI.Show(canvas.transform)));
+        ImperialTheme.Button(MakeButton(card.transform,"Development Options",new Vector2(.12f,.23f),new Vector2(.88f,.33f),()=>{TogglePause();AssaultPractice.Show(FindObjectOfType<ManagerUI>(true));}));
+        ImperialTheme.Button(MakeButton(card.transform,"Return to main menu",new Vector2(.12f,.11f),new Vector2(.88f,.21f),()=>{if(SaveGames.CanCheckpointCouncil)VariableSingleton.Instance.Save();SceneManager.LoadScene("Menu");}));
     }
 
     private void ShowModal(string title, string body, bool resume)

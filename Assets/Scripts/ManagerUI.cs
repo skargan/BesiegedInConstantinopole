@@ -191,6 +191,9 @@ public class ManagerUI : UIWindowFam
         if (VariableSingleton.IsInitialized)
         {
             OttomanDirector.PrepareTurn();
+            // Include the public report in the same checkpoint that preserves its notice.
+            if (!AssaultPractice.Active && !string.IsNullOrEmpty(VariableSingleton.ArrivalNotice))
+                DecisionJournal.Record("daily-"+VariableSingleton.Turn,"Daily council report",VariableSingleton.ArrivalNotice);
             if (SaveGames.PendingResume==null && !AssaultPractice.Active && string.IsNullOrEmpty(SaveGames.LastError)) VariableSingleton.Instance.Save();
             if (CampaignHUD.Instance != null)
             {

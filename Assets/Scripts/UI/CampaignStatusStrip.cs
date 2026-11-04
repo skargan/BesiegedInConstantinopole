@@ -13,13 +13,13 @@ public sealed class CampaignStatusStrip : MonoBehaviour
     public static void Create(Transform bar)
     {
         var strip=bar.gameObject.AddComponent<CampaignStatusStrip>();
-        strip.Group("CITY & STORES",0,6,.012f,.438f,0);
-        strip.Group("GARRISON",6,4,.445f,.716f,1);
-        strip.Group("SUPPORT",10,4,.723f,.988f,2);
+        strip.Group("IMPERIAL RESOURCES",0,6,.012f,.405f,0);
+        strip.Group("MILITARY",6,4,.412f,.665f,1);
+        strip.Group("SUPPORT",10,4,.672f,.878f,2);
     }
     void Group(string name,int first,int count,float left,float right,int group)
     {
-        var panel=CampaignHUD.Panel(transform,name,new Vector2(left,.055f),new Vector2(right,.70f));
+        var panel=CampaignHUD.Panel(transform,name,new Vector2(left,.055f),new Vector2(right,.95f));
         panel.GetComponent<Image>().color=ImperialTheme.Navy;
         var line=CampaignHUD.Panel(panel.transform,"Group accent",new Vector2(0,.98f),Vector2.one);
         line.GetComponent<Image>().color=GroupColours[group];line.GetComponent<Image>().raycastTarget=false;
@@ -35,18 +35,19 @@ public sealed class CampaignStatusStrip : MonoBehaviour
                 divider.GetComponent<Image>().color=new Color(.48f,.43f,.32f,.4f);divider.GetComponent<Image>().raycastTarget=false;
             }
             AddStatArt(cell.transform,index,group);
-            var label=CampaignHUD.Label(cell.transform,CampaignStatistics.Header[index].ShortName,new Vector2(.28f,.53f),new Vector2(.98f,.99f),15);
+            var label=CampaignHUD.Label(cell.transform,CampaignStatistics.Header[index].ShortName,new Vector2(.07f,.61f),new Vector2(.98f,.99f),15);
             label.enableWordWrapping=false;label.enableAutoSizing=true;label.fontSizeMin=13;label.fontSizeMax=15;
-            amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.07f,.015f),new Vector2(.98f,.59f),25);
+            amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.31f,.035f),new Vector2(.98f,.60f),25);
             amounts[index].name="Stat value "+index;
-            amounts[index].enableWordWrapping=false;amounts[index].enableAutoSizing=true;amounts[index].fontSizeMin=18;amounts[index].fontSizeMax=25;
+            amounts[index].enableWordWrapping=false;amounts[index].enableAutoSizing=true;amounts[index].fontSizeMin=17;amounts[index].fontSizeMax=25;
         }
     }
     // Artwork replaces presentation only; the existing glyph remains a per-stat fallback.
     void AddStatArt(Transform parent,int index,int group)
     {
-        var min=new Vector2(.07f,.56f);var max=new Vector2(.24f,.98f);
-        var stat=(CampaignStatArt.Stat)index;
+        var min=new Vector2(.06f,.11f);var max=new Vector2(.27f,.54f);
+        // Citizens represent public support; the old raised hand is intentionally retired.
+        var stat=index==11?CampaignStatArt.Stat.People:(CampaignStatArt.Stat)index;
         if(CampaignStatArt.Get(stat)==null) {
             CampaignStatGlyph.Add(parent,index,min,max).color=GroupColours[group];
             return;

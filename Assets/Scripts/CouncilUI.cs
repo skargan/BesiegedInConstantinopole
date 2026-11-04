@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 36.20 · Council navigation";
+    public const string BuildLabel="Version 37 · Council journal playtest";
 
 
 
@@ -110,57 +110,9 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        Sprite source=null;
-
-
-
-        foreach(var candidate in manager.transform.root.GetComponentsInChildren<Image>(true))
-
-
-
-            if(candidate.sprite!=null && candidate.sprite.name=="Management") {source=candidate.sprite;break;}
-
-
-
         var backdrop=CampaignHUD.Panel(manager.transform,"Council backdrop",Vector2.zero,Vector2.one);
-
-
-
         ImperialTheme.Panel(backdrop);
-
-
-
-        if(source!=null)
-
-
-
-        {
-
-
-
-            var portrait=CampaignHUD.Panel(manager.transform,"Emperor portrait",new Vector2(.29f,.025f),new Vector2(.71f,.84f));
-
-
-
-            var picture=portrait.GetComponent<Image>();
-
-
-
-            var region=source.rect;region.width*=.595f;
-
-
-
-            picture.sprite=Sprite.Create(source.texture,region,new Vector2(.5f,.5f));
-
-
-
-            picture.color=Color.white;picture.raycastTarget=false;
-
-
-
-        }
-
-
+        CouncilChamber.Create(manager.transform);
 
         var rect=manager.GetComponent<RectTransform>();
 
@@ -227,7 +179,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        CampaignHUD.MakeButton(manager.transform,"Development Options",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>AssaultPractice.Show(manager));
+        CampaignHUD.MakeButton(manager.transform,"Decision Journal",new Vector2(.72f,.075f),new Vector2(.975f,.18f),()=>DecisionJournal.Show());
     }
 
 
@@ -784,8 +736,8 @@ public partial class CouncilUI : MonoBehaviour
 
     public void AssaultPracticeMenu(){
         Open("Development Options","Practice leaves your campaign unchanged. Choose a system to test.");ControlSingleton.Instance.ReturnAction=AssaultPractice.Exit;BodyHeight(650);
-        string[] names={"Ladder assault","Ram and siege tower","Janissary breach","Command a cannon","Mouse-sword duel","24 assault incidents","Albania regional war"};
-        for(int i=0;i<7;i++){int n=i;float x=i%2*.5f,y=1-i/2*.245f;var tile=CampaignHUD.Panel(body,names[i],new Vector2(x+.012f,y-.225f),new Vector2(x+.488f,y-.015f));ImperialTheme.Panel(tile,false);CampaignHUD.Label(tile.transform,names[i],new Vector2(.04f,.55f),new Vector2(.96f,.94f),25);CampaignHUD.MakeButton(tile.transform,i==5?"Choose an incident":"Launch practice",new Vector2(.04f,.07f),new Vector2(.96f,.48f),()=>{if(n==6)AlbaniaWarTrialUI.Show();else if(n==4)AssaultPractice.Duel();else if(n==5)AssaultIncidentPractice();else {AssaultPractice.ForcedIncident=-1;AssaultPractice.Launch(n);}});}
+        string[] names={"Ladder assault","Ram and siege tower","Janissary breach","Command a cannon","Mouse-sword duel","24 assault incidents"};
+        for(int i=0;i<6;i++){int n=i;float x=i%2*.5f,y=1-i/2*.245f;var tile=CampaignHUD.Panel(body,names[i],new Vector2(x+.012f,y-.225f),new Vector2(x+.488f,y-.015f));ImperialTheme.Panel(tile,false);CampaignHUD.Label(tile.transform,names[i],new Vector2(.04f,.55f),new Vector2(.96f,.94f),25);CampaignHUD.MakeButton(tile.transform,i==5?"Choose an incident":"Launch practice",new Vector2(.04f,.07f),new Vector2(.96f,.48f),()=>{if(n==4)AssaultPractice.Duel();else if(n==5)AssaultIncidentPractice();else {AssaultPractice.ForcedIncident=-1;AssaultPractice.Launch(n);}});}
     }
     public void AssaultIncidentPractice(){
         Open("Assault incident catalogue","Choose one of the 24 situations to force it into a practice assault. Campaign encounters still check actual equipment, troops and circumstances.");ControlSingleton.Instance.ReturnAction=AssaultPracticeMenu;BodyHeight(24*130);
@@ -1095,3 +1047,4 @@ public partial class CouncilUI : MonoBehaviour
         manager.BringUpSiegeUI();
     }
 }
+

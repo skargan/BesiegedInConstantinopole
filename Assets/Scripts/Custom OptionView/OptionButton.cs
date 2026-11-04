@@ -59,7 +59,7 @@ namespace Yarn.Unity
                 tr.anchorMin = Vector2.zero; tr.anchorMax = Vector2.one;
                 tr.offsetMin = tr.offsetMax = Vector2.zero;
                 var background = GetComponent<UnityEngine.UI.Image>();
-                ImperialTheme.Button(this);
+                ImperialTheme.Button(this); var glow=colors;glow.highlightedColor=new Color(1.3f,1.22f,1.06f);glow.colorMultiplier=1.15f;glow.fadeDuration=.10f;colors=glow;
                 var border=GetComponent<UnityEngine.UI.Outline>();if(border==null)border=gameObject.AddComponent<UnityEngine.UI.Outline>();border.enabled=false;
                 var badge = GetComponentInChildren<FocusIcon>(true);
                 if(badge != null) badge.gameObject.SetActive(false);
@@ -90,7 +90,7 @@ namespace Yarn.Unity
         public float PreferredHeight(float width)
         {
             text.enableAutoSizing=false;text.fontSize=24;
-            return Mathf.Max(94,text.GetPreferredValues(text.text,Mathf.Max(100,width-80),9999).y+28);
+            return Mathf.Max(94,text.GetPreferredValues(text.text,Mathf.Max(100,width-160),9999).y+40);
         }
 
         // If we receive a submit or click event, invoke our "we just selected

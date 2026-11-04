@@ -1,0 +1,25 @@
+BESIEGED IN CONSTANTINOPLE — VERSION 37
+Council, journal and presentation playtest
+
+CHANGES
+- The Imperial Council now overlooks Constantinople from a furnished Byzantine chamber. Candle effects stop when hidden, respect reduced motion and cannot intercept menu clicks.
+- Decision Journal replaces Development Options on the council. Daily council reports are retained as dated notes; Decisions and affairs shows the harbour chain's current status. This is the journal's first functional version; comprehensive story-decision recording is scheduled for Version 38.
+- Development Options moves into the campaign menu.
+- The standalone Albanian war trial is removed. Albania's diplomacy and the provincial war framework remain.
+- Event choices use more economical spacing and corrected overflow handling. Event artwork and narrative panels retain their intended proportions.
+- The top status strip groups imperial resources, military strength and support.
+- Fleet artwork follows peacetime/wartime and the actual Golden Horn chain state. The chain can be inspected when present.
+- Version 37 appears in the campaign menu and save metadata.
+
+TEST SCOPE
+Unity Windows compilation and focused exported-player checks cover the changed presentation, navigation and journal persistence. Exact results accompany the published build. This is a development playtest, not a new campaign-balance audit.
+
+HELD FOR VERSION 38
+- Final five-choice Our Turks rewrite and complete persistent story-decision journal integration.
+- Six cause-specific defeat illustrations and terminal-save presentation.
+- Further diplomacy/technology presentation corrections and new art handoffs.
+- Evening in a Tavern and replacement Giustiniani art.
+- Full repository branch/PR consolidation and authoritative-main cleanup.
+
+PLAY
+Extract the entire Windows ZIP before launching Besieged.exe. Keep Besieged_Data, MonoBleedingEdge and UnityPlayer.dll alongside it. A normal campaign supports local saves; Ironman retains its rolling-save rules. Saves are stored in the game's Saves folder. Keep previous builds and saves while testing this version.

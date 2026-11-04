@@ -44,7 +44,7 @@ public class Save29Capture:MonoBehaviour {
     IEnumerator Start(){
         Application.runInBackground=true;root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Save29"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
         if(Environment.GetCommandLineArgs().Contains("-ui36-capture")){yield return UI36Run();yield break;}
-        if(Environment.GetCommandLineArgs().Contains("-albania35-capture")){yield return Albania35Run();yield break;}
+        
         if(Environment.GetCommandLineArgs().Contains("-province34-capture")){yield return Province34Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-theatre33-capture")){yield return Theatre33Run();yield break;}
         if(Environment.GetCommandLineArgs().Contains("-ai32-capture")){yield return AI32Run();yield break;}
@@ -79,7 +79,7 @@ public class Save29Capture:MonoBehaviour {
         yield return Shot("00-main-menu");SaveMenu.NewCampaign(FindObjectOfType<MainMenuUI>().transform.root);yield return Shot("01-new-campaign");SaveMenu.Close();
         SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=false;SceneManager.LoadScene("Continue Game");yield return Loaded();
         var manager=FindObjectOfType<ManagerUI>(true);manager.gameObject.SetActive(true);var council=CouncilUI.For(manager);yield return null;
-        Check(FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Development Options"),"development options on council");
+        Check(FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Decision Journal"),"decision journal on council");
         yield return Shot("02-council");
         var beforePreparation=VariableSingleton.Instance.CaptureState();
         typeof(VariableSingleton).GetField("turn",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).SetValue(null,1);
@@ -132,23 +132,6 @@ public class Save29Capture:MonoBehaviour {
         Debug.Log("UI36_CHECKS "+checks+" passed");Application.Quit();
     }
 
-    IEnumerator Albania35Run(){
-        root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Albania35"));Directory.CreateDirectory(root);
-        var rng=UnityEngine.Random.state;var results=new System.Text.StringBuilder("Scenario,Policy,AlbanianBreakthrough,OttomanBreakthrough,AlbanianAdvantage,OttomanAdvantage,Contested\n");
-        for(int scenario=0;scenario<4;scenario++)for(int policy=0;policy<4;policy++){
-            int[] counts=new int[5];for(int seed=0;seed<100;seed++){
-                var a=new AlbaniaWarTrial(seed,scenario);var b=new AlbaniaWarTrial(seed,scenario);
-                while(!a.Finished){var order=policy==0?AlbaniaWarTrial.Order.Hold:policy==1?AlbaniaWarTrial.Order.Advance:policy==2?(a.Day%3==0?AlbaniaWarTrial.Order.Raid:AlbaniaWarTrial.Order.Advance):(a.Can(AlbaniaWarTrial.Order.AidRebels)&&a.Resistance<65?AlbaniaWarTrial.Order.AidRebels:AlbaniaWarTrial.Order.Advance);Check(a.Step(order)&&b.Step(order),"legal daily order");Check(a.Front==b.Front&&a.Resistance==b.Resistance&&a.Albanians==b.Albanians,"deterministic replay");Check(a.Day<=30&&a.Front>=0&&a.Front<=100&&a.Authority>=0&&a.Resistance>=0&&a.Support>=0&&a.Albanians>=0&&a.Ottomans>=0,"bounded state");}
-                int index=a.Outcome=="Albanian breakthrough"?0:a.Outcome=="Ottoman breakthrough"?1:a.Outcome=="Albanian territorial advantage"?2:a.Outcome=="Ottoman territorial advantage"?3:4;counts[index]++;Check(!a.Step(AlbaniaWarTrial.Order.Advance),"finished trial immutable");
-            }results.AppendLine(scenario+","+policy+","+string.Join(",",counts));
-        }
-        var escort=new AlbaniaWarTrial(4,0);escort.Step(AlbaniaWarTrial.Order.Raid);Check(escort.EnemyIntent=="Escort the supply road","AI adapts to raiding");
-        var tie=new AlbaniaWarTrial(1,1);tie.Authority=1;tie.Resistance=1;tie.Step(AlbaniaWarTrial.Order.Hold);Check(tie.Suppressed&&!tie.Liberated,"Ottoman wins rebellion tie");
-        Check(JsonUtility.ToJson(rng)==JsonUtility.ToJson(UnityEngine.Random.state),"trial preserves campaign RNG");
-        File.WriteAllText(Path.Combine(root,"balance.csv"),results.ToString());
-        yield return Shot("00-main-menu");PointerClick("Test assaults");yield return Shot("01-test-selection");PointerClick("Albania · regional war trial");yield return Shot("02-albania-war");PointerClick("Rules & assumptions");yield return Shot("03-assumptions");PointerClick("Battlefield");yield return null;Canvas.ForceUpdateCanvases();PointerClick("Advance");yield return Shot("04-war-day-one");AlbaniaWarTrialUI.Close();
-        Debug.Log("ALBANIA35_CHECKS "+checks+" passed; 1600 bounded scenarios");Application.Quit();
-    }
     IEnumerator Province34Run(){
         root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Province34"));Directory.CreateDirectory(root);SaveGames.TestRoot=Path.Combine(root,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
         SaveGames.PrepareNew(false);VariableSingleton.ContinueRequested=false;VariableSingleton.QuickStartRequested=true;SceneManager.LoadScene("Continue Game");yield return Loaded();
