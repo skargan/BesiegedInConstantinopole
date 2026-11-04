@@ -891,7 +891,11 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        notice.text="Available secrets: "+CouncilActions.Int("iSecrets");
+        notice.text="";
+        foreach(var label in screen.GetComponentsInChildren<TMP_Text>())
+            if(label.transform.parent==screen.transform && label.text=="Technologies and workshops")
+                label.rectTransform.anchorMax=new Vector2(.73f,.98f);
+        TechnologySecretsCounter.Attach(screen.transform);
 
 
 

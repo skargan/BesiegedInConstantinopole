@@ -47,9 +47,15 @@ public partial class CouncilUI
             tile.gameObject.name="Diplomatic court "+CountryDiplomacy.Definitions[index].Id;
             DiplomacyFlag(tile.transform,index,new Vector2(.025f,.50f),new Vector2(.145f,.94f));
             var courtName=DiplomacyText(tile.transform,CountryDiplomacy.Definitions[index].Name,new Vector2(.175f,.65f),new Vector2(.96f,.95f),25);courtName.gameObject.name="Court name";
-            DiplomacyAttitude(tile.transform,index,new Vector2(.175f,.405f),new Vector2(.215f,.64f));
-            var attitude=DiplomacyText(tile.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.225f,.405f),new Vector2(.96f,.64f),20);
-            attitude.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];attitude.gameObject.name="Court attitude text";
+            var attitudeFrame=CampaignHUD.Panel(tile.transform,"Court attitude badge",new Vector2(.17f,.405f),new Vector2(.965f,.65f));
+            ImperialTheme.Panel(attitudeFrame,false);
+            attitudeFrame.GetComponent<Image>().raycastTarget=false;
+            DiplomacyAttitude(attitudeFrame.transform,index,new Vector2(.015f,.12f),new Vector2(.075f,.88f));
+
+            var attitude=DiplomacyText(attitudeFrame.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.09f,.08f),new Vector2(.985f,.92f),20);
+
+            attitude.alignment=TextAlignmentOptions.MidlineLeft;attitude.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];attitude.gameObject.name="Court attitude text";
+
             var standing=DiplomacyText(tile.transform,CountryDiplomacy.EnvoyStatus(index)+"\n"+AidStanding(index),new Vector2(.035f,.03f),new Vector2(.96f,.39f),18);standing.gameObject.name="Court commitments";
         }
         var previous=CampaignHUD.MakeButton(stage,"‹ Previous courts",new Vector2(0,0),new Vector2(.27f,.09f),()=>{diplomacyPage--;UnifiedDiplomaticRelations();});previous.interactable=diplomacyPage>0;

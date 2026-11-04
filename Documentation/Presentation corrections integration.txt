@@ -1,0 +1,38 @@
+PRESENTATION CORRECTIONS — READY FOR NEXT PUBLICATION
+ConstantineX — 4 November 2026
+
+Integrated into consolidation; not desktop-published.
+
+Player-visible changes
+- Sea-control medallions use the same contested/uncontested rule as Fleet management, including equal fleets. Repositioned sea and Bosphorus tokens leave coastlines and territory labels clear at the checked default map scale.
+- All 31 diplomatic court cards place attitude artwork and acceptance text inside a consistent navy-and-gold badge. Badge children do not intercept clicks.
+- The Great Chain of the Golden Horn (story19) uses the replacement illustration, retaining its existing resource path and meta GUID. Full image enlargement and Close work.
+- Technologies has a prominent framed AVAILABLE SECRETS counter. Reads the existing resource, updates while open, and leaves title space clear.
+
+Owned files
+Assets/Scripts/MaritimeMapMedallions.cs
+Assets/Scripts/CouncilDiplomacyUI.cs (country-card attitude row only)
+Assets/Scripts/CouncilUI.cs (Technologies method only)
+Assets/Scripts/TechnologySecretsCounter.cs and meta
+Assets/Resources/EventArt/Covers/story19.png (meta unchanged)
+Assets/Scripts/MaritimeMedallionCapture.cs (existing opt-in harness extended)
+Documentation/agent_coordination_content.json
+
+Verification
+Unity 2022.3.15f1 Windows development preview compiled successfully.
+618 focused runtime assertions passed at 1600x900 and 1280x720 with isolated saves.
+Covers all sea balances including zero fleets; independent passage states; live state refresh; map -> Fleet -> Return; hover/circular hit-testing; every court page, text fit and nonblocking badges; tile opens details; secrets 0/3/12,345 and read-only rendering; actual story19 event art, enlarged view and Close with pending decision unchanged.
+Visual review: map at both resolutions; diplomatic first/last pages; technology header at both resolutions; actual Golden Horn event and enlarged image.
+The first capture caught the global HUD before its throttled refresh while the new counter was already current. Screenshot fixture now waits 0.35 seconds after assigning its artificial secrets balance; no gameplay change was required.
+
+Evidence
+Builds/Version-38-ArtPreview/Besieged.exe
+Builds/Version-38-ArtPreview/Captures/Maritime/checks.txt
+Builds/Version-38-ArtPreview/Captures/Maritime/details.txt
+Screenshots in that same Captures/Maritime folder.
+story19 source SHA256: 95E16115B3239E5923DDD1417FBA34D2E09ACA2447DF1C678CA33BB740953CF0
+
+Scope and handover
+No campaign rules, costs, outcomes or save schema changes. No event choices or diplomatic orders executed by these checks. Zoomed map edge cases and unrelated systems were not exhaustively retested.
+Other workstream journal-icon and wall-repair changes preserved, present in preview, not included in this owned commit.
+Next publication: include these four items in player changelog; regenerate AGENT COORDINATION Word/text from current source and refreshed original message archive. Published desktop Version 38 remains untouched.

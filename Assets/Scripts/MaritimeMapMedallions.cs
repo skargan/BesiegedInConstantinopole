@@ -21,14 +21,14 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
     // Preserve the established outnumbering rule. Equal forces remain contested.
     // Ottoman advantage is a description of the balance, not a new supremacy bonus.
     public static string SeaAsset(int ours,int theirs)=>ours>theirs?"sea-imperial":theirs>ours?"sea-ottoman":"sea-contested";
-    public static string SeaTitle(int ours,int theirs)=>ours>theirs?"Imperial advantage":theirs>ours?"Ottoman advantage":ours==0?"No fleets at sea":"Contested seas";
+    public static string SeaTitle(int ours,int theirs)=>ours>theirs?"Uncontested seas":"Contested seas";
     public static bool PassageOpen=>VariableSingleton.GetBoolVariable("bStraitsOpen");
     public static string PassageTitle=>PassageOpen?"Passage open":"Passage interdicted";
 
     public static void Add(Transform map,Transform information,TMP_Text hover,Action clearHover)
     {
-        Create(map,information,hover,clearHover,false,new Vector2(.22f,.20f));
-        Create(map,information,hover,clearHover,true,new Vector2(.52f,.76f));
+        Create(map,information,hover,clearHover,false,new Vector2(.185f,.20f));
+        Create(map,information,hover,clearHover,true,new Vector2(.485f,.76f));
     }
     static void Create(Transform parent,Transform information,TMP_Text hover,Action clearHover,bool passage,Vector2 anchor)
     {
@@ -39,7 +39,7 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
         badge.artwork=go.GetComponent<RawImage>();badge.glow=go.GetComponent<Outline>();badge.glow.effectColor=new Color(1,.80f,.28f,.95f);badge.glow.effectDistance=new Vector2(2,2);badge.glow.enabled=false;
         var button=go.GetComponent<Button>();button.targetGraphic=badge.artwork;button.transition=Selectable.Transition.None;button.onClick.AddListener(badge.Activate);
         badge.caption=CampaignHUD.Label(go.transform,"",Vector2.zero,Vector2.one,16);
-        var labelRect=badge.caption.rectTransform;labelRect.anchorMin=labelRect.anchorMax=new Vector2(.5f,0);labelRect.pivot=new Vector2(.5f,1);labelRect.anchoredPosition=new Vector2(0,-3);labelRect.sizeDelta=new Vector2(170,43);
+        var labelRect=badge.caption.rectTransform;labelRect.anchorMin=labelRect.anchorMax=new Vector2(.5f,0);labelRect.pivot=new Vector2(.5f,1);labelRect.anchoredPosition=new Vector2(0,-3);labelRect.sizeDelta=new Vector2(142,54);
         badge.caption.alignment=TextAlignmentOptions.Top;badge.caption.fontStyle=FontStyles.Bold;
         badge.caption.gameObject.AddComponent<Shadow>().effectColor=new Color(0,0,0,.95f);
         badge.Refresh();
@@ -51,13 +51,13 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
         int ours=CouncilActions.Int("iShips"),theirs=NavalState.EnemyShips;
         string asset=Passage?(PassageOpen?"strait-open":"strait-interdicted"):SeaAsset(ours,theirs);
         if(currentAsset!=asset){currentAsset=asset;artwork.texture=Resources.Load<Texture2D>("UI/Maps/Maritime/"+asset);}
-        caption.text=Passage?"Bosphorus\n"+PassageTitle:"Sea control\n"+SeaTitle(ours,theirs);
+        caption.text=Passage?"Bosphorus\n"+PassageTitle:"Sea control\n"+NavalState.SeaControl;
         if(highlighted&&hint!=null)hint.text=HintText();
     }
     string HintText()
     {
         if(Passage)return "Bosphorus · "+PassageTitle+" · Click for Straitcutter Fortress and route details";
-        return SeaTitle(CouncilActions.Int("iShips"),NavalState.EnemyShips)+" · Fleet strength around Constantinople · Click for Fleet management";
+        return NavalState.SeaControl+" · Fleet strength around Constantinople · Click for Fleet management";
     }
     void Highlight(bool on)
     {

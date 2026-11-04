@@ -72,6 +72,8 @@ public sealed class MaritimeMedallionCapture : MonoBehaviour
                 {
                     VariableSingleton.ChangeBool("bStraitsOpen",open);WarTheatreUI.Show();yield return null;Canvas.ForceUpdateCanvases();
                     var sea=Badge(false);var strait=Badge(true);
+                    Check(sea.GetComponentInChildren<TMP_Text>().text=="Sea control\n"+NavalState.SeaControl,"Sea caption matches fleet rules");
+                    Check(MaritimeMapMedallions.SeaTitle(numbers.x,numbers.y)==NavalState.SeaControl,"SeaTitle agrees with authoritative rules");
                     Check(sea.GetComponent<RawImage>().texture.name==MaritimeMapMedallions.SeaAsset(numbers.x,numbers.y),"Correct naval image "+numbers);
                     Check(strait.GetComponent<RawImage>().texture.name==(open?"strait-open":"strait-interdicted"),"Independent passage image "+open);
                     string state=State();string rng=JsonUtility.ToJson(UnityEngine.Random.state);
@@ -91,6 +93,10 @@ public sealed class MaritimeMedallionCapture : MonoBehaviour
                     Check(FindObjectsOfType<MaritimeMapMedallions>().Length==2,"Return opens map with two medallions");
                 }
             }
+            // Live balance changes refresh both picture and caption without reopening.
+            VariableSingleton.SetInt("iShips",80);yield return null;
+            Check(Badge(false).GetComponentInChildren<TMP_Text>().text=="Sea control\n"+NavalState.SeaControl,"Live sea caption refresh");
+            Check(Badge(false).GetComponent<RawImage>().texture.name=="sea-imperial","Live sea artwork refresh");
             // Open map updates immediately after the authoritative passage flag changes.
             VariableSingleton.ChangeBool("bStraitsOpen",false);yield return null;
             VariableSingleton.ChangeBool("bStraitsOpen",true);yield return null;
@@ -99,6 +105,71 @@ public sealed class MaritimeMedallionCapture : MonoBehaviour
             Check(Badge(true).GetComponent<RawImage>().texture.name=="strait-open","Save restoration refresh");
             WarTheatreUI.Close();
         }
+        yield return PresentationCorrections();
     }
+    IEnumerator PresentationCorrections()
+    {
+        foreach(var size in new[]{new Vector2Int(1600,900),new Vector2Int(1280,720)})
+        {
+            Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.4f);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Continue Game");yield return new WaitForSecondsRealtime(.7f);
+            CampaignHUD.Instance.DismissReport();
+            foreach(var input in FindObjectsOfType<BaseInputModule>())input.enabled=false;
+            var council=CouncilUI.For(FindObjectOfType<ManagerUI>(true));
+            council.Technologies();yield return null; // Allow existing lazy defaults to initialise.
+            foreach(int amount in new[]{0,3,12345})
+            {
+                VariableSingleton.SetInt("iSecrets",amount);yield return new WaitForSecondsRealtime(.35f); // Let the throttled global HUD settle too.
+                string before=State(),rng=JsonUtility.ToJson(UnityEngine.Random.state);
+                yield return null;Canvas.ForceUpdateCanvases();
+                var counter=GameObject.Find("Available research secrets");
+                Check(counter!=null&&counter.GetComponent<ImperialFrame>()==null&&counter.GetComponentInChildren<ImperialFrame>()!=null,"Secrets counter has gold frame");
+                Check(counter.GetComponentsInChildren<TMP_Text>().Any(t=>t.text==amount.ToString("N0")),"Live secrets balance "+amount);
+                foreach(var text in counter.GetComponentsInChildren<TMP_Text>()){text.ForceMeshUpdate();Check(!text.isTextOverflowing,"Secrets text fits "+text.text);}
+                var title=FindObjectsOfType<TMP_Text>().Single(t=>t.text=="Technologies and workshops");title.ForceMeshUpdate();
+                Check(!title.isTextOverflowing,"Technology title fits");
+                Check(title.rectTransform.anchorMax.x<counter.GetComponent<RectTransform>().anchorMin.x,"Title and counter separated");
+                Check(before==State()&&rng==JsonUtility.ToJson(UnityEngine.Random.state),"Secrets display is read-only");
+                if(amount==3)Capture("technology-secrets-"+size.x+".png");
+            }
+            CountryDiplomacy.Ensure();
+            int pages=(CountryDiplomacy.Definitions.Length+7)/8;
+            for(int page=0;page<pages;page++)
+            {
+                typeof(CouncilUI).GetField("diplomacyPage",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).SetValue(council,page);
+                council.DiplomaticRelations();yield return null;Canvas.ForceUpdateCanvases();
+                var cards=FindObjectsOfType<Button>().Where(b=>b.name.StartsWith("Diplomatic court ")).ToArray();
+                Check(cards.Length==Math.Min(8,CountryDiplomacy.Definitions.Length-page*8),"Court page complete");
+                foreach(var card in cards)
+                {
+                    var badge=card.transform.Find("Court attitude badge");
+                    Check(badge!=null&&badge.GetComponentInChildren<ImperialFrame>()!=null,"Attitude has gold frame "+card.name);
+                    Check(badge.GetComponentsInChildren<Graphic>().All(g=>!g.raycastTarget),"Badge does not block court click");
+                    foreach(var text in card.GetComponentsInChildren<TMP_Text>()){text.ForceMeshUpdate();Check(!text.isTextOverflowing,"Court text fits "+text.text);}
+                }
+                Capture("diplomacy-badges-"+page+"-"+size.x+".png");
+                cards[0].onClick.Invoke();yield return null;
+                Check(GameObject.Find("Relationship")!=null,"Court tile opens diplomatic details");
+            }
+            council.Hide();
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Continue Game");yield return new WaitForSecondsRealtime(.6f);CampaignHUD.Instance.DismissReport();
+            foreach(var input in FindObjectsOfType<BaseInputModule>())input.enabled=false;
+            FindObjectOfType<ManagerUI>(true).gameObject.SetActive(false);
+            var eventUI=FindObjectOfType<EventUI>(true);eventUI.SetStartNode("story19");eventUI.gameObject.SetActive(true);
+            for(int n=0;n<40&&!FindObjectsOfType<Yarn.Unity.OptionButton>().Any(o=>o.IsInteractable());n++)yield return new WaitForSecondsRealtime(.15f);
+            yield return new WaitForSecondsRealtime(.3f);
+            var view=eventUI.GetComponentInChildren<EventArtworkView>();
+            Check(view!=null&&view.Picture.texture==Resources.Load<Texture2D>("EventArt/Covers/story19"),"Golden Horn event resolves replacement art");
+            Check(view.Picture.texture.width==1672&&view.Picture.texture.height==941,"Golden Horn replacement resolution preserved");
+            Check(FindObjectsOfType<Yarn.Unity.OptionButton>().Any(o=>o.IsInteractable()),"Golden Horn choices available");
+            string eventState=State();Capture("golden-horn-card-"+size.x+".png");
+            EventCardArt.OpenPreview(view);yield return null;
+            Check(GameObject.Find("Event artwork enlarged")!=null,"Event artwork opens enlarged");Capture("golden-horn-enlarged-"+size.x+".png");
+            GameObject.Find("Event artwork enlarged").GetComponentInChildren<Button>().onClick.Invoke();yield return null;
+            Check(GameObject.Find("Event artwork enlarged")==null&&view.gameObject.activeInHierarchy,"Close returns to event");
+            Check(eventState==State(),"Artwork inspection leaves pending decision untouched");
+        }
+    }
+
 }
 #endif
