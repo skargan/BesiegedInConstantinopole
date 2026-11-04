@@ -182,6 +182,9 @@ public static class EventCardArt
 // picture is open. Refresh/disable/destruction close the preview before release.
 public sealed class EventArtworkView : MonoBehaviour
 {
+    // ImperialFrame draws its outer line 3–5 UI units inside the panel.
+    public const float ArtInset = 8f;
+    RectTransform viewport;
     public RawImage Picture { get; private set; }
     EventCardArt.Lease lease;
     string path, fallback;
@@ -193,6 +196,14 @@ public sealed class EventArtworkView : MonoBehaviour
         Picture = transform.Find("Illustration").GetComponent<RawImage>();
         Picture.raycastTarget = false;
         Picture.color = Color.white;
+        // Clip only the image, leaving the gold frame outside the mask.
+        var content = new GameObject("Artwork viewport", typeof(RectTransform), typeof(RectMask2D));
+        content.transform.SetParent(transform, false);
+        viewport = content.GetComponent<RectTransform>();
+        viewport.anchorMin = Vector2.zero; viewport.anchorMax = Vector2.one;
+        viewport.offsetMin = Vector2.one * ArtInset; viewport.offsetMax = -Vector2.one * ArtInset;
+        Picture.transform.SetParent(viewport, false);
+        Picture.maskable = true;
         var image = GetComponent<Image>();
         image.sprite = null; image.color = new Color(.012f, .025f, .04f, 1); image.raycastTarget = true;
         var button = GetComponent<Button>() ?? gameObject.AddComponent<Button>();
@@ -238,6 +249,10 @@ public sealed class EventArtworkView : MonoBehaviour
     {
         if (Picture == null || Picture.texture == null) return;
         var bounds = ((RectTransform)transform).rect;
+        if (bounds.width <= 0 || bounds.height <= 0) return;
+        // Derive from the outer dimensions so a resize cannot use yesterday's viewport size.
+        bounds.width = Mathf.Max(0, bounds.width - ArtInset * 2);
+        bounds.height = Mathf.Max(0, bounds.height - ArtInset * 2);
         if (bounds.width <= 0 || bounds.height <= 0) return;
         float imageAspect = (float)Picture.texture.width / Picture.texture.height;
         float frameAspect = bounds.width / bounds.height;

@@ -28,8 +28,8 @@ public sealed class ArtIntegrationCapture : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Begin()
     {
-        if(!Environment.GetCommandLineArgs().Contains("-art-integration-capture"))return;
-        string root=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/ArtIntegration"));
+        if(!Environment.GetCommandLineArgs().Contains("-art-integration-capture")&&!Environment.GetCommandLineArgs().Contains("-event-frame-capture"))return;
+        string root=Path.GetFullPath(Path.Combine(Application.dataPath,Environment.GetCommandLineArgs().Contains("-event-frame-capture")?"../Captures/EventFrames":"../Captures/ArtIntegration"));
         Directory.CreateDirectory(root);
         SaveGames.TestRoot=Path.Combine(root,"Saves");Directory.CreateDirectory(SaveGames.TestRoot);
         VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
@@ -61,7 +61,7 @@ public sealed class ArtIntegrationCapture : MonoBehaviour
     IEnumerator Start()
     {
         File.WriteAllText(Path.Combine(output,"checks.txt"),"RUNNING");
-        var work=new Stack<IEnumerator>();work.Push(Run());
+        var work=new Stack<IEnumerator>();work.Push(Environment.GetCommandLineArgs().Contains("-event-frame-capture")?FrameRun():Run());
         while(work.Count>0){
             object next=null;bool moved=false;Exception failure=null;
             try{moved=work.Peek().MoveNext();if(moved)next=work.Peek().Current;}catch(Exception e){failure=e;}
@@ -73,7 +73,7 @@ public sealed class ArtIntegrationCapture : MonoBehaviour
             if(!moved){work.Pop();continue;}
             if(next is IEnumerator nested)work.Push(nested);else yield return next;
         }
-        string result="ART_INTEGRATION_CHECKS "+passed+" passed; 14 header sprites, all "+entries.Length+" manifest entries, and aspect-preserving rendering checked at 1600x900 / 1280x720. Ten representative event-art fixtures captured at each resolution. No event choices executed.";
+        string result=Environment.GetCommandLineArgs().Contains("-event-frame-capture")?"EVENT_FRAME_CHECKS "+passed+" passed across six PC resolutions; no event decisions executed.":"ART_INTEGRATION_CHECKS "+passed+" passed; 14 header sprites, all "+entries.Length+" manifest entries, and aspect-preserving rendering checked at 1600x900 / 1280x720. Ten representative event-art fixtures captured at each resolution. No event choices executed.";
         File.WriteAllLines(Path.Combine(output,"details.txt"),checks);
         File.WriteAllLines(Path.Combine(output,"textures.txt"),textures);
         File.WriteAllText(Path.Combine(output,"checks.txt"),result);Debug.Log(result);Application.Quit(0);
@@ -136,7 +136,11 @@ public sealed class ArtIntegrationCapture : MonoBehaviour
         var raw=frame.GetComponentInChildren<RawImage>();var expected=Resources.Load<Texture2D>(entry.path);
         Check(raw!=null&&expected!=null&&raw.texture==expected,context+" correct manifest texture displayed");
         Check(!raw.raycastTarget,context+" artwork does not intercept choices");
+        var viewport=frame.Find("Artwork viewport") as RectTransform;
+        Check(viewport!=null&&viewport.GetComponent<RectMask2D>()!=null&&raw.maskable,context+" inset image clipping active");
+        Check(viewport.offsetMin==Vector2.one*EventArtworkView.ArtInset&&viewport.offsetMax==-Vector2.one*EventArtworkView.ArtInset,context+" image sits inside gold border");
         var rect=Bounds(raw.rectTransform);var uv=raw.uvRect;
+        Check(Inside(Bounds(viewport),rect),context+" image stays inside inset viewport");
         Check(rect.width>1&&rect.height>1&&Inside(Bounds((RectTransform)frame),rect),context+" picture contained in artwork frame");
         Check(uv.width>0&&uv.height>0&&uv.xMin>=-.001f&&uv.yMin>=-.001f&&uv.xMax<=1.001f&&uv.yMax<=1.001f,context+" valid image crop");
         float imageAspect=(expected.width*uv.width)/(expected.height*uv.height);
@@ -231,6 +235,49 @@ public sealed class ArtIntegrationCapture : MonoBehaviour
             Destroy(fixture);fixture=null;yield return null;
             Check(State()==original&&Rng()==random,suffix+" all art refreshes preserve campaign and random stream");
         }
+    }
+    IEnumerator FrameRun()
+    {
+        int width=Screen.width,height=Screen.height;var mode=Screen.fullScreenMode;
+        Application.runInBackground=true;AudioListener.volume=0;yield return null;
+        Check(SaveGames.Automated,"isolated test saves");SaveMenu.StartCampaign(false);
+        float deadline=Time.realtimeSinceStartup+25;
+        while((!VariableSingleton.IsInitialized||FindObjectOfType<ManagerUI>()==null)&&Time.realtimeSinceStartup<deadline)yield return null;
+        Check(VariableSingleton.IsInitialized,"campaign ready");yield return new WaitForSecondsRealtime(.5f);
+        CampaignHUD.Instance.DismissReport();CouncilUI.For(FindObjectOfType<ManagerUI>()).Hide();
+        foreach(var input in FindObjectsOfType<BaseInputModule>())input.enabled=false;
+        canvas=GameObject.Find("Campaign Status").GetComponentInParent<Canvas>();
+        entries=JsonUtility.FromJson<ArtManifest>(Resources.Load<TextAsset>(ManifestResource).text).entries;
+        string original=State(),random=Rng();
+        var sample=entries.First(e=>e.node=="story7");
+        foreach(var size in new[]{new Vector2Int(1280,720),new Vector2Int(1600,900),new Vector2Int(1920,1080),new Vector2Int(1920,1200),new Vector2Int(1280,960),new Vector2Int(2560,1080)})
+        {
+            Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.5f);
+            string suffix=Screen.width+"x"+Screen.height;
+            Check(Screen.width==size.x&&Screen.height==size.y,"Resolution applied "+suffix);
+            CreateFixture();yield return null;
+            foreach(var entry in entries){EventCardArt.Refresh(fixture.transform,entry.node,"Frame regression");yield return null;Canvas.ForceUpdateCanvases();ValidatePicture(entry,suffix+" "+entry.node);}
+            // Exercise both fit policies and the generic fallback without a manifest change.
+            var frame=fixture.transform.Find("Event artwork");var view=frame.GetComponent<EventArtworkView>();
+            foreach(bool contain in new[]{true,false})
+            {
+                view.Configure(sample.path,sample.path,contain,.75f,.5f);yield return null;Canvas.ForceUpdateCanvases();
+                ValidatePicture(new ArtEntry{path=sample.path,fit=contain?"contain":"cover"},suffix+" explicit fit");
+            }
+            EventCardArt.Refresh(fixture.transform,"unmapped-frame-fixture","soldiers at the wall");yield return null;
+            ValidatePicture(new ArtEntry{path="EventArt/military-r11",fit="cover"},suffix+" generic fallback");
+            EventCardArt.Refresh(fixture.transform,sample.node,"Normal card");yield return null;
+            yield return Capture("event-frame-"+suffix);
+            yield return PreviewChecks(sample,suffix);
+            // Match the wide shallow presentation in the reported screenshot.
+            frame=fixture.transform.Find("Event artwork");var rt=(RectTransform)frame;
+            rt.anchorMin=new Vector2(.025f,.35f);rt.anchorMax=new Vector2(.975f,.965f);
+            Canvas.ForceUpdateCanvases();yield return null;ValidatePicture(sample,suffix+" resized wide frame");
+            yield return Capture("event-wide-frame-"+suffix);
+            Destroy(fixture);fixture=null;yield return null;
+            Check(State()==original&&Rng()==random,"No state or random changes "+suffix);
+        }
+        Screen.SetResolution(width,height,mode);yield return new WaitForSecondsRealtime(.3f);
     }
     IEnumerator Capture(string name)
     {

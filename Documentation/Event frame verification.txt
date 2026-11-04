@@ -1,0 +1,16 @@
+EVENT FRAME FIX AND ASSET STANDARD
+4 November 2026 — ConstantineX
+
+Cause: EventArtworkView fitted images to the outer panel rectangle, while ImperialFrame draws its gold line 3–5 UI units inwards. Contained images could therefore appear to spill underneath/beyond the lower gold line.
+Fix: image-only viewport inset by 8 UI units with RectMask2D; existing contain/cover calculations use that inner size. The decorative frame stays outside the mask. No event layout, choices, rewards, persistence, RNG or asset identity changes.
+
+Verified: successful Unity 2022.3.15f1 Windows preview. Focused -event-frame-capture passed 3,854 assertions across all 58 current manifest mappings, explicit contain/cover/fallback, live resizing, gold-frame inset, aspect preservation, enlarged image and Close/Back at 1280x720, 1600x900, 1920x1080, 1920x1200, 1280x960 and 2560x1080. Separate -maritime-capture passed 618 assertions including the actual Golden Horn event UI at 1280/1600. Reviewed representative standard, wide, 16:10 and ultrawide fixture screenshots and actual Golden Horn card.
+Tools/validate_event_art.py: 58 mappings, zero errors; 57 advisory size/aspect notes for existing artwork (accepted, not a regeneration queue). Negative fixtures rejected duplicate IDs, stretch mode, invalid focus and paths outside Resources.
+
+Documentation: Art assets and presentation standard.txt provides per-category sizes, composition safe zones, prompt template, importer/memory guidance, stable IDs, preflight and PC-resolution checks. Standing AGENT COORDINATION instructions and architecture/decisions updated; Word/text regenerated from source. Existing valid legacy ratios retained. No giant new asset system.
+
+Evidence: Builds/Version-38-ArtPreview/Captures/EventFrames and Captures/Maritime. Build logs in parent workspace: build-event-frame-final.log, event-frame-runtime.log, event-frame-actual-runtime.log. Published desktop version unchanged.
+
+Scope: this checks image presentation, not general certification of all game screens, Windows DPI settings or 4K sharpness. Ionian workstream code was present in preview but not verified by these art checks. Separate workstream changes are excluded from this commit.
+
+Document QA: updated coordination Word document rendered to 72 pages; all pages reviewed as contact sheets for layout, with the new asset-instruction page inspected separately. This is layout review, not a fresh content audit of the historical message archive.
