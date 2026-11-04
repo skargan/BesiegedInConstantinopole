@@ -418,16 +418,26 @@ title: story12
 ===
 title: story13
 ---
-<b>Siege Preparation — Our Turks</b>: <br> The men outside your door are Turks, but they have come from your own streets and estates. Some draw imperial pay; others serve lords who owe you obedience. Their wives buy bread in our markets. Their children speak Greek beside Turkish. Now the Sultan is coming, and every familiar face invites an unfamiliar suspicion.<br>Orhan speaks for the soldiers. “Mehmed has a throne for himself and a grave for me. Ask which of us has more reason to hold your walls.”<br>The council cannot promise that every household shares his predicament. Traders still have cousins across the straits. A messenger needs neither a uniform nor a sword.
--> Exile the Turkish households and dismiss their retainers.
-    <<TurkishHouseholds 1>>
-    Families pass through the gates under escort, carrying what the carts will bear. Some leave silently; others demand to know which oath they have broken. Orhan departs without a command. Their service is lost to us.
--> Keep them under close supervision. Admit a limited contingent under Roman officers. \[Infantry +150; Orhan held under guard.\]
-    <<TurkishHouseholds 2>>
-    The captains surrender their lists of men and weapons. Their soldiers are distributed among Roman companies, their movements watched. Orhan remains under guard. We have gained men, though few friends.
--> Confirm their privileges and honour their service. Let Orhan command them. \[Infantry +300; noble support −5 points; Orhan available.\]
-    <<TurkishHouseholds 3>>
-    You receive their oath before the court and confirm their households under imperial protection. Orhan kneels, then rises to receive his commission. Among the nobles, several faces remain carefully expressionless. On the muster ground, three hundred men answer the call.
+<b>Siege Preparation — Our Turks</b>: <br>Orhan Çelebi, a prince of the Ottoman house and a potential rival to Mehmed’s throne, has long lived in Constantinople under imperial protection and watch. His presence has been useful in negotiations with the sultans; now it makes him a marked man. He requests an audience, offering the service of his Turkish followers in the city’s defence.<br>Other Turkish residents await your decision alongside them: soldiers in imperial service, household retainers, merchants and their families. Some have lived here for years. With preparations for the siege underway, petitions have reached the palace demanding their expulsion.<br>Orhan addresses you.<br>“My lord, you know what awaits me if Mehmed enters this city. My men know it too. Give us a place on the walls, and we will defend it. But their families must have your protection. They cannot stand watch while wondering whether their own houses will be searched or their children driven out.”<br>Your councillors disagree over how far that protection should extend. Orhan’s followers have good reason to fight, but he cannot answer for every Turkish household. One councillor asks that correspondence and departures be watched: a letter carried to relatives across the straits could also report which gates are poorly guarded. Another reminds you that several of the men now under suspicion have served the Empire faithfully for years. They await your ruling.
+<<if TurkishHouseholdsResolved()>>
+    {TurkishHouseholdsOutcome()}
+<<else>>
+    -> Expel the Turkish households and confiscate their property. \[Gold +500–3,000; public morale +5 points; Orhan permanently lost.\]
+        <<TurkishHouseholds 1>>
+        {TurkishHouseholdsOutcome()}
+    -> Accept volunteers under Roman officers. Grant Orhan limited command. \[Infantry +150; Orhan available, loyalty 50.\]
+        <<TurkishHouseholds 2>>
+        {TurkishHouseholdsOutcome()}
+    -> Place their households under imperial protection. Let Orhan command his followers. \[Infantry +300; noble support −5 points; Orhan available, loyalty 90.\]
+        <<TurkishHouseholds 3>>
+        {TurkishHouseholdsOutcome()}
+    -> We need every man. Authorise Orhan to raise a Turkish battalion and recruit additional mercenaries. Offer pay and sanctuary to volunteers and opponents of Mehmed. \[Infantry +600, archers +200, cavalry +50; army and public morale, clergy and noble support −5 points each; Orhan loyalty 90.\] <<if GetInt("iFocus") == 1>>
+        <<TurkishHouseholds 4>>
+        {TurkishHouseholdsOutcome()}
+    -> Accept their service. Have our agents examine the recruits and watch their correspondence. \[Infantry +300; Orhan available, loyalty 90.\] <<if GetInt("iFocus") == 4>>
+        <<TurkishHouseholds 5>>
+        {TurkishHouseholdsOutcome()}
+<<endif>>
 ===
 title: story14
 ---

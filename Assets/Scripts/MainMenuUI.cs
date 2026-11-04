@@ -20,13 +20,16 @@ public class MainMenuUI : UIWindowFam
     {
         SaveGames.ImportLegacy();
         var font=ImperialTheme.Font;
-        foreach(var title in transform.root.GetComponentsInChildren<TMPro.TMP_Text>(true)) if(title.text.ToUpperInvariant().Contains("BESIEGED IN CONSTANTINOPLE")) title.gameObject.SetActive(false);
+        foreach(var title in transform.root.GetComponentsInChildren<TMPro.TMP_Text>(true)) if(title.text.ToUpperInvariant().Contains("BESIEGED IN CONSTANTINOPLE") || title.text == GameIdentity.Title) title.gameObject.SetActive(false);
+        // Keep the menu above full-canvas artwork; its original scene parent is nested.
+        transform.SetParent(transform.root, false);
+        LaunchMenuArtwork.Apply(transform.root);
         var shade=CampaignHUD.Panel(transform.root,"Menu shade",Vector2.zero,Vector2.one);shade.GetComponent<UnityEngine.UI.Image>().color=new Color(.06f,.025f,.04f,.42f);shade.GetComponent<UnityEngine.UI.Image>().raycastTarget=false;
         transform.SetAsLastSibling();
         var bounds=GetComponent<RectTransform>();bounds.anchorMin=new Vector2(.57f,.06f);bounds.anchorMax=new Vector2(.95f,.94f);bounds.offsetMin=bounds.offsetMax=Vector2.zero;
         var panel=GetComponent<UnityEngine.UI.Image>();if(panel!=null){ImperialTheme.Panel(gameObject);}
         var border=gameObject.AddComponent<UnityEngine.UI.Outline>();border.effectColor=new Color(.64f,.49f,.25f);border.effectDistance=new Vector2(2,-2);
-        var heading=CampaignHUD.Label(transform,"BESIEGED\n<size=72%>IN CONSTANTINOPLE</size>",new Vector2(.04f,.76f),new Vector2(.96f,.97f),47);heading.font=font;heading.alignment=TMPro.TextAlignmentOptions.Center;heading.characterSpacing=2;
+        var heading=CampaignHUD.Label(transform,GameIdentity.MenuTitle,new Vector2(.04f,.76f),new Vector2(.96f,.97f),47);heading.font=font;heading.alignment=TMPro.TextAlignmentOptions.Center;heading.characterSpacing=2;
         var subtitle=CampaignHUD.Explanation(transform,"A City. An Empire. A last stand.",new Vector2(.06f,.70f),new Vector2(.94f,.77f),23);subtitle.font=font;subtitle.alignment=TMPro.TextAlignmentOptions.Center;
         var rule=CampaignHUD.Panel(transform,"Gold rule",new Vector2(.15f,.695f),new Vector2(.85f,.697f));rule.GetComponent<UnityEngine.UI.Image>().color=new Color(.64f,.49f,.25f);
         var original=GetComponentsInChildren<UnityEngine.UI.Button>(true);

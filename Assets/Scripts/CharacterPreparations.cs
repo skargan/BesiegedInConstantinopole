@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -33,22 +33,44 @@ public static class CharacterPreparations
         VariableSingleton.SetInt("iCommander",CommanderId);
         report=Names[Candidate]+" takes command of the siege defence.\n"+Abilities[Candidate]+"\nThe command benefit replaces this adviser's ordinary specialist benefit.";return true;
     }
-    static int I(string key)=>CouncilActions.Int(key);
+    static int I(string key)=>DailyLifeEvents.I(key);
     public static bool Invited=>I("iAdventurerChoice")>0 && I("iAdventurerChoice")<=Names.Length;
     public static string Status=>I("iAdventurerArrived")>0?(IsCommander?"In service · siege commander":"In service"):"Expected "+new DateTime((long)I("iAdventurerDue")*TimeSpan.TicksPerDay).ToString("d MMM yyyy");
-    public static void Initialize(){VariableSingleton.SetInt("iAdventurerLoyalty",50);foreach(string key in new[]{"iTurkPolicy","iAdventurerChoice","iAdventurerDue","iAdventurerArrived"})VariableSingleton.SetInt(key,0);}
+    public static void Initialize(){VariableSingleton.SetInt("iAdventurerLoyalty",50);foreach(string key in new[]{"iTurkPolicy","iTurkConfiscatedGold","iTurkishBattalionCreated","iTurkScreeningIntercepted","iAdventurerChoice","iAdventurerDue","iAdventurerArrived"})VariableSingleton.SetInt(key,0);}
+    [YarnFunction("TurkishHouseholdsResolved")] public static bool TurksResolved()=>I("iTurkPolicy")!=0;
     [YarnCommand("TurkishHouseholds")]
     public static void TurkishHouseholds(int policy)
     {
-        if(policy<1||policy>3||I("iTurkPolicy")!=0)return;
+        if(policy<1||policy>5||TurksResolved()||(policy==4&&I("iFocus")!=1)||(policy==5&&I("iFocus")!=4))return;
         VariableSingleton.SetInt("iTurkPolicy",policy);
-        VariableSingleton.ChangeBool("bCharNomad3",policy==3);
-        if(policy==1)return;
-        VariableSingleton.ChangeInt("iInfantry",policy==2?150:300);
-        VariableSingleton.ChangeInt("iTurkSpies",policy==2?1:2);
-        if(policy==2)VariableSingleton.SetInt("iCourtState3",4);
-        else VariableSingleton.ChangePercentFloat("fNobleRep",-.05f);
+        VariableSingleton.ChangeBool("bCharNomad3",policy!=1);
+        VariableSingleton.SetInt("iCourtState3",policy==1?3:1);
+        VariableSingleton.SetInt("iLoyalty3",policy==1?0:policy==2?50:90);
+        if(policy==1){
+            int gold=UnityEngine.Random.Range(500,3001);VariableSingleton.SetInt("iTurkConfiscatedGold",gold);
+            VariableSingleton.ChangeInt("iMoney",gold);VariableSingleton.ChangePercentFloat("fPeopleRep",.05f);
+        }else{
+            VariableSingleton.ChangeInt("iInfantry",policy==2?150:policy==4?600:300);
+            if(policy==3||policy==4){VariableSingleton.ChangeInt("iTurkSpies",policy==3?1:2);VariableSingleton.ChangePercentFloat("fNobleRep",-.05f);}
+            if(policy==4){
+                VariableSingleton.ChangeInt("iCavalry",50);VariableSingleton.ChangeInt("iArchers",200);
+                foreach(string key in new[]{"fTroopRep","fPeopleRep","fPriestRep"})VariableSingleton.ChangePercentFloat(key,-.05f);
+                VariableSingleton.SetInt("iTurkishBattalionCreated",1);
+                DecisionJournal.Record("turkish_battalion_created","Turkish Battalion Created","Orhan commands a Turkish battalion raised for the defence, including additional Turkish volunteers and mercenaries offered pay and sanctuary.",true);
+            }
+            if(policy==5)EspionageSystem.RecordRecruitScreening();
+        }
+        DecisionJournal.Record("our_turks_ruling","Our Turks",TurksOutcome(),true);
     }
+    [YarnFunction("TurkishHouseholdsOutcome")]
+    public static string TurksOutcome(){switch(I("iTurkPolicy")){
+        case 1:return "The Turkish households leave under escort, their property taken into the treasury. Confiscation yields "+I("iTurkConfiscatedGold").ToString("N0")+" gold. The petitioners welcome your ruling. Orhan loses imperial protection; word later reaches the court that Mehmed has had him executed. His service is lost permanently.";
+        case 2:return "One hundred and fifty volunteers enter Roman companies. Orhan accepts a limited command under imperial officers, though he remains cautious about the court's intentions. Loyalty: 50 / 100.";
+        case 3:return "You place the households under imperial protection. Three hundred men swear service under Orhan, who receives his commission with evident relief. Several nobles object to the privileges granted. Orhan's loyalty: 90 / 100.";
+        case 4:return "Orhan forms the Turkish Battalion. Volunteers, mercenaries, fugitives and other opponents of Mehmed answer the promise of pay and sanctuary: 600 infantry, 200 archers and 50 cavalry enter service. Opposition spreads through the army, the streets, the clergy and the noble households. Orhan's loyalty: 90 / 100.";
+        case 5:return "Three hundred of Orhan's followers enter imperial service after screening. Your agents identify a suspected Ottoman operative among the applicants and detain him before he can establish himself inside the City. The households receive protection and Orhan his command. His loyalty: 90 / 100.";
+        default:return "The court awaits your ruling.";
+    }}
     [YarnCommand("InviteAdventurer")]
     public static void Invite(int index)
     {

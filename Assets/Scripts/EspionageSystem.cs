@@ -44,6 +44,12 @@ public static class EspionageSystem
         if(lost) VariableSingleton.ChangeInt("iSpies",-1);
         return lost;
     }
+    // Screening stops an applicant before infiltration; it must not remove an unrelated live spy.
+    public static void RecordRecruitScreening(){
+        if(DailyLifeEvents.I("iTurkScreeningIntercepted")!=0)return;
+        VariableSingleton.SetInt("iTurkScreeningIntercepted",1);
+        DecisionJournal.Record("our_turks_interception","Recruit screening","Our agents detained a suspected Ottoman operative among the recruits before he established himself inside the City.",true);
+    }
     public static void AdvanceTurn()
     {
         if(Alert>0) VariableSingleton.SetInt("iCampAlert",ClampAlert(Alert-Random.Range(1,11)));

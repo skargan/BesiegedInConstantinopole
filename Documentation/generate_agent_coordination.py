@@ -21,7 +21,7 @@ d.styles['Heading 2'].font.size=Pt(11)
 d.styles['Title'].font.size=Pt(24)
 for e in d.styles.element.xpath('//w:pBdr'):e.getparent().remove(e)
 foot=s.footer.paragraphs[0];foot.alignment=2
-foot.add_run('Besieged • Agent coordination | ').font.size=Pt(8)
+foot.add_run('Saving Constantinople • Agent coordination | ').font.size=Pt(8)
 field=OxmlElement('w:fldSimple');field.set(qn('w:instr'),'PAGE');foot._p.append(field)
 text=[c['title'],c['subtitle'],'Snapshot: '+c['snapshot']]
 d.add_paragraph(c['title'],'Title');d.add_paragraph(c['subtitle'])

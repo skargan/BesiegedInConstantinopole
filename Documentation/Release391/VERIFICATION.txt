@@ -1,0 +1,8 @@
+Version 39.1 verification — 4 November 2026
+Unity 2022.3.15f1 Windows x64 development export succeeded, exit 0.
+Exported player: PASS 106 focused assertions; six ending screens captured.
+Checks cover five Our Turks branches, policy gates, troop totals, support bounds, Orhan availability/loyalty, hidden spies, screening, journal flags, duplicate application prevention and campaign snapshot disk roundtrip.
+Tavern pledge scheduling, one-time rewards and restored due date checked. Yarn nodes and integrated artwork resources checked.
+Main menu and public-collapse ending visually inspected at 1600x900; menu background occlusion fixed by reparenting menu above full-canvas art. Other five ending screenshots captured, not individually visually reviewed.
+Legacy identity preference migration previously checked against 12 records.
+Limitations: not a full campaign balance playthrough; snapshot roundtrip is not comprehensive save compatibility testing. Strategic Situation and revised naval rules remain queued.

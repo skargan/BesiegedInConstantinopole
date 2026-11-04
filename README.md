@@ -1,8 +1,12 @@
-# Besieged in Constantinople
+# Against Fate: Saving Constantinople
 
 A strategy game about preparing Constantinople and defending it through diplomacy, resource decisions, intrigue and siege combat. This fork continues the original project by q-amazed-p.
 
+Known as **Saving Constantinople** for short. Earlier releases used the name Besieged in Constantinople.
+
 ## Play on Windows
+
+Version 39 below predates the rename and retains its original download and executable names. The next publication will carry the new title.
 
 1. Open [Version 39 on GitHub Releases](https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v39).
 2. Download **Besieged-Version-39-Windows-x64.zip** and extract the whole folder to a writable location.

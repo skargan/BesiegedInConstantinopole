@@ -1,11 +1,12 @@
 {
   "title": "AGENT COORDINATION",
-  "subtitle": "Besieged in Constantinople development instructions and handovers",
-  "snapshot": "4 November 2026 — Version 39 consolidation",
+  "subtitle": "Saving Constantinople development instructions and handovers",
+  "snapshot": "4 November 2026 — Version 39.1 content completion",
   "sections": [
     [
       "AGENT INSTRUCTIONS",
       [
+        "Game identity, confirmed 4 November 2026: full title Against Fate: Saving Constantinople; short name Saving Constantinople. Use these in all new player-facing material and publications. Preserve historical release links, asset provenance, save extensions, preference keys, package identifiers and the existing GitHub repository address. These are compatibility identifiers, not current branding.",
         "Every developer reads this record before work, then verifies the current branch, dirty files, active assignments and build ownership. ConstantineX leads integration. User instructions override this coordination record. Work in bounded segments under 15 minutes; report meaningful progress and blockers.",
         "Begin every user-facing update and agent message: This is [workstream designation] â€” [HH:mm, date, timezone]. Update BLUF: [one plain-language sentence stating the outcome or request]. Use Europe/Bucharest time, verified when posting. Then give only the details needed to act. Identify uncertainty and the next owner. Occasional humour and individual personality are welcome; keep decisions and evidence unambiguous.",
         "Claim exact files or methods before editing. One owner per shared change. Use separate staging files or branches for independent work; agree on integration before touching another ownerâ€™s area. Never revert unknown changes. Do not assume a delivered message was acknowledged.",
@@ -26,7 +27,7 @@
         "CouncilUI and CampaignHUD present the campaign; ControlSingleton handles return navigation. Check both screen visibility and return callbacks when adding a nested menu. Presentation must not consume simulation randomness or alter campaign state.",
         "OttomanDirector is the strategic decision entry point. Event choices, diplomacy, provincial systems and assault outcomes feed persistent campaign values. Changes affecting those values require save/load and downstream outcome checks. This is an entry-point map, not a completed dependency audit.",
         "New CouncilChamber is decorative UI, loaded from Resources with editable JSON candle anchors. It is clipped and non-interactive, pauses when hidden and supports still presentation. Its capture checks cover campaign/RNG isolation and navigation.",
-        "The campaign Decision Journal was published in Version 37: daily notes and persistent decision records, a council entry, and save-state inclusion. It is separate from the assault journal. Event-specific Our Turks records and final epilogue integration remain unfinished.",
+        "The campaign Decision Journal was published in Version 37: daily notes and persistent decision records, a council entry, and save-state inclusion. It is separate from the assault journal. Our Turks decision records are integrated in Version 39.1; final epilogue integration remains future work.",
         "Version 38 uses SharedProvisions as the common physical-food ledger for city, Ottoman camp, provincial reserves and convoy cargo, preserving fractions through existing campaign values. ProvincialWar debits reserves at departure and transfers surviving cargo on arrival. Medical treatment adds its selected food charge. Version 38 compiled, passed 149 focused runtime checks and was desktop published; a full long-campaign balance pass remains future work.",
         "Event artwork is manifest-driven through EventCardArt and EventArtworkView. The picture lives in an inset RectMask2D viewport; gold framing remains outside that mask. Contain/cover and enlarged-view behaviour remain unchanged. Asset generation specifications do not add game mechanics, parallel asset registries or a new loading system."
       ]
@@ -58,13 +59,21 @@
         "Checks: provisions 149; technology 11277; Ionian 188; chatter 198; art integration 3723; event frames 8294; provincial art 104; chamber/journal 106. Editor phased-assault regressions passed. Runtime-checks.json contains exact evidence. These are assertions, not full playthrough counts. Art/capture suites do not resolve all event choices.",
         "Two verification-harness corrections: the public-support header intentionally uses the People artwork, so its stale sprite expectation was corrected; the chamber report path is Captures/Chamber, not CouncilChamber. No gameplay changes were made to satisfy these checks.",
         "Archive: 282 retained files checksum-verified. Five prototype ZIPs preserve changed source with provenance; original event art and staged content are indexed separately. Full historic trees remain recoverable from Git tags. The original menu-stat icon branch was already fully integrated.",
-        "Next development choices: expanded five-choice Our Turks event; separately validated Candar/Ragusa integration; Malta mercenary DLC; long-campaign supply/war balance. Existing Decision Journal is live, but additional event-specific flags and epilogue uses remain incomplete. See the archive index for the bounded backlog.",
+        "Next development choices: Strategic Situation dashboard and revised naval rules; separately validated Candar/Ragusa integration; Malta mercenary DLC; long-campaign supply/war balance. Existing Decision Journal is live, but additional event-specific flags and epilogue uses remain incomplete. See the archive index for the bounded backlog.",
         "Do not include unrelated .vscode/settings.json, capture saves, compiler caches, build logs or rendered coordination QA in release commits or the playable ZIP. Preserve old local working trees and personal saves. One live remote branch is the intended result; historical tags are retained for recovery.",
         "Archive supplement: 27 older uncommitted presentation files were preserved in Prototypes/local-preconsolidation-working-tree.zip with per-file hashes before the old checkout was detached. Original dirty files remain unchanged. The initial archive contained 282 hash-verified files; this supplement preserves additional source context. JohanX was informed of publication and instructed to use main for future work."
       ]
     ]
   ],
   "changelog": [
+    {
+      "version": "39.1",
+      "status": "Verified Windows export; desktop publication",
+      "changes": "Saving Constantinople rename; five-choice Our Turks; Tavern event and delayed pledge; Giustiniani portrait/figure/arrival art; six defeat illustrations; nine session-selected launch backgrounds from JohanX.",
+      "evidence": "106 exported-player assertions passed. See Documentation/Release391/VERIFICATION.txt for exact scope and limitations.",
+      "pending": "Strategic Situation tab and revised naval gameplay remain queued. Older prototypes and mercenary DLC stay archived.",
+      "publication": "Desktop/ Saving Constantinople - Version 39.1; launch Saving Constantinople.exe. Historical Version 39 remains unchanged."
+    },
     {
       "version": "39",
       "status": "GitHub playtest published",

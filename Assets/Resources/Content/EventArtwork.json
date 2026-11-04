@@ -172,7 +172,7 @@
     {
       "node": "story5",
       "path": "EventArt/Covers/story5",
-      "source": "Giustiniani's Arrival at the Golden Horn-5.png",
+      "source": "User supplied Giustiniani arrival, 3 November 2026",
       "fit": "contain",
       "focusY": 0.5
     },
@@ -922,6 +922,20 @@
       "node": "sermonSloth",
       "path": "EventArt/Covers/Handover/sermonPride",
       "source": "event-covers/sermonPride.png (final-art handover e9bacf0)",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeTavern",
+      "path": "EventArt/Covers/lifeTavern",
+      "source": "User supplied codex-clipboard-291a0024-2029-41d5-92de-32cdd4de7b06.png",
+      "fit": "contain",
+      "focusY": 0.5
+    },
+    {
+      "node": "lifeTavernPledge",
+      "path": "EventArt/Covers/lifeTavern",
+      "source": "User supplied codex-clipboard-291a0024-2029-41d5-92de-32cdd4de7b06.png",
       "fit": "contain",
       "focusY": 0.5
     }

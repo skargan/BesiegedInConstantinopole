@@ -1,0 +1,40 @@
+title: lifeTavern
+---
+<<LifeSeen lifeTavern>>
+<b>Evening in a Tavern</b>: <br> By supper you have heard three accounts of the city, all delivered by men who wish to be paid. You put on a plain cloak and go out to hear a fourth.<br><br>The tavern keeper takes your copper without looking up. Beside the hearth, two young women are quarrelling over who was seen leaving whose house; each has acquired witnesses since the argument began. Mercenaries occupy the long table. A traveller sits alone with his boots drying beneath the bench. You find a place where the smoke is tolerable.
+-> Drink with the mercenaries.
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<LifeTavernPledge>>
+    They make room for you. One complains that emperors drink from gold while soldiers must pay to have their wine watered. You agree that this is badly arranged. He buys you a cup.<br><br>You leave before your tongue becomes too useful. At the door, a guardsman forgets himself and addresses you by your title. Behind you, the long table falls quiet.
+    <<else>>
+    <<LifeTavernPay 25>>
+    <<ChangeFraction fTroopRep -0.01>>
+    A man with a split lip invites you to play dice. You lose, then lose again, then discover that the wine for the whole table has somehow become yours to pay for.<br><br>On your way out, you suggest that ten able men might find work on the walls. The man laughs. By morning his version has the Emperor recruiting soldiers on credit.
+    <<endif>>
+-> Watch the maidens fight over gossip.
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<ChangeFraction fPeopleRep 0.01>>
+    The quarrel concerns a cooper, a borrowed veil and a husband who is apparently deaf on convenient occasions. One woman demands your judgement. You ask whether the husband has considered becoming a confessor: he already hears so little.<br><br>Both women laugh, which spoils the quarrel. They make you repeat it to the keeper. He has recognised you; you know it from the way he suddenly wipes an already clean cup. Tomorrow half the street will be telling the Emperor's joke.
+    <<else>>
+    <<ChangeFraction fNobleRep -0.01>>
+    You recognise the name a moment before you recognise the lady being discussed. Unfortunately, you smile.<br><br>One of the women notices your ring. By the time you reach the palace, a chamberlain is waiting to explain that his niece is perfectly respectable, her husband hears very well, and His Majesty's amusement has been reported to the family.
+    <<endif>>
+-> Talk to the traveller.
+    <<set $chance = dice(100)>>
+    <<if $chance <= 50>>
+    <<Change iMoney 40>>
+    His accent belongs to the Morea. He has brought money for a cousin serving in the garrison, but the cousin died last winter. You offer to find the widow.<br><br>She counts out forty gold for the treasury before taking her share. Her husband owed it, she says; he worried about it long after there was any prospect of paying. You return with a debt settled and the rest delivered where it belongs.
+    <<else>>
+    <<LifeTavernPay 20>>
+    He describes a road you know, an inn you remember and a mule which must surely have died by now. You put your purse on the table to pay for his supper. When he departs, you discover how thoroughly he has inspected it.<br><br>There is something almost consoling about finding a man still concerned with the ordinary business of robbing you. You order no second cup.
+    <<endif>>
+-> Leave before anyone recognises you.
+    Outside, the air tastes of rain. You walk home by the longer street. A woman is shutting her shop; two boys carry a ladder between them, arguing about which end is heavier. Neither asks your permission.
+===
+title: lifeTavernPledge
+---
+<<LifeTavernPledgeComplete>>
+<b>The Morning After</b>: <br> Ten men wait at the palace gate with their weapons and a headache apiece. Five carry bows. Their spokesman is the man who bought you wine.<br><br>"We were told you never listen to soldiers," he says. "It appears we were drinking in the wrong taverns."<br><br>They ask to serve. You have their names entered on the rolls before anybody mentions the condition of their boots.
+===

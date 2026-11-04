@@ -14,16 +14,16 @@ This is the retrieval index for unfinished, superseded and DLC work preserved du
 | Ragusa | `Staged/ragusa-next/` | Character art, content and source handovers. Compiler caches and duplicate frozen checkouts excluded. Read its handover before integration. |
 | Malta mercenary marketplace DLC | `Staged/diplomatic-expansion/MALTA-MERCENARIES-DLC-DESIGN.txt` | Design only: roster, regional voyages, instalments, non-cash bargains and incidents. Latest decisions: blockade risk stacks, dispute agent is spent, baseline <=75 days but delays can extend it. |
 | Gazaria / Caffa and Circassian trading coast | `Staged/diplomatic-expansion/` | Design staging and available Caffa artwork. Separate from Malta; do not silently substitute its rules. |
-| Defeat-specific ending artwork | `Staged/ending-art/` | Available ending assets retained. The current release still uses its existing ending presentation; cause-specific art wiring is unfinished. |
-| Tavern / unique-event material | `Staged/tavern-event/` | Staged content and handover, not a claim of a working live event chain. |
-| Giustiniani artwork | `Staged/giustiniani-art/` | Supporting art retained for the future character/event pass. |
+| Defeat-specific ending artwork | `Staged/ending-art/` | Available ending assets retained. Version 39.1 connects the six illustrations to defeat causes; originals remain preserved here. |
+| Tavern / unique-event material | `Staged/tavern-event/` | Integrated for Version 39.1 with the daily-event scheduler and delayed pledge. |
+| Giustiniani artwork | `Staged/giustiniani-art/` | Integrated for Version 39.1: figure, portrait, arrival art; provenance retained. |
 | Original final-art handover | `OriginalArt/` | All135 source PNGs, original manifests and provenance retained. Version39 adds74 missing event mappings using64 originals and preserves58 existing mappings. Other originals remain available for review/replacement. |
 | Retired factions, merchant favour, fencing and leadership | `../Documentation/Retired systems/` | Already preserved in the repository; remain retired. Do not restore by wholesale-merging old prototypes. |
 | Narrative expansion plans | `../Tools/BesiegedEventMap/planning/next-campaign/` | Court stories and future event designs; source evidence and approval status remain distinct from runtime content. |
 
 ## Outstanding work with no completed implementation claimed
 
-- The requested five-choice **Our Turks** rewrite, Orhan loyalty, battalion flag and hidden infiltration consequences still need a dedicated implementation/verification pass. The live event has not been represented as the completed requested rewrite.
+- The five-choice **Our Turks** rewrite is integrated for Version 39.1. See Documentation/Release391 for the final text and verification.
 - Decision Journal exists; broader epilogue and future-event consumption of its story flags remains expansion work.
 - Ionian courtship and naval-base choices remain visibly under development; the implemented refuge/exile agreements are separate.
 - A long-campaign balance assessment of provincial food, hunger, reinforcements and mercenary pricing remains future work. Focused regression checks are not that assessment.

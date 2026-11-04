@@ -167,6 +167,7 @@ public class VariableSingleton : MonoBehaviour
 
     static public void ChangeBool(string varName, bool newValue)
     {
+        if(varName=="bCharNomad3" && newValue && DailyLifeEvents.I("iTurkPolicy")==1)return;
         bDict[varName] = newValue;
         CourtRoster.Record(varName,newValue);
         Achievements.CheckCampaign();
@@ -284,6 +285,7 @@ public class VariableSingleton : MonoBehaviour
         }
         NeutraliseRetiredFactions();
         PreparationCampaign.InitializeDefaults();
+        foreach(string key in new[]{"iTurkConfiscatedGold","iTurkishBattalionCreated","iTurkScreeningIntercepted"}) iDict[key]=0;
         DefencePosture.Initialise();
         IsInitialized = true;
         SharedProvisions.Ensure();
@@ -423,6 +425,7 @@ public class VariableSingleton : MonoBehaviour
         CountryDiplomacy.ResetForRestore();
         MehmedAssassination.ResetForRestore();
         ProvincialIntelligence.ResetForRestore();
+        foreach(string key in new[]{"iTurkConfiscatedGold","iTurkishBattalionCreated","iTurkScreeningIntercepted"}) iDict[key]=0;
         DefencePosture.Initialise();
         PreparationCampaign.InitializeDefaults(legacy: true);
         // New systems also reset when loading an older checkpoint in the same session.

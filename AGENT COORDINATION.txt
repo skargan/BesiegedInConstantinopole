@@ -1,8 +1,10 @@
 AGENT COORDINATION
-Besieged in Constantinople development instructions and handovers
-Snapshot: 4 November 2026 — Version 39 consolidation
+Saving Constantinople development instructions and handovers
+Snapshot: 4 November 2026 — Version 39.1 content completion
 
 AGENT INSTRUCTIONS
+
+Game identity, confirmed 4 November 2026: full title Against Fate: Saving Constantinople; short name Saving Constantinople. Use these in all new player-facing material and publications. Preserve historical release links, asset provenance, save extensions, preference keys, package identifiers and the existing GitHub repository address. These are compatibility identifiers, not current branding.
 
 Every developer reads this record before work, then verifies the current branch, dirty files, active assignments and build ownership. ConstantineX leads integration. User instructions override this coordination record. Work in bounded segments under 15 minutes; report meaningful progress and blockers.
 
@@ -37,7 +39,7 @@ OttomanDirector is the strategic decision entry point. Event choices, diplomacy,
 
 New CouncilChamber is decorative UI, loaded from Resources with editable JSON candle anchors. It is clipped and non-interactive, pauses when hidden and supports still presentation. Its capture checks cover campaign/RNG isolation and navigation.
 
-The campaign Decision Journal was published in Version 37: daily notes and persistent decision records, a council entry, and save-state inclusion. It is separate from the assault journal. Event-specific Our Turks records and final epilogue integration remain unfinished.
+The campaign Decision Journal was published in Version 37: daily notes and persistent decision records, a council entry, and save-state inclusion. It is separate from the assault journal. Our Turks decision records are integrated in Version 39.1; final epilogue integration remains future work.
 
 Version 38 uses SharedProvisions as the common physical-food ledger for city, Ottoman camp, provincial reserves and convoy cargo, preserving fractions through existing campaign values. ProvincialWar debits reserves at departure and transfers surviving cargo on arrival. Medical treatment adds its selected food charge. Version 38 compiled, passed 149 focused runtime checks and was desktop published; a full long-campaign balance pass remains future work.
 
@@ -87,7 +89,7 @@ Two verification-harness corrections: the public-support header intentionally us
 
 Archive: 282 retained files checksum-verified. Five prototype ZIPs preserve changed source with provenance; original event art and staged content are indexed separately. Full historic trees remain recoverable from Git tags. The original menu-stat icon branch was already fully integrated.
 
-Next development choices: expanded five-choice Our Turks event; separately validated Candar/Ragusa integration; Malta mercenary DLC; long-campaign supply/war balance. Existing Decision Journal is live, but additional event-specific flags and epilogue uses remain incomplete. See the archive index for the bounded backlog.
+Next development choices: Strategic Situation dashboard and revised naval rules; separately validated Candar/Ragusa integration; Malta mercenary DLC; long-campaign supply/war balance. Existing Decision Journal is live, but additional event-specific flags and epilogue uses remain incomplete. See the archive index for the bounded backlog.
 
 Do not include unrelated .vscode/settings.json, capture saves, compiler caches, build logs or rendered coordination QA in release commits or the playable ZIP. Preserve old local working trees and personal saves. One live remote branch is the intended result; historical tags are retained for recovery.
 
@@ -97,6 +99,16 @@ Archive supplement: 27 older uncommitted presentation files were preserved in Pr
 VERSION CHANGELOG
 
 Earlier release notes remain in Documentation. This changelog records recovered evidence and current work, without claiming complete historical coverage. Add an entry at each publication.
+
+Version 39.1 — Verified Windows export; desktop publication
+
+Changes: Saving Constantinople rename; five-choice Our Turks; Tavern event and delayed pledge; Giustiniani portrait/figure/arrival art; six defeat illustrations; nine session-selected launch backgrounds from JohanX.
+
+Evidence: 106 exported-player assertions passed. See Documentation/Release391/VERIFICATION.txt for exact scope and limitations.
+
+Pending: Strategic Situation tab and revised naval gameplay remain queued. Older prototypes and mercenary DLC stay archived.
+
+Publication: Desktop/ Saving Constantinople - Version 39.1; launch Saving Constantinople.exe. Historical Version 39 remains unchanged.
 
 Version 39 — GitHub playtest published
 

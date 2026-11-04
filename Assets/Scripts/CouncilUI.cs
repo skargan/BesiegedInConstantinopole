@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 39 · Consolidated playtest";
+    public const string BuildLabel="Version 39.1 · Saving Constantinople";
 
 
 

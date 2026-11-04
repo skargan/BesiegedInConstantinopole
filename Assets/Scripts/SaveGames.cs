@@ -70,7 +70,7 @@ public static class SaveGames {
         }finally{a.payloadHash=original;}
     }
     public static void Validate(Archive a){
-        if(a==null||a.campaign==null)throw new InvalidDataException("This is not a Besieged campaign save.");
+        if(a==null||a.campaign==null)throw new InvalidDataException("This is not a " + GameIdentity.ShortTitle + " campaign save.");
         if(a.saveFormat!=Format)throw new InvalidDataException("Save format "+a.saveFormat+" is not supported by this build (format "+Format+").");
         var c=a.campaign;if(c.version!=1&&c.version!=2)throw new InvalidDataException("Unsupported campaign schema "+c.version+".");
         if(c.ints!=null&&(PopulationAccounting.Count(c)<0||PopulationAccounting.Count(c)>int.MaxValue))throw new InvalidDataException("Invalid population count.");
@@ -139,6 +139,7 @@ public static class SaveGames {
     public static void ImportLegacy(){
         if(Automated)return;
         string old=Path.Combine(Application.persistentDataPath,"campaign-v1.json"),dest=Path.Combine(Root,"legacy-campaign.besieged.json");
+        if(!File.Exists(old)) old=Path.Combine(GameIdentity.LegacyDataPath,"campaign-v1.json");
         try {if(File.Exists(old)&&!File.Exists(dest)){Read(old);File.Copy(old,dest);}string prep=old+".preparation";if(File.Exists(prep)&&!File.Exists(VariableSingleton.PreparationPresetPath)){Read(prep);File.Copy(prep,VariableSingleton.PreparationPresetPath);}}
         catch(Exception e){Debug.LogWarning("Legacy checkpoint was not imported: "+e.Message);}
     }

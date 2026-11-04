@@ -68,7 +68,7 @@ public static class EventOutcome
             if(v.key=="iTurkSpies" && before.ints.FirstOrDefault(x=>x.key=="iTurkPolicy")?.value!=after.ints.FirstOrDefault(x=>x.key=="iTurkPolicy")?.value)continue;
             if(v.key.StartsWith("iPol")) continue;
             if(v.key.StartsWith("iBloc") || v.key.StartsWith("iAllegiance") || v.key=="iBanishmentUsed") continue;
-            if(v.key.StartsWith("iCourtState")) continue;
+            if(v.key.StartsWith("iCourtState") || v.key=="iTurkConfiscatedGold" || v.key=="iTurkishBattalionCreated" || v.key=="iTurkScreeningIntercepted") continue;
 
             if(v.key.StartsWith("iAidState") || v.key.StartsWith("iAidDays")) continue;
 

@@ -112,7 +112,7 @@ public static class ConfigurePlaytest
 
         var canvas = Find<Canvas>();
 
-        CampaignHUD.Label(canvas.transform, "BESIEGED IN CONSTANTINOPLE",
+        CampaignHUD.Label(canvas.transform, GameIdentity.Title,
 
             new Vector2(.07f,.82f), new Vector2(.93f,.94f), 48);
 

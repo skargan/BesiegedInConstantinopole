@@ -242,25 +242,34 @@ public class CampaignHUD : MonoBehaviour
 
         modal = Panel(canvas.transform, "Campaign Modal", Vector2.zero, Vector2.one);
 
-        Label(modal.transform, title, new Vector2(.12f,.83f), new Vector2(.88f,.96f), 42);
+        string artKey=resume?null:EndingArtwork.Current;
+        bool illustrated=!string.IsNullOrEmpty(artKey);
+        if(illustrated){
+            var frame=Panel(modal.transform,"Ending illustration",new Vector2(.035f,.07f),new Vector2(.50f,.91f));
+            var image=new GameObject("Cause artwork",typeof(RectTransform),typeof(RawImage));image.transform.SetParent(frame.transform,false);
+            var rect=(RectTransform)image.transform;rect.anchorMin=Vector2.zero;rect.anchorMax=Vector2.one;rect.offsetMin=new Vector2(10,10);rect.offsetMax=new Vector2(-10,-10);
+            var raw=image.GetComponent<RawImage>();raw.texture=Resources.Load<Texture2D>("UI/Endings/"+artKey);raw.raycastTarget=false;
+            var fit=image.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=(float)raw.texture.width/raw.texture.height;
+        }
+        Label(modal.transform, title, new Vector2(illustrated?.54f:.12f,.83f), new Vector2(.94f,.96f), 42);
 
-        var viewport=Panel(modal.transform,"Campaign outcome scroll",new Vector2(.12f,.42f),new Vector2(.86f,.82f));
+        var viewport=Panel(modal.transform,"Campaign outcome scroll",new Vector2(illustrated?.54f:.12f,.42f),new Vector2(illustrated?.93f:.86f,.82f));
         viewport.AddComponent<RectMask2D>();
         var outcome=Label(viewport.transform,body,Vector2.zero,Vector2.one,25);
         var scroll=viewport.AddComponent<ScrollRect>();scroll.horizontal=false;scroll.scrollSensitivity=40;scroll.viewport=viewport.GetComponent<RectTransform>();scroll.content=outcome.rectTransform;
         var r=outcome.rectTransform;r.anchorMin=new Vector2(0,1);r.anchorMax=Vector2.one;r.pivot=new Vector2(.5f,1);
         Canvas.ForceUpdateCanvases();r.sizeDelta=new Vector2(0,Mathf.Max(viewport.GetComponent<RectTransform>().rect.height,outcome.GetPreferredValues(body,viewport.GetComponent<RectTransform>().rect.width,9999).y+20));r.anchoredPosition=Vector2.zero;
-        AddScrollbar(scroll,modal.transform,new Vector2(.87f,.42f),new Vector2(.88f,.82f));
+        AddScrollbar(scroll,modal.transform,new Vector2(illustrated?.94f:.87f,.42f),new Vector2(illustrated?.95f:.88f,.82f));
 
         if (resume) MakeButton(modal.transform, "Resume", new Vector2(.3f,.3f), new Vector2(.7f,.39f), TogglePause);
 
-        else MakeButton(modal.transform,"Start a new campaign",new Vector2(.3f,.3f),new Vector2(.7f,.39f),()=>SaveMenu.NewCampaign(canvas.transform));
+        else MakeButton(modal.transform,"Start a new campaign",new Vector2(illustrated?.55f:.3f,.3f),new Vector2(illustrated?.94f:.7f,.39f),()=>SaveMenu.NewCampaign(canvas.transform));
 
         if(resume){
             MakeButton(modal.transform,"Save / load",new Vector2(.08f,.04f),new Vector2(.48f,.13f),()=>SaveMenu.Show(canvas.transform));
             MakeButton(modal.transform,"Settings",new Vector2(.52f,.04f),new Vector2(.92f,.13f),()=>AudioSettingsUI.Show(canvas.transform));
         }
-        MakeButton(modal.transform, "Return to main menu", new Vector2(.3f,.17f), new Vector2(.7f,.26f), () => {if(SaveGames.CanCheckpointCouncil)VariableSingleton.Instance.Save();SceneManager.LoadScene("Menu");});
+        MakeButton(modal.transform, "Return to main menu", new Vector2(illustrated?.55f:.3f,.17f), new Vector2(illustrated?.94f:.7f,.26f), () => {if(SaveGames.CanCheckpointCouncil)VariableSingleton.Instance.Save();SceneManager.LoadScene("Menu");});
 
     }
 
