@@ -10,6 +10,7 @@ public static class MonasticResearchChecks
     static void Check(bool condition,string label){if(!condition)throw new InvalidOperationException("MONASTIC RESEARCH: "+label);checks++;}
     static int I(string key)=>DailyLifeEvents.I(key);
     static void Set(string key,int value)=>VariableSingleton.SetInt(key,value);
+    static bool Food(double expected)=>Math.Abs(SharedProvisions.Stock(SharedProvisions.City)-expected)<.00001;
     static DateTime Date=>VariableSingleton.GetDate().Date;
     static int Day=>TrainingPool.Day(Date);
     static void Fixture(int monks)
@@ -57,10 +58,10 @@ public static class MonasticResearchChecks
             CampaignPersonnelCalendar.Advance(Date,Date.AddDays(6));
             Check(MedicalRecovery.Monks==15&&MonasticResearch.ResearchMonks==6&&MedicalRecovery.Capacity==9,"new recruits join the infirmary; research allocation stays fixed");
             Check(MonasticResearch.Progress==36&&I("iSecrets")==0,"six researchers generate six daily progress across dated arrivals");
-            Check(MedicalRecovery.Total==8&&I("iProvisions")==992&&I("iMedicalLastTreated")==8,"first four days treat four patients, recruited monks expand care on dayfive");
+            Check(MedicalRecovery.Total==8&&Food(998.4)&&I("iMedicalLastTreated")==8,"first four days treat four patients, recruited monks expand care on dayfive");
             Fixture(0);MedicalRecovery.AdmitWoundedEngineers(1);TrainingPool.Place("iHealers",1,MedicalRecovery.MonkCost);
             CampaignPersonnelCalendar.Advance(Date,Date.AddDays(6));
-            Check(MedicalRecovery.SoonestReturnDays==13&&I("iProvisions")==998,"a monk arriving dayfive provides only two treatmentdays through daysix");
+            Check(MedicalRecovery.SoonestReturnDays==13&&Food(999.9),"a monk arriving dayfive provides only two treatmentdays through daysix");
             Fixture(5);MedicalRecovery.ApplyCombatLosses(true,10,0,0,0);MonasticResearch.ApplyAllocation(5,out report);
             CampaignPersonnelCalendar.Advance(Date,Date.AddDays(30));
             Check(MedicalRecovery.Total==5&&MedicalRecovery.SoonestReturnDays==15&&MedicalRecovery.FreePlaces==0&&I("iProvisions")==1000,"reassignment never evicts patients or gives free treatment");
@@ -68,8 +69,8 @@ public static class MonasticResearchChecks
 
             Fixture(1);MedicalRecovery.AdmitWoundedEngineers(1);
             daily=CampaignPersonnelCalendar.Advance(Date,Date.AddDays(30));
-            Check(MedicalRecovery.Total==0&&MedicalRecovery.RecoveredFor("iEngineers")==1&&I("iProvisions")==985,"month advance completes actual treatmentdays once");
-            Check(daily.Contains("1 recovered patients")&&daily.Contains("15 provisions used"),"month-end report retains returns that happened before final day");
+            Check(MedicalRecovery.Total==0&&MedicalRecovery.RecoveredFor("iEngineers")==1&&Food(999.25),"month advance completes actual treatmentdays once");
+            Check(daily.Contains("1 recovered patients")&&daily.Contains("0.75 provisions used"),"month-end report retains returns that happened before final day");
             Fixture(10);MonasticResearch.ApplyAllocation(6,out report);Set("iMonasticProgress",98);
             var pendingSave=VariableSingleton.Instance.CaptureState();VariableSingleton.Instance.RestoreValidated(pendingSave);
             Check(MonasticResearch.HasPending&&MonasticResearch.PendingResearchMonks==6&&MonasticResearch.Progress==98,"pending allocation and progress survive save-load");

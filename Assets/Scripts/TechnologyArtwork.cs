@@ -31,14 +31,17 @@ public static class TechnologyArtwork
     }
 
     public static void Attach(Transform row, string key)
+        => Attach(row,key,new Vector2(.012f,.06f),new Vector2(.235f,.94f));
+
+    public static void Attach(Transform row, string key, Vector2 min, Vector2 max)
     {
         var texture = Load(key);
         if (texture == null) return;
         var frame = new GameObject("Technology artwork " + key, typeof(RectTransform), typeof(Image), typeof(Button));
         frame.transform.SetParent(row, false);
         var rect = frame.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(.012f, .06f);
-        rect.anchorMax = new Vector2(.235f, .94f);
+        rect.anchorMin = min;
+        rect.anchorMax = max;
         rect.offsetMin = rect.offsetMax = Vector2.zero;
         frame.GetComponent<Image>().color = new Color(.015f, .025f, .05f, 1f);
         Fit(frame.transform, texture);

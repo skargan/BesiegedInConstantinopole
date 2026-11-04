@@ -68,8 +68,12 @@ Map continuity: Paphlagonia remains Ottoman-controlled under the existing approv
 
 4 November 2026: preserve the existing event presentation and adopt per-asset authoring guidance rather than one mandatory dimension for every image. Prefer 16:9 new event art, protect focal content with safe margins, accept legacy aspect ratios using contain. Shared event-image clipping must be validated at 16:9, 16:10, 4:3 and ultrawide PC shapes; full-game certification is separate.
 
+4 November 2026: Technologies uses a compact catalogue and one selected technology detail with artwork, effect, historical flavour and existing research cost/action. Preserve TechnologySystem rules and stable artwork keys. New campaigns allocate the initial monk roster equally between infirmary and research (odd remainder in care); restoring saved allocations never reapplies this default. Additional recruits still join care under existing rules.
+
 
 COORDINATION
+
+This is ConstantineX - 4 November 2026. Update BLUF: Technology desk and generated workshop background verified in isolated TechnologyPreview; ready for next publication, not desktop-published. All fourteen selections at 1280x720, 1600x900, 1920x1200 and 2560x1080 passed text-fit and control checks. Actual research purchase, repeat prevention, affordability, art enlargement, Return and monastery return passed. New campaigns start 50 care / 50 research; chosen allocations survive save/load. Owned changes: CouncilTechnologyUI, narrow CouncilUI.Technologies delegation, TechnologyArtwork overload, MonasticResearch.BeginCampaign and VariableSingleton new-game hook. Existing monastic tests updated only for the already agreed fractional 1-per-20 care ration. JohanX Ionian handover remains separate.
 
 This is ConstantineX — 4 November 2026. Update BLUF: event-image border bleed fixed using an inset clipped viewport while preserving existing contain/cover and enlargement. Preview passed 3,854 focused assertions over all 58 event mappings at six PC resolutions (1280x720, 1600x900, 1920x1080, 1920x1200, 1280x960, 2560x1080). Asset guide and preflight validator installed; see Documentation/Art assets and presentation standard.txt. Four earlier presentation corrections remain ready. Not desktop-published. JohanX owns ongoing Ionian content; its presence in this preview does not verify those mechanics.
 

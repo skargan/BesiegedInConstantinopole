@@ -292,8 +292,7 @@ public class VariableSingleton : MonoBehaviour
         RecruitmentLogistics.BeginCampaign();
         SharedProvisions.ResetForRestore();
         MedicalRecovery.ResetForRestore();
-        MonasticResearch.ResetForRestore();
-        MonasticResearch.Ensure();
+        MonasticResearch.BeginCampaign();
         SpecialistPersonnel.ResetForRestore();
         SpecialistPersonnel.EnsureInitialized();
         CountryDiplomacy.BeginCampaign();

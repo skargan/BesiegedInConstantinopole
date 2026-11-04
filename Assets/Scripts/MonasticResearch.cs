@@ -30,6 +30,9 @@ public static class MonasticResearch
         long daily=ProgressFor(monks);return daily==0?0:(int)Math.Max(1,((long)Rules.ProgressPerSecret-Progress+daily-1)/daily);
     }
     public static void ResetForRestore(){foreach(string field in Fields)Set(field,0);}
+    // New campaigns share the starting roster equally; an odd monk stays in care.
+    // Restore/legacy migration deliberately keeps its existing allocation behaviour.
+    public static void BeginCampaign(){ResetForRestore();Ensure();Set("Active",TotalMonks/2);}
     public static void Ensure() {
         if(I("Version")>0)return;
         ResetForRestore();Set("Version",1);Set("LastDay",TrainingPool.Day(VariableSingleton.GetDate()));
