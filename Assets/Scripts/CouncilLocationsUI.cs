@@ -51,14 +51,19 @@ public partial class CouncilUI
         if(place==0&&visitor>=0&&!locationFigure){var last=holder.transform.GetChild(holder.transform.childCount-1).GetComponent<RectTransform>();last.anchorMin=new Vector2(.03f,.07f);last.anchorMax=new Vector2(.31f,.24f);}
     }
     private static Vector2[] RoomBox(float left,float bottom,float right,float top)=>new[]{new Vector2(left,bottom),new Vector2(left,top),new Vector2(right,top),new Vector2(right,bottom)};
+    private static Sprite privateChamberPainting;
     public void PrivateChamber()
     {
-        Open("The Emperor's chamber","");body.parent.gameObject.SetActive(false);
+        Open("The Emperor's Chamber","");ControlSingleton.Instance.ReturnAction=Palace;body.parent.gameObject.SetActive(false);
         var region=CampaignHUD.Panel(screen.transform,"Private chamber region",new Vector2(.025f,.115f),new Vector2(.975f,.87f));region.GetComponent<Image>().color=Color.clear;
-        var holder=CampaignHUD.Panel(region.transform,"Private chamber painting",Vector2.zero,Vector2.one);holder.GetComponent<Image>().color=Color.clear;
-        var texture=Resources.Load<Texture2D>("UI/PalaceLibrary/private-chamber");var image=holder.AddComponent<RawImage>();image.texture=texture;
-        if(texture!=null){var fit=holder.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=(float)texture.width/texture.height;}
+        var holder=CampaignHUD.Panel(region.transform,"Private chamber painting",Vector2.zero,Vector2.one);
+        var image=holder.GetComponent<Image>();image.raycastTarget=false;
+        var texture=Resources.Load<Texture2D>("UI/PalaceLibrary/private-chamber");
+        if(texture!=null){if(privateChamberPainting==null)privateChamberPainting=Sprite.Create(texture,new Rect(0,0,texture.width,texture.height),new Vector2(.5f,.5f));image.sprite=privateChamberPainting;image.color=Color.white;image.preserveAspect=true;var fit=holder.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=(float)texture.width/texture.height;}
+        else image.color=ImperialTheme.Navy;
         LocationHotspot.Create(holder.transform,"Return to the Palace",RoomBox(.035f,.29f,.205f,.82f),Palace);
+        LocationHotspot.Create(holder.transform,"The Emperor's reflection",new[]{new Vector2(.748f,.39f),new Vector2(.735f,.49f),new Vector2(.739f,.65f),new Vector2(.765f,.748f),new Vector2(.787f,.735f),new Vector2(.812f,.63f),new Vector2(.814f,.49f),new Vector2(.790f,.40f)},PrivateReflection);
+        LocationHotspot.Create(holder.transform,"Decision Journal",new[]{new Vector2(.301f,.572f),new Vector2(.365f,.568f),new Vector2(.400f,.502f),new Vector2(.337f,.493f)},()=>DecisionJournal.Show(true));
     }
     private Vector2[] GardenDoor()
     {

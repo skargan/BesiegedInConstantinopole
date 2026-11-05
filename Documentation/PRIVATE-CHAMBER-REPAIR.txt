@@ -1,0 +1,24 @@
+PRIVATE EMPEROR'S CHAMBER — REPAIR AND INTERACTION HANDOFF
+5 November 2026
+
+Fixed CouncilLocationsUI.PrivateChamber: the existing panel already has an Image;
+adding RawImage to it conflicts with Unity's single Graphic component rule. The
+method now uses the existing Image with a cached sprite from the existing generated
+UI/PalaceLibrary/private-chamber texture. No replacement artwork was generated.
+
+Palace door -> illustrated Emperor's Chamber.
+Chamber left doorway -> Palace. Return/Back also -> Palace.
+Mirror glass -> Emperor's Reflection, displaying actual current health and a brief
+reflective passage. Return/Back -> Chamber.
+Red book on lectern -> existing Decision Journal, decisions view.
+Empty shelves remain available for later collectible objects; no fake objects or
+unimplemented imperial qualities were added. Visits do not cost time, heal, grant
+XP or change resources. Existing health is read, not duplicated.
+
+Validation: standalone runtime compile and private Unity preview build passed.
+-private-chamber-capture: 25 checks passed at 1600x900 and 1280x720, including real
+palace door callback, artwork loading, mirror shape, current health display, journal,
+return portal, Back history and unchanged campaign/RNG through navigation. Screens
+captured under Builds/IonianPreview/Captures/PrivateChamber and reviewed.
+
+Public Version41 player was not replaced; include this fix in the next publication.
