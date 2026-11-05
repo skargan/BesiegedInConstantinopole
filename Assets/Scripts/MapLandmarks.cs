@@ -26,6 +26,8 @@ public sealed class MapLandmarks : MonoBehaviour, IPointerEnterHandler, IPointer
         Create(map,"Constantinople",WarTheatre.Find("constantinople").label,42,hover,clearHover,()=>OpenCourt(null));
         Create(map,"Ragusa",WarTheatre.Find("ragusa").label+new Vector2(0,-.035f),29,hover,clearHover,()=>OpenCourt("ragusa"));
         Create(map,"Rome",WarTheatre.Find("papacy").label+new Vector2(0,-.045f),29,hover,clearHover,RomeVisitUI.Show);
+        Create(map,"Genoa",MaritimeCityVisitUI.MapPosition("genoa"),25,hover,clearHover,()=>MaritimeCityVisitUI.Show("genoa"));
+        Create(map,"Venice",MaritimeCityVisitUI.MapPosition("venice"),25,hover,clearHover,()=>MaritimeCityVisitUI.Show("venice"));
         // Isthmus of Corinth, at the Morea/Athens boundary in WarTheatre.json.
         Create(map,"The Hexamilion",new Vector2(.2985f,.3236f),25,hover,clearHover,HexamilionVisitUI.Show);
         // Alamut's Alborz location, aligned to the illustrated (non-georeferenced) map.

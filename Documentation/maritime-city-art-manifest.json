@@ -1,0 +1,18 @@
+{
+  "generation": "Built-in image_gen",
+  "prompts": [
+    {
+      "id": "genoa",
+      "prompt": "Create a beautiful wide 16:9 painterly historical strategy game background, Genoa circa 1452 viewed from the water inside its busy medieval harbour. Distinctive steep Ligurian hills densely packed with pale stone medieval houses, red tile roofs, narrow towers, Gothic and Romanesque church architecture, harbour quays and timber jetties, late medieval Genoese galleys and round merchant ships, white flags with red cross, distant fortified lighthouse on a headland (medieval, not an exact modern reconstruction), merchants unloading bales, believable ropes rigging and human scale. Brilliant afternoon light through sea haze, rich deep blue water, warm gold stone, restrained crimson cloth. Lavish precise material detail, human historical painting, same cinematic painterly richness as Besieged Midnight Mosaic palace/Hagia Sophia scenes, not a mosaic texture over the painting. Beautiful city and ships occupy upper 75 percent; lower 25 percent mostly open harbour water/quiet quay reserved for a shallow game menu. No text, no UI, no modern vessels, no cranes, no Baroque buildings, no giant foreground person. Atmospheric reconstruction rather than documentary claim."
+    },
+    {
+      "id": "venice",
+      "prompt": "Create a beautiful wide 16:9 painterly historical strategy game background, Venice circa 1452 seen from a low boat on the Bacino di San Marco: recognisable Gothic Doge's Palace waterfront, westward cluster of St Mark's Byzantine domes behind, tall simple red-brick campanile with an appropriate late medieval roof rather than asserting the modern restored tower exactly, Piazzetta columns, medieval waterfront buildings, late medieval Venetian galleys and small working boats on luminous blue-green lagoon, a few crimson banners bearing golden winged lion. Warm late-afternoon sunlight, glorious architecture, light reflecting across water, exquisite stone tracery, convincing sails and rigging. Match Besieged Midnight Mosaic cinematic historical painting: lapis blue, antique gold, restrained purple/crimson, realistic painterly human detail, not a mosaic filter. Main architecture and boats in upper 75 percent; lower 25 percent quiet luminous water for a shallow game menu. No text, no UI, no cruise ships, no motorboats, no modern skyline, no Bridge of Sighs, no later baroque church of Santa Maria della Salute. No huge foreground characters. Atmospheric reconstruction rather than documentary claim."
+    }
+  ],
+  "sources": [
+    "https://www.visitgenoa.it/en/node/29987",
+    "https://www.visitgenoa.it/sites/default/files/2025-07/In%20the%20heart%20of%20Genoa.pdf",
+    "https://palazzoducale.visitmuve.it/wp-content/uploads/sites/2/2025/10/Guida-Ducale-ENG.pdf"
+  ]
+}

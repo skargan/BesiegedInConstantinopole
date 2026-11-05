@@ -1,0 +1,36 @@
+GENOA AND VENICE — CITY LANDMARK VISITS
+5 November 2026; staged after the Version 40 release commit.
+
+Each city has its own existing-style circular city landmark. Click it to open a
+wide historical painting and a shallow lower panel with a brief description,
+Diplomacy with Genoa/Venice, and Return to the map. Back/Escape closes the visit
+before the map. The diplomacy button opens the existing country's court.
+No new goodwill, aid, travel, gold, event or time rules were added.
+
+Artwork is an atmospheric reconstruction in the game's established painterly
+palette, generated through built-in image_gen. Both cities were composed with
+quiet water below so the panel does not cover the main architecture. Genoa uses
+steep Ligurian hills and a crowded medieval harbour; Venice uses the Gothic
+Doge's Palace and St Mark's waterfront. These are not documentary reconstructions
+of every building or rigging detail in 1452.
+
+Artwork resource paths:
+UI/Maps/Landmarks/genoa-harbour
+UI/Maps/Landmarks/venice-harbour
+
+Prompts and references: maritime-city-art-manifest.json (this directory).
+
+Description/visual references:
+https://www.visitgenoa.it/en/node/29987
+https://www.visitgenoa.it/sites/default/files/2025-07/In%20the%20heart%20of%20Genoa.pdf
+https://palazzoducale.visitmuve.it/wp-content/uploads/sites/2/2025/10/Guida-Ducale-ENG.pdf
+
+Validation: standalone runtime compile and private Unity build passed. The dev-only
+-maritime-city-capture run passed 61 checks at 1600x900 and 1280x720: real city marker
+buttons, correct destination, Return and Back preserve the map, both art loads, text
+fit, unchanged campaign/RNG on visits, and correct existing diplomacy routing with
+no gold/time cost. All four city screenshots were visually reviewed. Captures are
+in Builds/IonianPreview/Captures/MaritimeCities; this preview does not overwrite
+the published Version 40 player.
+
+Publication: excluded from published Version 40; intended for the next publication.

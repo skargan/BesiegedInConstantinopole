@@ -54,7 +54,7 @@ public class ControlSingleton : MonoBehaviour
     public void GoBack()
     {
         if(ProvincialConflictUI.Back())return;
-        if(EventCardArt.ClosePreview()||DecisionJournal.Close()||WorldMapUI.Close()||HexamilionVisitUI.Close()||WarTheatreUI.Close()||TechnologyArtwork.ClosePreview())return;
+        if(EventCardArt.ClosePreview()||DecisionJournal.Close()||WorldMapUI.Close()||MaritimeCityVisitUI.Close()||HexamilionVisitUI.Close()||WarTheatreUI.Close()||TechnologyArtwork.ClosePreview())return;
         if (ReturnAction != null) { var action=ReturnAction; ClearHistory(); action(); return; }
         if (returnTo == null || returnFrom == null) { ClearHistory(); return; }
         returnTo.SetActive(true);
@@ -88,7 +88,7 @@ public class ControlSingleton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(ProvincialConflictUI.Back())return;
-            if(EventCardArt.ClosePreview()||AudioSettingsUI.Close()||DecisionJournal.Close()||WorldMapUI.Close()||HexamilionVisitUI.Close()||WarTheatreUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
+            if(EventCardArt.ClosePreview()||AudioSettingsUI.Close()||DecisionJournal.Close()||WorldMapUI.Close()||MaritimeCityVisitUI.Close()||HexamilionVisitUI.Close()||WarTheatreUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
             if (CampaignHUD.Instance != null && CampaignHUD.Instance.HasModal) { CampaignHUD.Instance.TogglePause(); return; }
             if (escActive || ReturnAction != null)
             {
