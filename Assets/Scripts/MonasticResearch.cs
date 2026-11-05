@@ -5,7 +5,7 @@ using UnityEngine;
 // Only CampaignPersonnelCalendar advances this service, one dated boundary at a time.
 public static class MonasticResearch
 {
-    [Serializable] public sealed class Balance { public int ProgressPerSecret=100; public int ProgressPerMonkPerDay=1; }
+    [Serializable] public sealed class Balance { public int ProgressPerSecret=1000; public int ProgressPerMonkPerDay=1; }
     static Balance balance;
     public static Balance Rules { get {
         if(balance==null){var asset=Resources.Load<TextAsset>("Content/MonasticResearch");balance=asset==null?new Balance():JsonUtility.FromJson<Balance>(asset.text);}

@@ -54,6 +54,8 @@ Version41: CountryDiplomacy adds gazaria at index31 without shifting earlier IDs
 
 DECISIONS
 
+5 November2026: user defers NavalWarfare preparation event/bonuses. Preservefiveoptiontexts markedUnderdevelopment, no effects. Fleetcore usesfinalstatedranges, independentrare rolls; physicalsupplyraid transfer; defaultGoldenHorndefence no routinereports. Research1000progress/secret. SeeFLEET-CORE-ORDERS.md for exactnumbers.
+
 5 November2026 confirmed: Copa trading terms100 provisions OR350gold weekly, finite2400 reserve,14-day baseline voyage, existing hazards/closed-strait departure hold. Theodoro approved provisional once-only terms: +10goodwill free;1500gold for multiplicative+5% total archer lethality; DismountedChampions unlocks80cavalry for10800gold via existing sea contract (half advance/half arrival). No reincorporation or Bank takeovers.
 
 Discovery achievements (Alchemical Genius) may unlock in Normal or Ironman; performance achievements remain Ironman-only and automated/practice sessions unlock neither. Rewards are independent, once per campaign: alchemy +1 secret, pigeon letter +1 secret, treasure +2500 gold/+1 secret, fossil skull journal only. Unfinished alchemy resets on leaving or 60 seconds inactivity. Bronze ring drags the desk horizontally or switches sides on click.
@@ -92,6 +94,8 @@ Senate, confirmed 5 November 2026: title The Senate; reconstructed Blachernae-in
 
 
 COORDINATION
+
+ConstantineX owns Fleet/researchfollow-up (FleetMissionRules, reportclock, twoassaultfirehooks, preparationdeactivation/Yarn, compactorders/overview, researchJSON/fallback, captureandart). Previewverificationunderway; no publicbuildreplacementyet. Rarearrivalcounterinitialisationfixed bySetInt+existingvalue, respectingexistingforeignmanpowercredits. Final previewbuild passed;193 focusedFleet/researchchecks passed. Order/review layouts at1280/1600 checked;1600screenshot visuallyreviewed. Exactprobabilityboundaries andfoodconservation verified. Legacyexpectationsupdatednotrerun. Noactivebuild/player; readyfornextpublication.
 
 ConstantineX — 5 November2026: military order presentation/shipyard follow-up. Owns MilitarySelectionDesk, CouncilMilitaryOrdersUI, CouncilCompactMilitaryUI shipyard links, MilitaryOrdersCapture and six generated backgrounds. Newdesk no longer invokes obscured legacy popup; TrainingPool remains authoritative. Warships openShipyard; art revised peruser archer firingline correction. Verification underway, publicVersion41 unchanged. JohanX privatechamber commit2d51b37 nowpresent; no edits to its files. Final previewbuildsucceeded;266 militaryorderchecks passed at1280x720/1600x900. Archeryorder/shipyard screenshots visuallyreviewed. Ready nextpublication; noactivebuild/player.
 

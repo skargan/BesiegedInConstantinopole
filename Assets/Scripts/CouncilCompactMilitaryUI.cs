@@ -99,13 +99,11 @@ public partial class CouncilUI
         FleetText(strength,"OTTOMAN",.69f,.72f,.98f,.96f,21);
         FleetText(strength,known?NavalState.EnemyShips.ToString("N0"):"Unknown",.69f,.25f,.98f,.73f,40);
         FleetText(strength,known?"Shipyards supply fortnightly":"Requires 2 camp agents",.69f,.02f,.98f,.29f,18);
-        string[] orders={"Raid Ottoman supplies","Raid coastal shipping","Bring grain from Crimea","Defend the Golden Horn","Bring volunteers","Awaiting new orders"};
-        string[] effects={"Successful report: −3 days of Ottoman food.","Successful report: +750 gold.","Successful report: +150 provisions.","Successful report: "+RecurringEvents.FleetDefensiveDamage+" enemy casualties.","Successful report: +50 infantry, +25 archers.","Issue new orders to surviving or newly built ships."};
+        string[] orders=FleetMissionRules.Names,effects=FleetMissionRules.Descriptions;
         var mission=CompactCard(pane,"Current mission",.585f,.81f);
         CompactText(mission,orders[order],.025f,.76f,.975f,.97f,27);
         CompactText(mission,ships==0?"No ships available. Construction takes 30 days.":effects[order],.025f,.56f,.975f,.77f,22);
-        CompactText(mission,"Report in "+FleetOperations.DaysRemaining+" active siege days · 14–21-day cycle.\nChanging mission restarts the report cycle.",.025f,.27f,.63f,.56f,20);
-        CompactText(mission,CouncilActions.Int("iFleetPrepared")>0?"Prepared: +50% to next success; lost if orders change.":"Preparation bonus: none.",.025f,.025f,.975f,.26f,19);
+        CompactText(mission,order==3?"Participates in wall defence · No routine reports":order==2&&!VariableSingleton.GetBoolVariable("bStraitsOpen")?"Grain mission suspended: Bosphorus closed.":"Report in "+FleetOperations.DaysRemaining+" active siege days · 14–21-day cycle.",.025f,.22f,.63f,.55f,20);
         CampaignHUD.MakeButton(mission,"Change mission",new Vector2(.65f,.30f),new Vector2(.975f,.55f),FleetOrders);
         var harbour=CompactCard(pane,"Harbour and command",.355f,.575f);
         CompactText(harbour,"HARBOUR & COMMAND",.025f,.78f,.975f,.98f,24);

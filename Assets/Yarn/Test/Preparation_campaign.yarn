@@ -88,23 +88,23 @@ title: prepGrain
 ===
 title: prepNaval
 ---
-<b>Siege Preparation — Naval Warfare</b>: The captains ask for ships, the shipwrights for timber, and the pilots for silence. Choose one investment to support the fleet. These are current playtest balance settings.
--> Charter three armed merchantmen: 6,000 gold; +3 ships. <<if GetInt("iMoney") >= 6000>>
+<b>Siege Preparation — Naval Warfare</b>: The captains ask for ships, the shipwrights for timber, and the pilots for silence. These proposed investments are under development and provide no bonuses yet.
+-> Charter three armed merchantmen: 6,000 gold; +3 ships. — Under development <<if false>>
     <<PrepNaval 0>>
     Three armed merchantmen join the fleet.
--> Prepare repair yards: 4,000 gold and 30 materials; recover damaged survivors after up to two fleet reports. <<if GetInt("iMoney") >= 4000 && GetInt("iMaterials") >= 30>>
+-> Prepare repair yards: 4,000 gold and 30 materials; recover damaged survivors after up to two fleet reports. — Under development <<if false>>
     <<PrepNaval 1>>
     The yards can restore laid-up damaged hulls. They cannot recover ships that have sunk.
--> Establish naval magazines: 3,000 gold and 500 provisions; first three fleet reports gain 25% effect. <<if GetInt("iMoney") >= 3000 && GetInt("iProvisions") >= 500>>
+-> Establish naval magazines: 3,000 gold and 500 provisions; first three fleet reports gain 25% effect. — Under development <<if false>>
     <<PrepNaval 2>>
     Dedicated stores let the fleet carry more operational cargo and remain effective longer.
--> Create a hidden coastal anchorage: 4,500 gold and one committed agent; raiding reports gain 50% until discovery, 20% discovery risk per use. <<if GetInt("iMoney") >= 4500 && GetInt("iSpies") >= 1>>
+-> Create a hidden coastal anchorage: 4,500 gold and one committed agent; raiding reports gain 50% until discovery, 20% discovery risk per use. — Under development <<if false>>
     <<PrepNaval 3>>
     A remote landing becomes a covert base. The agent remains there; discovery ends its benefit.
--> Train pilots and signal crews: 2,500 gold; first two grain or volunteer reports gain 25% effect. <<if GetInt("iMoney") >= 2500>>
+-> Train pilots and signal crews: 2,500 gold; first two grain or volunteer reports gain 25% effect. — Under development <<if false>>
     <<PrepNaval 4>>
     The pilots rehearse night approaches and agree signals with the harbour watch.
--> Make do with the fleet we have.
+-> Make do with the fleet we have. — Continue
     The captains return to their ships. No new investment is made.
 
 ===

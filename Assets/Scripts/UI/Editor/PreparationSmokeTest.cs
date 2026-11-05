@@ -62,7 +62,7 @@ public class PreparationSmokeProbe:MonoBehaviour
         PreparationCampaign.Grant("now");Check(PreparationCampaign.GalataState==2&&I("iLoyalty0")==70&&I("iGalataDefences")==125,"Immediate grant creates autonomy and adds thirty loyalty");
         bool rejected=false;try{PreparationCampaign.Grant("now");}catch(InvalidOperationException){rejected=true;}Check(rejected,"Governance cannot repeat without capture");
         Set("iShips",10);PreparationCampaign.Retreat();Check(I("iShips")==5&&I("iDamagedShips")==2,"Fleet defeat leaves operational and repairable survivors");
-        PreparationCampaign.PrepareFleet(0);Check(PreparationCampaign.FleetMultiplier(0,false)==1.5f,"Preparation improves first report");
+        PreparationCampaign.PrepareFleet(0);Check(PreparationCampaign.FleetMultiplier(0,false)==1f,"Deferred preparation does not multiply core rewards");
         PreparationCampaign.ChangeFleet(1,out var report);Check(I("iFleet")==1&&I("iFleetPrepared")==0,"Core orders clear bonus");
         PreparationCampaign.Grain(0);Check(I("iGrainCargo")==3000,"Overseas grain records cargo");
         VariableSingleton.Instance.Save();Set("iRumeliRecon",0);Set("iLoyalty0",0);VariableSingleton.Instance.Load();Check(I("iRumeliRecon")==1&&I("iLoyalty0")==70&&PreparationCampaign.Active,"Save restores new campaign state");

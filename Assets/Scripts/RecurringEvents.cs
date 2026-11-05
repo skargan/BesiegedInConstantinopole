@@ -48,22 +48,11 @@ public static class RecurringEvents
     }
     [YarnFunction("FleetReportPreview")]
     public static string FleetReportPreview() {
-        string[] effects={"Enemy provisions -3","Gold +750","Provisions +150","Enemy casualties -"+FleetDefensiveDamage,"50 infantry and 25 archers arrive","Fleet lost"};
-        return effects[UnityEngine.Mathf.Clamp(CouncilActions.Int("iFleet"),0,5)];
+        return FleetMissionRules.Descriptions[UnityEngine.Mathf.Clamp(CouncilActions.Int("iFleet"),0,5)];
     }
     [YarnCommand("FleetReport")]
     public static void FleetReport()
     {
-        if(CouncilActions.Int("iShips")<=0) return;
-        int mission=CouncilActions.Int("iFleet");
-        if(mission<0||mission>4)return;
-        float multiplier=PreparationCampaign.FleetMultiplier(mission,true);
-        switch(mission) {
-            case 0: SharedProvisions.ChangeEnemyFoodDays(UnityEngine.Mathf.RoundToInt(-3*multiplier));break;
-            case 1: VariableSingleton.ChangeInt("iMoney",UnityEngine.Mathf.RoundToInt(750*multiplier));break;
-            case 2: VariableSingleton.ChangeInt("iProvisions",UnityEngine.Mathf.RoundToInt(150*multiplier));break;
-            case 3: VariableSingleton.ChangeInt("iBazouks",UnityEngine.Mathf.RoundToInt(-FleetDefensiveDamage*multiplier));break;
-            case 4: VariableSingleton.ChangeInt("iInfantry",UnityEngine.Mathf.RoundToInt(50*multiplier));VariableSingleton.ChangeInt("iArchers",UnityEngine.Mathf.RoundToInt(25*multiplier));break;
-        }
+        FleetMissionRules.Resolve(CouncilActions.Int("iFleet"));
     }
 }

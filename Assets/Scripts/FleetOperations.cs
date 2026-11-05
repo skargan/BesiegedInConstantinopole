@@ -18,6 +18,7 @@ public static class FleetOperations
         VariableSingleton.SetInt("iFleetReportDay",day);
         int mission=CouncilActions.Int("iFleet");
         if(CouncilActions.Int("iShips")<=0 || mission<0 || mission>4){OrdersChanged(mission);return "";}
+        if(mission==3||(mission==2&&!VariableSingleton.GetBoolVariable("bStraitsOpen")))return "";
         if(DailyLifeEvents.I("iFleetReportMission",-1)!=mission)OrdersChanged(mission);
         int progress=DailyLifeEvents.I("iFleetReportProgress")+1;
         VariableSingleton.SetInt("iFleetReportProgress",progress);

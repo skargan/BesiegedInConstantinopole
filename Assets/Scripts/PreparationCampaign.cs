@@ -9,7 +9,7 @@ public static class PreparationCampaign
 {
     public const int SiegeTurn=16;
     public static readonly string[] Nodes={"story2","story8","story10","story11","story6","story15","story19","story18","story14","prepIntelligence","prepNaval","prepGrain","story16","story17","prepScorched","story13","story12","story9","prepAdventurers","story7","story20"};
-    public static readonly string[] Titles={"Walls","Call on a Major Christian Power","Recruitment","Morean Orders","Provisions Planning","Galata","The Great Chain of the Golden Horn","Orders for the Fleet","Commander","Intelligence","Naval Warfare","Overseas Grain Missions","Assault on the Straitcutter Fortress","Greek Fire","Scorched Earth","Our Turks","Should We Trust the Venetians?","Mind over Matter","Call on Adventurers","Lord of the Imperial Wardrobe","Fate of Stadia and Therapia"};
+    public static readonly string[] Titles={"Walls","Call on a Major Christian Power","Recruitment","Morean Orders","Provisions Planning","Galata","The Great Chain of the Golden Horn","Orders for the Fleet","Commander","Intelligence","Naval Warfare — Under development","Overseas Grain Missions","Assault on the Straitcutter Fortress","Greek Fire","Scorched Earth","Our Turks","Should We Trust the Venetians?","Mind over Matter","Call on Adventurers","Lord of the Imperial Wardrobe","Fate of Stadia and Therapia"};
     public static readonly string[] Summaries={"Strengthen the City's walls.","Ask foreign powers for aid.","Raise troops for the defence.","Decide what the Morea should contribute.","Build a reserve before prices rise.","Support, neutrality, gifts or control of Galata.","Keep, sell or repurpose the harbour chain.","Prepare the fleet's first mission; routine orders remain in the Fleet menu.","Appoint an available commander and gain 10 army morale points.","Plant agents in the approaching Ottoman army.","Invest in ships, recovery, stores, a hidden anchorage or pilots.","Dispatch merchant agents; grain arrives later.","Act against the fortress on the Bosphorus.","Seek the lost incendiary weapon.","Deny the advancing army food, routes and materiel.","Decide the place of Turkish households and soldiers in our service.","Hear Captain Diedo and weigh Venetian service against old wounds.","Receive Johannes Grant and his proposal for an engineering workshop.","Invite one traveller, inventor or dispossessed prince to your court.","Hear Sphrantzes and decide the fate of the imperial treasures.","Withdraw, sacrifice or reinforce the outpost garrisons."};
     // Provisional unlock counts use the three implemented career achievements, not event flags.
     public static readonly int[] UnlockCounts={0,0,0,0,0,0,0,0,0,0,0,1,2,3,2,0,0,0,0,0,0};
@@ -27,6 +27,7 @@ public static class PreparationCampaign
     public static string Unavailable(int index,int achievements=-1)
     {
         if(index<0||index>=Nodes.Length)return "Unknown preparation";
+        if(Nodes[index]=="prepNaval")return "Under development";
         if(!Active||VariableSingleton.HasSiegeStarted()||!Flexible(VariableSingleton.Turn))return "Not a selectable preparation month";
         if(I("iPrepDone"+index)>0)return "Already completed";
         int count=achievements<0?CareerCount:achievements;
@@ -47,7 +48,7 @@ public static class PreparationCampaign
     {
         VariableSingleton.SetInt("iPreparationVersion",legacy?0:2);
         CharacterPreparations.Initialize();
-        NavalState.Initialise();
+        NavalState.Initialise();if(!legacy)VariableSingleton.SetInt("iFleet",3);
         foreach(string key in new[]{"iGalataSupportRequested","iGalataNeutralPledge","iRumeliRecon","iRumeliLandmark","iGalataDebt","iGalataGovernor","iDeposed","iGalataState","iGalataPromise","iGalataGovernance","iGalataClaims","iArrivalAlert","iFleetPrepared","iNavalRepair","iNavalStores","iNavalBase","iNavalPilots","iDamagedShips","iGrainDue","iGrainCargo","iGiovanniWarning","iGiovanniCrisis","iOttomanResolvedTurn"})VariableSingleton.SetInt(key,0);
         VariableSingleton.SetInt("iOttomanResolvedTurn",-1);
         VariableSingleton.SetInt("iGalataDefences",100);VariableSingleton.SetInt("iArmySupport",50);
@@ -121,17 +122,19 @@ public static class PreparationCampaign
     {
         report="A fleet and an available route are required.";if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))return false;
         if(I("iFleet")==mission){report="The fleet already has those orders.";return false;}
-        VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. No preparation bonus is renewed.";return true;
+        VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);report="The whole fleet receives its new mission. ";return true;
     }
-    [YarnCommand("PrepFleet")] public static void PrepareFleet(int mission){if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))throw new InvalidOperationException("Fleet mission unavailable");VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",1);}
+    [YarnCommand("PrepFleet")] public static void PrepareFleet(int mission){if(mission<0||mission>4||I("iShips")<=0||(mission==2&&!B("bStraitsOpen")))throw new InvalidOperationException("Fleet mission unavailable");VariableSingleton.SetInt("iFleet",mission);FleetOperations.OrdersChanged(mission);VariableSingleton.SetInt("iFleetPrepared",0);}
     [YarnCommand("FleetRetreat")] public static void Retreat(){int sailed=Mathf.Max(0,I("iShips")),survived=(sailed+1)/2,damaged=(sailed-survived)/2;NavalState.SinkShips(sailed-survived-damaged);VariableSingleton.SetInt("iShips",survived);Add("iDamagedShips",damaged);VariableSingleton.SetInt("iFleet",3);VariableSingleton.SetInt("iFleetPrepared",0);}
     [YarnCommand("PrepGrain")] public static void Grain(int route)
     {
         int[] costs={4000,6000,3000},cargo={3000,5000,2500},days={30,45,21};if(route<0||route>2||I("iMoney")<costs[route]||(route==1&&!B("bStraitsOpen"))||(route==2&&GalataState==3))throw new InvalidOperationException("Grain mission unavailable");
         Add("iMoney",-costs[route]);VariableSingleton.SetInt("iGrainCargo",cargo[route]);VariableSingleton.SetInt("iGrainDue",TrainingPool.Day(VariableSingleton.GetDate())+days[route]);
     }
+    public static bool NavalPreparationDeferred=>true;
     [YarnCommand("PrepNaval")] public static void Naval(int option)
     {
+        if(NavalPreparationDeferred)return;
         int[] costs={6000,4000,3000,4500,2500};if(option<0||option>4||I("iMoney")<costs[option]||(option==1&&I("iMaterials")<30)||(option==2&&I("iProvisions")<500)||(option==3&&I("iSpies")<1))throw new InvalidOperationException("Naval investment requirements not met");
         Add("iMoney",-costs[option]);
         if(option==0)Add("iShips",3);
@@ -151,14 +154,7 @@ public static class PreparationCampaign
     [YarnCommand("GalataLeak")] public static void Leak(){VariableSingleton.ChangeFloat("fOuterWall",-.05f);VariableSingleton.SetInt("iCampAlert",Mathf.Min(100,EspionageSystem.Alert+10));}
     public static float FleetMultiplier(int mission,bool consume)
     {
-        float bonus=I("iFleetPrepared")>0?.5f:0;
-        if(I("iNavalStores")>0)bonus+=.25f;
-        bool pilots=(mission==2||mission==4)&&I("iNavalPilots")>0;
-        bool raid=(mission==0||mission==1)&&I("iNavalBase")>0;
-        if(pilots)bonus+=.25f;if(raid)bonus+=.5f;
-        if(consume){VariableSingleton.SetInt("iFleetPrepared",0);if(I("iNavalStores")>0)Add("iNavalStores",-1);if(pilots)Add("iNavalPilots",-1);if(raid&&UnityEngine.Random.Range(0,100)<20)VariableSingleton.SetInt("iNavalBase",0);
-            if(I("iNavalRepair")>0&&SpecialistPersonnel.AvailableDamagedShips>0){int ships=Mathf.Min(2,SpecialistPersonnel.AvailableDamagedShips);Add("iShips",ships);Add("iDamagedShips",-ships);Add("iNavalRepair",-1);}}
-        return 1+bonus;
+        return 1; // Naval preparation bonuses are deferred, not part of core rewards.
     }
     public static string GalataActionUnavailable(int action) {
         if(GalataState==3)return "Under Ottoman control";

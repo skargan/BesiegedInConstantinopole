@@ -75,3 +75,6 @@ Original OpenAI-generated painterly reconstructions, installed in Scenes. Origin
 - training-cannons.png: exec-36d5302f-aba7-41aa-b6cb-531d53160ec0.png
 - shipyard.png: exec-575d7199-f2de-4853-b36a-cc491b97e319.png
 Archery revision replaces exec-c1a72cfa-98ff-44df-a48b-9b1926b43d8c.png: archers share a firing line with separate parallel lanes. No third-party pictures incorporated. Equipment references: https://www.metmuseum.org/art/collection/search/27686 (brigandine/Chalcis hoard); https://www.metmuseum.org/art/collection/search/23229 (Italian sallet); https://art.thewalters.org/object/51.580.1/ (barbute circa1450). These inform equipment, not exact reconstruction of Byzantine uniforms. Varangian appearance in1453 is interpretive. Shipyard reserves clear foreground for a future visitor; no character added.
+
+## Fleet orders command room — 5 November2026
+Original OpenAI-generated fleet-orders.png, source exec-54f6bfea-3230-4258-8dbe-383727d05565.png. Captain and lieutenant studying charts, with astrolabe and compass; no looking glass or modern navigation instruments. Installed Scenes/fleet-orders.png. Historical-fiction illustration, no external photograph copied.

@@ -44,9 +44,9 @@ public static class NavalPersonnelChecks
             Set("iNavalRepair", 2); PreparationCampaign.FleetMultiplier(3, true);
             Check(I("iShips") == 5 && I("iDamagedShips") == 2 && I("iNavalRepair") == 2 && SpecialistPersonnel.RepairingShips == 2, "automatic repair yards cannot recover queued hulls or waste their charge");
             Set("iDamagedShips", 3); PreparationCampaign.FleetMultiplier(3, true);
-            Check(I("iShips") == 6 && I("iDamagedShips") == 2 && I("iNavalRepair") == 1, "automatic yards can still restore the unreserved hull only");
+            Check(I("iShips") == 5 && I("iDamagedShips") == 3 && I("iNavalRepair") == 2, "deferred preparation yards grant no automatic repair");
             TrainingPool.CompleteDueOrders(VariableSingleton.GetDate().AddDays(5));
-            Check(I("iShips") == 8 && I("iDamagedShips") == 0 && I("iEngineers") == 8 && I("iSpecialistLostCrew") == 150, "queued repair returns two engineers per hull without duplicating survivors or deaths");
+            Check(I("iShips") == 7 && I("iDamagedShips") == 1 && I("iEngineers") == 8 && I("iSpecialistLostCrew") == 150, "queued repair works while deferred preparation leaves the unreserved damaged hull untouched");
 
             Fixture(); Set("iShips", 100); Set("iTurkShips", 100); int venice = CountryDiplomacy.Index("venice"); float goodwill = CountryDiplomacy.Goodwill(venice);
             NavalState.Battle(true); int actual = 100 - I("iShips");

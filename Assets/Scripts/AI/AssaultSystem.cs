@@ -61,7 +61,7 @@ public class AssaultSystem : MonoBehaviour
         float ranged=TroopTraining.Lethality(1)*(1+(VariableSingleton.GetIntVariable("iFleet")==3&&VariableSingleton.GetIntVariable("iShips")>0?CourtRoster.Bonus(1,.05f,.15f):0));
         float arrows=ranged*VariableSingleton.GetIntVariable("iArchers");
         float fire=TechnologySystem.Has("GreekFire")?attackerNumbers*.05f:0;
-        float guns=CannonLethality*VariableSingleton.GetIntVariable("iCannons");
+        float guns=CannonLethality*VariableSingleton.GetIntVariable("iCannons")+FleetMissionRules.Defence;
         int reached=Mathf.Clamp(Mathf.RoundToInt(attackerNumbers-moat-arrows-fire-guns),0,attackerNumbers);
         VariableSingleton.ChangeFloat("fMoat",-.1f);
         float exposure=isWallHeld?1-VariableSingleton.Instance.EnduringWall.GetHealth():1;
