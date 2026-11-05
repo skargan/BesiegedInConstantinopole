@@ -84,11 +84,11 @@
   "changelog": [
     {
       "version": "40",
-      "status": "Built and verified; publication in progress",
+      "status": "Desktop and GitHub published",
       "changes": "Base-game mercenary brokers,20companies,monthlyoffers,savedvoyages/incidents,personnel/foodintegration; illustratedgifts,provincelandscapes,Senate,landmarks,palaceandachievementpresentation.",
       "evidence": "BuildRelease40 successful;275mercenaryplayerchecks;576giftgallery+947Sultanaudience+329provincechecks;JohanX1912palaceand223focusedUIchecks.",
       "pending": "Provisionalbalance;furthernoncashbargainsandbespokeincidentart;liveSteamconfiguration.",
-      "publication": "Desktop Version40 and GitHub ZIP being packaged; verify release40-package.json for final path/hash."
+      "publication": "5 November 2026. Source fe74b23707e3578f9329b84def38fc8df4d3c33f pushed to main. Desktop: C:/Users/Dainius/Desktop/Saving Constantinople - Version 40. Release https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v40 . Windows ZIP 1,209,524,416 bytes, SHA256 6b9dff01c7a06b83dac76126db6d68fcb1d34c183b4e5666fe6aae2f3ffe4129. Next Genoa/Venice changes explicitly belong to later publication."
     },
     {
       "version": "39.1",
