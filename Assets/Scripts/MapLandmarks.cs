@@ -33,7 +33,7 @@ public sealed class MapLandmarks : MonoBehaviour, IPointerEnterHandler, IPointer
         // Alamut's Alborz location, aligned to the illustrated (non-georeferenced) map.
         Create(map,"Nameless Fortress",new Vector2(.925f,.255f),27,hover,clearHover,NamelessFortressUI.Show);
         Create(map,"Malta · Mercenary brokers",MercenaryMapMarkers.Malta,29,hover,clearHover,()=>MercenaryUI.Show());
-        Create(map,"Sinop · Candar",new Vector2(.548f,.627f),29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CandarCourt();});
+        Create(map,"Sinop · Candar",WarTheatre.Find("candar_realm").front,29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CandarCourt();});
         Create(map,"Copa · Circassian coast",new Vector2(.655f,.786f),29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CircassianPort();});
         if(FortressVisible)Create(map,"Strait-Cutter Fortress",WarTheatre.Find("constantinople").label+new Vector2(.003f,.08f),32,hover,clearHover,ShowFortress);
     }

@@ -83,7 +83,7 @@ public class WarTheatreUI : MonoBehaviour
                 var go=new GameObject(r.name,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=r.label;rt.anchoredPosition=markerOffset;rt.sizeDelta=Vector2.one*(r.kind=="capital"?8:5);var shape=go.GetComponent<TerritoryGraphic>();shape.Points=Enumerable.Range(0,16).Select(i=>new Vector2(.5f+.5f*Mathf.Cos(i*Mathf.PI/8),.5f+.5f*Mathf.Sin(i*Mathf.PI/8))).ToArray();shape.color=r.kind=="capital"?new Color(.96f,.78f,.38f):viewMode==3?ReligionColour(r):WarTheatre.Tint(r);Register(shape,r);}
             if(r.kind!="colony"&&r.kind!="island"){
                 bool eastern=r.id=="aq_qoyunlu";
-                bool compact=new[]{"savoy","milan","po_lordships","florence","siena","papacy","genoa","theodoro","sardinia","corsica","athens","ionian_tocco"}.Contains(r.id);
+                bool compact=new[]{"candar_realm","savoy","milan","po_lordships","florence","siena","papacy","genoa","theodoro","sardinia","corsica","athens","ionian_tocco"}.Contains(r.id);
                 string caption=eastern?"Turkmen\nConfederations":r.id=="milan"?"Milan":r.id=="athens"?"Athens":r.id=="ionian_tocco"?"Ionian\nLordships":r.id=="po_lordships"?"Po lords":r.id=="papacy"?"Papal\nStates":r.name;
                 Vector2 half=eastern?new Vector2(.065f,.032f):compact?new Vector2(.027f,(r.id=="papacy"||r.id=="ionian_tocco")?.03f:.018f):new Vector2(.047f,.016f);
                 // Edge possessions remain readable even when their territory continues beyond the atlas.
@@ -101,6 +101,7 @@ public class WarTheatreUI : MonoBehaviour
         var go=new GameObject("Theatre marker "+index,typeof(RectTransform),typeof(RawImage));go.transform.SetParent(parent,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=point;rt.sizeDelta=Vector2.one*size;var image=go.GetComponent<RawImage>();image.texture=Resources.Load<Texture2D>("UI/Maps/WarTheatreSymbols");image.uvRect=new Rect(index%4*.25f,(3-index/4)*.25f,.25f,.25f);image.raycastTarget=action!=null;if(action!=null)go.AddComponent<Button>().onClick.AddListener(action);
     }
     void Select(WarTheatre.Region r){
+        if(r.id=="candar_realm"){Close();FindObjectOfType<CouncilUI>(true).CandarCourt();return;}
         if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}if(r.kind=="province"){ProvincialConflictUI.Show(r.id);return;}Clear(detail);
         var power=WarTheatre.DiplomaticPower(r);
         int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
@@ -126,7 +127,7 @@ public class WarTheatreUI : MonoBehaviour
         if(region.kind=="capital")return "Orthodox";
         var power=WarTheatre.DiplomaticPower(region);int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
         if(country>=0&&country<DiplomaticChronicles.All.Length)return DiplomaticChronicles.All[country].Religion;
-        switch(power.id){case "milan":case "savoy":case "po_lordships":case "florence":case "siena":return "Catholic";case "candar":return "Muslim";default:return "Unclassified";}
+        switch(power.id){case "milan":case "savoy":case "po_lordships":case "florence":case "siena":return "Catholic";case "candar_realm":return "Muslim";default:return "Unclassified";}
     }
     static Color ReligionColour(WarTheatre.Region r) {
         string religion=CourtReligion(r);

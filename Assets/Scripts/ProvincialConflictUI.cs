@@ -13,7 +13,7 @@ public sealed class ProvincialConflictUI : MonoBehaviour
     static Transform Surface=>overviewSurface!=null?overviewSurface:root.transform;
     public static bool Open=>root!=null;
     public static bool Back(){if(!Open)return false;if(!P.Pending)Exit();return true;}
-    public static void Close(){overviewSurface=null;if(root!=null){root.SetActive(false);Destroy(root);root=null;}}
+    public static void Close(){ProvinceHistoryUI.Close();overviewSurface=null;if(root!=null){root.SetActive(false);Destroy(root);root=null;}}
     public static bool Intercept(Action next)
     {
         var pending=ProvincialWar.Ready?ProvincialWar.Pending:null;if(pending==null)return false;
@@ -45,11 +45,12 @@ public sealed class ProvincialConflictUI : MonoBehaviour
         var scaler=root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);scaler.matchWidthOrHeight=.5f;
         root.GetComponent<Image>().color=ImperialTheme.Navy;ImperialTheme.Panel(root);
         if(P.Get("BattleStage")>0){Battle();return;}
-        Text(P.Name+" · War Beyond the Walls",.035f,.91f,.93f,.07f,32);
+        Text(P.Name+" · War Beyond the Walls",.035f,.91f,.76f,.07f,32);
         if(P.Get("Settlement")>0){Settlement();return;}
         if(P.Get("Continuation")>0){Continuation();return;}
         if(P.Get("Assistance")>0){Assistance();return;}
         Overview();
+        var history=CampaignHUD.MakeButton(root.transform,"History",new Vector2(.835f,.915f),new Vector2(.975f,.98f),()=>ProvinceHistoryUI.Show(selected));history.name="Province history button";
     }
     static void Overview()
     {
