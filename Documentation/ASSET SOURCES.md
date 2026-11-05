@@ -81,3 +81,6 @@ Original OpenAI-generated fleet-orders.png, source exec-54f6bfea-3230-4258-8dbe-
 
 ## Senate landmarks — 5 November 2026
 OpenAI image generation edit of the existing original Senate painting. Output exec-3c663de1-fe7c-4926-991a-63fb3320ccff.png installed as Scenes/senate-landmarks.png; original senate.png retained. Enlarged fictional research tower with astronomical instrument and Byzantine galley under construction at the quay. Foreground delegations, emperor and Hagia Sophia composition preserved. No third-party imagery incorporated. This is historical-fiction scenery, not a claim about the actual 1453 Senate chamber or these landmarks' sightlines. Hand-traced interaction coordinates are in SenateHotspots.cs.
+
+## Nameless Fortress vulture views — 6 November 2026
+Original OpenAI-generated four-view transparent PNG, using the existing generated vulture as the edit reference. Source exec-2cd3f5b9-7c9f-4e99-be30-a455cc5c6aa5.png; installed UI/Maps/Landmarks/nameless-vulture-views.png. Runtime VultureFlight uses eased pose blending and deterministic orbit/banking. No third-party art. Documentation/Previews/vulture-loop.gif is an encoded Unity preview, not a production asset. Original single-bird PNG retained.
