@@ -65,3 +65,13 @@ Eight original OpenAI-generated square still-life images in UI/Gifts. Prompts an
 - council-cloud-wisp.png: original OpenAI-generated transparent sunset cloud overlay, generated exec-5fb53ca7-9920-40e6-afad-7b749c1eedf9.png (original retained in this chat generated_images folder). No third-party imagery.
 - Animated ship: exact original-painting pixels rendered through an outlined UV mesh in ChamberShipGraphic, not the generated alternate boat. Original asset provenance remains applicable.
 - The ornate generated ship alternative was rejected and is not installed. Layer design and limitations: COUNCIL-LAYERED-PAINTING.md.
+
+## Military training and shipyard backgrounds — 5 November2026
+Original OpenAI-generated painterly reconstructions, installed in Scenes. Original filenames:
+- training-infantry.png: exec-d043d46c-51f6-433c-81dd-566ec227653e.png
+- training-archers.png: exec-8a610ac8-690d-464e-825e-7a95f70e10de.png
+- training-cavalry.png: exec-b3a6c348-4e04-4f81-b803-ff11eb8a8548.png
+- training-varangians.png: exec-039e0fac-abf4-4b19-88d9-3d1ed9c4b005.png
+- training-cannons.png: exec-36d5302f-aba7-41aa-b6cb-531d53160ec0.png
+- shipyard.png: exec-575d7199-f2de-4853-b36a-cc491b97e319.png
+Archery revision replaces exec-c1a72cfa-98ff-44df-a48b-9b1926b43d8c.png: archers share a firing line with separate parallel lanes. No third-party pictures incorporated. Equipment references: https://www.metmuseum.org/art/collection/search/27686 (brigandine/Chalcis hoard); https://www.metmuseum.org/art/collection/search/23229 (Italian sallet); https://art.thewalters.org/object/51.580.1/ (barbute circa1450). These inform equipment, not exact reconstruction of Byzantine uniforms. Varangian appearance in1453 is interpretive. Shipyard reserves clear foreground for a future visitor; no character added.

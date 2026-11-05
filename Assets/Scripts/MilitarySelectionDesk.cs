@@ -20,19 +20,21 @@ public sealed class MilitarySelectionDesk:MonoBehaviour
         view.pane=CampaignHUD.Panel(root.transform,"Military selection desk",new Vector2(.48f,.09f),new Vector2(.98f,.94f)).transform;
         ImperialTheme.Panel(view.pane.gameObject,false);view.Draw();
     }
+    public static readonly string[] Art={"training-infantry","training-archers","training-cavalry","training-varangians","training-cannons","shipyard"};
     void Draw()
     {
+        SceneBackdrop.Apply(gameObject,Art[selected]);
         foreach(Transform child in pane){child.gameObject.SetActive(false);Destroy(child.gameObject);}
         Text("MILITARY & RECRUITMENT",.04f,.91f,.96f,.99f,28);
         for(int i=0;i<6;i++){int unit=i;float top=.90f-i*.08f;
-            var button=CampaignHUD.MakeButton(pane,Names[i]+"     "+CouncilActions.Int(Keys[i]).ToString("N0"),new Vector2(.04f,top-.069f),new Vector2(.96f,top),()=>{selected=unit;Draw();});
+            var button=CampaignHUD.MakeButton(pane,Names[i]+"     "+CouncilActions.Int(Keys[i]).ToString("N0"),new Vector2(.04f,top-.069f),new Vector2(.96f,top),()=>{selected=unit;if(unit==5){gameObject.SetActive(false);CouncilUI.For(manager).Shipyard(()=>manager.BringUpTroopsUI());}else Draw();});
             if(i==selected){var colours=button.colors;colours.normalColor=new Color(1f,.78f,.36f);button.colors=colours;}
             button.name="Select military unit "+i;
         }
         Text(Names[selected],.04f,.35f,.96f,.42f,27);
         var combat=FindObjectOfType<AssaultSystem>(true);
         Text(selected<3?"Lethality ×"+TroopTraining.Lethality(selected).ToString("0.##"):selected==5?"Manage missions, harbour defence and shipyards in Fleet management.":"Lethality ×"+(selected==3?combat.GuardLethality:combat.CannonLethality).ToString("0.##"),.04f,.255f,.96f,.35f,21);
-        CampaignHUD.MakeButton(pane,selected<4?"Train "+Names[selected]:"Build "+Names[selected],new Vector2(.04f,.18f),new Vector2(.48f,.25f),()=>recruitment[selected].onClick.Invoke());
+        CampaignHUD.MakeButton(pane,selected<4?"Train "+Names[selected]:"Build "+Names[selected],new Vector2(.04f,.18f),new Vector2(.48f,.25f),()=>{gameObject.SetActive(false);CouncilUI.For(manager).RecruitmentOrder(selected,()=>manager.BringUpTroopsUI());});
         CampaignHUD.MakeButton(pane,"Upgrades",new Vector2(.52f,.18f),new Vector2(.96f,.25f),()=>{if(upgrades.Length>selected)upgrades[selected].onClick.Invoke();});
         CampaignHUD.MakeButton(pane,"Lethality & unit roles",new Vector2(.04f,.105f),new Vector2(.48f,.17f),()=>CampaignHUD.Instance.ShowReport("Lethality and unit roles",ManagerUI.MilitaryExplanation,()=>CampaignHUD.Instance.DismissReport()));
         CampaignHUD.MakeButton(pane,selected==5?"Fleet management":"Recruitment logistics",new Vector2(.52f,.105f),new Vector2(.96f,.17f),()=>{gameObject.SetActive(false);if(selected==5)CouncilUI.For(manager).Fleet();else CouncilUI.For(manager).Training();});

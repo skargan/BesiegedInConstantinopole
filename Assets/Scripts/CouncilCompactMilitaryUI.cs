@@ -120,15 +120,9 @@ public partial class CouncilUI
         CompactText(yard,"SHIPYARDS · "+queued+" building · "+SpecialistPersonnel.RepairingShips+" repairing",.025f,.72f,.975f,.98f,23);
         CompactText(yard,building.Count==0?"No orders in progress.":building[0]+(building.Count>1?" · +"+(building.Count-1)+" orders":""),.025f,.44f,.975f,.72f,20);
         CampaignHUD.MakeButton(yard,"All shipyard orders",new Vector2(.025f,.04f),new Vector2(.47f,.42f),FleetShipyardOrders);
-        CampaignHUD.MakeButton(yard,"Build warships",new Vector2(.50f,.04f),new Vector2(.975f,.42f),()=>{Hide();manager.BringUpTroopsUI();});
+        CampaignHUD.MakeButton(yard,"Build warships",new Vector2(.50f,.04f),new Vector2(.975f,.42f),()=>Shipyard());
         CampaignHUD.MakeButton(pane,"Repair ships · "+SpecialistPersonnel.AvailableDamagedShips+" available",new Vector2(.025f,.015f),new Vector2(.63f,.067f),RepairDamagedShips);
         CampaignHUD.MakeButton(pane,"Return",new Vector2(.66f,.015f),new Vector2(.975f,.067f),()=>ControlSingleton.Instance.GoBack());
     }
-    void FleetShipyardOrders()
-    {
-        Open("Shipyard orders","Construction and repairs already commissioned.");ControlSingleton.Instance.ReturnAction=Fleet;
-        var lines=new List<string>();foreach(var o in TrainingPool.Orders)if(o.unit=="iShips")lines.Add(o.quantity+" warships · "+(o.kind==TrainingPool.ShipRepair?"repairing":"building")+" · ready "+TrainingPool.ReadyDate(o).ToString("d MMM yyyy")+" · "+TrainingPool.Remaining(o)+" days");
-        if(lines.Count==0)lines.Add("No shipyard orders in progress.");BodyHeight(Mathf.Max(400,lines.Count*70));
-        for(int i=0;i<lines.Count;i++){var row=SpyPanel("Shipyard order "+i,i*70,65);CompactText(row.transform,lines[i],.03f,.08f,.97f,.92f,24);}
-    }
+    void FleetShipyardOrders()=>Shipyard();
 }
