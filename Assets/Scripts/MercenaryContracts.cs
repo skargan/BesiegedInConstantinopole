@@ -38,6 +38,7 @@ public static class MercenaryContracts
  if(id<0||id>=MercenaryRoster.All.Length)return "Unknown company";var c=MercenaryRoster.All[id];
  if(State(id)!=Status.Unhired)return "This company already has a contract record";
  if(requireOffer&&!Offers.Contains(id))return "This company is not currently offered";
+ if(id==TheodoroDiplomacy.Company&&!TechnologySystem.Has("DismountedChampions"))return "Requires Dismounted Champions";
  if(c.Order){int h=CountryDiplomacy.Index("hospitallers");if(h<0)h=CountryDiplomacy.Index("rhodes");if(h<0||DailyLifeEvents.I("iAidState"+h)==1||DailyLifeEvents.I("iAidState"+h)==2)return "The Hospitaller detachment is committed elsewhere";if(CountryDiplomacy.Goodwill(h)<60)return "Requires 60 Hospitaller goodwill";}
  if(DailyLifeEvents.I("iMoney")<c.Gold/2)return "Requires "+(c.Gold/2).ToString("N0")+" gold upfront";return null;
  }

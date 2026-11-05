@@ -1,7 +1,7 @@
 {
   "title": "AGENT COORDINATION",
   "subtitle": "Saving Constantinople development instructions and handovers",
-  "snapshot": "5 November2026 — Version41 published to desktop and GitHub",
+  "snapshot": "5 November2026 — Version41 published; approved Theodoro follow-up verified for next publication",
   "sections": [
     [
       "AGENT INSTRUCTIONS",
@@ -38,6 +38,7 @@
     [
       "DECISIONS",
       [
+        "5 November2026 confirmed: Copa trading terms100 provisions OR350gold weekly, finite2400 reserve,14-day baseline voyage, existing hazards/closed-strait departure hold. Theodoro approved provisional once-only terms: +10goodwill free;1500gold for multiplicative+5% total archer lethality; DismountedChampions unlocks80cavalry for10800gold via existing sea contract (half advance/half arrival). No reincorporation or Bank takeovers.",
         "Discovery achievements (Alchemical Genius) may unlock in Normal or Ironman; performance achievements remain Ironman-only and automated/practice sessions unlock neither. Rewards are independent, once per campaign: alchemy +1 secret, pigeon letter +1 secret, treasure +2500 gold/+1 secret, fossil skull journal only. Unfinished alchemy resets on leaving or 60 seconds inactivity. Bronze ring drags the desk horizontally or switches sides on click.",
         "Confirmed by user: ConstantineX leads the taskgroup. OrbanX is inactive after a critical error and must not receive new assignments. JohanX remains an active workstream. Rationale: maintain one accountable integration owner and explicit recovery.",
         "Confirmed by user: keep this record updated under AGENT INSTRUCTIONS, ARCHITECTURE, DECISIONS and COORDINATION. Use named, timestamped BLUF updates. Rationale: readable context survives chat loss and future handovers.",
@@ -60,6 +61,7 @@
     [
       "COORDINATION",
       [
+        "ConstantineX owns approved Theodoro follow-up: TheodoroDiplomacy/CouncilTheodoroUI, rosterindex21 (excluded normal offers), total archer lethality via TroopTraining shared by both assault paths, focused checks. PublishedVersion41 remains unchanged. Numerical archery/cavalry no longer pending. Copa100/350approved. Do not mistake isolated TheodoroPreview for a new public release. Verification complete: isolated Windows preview211 diplomatic checks+275 mercenary regression checks; confirmation layouts at1280x720/1920x1080. Ready for next publication, not included in existingVersion41 desktop/ZIP.",
         "ConstantineX — 5 November2026: Version41 published. Source23aa5c9, desktop Saving Constantinople - Version41, GitHub releasev41. Freeze lifted; no Unity capture/build running. 169 diplomatic +275 mercenary checks passed. Theodoro numerical terms and Copa food quantity remain pending; current provisional100/week. Bank takeovers/reincorporation deferred. Publication details in VERSION CHANGELOG.",
         "ConstantineX — 4 November 2026: technology discovery room implemented and private preview built. DiscoveryCapture passed 208 runtime checks, including save/load, no duplicate rewards, eligibility, rail/cursor, pointer occlusion and four resolutions. See Documentation/DiscoveryAssets/Verification/HANDOVER.txt. Sources: Documentation/ASSET SOURCES.md. No public release; Word refresh queued for publication. JohanX owns new map presentation work.",
         "This is ConstantineX — 20:41, 4 November 2026, Europe/Bucharest. Update BLUF: Version 39 is published on GitHub; main is the sole local and remote branch. All eight focused exported-player suites passed. Download and provenance: Documentation/Release39/publication.json.",

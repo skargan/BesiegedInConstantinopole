@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// An encounter layer over country index30. New agreements remain narrative until approved.
+// Theodoro encounter; agreements use existing goodwill, quality and sea contracts.
 public partial class CouncilUI
 {
     Transform theodoroDesk;
@@ -21,17 +21,27 @@ public partial class CouncilUI
         TheodoroText("THEODORO · MANGUP",.90f,.985f,28);
         TheodoroText(CountryDiplomacy.Attitude(country)+" · "+CountryDiplomacy.EnvoyStatus(country),.82f,.90f,19);
         TheodoroButton("Realm and its interests",.72f,.81f,()=>TheodoroConversation(0));
-        TheodoroButton("Speak of old imperial ties",.61f,.70f,()=>TheodoroConversation(1));
-        TheodoroButton("Discuss cooperation in archery",.50f,.59f,()=>TheodoroConversation(2));
+        TheodoroButton("Speak of old imperial ties",.61f,.70f,()=>TheodoroAgreement(0));
+        TheodoroButton("Discuss cooperation in archery",.50f,.59f,()=>TheodoroAgreement(1));
         var incorporation=TheodoroButton("Reincorporation into the Empire · In development",.40f,.48f,()=>{});incorporation.interactable=false;
-        var hiring=TheodoroButton("An archers' hiring house · In development",.30f,.38f,()=>{});hiring.interactable=false;
+        TheodoroButton("A cavalry contingent · 80 riders",.30f,.38f,()=>TheodoroAgreement(2));
         // Preserve access to ordinary existing business without introducing a second aid/envoy system.
         var aid=DailyLifeEvents.I("iAidState"+country)==1?DiplomaticOrder.Expedite:DiplomaticOrder.RequestAid;
         var envoy=CountryDiplomacy.EnvoyState(country)==CountryDiplomacy.EnvoyAssignment.None?DiplomaticOrder.Dispatch:DiplomaticOrder.Recall;
         var aidButton=CampaignHUD.MakeButton(theodoroDesk,OrderTitle(aid),new Vector2(.04f,.19f),new Vector2(.485f,.28f),()=>ReviewDiplomaticOrder(country,aid));aidButton.interactable=OrderReason(country,aid)==null;
         var envoyButton=CampaignHUD.MakeButton(theodoroDesk,OrderTitle(envoy),new Vector2(.515f,.19f),new Vector2(.96f,.28f),()=>ReviewDiplomaticOrder(country,envoy));envoyButton.interactable=OrderReason(country,envoy)==null;
-        TheodoroText("A Black Sea passage is needed to pursue the proposed new agreements.",.105f,.18f,18);
+        TheodoroText("Archery cooperation: "+(TheodoroDiplomacy.Archery?"agreed · +5% lethality":"not yet agreed")+".",.105f,.18f,18);
         TheodoroButton("Return",.025f,.095f,DiplomaticRelations);
+    }
+    void TheodoroAgreement(int action)
+    {
+        TheodoroCourt();foreach(Transform child in theodoroDesk){child.gameObject.SetActive(false);Destroy(child.gameObject);}
+        string[] titles={"Renew imperial ties","Archery cooperation","The Mangup Retinue"};
+        string[] terms={"Letters and assurances would renew the old understanding between Mangup and Constantinople.\n\nTheodoro goodwill +10 points. No gold payment. Once per campaign.","Theodoro offers instructors to work with the City's archers.\n\nCost: 1,500 gold.\nArcher lethality +5% for this campaign. This agreement cannot be repeated.","Eighty mounted retainers offer their service under a captain from Mangup. They assemble for Black Sea passage through Caffa.\n\n80 cavalry · 24-day baseline journey.\nTotal price: 10,800 gold. Pay 5,400 now and 5,400 on arrival.\nRequires Dismounted Champions. Arrival without incident: "+MercenaryContracts.SafeChance(TheodoroDiplomacy.Company)+"%. Existing voyage hazards, delays and arrival-payment rules apply. One contract per campaign."};
+        TheodoroText(titles[action],.87f,.975f,27);TheodoroText(terms[action],.30f,.85f,22);
+        var status=TheodoroText(TheodoroDiplomacy.Reason(action)??"Review the terms before confirming.",.20f,.29f,18);
+        bool submitted=false;var confirm=TheodoroButton("Confirm agreement",.105f,.19f,()=>{if(submitted)return;if(TheodoroDiplomacy.Agree(action,out var report)){submitted=true;VariableSingleton.Instance.Save();TheodoroCourt();CampaignHUD.Instance.ShowReport("News from Theodoro",report,()=>CampaignHUD.Instance.DismissReport());}else status.text=report;});confirm.interactable=TheodoroDiplomacy.Reason(action)==null;
+        TheodoroButton("Cancel",.025f,.095f,TheodoroCourt);ControlSingleton.Instance.ReturnAction=TheodoroCourt;
     }
     void TheodoroConversation(int topic)
     {

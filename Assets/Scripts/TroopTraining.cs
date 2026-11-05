@@ -45,7 +45,7 @@ public static class TroopTraining
         for(int i=0;i<3;i++) if(Due(i)>0) result+=Units[i]+" drills · "+Mathf.Max(0,Due(i)-TrainingPool.Day(VariableSingleton.GetDate()))+" days remaining\n";
         return result;
     }
-    public static float Lethality(int unit)=>TechnologySystem.Quality(Units[unit])+(unit==0&&TechnologySystem.Has("Grenades")?.25f:unit==1&&TechnologySystem.Has("Handcannons")?.5f:0);
+    public static float Lethality(int unit)=>(TechnologySystem.Quality(Units[unit])+(unit==0&&TechnologySystem.Has("Grenades")?.25f:unit==1&&TechnologySystem.Has("Handcannons")?.5f:0))*(unit==1&&TheodoroDiplomacy.Archery?1.05f:1f);
     public static float WallCavalry=>Lethality(2)*(TechnologySystem.Has("DismountedChampions")?1f:.5f);
     public static string Breakdown(int unit)
     {

@@ -65,7 +65,7 @@ public class AI: MonoBehaviour
         b.InitialCavalry=b.Cavalry=DefencePosture.Dismounted?CouncilActions.Int("iCavalry"):0;b.InitialGuards=b.Guards=CouncilActions.Int("iVarangians");
 
         b.Wall=VariableSingleton.Instance.EnduringWall.GetHealth();b.Breach=assaultSystem.TestAssault(TroopAssaultRating(b.Type))-WallOverrunThreshold;
-        b.ArcherBudget=b.Archers*(TechnologySystem.Quality("Archers")+(TechnologySystem.Has("Handcannons")?.5f:0))*(1+(CouncilActions.Int("iFleet")==3&&CouncilActions.Int("iShips")>0?CourtRoster.Bonus(1,.05f,.15f):0));
+        b.ArcherBudget=b.Archers*TroopTraining.Lethality(1)*(1+(CouncilActions.Int("iFleet")==3&&CouncilActions.Int("iShips")>0?CourtRoster.Bonus(1,.05f,.15f):0));
         b.Cannons=CouncilActions.Int("iCannons");b.Ammo=Mathf.Min(CouncilActions.Int("iAmmunition"),b.Cannons>0?3:0);
         b.GunBudget=b.Cannons*assaultSystem.CannonLethality*(b.Ammo/3f);
         b.FootBudget=.45f*b.Infantry*(TechnologySystem.Quality("Infantry")+(TechnologySystem.Has("Grenades")?.25f:0))*(1+CourtRoster.Bonus(0,.05f,.15f))*(1+CourtRoster.Bonus(3,.05f,.15f));
