@@ -84,3 +84,6 @@ OpenAI image generation edit of the existing original Senate painting. Output ex
 
 ## Nameless Fortress vulture views — 6 November 2026
 Original OpenAI-generated four-view transparent PNG, using the existing generated vulture as the edit reference. Source exec-2cd3f5b9-7c9f-4e99-be30-a455cc5c6aa5.png; installed UI/Maps/Landmarks/nameless-vulture-views.png. Runtime VultureFlight uses eased pose blending and deterministic orbit/banking. No third-party art. Documentation/Previews/vulture-loop.gif is an encoded Unity preview, not a production asset. Original single-bird PNG retained.
+
+## Ragusa waiting terrace — 6 November 2026
+OpenAI edit exec-1d66e679-48d2-4a4c-a121-8f2a701aa44d.png, using the existing original GazulusForeground painting. Installed UI/Diplomacy/Ragusa/WaitingTerrace.png. Removes both negotiators; preserves the empty chair, chess table, architecture and Ragusa sea view. No external artwork. Original two audience paintings preserved and used only with a resident envoy.

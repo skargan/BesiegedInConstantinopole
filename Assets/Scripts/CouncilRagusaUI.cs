@@ -16,8 +16,10 @@ public partial class CouncilUI
 
     void RagusanPage(string page)
     {
+        bool resident=RagusaDiplomacy.EnvoyPresent;
+        if(!resident&&page!="main"&&page!="realm")page="main";
         Open("Ragusa","");
-        ControlSingleton.Instance.ReturnAction=page=="main"?(Action)DiplomaticRelations:RagusanCourt;
+        ControlSingleton.Instance.ReturnAction=page=="main"?(Action)RagusaReturnToMap:RagusanCourt;
         foreach(Transform child in screen.transform)child.gameObject.SetActive(false);
         int representative=RagusaDiplomacy.ActiveRepresentative;
         var scene=RagusaText.Painting(representative==0?"gazulus":"cotrugli");
@@ -25,18 +27,18 @@ public partial class CouncilUI
         painting.transform.SetParent(screen.transform,false);
         var paintingRect=painting.GetComponent<RectTransform>();
         paintingRect.anchorMin=paintingRect.anchorMax=new Vector2(.5f,.5f);paintingRect.pivot=new Vector2(.5f,.5f);
-        var texture=Resources.Load<Texture2D>(scene==null?"UI/Diplomacy/Ragusa/GazulusForeground":scene.resource);
+        var texture=Resources.Load<Texture2D>(!resident?"UI/Diplomacy/Ragusa/WaitingTerrace":scene==null?"UI/Diplomacy/Ragusa/GazulusForeground":scene.resource);
         var image=painting.GetComponent<RawImage>();image.texture=texture;image.raycastTarget=false;
         var fit=painting.GetComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;
         fit.aspectRatio=texture==null?1672f/941f:(float)texture.width/texture.height;
 
         ragusaSpeaking=-1;ragusaFigures=new LocationHotspot[2];
-        if(scene!=null&&scene.characters!=null) {
+        if(resident&&scene!=null&&scene.characters!=null) {
             var figures=(RagusaText.Figure[])scene.characters.Clone();
             Array.Sort(figures,(a,b)=>a.hitPriority.CompareTo(b.hitPriority));
             foreach(var figure in figures) {
                 if(figure.polygon==null||figure.polygon.Length<3)continue;
-                int index=figure.id=="gazulus"?0:1;string id=figure.id;
+                int index=figure.id=="gazulus"?0:1;if(index!=representative)continue;string id=figure.id;
                 var points=new Vector2[figure.polygon.Length];
                 for(int n=0;n<points.Length;n++)points[n]=new Vector2(figure.polygon[n].x,figure.polygon[n].y);
                 var hotspot=LocationHotspot.Create(painting.transform,RagusaText.Person(id).name,points,()=>RagusanPage(id));
@@ -45,13 +47,14 @@ public partial class CouncilUI
                 speech.enter=()=>RagusaSpeak(index);speech.leave=()=>RagusaStopSpeaking(index);
             }
         }
-        var caption=CampaignHUD.Panel(painting.transform,"Ragusan conversation",new Vector2(.025f,.025f),new Vector2(.585f,.21f));
-        caption.GetComponent<Image>().color=new Color(.015f,.035f,.05f,.94f);
-        ImperialTheme.Panel(caption,false);
-        ragusaRemark=RagusaLabel(caption.transform,"Speak with either man. The Republic changes its spokesman each month.",new Vector2(.035f,.33f),new Vector2(.965f,.94f),20);
-        for(int n=0;n<2;n++) {
-            int index=n;string id=n==0?"gazulus":"cotrugli";
-            var speak=RagusaButton(caption.transform,n==0?"Johannes Gazulus":"Benedetto Cotrugli",new Vector2(.025f+n*.49f,.045f),new Vector2(.485f+n*.49f,.29f),()=>RagusanPage(id),18);
+        ragusaRemark=null;
+        if(resident){
+            var caption=CampaignHUD.Panel(painting.transform,"Ragusan conversation",new Vector2(.025f,.10f),new Vector2(.585f,.26f));
+            caption.GetComponent<Image>().color=new Color(.015f,.035f,.05f,.94f);ImperialTheme.Panel(caption,false);
+            ragusaRemark=RagusaLabel(caption.transform,"",new Vector2(.035f,.08f),new Vector2(.965f,.94f),20);caption.SetActive(false);
+            int index=representative;string id=index==0?"gazulus":"cotrugli";
+            var speak=RagusaButton(painting.transform,RagusaDiplomacy.ActiveRepresentativeName,new Vector2(.10f,.035f),new Vector2(.56f,.085f),()=>RagusanPage(id),18);
+            speak.name="Ragusan current negotiator";
             var accessibility=speak.gameObject.AddComponent<RagusaHoverSpeech>();
             accessibility.enter=()=>{RagusaSpeak(index);if(ragusaFigures[index]!=null)ragusaFigures[index].SetHighlighted(true);};
             accessibility.leave=()=>{RagusaStopSpeaking(index);if(ragusaFigures[index]!=null)ragusaFigures[index].SetHighlighted(false);};
@@ -71,18 +74,22 @@ public partial class CouncilUI
             RagusaLabel(root,title,new Vector2(.045f,.865f),new Vector2(.955f,.965f),27);
             RagusaReadingPanel(root,text,new Vector2(.045f,.17f),new Vector2(.955f,.84f),22);
         }
-        RagusaButton(root,page=="main"?"Return to diplomatic relations":page=="food"||page=="war"?"Cancel and return to Ragusa":"Return to Ragusa",new Vector2(.045f,.02f),new Vector2(.955f,.08f),()=>{if(page=="main")DiplomaticRelations();else RagusanCourt();},20);
+        RagusaButton(root,page=="main"?"Return to War Beyond the Walls":page=="food"||page=="war"?"Cancel and return to Ragusa":"Return to Ragusa",new Vector2(.045f,.02f),new Vector2(.955f,.08f),()=>{if(page=="main")RagusaReturnToMap();else RagusanCourt();},20);
     }
+
+    void RagusaReturnToMap(){Hide();WarTheatreUI.Show();}
 
     void RagusaMain(Transform root)
     {
         int country=CountryDiplomacy.Index("ragusa");
         RagusaLabel(root,"THE REPUBLIC OF RAGUSA",new Vector2(.045f,.91f),new Vector2(.955f,.975f),27);
-        RagusaLabel(root,"This month's representative\n"+RagusaDiplomacy.ActiveRepresentativeName,new Vector2(.045f,.815f),new Vector2(.955f,.905f),22);
-        RagusaLabel(root,"Ragusan goodwill "+RagusaDiplomacy.Relations.ToString("0")+" · "+CountryDiplomacy.Attitude(country)+"\nGazulus' favour "+RagusaDiplomacy.Favour(0)+"    Cotrugli's favour "+RagusaDiplomacy.Favour(1),new Vector2(.045f,.71f),new Vector2(.955f,.81f),20);
-        RagusaButton(root,"Arrange a private provision shipment",new Vector2(.045f,.615f),new Vector2(.955f,.695f),()=>RagusanPage("food"),21);
+        if(RagusaDiplomacy.EnvoyPresent)RagusaLabel(root,RagusaDiplomacy.ActiveRepresentativeName,new Vector2(.045f,.815f),new Vector2(.955f,.905f),22);
+        string goodwill="Ragusan goodwill "+RagusaDiplomacy.Relations.ToString("0")+" · "+CountryDiplomacy.Attitude(country);
+        if(RagusaDiplomacy.EnvoyPresent)goodwill+="\nPersonal favour "+RagusaDiplomacy.Favour(RagusaDiplomacy.ActiveRepresentative);
+        RagusaLabel(root,goodwill,new Vector2(.045f,.71f),new Vector2(.955f,.81f),20);
+        if(RagusaDiplomacy.EnvoyPresent)RagusaButton(root,"Arrange a private provision shipment",new Vector2(.045f,.615f),new Vector2(.955f,.695f),()=>RagusanPage("food"),21);
         RagusaLabel(root,RagusaDiplomacy.FoodStatus,new Vector2(.045f,.505f),new Vector2(.955f,.605f),19);
-        RagusaButton(root,"Hire out troops to Ragusa",new Vector2(.045f,.41f),new Vector2(.955f,.49f),()=>RagusanPage("war"),21);
+        if(RagusaDiplomacy.EnvoyPresent)RagusaButton(root,"Hire out troops to Ragusa",new Vector2(.045f,.41f),new Vector2(.955f,.49f),()=>RagusanPage("war"),21);
         RagusaLabel(root,RagusaDiplomacy.ContractStatus,new Vector2(.045f,.255f),new Vector2(.955f,.40f),19);
         RagusaButton(root,"The realm and its interests",new Vector2(.045f,.175f),new Vector2(.955f,.245f),()=>RagusanPage("realm"),20);
         bool assigned=CountryDiplomacy.EnvoyState(country)!=CountryDiplomacy.EnvoyAssignment.None;
@@ -114,13 +121,14 @@ public partial class CouncilUI
 
     void RagusaSpeak(int index)
     {
-        if(ragusaSpeaking==index||ragusaRemark==null)return;
+        if(!RagusaDiplomacy.EnvoyPresent||index!=RagusaDiplomacy.ActiveRepresentative||ragusaSpeaking==index||ragusaRemark==null)return;
         ragusaSpeaking=index;var person=RagusaText.Person(index==0?"gazulus":"cotrugli");
         string line=person.description;
         if(person.hover!=null&&person.hover.Length>0)line=person.hover[(ragusaRemarkCounter[index]++)%person.hover.Length];
+        ragusaRemark.transform.parent.gameObject.SetActive(true);
         ragusaRemark.text="<b>"+person.name+"</b>\n“"+line+"”";
     }
-    void RagusaStopSpeaking(int index){if(ragusaSpeaking==index)ragusaSpeaking=-1;}
+    void RagusaStopSpeaking(int index){if(ragusaSpeaking==index){ragusaSpeaking=-1;if(ragusaRemark!=null)ragusaRemark.transform.parent.gameObject.SetActive(false);}}
 
     static TMP_Text RagusaLabel(Transform root,string text,Vector2 min,Vector2 max,float size)
     {

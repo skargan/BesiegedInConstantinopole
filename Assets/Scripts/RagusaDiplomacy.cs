@@ -35,10 +35,12 @@ public static class RagusaDiplomacy
     public static float Relations {get{Ensure();return CountryDiplomacy.Goodwill(Country);}}
 
     // A spoken refusal conceals a commercial agreement: no second acceptance roll.
+    public static bool EnvoyPresent=>CountryDiplomacy.EnvoyState(Country)==CountryDiplomacy.EnvoyAssignment.Resident;
     public static bool FoodAtSea=>I("FoodState")==1;
     public static string FoodRequestReason()
     {
         Ensure();
+        if(!EnvoyPresent)return "These negotiations cannot be concluded at present.";
         if(I("FoodMonth")==Month(VariableSingleton.GetDate()))return "This month's provision arrangement has already been made.";
         if(FoodAtSea)return "The previous Ragusan provision shipment is still at sea.";
         if(DailyLifeEvents.I("iMoney")<FoodPrice)return "The arrangement requires "+FoodPrice.ToString("N0")+" gold.";
@@ -79,6 +81,7 @@ public static class RagusaDiplomacy
     public static string ContractReason()
     {
         Ensure();
+        if(!EnvoyPresent)return "These negotiations cannot be concluded at present.";
         if(ContractActive)return "The previous contingent has not yet returned.";
         for(int n=0;n<Units.Length;n++)if(DailyLifeEvents.I(Units[n])<Contingent[n])return "The contract requires 500 available infantry, 500 archers and 200 cavalry.";
         return null;

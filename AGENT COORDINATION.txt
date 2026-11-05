@@ -54,6 +54,8 @@ Version41: CountryDiplomacy adds gazaria at index31 without shifting earlier IDs
 
 DECISIONS
 
+6 November 2026: Ragusa private provision shipment and hired-out troop contract require a resident envoy only at conclusion. Envoy recall must not cancel or pause concluded agreements. Hide negotiators and detailed operation controls without a resident envoy; only the current monthly spokesman is named/interactable. Main Ragusa Return leads to the theatre map.
+
 6 November 2026: user requests independent Candar land, superseding the previous all-Paphlagonia Ottoman display. Show a small schematic Sinop coastal realm; retain the existing Ottoman inland province and its stable ID. This is a map/court presentation change, not a new provincial economy.
 
 5 November2026: user defers NavalWarfare preparation event/bonuses. Preservefiveoptiontexts markedUnderdevelopment, no effects. Fleetcore usesfinalstatedranges, independentrare rolls; physicalsupplyraid transfer; defaultGoldenHorndefence no routinereports. Research1000progress/secret. SeeFLEET-CORE-ORDERS.md for exactnumbers.
@@ -96,6 +98,8 @@ Senate, confirmed 5 November 2026: title The Senate; reconstructed Blachernae-in
 
 
 COORDINATION
+
+ConstantineX — 6 November 2026: Ragusa envoy/return correction verified. Main Return -> War Beyond the Walls; inactive envoy states use empty terrace with no negotiators, names or detailed agreement controls. Resident state exposes only current monthly spokesman and favour. Food/contract initiation gates enforce resident presence; existing agreements continue after recall. 169 focused runtime checks passed at 1280/1600, including both months, four envoy states, save/load, one-time cargo, contract resolution and survivor return. Windows preview succeeded. DiplomaticExpansionCapture fixture updated, broader suite not rerun. Market grain merchant quotes extracted unchanged for user. Public Version 41 unchanged; ready next publication.
 
 ConstantineX — 6 November 2026: Nameless Fortress vulture polish complete. Owned NamelessFortressUI/Capture, new VultureFlight and four-view alpha atlas. Instant scale-sign flip removed; 32-second tower-centred circuit, gradual pose transitions, banking and depth variation. Original painting/bird preserved; no game state or random calls. Preview build succeeded; 9,629 assertions cover 1,920 sampled motion frames plus two-resolution live/layout/Return checks (not playthrough count). Transition/side-flight screenshots visually reviewed. Review GIF in Documentation/Previews; production uses transparent PNG atlas. Public V41 unchanged, ready next publication. Build/capture ownership released.
 
