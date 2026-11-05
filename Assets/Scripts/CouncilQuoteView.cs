@@ -14,6 +14,7 @@ public class CouncilQuoteView : MonoBehaviour
         text.alignment=TextAlignmentOptions.Center;
         text.enableAutoSizing=true;text.fontSizeMin=18;text.fontSizeMax=22;
         text.overflowMode=TextOverflowModes.Overflow;
+        text.lineSpacing=5;text.paragraphSpacing=7;
         var view=text.gameObject.AddComponent<CouncilQuoteView>();
         view.caption=text;view.Refresh();
     }

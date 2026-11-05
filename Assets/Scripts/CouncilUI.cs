@@ -130,15 +130,16 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        var briefingPanel=CampaignHUD.Panel(manager.transform,"Council briefing",new Vector2(.30f,.04f),new Vector2(.70f,.23f));
+        var briefingPanel=CampaignHUD.Panel(manager.transform,"Council briefing",new Vector2(.303f,.04f),new Vector2(.697f,.225f));
 
 
 
-        briefingPanel.GetComponent<Image>().color=new Color(.07f,.09f,.105f,.96f);
+        briefingPanel.GetComponent<Image>().color=new Color(.035f,.040f,.052f,.93f);
+        ImperialTheme.Frame(briefingPanel);
 
 
 
-        briefing=CampaignHUD.Label(briefingPanel.transform,"",new Vector2(.05f,.05f),new Vector2(.95f,.96f),22);
+        briefing=CampaignHUD.Label(briefingPanel.transform,"",new Vector2(.075f,.12f),new Vector2(.925f,.88f),22);
         CouncilQuoteView.Attach(briefing);
 
 

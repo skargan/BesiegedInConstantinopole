@@ -28,7 +28,7 @@ public sealed class CampaignStatusStrip : MonoBehaviour
         panel.GetComponent<Image>().color=ImperialTheme.Navy;
         var line=CampaignHUD.Panel(panel.transform,"Group accent",new Vector2(0,.98f),Vector2.one);
         line.GetComponent<Image>().color=GroupColours[group];line.GetComponent<Image>().raycastTarget=false;
-        var title=CampaignHUD.Label(panel.transform,name,new Vector2(.014f,.75f),new Vector2(.986f,.98f),12);
+        var title=CampaignHUD.Label(panel.transform,name,new Vector2(.014f,.77f),new Vector2(.986f,.97f),12);
         title.color=GroupColours[group];title.characterSpacing=.8f;title.alignment=TextAlignmentOptions.Center;title.fontStyle=FontStyles.Normal;
         // Food needs room for a fractional stock; percentages need less than population.
         float[] widths=group==0?new[]{.85f,1.15f,1.18f,1f,1.32f,.8f}:null;
@@ -36,7 +36,7 @@ public sealed class CampaignStatusStrip : MonoBehaviour
         for(int n=0;n<count;n++) {
             int index=first+n;
             float width=(widths==null?1:widths[n])/total;
-            var cell=CampaignHUD.Panel(panel.transform,"Stat "+index,new Vector2(cursor,.025f),new Vector2(cursor+width,.76f));cursor+=width;
+            var cell=CampaignHUD.Panel(panel.transform,"Stat "+index,new Vector2(cursor,.06f),new Vector2(cursor+width,.75f));cursor+=width;
             cells[index]=(RectTransform)cell.transform;
             cell.GetComponent<Image>().color=Color.clear;
             cell.AddComponent<CampaignStatTooltip>().Index=index;
@@ -45,11 +45,7 @@ public sealed class CampaignStatusStrip : MonoBehaviour
                 divider.GetComponent<Image>().color=new Color(.48f,.43f,.32f,.4f);divider.GetComponent<Image>().raycastTarget=false;
             }
             symbols[index]=AddStatArt(cell.transform,index,group);
-            if(group != 0) {
-            var label=CampaignHUD.Label(cell.transform,CampaignStatistics.Header[index].ShortName,new Vector2(.035f,.61f),new Vector2(.965f,.99f),15);
-            label.alignment=TextAlignmentOptions.Center;label.fontStyle=FontStyles.Normal;label.enableWordWrapping=false;
-            }
-            amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.5f,group==0?.5f:.30f),new Vector2(.5f,group==0?.5f:.30f),ValueSize);
+            amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.5f,.5f),new Vector2(.5f,.5f),ValueSize);
             amounts[index].name="Stat value "+index;
             amounts[index].alignment=TextAlignmentOptions.MidlineLeft;amounts[index].fontStyle=FontStyles.Normal;
             amounts[index].enableWordWrapping=false;amounts[index].enableAutoSizing=false;
@@ -103,7 +99,7 @@ public sealed class CampaignStatusStrip : MonoBehaviour
             var amount=amounts[i];amount.fontSize=size;
             float textWidth=Mathf.Ceil(amount.GetPreferredValues(amount.text,Mathf.Infinity,Mathf.Infinity).x);
             float pairWidth=SymbolSize+PairGap+textWidth;
-            var symbol=symbols[i];symbol.anchorMin=symbol.anchorMax=new Vector2(.5f,i<6?.5f:.30f);symbol.pivot=new Vector2(.5f,.5f);
+            var symbol=symbols[i];symbol.anchorMin=symbol.anchorMax=new Vector2(.5f,.5f);symbol.pivot=new Vector2(.5f,.5f);
             symbol.sizeDelta=new Vector2(SymbolSize,SymbolSize);symbol.anchoredPosition=new Vector2((SymbolSize-pairWidth)*.5f,0);
             var rect=amount.rectTransform;rect.pivot=new Vector2(0,.5f);rect.sizeDelta=new Vector2(textWidth+1,36);
             rect.anchoredPosition=new Vector2(-pairWidth*.5f+SymbolSize+PairGap,0);
