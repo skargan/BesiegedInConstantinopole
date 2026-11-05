@@ -11,16 +11,16 @@ public partial class CouncilUI
         int agents=CouncilActions.Int("iSpies");
         var network=CampaignHUD.Panel(desk.transform,"Intelligence network",new Vector2(.025f,.72f),new Vector2(.975f,.98f));
         ImperialTheme.Panel(network,false);
-        IntelligenceText(network.transform,"CAMP AGENTS  "+agents+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     GOLD  "+CouncilActions.Int("iMoney").ToString("N0"),new Vector2(.025f,.73f),new Vector2(.975f,.98f),23);
-        IntelligenceText(network.transform,"Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.025f,.50f),new Vector2(.975f,.73f),19);
-        // Match intelligence tier VIII; do not even read the hidden count below the threshold.
+        IntelligenceStat(network.transform,"Our agents in camp",agents.ToString("N0"),0,0,"Agents embedded in the Ottoman camp unlock reports and carry out operations.");
+        IntelligenceStat(network.transform,"Our agents abroad",ProvinceCampaign.Assigned.ToString("N0"),1,0,"Agents assigned to provincial networks beyond Constantinople.");
+        IntelligenceStat(network.transform,"Enemy operations delay",CouncilActions.Int("iEnemyDelay")+" days",0,1,"Days of delay secured against Ottoman operations.");
+        IntelligenceStat(network.transform,"Secrets",CouncilActions.Int("iSecrets").ToString("N0"),1,1,"Knowledge available for research and covert operations.");
+        // Do not read the hidden enemy count below intelligence level VIII.
         string enemySpies=agents>=8?CouncilActions.Int("iTurkSpies").ToString("N0"):"?";
-        var counter=IntelligenceText(network.transform,"ENEMY SPIES  "+enemySpies,new Vector2(.025f,.27f),new Vector2(.42f,.50f),23);
-        counter.name="Enemy spies summary";
-        IntelligenceText(network.transform,"In the City · revealed at 8 agents",new Vector2(.025f,.02f),new Vector2(.42f,.27f),18);
-        var alert=IntelligenceText(network.transform,"OTTOMAN CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.44f,.27f),new Vector2(.975f,.50f),23);
-        alert.color=EspionageSystem.Alert>=50?new Color(1f,.65f,.49f):ImperialTheme.Ivory;
-        IntelligenceText(network.transform,"Falls 1–10 points/turn"+(EspionageSystem.AlertFloor>0?" · Minimum "+EspionageSystem.AlertFloor+"%":""),new Vector2(.44f,.02f),new Vector2(.975f,.27f),19);
+        var spies=IntelligenceStat(network.transform,"Enemy spies",enemySpies,0,2,"Ottoman infiltrators in the City. Revealed when you have 8 agents in the Ottoman camp.");spies.name="Enemy spies summary";
+        string alertHint="Higher alert increases the risk of losing an agent on most camp operations. Alert falls by 1–10 percentage points per turn."+(EspionageSystem.AlertFloor>0?" It cannot fall below "+EspionageSystem.AlertFloor+"% after the failed assassination attempt.":"");
+        var alert=IntelligenceStat(network.transform,"Ottoman camp alert",EspionageSystem.Alert+"%",1,2,alertHint);
+        if(EspionageSystem.Alert>=50)alert.GetComponentInChildren<TMP_Text>().color=new Color(1f,.65f,.49f);
 
         var reports=IntelligenceButton(desk.transform,"Reports",new Vector2(.025f,.63f),new Vector2(.23f,.705f),()=>IntelligenceMenu(false));
         reports.name="Intelligence reports tab";
@@ -41,6 +41,14 @@ public partial class CouncilUI
         notice.rectTransform.anchorMin=new Vector2(.50f,.02f);notice.rectTransform.anchorMax=new Vector2(.77f,.09f);
     }
 
+    private GameObject IntelligenceStat(Transform parent,string title,string value,int column,int row,string hint)
+    {
+        float left=.015f+column*.5f,top=.98f-row*.325f;
+        var box=CampaignHUD.Panel(parent,title,new Vector2(left,top-.30f),new Vector2(left+.47f,top));ImperialTheme.Panel(box,false);
+        var label=IntelligenceText(box.transform,title+" · "+value,new Vector2(.035f,.05f),new Vector2(.965f,.95f),21);label.alignment=TextAlignmentOptions.Center;
+        box.AddComponent<CampaignChoiceTooltip>().Hint=hint;return box;
+    }
+
     private void IntelligenceLedger(Transform parent,int agents)
     {
         var ledger=CampaignHUD.Panel(parent,"Intelligence ledger",new Vector2(.025f,.10f),new Vector2(.975f,.61f));
@@ -52,12 +60,17 @@ public partial class CouncilUI
             foreach(Transform child in detail.transform){child.gameObject.SetActive(false);Destroy(child.gameObject);}
             bool known=agents>i;
             IntelligenceText(detail.transform,EspionageSystem.IntelligenceLabels[i],new Vector2(.04f,.80f),new Vector2(.96f,.98f),25);
-            IntelligenceText(detail.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.04f,.20f),new Vector2(.96f,.80f),23);
+            IntelligenceText(detail.transform,known?EspionageSystem.IntelligenceValue(i):"?",new Vector2(.04f,.20f),new Vector2(.96f,.80f),23);
             if(i==0){var troops=IntelligenceButton(detail.transform,"View troops",new Vector2(.04f,.025f),new Vector2(.96f,.18f),()=>EnemyTroops(Spies));troops.name="Intelligence troop details";}
             if(i==9){var attempt=IntelligenceButton(detail.transform,"Review attempt",new Vector2(.04f,.025f),new Vector2(.96f,.18f),ReviewAssassination);attempt.name="Intelligence assassination";attempt.interactable=known;}
         };
         for(int i=0;i<10;i++){int tier=i;float top=.985f-i*.097f;
-            var button=IntelligenceButton(ledger.transform,tiers[i]+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.015f,top-.09f),new Vector2(.475f,top),()=>select(tier));
+            var button=IntelligenceButton(ledger.transform,"",new Vector2(.015f,top-.09f),new Vector2(.475f,top),()=>select(tier));
+            button.GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);
+            var numeral=IntelligenceText(button.transform,tiers[i],new Vector2(.035f,.06f),new Vector2(.14f,.94f),18);
+            var name=IntelligenceText(button.transform,EspionageSystem.IntelligenceLabels[i],new Vector2(.16f,.06f),new Vector2(.965f,.94f),18);name.alignment=TextAlignmentOptions.Center;name.fontSizeMin=14;name.enableWordWrapping=false;
+            if(agents<=i){numeral.color=name.color=new Color(.61f,.59f,.54f);}
+            CampaignChoiceTooltip.Attach(button,agents>i?"Intelligence level "+tiers[i]+" · "+EspionageSystem.IntelligenceLabels[i]:"Requires "+(i+1)+" agents in the Ottoman camp.");
             button.name="Select intelligence report "+i;
         }
         select(0);
