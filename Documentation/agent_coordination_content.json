@@ -1,7 +1,7 @@
 {
   "title": "AGENT COORDINATION",
   "subtitle": "Saving Constantinople development instructions and handovers",
-  "snapshot": "5 November 2026 — Version 41 diplomatic expansion publication candidate",
+  "snapshot": "5 November2026 — Version41 published to desktop and GitHub",
   "sections": [
     [
       "AGENT INSTRUCTIONS",
@@ -60,7 +60,7 @@
     [
       "COORDINATION",
       [
-        "ConstantineX — 5 November2026: Version41 integrates Candar, Ragusa, Caffa/Gazaria, Copa and narrative Theodoro. JohanX supplied Theodoro UI/art and Genoa/Venice visits. Source freeze active for final tests/publication. No shared editing until receipt. Pending numerical Theodoro terms and Copa food quantity; current provisional100/week. Bank takeovers and reincorporation remain deferred. See DIPLOMATIC-EXPANSION-INTEGRATION.md.",
+        "ConstantineX — 5 November2026: Version41 published. Source23aa5c9, desktop Saving Constantinople - Version41, GitHub releasev41. Freeze lifted; no Unity capture/build running. 169 diplomatic +275 mercenary checks passed. Theodoro numerical terms and Copa food quantity remain pending; current provisional100/week. Bank takeovers/reincorporation deferred. Publication details in VERSION CHANGELOG.",
         "ConstantineX — 4 November 2026: technology discovery room implemented and private preview built. DiscoveryCapture passed 208 runtime checks, including save/load, no duplicate rewards, eligibility, rail/cursor, pointer occlusion and four resolutions. See Documentation/DiscoveryAssets/Verification/HANDOVER.txt. Sources: Documentation/ASSET SOURCES.md. No public release; Word refresh queued for publication. JohanX owns new map presentation work.",
         "This is ConstantineX — 20:41, 4 November 2026, Europe/Bucharest. Update BLUF: Version 39 is published on GitHub; main is the sole local and remote branch. All eight focused exported-player suites passed. Download and provenance: Documentation/Release39/publication.json.",
         "Authoritative repository: skargan/BesiegedInConstantinopole. Consolidation checkout: consolidation in the Besieged project workspace. main is the destination and future baseline. Archive tags preserve old branch tips; FutureDevelopment/README.md indexes shelved material. Release39/branch-audit.json records comparisons against all remote branches.",
@@ -86,11 +86,11 @@
   "changelog": [
     {
       "version": "41",
-      "status": "Final publication candidate",
+      "status": "Desktop and GitHub playtest published",
       "changes": "Candar negotiations, Ragusa private arrangements, distinct Gazaria/Caffa encounter, Copa compound/convoys/recruitment, Theodoro illustrated narrative encounter, Genoa/Venice visits.",
       "evidence": "Final Windows build/save validation passed. 169 exported-player diplomatic checks and 275 mercenary regression checks passed (444 focused checks). Five court screenshots reviewed at1280x720; layout/art assertions at1280x720 and1920x1080. Tests isolate saves.",
       "pending": "Theodoro numerical cooperation, reincorporation, Bank takeovers; Copa food quantity provisional100/week. Long campaign balance unverified.",
-      "publication": "Pending desktop copy, commit/push and GitHub ZIP receipt."
+      "publication": "Source 23aa5c988de4125ec947dcc27c68cfa1ddc74302 pushed to main. Desktop: C:\\Users\\Dainius\\Desktop\\Saving Constantinople - Version 41; matching desktop shortcut. Release https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v41. ZIP 1,249,279,154 bytes; SHA256 1f551806c71b6435b4793e9a907bc1e4b0cb472573b9cb42a3e67ccb5c793b04. No personal saves/captures included. Earlier builds preserved."
     },
     {
       "version": "40",

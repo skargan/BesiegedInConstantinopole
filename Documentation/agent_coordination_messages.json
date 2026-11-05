@@ -6,7 +6,7 @@
     ],
     "method": "Original send_message_to_thread tool-call prompts, restricted to named workstream IDs. Verbatim message body; transport timestamps in UTC. Identical sender, recipient and text merged with every occurrence retained. Delivery acknowledgement is not inferred.",
     "gaps": "OrbanX original session is not available in these local archives. Incoming-only deliveries and nonliteral dynamic prompts are not guaranteed captured. Other conversations and internal subagents are outside this archive.",
-    "unique_messages": 662,
+    "unique_messages": 663,
     "duplicate_occurrences": 0,
     "unparsed_calls": 4
   },
@@ -9276,6 +9276,20 @@
           "line": 21655,
           "call_id": "call_906200651b8e431881aec045e603ba12",
           "timestamp": "2026-11-05T01:33:10.259Z"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-05T01:43:03.897Z",
+      "sender": "ConstantineX",
+      "recipient": "JohanX",
+      "text": "This is ConstantineX — 5 November 2026, Europe/Bucharest. Update BLUF: Version 41 is published; source freeze lifted. Main source23aa5c9 includes your Genoa/Venice and Theodoro narrative/art. Desktop Saving Constantinople - Version41 + shortcut; GitHub https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v41 . 169 diplomatic checks +275 mercenary checks passed; court screenshots reviewed. Theodoro quantitative cooperation still pending user answer, reincorporation/Bank takeovers deferred. I am committing a docs-only publication receipt; no further game edits underway.",
+      "occurrences": [
+        {
+          "source": "C:\\Users\\Dainius\\.codex\\sessions\\2026\\09\\16\\rollout-2026-09-16T09-23-45-01a0a8e2-b837-7953-bbb3-acf52c000d0c.jsonl",
+          "line": 26950,
+          "call_id": "call_e121a2effd7a4f5387db9ab2d5bcf36e",
+          "timestamp": "2026-11-05T01:43:03.897Z"
         }
       ]
     }

@@ -1,0 +1,18 @@
+{
+  "release": {
+    "release": "https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v41",
+    "download": "https://github.com/skargan/BesiegedInConstantinopole/releases/download/v41/Saving-Constantinople-Version-41-Windows.zip",
+    "commit": "23aa5c988de4125ec947dcc27c68cfa1ddc74302",
+    "assetBytes": 1249279154
+  },
+  "package": {
+    "desktop": "C:\\Users\\Dainius\\Desktop\\Saving Constantinople - Version 41",
+    "zip": "C:\\Users\\Dainius\\.codex\\.chatgpt-projects\\g-p-6ac0165a668c81918bad6145652b1e89\\Saving-Constantinople-Version-41-Windows.zip",
+    "bytes": 1249279154,
+    "sha256": "1f551806c71b6435b4793e9a907bc1e4b0cb472573b9cb42a3e67ccb5c793b04"
+  },
+  "checks": {
+    "diplomacy": 169,
+    "mercenaries": 275
+  }
+}
