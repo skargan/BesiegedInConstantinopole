@@ -23,7 +23,7 @@ public static class RecruitmentLogistics
         }
     }
     public static int ExternalRegulars=>Math.Min(Serving,NonNegative("iMercForeignInfantry")+NonNegative("iMercForeignArchers")+NonNegative("iMercForeignCavalry"));
-    public static int AvailableManpower => Count((long)ManpowerPool - (Serving-ExternalRegulars) - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted);
+    public static int AvailableManpower => Count((long)ManpowerPool - (Serving-ExternalRegulars) - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted - RagusaDiplomacy.CommittedTroops);
     public static bool CanRecruit(string unit, int quantity)
     {
         if(quantity<=0)return false;

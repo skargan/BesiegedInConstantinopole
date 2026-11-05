@@ -51,3 +51,11 @@ Original OpenAI-generated mountain ruins and transparent vulture, installed in U
 
 ## Mehmed gift illustrations (5 November 2026)
 Eight original OpenAI-generated square still-life images in UI/Gifts. Prompts and original file provenance: gift-art-manifest.json. Presentation and validation: GIFT-GALLERY.md. No third-party imagery used.
+
+## Version 41 diplomatic expansion — 5 November 2026
+- Candar open/closed scenes: original OpenAI-generated artwork, files exec-73750897-a8d3-41df-bbff-4aadef1af557.png and exec-479b1dff-d3b0-4c42-9225-2e07ccc53776.png. Installed as Scenes/candar-open.png and candar-closed.png. Interpretive Sinop court/doorway; no exact reconstruction claimed. Hover silhouette traced against this artwork.
+- Copa port/compound: original OpenAI-generated artwork, corrected originals exec-625a8ae6-8966-415c-a26d-2a143cc1677c.png and exec-160f906a-dfc0-4003-96b8-9e5b37c8e92a.png. Installed as Scenes/copa-port.png and copa-compound.png. Earlier cartridge-tube anachronism rejected; final costumes corrected. Fictional meeting in an existing trading port.
+- Ragusa representative scenes: previously generated staged assets from ragusa-next/art/GazulusForeground.png and CotrugliForeground.png, now installed in UI/Diplomacy/Ragusa. Historical framing and voices preserved from ragusa-next/writing/history-and-voices.txt. Dialogue is fictional.
+- Caffa harbour: staged diplomatic-expansion/caffa-harbour.png, installed as Scenes/caffa-harbour.png. Generated artistic reconstruction; historical cast and limitations in diplomatic-expansion/historical-cast-and-rules.md.
+- Theodoro: staged theodoro/mangup.png, installed as Scenes/theodoro-mangup.png. Original generated artistic reconstruction, supplied by JohanX; THEODORO-NARRATIVE-HANDOFF.txt records scope.
+- No new third-party audio or photographs were added in this expansion. Existing mercenary company art reused for the Copa contract.

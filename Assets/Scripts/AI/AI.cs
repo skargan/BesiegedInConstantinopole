@@ -118,6 +118,8 @@ public class AI: MonoBehaviour
             VariableSingleton.SetInt("iLifeSurprise",0);
             if(VariableSingleton.GetIntVariable("iBazouks")>0){OttomanDirector.MarkAssault();AIBashiBazoukAssault();return;}
         }
+        // Paid Candar postponement applies only after supply, existing delays and forced attacks.
+        if(CandarDiplomacy.DelayOperation(planned,out var candarReport)){LastReport=candarReport;return;}
         string operationReport=OttomanSiegeOperations.Execute(this,planned);
         if(operationReport!=null)LastReport=operationReport;
     }

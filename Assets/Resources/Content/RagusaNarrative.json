@@ -1,0 +1,574 @@
+{
+  "realmTitle": "Ragusa — the realm and its interests",
+  "realmText": "Ragusa holds a narrow stretch of the Adriatic coast, its harbour opening onto routes far greater than its territory. The Republic acknowledges the Hungarian crown while governing its own affairs through its patrician councils. Its rector serves for only a month; an agreement with Ragusa must therefore rest on more than one man's goodwill.\n\nIn 1452–53 it is already at war with Stjepan Vukčić Kosača, whose forces have contested its lands around Konavle. Constantinople's danger is understood here, but the councillors have households and exposed possessions of their own. They will count what helping you might invite upon them.\n\nFor the Emperor, Ragusa's value lies in merchants, credit, shipping contacts and news carried along commercial routes. An official refusal may still leave room for a private agreement. Johannes Gazulus speaks with the caution of a diplomat entrusted with another man's instructions; Benedetto Cotrugli looks for a bargain that can actually be carried out. Neither can make the Senate's promises merely by standing beside its harbour.",
+  "characters": [
+    {
+      "id": "gazulus",
+      "name": "Johannes Gazulus",
+      "role": "Diplomat and scholar",
+      "description": "A Dominican astronomer employed on Ragusan diplomatic business. Gazulus measures his words with the care he gives his instruments. He can make a refusal sound final, then quietly identify the small, lawful opening through which something useful might still pass.",
+      "hover": [
+        "Benedetto has asked whether the stars favour the voyage. He has already hired the ship, so I imagine they had better.",
+        "You may trust his arithmetic. It is the little sentence beneath the arithmetic that requires attention.",
+        "He speaks as though bread travels from a field to a hungry man by the unaided grace of merchants. Still, it does arrive.",
+        "Benedetto is absent? Then we may discuss a matter without discovering that someone has already purchased it.",
+        "I have told him that a promise is binding even when no notary hears it. He asked whether the notary's fee could then be omitted.",
+        "He knows a captain for every difficulty. Ask who pays the captain if the difficulty becomes Turkish.",
+        "Benedetto says I take too long to answer. He has never had to bring a sentence home through three hostile courts.",
+        "His letters from Naples are useful. Read the account of the harbour before the account of his reception at court.",
+        "The Senate has given me precise instructions. Benedetto will be pleased; precise instructions have edges one can work around.",
+        "Do not mistake his bargaining for indifference. He dislikes waste, and a city full of people is a considerable thing to waste.",
+        "Yesterday he called our caution expensive. I asked him to price another war. He has been quieter this morning.",
+        "If he offers to settle the matter privately, ask what he intends to say when it becomes public. He usually has an answer."
+      ]
+    },
+    {
+      "id": "cotrugli",
+      "name": "Benedetto Cotrugli",
+      "role": "Merchant and commercial intermediary",
+      "description": "A Ragusan merchant with business across the Mediterranean and close ties to Naples. Cotrugli likes an agreement with names, dates and a captain responsible for the cargo. He enjoys mocking official caution, but relies upon it more than he admits.",
+      "hover": [
+        "Master Gazulus is still considering your request. A promising sign: he has stopped explaining why it cannot be considered.",
+        "Ask him what the Senate permits. Then ask me what the ship can carry. Those are separate questions; we prefer to keep them so.",
+        "He told me the heavens do not revolve around trade. I agreed. It saved a morning, and neither of us lost a customer.",
+        "When Gazulus says 'regrettably', stay seated. There are usually another two paragraphs before you learn what he has actually refused.",
+        "He knows kings, cardinals and the distances between stars. I know a warehouse with a sound roof. Today you may need us both.",
+        "He has made me remove the word 'guaranteed'. Fair enough. I had not yet spoken to the captain.",
+        "Gazulus thinks a seal improves a letter. I find it improves the price of carrying it through a blockade.",
+        "Our learned friend worries what will be written about us. I worry who will still be here to read it.",
+        "He has found a lawful objection. Give him a moment; he takes almost as much pleasure in finding a lawful way round it.",
+        "Do listen when he mentions the war at home. I complain about cautious men, but I do not offer to bury their sons.",
+        "He calls this a charitable undertaking. I have agreed to leave that heading in the accounts, provided the expenses may follow it.",
+        "You will get no rash promise from Gazulus. That is inconvenient at the table and comforting once you have left it."
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "id": "gazulus_opening",
+      "speaker": "Johannes Gazulus",
+      "text": "Gazulus finishes a line before rising. He leaves a strip of paper across the page, weighs it down with a brass instrument, and offers you the chair by the window. 'The Senate has read your appeal, Majesty. I have been asked to convey its profound concern.' He waits until the clerk has withdrawn. 'Now we may discuss what that concern might bear.'"
+    },
+    {
+      "id": "cotrugli_opening",
+      "speaker": "Benedetto Cotrugli",
+      "text": "Cotrugli is arguing with a man whose sleeves smell of wet rope. He settles the dispute by counting out three coins, then turns to you. 'A damaged cask. According to the porter it was damaged before he touched it; according to the owner it became damaged upon being touched. They will both be happy enough by supper. Have you come with a letter for the Republic, or a cargo that needs finding?'"
+    },
+    {
+      "id": "gazulus_official_refusal",
+      "speaker": "Johannes Gazulus",
+      "text": "'We have fields in Konavle which their owners cannot safely reach. The Senate will not promise you a war while it is occupied with its own.' Gazulus lays down the refusal with the seal towards you. 'I cannot change the answer by making it less plain. But a merchant's lawful cargo is another matter. If you intend to speak with Benedetto, do so before his ship leaves.'"
+    },
+    {
+      "id": "cotrugli_private_offer",
+      "speaker": "Benedetto Cotrugli",
+      "text": "'I cannot pledge Ragusa,' Cotrugli says. 'You would be buying something I do not own.' He takes a clean sheet and rules it into columns. 'I can ask which merchants have goods, which captains will take them, and what they require against the danger. There will be names on this paper. If any man fails you, you will at least know which name to curse.'"
+    },
+    {
+      "id": "cargo_agreed",
+      "speaker": "Benedetto Cotrugli",
+      "text": "Cotrugli reads the terms aloud, including the part everyone hoped he would overlook. Gazulus corrects one word concerning the Republic; Cotrugli corrects the freight. At last the merchant folds the paper. 'The captain will receive his instructions. Pray for a fair passage, Majesty. I have allowed for several difficulties, but I should prefer not to pay for all of them.'"
+    },
+    {
+      "id": "chair_gazulus",
+      "speaker": "Johannes Gazulus",
+      "text": "This month Gazulus has the chair. He has moved the accounts aside to make room for his instructions. Cotrugli, standing beside the window, points out that the accounts were also instructions. Gazulus invites you to sit before they pursue the distinction."
+    },
+    {
+      "id": "chair_cotrugli",
+      "speaker": "Benedetto Cotrugli",
+      "text": "Cotrugli has taken the chair and brought the table closer to the light. Gazulus remains within reach of the correspondence. 'A temporary arrangement,' the scholar says. 'Naturally,' replies Cotrugli. 'Almost everything profitable is.'"
+    },
+    {
+      "id": "food_denial_gazulus",
+      "speaker": "Johannes Gazulus",
+      "text": "'The Republic cannot imperil its relations with the Sultan by supplying Constantinople.' Gazulus gives the sentence its full weight, then puts the sealed answer aside. Your payment is entered in a merchant's account. 'There is, however, a captain leaving for Albania. Your harbourmaster should make him welcome if his business brings him further east.'"
+    },
+    {
+      "id": "food_denial_cotrugli",
+      "speaker": "Benedetto Cotrugli",
+      "text": "'Ragusa must decline,' Cotrugli says, signing the receipt for your money. He notices your expression. 'That is the Republic's answer. This is a purchase. An Albanian captain will attend to it, and I strongly advise against asking him why his cook speaks like my cousin.'"
+    },
+    {
+      "id": "food_albanian_arrival",
+      "speaker": "The harbourmaster",
+      "text": "A vessel from Albania unloads five hundred measures of provisions. Its captain is unusually anxious to establish that he has never met a Ragusan councillor. The harbourmaster hears him out while the porters count the sacks. At the bottom of the manifest, in a familiar hand, someone has written: 'Please acknowledge safe receipt. Privately.'"
+    },
+    {
+      "id": "war_contract_gazulus",
+      "speaker": "Johannes Gazulus",
+      "text": "Gazulus reads the terms back to you before sealing them. 'You are sending men whom your own walls may need. I shall not insult you by pretending the decision is small.' He checks the rolls against the agreement. Cotrugli has already summoned the clerk who will arrange their passage. For once, neither man has anything to add."
+    },
+    {
+      "id": "war_contract_cotrugli",
+      "speaker": "Benedetto Cotrugli",
+      "text": "Cotrugli turns the agreement so you can read it in the light. 'The service, the reward and the return passage are all here. I prefer an argument before a signature.' When you have signed, he sets the troop rolls beside the contract. Gazulus asks for a second copy to be made for the captain."
+    },
+    {
+      "id": "war_day90_victory",
+      "speaker": "Ragusan dispatch",
+      "text": "The dispatch carries good news and an order for payment. Your contingent has helped Ragusa prevail. The promised ten thousand gold is credited to your treasury; the soldiers are still abroad, awaiting the passage home. Gazulus's letter names the men commended by their officers. Cotrugli's addition is shorter: 'Their return has been arranged. Expect them in a fortnight.'"
+    },
+    {
+      "id": "war_day90_defeat",
+      "speaker": "Ragusan dispatch",
+      "text": "The first page describes positions abandoned and orders overtaken by events. The second gives the names. Your contingent has not brought Ragusa the victory it sought. The returning men remain abroad while passage is arranged. 'A fortnight,' Cotrugli writes. Below it, Gazulus has added: 'Their officers will give you a fuller account when they reach you.'"
+    },
+    {
+      "id": "war_day104_victory_return",
+      "speaker": "The returning contingent",
+      "text": "The transports enter the harbour with your men aboard. Their officers come ashore first, carrying the rolls and the Ragusan letters of commendation. The soldiers have been paid and have opinions about the wine. By evening they are back on the City's strength, telling their comrades how the fighting went."
+    },
+    {
+      "id": "war_day104_defeat_return",
+      "speaker": "The returning contingent",
+      "text": "Your men come ashore without a welcome procession. Their captain presents the rolls, then asks to speak where he cannot be overheard. There will be time to examine the orders and to decide where the fault lay. For now, those who have returned are entered back on the City's strength."
+    }
+  ],
+  "scenes": [
+    {
+      "foreground": "gazulus",
+      "resource": "UI/Diplomacy/Ragusa/GazulusForeground",
+      "characters": [
+        {
+          "id": "gazulus",
+          "hitPriority": 20,
+          "polygon": [
+            {
+              "x": 0.228,
+              "y": 0.791
+            },
+            {
+              "x": 0.266,
+              "y": 0.764
+            },
+            {
+              "x": 0.285,
+              "y": 0.71
+            },
+            {
+              "x": 0.287,
+              "y": 0.627
+            },
+            {
+              "x": 0.279,
+              "y": 0.573
+            },
+            {
+              "x": 0.289,
+              "y": 0.533
+            },
+            {
+              "x": 0.318,
+              "y": 0.507
+            },
+            {
+              "x": 0.334,
+              "y": 0.455
+            },
+            {
+              "x": 0.368,
+              "y": 0.396
+            },
+            {
+              "x": 0.387,
+              "y": 0.323
+            },
+            {
+              "x": 0.398,
+              "y": 0.255
+            },
+            {
+              "x": 0.348,
+              "y": 0.23
+            },
+            {
+              "x": 0.258,
+              "y": 0.24
+            },
+            {
+              "x": 0.21,
+              "y": 0.206
+            },
+            {
+              "x": 0.09,
+              "y": 0.16
+            },
+            {
+              "x": 0.0,
+              "y": 0.12
+            },
+            {
+              "x": 0.0,
+              "y": 0.242
+            },
+            {
+              "x": 0.03,
+              "y": 0.375
+            },
+            {
+              "x": 0.066,
+              "y": 0.49
+            },
+            {
+              "x": 0.105,
+              "y": 0.554
+            },
+            {
+              "x": 0.157,
+              "y": 0.595
+            },
+            {
+              "x": 0.156,
+              "y": 0.672
+            },
+            {
+              "x": 0.154,
+              "y": 0.719
+            },
+            {
+              "x": 0.169,
+              "y": 0.753
+            },
+            {
+              "x": 0.191,
+              "y": 0.779
+            }
+          ]
+        },
+        {
+          "id": "cotrugli",
+          "hitPriority": 10,
+          "polygon": [
+            {
+              "x": 0.363,
+              "y": 0.919
+            },
+            {
+              "x": 0.41,
+              "y": 0.922
+            },
+            {
+              "x": 0.438,
+              "y": 0.889
+            },
+            {
+              "x": 0.439,
+              "y": 0.819
+            },
+            {
+              "x": 0.427,
+              "y": 0.768
+            },
+            {
+              "x": 0.448,
+              "y": 0.726
+            },
+            {
+              "x": 0.461,
+              "y": 0.676
+            },
+            {
+              "x": 0.474,
+              "y": 0.61
+            },
+            {
+              "x": 0.501,
+              "y": 0.563
+            },
+            {
+              "x": 0.528,
+              "y": 0.514
+            },
+            {
+              "x": 0.535,
+              "y": 0.469
+            },
+            {
+              "x": 0.523,
+              "y": 0.425
+            },
+            {
+              "x": 0.503,
+              "y": 0.44
+            },
+            {
+              "x": 0.498,
+              "y": 0.477
+            },
+            {
+              "x": 0.493,
+              "y": 0.351
+            },
+            {
+              "x": 0.495,
+              "y": 0.221
+            },
+            {
+              "x": 0.42,
+              "y": 0.209
+            },
+            {
+              "x": 0.391,
+              "y": 0.292
+            },
+            {
+              "x": 0.365,
+              "y": 0.392
+            },
+            {
+              "x": 0.337,
+              "y": 0.47
+            },
+            {
+              "x": 0.295,
+              "y": 0.528
+            },
+            {
+              "x": 0.275,
+              "y": 0.598
+            },
+            {
+              "x": 0.292,
+              "y": 0.673
+            },
+            {
+              "x": 0.327,
+              "y": 0.737
+            },
+            {
+              "x": 0.346,
+              "y": 0.78
+            },
+            {
+              "x": 0.345,
+              "y": 0.847
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "foreground": "cotrugli",
+      "resource": "UI/Diplomacy/Ragusa/CotrugliForeground",
+      "characters": [
+        {
+          "id": "cotrugli",
+          "hitPriority": 20,
+          "polygon": [
+            {
+              "x": 0.195,
+              "y": 0.799
+            },
+            {
+              "x": 0.245,
+              "y": 0.789
+            },
+            {
+              "x": 0.275,
+              "y": 0.742
+            },
+            {
+              "x": 0.277,
+              "y": 0.689
+            },
+            {
+              "x": 0.263,
+              "y": 0.626
+            },
+            {
+              "x": 0.259,
+              "y": 0.583
+            },
+            {
+              "x": 0.283,
+              "y": 0.529
+            },
+            {
+              "x": 0.316,
+              "y": 0.488
+            },
+            {
+              "x": 0.334,
+              "y": 0.433
+            },
+            {
+              "x": 0.367,
+              "y": 0.384
+            },
+            {
+              "x": 0.393,
+              "y": 0.316
+            },
+            {
+              "x": 0.408,
+              "y": 0.223
+            },
+            {
+              "x": 0.333,
+              "y": 0.214
+            },
+            {
+              "x": 0.246,
+              "y": 0.216
+            },
+            {
+              "x": 0.131,
+              "y": 0.167
+            },
+            {
+              "x": 0.0,
+              "y": 0.129
+            },
+            {
+              "x": 0.0,
+              "y": 0.256
+            },
+            {
+              "x": 0.035,
+              "y": 0.385
+            },
+            {
+              "x": 0.061,
+              "y": 0.476
+            },
+            {
+              "x": 0.092,
+              "y": 0.532
+            },
+            {
+              "x": 0.145,
+              "y": 0.579
+            },
+            {
+              "x": 0.139,
+              "y": 0.654
+            },
+            {
+              "x": 0.14,
+              "y": 0.72
+            },
+            {
+              "x": 0.148,
+              "y": 0.761
+            }
+          ]
+        },
+        {
+          "id": "gazulus",
+          "hitPriority": 10,
+          "polygon": [
+            {
+              "x": 0.37,
+              "y": 0.912
+            },
+            {
+              "x": 0.407,
+              "y": 0.906
+            },
+            {
+              "x": 0.43,
+              "y": 0.873
+            },
+            {
+              "x": 0.437,
+              "y": 0.827
+            },
+            {
+              "x": 0.425,
+              "y": 0.777
+            },
+            {
+              "x": 0.412,
+              "y": 0.754
+            },
+            {
+              "x": 0.437,
+              "y": 0.724
+            },
+            {
+              "x": 0.457,
+              "y": 0.671
+            },
+            {
+              "x": 0.476,
+              "y": 0.605
+            },
+            {
+              "x": 0.504,
+              "y": 0.554
+            },
+            {
+              "x": 0.525,
+              "y": 0.509
+            },
+            {
+              "x": 0.531,
+              "y": 0.456
+            },
+            {
+              "x": 0.516,
+              "y": 0.409
+            },
+            {
+              "x": 0.498,
+              "y": 0.434
+            },
+            {
+              "x": 0.494,
+              "y": 0.472
+            },
+            {
+              "x": 0.486,
+              "y": 0.347
+            },
+            {
+              "x": 0.474,
+              "y": 0.199
+            },
+            {
+              "x": 0.416,
+              "y": 0.201
+            },
+            {
+              "x": 0.386,
+              "y": 0.285
+            },
+            {
+              "x": 0.36,
+              "y": 0.395
+            },
+            {
+              "x": 0.331,
+              "y": 0.478
+            },
+            {
+              "x": 0.288,
+              "y": 0.547
+            },
+            {
+              "x": 0.268,
+              "y": 0.6
+            },
+            {
+              "x": 0.281,
+              "y": 0.67
+            },
+            {
+              "x": 0.314,
+              "y": 0.724
+            },
+            {
+              "x": 0.355,
+              "y": 0.765
+            },
+            {
+              "x": 0.354,
+              "y": 0.828
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -62,7 +62,7 @@ public static class CountryDiplomacy
             case "crimean_khanate":id="crimea";break;
             case "mamluk_sultanate":case "mamluk":id="mamluks";break;
             case "turkmen_confederations":id="aq_qoyunlu";break;
-            case "gazaria":case "genoa_crimea":case "genoese_crimea":id="genoa";break;
+            case "caffa":case "genoa_crimea":case "genoese_crimea":id="gazaria";break;
         }
         return Array.FindIndex(Definitions,d=>string.Equals(d.Id,id,StringComparison.OrdinalIgnoreCase));
     }
@@ -185,6 +185,7 @@ public static class CountryDiplomacy
     public static string RenewReason(int i,bool war)
     {
         Ensure();if(!Valid(i))return "Unknown court";
+        if(!war&&Definitions[i].Id=="ragusa")return "Ragusa uses monthly private provision arrangements, not renewed state aid appeals.";
         if(Definitions[i].Id=="ionian_tocco")return "The Ionian Isles negotiate shelter and exile, not relief appeals";
         if(ReadEnvoy(i)!=2)return "Requires a resident envoy";
         if(RenewalDays(i,war)>0)return "This appeal is already being renewed";
@@ -203,6 +204,8 @@ public static class CountryDiplomacy
     public static string AidRequestReason(int i)
     {
         Ensure();if(!Valid(i))return "Unknown court";
+        if(Definitions[i].Id=="gazaria")return "The consul has made no commitment of state aid";
+        if(Definitions[i].Id=="ragusa")return "Ragusa arranges private monthly provisions through its representatives.";
         if(Definitions[i].Id=="hospitallers"&&MercenaryContracts.RhodianReserved)return "The Rhodian detachment is committed through the mercenary brokers";
         if(Definitions[i].Id=="ionian_tocco")return "The Ionian Isles negotiate shelter and exile, not ordinary aid";
         int state=DailyLifeEvents.I("iAidState"+i);

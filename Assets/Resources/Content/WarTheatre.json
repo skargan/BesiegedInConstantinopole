@@ -14229,7 +14229,7 @@
         "y": 0.8038067349926794
       },
       "role": "",
-      "group": "genoa",
+      "group": "gazaria",
       "note": "Genoese colony of Gazaria; shares diplomacy with Genoa.",
       "front": {
         "x": 0.62451171875,
@@ -15771,7 +15771,7 @@
       "id": "gazaria",
       "name": "Genoese Gazaria",
       "kind": "island",
-      "group": "genoa",
+      "group": "gazaria",
       "role": "",
       "note": "Genoese coastal colonies of southern Crimea. The interior and the Principality of Theodoro are not claimed as Genoese territory.",
       "points": [

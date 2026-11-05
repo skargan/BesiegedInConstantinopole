@@ -31,6 +31,7 @@ public static class MercenaryRoster
  new Company("The Adriatic Brotherhood","Maro of the Islands","Adriatic mariners","Venice",24,120,80,0,2,1.30),
  new Company("The Moreote Exiles","Andronikos of the South","Moreote retainers and households","Malta",22,180,60,60,0,1.25,0,0,0,true),
  new Company("The Rhodian Detachment","Brother Antoine","Hospitaller sergeants and sailors","Cyprus",18,120,60,0,1,1.25,0,0,0,false,true),
- new Company("The Master’s Train","Master Paolo","Gun founders and armed escort","Venice",45,100,0,0,0,1.50,0,10,2)
+ new Company("The Master’s Train","Master Paolo","Gun founders and armed escort","Venice",45,100,0,0,0,1.50,0,10,2),
+ new Company("The Kuban Household","Aslan of the Ford","Circassian retainers · Copa","Caffa",20,120,100,60,0,1.35)
  };
 }

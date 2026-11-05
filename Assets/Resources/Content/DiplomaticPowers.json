@@ -906,6 +906,34 @@
       "ShipmentBudget": 0,
       "StoryPrerequisite": "",
       "BalanceNote": "Version36.13 editable playtest defaults. Initial attitude/goodwill for Ragusa, Ionian lordships and Theodoro follow approved values; packages and journey times are game balance values, not historical claims. Transport ships do not join the fleet."
+    },
+    {
+      "Id": "gazaria",
+      "Name": "Genoese Gazaria / Caffa",
+      "Description": "Genoese ports on the Black Sea, governed through Caffa and distinct from the Ligurian republic.",
+      "StartingGoodwill": 50,
+      "StartingAttitude": 2,
+      "EnvoyDays": 20,
+      "UnionFull": -10,
+      "UnionSymbolic": 0,
+      "UnionRejected": 5,
+      "Catholic": true,
+      "AidDays": 24,
+      "AidBySea": true,
+      "Infantry": 0,
+      "Archers": 0,
+      "Cavalry": 0,
+      "LegacyTransportShips": 0,
+      "Gold": 0,
+      "Provisions": 0,
+      "WarEligible": false,
+      "MobilisationDays": 0,
+      "InterventionType": "",
+      "TargetProvinces": [],
+      "DelayDays": 0,
+      "ShipmentBudget": 0,
+      "StoryPrerequisite": "",
+      "BalanceNote": "Distinct encounter; Bank takeover routes deferred. No ordinary aid package."
     }
   ]
 }

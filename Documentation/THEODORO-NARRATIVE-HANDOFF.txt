@@ -1,0 +1,36 @@
+THEODORO — NARRATIVE ENCOUNTER HANDOFF, VERSION 41
+5 November 2026
+
+Implemented ONLY in CouncilTheodoroUI.cs and theodoro-mangup.png + metadata.
+Public entry point: CouncilUI.TheodoroCourt(). Country index remains the existing
+CountryDiplomacy.Index("theodoro") = 30. No allied arrays, shared map routing,
+calendar, goodwill, troop, technology or contract mechanics were changed.
+
+MAIN DESIGNER HOOK
+In UnifiedDiplomaticPower(int index), after validating the index and alongside
+other special court routes, add:
+if(CountryDiplomacy.Definitions[index].Id=="theodoro"){TheodoroCourt();return;}
+The existing map uses DiplomaticPower(country), so it will inherit this route.
+No new province polygon, extra country or independent aid pool is required.
+
+Screen uses staged theodoro/mangup.png, copied to resource path:
+UI/MidnightMosaic/Scenes/theodoro-mangup
+Painting is an artistic reconstruction, not a documented view of a specific room.
+Right-side desk: existing attitude/envoy state; realm; imperial ties conversation;
+mounted-archery cooperation conversation; disabled reincorporation/hiring-house
+options; existing aid/expedite and envoy/recall review buttons; Return.
+Existing buttons delegate to existing ReviewDiplomaticOrder/OrderReason handlers.
+The prior generic aid and envoy travel rules are preserved, not replaced.
+
+No numerical proposal has been enabled. The narrative states that a resident envoy
+and an open Black Sea route are needed for the proposed new agreements. The main
+workstream owns the eventual shared dispatch/gating rules after user approval.
+Do not treat this text as a backend strait gate on existing generic aid/dispatch.
+
+Deferred by main designer's latest scope: reincorporation, mercenary hub, goodwill
+reward, archery bonus, mounted-archery technology, cavalry sortie/contract. Main
+asked user to decide provisional terms; do not enable either competing proposal
+silently. No new troop type or stat has been created.
+
+Validation: standalone runtime compiler passed. Unity visual/click checks pending
+in the combined Version41 build; source-level compilation is not a playtest.

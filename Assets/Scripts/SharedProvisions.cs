@@ -17,7 +17,7 @@ public static class SharedProvisions
     public static long OttomanPeople=>Land.Sum(k=>(long)Math.Max(0,I(k)));
     // City population is inclusive of the garrison. Recruiting residents does not add mouths.
     public static long CityPeople=>Math.Max(PopulationAccounting.People,(long)RecruitmentLogistics.Serving+RecruitmentLogistics.Queued+Math.Max(0,I("iVarangians"))+MedicalRecovery.RegularWounded);
-    public static double CityDemand=>CityPeople/1000d;
+    public static double CityDemand=>Math.Max(0,CityPeople-RagusaDiplomacy.PeopleAbroad)/1000d;
     public static double OttomanDemand=>OttomanPeople/1000d;
     public static double ReferenceDemand {get {Ensure();return I("iProvisionReferencePeople")/1000d;}}
     public static string Format(double amount)=>amount.ToString("N3",CultureInfo.InvariantCulture).TrimEnd('0').TrimEnd('.');

@@ -20,7 +20,7 @@ public static class MercenaryContracts
  public static int Pending=>Enumerable.Range(0,MercenaryRoster.All.Length).Count(i=>State(i)==Status.Decision||State(i)==Status.Payment);
  public static int Rhodian=>Array.FindIndex(MercenaryRoster.All,c=>c.Order);
  public static bool RhodianReserved=>State(Rhodian)!=Status.Unhired;
- public static int[] Offers {get {int month=VariableSingleton.GetDate().Year*12+VariableSingleton.GetDate().Month;var regular=Enumerable.Range(0,MercenaryRoster.All.Length).Where(i=>!MercenaryRoster.All[i].Sanctuary&&!MercenaryRoster.All[i].Order).ToArray();var offers=Enumerable.Range(0,4).Select(i=>regular[(month*4+i)%regular.Length]).ToList();offers.Add(month%2==0?17:18);return offers.ToArray();}}
+ public static int[] Offers {get {int month=VariableSingleton.GetDate().Year*12+VariableSingleton.GetDate().Month;var regular=Enumerable.Range(0,MercenaryRoster.All.Length).Where(i=>i<20&&!MercenaryRoster.All[i].Sanctuary&&!MercenaryRoster.All[i].Order).ToArray();var offers=Enumerable.Range(0,4).Select(i=>regular[(month*4+i)%regular.Length]).ToList();offers.Add(month%2==0?17:18);return offers.ToArray();}}
  public static int PatrolRisk=>NavalState.Dominance==NavalState.Control.Ottoman?12:NavalState.Dominance==NavalState.Control.Contested?6:0;
  public static int StraitRisk(int id)=>MercenaryRoster.All[id].Port=="Caffa"&&!VariableSingleton.GetBoolVariable("bStraitsOpen")?(MercenaryRoster.All[id].Flotilla?15:50):0;
  public static int SafeChance(int id)=>Math.Max(0,100-(MercenaryRoster.All[id].Flotilla?1:5)-MercenaryRoster.All[id].Risk-PatrolRisk-StraitRisk(id));
@@ -57,6 +57,7 @@ public static class MercenaryContracts
  if(defect){VariableSingleton.ChangeInt("iBazouks",c.Land);reason+=" "+c.Land+" land combatants join the Ottoman infantry.";}
  DecisionJournal.Record("merc-end-"+id,c.Name,reason,true);Put(id,"Ended",Today);
  }
+ public static void FailedLocalNegotiation(int id,string reason)=>Lose(id,reason);
  public static string IncidentTitle(Incident kind)=>kind==Incident.Storm?"Horrible Storm":kind==Incident.OffCourse?"Blown off Course":kind==Incident.Evasion?"Ottoman Fleet: Evading Patrols":kind==Incident.Battle?"Ottoman Fleet: An Unequal Battle":kind==Incident.Straits?"Ambush in the Straits":kind==Incident.Disputed?"Unreliable Mercenaries: A Disputed Command":kind==Incident.Chaotic?"Unreliable Mercenaries: An Unexpected Engagement":"Unreliable Mercenaries: "+kind;
  public static string IncidentText(int id)
  {

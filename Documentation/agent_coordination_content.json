@@ -1,7 +1,7 @@
 {
   "title": "AGENT COORDINATION",
   "subtitle": "Saving Constantinople development instructions and handovers",
-  "snapshot": "5 November 2026 — Version 40 base-game mercenary publication",
+  "snapshot": "5 November 2026 — Version 41 diplomatic expansion publication candidate",
   "sections": [
     [
       "AGENT INSTRUCTIONS",
@@ -31,7 +31,8 @@
         "New CouncilChamber is decorative UI, loaded from Resources with editable JSON candle anchors. It is clipped and non-interactive, pauses when hidden and supports still presentation. Its capture checks cover campaign/RNG isolation and navigation.",
         "The campaign Decision Journal was published in Version 37: daily notes and persistent decision records, a council entry, and save-state inclusion. It is separate from the assault journal. Our Turks decision records are integrated in Version 39.1; final epilogue integration remains future work.",
         "Version 38 uses SharedProvisions as the common physical-food ledger for city, Ottoman camp, provincial reserves and convoy cargo, preserving fractions through existing campaign values. ProvincialWar debits reserves at departure and transfers surviving cargo on arrival. Medical treatment adds its selected food charge. Version 38 compiled, passed 149 focused runtime checks and was desktop published; a full long-campaign balance pass remains future work.",
-        "Event artwork is manifest-driven through EventCardArt and EventArtworkView. The picture lives in an inset RectMask2D viewport; gold framing remains outside that mask. Contain/cover and enlarged-view behaviour remain unchanged. Asset generation specifications do not add game mechanics, parallel asset registries or a new loading system."
+        "Event artwork is manifest-driven through EventCardArt and EventArtworkView. The picture lives in an inset RectMask2D viewport; gold framing remains outside that mask. Contain/cover and enlarged-view behaviour remain unchanged. Asset generation specifications do not add game mechanics, parallel asset registries or a new loading system.",
+        "Version41: CountryDiplomacy adds gazaria at index31 without shifting earlier IDs; caffa aliases now resolve there. Ottoman candar province remains Paphlagonia; Sinop is a separate court marker. Ragusa service reserves troops abroad and removes their daily city rations; survivors use TrainingPool expeditionReturn. Copa uses saved per-voyage cargo and SharedProvisions reserve; its mercenary definition index20 reuses existing contract lifecycle. No second country or food system."
       ]
     ],
     [
@@ -59,6 +60,7 @@
     [
       "COORDINATION",
       [
+        "ConstantineX — 5 November2026: Version41 integrates Candar, Ragusa, Caffa/Gazaria, Copa and narrative Theodoro. JohanX supplied Theodoro UI/art and Genoa/Venice visits. Source freeze active for final tests/publication. No shared editing until receipt. Pending numerical Theodoro terms and Copa food quantity; current provisional100/week. Bank takeovers and reincorporation remain deferred. See DIPLOMATIC-EXPANSION-INTEGRATION.md.",
         "ConstantineX — 4 November 2026: technology discovery room implemented and private preview built. DiscoveryCapture passed 208 runtime checks, including save/load, no duplicate rewards, eligibility, rail/cursor, pointer occlusion and four resolutions. See Documentation/DiscoveryAssets/Verification/HANDOVER.txt. Sources: Documentation/ASSET SOURCES.md. No public release; Word refresh queued for publication. JohanX owns new map presentation work.",
         "This is ConstantineX — 20:41, 4 November 2026, Europe/Bucharest. Update BLUF: Version 39 is published on GitHub; main is the sole local and remote branch. All eight focused exported-player suites passed. Download and provenance: Documentation/Release39/publication.json.",
         "Authoritative repository: skargan/BesiegedInConstantinopole. Consolidation checkout: consolidation in the Besieged project workspace. main is the destination and future baseline. Archive tags preserve old branch tips; FutureDevelopment/README.md indexes shelved material. Release39/branch-audit.json records comparisons against all remote branches.",
@@ -82,6 +84,14 @@
     ]
   ],
   "changelog": [
+    {
+      "version": "41",
+      "status": "Final publication candidate",
+      "changes": "Candar negotiations, Ragusa private arrangements, distinct Gazaria/Caffa encounter, Copa compound/convoys/recruitment, Theodoro illustrated narrative encounter, Genoa/Venice visits.",
+      "evidence": "Final Windows build/save validation passed. 169 exported-player diplomatic checks and 275 mercenary regression checks passed (444 focused checks). Five court screenshots reviewed at1280x720; layout/art assertions at1280x720 and1920x1080. Tests isolate saves.",
+      "pending": "Theodoro numerical cooperation, reincorporation, Bank takeovers; Copa food quantity provisional100/week. Long campaign balance unverified.",
+      "publication": "Pending desktop copy, commit/push and GitHub ZIP receipt."
+    },
     {
       "version": "40",
       "status": "Desktop and GitHub published",

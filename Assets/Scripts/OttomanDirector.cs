@@ -45,6 +45,7 @@ public static class OttomanDirector
         Operation chosen=Operation.Reconnaissance;
         if(weights.Length>0){int roll=UnityEngine.Random.Range(0,weights.Sum(r=>r.Weight));foreach(var r in weights){roll-=r.Weight;if(roll<0){chosen=r.Op;break;}}}
         if(VariableSingleton.Instance.EnduringWall.GetHealth()<=0)chosen=Operation.Advance;else if(SharedProvisions.Stock(SharedProvisions.Camp)<SharedProvisions.OttomanDemand)chosen=Operation.Resupply;else if(Own("iEnemyDelay")>0)chosen=Operation.AwaitOrders;
+        else if(CandarDiplomacy.DeferredOperation(out var deferred))chosen=deferred;
         Set("Plan",(int)chosen);Set("PlanTurn",VariableSingleton.Turn);
     }
     static void Reassess()

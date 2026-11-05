@@ -14,7 +14,7 @@ public static class DiplomaticArtwork
     static readonly Dictionary<string,Entry> cache=new Dictionary<string,Entry>();
     static Dictionary<string,Crop> crops;static int clock;
     public static int CachedCount=>cache.Count;
-    public static string CourtId(string id)=>id=="ionian_lordships"?"ionian_tocco":(id??"").ToLowerInvariant();
+    public static string CourtId(string id)=>id=="gazaria"?"genoa":id=="ionian_lordships"?"ionian_tocco":(id??"").ToLowerInvariant();
     public static Image DrawFlag(Transform parent,string id,Vector2 min,Vector2 max)=>Draw(parent,"Flags/"+CourtId(id),min,max);
     public static Image DrawAttitude(Transform parent,string attitude,Vector2 min,Vector2 max)=>Draw(parent,"Attitudes/"+(attitude??"neutral").ToLowerInvariant(),min,max);
     static Image Draw(Transform parent,string key,Vector2 min,Vector2 max)

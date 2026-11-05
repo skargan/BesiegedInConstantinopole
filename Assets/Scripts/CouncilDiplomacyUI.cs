@@ -29,6 +29,7 @@ public partial class CouncilUI
     void DiplomacyAttitude(Transform parent,int index,Vector2 min,Vector2 max)=>DiplomaticArtwork.DrawAttitude(parent,CountryDiplomacy.Attitude(index).ToString(),min,max);
     string AidStanding(int index)
     {
+        if(CountryDiplomacy.Definitions[index].Id=="ragusa")return RagusaDiplomacy.FoodStatus+"\n"+RagusaDiplomacy.ContractStatus;
         if(IonianDiplomacy.IsCountry(index))return IonianDiplomacy.Standing;
         int state=DailyLifeEvents.I("iAidState"+index);
         if(state==1)return "Aid due in "+DailyLifeEvents.I("iAidDays"+index)+" days";
@@ -38,11 +39,15 @@ public partial class CouncilUI
     }
     void UnifiedDiplomaticRelations()
     {
-        CountryDiplomacy.Ensure();int total=CountryDiplomacy.Definitions.Length,perPage=8,pages=(total+perPage-1)/perPage;
+        CountryDiplomacy.Ensure();int total=CountryDiplomacy.Definitions.Length+1,perPage=8,pages=(total+perPage-1)/perPage;
         diplomacyPage=Mathf.Clamp(diplomacyPage,0,pages-1);
         var stage=DiplomacyPage("Diplomatic relations","Choose a court. Aid appeals need no envoy; resident envoys open deeper negotiations.",Diplomacy);
         for(int n=0;n<perPage&&diplomacyPage*perPage+n<total;n++) {
             int index=diplomacyPage*perPage+n;float left=(n%2)*.505f,top=1-(n/2)*.222f;
+            if(index==CountryDiplomacy.Definitions.Length) {
+                var special=CandarPlainButton(stage,"Candar · İsmail Bey\n"+(CandarDiplomacy.Unlocked?"Secret negotiations":"Hostile · a guarded door"),new Vector2(left,top-.207f),new Vector2(left+.495f,top),CandarCourt);
+                special.gameObject.name="Diplomatic court candar";continue;
+            }
             var tile=CampaignHUD.MakeButton(stage,"",new Vector2(left,top-.207f),new Vector2(left+.495f,top),()=>DiplomaticPower(index));
             tile.GetComponentInChildren<TMP_Text>().gameObject.SetActive(false);ImperialTheme.Button(tile);
             tile.gameObject.name="Diplomatic court "+CountryDiplomacy.Definitions[index].Id;
@@ -65,6 +70,9 @@ public partial class CouncilUI
     }
     void UnifiedDiplomaticPower(int index)
     {
+        if(index>=0&&index<CountryDiplomacy.Definitions.Length&&CountryDiplomacy.Definitions[index].Id=="theodoro"){TheodoroCourt();return;}
+        if(index>=0&&index<CountryDiplomacy.Definitions.Length&&CountryDiplomacy.Definitions[index].Id=="gazaria"){GazariaCourt();return;}
+        if(index>=0&&index<CountryDiplomacy.Definitions.Length&&CountryDiplomacy.Definitions[index].Id=="ragusa"){RagusanCourt();return;}
         if(index<0||index>=CountryDiplomacy.Definitions.Length){DiplomaticRelations();return;}
         if(IonianDiplomacy.IsCountry(index)){IonianCourt();return;}
         var d=CountryDiplomacy.Definitions[index];var ally=CouncilActions.Allies[index];
