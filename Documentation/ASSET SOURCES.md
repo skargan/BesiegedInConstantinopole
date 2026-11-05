@@ -78,3 +78,6 @@ Archery revision replaces exec-c1a72cfa-98ff-44df-a48b-9b1926b43d8c.png: archers
 
 ## Fleet orders command room — 5 November2026
 Original OpenAI-generated fleet-orders.png, source exec-54f6bfea-3230-4258-8dbe-383727d05565.png. Captain and lieutenant studying charts, with astrolabe and compass; no looking glass or modern navigation instruments. Installed Scenes/fleet-orders.png. Historical-fiction illustration, no external photograph copied.
+
+## Senate landmarks — 5 November 2026
+OpenAI image generation edit of the existing original Senate painting. Output exec-3c663de1-fe7c-4926-991a-63fb3320ccff.png installed as Scenes/senate-landmarks.png; original senate.png retained. Enlarged fictional research tower with astronomical instrument and Byzantine galley under construction at the quay. Foreground delegations, emperor and Hagia Sophia composition preserved. No third-party imagery incorporated. This is historical-fiction scenery, not a claim about the actual 1453 Senate chamber or these landmarks' sightlines. Hand-traced interaction coordinates are in SenateHotspots.cs.
