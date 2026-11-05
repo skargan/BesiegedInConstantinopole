@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 39.1 · Saving Constantinople";
+    public const string BuildLabel="Version 40 · Saving Constantinople";
 
 
 
@@ -143,7 +143,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest","Defence of the walls","Society and politics","Diplomacy and court","Technologies","Treasury and market"};
+        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest","Defence of the walls","The Senate","Diplomacy and court","Technologies","Treasury and market"};
 
 
 
@@ -343,6 +343,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
+        Achievements.CheckCampaign();
         Hide();ActionResults.Instance.Message=result;manager.CompleteAction();
 
 
@@ -354,69 +355,7 @@ public partial class CouncilUI : MonoBehaviour
     // Legacy navigation bindings now open the five civic measures directly.
     public void Factions()=>CivicRelations();
 
-    public void CivicRelations()
-
-
-
-    {
-
-
-
-        Open("Society and politics","Army morale, public morale, noble support, clergy support and Galata relations. Audiences cost 300 gold and improve their measure by 3 points.");
-
-
-
-        ControlSingleton.Instance.ReturnAction=()=>{Hide();manager.gameObject.SetActive(true);};
-
-        BodyHeight(5*120);
-
-
-
-        for(int i=0;i<5;i++)
-
-
-
-        {
-
-
-
-            int choice=i;var row=Row(i,120);
-
-
-
-            CampaignHUD.Label(row.transform,CouncilActions.FactionNames[i]+" — "+VariableSingleton.GetPercentFloat(CouncilActions.FactionKeys[i]),new Vector2(.02f,.66f),new Vector2(.66f,.96f),27);
-
-
-
-            CampaignHUD.Explanation(row.transform,CouncilActions.FactionDescriptions[i],new Vector2(.02f,.08f),new Vector2(.65f,.64f),21);
-
-
-
-            if(i==4) {
-
-                CampaignHUD.MakeButton(row.transform,"Send a gift",new Vector2(.67f,.12f),new Vector2(.82f,.88f),()=>ReviewFaction(4));
-
-                CampaignHUD.MakeButton(row.transform,"Galata relations",new Vector2(.83f,.12f),new Vector2(.99f,.88f),Galata);
-
-                continue;
-
-            }
-
-            var button=CampaignHUD.MakeButton(row.transform,CouncilActions.FactionOrders[i]+"\n300 gold · +3 points",new Vector2(.68f,.12f),new Vector2(.98f,.88f),()=>ReviewFaction(choice));
-
-
-
-            button.interactable=CouncilActions.Int("iMoney")>=300 && VariableSingleton.GetFloatVariable(CouncilActions.FactionKeys[i])<1;
-
-
-
-        }
-
-
-
-    }
-
-
+    public void CivicRelations() => ShowSenate();
 
     public void ReviewFaction(int index)
 
@@ -690,7 +629,8 @@ public partial class CouncilUI : MonoBehaviour
         CampaignHUD.MakeButton(links.transform,"Court and characters",new Vector2(.04f,.29f),new Vector2(.48f,.49f),Court);
 
         CampaignHUD.MakeButton(links.transform,"Galata relations",new Vector2(.52f,.29f),new Vector2(.96f,.49f),Galata);
-        CampaignHUD.MakeButton(links.transform,"War Beyond the Walls · theatre map",new Vector2(.04f,.05f),new Vector2(.96f,.25f),WarTheatreUI.Show);
+        CampaignHUD.MakeButton(links.transform,"Theatre map",new Vector2(.04f,.05f),new Vector2(.48f,.25f),WarTheatreUI.Show);
+        CampaignHUD.MakeButton(links.transform,"Mercenary brokers"+(MercenaryContracts.Pending>0?" · "+MercenaryContracts.Pending:""),new Vector2(.52f,.05f),new Vector2(.96f,.25f),()=>MercenaryUI.Show());
 
     }
 
@@ -748,23 +688,10 @@ public partial class CouncilUI : MonoBehaviour
     }
 
     public void SultanGiftMenu() {
-        Open("Gifts for Mehmed","Choose a gift to review. Nothing is spent until you confirm. A return gift is possible.");
-        ControlSingleton.Instance.ReturnAction=Sultan;
-        BodyHeight(8*180);
-        for(int i=0;i<SultanGifts.Gifts.Length;i++) {
-            int choice=i;var g=SultanGifts.Gifts[i];var row=Row(i,180);
-            CampaignHUD.Label(row.transform,g.Name,new Vector2(.03f,.69f),new Vector2(.72f,.95f),26);
-            CampaignHUD.Explanation(row.transform,g.Description+"\n"+g.Cost+" · Sultan's fury −"+g.Fury+" points",new Vector2(.03f,.08f),new Vector2(.72f,.68f),22);
-            CampaignHUD.MakeButton(row.transform,"Review gift",new Vector2(.76f,.23f),new Vector2(.97f,.77f),()=>ReviewSultanGift(choice));
-        }
+        ShowGiftGallery();
     }
     private void ReviewSultanGift(int index) {
-        var g=SultanGifts.Gifts[index];Open("Gift to Mehmed · "+g.Name,"Review the offering before sending your envoy.");
-        ControlSingleton.Instance.ReturnAction=SultanGiftMenu;BodyHeight(520);
-        CampaignHUD.Explanation(body,g.Description+"\n\nCost: "+g.Cost+"\nSultan's fury −"+g.Fury+" points (minimum zero).\nA return gift is possible, not guaranteed.",new Vector2(.05f,.35f),new Vector2(.95f,.95f),27);
-        string unavailable=SultanGifts.GiftUnavailable(index);
-        var confirm=CampaignHUD.MakeTurnButton(body,unavailable??"Confirm — send gift",new Vector2(.05f,.08f),new Vector2(.62f,.25f),()=>{bool ok=SultanGifts.Send(index,out var report);Finish(ok,report);});confirm.interactable=unavailable==null;
-        CampaignHUD.MakeButton(body,"Choose another gift",new Vector2(.66f,.08f),new Vector2(.95f,.25f),SultanGiftMenu);
+        ShowGiftReview(index);
     }
 
     public void Sultan()=>SultanAudience();
@@ -888,7 +815,7 @@ public partial class CouncilUI : MonoBehaviour
 
     {
 
-        Open("Court and characters","Serving advisers and officers. Their specialist benefits apply while in service; appointment strengthens the commander's benefit. Portraits are artistic interpretations.");
+        Open("Court and characters","Serving advisers and officers. Their specialist benefits apply while in service.");
 
         ControlSingleton.Instance.ReturnAction=Diplomacy;
 

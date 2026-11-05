@@ -10,7 +10,7 @@ public static class CharacterChatter
     public const int DailyLimit=3;
     public const double CooldownSeconds=3;
     public const string Raimondina="raimondina", GrainMerchant="grain_merchant";
-    public const string RaimondinaFarewell="I have enjoyed this, Constantine, but my steward is beginning to look abandoned. Write again tomorrow.";
+    public const string RaimondinaFarewell="I have enjoyed this, Konstantin, but I have other business to attend to. Talk to you tomorrow.";
     public const string MerchantFarewell="Tomorrow, Majesty. If I spend the whole day talking, we shall both go hungry.";
     const string Prefix="iChatter_";
     static readonly System.Random cosmetic=new System.Random();

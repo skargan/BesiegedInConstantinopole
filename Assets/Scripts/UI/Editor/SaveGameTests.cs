@@ -38,9 +38,28 @@ public static class SaveGameTests {
         OttomanDirector.Validate(OttomanDirector.Rules);Check(true,"Ottoman catalogue validates before export");
         PlatformRetry();Debug.Log("SAVE_AND_TECH_CHECKS "+checks+" passed");
     }
-    class FakePlatform:IAchievementPlatform {public bool ready,unlocked;public int stores;public bool Ready=>ready;public bool IsUnlocked(string id)=>id==AchievementPlatform.Ids[17]&&unlocked;public bool SetAchievement(string id){if(id!=AchievementPlatform.Ids[17])return false;unlocked=true;return true;}public bool StoreStats(){stores++;return false;}}
-    static void PlatformRetry(){int i=17;string earned=AchievementPlatform.EarnedKey(i),pending="Besieged.SteamPending."+AchievementPlatform.Ids[i];bool hadEarned=PlayerPrefs.HasKey(earned),hadPending=PlayerPrefs.HasKey(pending);int oldEarned=PlayerPrefs.GetInt(earned),oldPending=PlayerPrefs.GetInt(pending);var fake=new FakePlatform();try{
-        AchievementPlatform.Register(fake);AchievementPlatform.Unlock(i);Check(fake.stores==0&&PlayerPrefs.GetInt(pending)==1,"offline unlock queued");fake.ready=true;AchievementPlatform.Register(fake);Check(fake.stores>0&&PlayerPrefs.GetInt(pending)==1,"failed Steam upload remains pending");AchievementPlatform.Sync();Check(PlayerPrefs.GetInt(pending)==1,"memory-only unlock is not server confirmation");AchievementPlatform.ConfirmStored();Check(PlayerPrefs.GetInt(pending)==0,"successful callback confirms upload");
-        }finally{AchievementPlatform.Register(null);if(hadEarned)PlayerPrefs.SetInt(earned,oldEarned);else PlayerPrefs.DeleteKey(earned);if(hadPending)PlayerPrefs.SetInt(pending,oldPending);else PlayerPrefs.DeleteKey(pending);PlayerPrefs.Save();}}
+    class FakePlatform:IAchievementPlatform {
+        public bool ready,acceptStore;public int stores;readonly System.Collections.Generic.HashSet<string> unlocked=new System.Collections.Generic.HashSet<string>();
+        public bool Ready=>ready;public bool IsUnlocked(string id)=>unlocked.Contains(id);
+        public bool SetAchievement(string id){if(id!=AchievementPlatform.Ids[17]&&id!=AchievementPlatform.Ids[5])return false;unlocked.Add(id);return true;}
+        public bool StoreStats(){stores++;return acceptStore;}
+    }
+    static void PlatformRetry(){
+        int[] ids={17,5};var keys=ids.SelectMany(i=>new[]{AchievementPlatform.EarnedKey(i),"Besieged.SteamPending."+AchievementPlatform.Ids[i]}).ToArray();
+        bool[] had=keys.Select(PlayerPrefs.HasKey).ToArray();int[] old=keys.Select(k=>PlayerPrefs.GetInt(k)).ToArray();
+        string pending=keys[1],secondPending=keys[3];var fake=new FakePlatform();
+        try{
+            foreach(string key in keys)PlayerPrefs.DeleteKey(key);
+            AchievementPlatform.Register(fake);AchievementPlatform.Unlock(17);Check(fake.stores==0&&PlayerPrefs.GetInt(pending)==1,"offline unlock queued");
+            fake.ready=true;AchievementPlatform.Sync();Check(fake.stores>0&&PlayerPrefs.GetInt(pending)==1,"failed Steam upload remains pending");
+            AchievementPlatform.ConfirmStored();Check(PlayerPrefs.GetInt(pending)==1,"rejected upload cannot be acknowledged");
+            fake.acceptStore=true;AchievementPlatform.Sync();int stores=fake.stores;
+            AchievementPlatform.Unlock(17);AchievementPlatform.Sync();Check(fake.stores==stores,"in-flight upload is not repeated by campaign checks");
+            AchievementPlatform.Unlock(5);Check(PlayerPrefs.GetInt(secondPending)==1&&!fake.IsUnlocked(AchievementPlatform.Ids[5]),"new award waits for active upload");
+            AchievementPlatform.ConfirmStored();Check(PlayerPrefs.GetInt(pending)==0&&PlayerPrefs.GetInt(secondPending)==1&&fake.stores==stores+1,"callback acknowledges only its batch then sends the next");
+            AchievementPlatform.ConfirmStored();Check(PlayerPrefs.GetInt(secondPending)==0,"second batch acknowledged separately");
+            stores=fake.stores;AchievementPlatform.Unlock(17);Check(fake.stores==stores&&PlayerPrefs.GetInt(pending)==0,"earned achievement is not requeued");
+        }finally{AchievementPlatform.Register(null);for(int i=0;i<keys.Length;i++){if(had[i])PlayerPrefs.SetInt(keys[i],old[i]);else PlayerPrefs.DeleteKey(keys[i]);}PlayerPrefs.Save();}
+    }
     public static void Build(){Run();PhasedAssaultTests.Verify();ConfigurePlaytest.Build();}
 }

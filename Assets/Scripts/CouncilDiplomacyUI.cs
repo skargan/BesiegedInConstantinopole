@@ -93,14 +93,15 @@ public partial class CouncilUI
         var stage=DiplomacyPage(d.Name+" · Advanced diplomacy",CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance · "+CountryDiplomacy.EnvoyStatus(index),()=>DiplomaticPower(index));
         DiplomaticOrder[] orders={DiplomaticOrder.Gift,DiplomaticOrder.RenewAid,DiplomaticOrder.War,DiplomaticOrder.RenewWar};
         for(int n=0;n<orders.Length;n++) {
-            int item=n;var order=orders[n];float x=n%2*.51f,top=1-n/2*.505f;
-            var card=CampaignHUD.Panel(stage,OrderTitle(order),new Vector2(x,top-.485f),new Vector2(x+.49f,top));ImperialTheme.Panel(card,false);
+            int item=n;var order=orders[n];bool trakai=TrakaiIconGift.IsCountry(index);float x=n%2*.51f,top=1-n/2*(trakai?.44f:.505f);
+            var card=CampaignHUD.Panel(stage,OrderTitle(order),new Vector2(x,top-(trakai?.42f:.485f)),new Vector2(x+.49f,top));ImperialTheme.Panel(card,false);
             DiplomacyText(card.transform,OrderTitle(order),new Vector2(.04f,.78f),new Vector2(.96f,.96f),27);
             DiplomacyText(card.transform,OrderTerms(index,order),new Vector2(.04f,.25f),new Vector2(.96f,.76f),21);
             string reason=OrderReason(index,order);
             var review=CampaignHUD.MakeButton(card.transform,reason??"Review this action",new Vector2(.04f,.04f),new Vector2(.96f,.23f),()=>ReviewDiplomaticOrder(index,orders[item]));review.interactable=reason==null;
             var label=review.GetComponentInChildren<TMP_Text>();label.enableAutoSizing=true;label.fontSizeMin=16;label.fontSizeMax=21;
         }
+        if(TrakaiIconGift.IsCountry(index))CampaignHUD.MakeButton(stage,"Send an icon of the Mother of God to Trakai · 1,750 gold",new Vector2(0,0),new Vector2(1,.11f),()=>ReviewTrakaiGift(index));
     }
     static string OrderTitle(DiplomaticOrder order)
     {

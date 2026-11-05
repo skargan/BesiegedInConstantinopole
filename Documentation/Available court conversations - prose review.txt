@@ -1,0 +1,40 @@
+AVAILABLE COURT CONVERSATIONS — PROSE REVIEW
+5 November 2026
+
+Revised the nine core speakers who can serve in the active court: Giustiniani,
+Diedo, Notaras, Orhan, Sphrantzes, Orban, Grant, Isidore and Kjold. The approved
+Raimondina material was used as a tone reference and remains unchanged.
+
+Introductions now combine the person's work with a private concern or a specific
+impression of Constantinople. Familiar servants no longer introduce themselves
+to the Emperor as though applying for a position. The aim is a conversation:
+plain spoken detail, occasional irritation or humour, and less polished maxim.
+
+The personal questions retain their three replies and recorded response slots.
+Giustiniani wants a clear chain of command; Diedo wants his sailors remembered;
+Notaras worries about protecting his household; Orhan asks what survival would
+mean for his freedom; Sphrantzes objects to the handling of unwelcome news;
+Orban wants permission to condemn an unsafe gun; Grant needs support for work
+whose success is invisible; Isidore faces consciences left unsettled by policy;
+Kjold considers what to tell younger guards about courage and their inheritance.
+
+Siege assessment now acknowledges four identifiable reports: a repulsed assault,
+an abandoned defensive line, an explicit operational delay and enemy resupply.
+Each core speaker has a response in his own voice. Other reports remain visible,
+followed by an explicitly wider assessment; an unrelated practical suggestion
+is no longer presented as an explanation of the reported event. Preparation
+responses also distinguish these nine speakers.
+
+No new promises with resource effects, rewards, quests, allegiance changes,
+availability rules or unlock gates were added. The existing food/wall checks in
+advice remain. Visitors 100–105 and their conversations were left untouched.
+The unused Personal() material was preserved for future work. There is still
+no separate city-conversation button; city detail belongs to the available
+introduction instead. Conversation labels in CouncilGardenUI were not changed.
+
+Verification: all 15 existing question records still have three replies and
+three corresponding responses. CharacterQuestions has identical non-string
+code. Availability/identity code and all visitor passages compare unchanged
+against the pre-edit copies. These are structural checks, not a Unity playtest.
+The longest revised completed question exchange is 591 characters before UI
+headings. Review the final exported layout with the current conversation UI.

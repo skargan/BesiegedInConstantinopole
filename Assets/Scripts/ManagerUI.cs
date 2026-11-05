@@ -83,11 +83,11 @@ public class ManagerUI : UIWindowFam
             var label=specialists[i];label.gameObject.name="Specialist lethality";label.fontSize=20;
             label.text=i==0?"Lethality\n×"+combat.GuardLethality.ToString("0.##"):i==1?"Lethality\n×"+combat.CannonLethality.ToString("0.##"):"Fleet\norders";
             if(i==2){
-                var fleet=label.GetComponentInParent<UnityEngine.UI.Button>();
+                var fleet=label.GetComponentInParent<UnityEngine.UI.Button>(true);
                 if(fleet==null){
                     var target=label.transform.parent.gameObject;
                     if(target.GetComponent<UnityEngine.UI.Image>()==null)target.AddComponent<UnityEngine.UI.Image>();
-                    fleet=target.AddComponent<UnityEngine.UI.Button>();
+                    fleet=target.GetComponent<UnityEngine.UI.Button>()??target.AddComponent<UnityEngine.UI.Button>();
                 }
                 // Replace the old serialized upgrade action as well as runtime listeners.
                 fleet.onClick=new UnityEngine.UI.Button.ButtonClickedEvent();fleet.interactable=true;
@@ -114,6 +114,7 @@ public class ManagerUI : UIWindowFam
             ImperialTheme.Button(link);
         }
         ControlSingleton.Instance.LogToEsc(this.gameObject, troopsUI);
+        MilitarySelectionDesk.Apply(troopsUI,this);
     }
 
     public const string MilitaryExplanation =

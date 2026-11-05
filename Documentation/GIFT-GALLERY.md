@@ -1,0 +1,9 @@
+# Illustrated gifts for Mehmed — 5 November 2026
+
+Presentation-only redesign: eight cards in a four-column, two-row gallery, all visible without scrolling. Cards show image, short identifying title, exact cost and fury reduction. Clicking anywhere reviews the gift; no resources spent. Review shows large square painting, original narrative description, exact cost and effect, disabled confirmation when unaffordable, and Choose another gift. Repeated instructions, minimum-zero explanation and return-gift reminder removed. SultanGifts remains authoritative for affordability, deductions, effects and possible return gifts.
+
+New source CouncilGiftGalleryUI.cs; existing CouncilUI SultanGiftMenu and ReviewSultanGift delegate to it. Eight original OpenAI-generated still-life PNGs in Assets/Resources/UI/Gifts; full prompts and original image paths in gift-art-manifest.json. Unified deep sapphire cloth, warm gold light and period luxury objects. All eight originals visually reviewed. These are illustrative objects, not reproductions of specific museum artefacts. No third-party imagery copied.
+
+Development verification: -gift-gallery-capture, all eight selection/review/back paths at 1280x720 and 1920x1080, image presence, text overflow and no spending during browsing. Existing SultanAudienceCapture and PlaytestCapture selectors updated from removed Review gift buttons to Gift card objects. Runtime results pending.
+
+Verified completion: shared IonianPreview build succeeded; 576 gift gallery assertions passed at 1280x720 and 1920x1080. All eight selection/review/back flows, all textures, text fit and no spending while browsing verified. Existing Sultan audience regression suite passed 947 checks, including unaffordable gift confirmation and cancellation. Gallery and astrolabe review screenshots at 1280 visually reviewed. Private preview only; not yet publicly published.

@@ -1,0 +1,55 @@
+JOHANX — ACHIEVEMENTS, HEXAMILION, COURT AND SPECIALIST SCREENS
+5 November 2026 — canonical consolidation project; Version 40 integration
+
+IMPLEMENTED
+Achievements: 19 stable API names and generated lapis/gold mosaic icons. Seventeen
+have working game conditions; Four Voices and Praetorian Guard remain explicitly
+unavailable because their underlying content is absent. Formerly planned conditions
+now cover 120 completed siege days, retaining the outer wall at campaign end, eight
+camp agents, delivered foreign relief, all technologies, and recovery from a witnessed
+food shortage to thirty days of supplies. Existing Ironman eligibility is retained;
+Alchemical Genius also works in Normal campaigns. Local career progress persists.
+Successful council actions and campaign endings check conditions. Desertion and
+Serbian defection no longer count as Ottoman deaths.
+
+Steam: optional Steamworks.NET adapter, persistent offline upload queue, stable-name
+manifest, and nineteen 256 x 256 achieved icons in Publication/Steam/AchievementIcons.
+Steam can generate its locked greyscale variants. Live connection still requires the
+real App ID, SDK/host lifecycle and Partner dashboard configuration. No App ID was
+guessed, and no live Steam publication is claimed. See Documentation/Steam.
+
+Hexamilion: one map landmark by the Isthmus of Corinth opens a fitted wide painting,
+short historical description and shallow bottom panel with Return. Escape closes the
+visit before the underlying map. No new wall, repair or military rules introduced.
+
+Specialists: engineer training, envoy training and camp-agent recruitment use three
+new illustrated scenes, with confirmation controls concentrated on the right. Prices,
+training periods, manpower/instructor reservations and existing agent risks remain
+owned by the original order handlers. Zero-engineer emergency training is retained.
+
+Court: The Palace Garden capitalisation corrected. Existing silhouette-aware figure
+clicking now has explicit actual EventSystem hit checks at legs, chest and head.
+Nine available core characters received clearer introductions, personal exchanges,
+practical advice and report-aware reactions. No reward or availability rules changed;
+canonical approved Raimondina remarks and future visitors were left intact.
+
+VALIDATION
+- Canonical standalone runtime compile: passed after integration.
+- Achievement platform queue: 15 isolated checks.
+- Achievement thresholds/eligibility: 29 source-level boundary checks.
+- Manifest parity: 19 unique IDs, correct text/status/art paths.
+- Steam exports: 19 square source images and 19 exported 256 x 256 PNGs.
+- Version 40 built by ConstantineX, then palace runtime harness: 1,912 checks passed
+  across 15 figures, three locations and 1600x900 / 1280x720, including head/chest hits.
+- Focused private-player runtime review: 223 checks passed at 1600x900 / 1280x720,
+  including exact engineer/envoy training costs and duration, zero-gold refusal,
+  instructor-free training, agent review, Hexamilion Return, all nineteen icon loads
+  and text overflow checks. All twelve resulting screenshots visually reviewed.
+  A private test DLL was used; the public release DLL was not modified. The harness
+  is outside Assets under achievement-integration; it is not ordinary gameplay.
+
+PUBLICATION
+ConstantineX owns the combined Version 40 commit/push/build. JohanX froze source
+before the release build. This handoff does not assert GitHub publication until the
+main designer confirms the actual commit/push. Include generated artwork and metadata,
+Steam manifest/exports, court prose, specialist layout, Hexamilion and narrow hooks.

@@ -77,7 +77,9 @@ public partial class CouncilUI
     }
     void CompactFleet()
     {
-        var pane=MilitaryCanvas("The Imperial Fleet",SceneBackdrop.Phase("fleet"),"Keep the harbour. Command the sea.");
+        var pane=MilitaryCanvas("The Imperial Fleet",SceneBackdrop.Phase("fleet"),"");
+        screen.transform.Find("Scene heading").gameObject.SetActive(false);
+        CompactText(pane,"The Imperial Fleet",.04f,.94f,.96f,.995f,28).alignment=TextAlignmentOptions.Center;
         FleetChainBackdrop.Attach(screen);
         int ships=CouncilActions.Int("iShips"),order=Mathf.Clamp(CouncilActions.Int("iFleet"),0,5);
         bool known=CouncilActions.Int("iSpies")>=2;int queued=0;
@@ -87,7 +89,7 @@ public partial class CouncilUI
             if(o.kind!=TrainingPool.ShipRepair)queued+=o.quantity;
             building.Add(o.quantity+" warships · "+(o.kind==TrainingPool.ShipRepair?"repairing":"building")+" · "+TrainingPool.ReadyDate(o).ToString("d MMM")+" ("+TrainingPool.Remaining(o)+" days)");
         }
-        var strength=CompactCard(pane,"Naval balance",.82f,.98f);
+        var strength=CompactCard(pane,"Naval balance",.82f,.935f);
         FleetText(strength,"IMPERIAL",.02f,.72f,.31f,.96f,21);
         FleetText(strength,ships.ToString("N0"),.02f,.25f,.31f,.73f,40);
         FleetText(strength,"warships",.02f,.04f,.31f,.27f,19);

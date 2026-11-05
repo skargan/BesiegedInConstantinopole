@@ -49,7 +49,7 @@ public partial class CouncilUI
         var summary=SpyPanel("City briefing",766,96);
         CampaignHUD.Label(summary.transform,CityAtGlanceText(),new Vector2(.022f,.1f),new Vector2(.98f,.92f),22);
         var links=SpyPanel("City statistics navigation",876,68);
-        string[] names={"Recruitment logistics","Specialists","Society and politics"};
+        string[] names={"Recruitment logistics","Specialists","The Senate"};
         UnityEngine.Events.UnityAction[] actions={Training,Specialists,Factions};
         for(int i=0;i<3;i++)CampaignHUD.MakeButton(links.transform,names[i],new Vector2(.01f+i*.332f,.12f),new Vector2(.322f+i*.332f,.88f),actions[i]);
         return 958;

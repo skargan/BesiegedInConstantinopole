@@ -251,7 +251,7 @@ public class SultanAudienceCapture : MonoBehaviour
         int turn = VariableSingleton.Turn;
         Click(Choice(2));
         yield return null;
-        var reviews = ScreenPanel().GetComponentsInChildren<Button>().Where(b => Caption(b) == "Review gift").ToArray();
+        var reviews = ScreenPanel().GetComponentsInChildren<Button>().Where(b => b.name.StartsWith("Gift card ")).ToArray();
         Check(reviews.Length == SultanGifts.Gifts.Length && reviews.Length == 8, "Gift catalogue lost an option");
         Click(reviews[0]);
         yield return null;

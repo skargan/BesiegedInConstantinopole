@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,7 +48,7 @@ public static class PreparationCampaign
         VariableSingleton.SetInt("iPreparationVersion",legacy?0:2);
         CharacterPreparations.Initialize();
         NavalState.Initialise();
-        foreach(string key in new[]{"iGalataSupportRequested","iGalataNeutralPledge","iRumeliRecon","iGalataDebt","iGalataGovernor","iDeposed","iGalataState","iGalataPromise","iGalataGovernance","iGalataClaims","iArrivalAlert","iFleetPrepared","iNavalRepair","iNavalStores","iNavalBase","iNavalPilots","iDamagedShips","iGrainDue","iGrainCargo","iGiovanniWarning","iGiovanniCrisis","iOttomanResolvedTurn"})VariableSingleton.SetInt(key,0);
+        foreach(string key in new[]{"iGalataSupportRequested","iGalataNeutralPledge","iRumeliRecon","iRumeliLandmark","iGalataDebt","iGalataGovernor","iDeposed","iGalataState","iGalataPromise","iGalataGovernance","iGalataClaims","iArrivalAlert","iFleetPrepared","iNavalRepair","iNavalStores","iNavalBase","iNavalPilots","iDamagedShips","iGrainDue","iGrainCargo","iGiovanniWarning","iGiovanniCrisis","iOttomanResolvedTurn"})VariableSingleton.SetInt(key,0);
         VariableSingleton.SetInt("iOttomanResolvedTurn",-1);
         VariableSingleton.SetInt("iGalataDefences",100);VariableSingleton.SetInt("iArmySupport",50);
         for(int i=0;i<Nodes.Length;i++)VariableSingleton.SetInt("iPrepDone"+i,0);
@@ -75,7 +75,7 @@ public static class PreparationCampaign
         Add("iMoney",-costs[option]);
         if(option<3){int[] delays={2,4,6},food={3,7,12},losses={50,150,300};Add("iEnemyDelay",delays[option]);Add("iFood",-food[option]);Add("iBazouks",-losses[option]);VariableSingleton.ChangeFloat("fPeopleRep",-(option+1)*.03f);}
         if(option==3){Add("iEnemyDelay",4);Add("iFood",-5);Add("iTurkCannons",-Mathf.Min(2,I("iTurkCannons")));}
-        if(option==4){Add("iBalkans",-500);Add("iCavalry",50);Add("iArchers",150);Add("iInfantry",300);}
+        if(option==4){VariableSingleton.SetInt("iBalkans",I("iBalkans")-500);Add("iCavalry",50);Add("iArchers",150);Add("iInfantry",300);}
     }
     public static int GalataState=>I("iGalataState");
     public static readonly string[] GalataStates={"Neutral Galata","Direct imperial control","Giovanni's autonomous rule","Turkish control"};

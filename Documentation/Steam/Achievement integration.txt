@@ -1,0 +1,71 @@
+ACHIEVEMENTS — CONNECTED RULES AND STEAM HANDOFF
+
+Canonical source: consolidation/Assets/Scripts/Achievements.cs and AchievementPlatform.cs.
+All 19 API names and catalogue positions are retained. Six formerly Planned entries
+(3,4,5,6,7,9) now have real conditions. Alchemy (18) remains valid in Normal and Ironman;
+all other active entries require Ironman. Automated runs and practice cannot award.
+
+Rules needing explanation
+- 120 completed siege days uses CompletedSiegeDays, not preparation turns. The siege
+starts 6 April 1453; day 120 completed is 4 August 1453 in the current calendar.
+- Unbroken Wall follows the existing literal description: any campaign ending while
+OuterWall is still active. This includes defeat by death/deposition/surrender; no
+unstated victory or minimum-duration requirement was introduced.
+- Bread for the City records an actual missed daily ration (iHungerDays/shortfall),
+then requires SharedProvisions.CityDays>=30. Fractional provisions/demand are used;
+population changes affect how many days the reserve covers. The witness flag is saved
+with iAchievement integers and reset when restoring an older save.
+- Eight agents means eight currently in the enemy camp. Aid means delivered, not
+promised. All technologies means the current TechnologySystem.All catalogue.
+- Index 8 / Four Voices remains unavailable because political factions are retired.
+- Index 10 / Praetorian Guard remains unavailable because there is no restoration event.
+Their API IDs are reserved; do not publish them as earnable Steam achievements.
+
+Hooks
+CheckCampaign runs from the existing turn and state hooks. Campaign integration calls
+CampaignEnded before SaveGames.End and checks after successful council actions.
+The existing workshop Claim hook awards entry 18; CheckCampaign recognises a saved discovery.
+
+Presentation
+Icons load from UI/MidnightMosaic/Achievements/{API_NAME}. Locked entries are dimmed;
+missing artwork retains the existing checkbox fallback. The header states the Alchemy
+exception. Deferred entries are explicitly unavailable rather than falsely Locked.
+
+Steam preparation
+achievement-manifest.json lists display text, permanent API names, exact game rules,
+eligibility, publish flags and achieved icon filenames. It is a project
+worksheet, not a claim of Steam Partner publication. No AppID is supplied or guessed.
+Run ExportAchievementArt.Run in the Unity Editor (or the Besieged / Publication menu)
+to export all 19 achieved icons at 256 x 256 into Publication/Steam/AchievementIcons.
+The exporter reads the original PNGs and uses area-weighted CPU downsampling without
+changing import settings or needing a graphics device. Use the Steam dashboard
+automatic greyscale option for unachieved icons; no second image set is required.
+
+SteamworksAchievementAdapter.cs is optional and excluded unless
+BESIEGED_STEAMWORKS_NET is defined. No package has been installed. After installing
+Steamworks.NET and configuring the real app, the Steam host must initialise Steam,
+pump callbacks, construct the adapter with a stats-readiness predicate, retain it,
+and dispose it before shutdown. Existing host owns the lifecycle; this adapter does
+not start a competing Steam manager. Modern Steamworks.NET synchronises stats before
+process start; older versions may require their own RequestCurrentStats handshake.
+
+Only successful UserStatsStored_t callbacks clear the submitted outbox batch. New
+awards earned during an upload remain queued. Immediate rejection or callback failure
+keeps pending awards for a later checkpoint/retry. Rechecking an already-earned award
+does not queue another upload. Local PlayerPrefs remain the current career store.
+
+Verification
+SaveGameTests.Run includes offline/rejected/in-flight/subsequent-batch/idempotence
+checks. An isolated harness against the actual AchievementPlatform.cs passed 15
+checks, including backend replacement and callback-failure retry. Manifest validation
+confirmed all 19 unique API names, catalogue descriptions and icon paths. The canonical runtime
+standalone compile passed across 274 source files, and the Editor export helper
+compiled against the installed Unity Editor libraries. A separate harness passed
+29 condition checks using the verbatim achievement gameplay methods with controlled
+game-state dependencies. These are source-level checks, not Unity playtests. No live Steam login,
+AppID, SDK build, overlay or Partner publication has been exercised.
+
+Primary references checked 5 November 2026
+https://partner.steamgames.com/doc/api/ISteamUserStats
+https://partner.steamgames.com/doc/features/achievements/ach_guide
+https://github.com/rlabrecque/Steamworks.NET/blob/master/com.rlabrecque.steamworks.net/Runtime/autogen/isteamuserstats.cs

@@ -1,0 +1,9 @@
+# Council lighting and motion — JohanX, 5 November 2026
+
+User annotation applied: darker far-left icon wall/curtain edge and lower table front; broad warm light across curtain near left candle, book edges, quill and parchment near right candle. Background regenerated with soft chiaroscuro, preserving wick positions and composition. One nearer right boat removed from painting; larger centre-right ship remains at anchor.
+
+CouncilChamber.cs: broad graded dynamic bounce and shadow ellipses, restrained multi-frequency flame movement, brief dim/lean gust around second18 of a27-second cycle. Clouds drift continuously at .011 normalised units/second within two sky areas. Separate transparent merchantman crosses right water window in38-second repeating cycle, clipped behind window edges. All motion uses unscaled presentation time and pauses when hidden/still/reduced-motion/particles disabled. No campaign RNG or naval mechanics.
+
+Assets: UI/MidnightMosaic/Scenes/council-chamber.png and council-passing-ship.png. Built-in image generation used. Background prompt specified precise-object lighting edit with broad shadow/light zones, unlit wicks, no geometry changes, retain anchored ship/remove smaller boat. Ship prompt specified isolated lateen-sailed15th-century merchantman, warm sunset, transparent alpha; cleanup pass removed surrounding backdrop. Original painting retained in workspace palace-library/council-chamber-before-lighting.png.
+
+Verification: private Unity BuildIonianPreview succeeded, latest runtime DLL includes additional motion assertions. CouncilChamberCapture111 checks passed; scaling1600x900,1280x720,1280x960, hidden/still lifecycle, moving haze/ship, no campaign or RNG changes, navigation and journal checks. Full council gust/ship screenshot visually reviewed. No public release or push claimed.

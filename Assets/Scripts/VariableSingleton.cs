@@ -425,6 +425,7 @@ public class VariableSingleton : MonoBehaviour
         CountryDiplomacy.ResetForRestore();
         MehmedAssassination.ResetForRestore();
         ProvincialIntelligence.ResetForRestore();
+        foreach(string key in new List<string>(iDict.Keys))if(key.StartsWith("iMerc"))iDict.Remove(key);
         foreach(string key in new[]{"iTurkConfiscatedGold","iTurkishBattalionCreated","iTurkScreeningIntercepted"}) iDict[key]=0;
         DefencePosture.Initialise();
         PreparationCampaign.InitializeDefaults(legacy: true);

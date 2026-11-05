@@ -12,7 +12,7 @@ public sealed class CouncilChamber : MonoBehaviour
     public float Elapsed {get;private set;}
     public bool IsStill=>ForceStill||platformStill||PlayerPrefs.GetInt("Besieged.ReducedMotion",0)!=0||!SceneParticles.Enabled;
     bool platformStill;float preferenceTimer;RawImage[] flames=new RawImage[2],glows=new RawImage[2],lights=new RawImage[2],shadows=new RawImage[2];
-    static Texture2D soft,flame,vignette;RawImage shade;RawImage[] clouds=new RawImage[6];bool painted;
+    static Texture2D soft,flame,vignette;RawImage shade,sailingShip;RawImage[] clouds=new RawImage[6];bool painted;
     public static CouncilChamber Create(Transform parent){
         var panel=CampaignHUD.Panel(parent,"Council chamber",new Vector2(.29f,.025f),new Vector2(.71f,.84f));panel.GetComponent<Image>().color=ImperialTheme.Navy;panel.GetComponent<Image>().raycastTarget=false;panel.AddComponent<RectMask2D>();
         var image=new GameObject("Chamber painting",typeof(RectTransform),typeof(RawImage),typeof(AspectRatioFitter));image.transform.SetParent(panel.transform,false);
@@ -21,7 +21,7 @@ public sealed class CouncilChamber : MonoBehaviour
         painting.texture=Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/council-chamber");bool dedicated=painting.texture!=null;
         if(!dedicated)painting.texture=Resources.Load<Texture2D>("UI/MidnightMosaic/Locations/palace-interior");
         var fit=image.GetComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=painting.texture==null?1:(float)painting.texture.width/painting.texture.height;
-        image.AddComponent<RectMask2D>();var component=image.AddComponent<CouncilChamber>();
+        image.AddComponent<RectMask2D>();var component=image.AddComponent<CouncilChamber>();image.AddComponent<CouncilMusic>();
         var config=Resources.Load<TextAsset>("Content/CouncilChamber");if(config!=null)component.settings=JsonUtility.FromJson<Settings>(config.text);
         component.EffectsAvailable=dedicated;component.Initialise();return component;
     }
@@ -44,6 +44,9 @@ public sealed class CouncilChamber : MonoBehaviour
         for(int i=0;i<2;i++){
             shadows[i]=Layer(field.transform,"Candle shadow "+i,soft);lights[i]=Layer(field.transform,"Table light "+i,soft);glows[i]=Layer(field.transform,"Candle glow "+i,soft);flames[i]=Layer(field.transform,"Anchored flame "+i,flame);
         }
+        var water=new GameObject("Passing ship water mask",typeof(RectTransform),typeof(RectMask2D));water.transform.SetParent(field.transform,false);
+        var wr=(RectTransform)water.transform;wr.anchorMin=new Vector2(.762f,.593f);wr.anchorMax=new Vector2(.974f,.705f);wr.offsetMin=wr.offsetMax=Vector2.zero;
+        sailingShip=Layer(water.transform,"Passing merchantman",Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/council-passing-ship"));
         ReadPreference();Render();
     }
     RawImage Layer(Transform parent,string name,Texture texture){var go=new GameObject(name,typeof(RectTransform),typeof(RawImage));go.transform.SetParent(parent,false);var im=go.GetComponent<RawImage>();im.texture=texture;im.raycastTarget=false;return im;}
@@ -60,16 +63,18 @@ public sealed class CouncilChamber : MonoBehaviour
         shade.enabled=EffectsAvailable;
         // Small soft wisps stay within the painted sky, clear of arches and skyline.
         for(int i=0;i<clouds.Length;i++){
-            bool left=i<3;int n=i%3;float drift=Mathf.Sin(Elapsed*.32f+n*1.8f)*.019f;
-            Place(clouds[i],new Vector2((left?.585f:.85f)+drift+n*.012f,(left?.846f:.80f)+n*.008f),new Vector2(.115f,.027f),new Color(.72f,.68f,.76f,.15f));
+            bool left=i<3;int n=i%3;float drift=Mathf.Repeat(Elapsed*.011f+n*.058f,.17f);
+            Place(clouds[i],new Vector2((left?.535f:.777f)+drift,(left?.846f:.81f)+n*.018f),new Vector2(.095f,.035f),new Color(.76f,.68f,.78f,.21f));
         }
+        if(sailingShip!=null){var sr=sailingShip.rectTransform;sr.anchorMin=sr.anchorMax=new Vector2(-.18f+Mathf.Repeat(Elapsed/38f,1)*1.4f,.33f);sr.pivot=new Vector2(.5f,0);sr.anchoredPosition=Vector2.zero;var area=((RectTransform)transform).rect.size;sr.sizeDelta=new Vector2(area.x*.055f,area.y*.042f);sailingShip.enabled=EffectsAvailable&&sailingShip.texture!=null;}
         for(int i=0;i<2;i++){
         float phase=i*2.73f,t=Elapsed;float signal=.55f*Mathf.Sin(t*2.37f+phase)+.3f*Mathf.Sin(t*4.11f+phase*.7f)+.15f*Mathf.Sin(t*.63f+phase*1.9f);
-        float strength=1+signal*.26f;Vector2 wick=i==0?settings.left:settings.right;
-        Place(glows[i],wick+new Vector2(0,.01f),new Vector2(.16f,.18f),new Color(1,.58f,.15f,settings.glowIntensity*strength));
-        Place(lights[i],new Vector2(wick.x,.32f-i*.045f),new Vector2(.32f,.13f),new Color(1,.65f,.28f,settings.glowIntensity*.45f*strength));
-        Place(shadows[i],new Vector2((i==0?.16f:.975f)+signal*.002f,i==0?.66f:.58f),new Vector2(.07f,.22f),new Color(.03f,.02f,.04f,settings.shadowIntensity*strength));
-        Place(flames[i],wick,new Vector2(.013f*(1+signal*.13f),settings.flameHeight*strength),Color.white,true);flames[i].rectTransform.localRotation=Quaternion.Euler(0,0,signal*5);
+        float gust=Mathf.Exp(-Mathf.Pow((Mathf.Repeat(t+i*.32f,27f)-18f)/.8f,2));
+        float strength=1+signal*.10f-gust*.28f;Vector2 wick=i==0?settings.left:settings.right;
+        Place(glows[i],wick+new Vector2(i==0?.015f:-.015f,.015f),i==0?new Vector2(.34f,.40f):new Vector2(.27f,.30f),new Color(1,.62f,.23f,settings.glowIntensity*strength));
+        Place(lights[i],i==0?new Vector2(.25f,.47f):new Vector2(.79f,.36f),i==0?new Vector2(.47f,.34f):new Vector2(.48f,.32f),new Color(1,.68f,.31f,settings.glowIntensity*.36f*strength));
+        Place(shadows[i],i==0?new Vector2(.045f,.64f):new Vector2(.43f,.10f),i==0?new Vector2(.24f,.87f):new Vector2(.98f,.24f),new Color(.015f,.012f,.025f,settings.shadowIntensity*(1+gust*.12f)));
+        Place(flames[i],wick,new Vector2(.013f*(1+signal*.06f+gust*.18f),settings.flameHeight*strength),Color.white,true);flames[i].rectTransform.localRotation=Quaternion.Euler(0,0,signal*3+gust*(i==0?-15:-12));
     }painted=true;}
     void Update(){preferenceTimer+=Time.unscaledDeltaTime;if(preferenceTimer>2){preferenceTimer=0;ReadPreference();}if(!IsStill&&EffectsAvailable){Elapsed+=Mathf.Min(Time.unscaledDeltaTime,.05f);Render();}else if(!painted)Render();}
     void OnEnable(){ReadPreference();painted=false;}

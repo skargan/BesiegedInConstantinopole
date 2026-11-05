@@ -26,19 +26,21 @@ public static class IonianDiplomacy
     public static string AgreementReason(bool personal)
     {
         if(personal?Exile:Shelter)return "This agreement is already secured";
-        return Resident?null:"Requires a resident envoy in the Ionian Isles";
+        if(!Resident)return "Requires a resident envoy in the Ionian Isles";
+        return CouncilActions.Int("iMoney")<1000?"Requires 1,000 gold":null;
     }
     public static bool Agree(bool personal,out string report)
     {
         report=AgreementReason(personal);if(report!=null)return false;
         Introduce();
+        VariableSingleton.ChangeInt("iMoney",-1000);
         VariableSingleton.SetInt(Prefix+(personal?"Exile":"Shelter"),1);
         VariableSingleton.SetInt(Prefix+(personal?"ExileDay":"ShelterDay"),CountryDiplomacy.Day);
         foreach(string key in SupportKeys)VariableSingleton.ChangeFloat(key,personal?-.10f:-.03f);
         report=personal
-            ? "Raimondina's answer is brief: a house will be kept ready, and your name will be enough at the harbour. In the palace, the news is received less kindly. Men who have pledged their lives to the walls dislike learning that their emperor has found another shore.\n\nPersonal refuge in the Ionian Isles secured. Army, Public, Clergy and Noble support: −10 percentage points each. You remain in Constantinople; no departure has been ordered."
-            : "The island stewards receive instructions to find lodgings for fugitives from Constantinople. Raimondina asks that families carry whatever papers they possess: a name is easier to lose than a bundle. At home, even this modest precaution is taken for an admission that the walls may fail.\n\nRefugee shelter in the Ionian Isles secured. Army, Public, Clergy and Noble support: −3 percentage points each. Passage through the blockade is not guaranteed.";
-        DecisionJournal.Record(personal?"ionian-exile":"ionian-shelter",personal?"A house beyond the siege":"Shelter for the City's refugees",report,true);
+            ? "Raimondina's face lights with a smile, as though a heavy weight has lifted from her chest.\n\n‘Thank you, Emperor, for your kindness to yourself. A house will be kept ready, and your name will be enough at the harbour. We will be awaiting you if it comes to that. Nonetheless, I wish you the best of luck. I hope you will never need to make use of this offer.’\n\nMeanwhile, in the palace, the news of your arrangement is received less kindly. Men who have pledged their lives to the walls dislike learning that their emperor has found another shore.\n\nPersonal refuge in the Ionian Isles secured.\nArmy, Public, Clergy and Noble support: −10 points each.\nGold: −1,000."
+            : "The island stewards receive instructions to find lodgings for expected fugitives from Constantinople.\n\nRefugee shelter in the Ionian Isles secured.\n\nAs news slowly spreads through the City that the emperor is negotiating an evacuation, Army, Public, Clergy and Noble support each fall by 3 points.\nGold: −1,000.";
+        DecisionJournal.Record(personal?"ionian-exile":"ionian-shelter",personal?"Personal refuge in the Ionian Isles secured":"Shelter for refugees secured",report,true);
         return true;
     }
     public static string EndingReflection(bool victory)

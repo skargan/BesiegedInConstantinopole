@@ -1,4 +1,4 @@
-title: prepIntelligence
+﻿title: prepIntelligence
 ---
 <b>Siege Preparation — Intelligence</b>: Before the Sultan arrives, strangers still enter his moving camp without attracting much notice. Sphrantzes lays four plans before you. Each cover opens different doors; every agent must live among the men who intend to destroy us.
 -> Send a loyal servant disguised as a beggar. +1 agent; +2 days of land-operation delay; +25 camp alert on arrival.
@@ -38,6 +38,7 @@ title: prepScorched
 ===
 title: prepFortress
 ---
+<<SetInt iRumeliLandmark 1>>
 <b>A Fortress Rises on the Bosphorus</b>: The report reaches you before the morning bells. Across the water, Mehmed’s men are clearing ground. Stone barges crowd the landing; armed guards turn away questions. Your pilots need no architect to explain the plan: grain ships from the Black Sea could soon pass beneath Ottoman guns. Notaras spreads a chart across the council table. “We can protest, Majesty. We can buy what we need while the passage remains open. Or we can learn precisely what the Sultan is building.”
 -> Send a formal protest to the Sultan and the Christian courts. 1,000 gold; public morale +5; one diplomatic secret. <<if GetInt("iMoney") >= 1000>>
     <<Change iMoney -1000>>

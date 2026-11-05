@@ -47,6 +47,7 @@ public class Settings : MonoBehaviour
             displayChange=StartCoroutine(InitialDisplay());
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += ConnectSettings;
+        var soundtrack=SoundtrackLibrary.Instance;
     }
     System.Collections.IEnumerator InitialDisplay()
     {
@@ -58,7 +59,8 @@ public class Settings : MonoBehaviour
     private void OnDestroy() { SceneManager.sceneLoaded -= ConnectSettings; }
     private void ConnectSettings(Scene scene, LoadSceneMode mode)
     {
-        audioSource = FindObjectsOfType<AudioSource>().FirstOrDefault(a=>a.GetComponent<ButtonAudio>()==null);
+        audioSource = FindObjectsOfType<AudioSource>().FirstOrDefault(a=>a.GetComponent<AudioSingleton>()!=null)
+            ??FindObjectsOfType<AudioSource>().FirstOrDefault(a=>a.gameObject.name=="Audio"&&a.playOnAwake)??audioSource;
         ApplyVolume();
     }
     private void ApplyVolume()

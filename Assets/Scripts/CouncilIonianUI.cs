@@ -17,7 +17,7 @@ public partial class CouncilUI
         var rect=art.GetComponent<RectTransform>();rect.anchorMin=rect.anchorMax=rect.pivot=new Vector2(.5f,.5f);
         var texture=Resources.Load<Texture2D>("UI/Diplomacy/Ionian/Coast");art.GetComponent<RawImage>().texture=texture;art.GetComponent<RawImage>().raycastTarget=false;
         var fit=art.GetComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=texture==null?1672f/941f:(float)texture.width/texture.height;
-        bool visit=page!="main"&&page!="realm"&&page!="envoy";
+        bool visit=IonianDiplomacy.Resident;
         ionianSpeech=null;
         if(visit&&IonianDiplomacy.Resident){IonianDiplomacy.Introduce();IonianFigure(art.transform);}
         var panel=CampaignHUD.Panel(art.transform,"Ionian diplomatic panel",new Vector2(.63f,.035f),new Vector2(.985f,.965f));ImperialTheme.Panel(panel,false);
@@ -29,8 +29,15 @@ public partial class CouncilUI
             IonianLabel(root,"The Tocco lordships\n"+CountryDiplomacy.EnvoyStatus(IonianDiplomacy.Country),.735f,.86f,20);
             IonianLabel(root,"These islands offer shelter and private understandings. They do not send an ordinary relief expedition.",.57f,.72f,21);
             IonianButton(root,"The realm and its interests",.46f,.55f,()=>IonianPage("realm"));
-            IonianButton(root,"Visit the isles",.35f,.44f,()=>IonianPage("visit"));
-            IonianButton(root,"Envoy · review assignment",.24f,.33f,()=>IonianPage("envoy"));
+            if(IonianDiplomacy.Resident) {
+                IonianDiplomacy.Introduce();
+                IonianButton(root,"Speak with Raimondina",.35f,.44f,()=>IonianPage("visit"));
+                IonianButton(root,"Envoy · review assignment",.24f,.33f,()=>IonianPage("envoy"));
+            } else if(IonianDiplomacy.Introduced) {
+                IonianButton(root,"Envoy · review assignment",.35f,.44f,()=>IonianPage("envoy"));
+            } else {
+                IonianButton(root,"Reestablish contact with my first wife's family",.35f,.44f,()=>IonianPage("visit"));
+            }
             IonianLabel(root,IonianDiplomacy.Standing,.155f,.23f,19);
         } else if(page=="realm")IonianReading(root,IonianText.Data.realm,.17f,.86f);
         else if(page=="envoy")IonianEnvoy(root);
@@ -44,14 +51,22 @@ public partial class CouncilUI
     void IonianVisit(Transform root)
     {
         if(!IonianDiplomacy.Resident) {
-            IonianReading(root,"The terrace is quiet. Beyond it, a fishing boat moves between the islands.\n\nYour correspondence has yet to secure a private audience. A resident envoy can introduce you to Raimondina, who speaks for the island lords.\n\n"+CountryDiplomacy.EnvoyStatus(IonianDiplomacy.Country),.32f,.86f);
-            IonianButton(root,"Review envoy assignment",.19f,.29f,()=>IonianPage("envoy"));return;
+            IonianReading(root,"The terrace is quiet. Beyond it, a fishing boat moves between the islands.\n\nA resident envoy can reestablish contact with your first wife’s family and introduce you to Raimondina, who speaks for the island lords. There is nothing further to arrange here until your envoy arrives.",.32f,.86f);
+            bool assigned=CountryDiplomacy.EnvoyState(IonianDiplomacy.Country)!=CountryDiplomacy.EnvoyAssignment.None;
+            var send=CampaignHUD.MakeTurnButton(root,assigned?"Review envoy assignment":"Send envoy",new Vector2(.05f,.19f),new Vector2(.95f,.29f),()=>{
+                if(assigned){IonianPage("envoy");return;}
+                bool ok=CountryDiplomacy.Dispatch(IonianDiplomacy.Country,out var report);Finish(ok,report);
+            });
+            string reason=assigned?null:CountryDiplomacy.DispatchReason(IonianDiplomacy.Country);
+            send.interactable=reason==null;notice.text=reason??"";return;
         }
         IonianLabel(root,"A private correspondence through your envoy",.80f,.87f,18);
         IonianButton(root,"Tell me about yourself",.70f,.78f,()=>IonianPage("about"));
         IonianButton(root,"What do you make of our siege?",.60f,.68f,()=>IonianPage("siege"));
         var shelter=IonianButton(root,IonianDiplomacy.Shelter?"Refugee shelter · agreed":"Secure shelter for refugees",.50f,.58f,()=>IonianPage("shelter"));shelter.interactable=!IonianDiplomacy.Shelter;
+        CampaignChoiceTooltip.Attach(shelter,"1,000 gold · support falls by 3 points in each constituency.");
         var exile=IonianButton(root,IonianDiplomacy.Exile?"Personal exile · agreed":"Arrange personal exile",.40f,.48f,()=>IonianPage("exile"));exile.interactable=!IonianDiplomacy.Exile;
+        CampaignChoiceTooltip.Attach(exile,"1,000 gold · support falls by 10 points in each constituency.");
         IonianButton(root,"Court Raimondina · under development",.30f,.38f,()=>{}).interactable=false;
         IonianButton(root,"A naval base · under development",.20f,.28f,()=>{}).interactable=false;
     }
@@ -67,9 +82,9 @@ public partial class CouncilUI
     void IonianAgreement(Transform root,bool personal)
     {
         int penalty=personal?10:3;
-        IonianReading(root,(personal?IonianText.Data.exile:IonianText.Data.shelter)+"\n\nArmy, Public, Clergy and Noble support each fall by "+penalty+" percentage points.\n\nThis agreement is permanent and can be made only once. It does not end the campaign or move the emperor. No gold cost. Confirming uses your major action.",.29f,.86f);
+        IonianReading(root,(personal?IonianText.Data.exile:IonianText.Data.shelter)+"\n\nThis agreement is permanent and can be made only once.",.29f,.86f);
         string reason=IonianDiplomacy.AgreementReason(personal);notice.text=reason??"";
-        var confirm=CampaignHUD.MakeTurnButton(root,"Confirm agreement",new Vector2(.05f,.17f),new Vector2(.95f,.26f),()=>{bool ok=IonianDiplomacy.Agree(personal,out var report);Finish(ok,report);});confirm.interactable=reason==null;
+        var confirm=CampaignHUD.MakeTurnButton(root,"Confirm agreement",new Vector2(.05f,.17f),new Vector2(.95f,.26f),()=>{bool ok=IonianDiplomacy.Agree(personal,out var report);Finish(ok,report);});confirm.interactable=reason==null;CampaignChoiceTooltip.Attach(confirm,"1,000 gold · one major action · Army, Public, Clergy and Noble support −"+penalty+" points each.");
     }
     void IonianFigure(Transform art)
     {

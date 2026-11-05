@@ -52,7 +52,27 @@ public static class AudioSettingsUI
         slider.onValueChanged.AddListener(v=>{settings.SetMusicVolume(v);value.text=Mathf.RoundToInt(v*100)+"%";});
         RowLabel("Sound effects",.22f);var effects=Control(settings.SfxEnabled?"On":"Off",.22f,()=>{});effects.name="Sound effects toggle";
         effects.onClick.AddListener(()=>{settings.SetSfxEnabled(!settings.SfxEnabled);effects.GetComponentInChildren<TMP_Text>().text=settings.SfxEnabled?"On":"Off";});
-        var help=CampaignHUD.Explanation(panel.transform,"Preferences are saved automatically.",new Vector2(.07f,.145f),new Vector2(.93f,.19f),19);help.alignment=TextAlignmentOptions.Center;
+        CampaignHUD.MakeButton(panel.transform,"Soundtrack · add your own music",new Vector2(.07f,.135f),new Vector2(.93f,.20f),()=>ShowSoundtrack(parent));
         ImperialTheme.Button(CampaignHUD.MakeButton(panel.transform,"Return",new Vector2(.31f,.04f),new Vector2(.69f,.115f),()=>Close()));
     }
+    public static void ShowSoundtrack(Transform parent)
+    {
+        Show(parent);foreach(Transform child in panel.transform)child.gameObject.SetActive(false);
+        var library=SoundtrackLibrary.Instance;
+        var title=CampaignHUD.Label(panel.transform,"Soundtrack",new Vector2(.07f,.85f),new Vector2(.93f,.96f),36);title.alignment=TextAlignmentOptions.Center;
+        CampaignHUD.Explanation(panel.transform,"Add MP3, WAV or OGG files to your soundtrack folder, then refresh. Custom tracks play in filename order and repeat. Music volume and mute apply here; sound effects have their own controls.",new Vector2(.07f,.61f),new Vector2(.93f,.84f),23);
+        var mode=CampaignHUD.MakeButton(panel.transform,SoundtrackLibrary.Enabled?"Custom soundtrack · On":"Use custom soundtrack",new Vector2(.07f,.51f),new Vector2(.93f,.59f),()=>{});
+        mode.onClick.AddListener(()=>{library.SetEnabled(!SoundtrackLibrary.Enabled);mode.GetComponentInChildren<TMP_Text>().text=SoundtrackLibrary.Enabled?"Custom soundtrack · On":"Use custom soundtrack";});
+        CampaignHUD.MakeButton(panel.transform,"Open soundtrack folder",new Vector2(.07f,.40f),new Vector2(.93f,.48f),library.OpenFolder);
+        var status=CampaignHUD.Label(panel.transform,library.Status,new Vector2(.07f,.17f),new Vector2(.93f,.28f),22);status.enableAutoSizing=true;status.fontSizeMin=17;status.fontSizeMax=22;status.richText=false;
+        CampaignHUD.MakeButton(panel.transform,"Refresh tracks",new Vector2(.07f,.29f),new Vector2(.48f,.37f),()=>{library.Refresh();status.text=library.Status;});
+        CampaignHUD.MakeButton(panel.transform,"Next track",new Vector2(.52f,.29f),new Vector2(.93f,.37f),library.Next);
+        status.gameObject.AddComponent<SoundtrackStatus>();
+        CampaignHUD.MakeButton(panel.transform,"Back to Settings",new Vector2(.20f,.05f),new Vector2(.80f,.13f),()=>Show(parent));
+    }
+}
+
+public sealed class SoundtrackStatus:MonoBehaviour
+{
+    void Update(){GetComponent<TMP_Text>().text=SoundtrackLibrary.Instance.Status;}
 }

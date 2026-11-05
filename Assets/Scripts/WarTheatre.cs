@@ -5,7 +5,7 @@ using UnityEngine;
 // Artwork-space coordinates: correctable separately from rules and saved state.
 public static class WarTheatre
 {
-    [Serializable] public class Region { public string id,name,kind,role,group,note,referenceName; public Vector2[] points; public Vector2 label,front; }
+    [Serializable] public class Region { public string id,name,kind,role,group,note,referenceName,summary; public Vector2[] points; public Vector2 label,front; }
     [Serializable] public class Catalogue { public int version; public Region[] regions; }
     static Catalogue catalogue;
     public static Catalogue Data {get {if(catalogue==null){catalogue=JsonUtility.FromJson<Catalogue>(Resources.Load<TextAsset>("Content/WarTheatre").text);Validate(catalogue);}return catalogue;}}

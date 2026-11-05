@@ -22,7 +22,8 @@ public static class RecruitmentLogistics
             return Count(count);
         }
     }
-    public static int AvailableManpower => Count((long)ManpowerPool - Serving - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted);
+    public static int ExternalRegulars=>Math.Min(Serving,NonNegative("iMercForeignInfantry")+NonNegative("iMercForeignArchers")+NonNegative("iMercForeignCavalry"));
+    public static int AvailableManpower => Count((long)ManpowerPool - (Serving-ExternalRegulars) - Queued - MedicalRecovery.RegularWounded - SpecialistPersonnel.LocalManpowerCommitted);
     public static bool CanRecruit(string unit, int quantity)
     {
         if(quantity<=0)return false;
@@ -48,6 +49,7 @@ public static class RecruitmentLogistics
     }
     public static void RecordLoss(string unit, int actualLoss)
     {
+        if(IsRegular(unit)&&actualLoss>0){string key="iMercForeign"+unit.Substring(1);int total=NonNegative(unit),foreign=NonNegative(key);if(total>0&&foreign>0)VariableSingleton.SetInt(key,Math.Max(0,foreign-(int)Math.Round(actualLoss*(double)foreign/total)));}
         if(!LossesTracked || actualLoss <= 0 || Array.IndexOf(LossUnits, unit) < 0) return;
         VariableSingleton.SetInt(LossKey(unit), Count((long)Losses(unit) + actualLoss));
     }

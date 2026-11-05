@@ -76,11 +76,18 @@ public sealed class IonianCapture:MonoBehaviour
         Check(IonianDiplomacy.SupportKeys.Select(VariableSingleton.GetFloatVariable).SequenceEqual(supports)&&Rng()==rng,"Dispatch costs no support or RNG");
         CountryDiplomacy.Advance(CountryDiplomacy.EnvoyDue(IonianDiplomacy.Country));Check(IonianDiplomacy.Resident,"Calendar arrival unlocks resident negotiations");
         IonianDiplomacy.Introduce();IonianDiplomacy.Introduce();Check(DecisionJournal.Entries.Count(e=>e.id=="ionian-introduction")==1,"Introduction recorded once");
+        int treasury=CouncilActions.Int("iMoney");
+        VariableSingleton.SetInt("iMoney",999);
+        Check(!IonianDiplomacy.Agree(false,out _)&&!IonianDiplomacy.Shelter&&CouncilActions.Int("iMoney")==999,"Insufficient gold blocks shelter without mutation");
+        VariableSingleton.SetInt("iMoney",treasury);
         Check(IonianDiplomacy.Agree(false,out _),"Shelter succeeds");
+        Check(CouncilActions.Int("iMoney")==treasury-1000,"Shelter charges 1000 gold");
         for(int i=0;i<4;i++)Check(Mathf.Abs(VariableSingleton.GetFloatVariable(IonianDiplomacy.SupportKeys[i])-Mathf.Clamp01(supports[i]-.03f))<.0001f,"Shelter penalty exactly three points "+i);
         supports=IonianDiplomacy.SupportKeys.Select(VariableSingleton.GetFloatVariable).ToArray();
         Check(!IonianDiplomacy.Agree(false,out _)&&IonianDiplomacy.SupportKeys.Select(VariableSingleton.GetFloatVariable).SequenceEqual(supports),"Repeated shelter cannot debit twice");
+        Check(CouncilActions.Int("iMoney")==treasury-1000,"Repeated shelter cannot debit gold twice");
         Check(IonianDiplomacy.Agree(true,out _),"Personal refuge succeeds independently");
+        Check(CouncilActions.Int("iMoney")==treasury-2000,"Personal refuge charges 1000 gold");
         for(int i=0;i<4;i++)Check(Mathf.Abs(VariableSingleton.GetFloatVariable(IonianDiplomacy.SupportKeys[i])-Mathf.Clamp01(supports[i]-.10f))<.0001f,"Personal refuge penalty exactly ten points "+i);
         Check(DailyLifeEvents.I("iSurrenderEnding")==0,"Agreement does not end campaign");
         var saved=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(VariableSingleton.Instance.CaptureState()));
@@ -97,17 +104,33 @@ public sealed class IonianCapture:MonoBehaviour
         foreach(var size in new[]{new Vector2Int(1280,720),new Vector2Int(1600,900)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.6f);Restore();
             council.DiplomaticPower(IonianDiplomacy.Country);yield return null;Layout("main");Check(GameObject.Find("Ionian diplomatic panel")!=null,"Diplomatic entry opens special court");yield return Capture("main-"+size.x);
-            Button("Visit the isles").onClick.Invoke();yield return null;Check(GameObject.Find("Raimondina separate sprite")==null,"Coast is empty before envoy");Layout("empty");yield return Capture("empty-"+size.x);
+            Button("Reestablish contact with my first wife's family").onClick.Invoke();yield return null;Check(GameObject.Find("Raimondina separate sprite")==null,"Coast is empty before envoy");Layout("empty");yield return Capture("empty-"+size.x);
             Resident();Page("visit");yield return null;Check(GameObject.Find("Raimondina separate sprite")!=null,"Resident envoy reveals separate sprite");Layout("visit");yield return Capture("visit-"+size.x);
             Check(!Button("Court Raimondina · under development").interactable&&!Button("A naval base · under development").interactable,"Future features explicitly disabled");
-            foreach(string page in new[]{"realm","about","siege","shelter","exile","envoy"}){Page(page);yield return null;Layout(page);yield return Capture(page+"-"+size.x);}
+            foreach(string page in new[]{"realm","about","siege","shelter","exile","envoy"}){Page(page);yield return null;Check(GameObject.Find("Raimondina separate sprite")!=null,"Resident sprite persists on "+page);Layout(page);yield return Capture(page+"-"+size.x);}
         }
+        Restore();Resident();IonianDiplomacy.Introduce();
+        CountryDiplomacy.Recall(IonianDiplomacy.Country,out _);Page("main");yield return null;
+        Check(GameObject.Find("Raimondina separate sprite")==null,"Recall removes resident sprite");
+        Check(!Root.GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="Reestablish contact with my first wife's family"),"Established contact button stays removed after recall");
         Restore();Resident();Page("shelter");yield return null;
+        int beforeGold=CouncilActions.Int("iMoney");
         var beforeConfirm=IonianDiplomacy.SupportKeys.Select(VariableSingleton.GetFloatVariable).ToArray();
         Button("Confirm agreement").onClick.Invoke();yield return null;
         Check(IonianDiplomacy.Shelter,"Real confirmation button commits shelter");
+        Check(CouncilActions.Int("iMoney")==beforeGold-1000,"Confirmation charges gold once");
+        Check(DecisionJournal.Entries.Any(e=>e.id=="ionian-shelter"&&e.title=="Shelter for refugees secured"),"Journal records refugee shelter status");
         for(int i=0;i<4;i++)Check(Mathf.Abs(VariableSingleton.GetFloatVariable(IonianDiplomacy.SupportKeys[i])-(beforeConfirm[i]-.03f))<.0001f,"Confirmation charges once "+i);
         Check(ActionResults.Instance.Message.Contains("Refugee shelter"),"Confirmation routes consolidated action report");
+        Restore();
+        WarTheatreUI.Show();yield return null;
+        var territory=FindObjectsOfType<TerritoryGraphic>().First(t=>t.name=="ionian_tocco");
+        Check(territory.DoubleClick!=null,"Ionian territory has direct diplomatic navigation");
+        territory.OnPointerClick(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){button=UnityEngine.EventSystems.PointerEventData.InputButton.Left,clickCount=1});yield return null;
+        Check(GameObject.Find("War Beyond the Walls map")!=null,"Single click keeps map open");
+        territory.OnPointerClick(new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){button=UnityEngine.EventSystems.PointerEventData.InputButton.Left,clickCount=2});yield return null;
+        Check(GameObject.Find("War Beyond the Walls map")==null&&GameObject.Find("Ionian diplomatic panel")!=null,"Double click opens country diplomacy");
+        yield return MapCompactChecks.Run(output);
         Restore();
     }
 }

@@ -1,0 +1,4 @@
+5 November 2026 — ConstantineX
+Current requested map presentation: single Map view selector (All territories / Ottoman provinces / Foreign powers / Court religion); compact grouped zoom minus/Fit/plus; nearby Symbols, Diplomacy and Return; retire Historical atlas navigation while preserving reference assets; existing marble/gold framing.
+User confirmed religion colours reflect ruling court, not population. No additional religious mechanics. Missing historical mappings must be verified before display.
+Ownership: JohanX already staging full WarTheatreUI plus geometry; bounded follow-up handed to him to avoid concurrent full-file overwrite. ConstantineX has made no map source edits. Implementation and runtime checks pending his handover. Required checks: filter state, religion legend/mapping, navigation, zoom; visual1280x720 and1600x900.

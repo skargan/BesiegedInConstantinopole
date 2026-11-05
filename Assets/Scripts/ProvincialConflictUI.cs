@@ -9,10 +9,11 @@ public sealed class ProvincialConflictUI : MonoBehaviour
 {
     static GameObject root;static string selected;static int armySlot;static Action continuation;
     static ProvincialWar.Province P=>ProvincialWar.Find(selected);
-    static Transform Surface=>root.transform;
+    static Transform overviewSurface;
+    static Transform Surface=>overviewSurface!=null?overviewSurface:root.transform;
     public static bool Open=>root!=null;
     public static bool Back(){if(!Open)return false;if(!P.Pending)Exit();return true;}
-    public static void Close(){if(root!=null){root.SetActive(false);Destroy(root);root=null;}}
+    public static void Close(){overviewSurface=null;if(root!=null){root.SetActive(false);Destroy(root);root=null;}}
     public static bool Intercept(Action next)
     {
         var pending=ProvincialWar.Ready?ProvincialWar.Pending:null;if(pending==null)return false;
@@ -24,7 +25,9 @@ public sealed class ProvincialConflictUI : MonoBehaviour
     }
     static TMP_Text Text(string s,float x,float y,float w,float h,int font=22)
     {
-        var t=CampaignHUD.Label(Surface,s,new Vector2(x,y),new Vector2(x+w,y+h),font);return t;
+        var t=CampaignHUD.Label(Surface,s,new Vector2(x,y),new Vector2(x+w,y+h),font);
+        if(overviewSurface!=null){t.enableAutoSizing=true;t.fontSizeMax=Math.Min(font,22);t.fontSizeMin=16;}
+        return t;
     }
     static void Button(string s,float x,float y,float w,float h,Action action,bool enabled=true)
     {
@@ -51,6 +54,14 @@ public sealed class ProvincialConflictUI : MonoBehaviour
     static void Overview()
     {
         var p=P;var c=p.Config;
+        SceneBackdrop.Apply(root,"Provinces/"+p.Id);
+        var panel=new GameObject("Province inspection",typeof(RectTransform),typeof(Image));
+        panel.transform.SetParent(root.transform,false);
+        var rect=panel.GetComponent<RectTransform>();rect.anchorMin=new Vector2(.33f,.02f);rect.anchorMax=new Vector2(.985f,.895f);rect.offsetMin=rect.offsetMax=Vector2.zero;
+        ImperialTheme.Panel(panel,false);panel.GetComponent<Image>().color=new Color(.018f,.043f,.063f,.94f);
+        var heading=CampaignHUD.Panel(root.transform,"Province heading",new Vector2(.02f,.905f),new Vector2(.985f,.99f));heading.GetComponent<Image>().color=new Color(.018f,.043f,.063f,.9f);
+        heading.transform.SetSiblingIndex(1);
+        overviewSurface=panel.transform;
         Text(ProvinceCampaign.Status(p.Id),.035f,.85f,.93f,.05f,21);
         Text("Authority  "+p.Authority+" / "+p.Ceiling+"\nResistance  "+p.Resistance+"\nWealth  "+p.Wealth+"%",.04f,.66f,.29f,.17f,25);
         Text("Ottoman garrison\n"+(p.Known?p.Garrison.ToString("N0")+" / "+c.Garrison.ToString("N0"):"Exact strength unknown")+"\nNon-Ottoman territory  "+(p.TotalControl/100f).ToString("0.##")+"%",.35f,.66f,.29f,.17f,24);

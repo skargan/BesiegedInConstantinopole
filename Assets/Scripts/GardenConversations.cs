@@ -18,16 +18,16 @@ public static class GardenConversations
     public static string Introduction(int person)
     {
         if(IsVisitor(person))return CharacterPreparations.Profiles[person-100];
-        if(person==Kjold)return "‘I am Kjold, an officer of your Varangian Guard. I came from the north to earn my living in imperial service. My present duty is to keep your person safe and the Guard ready.’";
+        if(person==Kjold)return "‘Kjold, of your Varangian Guard. I came from the north looking for wages and a little more of the world than I had seen from home. I found both. There were things I had not thought to ask about.’\n\n‘At first I kept getting lost in the City. Now I know which cook will feed a man after his watch, and which streets I should avoid when I owe somebody money. It begins to feel like home at an inconvenient time, Majesty.’";
         string[] introductions={
-            "‘Giovanni Giustiniani Longo, Majesty: a Genoese captain. I have brought my company to Constantinople to serve in its defence. Give us a place on the walls and we shall know our work.’",
-            "‘Alvise Diedo, a Venetian captain in the City's service. My trade is ships, crews and the defence of a harbour. I have come to put that experience at your disposal.’",
-            "‘Loukas Notaras, your megas doux. Constantinople is my home; its government has been my life's work. I serve you among the officials, merchants and households upon whom the defence depends.’",
-            "‘I am Orhan, an Ottoman prince living under your protection. My house gives me a claim and makes me a danger to my kinsman. For the present, my men and I stand with Constantinople.’",
-            "‘George Sphrantzes, your servant and envoy. I have spent much of my life in imperial service, carrying messages between this court and foreign rulers. My duty is to turn acquaintance into assistance.’",
-            "‘Orban, a founder of guns. I have travelled in search of a patron with the metal, furnaces and workmen to realise my designs. You will judge my service by what the finished cannon can do.’",
-            "‘Johannes Grant, an engineer who has come to assist the City's defence. I work with foundations, siege works and mines. My business is to find what is moving beneath us before it reaches the wall.’",
-            "‘Isidore, cardinal and papal legate, formerly metropolitan of Kyiv. I have come from the West to support the City's defence and the union of the Churches.’"
+            "‘Genoese, as you know. A captain when somebody can afford a company, and a creditor when he discovers he cannot.’ Giustiniani smiles briefly.\n\n‘I brought my men here because I thought the City could be defended. I still do. You have walls other captains would pray for. What troubles me is how much ground there is between one man and the next. Show me that, Majesty, and I learn more than I do from the height of the towers.’",
+            "‘I am Alvise Diedo, and I have spent enough years aboard ship to find a bed ashore suspiciously still. Venice teaches a captain to read a cargo account as carefully as a chart. An error in either can ruin him.’\n\n‘When I first looked at Constantinople, I looked at the harbour. I expect you find that unromantic. But I thought of the ships it could shelter, and the people they could feed. I have grown rather attached to the rest of it since.’",
+            "‘About myself? After all these years, Majesty?’ Notaras allows himself a smile. ‘I suspect you know more of my faults than my household would willingly admit.’\n\n‘My office is megas doux. In practice, I spend a great deal of time persuading men to do something they have already agreed to do. I know the merchants, the officials, their cousins and their excuses. This is my home. I should like my children to inherit something of it besides our grievances.’",
+            "‘I am Orhan, of the Ottoman house. Here I am your guest. In my cousin's camp, my name is a difficulty to be dealt with.’\n\n‘Constantinople has sheltered me, although some of its people would prefer a less troublesome guest. I cannot blame them. They see an Ottoman prince and wonder whom he serves. My men and I will have to answer that on the walls. I would rather be judged there than by another rumour about my family.’",
+            "‘You know my offices, Constantine. You have given me most of them.’ Sphrantzes looks relieved to be speaking without a clerk beside him.\n\n‘I have spent years carrying your business from one court to another. There are hospitable rulers who will give an envoy anything except what he came for. I have eaten very well while accomplishing very little. What I miss on those journeys is ordinary life here: familiar voices, my own household, a morning when no one asks me to leave again.’",
+            "‘Orban. I cast guns. I also argue about metal, wages and why a furnace cannot be hurried by shouting at it.’\n\n‘I came looking for work worth doing and a patron who would pay for it. Constantinople has given me plenty of the first. Your City knows what bronze can become; one sees it even in the old broken things lying about. I should like to add something of my own. Preferably something that does not break.’",
+            "‘Johannes Grant. An engineer, though I seem to spend as much time listening as building. Put men underground and the sound of their work travels farther than they imagine.’\n\n‘There is a great deal beneath this City: old masonry, drains, foundations laid by men who never expected us to trouble them. I like to see a place before someone hands me a drawing of it. The drawing generally leaves out the thing that will cost us a fortnight.’",
+            "‘Isidore. A cardinal now; before that, metropolitan of Kyiv. I have crossed a good deal of Christendom trying to persuade Christians that they have something in common.’\n\n‘Here, one can hear the same prayer sung with a devotion that moves me deeply, then leave the church and be called a traitor. I know what the quarrel means to them. That does not make the word easier to hear. I came to help preserve this City, including those who would prefer that I had stayed away.’"
         };
         return person>=0&&person<introductions.Length?introductions[person]:Personal(person);
     }
@@ -50,17 +50,17 @@ public static class GardenConversations
     public static string Advice(int person)
     {
         if(IsVisitor(person))return VisitorAdvice[person-100];
-        if(person==Kjold)return "‘Keep enough of the Guard together to act when the wall gives way. A dozen brave detachments cannot become one reserve merely because someone sends a messenger.’\n\nCheck available Varangians before committing them to missions. The breach decision states the force required.";
+        if(person==Kjold)return "‘Leave enough of the Guard together to answer a breach. I know every captain has an excellent reason to borrow a few of us. When they have all had their few, who comes when you call?’\n\nCheck available Varangians before committing them to missions. A breach will show how many are needed.";
         int food=SupplyEconomy.DaysLeft;
         float wall=VariableSingleton.Instance.EnduringWall.GetHealth();
-        if(person==2)return food<10?"‘We have fewer than ten full days of provisions. Buy food or arrange a supply mission before making another generous promise.’\n\nTreasury and market shows the current price and daily consumption.":"‘Our stores give us room to choose. Keep watching consumption as soldiers and refugees arrive: a full granary is a quantity, not a date.’\n\nCurrent food reserve: "+food+" full days.";
-        if(person==0)return wall<.5f?"‘The active wall is below half strength. Repair it if you can. Keep a reserve for the breach; do not spend the last men merely to make today's report sound brave.’\n\nReview Defence of the walls and your available Varangians.":"‘Stone buys time. Men decide what to do with it. Keep the walls repaired and check that your reserves are still available before committing them elsewhere.’";
-        if(person==1)return "‘A ship cannot defend the harbour and raid a distant coast at the same time. Review our fleet mission before deciding what support the walls can expect.’\n\nOpen Fleet to inspect the current orders and surviving ships.";
-        if(person==3)return "‘An army that cannot eat becomes a collection of arguments. Your agents can burn their stores, but it is their remaining provisions that determine whether they must stop and resupply.’";
-        if(person==4)return "‘An accepted appeal is not an arrival. Count the journeys still under way, and leave room in your plans for a late ship.’\n\nDiplomacy lists committed expeditions and expected travel time.";
-        if(person==5)return "‘Count ammunition before ordering another demonstration. A gun without powder is an expensive reassurance.’\n\nCheck ammunition and artillery actions at Defence of the walls.";
-        if(person==6)return "‘Watch the moat as well as the wall. When the ditch is filled, the enemy's work becomes easier. Their daily report will tell you when the labourers have made progress.’";
-        return "‘A promise about faith is heard by people who will remember it after this audience ends. Look at the factions before assuming that a sermon has satisfied them all.’\n\nSociety and politics shows their influence and support.";
+        if(person==2)return food<10?"‘Less than ten full days of food. That is what I would attend to first. The merchants will ask too much; they generally do. We can quarrel over the price while there is still something to buy.’\n\nTreasury and market shows prices and daily consumption. Supply missions may bring food later.":"‘At present we have "+food+" full days of food. Keep that figure beside the invitations you send out. I welcome another company as much as any captain, but someone must arrange its supper.’\n\nReview food consumption when troops or refugees arrive.";
+        if(person==0)return wall<.5f?"‘This line is below half its former strength. Put the repair gangs to work, and keep men where they can reach a breach. If the stone gives way, we shall need them before we need a discussion about whose fault it was.’\n\nReview Defence of the walls and the available Varangians.":"‘Walk the line with the men who actually hold it. Look at the stairs, the approaches and where a reserve would have to pass. Keep up the repairs while we can still do them without fighting over the same stones.’\n\nReview the wall's condition before assigning men elsewhere.";
+        if(person==1)return "‘Settle what you want from the fleet before sending it out. If we are raiding elsewhere, we cannot also stand in the harbour and support the walls. The captains need one set of orders they can carry out.’\n\nFleet shows the current mission and surviving ships.";
+        if(person==3)return "‘Find out how the army is being fed. Soldiers will endure a great deal for a commander who keeps his promises about bread. Let him begin breaking those promises. Your agents can help him into that difficulty.’\n\nDestroying stores can force a supply interruption; the result depends on the enemy's remaining provisions.";
+        if(person==4)return "‘Review the help already promised before making plans around it. A favourable letter has cheered many councils. It has never, to my knowledge, stood a watch. We need to know who has actually set out, and when they may reach us.’\n\nDiplomacy lists committed expeditions and their expected arrival.";
+        if(person==5)return "‘Have somebody count the powder and shot before you commission another gun. I am quite willing to build it. I am less willing to stand beside it explaining why it cannot fire.’\n\nCheck ammunition and artillery orders at Defence of the walls.";
+        if(person==6)return "‘The moat, Majesty. Men notice a cracked tower; they pay less attention to carts tipping earth into a ditch. Read the reports of that work. Once the approach is filled, we shall have a much harder time keeping them away from the masonry.’\n\nReview moat condition and the latest Ottoman operation.";
+        return "‘Hear what people are actually saying about the Church settlement. A man may leave an audience quietly and go home angrier than he came. I would rather hear his objection here than discover it in a sermon preached to a frightened crowd.’\n\nSociety and politics shows the factions' influence and support.";
     }
     private static readonly string[] VisitorPersonal={
         "Stephen stops to watch a young guard struggling with a buckle. ‘When a household loses its land, everyone suddenly remembers that its sons are young. Before that, we were old enough to inherit.’ He turns back to you. ‘I have come to learn what a claim is worth when a man must defend it himself. I do not expect the lesson to be gentle.’",
@@ -81,8 +81,79 @@ public static class GardenConversations
     public static string Siege(int person)
     {
         if(IsVisitor(person)&&!VariableSingleton.HasSiegeStarted())return "The siege has not begun. "+VisitorAdvice[person-100];
-        if(!VariableSingleton.HasSiegeStarted())return "The siege has not begun. "+(person==0?"‘Use these months to decide what we shall be able to do when decisions become expensive.’":person==2?"‘Every preparation is a choice against another preparation. Let us at least make those choices deliberately.’":"‘We still have time to prepare. We do not have time to do everything.’");
+        if(!VariableSingleton.HasSiegeStarted())return PreparationAssessment(person);
         string report=AI.Instance==null?"":AI.Instance.LastReport;
-        return "<b>Latest report available to the council</b>\n"+(string.IsNullOrEmpty(report)?"No Ottoman operation has yet been reported.":report)+"\n\n<b>His assessment</b>\n"+Advice(person);
+        string reaction=ReportedAssessment(person,report);
+        return "<b>The council's latest report</b>\n"+(string.IsNullOrEmpty(report)?"No Ottoman operation has yet been reported.":report)+
+            "\n\n"+(reaction==null?"<b>On the wider defence</b>\n"+Advice(person):reaction);
+    }
+    private static string PreparationAssessment(int person)
+    {
+        string[] words={
+            "‘We are not under siege yet. I am glad of every day in which we can inspect the walls without somebody shooting at us. Decide which work must be finished first. If every captain's request is urgent, the workmen will do whichever one is nearest.’",
+            "‘For now we can make arrangements with captains who still have a choice about coming here. Use that. Once the enemy is at the harbour mouth, assurances of a safe and profitable voyage will be rather less convincing.’",
+            "‘The City is still preparing. Each month someone brings me a proposal we cannot possibly neglect. I lay it beside the other proposals we cannot possibly neglect. We shall have to disappoint some of these gentlemen before the Turks do it for us.’",
+            "‘We still have time to learn something of the army coming against us. I would use it. Once the roads are watched, a man who might have carried a useful message will have more pressing concerns about his own neck.’",
+            "‘While the roads are open, send the messages that require an answer. It is tempting to wait until we know exactly what we need. By then the people who could have helped may be a month's journey away.’",
+            "‘I would much rather discover a fault in a casting now than during the first assault. Give the workmen time to finish, and give us powder to try what they have made. The Sultan will not postpone his visit because we need another test.’",
+            "‘I should like to examine the works while the ground is quiet. An old drain can be repaired. An old drain discovered by an enemy miner presents a different problem. There is still time to learn which is which.’",
+            "‘We are already asking people to bear losses for a danger they cannot yet see from their windows. Explain what the sacrifices are for. They will remember who asked, and whether the same burdens fell upon his own household.’",
+            "‘My men can stand a watch. I want them to know the route to the next post in the dark, with smoke in their eyes and someone shouting the wrong directions. There is time to practise that now. We should use it.’"
+        };
+        int index=person==Kjold?8:person;
+        return index>=0&&index<words.Length?words[index]:"‘We still have time to prepare. We do not have time to do everything.’";
+    }
+    private static string ReportedAssessment(int person,string report)
+    {
+        int index=person==Kjold?8:person;
+        if(index<0||index>8||string.IsNullOrEmpty(report))return null;
+        string text=report.ToLowerInvariant();
+        string[] words;
+        if(text.Contains("defensive line is abandoned"))words=new[]{
+            "‘Then we must make the next line ready to receive them. Find the officers, gather their men and give each company a place. I can do nothing with a reassuring total if half the men in it cannot find their captain.’",
+            "‘Losing a land wall does not change my orders at sea. But it will change what people ask of the ships. Tell the captains what you intend before frightened men begin asking them separately.’",
+            "‘We must find out what was left behind and where the men have gone. Then let the households hear an honest account. If the palace says nothing, by evening every street will have its own version of the retreat.’",
+            "‘Mehmed's men will take heart from this. Do not give them a second victory by letting our companies blame one another. Put them in position and let their officers see that there is still a defence to command.’",
+            "‘I must tell our friends what has happened. I shall not write that all is well; the next traveller would make a liar of me. But they must hear that the defence continues, and where their help is now needed.’",
+            "‘Tell me which guns we still have and where you want them. There will be plenty of time later to argue about what ought to have been moved. At present I need men who can move what remains.’",
+            "‘The next wall needs examining at once. We cannot assume that a line which has seen less fighting is sound in every place. I shall want the men who know its repairs, including those who would rather not discuss them.’",
+            "‘The people will be frightened. They have reason to be. Let the churches receive those who need help, and let them hear where the defence still stands. A rumour of the whole City lost will run faster than any messenger we send after it.’",
+            "‘Get the scattered men back to their officers. They have just come away from a lost wall; do not make them spend the night wondering whether they have been abandoned as well. The Guard must know where you will be.’"
+        };
+        else if(text.Contains("assault is repulsed"))words=new[]{
+            "‘We held. Let the men hear that plainly; they have earned it. Then relieve the worst of the exhausted companies and look at the damage. I would prefer the enemy to find us ready when he tries again.’",
+            "‘Good. A captain at sea may not know how close that was. Send word to the harbour that the line held, and keep the fleet's orders clear. There is no reason for a victory on the walls to produce confusion on the water.’",
+            "‘I am relieved, Majesty. So will every household with a man upon that wall be—once somebody tells them. Have the officers account for their companies. The families will come looking for news whether we have prepared it or not.’",
+            "‘My cousin has been refused something he wanted. He will dislike that. I would not assume it has discouraged him, but the men who climbed those ladders will remember the reception. Let ours remember that they gave it.’",
+            "‘That is news I can put in a letter without dressing it up. The City held an assault. It may persuade a hesitant friend that help can still arrive in time to be useful.’",
+            "‘The wall held. Now let the gun crews inspect their pieces before somebody orders a celebration with powder. I should like the cannon that served us today to be fit for tomorrow.’",
+            "‘We kept the position. That gives us a chance to inspect it properly. Ask where the men heard cracking, where the stair shook, where the masonry moved. Those details tend to disappear from a victorious report.’",
+            "‘Then we have something for which to give thanks. And men who need care, and families waiting to learn whether that thanks includes the return of someone they love. Let us attend to them before making speeches.’",
+            "‘They are off the wall, then. Good.’ Kjold lets out a breath. ‘Now count the men. Those who can still stand will say they need no rest, especially if an officer is listening. I would find someone else to take their next watch.’"
+        };
+        else if(text.Contains("delayed this turn"))words=new[]{
+            "‘We have bought a little time. Put it into the wall and the reserves. The enemy will eventually finish whatever is keeping him; I should like him to discover that we have finished something too.’",
+            "‘Their land operations are delayed. The sea remains another matter. Keep the coastal watch and the fleet's orders in place; I do not want a boat getting through because a courier told everyone the Turks were waiting.’",
+            "‘A useful respite. It does not stop the City eating. I would use it to look at the stores and the repairs we have been postponing, rather than explain next week how pleasantly quiet today was.’",
+            "‘Use the delay, but do not build a plan upon its lasting longer than reported. An Ottoman officer who has displeased his master can become remarkably industrious.’",
+            "‘Then perhaps a messenger has time to gain on the enemy's preparations. I would keep our requests moving. It is much easier to make good use of an extra day before it has passed.’",
+            "‘Good. The crews can inspect the vents and carriages without being interrupted. There is always some small defect nobody mentions while the gun is firing. This is when I want to hear about it.’",
+            "‘Give that time to the repair gangs. We know they have a list. Let us see how much shorter we can make it before the enemy begins again.’",
+            "‘Let those who have been keeping watch sleep. Let those who have put off visiting an injured friend go and see him. A quiet day is a kindness if we allow people to use it.’",
+            "‘Then we can change the watches properly. I shall still keep a reserve together. A promise that the enemy will be late is not a reason to be late ourselves.’"
+        };
+        else if(text.Contains("resupply")||text.Contains("supply convoy"))words=new[]{
+            "‘They need to attend to their supplies. Good. We should attend to ours, and to the wall. I would rather be ready for their return than discover that we spent the interruption congratulating ourselves.’",
+            "‘Their army is waiting for supplies; that does not tell us what their ships are doing. Keep the harbour reports separate. If we send the fleet out, I want a reason better than a quiet morning on the landward side.’",
+            "‘So the Sultan has a provisioning problem too. I wish him a thoroughly instructive experience. Meanwhile, let us make certain that our own storekeepers have something better to report.’",
+            "‘This is the difficulty I meant. The army needs to eat before it can do what Mehmed wants. Our agents may be able to make the next delivery troublesome as well, but first establish what is actually coming.’",
+            "‘An interruption gives us time, not a settlement. I shall keep pressing the promised assistance. It would be unfortunate if our friends relaxed their efforts just as the Sultan's suppliers renewed theirs.’",
+            "‘If their guns are quiet, let us use the workshops. A supply interruption is a very convenient time to discover that one of our own carriages needs a new axle.’",
+            "‘Their stores require attention. I should like to know whether their labourers have stopped too; one does not follow from the other. Keep watching the approaches while our own men work.’",
+            "‘There are hungry men in that camp as well. Their suffering may give us a respite, but it does not absolve us of caring for our own. Use the quieter hours while we have them.’",
+            "‘They cannot fight well hungry. Nor can we. Check that the men returning from watch receive what they are owed before somebody decides the quieter day is an opportunity to save a ration.’"
+        };
+        else return null;
+        return words[index];
     }
 }

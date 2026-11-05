@@ -6,8 +6,10 @@ public static class NavalState
     public const int StartingShips=48; // One third of Barbaro's 145 vessels, rounded down, as agreed.
     public static string ReplacementSource=>DailyLifeEvents.I("iOttShipSource")==0?"Gallipoli":"Izmit";
     public static int EnemyShips=>CouncilActions.Int("iTurkShips");
-    public static bool Uncontested=>CouncilActions.Int("iShips")>EnemyShips;
-    public static string SeaControl=>Uncontested?"Uncontested seas":"Contested seas";
+    public enum Control {Imperial,Contested,Ottoman}
+    public static Control Dominance=>(long)CouncilActions.Int("iShips")*2>(long)EnemyShips*3?Control.Imperial:(long)EnemyShips*2>(long)CouncilActions.Int("iShips")*3?Control.Ottoman:Control.Contested;
+    public static bool Uncontested=>Dominance==Control.Imperial;
+    public static string SeaControl=>Dominance==Control.Imperial?"Imperial sea dominance":Dominance==Control.Ottoman?"Ottoman sea dominance":"Contested seas";
     public static void Initialise(){VariableSingleton.SetInt("iTurkShips",StartingShips);VariableSingleton.SetInt("iNavalLastDay",0);VariableSingleton.SetInt("iNavalBattles",0);VariableSingleton.SetInt("iGalataCastles",0);VariableSingleton.SetInt("iNavalOurLoss",0);VariableSingleton.SetInt("iNavalEnemyLoss",0);VariableSingleton.SetInt("iNavalDiplomacyReward",0);VariableSingleton.SetInt("iArtilleryConvoy",0);}
     public static void CompleteDay(){int day=TrainingPool.Day(VariableSingleton.GetDate());if(CouncilActions.Int("iNavalLastDay")==day)return;VariableSingleton.SetInt("iNavalLastDay",day);// Provincial departures now provide all replacement ships.
         Sync();}

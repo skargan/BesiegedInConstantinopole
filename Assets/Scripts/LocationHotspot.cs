@@ -8,6 +8,7 @@ public class LocationHotspot:MaskableGraphic,ICanvasRaycastFilter,IPointerEnterH
 {
     public Vector2[] Shape;
     public UnityAction Action;
+    public LocationHotspot[] OutlinePeers;
     private bool highlighted;
     private bool spent;
     public bool Spent=>spent;
@@ -40,7 +41,7 @@ public class LocationHotspot:MaskableGraphic,ICanvasRaycastFilter,IPointerEnterH
     public void OnPointerExit(PointerEventData e)=>SetHighlighted(false);
     public void OnPointerMove(PointerEventData e)=>PositionCaption(e);
     public void OnPointerClick(PointerEventData e){if(e.button==PointerEventData.InputButton.Left&&IsRaycastLocationValid(e.position,e.pressEventCamera))Action?.Invoke();}
-    public void SetHighlighted(bool value){highlighted=value;if(caption!=null)caption.gameObject.SetActive(value);SetVerticesDirty();}
+    public void SetHighlighted(bool value){highlighted=value;if(caption!=null)caption.gameObject.SetActive(value);SetVerticesDirty();if(OutlinePeers!=null)foreach(var peer in OutlinePeers)if(peer!=null&&peer!=this){peer.highlighted=value;peer.SetVerticesDirty();}}
     private void PositionCaption(PointerEventData e)
     {
         if(caption==null)return;RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform,e.position,e.enterEventCamera,out var p);Rect r=rectTransform.rect;

@@ -49,6 +49,10 @@ public sealed class CouncilChamberCapture : MonoBehaviour
             manager.gameObject.SetActive(true);yield return null;Check(chamber.Elapsed-elapsed<=.051f,"reopen has no time jump");Check(manager.GetComponentsInChildren<CouncilChamber>(true).Length==1,"no duplicate animation component");
             chamber.ForceStill=true;yield return null;elapsed=chamber.Elapsed;yield return new WaitForSecondsRealtime(.15f);Check(chamber.Elapsed==elapsed,"reduced-motion frame stays still");yield return Capture("chamber-still-"+size.x);chamber.ForceStill=false;
         }
+        var ship=chamber.GetComponentsInChildren<RawImage>(true).Single(i=>i.name=="Passing merchantman");Check(ship.texture!=null,"passing ship artwork loaded");
+        var elapsedField=typeof(CouncilChamber).GetField("<Elapsed>k__BackingField",BindingFlags.Instance|BindingFlags.NonPublic);
+        elapsedField.SetValue(chamber,18f);chamber.SendMessage("Render");yield return Capture("chamber-gust-and-ship");
+        var shipPosition=ship.rectTransform.anchorMin;yield return new WaitForSecondsRealtime(.5f);Check(chamber.IsStill||ship.rectTransform.anchorMin!=shipPosition,"ship advances across water");
         Check(quote.QuoteId==quoteId,"quotation preserved through resize and reopen");Check(State()==before&&JsonUtility.ToJson(UnityEngine.Random.state)==rng,"decoration preserves campaign state and RNG");
         chamber.EffectsAvailable=false;chamber.SendMessage("Render");yield return Capture("chamber-static-fallback");Check(chamber.GetComponentsInChildren<RawImage>().Where(i=>i.name.StartsWith("Anchored flame")).All(i=>!i.enabled),"effect failure leaves static painting");chamber.EffectsAvailable=true;
         council.CivicRelations();yield return null;ControlSingleton.Instance.GoBack();yield return null;Check(manager.gameObject.activeInHierarchy&&manager.GetComponentsInChildren<CouncilChamber>().Length==1,"menu Return restores same chamber");

@@ -9,7 +9,7 @@ public partial class CouncilUI
     public void ProvincialOperations()
     {
         ProvinceCampaign.Ensure();string id=provincialSelection;var p=ProvincialWar.Find(id);
-        Open(p.Name+" · Provincial network","Agents reveal enemy strength and support the local resistance.");ControlSingleton.Instance.ReturnAction=()=>{Hide();ProvincialConflictUI.Show(id);};BodyHeight(550);
+        Open(p.Name+" · Provincial network","Agents reveal enemy strength and support the local resistance.");SceneBackdrop.Apply(screen,"Provinces/"+id);ControlSingleton.Instance.ReturnAction=()=>{Hide();ProvincialConflictUI.Show(id);};BodyHeight(550);
         var status=SpyPanel("Province",0,85);
         CampaignHUD.Label(status.transform,"Authority "+p.Authority+" · Resistance "+p.Resistance+" · Wealth "+p.Wealth+"%"+(p.Known||!p.Hostile?" · Food reserve "+SharedProvisions.Format(p.FoodReserve):""),new Vector2(.03f,.50f),new Vector2(.97f,.97f),22);
         CampaignHUD.Label(status.transform,ProvinceCampaign.Status(id),new Vector2(.03f,.03f),new Vector2(.97f,.48f),20);

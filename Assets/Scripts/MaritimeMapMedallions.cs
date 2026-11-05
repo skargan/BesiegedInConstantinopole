@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -16,7 +16,8 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
     Action clearTerritoryHover;
     string currentAsset;
     bool highlighted;
-    const string DefaultHint="Hover for gold outline · Click a territory · Scroll to zoom · Drag to explore";
+    const string DefaultHint="";
+    static GameObject popup;
 
     // Preserve the established outnumbering rule. Equal forces remain contested.
     // Ottoman advantage is a description of the balance, not a new supremacy bonus.
@@ -28,7 +29,7 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
     public static void Add(Transform map,Transform information,TMP_Text hover,Action clearHover)
     {
         Create(map,information,hover,clearHover,false,new Vector2(.185f,.20f));
-        Create(map,information,hover,clearHover,true,new Vector2(.485f,.76f));
+        Create(map,information,hover,clearHover,true,new Vector2(.505f,.76f));
     }
     static void Create(Transform parent,Transform information,TMP_Text hover,Action clearHover,bool passage,Vector2 anchor)
     {
@@ -42,7 +43,7 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
         var labelRect=badge.caption.rectTransform;labelRect.anchorMin=labelRect.anchorMax=new Vector2(.5f,0);labelRect.pivot=new Vector2(.5f,1);labelRect.anchoredPosition=new Vector2(0,-3);labelRect.sizeDelta=new Vector2(142,54);
         badge.caption.alignment=TextAlignmentOptions.Top;badge.caption.fontStyle=FontStyles.Bold;
         badge.caption.gameObject.AddComponent<Shadow>().effectColor=new Color(0,0,0,.95f);
-        badge.Refresh();
+        badge.Refresh();badge.caption.gameObject.SetActive(false);
     }
     void Update(){Refresh();}
     void Refresh()
@@ -56,12 +57,12 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
     }
     string HintText()
     {
-        if(Passage)return "Bosphorus · "+PassageTitle+" · Click for Straitcutter Fortress and route details";
-        return NavalState.SeaControl+" · Fleet strength around Constantinople · Click for Fleet management";
+        if(Passage)return "Bosphorus · "+PassageTitle;
+        return "Sea control · "+NavalState.SeaControl;
     }
     void Highlight(bool on)
     {
-        highlighted=on;if(glow!=null)glow.enabled=on;
+        highlighted=on;if(glow!=null)glow.enabled=on;if(caption!=null)caption.gameObject.SetActive(on);
         if(on){clearTerritoryHover?.Invoke();if(hint!=null)hint.text=HintText();}
         else if(hint!=null&&hint.text==HintText())hint.text=DefaultHint;
     }
@@ -78,17 +79,24 @@ public sealed class MaritimeMapMedallions : MonoBehaviour, IPointerEnterHandler,
     }
     public void Activate()
     {
-        if(!Passage){OpenFleet();return;}
-        foreach(Transform child in detail){child.gameObject.SetActive(false);Destroy(child.gameObject);}
-        clearTerritoryHover?.Invoke();
-        CampaignHUD.Label(detail,"Bosphorus · "+PassageTitle,new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
-        string body=PassageOpen
-            ?"The Straitcutter Fortress no longer bars the route. Grain voyages from Crimea and Black Sea purchases are available when their other requirements are met.\nEnemy fleets can still threaten shipping. The Golden Horn chain protects a different entrance."
-            :"The Straitcutter Fortress bars the Black Sea route. Grain voyages from Crimea and Black Sea purchases require the straits to be opened.\nThe selectable preparation Assault on the Straitcutter Fortress can open this passage. Naval superiority alone does not open it.";
-        var text=CampaignHUD.Explanation(detail,body,new Vector2(.02f,.06f),new Vector2(.73f,.70f),20);text.enableAutoSizing=true;text.fontSizeMin=16;text.fontSizeMax=20;
-        CampaignHUD.MakeButton(detail,"Fleet management",new Vector2(.76f,.44f),new Vector2(.98f,.83f),OpenFleet);
-        CampaignHUD.Label(detail,"Inspecting the passage\ndoes not advance time.",new Vector2(.76f,.06f),new Vector2(.98f,.38f),17);
+        if(popup!=null)Destroy(popup);
+        popup=new GameObject("Maritime status",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
+        var canvas=popup.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=240;
+        var scaler=popup.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);
+        var dim=CampaignHUD.Panel(popup.transform,"Backdrop",Vector2.zero,Vector2.one);dim.GetComponent<Image>().color=new Color(0,0,0,.65f);
+        var card=CampaignHUD.Panel(popup.transform,"Maritime status card",new Vector2(.28f,.16f),new Vector2(.72f,.84f));ImperialTheme.Panel(card,false);
+        CampaignHUD.Label(card.transform,Passage?"Bosphorus Passage":"Control of the Sea",new Vector2(.06f,.86f),new Vector2(.94f,.97f),32).alignment=TextAlignmentOptions.Center;
+        var picture=new GameObject("Enlarged maritime emblem",typeof(RectTransform),typeof(RawImage));picture.transform.SetParent(card.transform,false);
+        var rect=(RectTransform)picture.transform;rect.anchorMin=rect.anchorMax=new Vector2(.5f,.63f);rect.sizeDelta=new Vector2(205,205);
+        picture.GetComponent<RawImage>().texture=artwork.texture;picture.GetComponent<RawImage>().raycastTarget=false;
+        CampaignHUD.Label(card.transform,Passage?PassageTitle:NavalState.SeaControl,new Vector2(.06f,.36f),new Vector2(.94f,.45f),28).alignment=TextAlignmentOptions.Center;
+        string explanation=Passage?(PassageOpen?"The Black Sea passage is currently open.":"The Black Sea passage is currently interdicted. Opening it permits Black Sea voyages."):
+            "Our fleet: "+CouncilActions.Int("iShips")+" ships · Ottoman fleet: "+NavalState.EnemyShips+" ships";
+        var text=CampaignHUD.Explanation(card.transform,explanation,new Vector2(.08f,.20f),new Vector2(.92f,.35f),21);text.alignment=TextAlignmentOptions.Center;text.enableAutoSizing=true;text.fontSizeMin=17;
+        CampaignHUD.MakeButton(card.transform,"Fleet management",new Vector2(.07f,.05f),new Vector2(.57f,.15f),()=>{Destroy(popup);popup=null;OpenFleet();});
+        CampaignHUD.MakeButton(card.transform,"Return",new Vector2(.62f,.05f),new Vector2(.93f,.15f),()=>{Destroy(popup);popup=null;});
     }
+
     static void OpenFleet()
     {
         var council=FindObjectOfType<CouncilUI>(true);if(council==null)return;

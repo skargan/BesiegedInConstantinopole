@@ -93,7 +93,8 @@ public static class SharedProvisions
         var allocated=split.Select(x=>(int)Math.Floor(x.Exact)).ToArray();int remaining=losses-allocated.Sum();
         foreach(int index in Enumerable.Range(0,split.Length).OrderByDescending(i=>split[i].Exact-allocated[i]).ThenBy(i=>i))
             if(remaining>0&&allocated[index]<split[index].Count){allocated[index]++;remaining--;}
-        for(int i=0;i<Land.Length;i++)if(allocated[i]>0)VariableSingleton.ChangeInt(Land[i],-allocated[i]);
+        // Deserters leave the roster alive; they are not Ottoman deaths for achievements.
+        for(int i=0;i<Land.Length;i++)if(allocated[i]>0)VariableSingleton.SetInt(Land[i],Math.Max(0,I(Land[i])-allocated[i]));
         VariableSingleton.SetInt("iProvisionDeserters",losses);
         if(days==0)return "";
         if(I("iSpies")<4)return "Ottoman foraging parties leave the camp. Hunger interrupts today's operation; the full losses are unknown.";

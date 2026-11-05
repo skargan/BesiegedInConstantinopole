@@ -21,11 +21,11 @@ public sealed class PalaceCourtFigure : MonoBehaviour, IPointerEnterHandler, IPo
         var art=PalaceFigureArt.Acquire(person);if(art==null)return false;
         var ground=new GameObject("Palace contact shadow "+person,typeof(RectTransform),typeof(PalaceFigureShadow));ground.transform.SetParent(painting,false);
         ground.GetComponent<PalaceFigureShadow>().raycastTarget=false;
-        var go=new GameObject("Palace court figure "+person,typeof(RectTransform),typeof(Image),typeof(Button),typeof(Outline),typeof(PalaceCourtFigure));go.transform.SetParent(painting,false);
+        var go=new GameObject("Palace court figure "+person,typeof(RectTransform),typeof(CourtSilhouetteImage),typeof(Button),typeof(Outline),typeof(PalaceCourtFigure));go.transform.SetParent(painting,false);
         var view=go.GetComponent<PalaceCourtFigure>();view.personId=person;view.painting=(RectTransform)painting;view.figure=go.GetComponent<RectTransform>();view.shadow=ground.GetComponent<RectTransform>();
         view.Location=Mathf.Clamp(location,0,2);view.placement=Placement(view.Location);
         view.personName=GardenConversations.Name(person);view.aspect=art.rect.width/art.rect.height;
-        view.picture=go.GetComponent<Image>();view.picture.sprite=art;view.picture.preserveAspect=true;view.picture.color=Color.white;
+        view.picture=go.GetComponent<Image>();view.picture.sprite=art;view.picture.preserveAspect=true;view.picture.color=new Color(1f,.97f,.91f,1f);
         // Readable source textures permit silhouette hit-testing. Tight imports bound the fallback area.
         if(art.texture.isReadable)view.picture.alphaHitTestMinimumThreshold=.12f;
         view.outline=go.GetComponent<Outline>();view.outline.effectColor=new Color(1f,.80f,.36f,.65f);view.outline.effectDistance=new Vector2(1.25f,1.25f);view.outline.useGraphicAlpha=true;view.outline.enabled=false;
@@ -47,7 +47,7 @@ public sealed class PalaceCourtFigure : MonoBehaviour, IPointerEnterHandler, IPo
         float height=Mathf.Min(lastSize.y*placement.z,lastSize.x*placement.w/Mathf.Max(.05f,aspect));
         float width=height*aspect;
         figure.anchorMin=figure.anchorMax=new Vector2(placement.x,placement.y);figure.pivot=new Vector2(.5f,0);figure.anchoredPosition=Vector2.zero;figure.sizeDelta=new Vector2(width,height);
-        shadow.anchorMin=shadow.anchorMax=new Vector2(placement.x,placement.y);shadow.pivot=new Vector2(.5f,.5f);shadow.anchoredPosition=new Vector2(0,-height*.003f);shadow.sizeDelta=new Vector2(width*.72f,height*.038f);
+        shadow.anchorMin=shadow.anchorMax=new Vector2(placement.x,placement.y);shadow.pivot=new Vector2(.5f,.5f);shadow.anchoredPosition=new Vector2(-width*.06f,-height*.003f);shadow.sizeDelta=new Vector2(width*.9f,height*.06f);
         plaque.anchorMin=plaque.anchorMax=new Vector2(placement.x,Mathf.Max(.008f,placement.y-.062f));plaque.pivot=new Vector2(.5f,0);plaque.anchoredPosition=Vector2.zero;plaque.sizeDelta=new Vector2(Mathf.Min(300,lastSize.x*.35f),Mathf.Clamp(lastSize.y*.042f,22,30));
     }
     void Highlight(bool active){if(outline!=null)outline.enabled=active;if(caption!=null)caption.text=active?personName+" · Speak":personName;}

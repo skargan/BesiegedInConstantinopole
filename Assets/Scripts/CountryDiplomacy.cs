@@ -203,6 +203,7 @@ public static class CountryDiplomacy
     public static string AidRequestReason(int i)
     {
         Ensure();if(!Valid(i))return "Unknown court";
+        if(Definitions[i].Id=="hospitallers"&&MercenaryContracts.RhodianReserved)return "The Rhodian detachment is committed through the mercenary brokers";
         if(Definitions[i].Id=="ionian_tocco")return "The Ionian Isles negotiate shelter and exile, not ordinary aid";
         int state=DailyLifeEvents.I("iAidState"+i);
         if(state==1)return "Aid is already travelling";

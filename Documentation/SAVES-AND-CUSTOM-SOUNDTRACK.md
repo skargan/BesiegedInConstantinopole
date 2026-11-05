@@ -1,0 +1,9 @@
+# Named saves and custom background music — 5 November 2026
+
+Campaign archives: explicit Save name label, framed single-line name field (60 characters), visible caret and selection, Enter submits Save campaign. Existing normal-campaign naming backend, checksums and Ironman restrictions retained. Named archive roundtrip tested with The Emperor's Test Council.
+
+Settings > Soundtrack: Open soundtrack folder, Refresh tracks, custom playlist toggle and Next track. MP3/WAV/OGG top-level files in Application.persistentDataPath/Soundtrack, sorted by filename and repeated. Folder is created on demand and opened with the OS file browser. Music volume/mute remain Settings-owned; effects remain independently controlled. Built-in music resumes when custom playback is disabled. Unsupported files are ignored; decode errors show a message and back off for ten seconds. Files are loaded one at a time and replaced clips released. User preferences persist, campaign RNG untouched.
+
+Verification: standalone runtime compile passed; latest DLL installed in private IonianPreview only. 58 combined exported-player assertions passed (50 desk assertions plus 8 preference/save/audio assertions). Tested named-save roundtrip, case-insensitive extension filtering, actual WAV decoding/playback, music mute and effects-setting preservation. Soundtrack screenshot reviewed at 1280x720. MP3/OGG decoder paths use Unity's platform audio loader but were not independently exercised with sample tracks. Open-folder OS action not invoked during automated checks. No public release or Git push claimed.
+
+Build owner: include SaveMenu.cs, SoundtrackLibrary.cs, Settings.cs, CouncilMusic.cs, UI/AudioSettingsUI.cs. PalaceFigureCapture.cs includes isolated development checks. Settings selects an AudioSingleton music source or the legacy scene object Audio with playOnAwake, avoiding arbitrary effect players.

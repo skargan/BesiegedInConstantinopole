@@ -23,6 +23,7 @@ public static class CampaignPersonnelCalendar
             researching|=MonasticResearch.ResearchMonks>0;
             discoveries+=MonasticResearch.Advance(date);
             reports.Append(CountryDiplomacy.Advance(date));
+            reports.Append(MercenaryContracts.Advance(date));
         }
         if(medicalActivity)reports.Append("Infirmary: ").Append(medicalReturns.ToString("N0")).Append(" recovered patients return to duty; ")
             .Append(SharedProvisions.Format(medicalProvisions)).Append(" provisions used; ").Append(MedicalRecovery.Total.ToString("N0")).Append(" remain wounded.")

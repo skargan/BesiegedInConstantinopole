@@ -32,3 +32,22 @@ This index is being consolidated, not a completed licence audit of every legacy 
 ## Discovery integration
 
 Sources and exact edits: [sound credits](DiscoveryAssets/Attribution/SOUND-CREDITS.md), [machine-readable manifest](DiscoveryAssets/Attribution/manifest.json). Source-page snapshots and original downloads are retained in DiscoveryAssets for review. The generated skull is a playful fossil interpretation, not an authenticated historical object. The room illustration is AI-generated from the project artwork; the no-minarets art rule remains mandatory.
+
+## Map landmarks — 5 November 2026
+Gold city medallion and intact/ruined Rumeli scenes: OpenAI image generation, user-supplied icon reference. See MAP-LANDMARKS-HANDOVER.md for source files, prompts and interpretive-art limitations.
+
+
+## Senate hall — 5 November 2026
+- Asset: Assets/Resources/UI/MidnightMosaic/Scenes/senate.png
+- Source: OpenAI image generation; original exec-11ac9765-2589-4e8b-810c-15ec062fd449.png.
+- Use: The Senate support/delegation screen. Historical-fiction Blachernae-inspired reconstruction; see SENATE-PRESENTATION.md for architectural references. No external licensed image incorporated.
+
+
+## Province inspection landscapes (5 November 2026)
+Eleven OpenAI-generated original landscapes, installed in UI/MidnightMosaic/Scenes/Provinces. Historical inspirations, source URLs, limitations and file provenance: [PROVINCE-LANDSCAPES.md](PROVINCE-LANDSCAPES.md) and province-art-files.json. These are interpretive regional scenes, not exact reconstructions. All original PNGs visually reviewed; no third-party photographs incorporated.
+
+## Nameless Fortress (5 November 2026)
+Original OpenAI-generated mountain ruins and transparent vulture, installed in UI/Maps/Landmarks. Full prompts, generated originals and location references: Documentation/NAMELESS-FORTRESS.md. No third-party image copied.
+
+## Mehmed gift illustrations (5 November 2026)
+Eight original OpenAI-generated square still-life images in UI/Gifts. Prompts and original file provenance: gift-art-manifest.json. Presentation and validation: GIFT-GALLERY.md. No third-party imagery used.

@@ -7,72 +7,65 @@ public partial class CouncilUI
     // Presentation only: the existing mission and intelligence rules remain authoritative.
     private void IntelligenceMenu(bool operations)
     {
-        Open("Spies and intelligence", "");
-        var scroll=body.parent.GetComponent<ScrollRect>();
-        if(scroll.verticalScrollbar!=null)scroll.verticalScrollbar.gameObject.SetActive(false);
-        body.parent.gameObject.SetActive(false);
-
-        var desk=CampaignHUD.Panel(screen.transform,"Intelligence desk",new Vector2(.035f,.115f),new Vector2(.965f,.88f));
-        desk.GetComponent<Image>().color=Color.clear;
-        desk.GetComponent<Image>().raycastTarget=false;
+        var desk=MilitaryCanvas("Spies and intelligence","intelligence","Reports from the camp. Orders from the shadows.");
         int agents=CouncilActions.Int("iSpies");
-        var network=CampaignHUD.Panel(desk.transform,"Intelligence network",new Vector2(0,.845f),Vector2.one);
+        var network=CampaignHUD.Panel(desk.transform,"Intelligence network",new Vector2(.025f,.72f),new Vector2(.975f,.98f));
         ImperialTheme.Panel(network,false);
-        IntelligenceText(network.transform,"CAMP AGENTS  "+agents+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     GOLD  "+CouncilActions.Int("iMoney").ToString("N0"),new Vector2(.02f,.47f),new Vector2(.445f,.94f),23);
-        IntelligenceText(network.transform,"Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.02f,.06f),new Vector2(.445f,.49f),19);
+        IntelligenceText(network.transform,"CAMP AGENTS  "+agents+"     SECRETS  "+CouncilActions.Int("iSecrets")+"     GOLD  "+CouncilActions.Int("iMoney").ToString("N0"),new Vector2(.025f,.73f),new Vector2(.975f,.98f),23);
+        IntelligenceText(network.transform,"Operations delay: "+CouncilActions.Int("iEnemyDelay")+" days · Agents abroad: "+ProvinceCampaign.Assigned,new Vector2(.025f,.50f),new Vector2(.975f,.73f),19);
         // Match intelligence tier VIII; do not even read the hidden count below the threshold.
         string enemySpies=agents>=8?CouncilActions.Int("iTurkSpies").ToString("N0"):"?";
-        var counter=IntelligenceText(network.transform,"ENEMY SPIES  "+enemySpies,new Vector2(.46f,.47f),new Vector2(.675f,.94f),23);
+        var counter=IntelligenceText(network.transform,"ENEMY SPIES  "+enemySpies,new Vector2(.025f,.27f),new Vector2(.42f,.50f),23);
         counter.name="Enemy spies summary";
-        IntelligenceText(network.transform,"In the City · revealed at 8 agents",new Vector2(.46f,.06f),new Vector2(.675f,.49f),18);
-        var alert=IntelligenceText(network.transform,"OTTOMAN CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.70f,.47f),new Vector2(.98f,.94f),23);
+        IntelligenceText(network.transform,"In the City · revealed at 8 agents",new Vector2(.025f,.02f),new Vector2(.42f,.27f),18);
+        var alert=IntelligenceText(network.transform,"OTTOMAN CAMP ALERT  "+EspionageSystem.Alert+"%",new Vector2(.44f,.27f),new Vector2(.975f,.50f),23);
         alert.color=EspionageSystem.Alert>=50?new Color(1f,.65f,.49f):ImperialTheme.Ivory;
-        IntelligenceText(network.transform,"Falls 1–10 points/turn"+(EspionageSystem.AlertFloor>0?" · Minimum "+EspionageSystem.AlertFloor+"%":""),new Vector2(.70f,.06f),new Vector2(.98f,.49f),19);
+        IntelligenceText(network.transform,"Falls 1–10 points/turn"+(EspionageSystem.AlertFloor>0?" · Minimum "+EspionageSystem.AlertFloor+"%":""),new Vector2(.44f,.02f),new Vector2(.975f,.27f),19);
 
-        var reports=IntelligenceButton(desk.transform,"Reports",new Vector2(0,.753f),new Vector2(.18f,.827f),()=>IntelligenceMenu(false));
+        var reports=IntelligenceButton(desk.transform,"Reports",new Vector2(.025f,.63f),new Vector2(.23f,.705f),()=>IntelligenceMenu(false));
         reports.name="Intelligence reports tab";
-        var orders=IntelligenceButton(desk.transform,"Operations",new Vector2(.19f,.753f),new Vector2(.38f,.827f),()=>IntelligenceMenu(true));
+        var orders=IntelligenceButton(desk.transform,"Operations",new Vector2(.24f,.63f),new Vector2(.46f,.705f),()=>IntelligenceMenu(true));
         orders.name="Intelligence operations tab";
         var selected=operations?orders:reports;selected.interactable=false;var selectionColours=selected.colors;selectionColours.disabledColor=new Color(.72f,.58f,.34f);selected.colors=selectionColours;
         if(operations){
-            IntelligenceText(desk.transform,"PAY WITH",new Vector2(.46f,.753f),new Vector2(.58f,.827f),18);
-            var gold=IntelligenceButton(desk.transform,"1,000 gold",new Vector2(.59f,.753f),new Vector2(.79f,.827f),()=>{paySecret=false;IntelligenceMenu(true);});gold.name="Spy payment gold";
-            var secrets=IntelligenceButton(desk.transform,"1 secret",new Vector2(.80f,.753f),new Vector2(1,.827f),()=>{paySecret=true;IntelligenceMenu(true);});secrets.name="Spy payment secrets";var payment=paySecret?secrets:gold;var paymentColours=payment.colors;paymentColours.normalColor=new Color(.72f,.58f,.34f);paymentColours.selectedColor=paymentColours.normalColor;payment.colors=paymentColours;
+            IntelligenceText(desk.transform,"PAY WITH",new Vector2(.46f,.63f),new Vector2(.58f,.705f),18);
+            var gold=IntelligenceButton(desk.transform,"1,000 gold",new Vector2(.59f,.63f),new Vector2(.79f,.705f),()=>{paySecret=false;IntelligenceMenu(true);});gold.name="Spy payment gold";
+            var secrets=IntelligenceButton(desk.transform,"1 secret",new Vector2(.80f,.63f),new Vector2(1,.705f),()=>{paySecret=true;IntelligenceMenu(true);});secrets.name="Spy payment secrets";var payment=paySecret?secrets:gold;var paymentColours=payment.colors;paymentColours.normalColor=new Color(.72f,.58f,.34f);paymentColours.selectedColor=paymentColours.normalColor;payment.colors=paymentColours;
             IntelligenceOperations(desk.transform);
         }else{
             IntelligenceLedger(desk.transform,agents);
         }
-        IntelligenceButton(screen.transform,"War Beyond the Walls",new Vector2(.035f,.02f),new Vector2(.30f,.09f),WarTheatreUI.Show);
-        IntelligenceButton(screen.transform,"Specialists",new Vector2(.31f,.02f),new Vector2(.48f,.09f),Specialists);
+        IntelligenceButton(desk,"War Beyond the Walls",new Vector2(.025f,.02f),new Vector2(.45f,.085f),WarTheatreUI.Show);
+        IntelligenceButton(desk,"Specialists",new Vector2(.46f,.02f),new Vector2(.69f,.085f),Specialists);
+        IntelligenceButton(desk,"Return",new Vector2(.70f,.02f),new Vector2(.975f,.085f),()=>ControlSingleton.Instance.GoBack());
         notice.rectTransform.anchorMin=new Vector2(.50f,.02f);notice.rectTransform.anchorMax=new Vector2(.77f,.09f);
     }
 
     private void IntelligenceLedger(Transform parent,int agents)
     {
-        var ledger=CampaignHUD.Panel(parent,"Intelligence ledger",Vector2.zero,new Vector2(1,.73f));
+        var ledger=CampaignHUD.Panel(parent,"Intelligence ledger",new Vector2(.025f,.10f),new Vector2(.975f,.61f));
         ImperialTheme.Panel(ledger,false);
-        // Longer unlocked reports receive the space their actual contents require.
-        float[] heights={1.35f,1.05f,.9f,.9f,.9f,.9f,1.8f,2.7f,1.25f,1.75f};
-        float total=0;for(int i=0;i<10;i++){if(agents<=i)heights[i]=(i==0||i==9)?1.35f:1.05f;total+=heights[i];}
         string[] tiers={"I","II","III","IV","V","VI","VII","VIII","IX","X"};
-        float top=.985f;
-        for(int i=0;i<10;i++){
-            bool known=agents>i;float h=.97f*heights[i]/total;
-            var row=CampaignHUD.Panel(ledger.transform,"Intelligence row "+i,new Vector2(.008f,top-h),new Vector2(.992f,top-.004f));
-            row.GetComponent<Image>().color=i%2==0?ImperialTheme.Surface:ImperialTheme.Navy;
-            var label=IntelligenceText(row.transform,tiers[i]+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.015f,.04f),new Vector2(.33f,.96f),21);
-            bool link=i==0||i==9;
-            var value=IntelligenceText(row.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.35f,.04f),new Vector2(link?.80f:.985f,.96f),20);
-            if(!known){label.color=new Color(.66f,.65f,.59f);value.color=label.color;}
-            if(i==0){var troops=IntelligenceButton(row.transform,"View troops",new Vector2(.82f,.035f),new Vector2(.985f,.965f),()=>EnemyTroops(Spies));troops.name="Intelligence troop details";}
-            if(i==9){var attempt=IntelligenceButton(row.transform,"Review attempt",new Vector2(.82f,.035f),new Vector2(.985f,.965f),ReviewAssassination);attempt.name="Intelligence assassination";attempt.interactable=known;}
-            top-=h;
+        var detail=CampaignHUD.Panel(ledger.transform,"Selected intelligence report",new Vector2(.49f,.02f),new Vector2(.98f,.98f));ImperialTheme.Panel(detail,false);
+        System.Action<int> select=null;
+        select=(i)=>{
+            foreach(Transform child in detail.transform){child.gameObject.SetActive(false);Destroy(child.gameObject);}
+            bool known=agents>i;
+            IntelligenceText(detail.transform,EspionageSystem.IntelligenceLabels[i],new Vector2(.04f,.80f),new Vector2(.96f,.98f),25);
+            IntelligenceText(detail.transform,known?EspionageSystem.IntelligenceValue(i):"Requires "+(i+1)+" agents",new Vector2(.04f,.20f),new Vector2(.96f,.80f),23);
+            if(i==0){var troops=IntelligenceButton(detail.transform,"View troops",new Vector2(.04f,.025f),new Vector2(.96f,.18f),()=>EnemyTroops(Spies));troops.name="Intelligence troop details";}
+            if(i==9){var attempt=IntelligenceButton(detail.transform,"Review attempt",new Vector2(.04f,.025f),new Vector2(.96f,.18f),ReviewAssassination);attempt.name="Intelligence assassination";attempt.interactable=known;}
+        };
+        for(int i=0;i<10;i++){int tier=i;float top=.985f-i*.097f;
+            var button=IntelligenceButton(ledger.transform,tiers[i]+"  "+EspionageSystem.IntelligenceLabels[i],new Vector2(.015f,top-.09f),new Vector2(.475f,top),()=>select(tier));
+            button.name="Select intelligence report "+i;
         }
+        select(0);
     }
 
     private void IntelligenceOperations(Transform parent)
     {
-        var area=CampaignHUD.Panel(parent,"Spy operations",Vector2.zero,new Vector2(1,.73f));
+        var area=CampaignHUD.Panel(parent,"Spy operations",new Vector2(.025f,.10f),new Vector2(.975f,.61f));
         area.GetComponent<Image>().color=Color.clear;area.GetComponent<Image>().raycastTarget=false;
         for(int i=0;i<CouncilActions.SpyOrders.Length;i++){
             int mission=i;float left=i%2*.51f,top=1-i/2*.335f;

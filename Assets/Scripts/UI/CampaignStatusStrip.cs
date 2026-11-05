@@ -45,9 +45,11 @@ public sealed class CampaignStatusStrip : MonoBehaviour
                 divider.GetComponent<Image>().color=new Color(.48f,.43f,.32f,.4f);divider.GetComponent<Image>().raycastTarget=false;
             }
             symbols[index]=AddStatArt(cell.transform,index,group);
+            if(group != 0) {
             var label=CampaignHUD.Label(cell.transform,CampaignStatistics.Header[index].ShortName,new Vector2(.035f,.61f),new Vector2(.965f,.99f),15);
             label.alignment=TextAlignmentOptions.Center;label.fontStyle=FontStyles.Normal;label.enableWordWrapping=false;
-            amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.5f,.30f),new Vector2(.5f,.30f),ValueSize);
+            }
+            amounts[index]=CampaignHUD.Label(cell.transform,"",new Vector2(.5f,group==0?.5f:.30f),new Vector2(.5f,group==0?.5f:.30f),ValueSize);
             amounts[index].name="Stat value "+index;
             amounts[index].alignment=TextAlignmentOptions.MidlineLeft;amounts[index].fontStyle=FontStyles.Normal;
             amounts[index].enableWordWrapping=false;amounts[index].enableAutoSizing=false;
@@ -101,7 +103,7 @@ public sealed class CampaignStatusStrip : MonoBehaviour
             var amount=amounts[i];amount.fontSize=size;
             float textWidth=Mathf.Ceil(amount.GetPreferredValues(amount.text,Mathf.Infinity,Mathf.Infinity).x);
             float pairWidth=SymbolSize+PairGap+textWidth;
-            var symbol=symbols[i];symbol.anchorMin=symbol.anchorMax=new Vector2(.5f,.30f);symbol.pivot=new Vector2(.5f,.5f);
+            var symbol=symbols[i];symbol.anchorMin=symbol.anchorMax=new Vector2(.5f,i<6?.5f:.30f);symbol.pivot=new Vector2(.5f,.5f);
             symbol.sizeDelta=new Vector2(SymbolSize,SymbolSize);symbol.anchoredPosition=new Vector2((SymbolSize-pairWidth)*.5f,0);
             var rect=amount.rectTransform;rect.pivot=new Vector2(0,.5f);rect.sizeDelta=new Vector2(textWidth+1,36);
             rect.anchoredPosition=new Vector2(-pairWidth*.5f+SymbolSize+PairGap,0);

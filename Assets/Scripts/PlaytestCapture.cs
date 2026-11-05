@@ -135,7 +135,7 @@ public class PlaytestCapture : MonoBehaviour
                 if(!SultanGifts.Send(i,out report) || Mathf.Abs(VariableSingleton.GetFloatVariable("fSultanRage")-(1-g.Fury/100f))>.001f)throw new Exception("Gift effect");checks++;
             }
             var c=CouncilUI.For(manager);VariableSingleton.SetInt("iMoney",10000);VariableSingleton.SetInt("iSecrets",10);VariableSingleton.SetInt("iProvisions",1000);VariableSingleton.SetInt("iMaterials",1000);c.SultanGiftMenu();yield return Capture("25-gifts");
-            FindObjectsOfType<Button>().First(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Review gift").onClick.Invoke();yield return Capture("25-gift-review"); if(!FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Confirm — send gift"))throw new Exception("Gift review missing");checks++;
+            FindObjectsOfType<Button>().First(b=>b.name=="Gift card 0").onClick.Invoke();yield return Capture("25-gift-review"); if(!FindObjectsOfType<Button>().Any(b=>b.GetComponentInChildren<TMPro.TMP_Text>()?.text=="Confirm — send gift"))throw new Exception("Gift review missing");checks++;
             Debug.Log("GIFT_PLAYER_CHECKS "+checks+" passed");Application.Quit();yield break;
         }
         if(Environment.GetCommandLineArgs().Contains("-achievement-capture")) {

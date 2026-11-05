@@ -1,4 +1,4 @@
-title: story0
+﻿title: story0
 ---
 <<declare $chance = 100>>
 <b>Messenger arrives</b>: <br> A dusty messenger stumbles into your courtroom, clearly after riding many miles. Loukas Notaras, your megas doux and chief minister, takes the scroll from the messenger's shaking hand and unfolds it. You can see how the colour drains from the face of your trusted adviser. He reads it and you realise that peace has come to an end. Sultan Mehmed the Second, Lord of the Turks, Master of the Ottoman Empire, is gathering armies in the city of Adrianople. His criers are spreading the call of Jihad across Anatolia and the Balkans, his engineers are improving roads and bridges leading to Constantinople and there are rumours of massive cannons being forged. A massive army is being gathered and there can be only one target for it - the last piece of the Eastern Roman Empire, the Holy City of Constantinople, your home. Although you have suspected that this attack will come, you hoped for more time. But now, you realise that you have mere months to prepare. Notaras asks: 'Imperator, what shall be your orders? How do we prepare for this?' <br><br> <color=\#B8CFDA><i>\[This is an extremely important decision that will shape the rest of our preparations. Your Siege Focus unlocks special choices marked with its emblem. Choose carefully: this commitment will guide the campaign.\] This focus will unlock special decisions throughout the game.</i></color> 
@@ -524,7 +524,8 @@ title: story16
     <<set $chance = dice(100)>>
     <<if $chance <= RumeliChance()>> 
     You task a group of your best warriors - Varangians - to slip into Rumeli Fortress under the cover of being merchants. Their mission is to start a fire and create confusion, creating an opening to open the gate and let in the rest of your forces. The mission goes flawlessly - the infiltrators skilfully navigate Ottoman defences and soon your troops raise your banner over the Boğazkesen. Your troops capture the enemy cannons which will be useful in the defence of our City and explode the gunpowder stores, turning the fortress into a ruin and opening the way to the Black Sea. <br> <color=\#B8CFDA><i>\[Straits are Open\]</i></color> <br> <color=\#B8CFDA><i>\[Cannons +5\]</i></color> <br> <color=\#B8CFDA><i>\[Troop Morale +10\]</i></color>
-    <<Change bStraitsOpen>> 
+    <<Change bStraitsOpen>>
+    <<SetInt iRumeliLandmark 2>> 
     <<Change fTroopRep 0.1>>
     <<Change iCannons 5>>
     <<else>>
@@ -537,7 +538,8 @@ title: story16
     <<set $chance = dice(100)>>
     <<if $chance <= 85>> 
     There is no need to take over the whole fortress – the most important thing is to render it toothless by disabling the artillery. You order a sabotage mission and your spies bribe a Levantine sentry to set the gunpowder storage on fire. He is successful - the ammunition warehouse explodes with a thunderous roar, destroying the main artillery tower, destroying all the cannons and the ammunition required to fire it. The mission is a complete success and while Ottomans will eventually rebuild the castle, for now the Strait lies open once more. <br> <color=\#B8CFDA><i>\[Straits are Open\]</i></color>
-    <<Change bStraitsOpen>> 
+    <<Change bStraitsOpen>>
+    <<SetInt iRumeliLandmark 4>> 
     <<else>>
     There is no need to take over the whole fortress – the most important thing is to render it toothless by disabling the artillery. You order a sabotage mission and your spies bribe a Levantine sentry to set the gunpowder storage on fire.  Unfortunately, Ottoman guards keenly guard the armoury and detect the sabotage attempt. Despite best efforts, the mission fails and our saboteur is executed. The artillery remains operational, maintaining the blockade of the Strait. Fortunately, the only thing we lost is a bit of money.  <br> <color=\#B8CFDA><i>\[Money -3000\]</i></color>
     <<endif>>
@@ -545,13 +547,15 @@ title: story16
     You realise that taking this fortress is critical for the survival of your City. The sudden assault catches Rumeli’s defenders off guard, and the well-equipped contingent led by the seasoned commander overwhelms the defences. The fortress falls under your control, securing the Bosphorus Strait, but the price for this is great, as direct assault is always costly. 
     <<Change iInfantry -300>>
     <<Change iArchers -50>>
-    <<Change bStraitsOpen>>  
+    <<Change bStraitsOpen>>
+    <<SetInt iRumeliLandmark 3>>  
 -> Undermine the foundations -  send your engineers to put explosives underneath the fortress <color=\#B8CFDA><i>\[Risk - Engineers & Ammunition\]</i></color> <<if GetInt("iAmmunition") >= 15 && GetInt("iEngineers") >= 5 >>
     <<set $chance = dice(100)>>
     <<if $chance <= 90>> 
     You deploy your engineers to dig tunnels beneath Rumeli Fortress, intending to collapse its walls by igniting explosive charges. Your engineers complete the tunnel and successfully detonate the charges, causing the fortress walls to collapse. The fortress is now barely more than a smoking ruin, leaving the Strait open.
     <<Change iAmmunition -15>>
-    <<Change bStraitsOpen>> 
+    <<Change bStraitsOpen>>
+    <<SetInt iRumeliLandmark 2>> 
     <<else>>
     <<Change iEngineers -5>> 
     <<Change iAmmunition -15>>

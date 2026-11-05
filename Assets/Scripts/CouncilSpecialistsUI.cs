@@ -54,30 +54,41 @@ public partial class CouncilUI
         CampaignHUD.MakeButton(envoys.transform,"Diplomacy",new Vector2(.61f,.05f),new Vector2(.96f,.25f),DiplomaticRelations);
         StyleSpecialistButtons();
     }
+    Transform SpecialistOrderCanvas(string title,string art,string subtitle)
+    {
+        var pane=MilitaryCanvas(title,art,subtitle);
+        ControlSingleton.Instance.ReturnAction=Specialists;
+        notice.transform.SetParent(pane,false);
+        var feedback=notice.rectTransform;feedback.anchorMin=new Vector2(.04f,.125f);feedback.anchorMax=new Vector2(.96f,.205f);feedback.offsetMin=feedback.offsetMax=Vector2.zero;
+        notice.enableAutoSizing=true;notice.fontSizeMin=18;notice.fontSizeMax=20;
+        CampaignHUD.MakeButton(pane,"Return",new Vector2(.67f,.025f),new Vector2(.975f,.105f),()=>ControlSingleton.Instance.GoBack());
+        return pane;
+    }
     void ReviewSpecialistAgent()
     {
-        Open("Recruit a camp agent","A new contact among the Ottoman host can see what your soldiers cannot.");ControlSingleton.Instance.ReturnAction=Specialists;BodyHeight(340);
-        var row=SpyPanel("Recruitment terms",0,320);
-        SpecialistText(row.transform,"1,000 gold · one major action\nGain one camp agent immediately; the operation can still cost an agent."+
-            "\nEnemy camp alert +"+EspionageSystem.AlertGain[0]+" · Agent loss risk "+EspionageSystem.LossChance(0).ToString("0.#")+"%",new Vector2(.04f,.38f),new Vector2(.96f,.94f),26);
-        var confirm=CampaignHUD.MakeTurnButton(row.transform,"Confirm recruitment",new Vector2(.30f,.08f),new Vector2(.70f,.30f),()=>{bool ok=CouncilActions.SpyMission(0,false,out var report);Finish(ok,report);});confirm.interactable=CouncilActions.Int("iMoney")>=SpecialistPersonnel.AgentPrice;StyleSpecialistButtons();
+        var pane=SpecialistOrderCanvas("Recruit a camp agent","specialist-agents","A new contact among the Ottoman host can see what your soldiers cannot.");
+        CompactText(pane,"RECRUITMENT TERMS",.045f,.90f,.95f,.985f,28);
+        var row=CompactCard(pane,"Recruitment terms",.36f,.88f);
+        SpecialistText(row,"1,000 gold · one major action\nGain one camp agent immediately; the operation can still cost an agent."+
+            "\nEnemy camp alert +"+EspionageSystem.AlertGain[0]+" · Agent loss risk "+EspionageSystem.LossChance(0).ToString("0.#")+"%",new Vector2(.045f,.10f),new Vector2(.955f,.90f),26);
+        var confirm=CampaignHUD.MakeTurnButton(pane,"Confirm recruitment",new Vector2(.025f,.025f),new Vector2(.64f,.105f),()=>{bool ok=CouncilActions.SpyMission(0,false,out var report);Finish(ok,report);});confirm.interactable=CouncilActions.Int("iMoney")>=SpecialistPersonnel.AgentPrice;StyleSpecialistButtons();
     }
     public void SpecialistRecruitment(string unit)
     {
         bool engineer=unit=="iEngineers";if(!engineer&&unit!="iEnvoys")return;
         int price=TrainingPool.UnitPrice(unit,0),maximum=TrainingPool.MaximumOrder(unit,price);
-        Open(engineer?"Train engineers":"Train envoys",engineer?"Organise skilled craftsmen and develop their apprentices.":"Prepare a new generation of messengers and resident diplomats.");
-        ControlSingleton.Instance.ReturnAction=Specialists;BodyHeight(535);
-        var detail=SpyPanel("Recruitment terms",0,200);
+        var pane=SpecialistOrderCanvas(engineer?"Train engineers":"Train envoys",engineer?"specialist-engineers":"specialist-envoys",engineer?"Organise skilled craftsmen and develop their apprentices.":"Prepare a new generation of messengers and resident diplomats.");
+        CompactText(pane,"RECRUITMENT TERMS",.045f,.91f,.95f,.985f,28);
+        var detail=CompactCard(pane,"Recruitment terms",.58f,.90f);
         string terms=engineer?"Each trainee: 250 gold, one manpower and an engineer instructor for ten days. The instructor returns with the graduate.":"Each envoy: 750 gold and one manpower. Ready in ten days; no instructor required.";
         if(engineer&&SpecialistPersonnel.Available==0)terms+="\nNo engineers are available. One trainee may learn without an instructor"+(SpecialistPersonnel.EmergencyTrainingActive?"; that exceptional place is already occupied.":".");
-        SpecialistText(detail.transform,terms+"\nAvailable manpower: "+RecruitmentLogistics.AvailableManpower.ToString("N0")+" · Available engineers: "+SpecialistPersonnel.Available,new Vector2(.04f,.08f),new Vector2(.96f,.94f),24);
-        var order=SpyPanel("Select recruits",214,300);TMP_Text amount=SpecialistText(order.transform,"",new Vector2(.04f,.74f),new Vector2(.96f,.96f),28);
-        var preview=SpecialistText(order.transform,"",new Vector2(.04f,.27f),new Vector2(.96f,.55f),23);
-        var confirm=CampaignHUD.MakeButton(order.transform,"Confirm training",new Vector2(.29f,.05f),new Vector2(.71f,.23f),()=>{});
+        SpecialistText(detail,terms+"\nAvailable manpower: "+RecruitmentLogistics.AvailableManpower.ToString("N0")+" · Available engineers: "+SpecialistPersonnel.Available,new Vector2(.04f,.06f),new Vector2(.96f,.94f),24);
+        var order=CompactCard(pane,"Select recruits",.22f,.565f);TMP_Text amount=SpecialistText(order,"",new Vector2(.04f,.74f),new Vector2(.96f,.96f),28);
+        var preview=SpecialistText(order,"",new Vector2(.04f,.08f),new Vector2(.96f,.47f),23);
+        var confirm=CampaignHUD.MakeButton(pane,"Confirm training",new Vector2(.025f,.025f),new Vector2(.64f,.105f),()=>{});
         int count=maximum>0?1:0;
         Action refresh=()=>{amount.text=count+" "+TrainingPool.Name(unit).ToLowerInvariant()+" · maximum "+maximum;preview.text=count>0?(count*price).ToString("N0")+" gold · "+count+" manpower"+(engineer?" · "+(SpecialistPersonnel.Available==0?0:count)+" instructors":"")+"\nReady "+VariableSingleton.GetDate().AddDays(TrainingPool.Duration(unit)).ToString("d MMM yyyy"):"No recruits can be commissioned with the current resources.";confirm.interactable=count>0;};
-        SpecialistQuantitySlider(order.transform,maximum,count,n=>{count=n;refresh();});
+        SpecialistQuantitySlider(order,maximum,count,n=>{count=n;refresh();});
         bool submitted=false;confirm.onClick.AddListener(()=>{
             if(submitted)return;if(!TrainingPool.CanPlace(unit,count,price,out var reason)){notice.text=reason;return;}
             if(!TrainingPool.Place(unit,count,price)){notice.text="The order could not be placed. Review available personnel and resources.";return;}submitted=true;

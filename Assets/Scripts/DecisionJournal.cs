@@ -26,6 +26,7 @@ public static class DecisionJournal
         var viewport=CampaignHUD.Panel(card.transform,"Journal entries",new Vector2(.05f,.15f),new Vector2(.93f,.74f));viewport.AddComponent<RectMask2D>();
         string body=string.Join("\n\n",Entries.Where(e=>e.decision==decisions).Reverse().Select(e=>e.date+" · "+e.title+"\n"+e.text));
         if(decisions)body="THE GOLDEN HORN\n"+(VariableSingleton.GetBoolVariable("bGoldenHornChain")?"The harbour chain is in place.":"The harbour chain is not in place.")+"\n\n"+body;
+        if(decisions && (IonianDiplomacy.Shelter||IonianDiplomacy.Exile))body="STRATEGIC STATUS\n"+(IonianDiplomacy.Shelter?"Shelter for refugees secured · Ionian Isles\n":"")+(IonianDiplomacy.Exile?"Personal refuge secured · Ionian Isles\n":"")+"\n"+body;
         if(string.IsNullOrEmpty(body))body="No entries have yet been recorded.";
         var text=CampaignHUD.Label(viewport.transform,body,Vector2.zero,Vector2.one,24);
         var r=text.rectTransform;r.anchorMin=new Vector2(0,1);r.anchorMax=Vector2.one;r.pivot=new Vector2(.5f,1);
