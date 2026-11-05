@@ -49,6 +49,8 @@ public partial class CouncilUI
         {
             int target=i;var row=Row(i,200);ImperialTheme.Icon(row.transform,i,new Vector2(.025f,.12f),new Vector2(.14f,.88f));
             CampaignHUD.Label(row.transform,FocusIcon.Names[i],new Vector2(.17f,.40f),new Vector2(.68f,.90f),26);
+            var description=CampaignHUD.Explanation(row.transform,FocusIcon.Descriptions[i],new Vector2(.17f,.08f),new Vector2(.68f,.43f),21);
+            description.enableAutoSizing=true;description.fontSizeMin=18;description.fontSizeMax=21;
             string reason=FocusReorganisation.Unavailable(i);
             var button=CampaignHUD.MakeButton(row.transform,reason??("Review · "+FocusReorganisation.Cost.ToString("N0")+" gold"),new Vector2(.71f,.15f),new Vector2(.98f,.85f),()=>ConfirmFocus(target));button.interactable=reason==null;
         }

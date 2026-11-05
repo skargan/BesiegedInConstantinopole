@@ -7,6 +7,13 @@ public class FocusIcon : MaskableGraphic
 {
     public int Focus;
     public static readonly string[] Names = { "Fortifications and Artillery", "Mobilisation", "War Economy", "Faith and Unity", "Diplomacy and Spycraft" };
+    public static readonly string[] Descriptions = {
+        "Opens engineering and artillery options in events, helping you strengthen the defences and disrupt Ottoman preparations.",
+        "Opens recruitment options in events, letting you bring more men into service and raise larger contingents.",
+        "Opens financial and supply options in events, giving you more ways to raise money and manage shortages.",
+        "Opens religious responses in events, drawing on the clergy's influence to steady the City and sustain support.",
+        "Improves aid negotiations and opens covert options in events, from recruiting agents to screening suspect volunteers."
+    };
     public static readonly Color[] Colours = { new Color(.64f,.76f,.81f), new Color(.79f,.57f,.49f), new Color(.84f,.72f,.43f), new Color(.75f,.68f,.85f), new Color(.51f,.75f,.65f) };
     private static Texture2D ivory;
     public override Texture mainTexture { get { if(ivory==null) ivory=Resources.Load<Texture2D>("UI/MidnightMosaic/ivory-focus"); return ivory!=null?ivory:base.mainTexture; } }
