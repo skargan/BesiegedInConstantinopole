@@ -42,7 +42,7 @@ public sealed class CouncilChamberCapture : MonoBehaviour
             menuButton.GetComponent<ImperialButtonLightDriver>().OnPointerEnter(null);yield return new WaitForSecondsRealtime(.2f);
             yield return Capture("chamber-"+size.x+"x"+size.y);
             menuButton.GetComponent<ImperialButtonLightDriver>().OnPointerExit(null);
-            var haze=(RectTransform)chamber.transform.Find("Candle effects/Window haze 0");var hazeBefore=haze.anchorMin;
+            var haze=(RectTransform)chamber.transform.Find("Candle effects/Exterior window layers/Window haze 0");var hazeBefore=haze.anchorMin;
             yield return new WaitForSecondsRealtime(.5f);Check(chamber.IsStill||haze.anchorMin!=hazeBefore,"window haze moves when animation enabled");
             yield return Capture("chamber-motion-"+size.x+"x"+size.y);
             float elapsed=chamber.Elapsed;manager.gameObject.SetActive(false);yield return new WaitForSecondsRealtime(.25f);Check(chamber.Elapsed==elapsed,"hidden chamber stops animation");
@@ -53,6 +53,11 @@ public sealed class CouncilChamberCapture : MonoBehaviour
         var elapsedField=typeof(CouncilChamber).GetField("<Elapsed>k__BackingField",BindingFlags.Instance|BindingFlags.NonPublic);
         elapsedField.SetValue(chamber,18f);chamber.SendMessage("Render");yield return Capture("chamber-gust-and-ship");
         var shipPosition=ship.rectTransform.anchorMin;yield return new WaitForSecondsRealtime(.5f);Check(chamber.IsStill||ship.rectTransform.anchorMin!=shipPosition,"ship advances across water");
+        Check(chamber.transform.Find("Candle effects/Exterior window layers").GetComponent<UnityEngine.UI.Mask>()!=null,"arched exterior stencil installed");
+        Check(CouncilChamber.ShipPoint(1).x>1&&CouncilChamber.ShipPoint(1).y>CouncilChamber.ShipPoint(0).y,"ship exits beyond frame and recedes");
+        Screen.SetResolution(1600,900,false);yield return new WaitForSecondsRealtime(.3f);
+        foreach(float time in new[]{0f,10f,22f,43.99f,44.01f,63.99f,64.01f}){elapsedField.SetValue(chamber,time);chamber.SendMessage("Render");if(time>44&&time<64)Check(!ship.enabled,"quiet interval has no visible reset");yield return Capture("layered-ship-"+time.ToString("F2").Replace('.', '-'));}
+        var cloud=chamber.transform.Find("Candle effects/Exterior window layers/Window haze 0").GetComponent<RawImage>();elapsedField.SetValue(chamber,41.999f);chamber.SendMessage("Render");float alphaBefore=cloud.color.a;elapsedField.SetValue(chamber,42.001f);chamber.SendMessage("Render");Check(alphaBefore<.00001f&&cloud.color.a<.00001f,"cloud reset occurs invisible");
         Check(quote.QuoteId==quoteId,"quotation preserved through resize and reopen");Check(State()==before&&JsonUtility.ToJson(UnityEngine.Random.state)==rng,"decoration preserves campaign state and RNG");
         chamber.EffectsAvailable=false;chamber.SendMessage("Render");yield return Capture("chamber-static-fallback");Check(chamber.GetComponentsInChildren<RawImage>().Where(i=>i.name.StartsWith("Anchored flame")).All(i=>!i.enabled),"effect failure leaves static painting");chamber.EffectsAvailable=true;
         council.CivicRelations();yield return null;ControlSingleton.Instance.GoBack();yield return null;Check(manager.gameObject.activeInHierarchy&&manager.GetComponentsInChildren<CouncilChamber>().Length==1,"menu Return restores same chamber");

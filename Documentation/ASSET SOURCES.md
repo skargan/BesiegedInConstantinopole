@@ -59,3 +59,9 @@ Eight original OpenAI-generated square still-life images in UI/Gifts. Prompts an
 - Caffa harbour: staged diplomatic-expansion/caffa-harbour.png, installed as Scenes/caffa-harbour.png. Generated artistic reconstruction; historical cast and limitations in diplomatic-expansion/historical-cast-and-rules.md.
 - Theodoro: staged theodoro/mangup.png, installed as Scenes/theodoro-mangup.png. Original generated artistic reconstruction, supplied by JohanX; THEODORO-NARRATIVE-HANDOFF.txt records scope.
 - No new third-party audio or photographs were added in this expansion. Existing mercenary company art reused for the Copa contract.
+
+## Layered council painting (5 November2026)
+- council-chamber-clean.png: OpenAI edit of existing original council-chamber.png; generated exec-8afd373d-14ac-4e1e-94d9-d26334a43c4e.png. Water repaired after removing the foreground ship; railing apertures shaded.1254-square alignment preserved.
+- council-cloud-wisp.png: original OpenAI-generated transparent sunset cloud overlay, generated exec-5fb53ca7-9920-40e6-afad-7b749c1eedf9.png (original retained in this chat generated_images folder). No third-party imagery.
+- Animated ship: exact original-painting pixels rendered through an outlined UV mesh in ChamberShipGraphic, not the generated alternate boat. Original asset provenance remains applicable.
+- The ornate generated ship alternative was rejected and is not installed. Layer design and limitations: COUNCIL-LAYERED-PAINTING.md.
