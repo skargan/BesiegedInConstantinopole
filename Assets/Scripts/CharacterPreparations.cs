@@ -17,7 +17,7 @@ public static class CharacterPreparations
     public static readonly string[] Abilities={"Infantry lethality +4%; as commander +12%.","Aid acceptance +5 points; as commander +12 points.","Wall defence +1 point; as commander +4 points.","Cannon lethality +4%; as commander +12%.","Effective army morale in breach tests +2 points; as commander +6 points.","Enemy casualties in assaults +3%; as commander +9%."};
     static readonly int[] Channels={0,4,6,5,7,3};
     static readonly float[] Specialist={.04f,5,1,.04f,2,.03f},Command={.12f,12,4,.12f,6,.09f};
-    public static bool InService=>Invited && I("iAdventurerArrived")>0;
+    public static bool InService=>Invited && !KjoldCourtOrders.Sentenced(CommanderId) && I("iAdventurerArrived")>0;
     public static int Candidate=>I("iAdventurerChoice")-1;
     public static int CommanderId=>100+Candidate;
     public static int Loyalty=>DailyLifeEvents.I("iAdventurerLoyalty",50);
@@ -80,7 +80,7 @@ public static class CharacterPreparations
     }
     public static string Advance()
     {
-        if(!Invited||I("iAdventurerArrived")>0||TrainingPool.Day(VariableSingleton.GetDate())<I("iAdventurerDue"))return "";
+        if(!Invited||KjoldCourtOrders.Sentenced(CommanderId)||I("iAdventurerArrived")>0||TrainingPool.Day(VariableSingleton.GetDate())<I("iAdventurerDue"))return "";
         VariableSingleton.SetInt("iAdventurerArrived",1);
         return Names[I("iAdventurerChoice")-1]+" has arrived and awaits an audience.\n\n"+Profiles[I("iAdventurerChoice")-1]+"\n"+Abilities[Candidate]+"\nLoyalty: "+Loyalty+" / 100. Available for appointment in Court.\n\n";
     }

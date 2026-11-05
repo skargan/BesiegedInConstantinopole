@@ -25,7 +25,7 @@ public static class CourtRoster
         "The Cardinal brings connections in the West and a powerful voice among supporters of Church Union.",
         "A formidable Janissary whose courage draws other men into the assault."
     };
-    public static bool InService(int index)=>index>=0 && index<8 && VariableSingleton.GetBoolVariable(Keys[index]);
+    public static bool InService(int index)=>index>=0 && index<8 && !KjoldCourtOrders.Sentenced(index) && VariableSingleton.GetBoolVariable(Keys[index]);
     public static string CommanderName(int id) {
         if(id>=100 && id<100+CharacterPreparations.Names.Length)return CharacterPreparations.Names[id-100];
         return id>=0&&id<8?Names[id]:"The Emperor · personal direction";
@@ -93,7 +93,7 @@ public static class CourtRoster
 
         int index=System.Array.IndexOf(Keys,key);
 
-        if(index<0) return;
+        if(index<0 || KjoldCourtOrders.Sentenced(index)) return;
 
         VariableSingleton.SetInt("iCourtState"+index,active?1:2);
 

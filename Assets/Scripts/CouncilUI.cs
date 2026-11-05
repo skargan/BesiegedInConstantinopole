@@ -822,14 +822,18 @@ public partial class CouncilUI : MonoBehaviour
 
         bool shahServing=SultanGifts.Known && (DailyLifeEvents.I("iShahStatus")==4 || DailyLifeEvents.I("iShahStatus")==7);
 
-        int count=0;for(int i=0;i<8;i++)if(CourtRoster.InService(i))count++;
+        int count=0;for(int i=0;i<8;i++)if(CourtRoster.InService(i)||KjoldCourtOrders.Sentenced(i))count++;
+        bool showKjold=DailyLifeEvents.I("iKjoldState",1)==1;
+        bool sentencedShah=KjoldCourtOrders.Sentenced(KjoldCourtOrders.Storyteller);
+        bool sentencedVisitor=CharacterPreparations.Invited&&KjoldCourtOrders.Sentenced(CharacterPreparations.CommanderId);
 
-        BodyHeight(Mathf.Max(210,(count+(shahServing?1:0)+(CharacterPreparations.InService?1:0))*230));
+        BodyHeight(Mathf.Max(210,(count+(shahServing||sentencedShah?1:0)+(CharacterPreparations.InService||sentencedVisitor?1:0)+(showKjold?1:0))*230));
 
         int position=0;
 
         for(int i=0;i<10;i++) {
 
+            if(KjoldCourtOrders.Sentenced(i)){CourtSentenceRow(i,position++);continue;}
             if(!CourtRoster.InService(i))continue;
 
             var row=Row(position++,230);IllustratedIdentity.Portrait(row.transform,i);
@@ -844,7 +848,10 @@ public partial class CouncilUI : MonoBehaviour
 
         }
 
-        if(shahServing) {var row=Row(position++,230);IllustratedIdentity.Portrait(row.transform,201);CampaignHUD.Label(row.transform,"Shaherezade — "+SultanGifts.Status+"\n\n"+SultanGifts.Note,new Vector2(.20f,.08f),new Vector2(.97f,.94f),25);}
+        if(sentencedShah)CourtSentenceRow(KjoldCourtOrders.Storyteller,position++);
+        else if(shahServing) {var row=Row(position++,230);IllustratedIdentity.Portrait(row.transform,201);CampaignHUD.Label(row.transform,"Shaherezade — "+SultanGifts.Status+"\n\n"+SultanGifts.Note,new Vector2(.20f,.08f),new Vector2(.97f,.94f),25);}
+        if(showKjold)CourtKjoldRow(position++);
+        if(sentencedVisitor)CourtSentenceRow(CharacterPreparations.CommanderId,position++);
 
         if(CharacterPreparations.InService) {
 
@@ -862,7 +869,7 @@ public partial class CouncilUI : MonoBehaviour
 
         if(position==0)CampaignHUD.Label(body,"No advisers are currently in your service.",new Vector2(.04f,.2f),new Vector2(.96f,.9f),28);
 
-        if(CharacterPreparations.Invited&&!CharacterPreparations.InService)notice.text="Expected arrival: "+CharacterPreparations.Name()+" · "+CharacterPreparations.Status;
+        if(CharacterPreparations.Invited&&!CharacterPreparations.InService&&!sentencedVisitor)notice.text="Expected arrival: "+CharacterPreparations.Name()+" · "+CharacterPreparations.Status;
 
     }
 

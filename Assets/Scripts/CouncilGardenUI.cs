@@ -5,6 +5,7 @@ public partial class CouncilUI
     public void Garden()=>Location(1);
     private void GardenTalk(int person,int topic)
     {
+        if(person==GardenConversations.Kjold){KjoldTalk(topic==0?0:topic==1?2:1);return;}
         if(!GardenConversations.Available(person)){Location(conversationLocation);return;}
         Open(GardenConversations.Name(person),new[]{"In the Palace","In the palace garden","In Hagia Sophia"}[conversationLocation]);ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);FitConversation();
         CharacterPortraits.Draw(body,person,new Vector2(.025f,.35f),new Vector2(.29f,.97f));

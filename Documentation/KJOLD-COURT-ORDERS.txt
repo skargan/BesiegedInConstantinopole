@@ -1,0 +1,70 @@
+KJOLD CONVERSATIONS AND COURT ORDERS
+6 November 2026 — JohanX
+
+User-approved character canon
+Kjold was born and raised in Constantinople. His father came from Gotland,
+his mother from Crete. He visited the north once with his father and retains
+a strange nostalgia for it. The later correction from Morea to Crete is explicit.
+Authorised prose is held in Resources/Content/KjoldDialogue.json.
+
+Conversation
+Palace/Garden -> existing Kjold figure -> dedicated three-topic conversation.
+Tell me about yourself; How do you assess my security; Tell me about the
+Varangian Guard. Text can scroll independently beside the portrait; topics
+remain visible. The Guard account has four paragraphs. The first two draw on
+the historical Guard; its continued 1452 organisation and thirty homelands,
+including two Tatars and a Finn, are the game's fictional continuation.
+
+Security ALWAYS opens with no known assassination plots, per the user's
+explicit correction. No assassination-plot system or discovery branch added.
+Enemy spies: unknown below eight camp agents, exact current iTurkSpies at
+eight or more, matching the existing intelligence gate. No random roll.
+First reading stores iKjoldSecurityHeard and unlocks I have orders.
+
+Orders
+Exile / Imprison / Execute -> serving-courtier list -> sentence review ->
+Confirm or Cancel. Eligible: core court officers, the current arrived visiting
+adviser, and Shaherezade while serving as storyteller or intelligence contact.
+Kjold does not sentence himself through his own interface. Absent/dead,
+unrecruited and already-sentenced people are excluded from the target list.
+
+Order states: iCourtSentence{person}: 0 none, 1 exile, 2 prison, 3 execution.
+Core characters also reuse iCourtState: exile 6, prison 4, dead 3, and their
+existing service bool is removed. Visitors cease service and cannot re-arrive
+from their old invitation. Shaherezade leaves her service state. Sentencing
+the active commander returns command to the Emperor (iCommander -1).
+Service bonuses, command eligibility and conversations stop. Court cards
+remain visible with EXILED / IMPRISONED / EXECUTED stamps, and the decision
+journal records the sentence. Other inactive characters remain hidden.
+
+No extra gold cost, major-action cost, loyalty penalty, constituency penalty
+or random outcome was invented. These balance terms remain undesigned.
+Prisoner release, pardon, trials and later prisoner conversations are not
+implemented; they can be developed separately. Confirmation states this.
+Existing completed rewards are not retrospectively removed.
+
+Persistence
+Unlock and sentences are standard campaign integers. A narrow
+KjoldCourtOrders.ResetForRestore hook clears them before restoring a saved
+snapshot, so an earlier save without these keys does not inherit a later
+sentence. New campaigns use the existing dictionary reset.
+
+Verification
+Standalone runtime compilation succeeded. Unity 2022.3.15f1 exported the
+private Windows development player successfully with save checks.
+-kjold-capture completed 309 checks: all three sentences for all eight core
+officers and all six visitor candidates; storyteller removal; no invented
+costs/RNG/turn changes; repeat/stale orders rejected; actual named-save
+roundtrip; earlier-save restoration; real UI unlock, review, cancel, confirm,
+scroll masks and card stamp. Captures inspected for biography, security,
+Guard history and court stamp. The fixture requested 1280x720 then1600x900;
+first captures actually rendered at native2560x1440 during startup display
+settling; later captures render1600x900. Do not claim1280 pixel validation.
+Evidence: Builds/TheodoroPreview/Captures/Kjold/{checks,details}.txt and PNGs;
+build log retained outside repo in kjold-next/unity-build.log.
+
+Private preview only; public V41 was not replaced by this work.
+
+Historical references for the prose
+https://www.worldhistory.org/Varangian_Guard/
+https://deremilitari.org/2014/06/english-refugees-in-the-byzantine-armed-forces-the-varangian-guard-and-anglo-saxon-ethnic-consciousness/

@@ -18,7 +18,7 @@ public static class GardenConversations
     public static string Introduction(int person)
     {
         if(IsVisitor(person))return CharacterPreparations.Profiles[person-100];
-        if(person==Kjold)return "‘Kjold, of your Varangian Guard. I came from the north looking for wages and a little more of the world than I had seen from home. I found both. There were things I had not thought to ask about.’\n\n‘At first I kept getting lost in the City. Now I know which cook will feed a man after his watch, and which streets I should avoid when I owe somebody money. It begins to feel like home at an inconvenient time, Majesty.’";
+        if(person==Kjold)return KjoldConversations.Text.introduction;
         string[] introductions={
             "‘Genoese, as you know. A captain when somebody can afford a company, and a creditor when he discovers he cannot.’ Giustiniani smiles briefly.\n\n‘I brought my men here because I thought the City could be defended. I still do. You have walls other captains would pray for. What troubles me is how much ground there is between one man and the next. Show me that, Majesty, and I learn more than I do from the height of the towers.’",
             "‘I am Alvise Diedo, and I have spent enough years aboard ship to find a bed ashore suspiciously still. Venice teaches a captain to read a cargo account as carefully as a chart. An error in either can ruin him.’\n\n‘When I first looked at Constantinople, I looked at the harbour. I expect you find that unromantic. But I thought of the ships it could shelter, and the people they could feed. I have grown rather attached to the rest of it since.’",
@@ -34,7 +34,7 @@ public static class GardenConversations
     public static string Personal(int person)
     {
         if(IsVisitor(person))return VisitorPersonal[person-100];
-        if(person==Kjold)return "Kjold rests his hands on the pommel of his sword. ‘My father thought I would return with money. My mother thought I would return with a wife. Neither asked whether I might learn to enjoy being far away.’ He glances towards the palace. ‘Now I stand at your doors. There are worse places for a man who has delayed going home.’";
+        if(person==Kjold)return KjoldConversations.Text.biography;
         string[] words={
             "Giustiniani turns a fallen leaf between his fingers. ‘Men call me a soldier of fortune as though fortune ever paid a company on time. My men came because I came. If I ask them to remain, I must be somewhere they can see me.’ He drops the leaf. ‘You understand that part of command, I think.’",
             "Diedo listens to the water in the garden basin. ‘On a ship you learn quickly which quarrels matter. A man may hate his neighbour and still have to take the same rope. I have sometimes thought cities would govern themselves better if they occasionally began to sink.’",
