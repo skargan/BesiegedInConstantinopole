@@ -163,6 +163,8 @@ This is ConstantineX — 5 November 2026. Update BLUF: illustrated Mehmed gift g
 
 This is ConstantineX — 5 November 2026. Update BLUF: Version40 base-game mercenary brokers installed and verified, superseding deferred DLC. Twenty fictional companies, five monthly offers, 50/50 payments, saved one-roll voyages, ten incident types, map journeys, sanctuary/Rhodian terms, foreign-personnel accounting. Final275 mercenary checks pass after fixes to stale restore fields and portrait component conflict. BuildRelease40 succeeds and runs SaveGameTests/Steam icon export. Prior JohanX palace1912 and isolatedfocusedUI223 pass. Package/publication underway; definitive result in Documentation/Version40 release.md and release40-package.json.
 
+This is ConstantineX — 02:00, 6 November 2026, Europe/Bucharest. Update BLUF: technology discoveries now use traced object outlines and a compact apparatus beside the default menu; private exported-player verification passed 244 checks. See Documentation/TECHNOLOGY-DISCOVERY-OUTLINES.md. Fresh-install music and SFX were already On with audible scene volumes; saved preferences were preserved. No gameplay/reward changes. JohanX completed a separate Kjold handover, locally committed; see Documentation/KJOLD-COURT-ORDERS.txt (309 checks, captures actually 2560×1440 and 1600×900). Public Version41 unchanged. Remote backup remains pending the previously reported GitHub commit_refs_rules failure. Build slot released after final discovery capture; no active source claim remains.
+
 
 VERSION CHANGELOG
 

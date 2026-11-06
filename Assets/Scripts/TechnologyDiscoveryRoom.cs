@@ -15,8 +15,6 @@ public sealed class TechnologyDiscoveryRoom:MonoBehaviour
     public static readonly string[] Labels={"Grind the herbs","Pour the water","Light the furnace","Tap the little bell","Watch the retort","Taste the distillate","The pigeon's letter","A curious skull","A concealed catch"};
     static readonly string[] Sounds={"grind","pour","fire","bell","boil","choir","bell","growl","coins"};
     static readonly string[] Notes={"The pestle crushes the dry leaves into a fragrant powder.","A thin stream of water darkens the mixture.","The small furnace catches. Warmth gathers beneath the glass.","The little bell gives a clear, bright note.","Bubbles rise through the retort. A clear drop runs down the pipe.","The scholar watches your expression, then smiles. The experiment has yielded something worth recording.","The tiny roll contains observations worth more than its bearer could ever know.","What a fearsome beast it must have been. One of the last dragons, perhaps slain by Saint George himself. Thanks be to God that such terrible lizards no longer trouble the earth.","A concealed catch yields beneath your thumb. Inside lie coins wrapped in faded silk and a folded page of calculations. Whoever hid them here never returned."};
-    // centres/radii in the final 1672x941 artwork, converted from top-left below.
-    static readonly Vector4[] Regions={new Vector4(.342f,.555f,.029f,.052f),new Vector4(.400f,.494f,.028f,.040f),new Vector4(.405f,.570f,.024f,.031f),new Vector4(.448f,.572f,.014f,.026f),new Vector4(.528f,.445f,.030f,.052f),new Vector4(.474f,.558f,.024f,.040f),new Vector4(.360f,.154f,.020f,.017f),new Vector4(.866f,.168f,.042f,.061f),new Vector4(.850f,.434f,.015f,.020f)};
     readonly List<LocationHotspot> spots=new List<LocationHotspot>();
     RawImage painting;TMP_Text caption;GameObject captionBox;AudioSource sound;
     Rect lastUv;Vector2 lastSize;float captionUntil;int hover=-1;
@@ -42,7 +40,12 @@ public sealed class TechnologyDiscoveryRoom:MonoBehaviour
     }
     void Refresh(){for(int i=0;i<spots.Count;i++){bool active=CanUse(i);if(spots[i].raycastTarget!=active){spots[i].raycastTarget=active;if(!active&&!Busy)spots[i].SetHighlighted(false);}}}
     void Remap(){lastUv=painting.uvRect;lastSize=painting.rectTransform.rect.size;
-        for(int i=0;i<spots.Count;i++){var r=Regions[i];var points=new Vector2[16];for(int n=0;n<points.Length;n++){float a=n*Mathf.PI*2/points.Length;points[n]=new Vector2((r.x+Mathf.Cos(a)*r.z-lastUv.x)/lastUv.width,(1-r.y+Mathf.Sin(a)*r.w-lastUv.y)/lastUv.height);}spots[i].Shape=points;spots[i].SetVerticesDirty();}}
+        for(int i=0;i<spots.Count;i++){
+            var source=TechnologyDiscoveryShapes.Outlines[i];var points=new Vector2[source.Length];
+            for(int n=0;n<points.Length;n++)points[n]=TechnologyDiscoveryShapes.Map(source[n],lastUv);
+            spots[i].Shape=points;spots[i].SetVerticesDirty();
+        }
+    }
     public void Hover(int index,bool entered){if(entered&&!CanUse(index))return;hover=entered?index:-1;if(entered)ShowCaption(index==7?Notes[7]:Labels[index],false);}
     public void HoverRail(bool entered){hover=entered?9:-1;if(entered)ShowCaption("Drag the bronze ring to move the desk. Click to slide it to the other side.",false);}
     void ShowCaption(string message,bool linger){
@@ -67,7 +70,7 @@ public sealed class TechnologyDiscoveryRoom:MonoBehaviour
         yield return new WaitForSecondsRealtime(2.5f);sound.Stop();spots[index].SetHighlighted(false);Busy=false;captionUntil=Time.unscaledTime+3;Refresh();
     }
     void FloatReward(int index,string words,Color colour,float offset){
-        var r=Regions[index];Vector2 pos=new Vector2((r.x-lastUv.x)/lastUv.width,(1-r.y-lastUv.y)/lastUv.height);
+        Vector2 pos=TechnologyDiscoveryShapes.Map(TechnologyDiscoveryShapes.Anchors[index],lastUv);
         pos.x=Mathf.Clamp(pos.x,.02f,.78f);pos.y=Mathf.Clamp(pos.y,.12f,.87f);
         var t=CampaignHUD.Label(transform,words,pos,pos,27);t.name="Discovery reward";t.color=colour;t.fontStyle=FontStyles.Bold;t.raycastTarget=false;
         t.rectTransform.pivot=new Vector2(0,.5f);t.rectTransform.sizeDelta=new Vector2(240,40);t.rectTransform.anchoredPosition=new Vector2(0,offset);

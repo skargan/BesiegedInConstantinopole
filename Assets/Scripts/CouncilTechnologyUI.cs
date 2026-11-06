@@ -9,7 +9,7 @@ public partial class CouncilUI
     void ShowTechnologyDesk()
     {
         Open("Technologies", "");
-        SceneBackdrop.Apply(screen,"technologies",1f); // Keep the courier and pigeon in view on ultrawide screens.
+        SceneBackdrop.Apply(screen,"technologies-compact",1f); // Keep the courier and pigeon in view on ultrawide screens.
         foreach(Transform child in screen.transform)
             if(child.name!="Scene artwork"&&child.name!="Imperial goldwork")child.gameObject.SetActive(false);
         TechnologyDiscoveryRoom.Attach(screen);

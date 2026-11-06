@@ -67,15 +67,34 @@ public sealed class DiscoveryCapture : MonoBehaviour
         foreach(var size in new[]{new Vector2Int(1600,900),new Vector2Int(1280,720),new Vector2Int(1920,1200),new Vector2Int(2560,1080)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.4f);council.Technologies();yield return null;Canvas.ForceUpdateCanvases();
             var spots=Root().GetComponentsInChildren<LocationHotspot>();
-            var skull=spots.Single(h=>h.name.Contains("curious skull"));var point=skull.Shape.Aggregate(Vector2.zero,(a,b)=>a+b)/skull.Shape.Length;
+            var skull=spots.Single(h=>h.name.Contains("curious skull"));var point=TechnologyDiscoveryShapes.Map(TechnologyDiscoveryShapes.Anchors[7],Root().transform.Find("Scene artwork").GetComponent<RawImage>().uvRect);
             var rect=skull.rectTransform.rect;var world=skull.transform.TransformPoint(new Vector3(rect.xMin+point.x*rect.width,rect.yMin+point.y*rect.height));
             var hitData=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=RectTransformUtility.WorldToScreenPoint(null,world)};
             var hits=new List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(hitData,hits);
             Check(hits.Count>0&&hits[0].gameObject!=skull.gameObject,"opaque desk blocks hidden skull "+size);Check(spots.Length==9,"nine hotspots "+size);
-            foreach(var spot in spots){var centre=spot.Shape.Aggregate(Vector2.zero,(a,b)=>a+b)/spot.Shape.Length;Check(spot.Contains(centre),"mapped target "+spot.name+" "+size);}
-            Room().Hover(6,true);yield return Capture("right-panel-"+size.x+"x"+size.y);Room().Hover(6,false);
+            var uv=Root().transform.Find("Scene artwork").GetComponent<RawImage>().uvRect;
+            for(int i=0;i<spots.Length;i++){var centre=TechnologyDiscoveryShapes.Map(TechnologyDiscoveryShapes.Anchors[i],uv);Check(spots[i].Contains(centre),"traced interior "+spots[i].name+" "+size);}
+            VariableSingleton.SetInt(TechnologyDiscoveries.Key(TechnologyDiscoveries.Kind.Alchemy),0);yield return null;
+            for(int i=0;i<6;i++){
+                var spot=spots.Single(h=>h.name.Contains(TechnologyDiscoveryRoom.Labels[i]));
+                var anchor=TechnologyDiscoveryShapes.Map(TechnologyDiscoveryShapes.Anchors[i],uv);
+                var sr=spot.rectTransform.rect;var wp=spot.transform.TransformPoint(new Vector3(sr.xMin+anchor.x*sr.width,sr.yMin+anchor.y*sr.height));
+                var data=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=RectTransformUtility.WorldToScreenPoint(null,wp)};
+                var actual=new List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(data,actual);
+                Check(actual.Count>0&&actual[0].gameObject==spot.gameObject,"alchemy accessible beside default desk "+i+" "+size);
+                spot.SetHighlighted(true);if(size.x==1600)yield return Capture("alchemy-outline-"+i);spot.SetHighlighted(false);
+                Room().Experiment.Advance(i,Time.unscaledTime);yield return null;
+            }
+            var letter=spots.Single(h=>h.name.Contains("pigeon's letter"));
+            var chest=spots.Single(h=>h.name.Contains("concealed catch"));
+            Check(!letter.Contains(TechnologyDiscoveryShapes.Map(new Vector2(600/1672f,1-130/941f),uv)),"pigeon body is not a letter target "+size);
+            Check(!chest.Contains(TechnologyDiscoveryShapes.Map(new Vector2(1400/1672f,1-400/941f),uv)),"chest corner is not a catch target "+size);
+            Check(!skull.Contains(TechnologyDiscoveryShapes.Map(new Vector2(1386/1672f,1-110/941f),uv)),"empty skull bounding-box corner excluded "+size);
+            VariableSingleton.SetInt(TechnologyDiscoveries.Key(TechnologyDiscoveries.Kind.Alchemy),1);
+            Room().Hover(6,true);letter.SetHighlighted(true);yield return Capture("right-panel-"+size.x+"x"+size.y);Room().Hover(6,false);letter.SetHighlighted(false);
             rail=Root().GetComponentInChildren<TechnologyPanelRail>();rail.OnPointerDown(pointer);rail.OnPointerUp(pointer);yield return null;hits.Clear();UnityEngine.EventSystems.EventSystem.current.RaycastAll(hitData,hits);Check(hits.Count>0&&hits[0].gameObject==skull.gameObject,"exposed skull receives pointer "+size);
-            Room().Hover(7,true);yield return Capture("left-panel-"+size.x+"x"+size.y);
+            Room().Hover(7,true);skull.SetHighlighted(true);yield return Capture("left-panel-"+size.x+"x"+size.y);skull.SetHighlighted(false);Room().Hover(7,false);
+            if(size.x==1600){Room().Hover(8,true);chest.SetHighlighted(true);yield return Capture("chest-knob-outline");chest.SetHighlighted(false);Room().Hover(8,false);}
             foreach(var text in Root().GetComponentsInChildren<TMP_Text>()){text.ForceMeshUpdate();Check(!text.isTextOverflowing,"text fits "+size+" "+text.name);}
         }
     }

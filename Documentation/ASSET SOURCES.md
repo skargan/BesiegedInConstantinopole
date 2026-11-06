@@ -87,3 +87,6 @@ Original OpenAI-generated four-view transparent PNG, using the existing generate
 
 ## Ragusa waiting terrace — 6 November 2026
 OpenAI edit exec-1d66e679-48d2-4a4c-a121-8f2a701aa44d.png, using the existing original GazulusForeground painting. Installed UI/Diplomacy/Ragusa/WaitingTerrace.png. Removes both negotiators; preserves the empty chair, chess table, architecture and Ragusa sea view. No external artwork. Original two audience paintings preserved and used only with a resident envoy.
+
+## Compact technology discovery workshop — 6 November 2026
+OpenAI image edits of the existing generated technology painting, final output exec-6cf950cc-003f-49a6-a640-21122d7d97f3.png (intermediate exec-c4dede8a-ab2b-4a8b-876b-a9686610d388.png). Installed Scenes/technologies-compact.png; previous technologies.png retained. Compresses the alchemical apparatus beside the right-hand menu while preserving the courier, scholar, skull with Columns of Gediminas and hidden chest. No third-party artwork incorporated. TechnologyDiscoveryShapes.cs traces the resulting object silhouettes. Historical-fiction workshop with deliberately playful discoveries; no claim of a documented apparatus or magical practice.
