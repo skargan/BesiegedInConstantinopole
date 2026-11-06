@@ -32,10 +32,17 @@ for source in SOURCES:
             if data.get('type')!='response_item' or p.get('type') not in ('custom_tool_call','function_call'):continue
             code=p.get('input',p.get('arguments',''))
             if not isinstance(code,str):continue
-            for piece in code.split('send_message_to_thread(')[1:]:
+            pieces=code.split('send_message_to_thread(')[1:]
+            # Direct connector calls carry JSON arguments rather than a JS wrapper.
+            if p.get('name','').endswith('send_message_to_thread'):pieces.append(code)
+            for piece in pieces:
                 target=value(piece,'threadId')
                 if target not in IDS:continue
-                body=value(piece,'prompt')
+                body=value(piece,'prompt') or value(piece,'message')
+                template=False
+                if body is None:
+                    match=re.search(r'prompt\s*:\s*`((?:[^`\\]|\\.)*)`',piece,re.S)
+                    if match:body=match.group(1);template=True
                 if body is None:
                     alias=re.search(r'\bprompt\s*:\s*([A-Za-z_$][\w$]*)',piece)
                     alias=alias.group(1) if alias else 'prompt'
@@ -49,6 +56,7 @@ for source in SOURCES:
                     # Identical mirrored/retried text is retained as one body, all occurrences listed.
                     seen[key]['occurrences'].append(evidence);duplicate_count+=1;continue
                 record={'timestamp':data.get('timestamp'),'sender':sender,'recipient':IDS[target],'text':body,'occurrences':[evidence]}
+                if template:record['format']='Original source template; interpolation placeholders retained verbatim, not reconstructed.'
                 records.append(record);seen[key]=record
 records.sort(key=lambda r:r['timestamp'] or '')
 out={'coverage':{'sources':[str(s) for s in SOURCES],'method':'Original send_message_to_thread tool-call prompts, restricted to named workstream IDs. Verbatim message body; transport timestamps in UTC. Identical sender, recipient and text merged with every occurrence retained. Delivery acknowledgement is not inferred.','gaps':'OrbanX original session is not available in these local archives. Incoming-only deliveries and nonliteral dynamic prompts are not guaranteed captured. Other conversations and internal subagents are outside this archive.','unique_messages':len(records),'duplicate_occurrences':duplicate_count,'unparsed_calls':len(unresolved)},'messages':records,'unresolved':unresolved}

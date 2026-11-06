@@ -1,0 +1,46 @@
+{
+  "build": "Version42",
+  "editorSaveValidation": "passed",
+  "windowsExport": "succeeded",
+  "suites": [
+    {
+      "suite": "Journal",
+      "result": "139 journal/status/map checks passed",
+      "extra": null,
+      "seconds": 9.9
+    },
+    {
+      "suite": "Court map",
+      "result": "COURT_MAP_SETUP 1 passed",
+      "extra": "COMPACT_MAP_CHECKS 146 passed",
+      "seconds": 6.4
+    },
+    {
+      "suite": "Discoveries",
+      "result": "DISCOVERY_CHECKS 244 passed",
+      "extra": null,
+      "seconds": 40.1
+    },
+    {
+      "suite": "Diplomatic expansion",
+      "result": "199 diplomatic expansion checks passed",
+      "extra": null,
+      "seconds": 9.8
+    },
+    {
+      "suite": "Kjold",
+      "result": "KJOLD_CHECKS 309 passed",
+      "extra": null,
+      "seconds": 7.3
+    }
+  ],
+  "visualReview": [
+    "Copa initial encounter at1280",
+    "Technology discoveries at1600",
+    "Earlier focused captures linked from system handovers"
+  ],
+  "limitations": [
+    "Focused checks do not establish long-campaign balance.",
+    "Copa established view retained; new initial view visually checked."
+  ]
+}
