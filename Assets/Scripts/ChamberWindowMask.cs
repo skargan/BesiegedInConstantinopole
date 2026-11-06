@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public sealed class ChamberWindowMask:MaskableGraphic
 {
  protected override void OnPopulateMesh(VertexHelper vh){vh.Clear();Arch(vh,.475f,.714f,.594f,.831f,.112f);Arch(vh,.747f,.973f,.594f,.832f,.114f);}
- void Arch(VertexHelper vh,float l,float r,float bottom,float spring,float rise){int first=vh.currentVertCount;Add(vh,new Vector2((l+r)/2,bottom));Add(vh,new Vector2(l,bottom));for(int i=0;i<=28;i++){float a=Mathf.PI-i*Mathf.PI/28;Add(vh,new Vector2((l+r)/2+Mathf.Cos(a)*(r-l)/2,spring+Mathf.Sin(a)*rise));}Add(vh,new Vector2(r,bottom));for(int i=1;i<30;i++)vh.AddTriangle(first,first+i,first+i+1);}
+ void Arch(VertexHelper vh,float l,float r,float bottom,float spring,float rise){int first=vh.currentVertCount;Add(vh,new Vector2((l+r)/2,bottom));Add(vh,new Vector2(l,bottom));for(int i=0;i<=28;i++){float a=Mathf.PI-i*Mathf.PI/28;Add(vh,new Vector2((l+r)/2+Mathf.Cos(a)*(r-l)/2,spring+Mathf.Sin(a)*rise));}Add(vh,new Vector2(r,bottom));int last=vh.currentVertCount-1;for(int i=first+1;i<last;i++)vh.AddTriangle(first,i,i+1);}
  void Add(VertexHelper vh,Vector2 p){var rect=rectTransform.rect;vh.AddVert(new Vector3(rect.xMin+p.x*rect.width,rect.yMin+p.y*rect.height),Color.white,p);}
 }
 // UVs sample the original boat itself. No regenerated replacement or rectangular water patch.

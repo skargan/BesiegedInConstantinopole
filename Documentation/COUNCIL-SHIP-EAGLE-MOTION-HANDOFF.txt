@@ -1,0 +1,30 @@
+JohanX — 6 November 2026 — narrow motion source handover
+
+Council ship root cause and fix
+ChamberWindowMask.Arch created32 vertices: centre, left base,29 arch points and right base. It emitted29 fan triangles instead of30. The missing final triangle left a diagonal uncovered wedge in the lower-right window, so the passing ship vanished halfway across otherwise visible water. The fan now iterates to its actual final vertex, completing both arches. Original painted ship silhouette, texture, opacity,44-second path and64-second repeat are unchanged. The full ship is already beyond the right jamb before its quiet interval; no fade or premature visibility shortcut was added.
+
+Nameless eagle presentation
+- Existing64-frame atlas and source metadata retained byte-for-byte; no new art.
+- Original420ms/frame retimed by6.72x, equivalent to16fps: four-second pose cycle instead of26.88seconds.
+- Adjacent poses blend through two non-interactive RawImages. Overlap-biased alpha weights avoid the pronounced25% opacity dip of a plain two-layer crossfade. Numerical opaque-overlap minimum exceeds97.4%.
+- Independent18-second gliding circuit at(.79±.115,.83±.035), entirely in clear upper-right sky rather than above the tower.
+- Scale coefficient reduced from.0011 to.00072 of painting width per source pixel: clearer sense of distance and less oversized bird.
+- Reduced-motion preference freezes pose blending and position; unscaled visual clock remains isolated from simulation/RNG. At most two eagle UI quads, no allocations or pixel processing per frame.
+
+Checks performed
+1026 numerical/source checks in workspace motion-next/check_motion.py passed. They reproduce the original missing-triangle failure at(.94,.61), verify corrected lower-window coverage and solid jambs, sample circuit bounds and alpha stability, preserve source timing metadata and check absence of campaign/RNG calls.
+Isolated motion-source compiler check against installed game/Unity assemblies passed using workspace motion-next/compile_motion.py. Whole-source compilation was also attempted, but root's concurrently written map/close-up companions were incomplete at that instant. Root should compile combined source when those companions are complete; no whole-project success is claimed here.
+
+PLAYER TESTS NOT RUN HERE — root owns combined export
+1. -chamber-ship-capture: new development-only harness. Builds actual ChamberWindowMask mesh via its protected generator; checks60 total triangles, lower water coverage, jamb exclusion, renderer visibility/path exit, campaign/RNG invariance; captures1280/1600 at22,26.4,30.8,34 and44.01seconds. Inspect the26.4/30.8 pictures for the original disappearance location and34 for natural clipping at right frame.
+2. -nameless-fortress-capture: updated existing harness. Checks native atlas, retimed frame lookup, adjacent blending,18s circuit/upper-right bounds, two pose layers, smaller scale, live animation, reduced motion and Return. Quarter-orbit still captures0/4.5/9/13.5seconds. EaglePlayback/ contains64 sequential samples of the four-second pose cycle, not a complete18-second spatial circuit.
+No build or publication was launched for this chunk. Visual acceptance of actual animation remains with combined-build review.
+
+Files
+Assets/Scripts/ChamberWindowMask.cs
+Assets/Scripts/EagleFlight.cs
+Assets/Scripts/NamelessFortressCapture.cs
+Assets/Scripts/ChamberShipMaskCapture.cs (new; generate normal Unity .meta on import)
+Documentation/COUNCIL-SHIP-EAGLE-MOTION-HANDOFF.txt
+
+No CouncilChamber simulation, moon/sky art, journal, map, native-font, monastic or diplomacy edits. No source GIF/atlas modifications. Published version unchanged.
