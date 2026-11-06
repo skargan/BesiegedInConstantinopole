@@ -14,9 +14,10 @@ public sealed class IonianCapture:MonoBehaviour
     string output;int passed;CouncilUI council;ManagerUI manager;
     VariableSingleton.CampaignSave baseline;
     readonly List<string> checks=new List<string>();
+    static bool MapOnly=>Environment.GetCommandLineArgs().Contains("-court-map-capture");
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    static void Begin(){if(!Environment.GetCommandLineArgs().Contains("-ionian-capture"))return;
-        string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Ionian"));Directory.CreateDirectory(path);
+    static void Begin(){if(!MapOnly&&!Environment.GetCommandLineArgs().Contains("-ionian-capture"))return;
+        string path=Path.GetFullPath(Path.Combine(Application.dataPath,MapOnly?"../Captures/CourtReligion":"../Captures/Ionian"));Directory.CreateDirectory(path);
         SaveGames.TestRoot=Path.Combine(path,"Saves");VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");Directory.CreateDirectory(SaveGames.TestRoot);
         var go=new GameObject("Ionian checks");DontDestroyOnLoad(go);go.AddComponent<IonianCapture>().output=path;
     }
@@ -31,7 +32,7 @@ public sealed class IonianCapture:MonoBehaviour
         try{moved=stack.Peek().MoveNext();if(moved)next=stack.Peek().Current;}catch(Exception e){error=e;}
         if(error!=null){File.WriteAllText(Path.Combine(output,"checks.txt"),"FAILED after "+passed+"\n"+error);File.WriteAllLines(Path.Combine(output,"details.txt"),checks);Application.Quit(1);yield break;}
         if(!moved){stack.Pop();continue;}if(next is IEnumerator routine)stack.Push(routine);else yield return next;
-    }File.WriteAllText(Path.Combine(output,"checks.txt"),"IONIAN_CHECKS "+passed+" passed");File.WriteAllLines(Path.Combine(output,"details.txt"),checks);Application.Quit(0);}
+    }File.WriteAllText(Path.Combine(output,"checks.txt"),(MapOnly?"COURT_MAP_SETUP ":"IONIAN_CHECKS ")+passed+" passed");File.WriteAllLines(Path.Combine(output,"details.txt"),checks);Application.Quit(0);}
     IEnumerator Capture(string name)
     {
         yield return new WaitForSecondsRealtime(.12f);Canvas.ForceUpdateCanvases();
@@ -63,6 +64,7 @@ public sealed class IonianCapture:MonoBehaviour
         float until=Time.realtimeSinceStartup+30;while((!VariableSingleton.IsInitialized||FindObjectOfType<ManagerUI>()==null)&&Time.realtimeSinceStartup<until)yield return null;
         Check(VariableSingleton.IsInitialized,"Campaign initialized");yield return new WaitForSecondsRealtime(.5f);
         manager=FindObjectOfType<ManagerUI>();council=CouncilUI.For(manager);baseline=VariableSingleton.Instance.CaptureState();
+        if(MapOnly){CampaignHUD.Instance.DismissReport();yield return MapCompactChecks.Run(output);yield break;}
         Check(IonianText.Data.remarks.Length==30,"All thirty canonical remarks loaded");
         Check(!IonianDiplomacy.Resident&&!IonianDiplomacy.Introduced,"Unintroduced initial state");
         var supports=IonianDiplomacy.SupportKeys.Select(VariableSingleton.GetFloatVariable).ToArray();

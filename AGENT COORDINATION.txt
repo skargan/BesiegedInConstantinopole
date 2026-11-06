@@ -98,6 +98,8 @@ Release 39 scope: archive older Emperor XP, court-quest and murder-investigation
 
 Senate, confirmed 5 November 2026: title The Senate; reconstructed Blachernae-inspired assembly, emperor listening centrally, five groups including Galata envoy with two black-clad guards and Genoese cross banner. Consistent groups now, low-support variants deferred. Presentation only: preserve support actions and Galata rules.
 
+6 November 2026: user confirmed Bosnia uses the historical Catholic ruling court under Stjepan Tomaš. Court-religion map represents ruling courts, not population faith. Lithuania, Gazaria, Cyprus, Athens and Ionian lordships are Catholic. Use existing structured Definitions.Catholic, not free-text exact matches; no diplomacy/religion mechanics changed. Foreign powers view is named Non-Ottoman Powers.
+
 
 COORDINATION
 
@@ -170,6 +172,8 @@ This is ConstantineX — 02:00, 6 November 2026, Europe/Bucharest. Update BLUF: 
 This is ConstantineX — 02:24, 6 November 2026, Europe/Bucharest. Update BLUF: separate journal/status tabs implemented and privately verified; no publication. Regional map request clarified as War Beyond the Walls. Recovered original user red-marked a569f691 map and related written corrections; their coastal/territorial revisions are already loaded in current96-region catalogue. See REGIONAL-MAP-CORRECTIONS.md. User confirmed the recovered set is the intended set; reconciliation complete, with no missing older geometry to overwrite. Original annotation retained in Documentation/MapReferences/user-annotated-regional-corrections.png. Final139 exported-player checks passed at exact1280×720/1600×900, including actual tab/Return navigation. Journal source commit50cd279. Build slot released. Do not regress current Candar/Rhodes/Italian/Crimean/Lithuanian additions with older staging JSON. JohanX owns Copa art/hook; included in export, his visual QA remains separate. Remote backup remains pending prior GitHub server error.
 
 This is ConstantineX — 02:38, 6 November 2026, Europe/Bucharest. Update BLUF: Malta mercenary-market marker moved from the Ionian Sea onto painted Malta south of Sicily. MercenaryMapMarkers.Malta is shared by landmark and voyage departure, now pixel199,605 on2172×724 base. Private Windows build succeeded;14 focused checks passed at exact1280×720/1600×900, including zoomed pointer, marketplace/Return and departure anchor. Screenshot visually inspected. No contract balance/time/risk changes. Ready next publication; public41 unchanged. Build slot released. Copa art/hook remains JohanX-owned.
+
+This is ConstantineX — 02:48, 6 November 2026, Europe/Bucharest. Update BLUF: Non-Ottoman Powers label and court-religion colouring corrected. Root cause was exact Catholic matching rejecting qualified narrative labels; Gazaria also lacked an older narrative profile. Existing structured court definitions now classify all96 current regions. Private Windows export succeeded;146 focused map checks passed at1280×720/1600×900, including six requested Catholic colours, complete mappings, legend/filter/navigation; screenshot visually inspected. See COURT-RELIGION-MAP.md. Build slot released, ready next publication; public41 unchanged. Remote backup remains pending previous GitHub error. Copa changes remain JohanX-owned.
 
 
 VERSION CHANGELOG

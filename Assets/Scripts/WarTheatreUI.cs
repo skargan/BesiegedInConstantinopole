@@ -42,7 +42,7 @@ public class WarTheatreUI : MonoBehaviour
         CampaignHUD.MakeButton(root.transform,"Diplomacy",new Vector2(.70f,.94f),new Vector2(.83f,.99f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
         CampaignHUD.MakeButton(root.transform,"Return",new Vector2(.845f,.94f),new Vector2(.975f,.99f),()=>Close());
         var selector=CampaignHUD.MakeButton(root.transform,"All territories",new Vector2(.025f,.875f),new Vector2(.31f,.925f),()=>{});selector.name="Map view selector";
-        selector.onClick.AddListener(()=>{ui.viewMode=(ui.viewMode+1)%4;ui.provinces=ui.viewMode!=2;ui.allies=ui.viewMode!=1;selector.GetComponentInChildren<TMP_Text>().text=new[]{"All territories","Ottoman provinces","Foreign powers","Court religion"}[ui.viewMode];ui.Draw();ui.Clear(ui.detail);if(ui.viewMode==3)ui.ReligionLegend();});
+        selector.onClick.AddListener(()=>{ui.viewMode=(ui.viewMode+1)%4;ui.provinces=ui.viewMode!=2;ui.allies=ui.viewMode!=1;selector.GetComponentInChildren<TMP_Text>().text=new[]{"All territories","Ottoman provinces","Non-Ottoman Powers","Court religion"}[ui.viewMode];ui.Draw();ui.Clear(ui.detail);if(ui.viewMode==3)ui.ReligionLegend();});
         CampaignHUD.MakeButton(root.transform,"Symbols",new Vector2(.325f,.875f),new Vector2(.46f,.925f),()=>{if(ui.viewMode==3)ui.ReligionLegend();else ui.Legend();});
         var zoomFrame=CampaignHUD.Panel(root.transform,"Zoom controls",new Vector2(.75f,.872f),new Vector2(.975f,.928f));ImperialTheme.Panel(zoomFrame,false);
         CampaignHUD.MakeButton(zoomFrame.transform,"−",new Vector2(.015f,.08f),new Vector2(.28f,.92f),()=>ui.Resize(ui.zoom/1.35f));
@@ -126,14 +126,23 @@ public class WarTheatreUI : MonoBehaviour
         if(region.kind=="province")return "Muslim";
         if(region.kind=="capital")return "Orthodox";
         var power=WarTheatre.DiplomaticPower(region);int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
-        if(country>=0&&country<DiplomaticChronicles.All.Length)return DiplomaticChronicles.All[country].Religion;
-        switch(power.id){case "milan":case "savoy":case "po_lordships":case "florence":case "siena":return "Catholic";case "candar_realm":return "Muslim";default:return "Unclassified";}
+        // Court classification is structured data, not an exact match on narrative labels
+        // such as "Catholic court" or "Catholic dynasty · Orthodox Ruthenian lands".
+        if(country>=0){
+            if(CountryDiplomacy.Definitions[country].Catholic)return "Catholic";
+            if(country<DiplomaticChronicles.All.Length){
+                string faith=DiplomaticChronicles.All[country].Religion;
+                if(faith.StartsWith("Orthodox",System.StringComparison.OrdinalIgnoreCase))return "Orthodox";
+                if(faith.StartsWith("Muslim",System.StringComparison.OrdinalIgnoreCase))return "Muslim";
+            }
+        }
+        switch(power.id){case "milan":case "savoy":case "po_lordships":case "florence":case "siena":case "sardinia":return "Catholic";case "candar_realm":return "Muslim";default:return "Unclassified";}
     }
     static Color ReligionColour(WarTheatre.Region r) {
         string religion=CourtReligion(r);
         var c=religion=="Catholic"?new Color(.88f,.64f,.25f):religion=="Orthodox"?new Color(.63f,.39f,.82f):religion.Contains("Muslim")?new Color(.18f,.66f,.47f):new Color(.58f,.60f,.63f);
         c.a=.48f;return c;
     }
-    void ReligionLegend(){Clear(detail);CampaignHUD.Label(detail,"Court religion",new Vector2(.02f,.67f),new Vector2(.98f,.97f),28);CampaignHUD.Explanation(detail,"<color=#E0A340>Catholic</color>     <color=#A164D1>Orthodox</color>     <color=#2EA877>Muslim</color>     <color=#94999F>Unclassified</color>",new Vector2(.02f,.32f),new Vector2(.98f,.65f),22);}
+    void ReligionLegend(){Clear(detail);CampaignHUD.Label(detail,"Court religion",new Vector2(.02f,.67f),new Vector2(.98f,.97f),28);bool unknown=WarTheatre.Data.regions.Any(r=>CourtReligion(r)=="Unclassified");CampaignHUD.Explanation(detail,"<color=#E0A340>Catholic</color>     <color=#A164D1>Orthodox</color>     <color=#2EA877>Muslim</color>"+(unknown?"     <color=#94999F>Unclassified</color>":""),new Vector2(.02f,.32f),new Vector2(.98f,.65f),22);}
     void Legend(){Clear(detail);string[] names={"Agent","Network","Insurrection","Imperial control","Land battle","Naval battle","Army","Fleet","Provisions","Artillery","Garrison","Revenue","Sabotage","Envoy","Liberation","Order"};for(int i=0;i<16;i++){float x=.06f+(i%8)*.126f,y=i<8?.73f:.26f;Icon(detail,i,new Vector2(x,y),43);var label=CampaignHUD.Label(detail,names[i],new Vector2(x-.06f,y-.24f),new Vector2(x+.06f,y-.12f),14);label.alignment=TextAlignmentOptions.Center;label.raycastTarget=false;}}
 }

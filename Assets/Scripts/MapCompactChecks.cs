@@ -17,6 +17,8 @@ public static class MapCompactChecks
     public static IEnumerator Run(string output)
     {
         count=0;
+        foreach(var region in WarTheatre.Data.regions)Check(WarTheatreUI.CourtReligion(region)!="Unclassified","Every current region has a court mapping: "+region.id);
+        foreach(string id in new[]{"bosnia","lithuania","gazaria","cyprus","athens","ionian_tocco"})Check(WarTheatreUI.CourtReligion(WarTheatre.Find(id))=="Catholic","Catholic ruling court "+id);
         foreach(var size in new[]{new Vector2Int(1280,720),new Vector2Int(1600,900)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.4f);WarTheatreUI.Show();yield return null;
             string words=string.Join("\n",Map.GetComponentsInChildren<TMP_Text>().Select(t=>t.text));
@@ -27,12 +29,19 @@ public static class MapCompactChecks
             Check(words.Contains("Ionian Lordships")&&!words.Contains("No war commitment")&&!words.Contains("nearby Corfu")&&!words.Contains("All possessions"),"Country detail is concise");
             Check(Map.GetComponentsInChildren<Image>().Any(i=>i.name.Contains("Attitudes/")),"Country detail shows shared attitude art");
             var ui=Map.GetComponent<WarTheatreUI>();
-            foreach(string expected in new[]{"Ottoman provinces","Foreign powers","Court religion","All territories"}){
+            foreach(string expected in new[]{"Ottoman provinces","Non-Ottoman Powers","Court religion","All territories"}){
                 Map.GetComponentsInChildren<Button>().First(b=>b.name=="Map view selector").onClick.Invoke();yield return null;
                 Check(Map.GetComponentsInChildren<TMP_Text>().Any(t=>t.text==expected),"View selector reaches "+expected);
                 var shapes=Map.GetComponentsInChildren<TerritoryGraphic>();
                 if(expected=="Ottoman provinces")Check(!shapes.Any(t=>t.name=="venice")&&shapes.Any(t=>t.name=="thrace"),"Ottoman filter");
-                if(expected=="Foreign powers")Check(shapes.Any(t=>t.name=="venice")&&!shapes.Any(t=>t.name=="thrace"),"Foreign filter");
+                if(expected=="Non-Ottoman Powers")Check(shapes.Any(t=>t.name=="venice")&&!shapes.Any(t=>t.name=="thrace"),"Non-Ottoman filter");
+                if(expected=="Court religion"){
+                    Check(!Map.GetComponentsInChildren<TMP_Text>().Any(t=>t.text.Contains("Unclassified")),"No unclassified legend when all courts mapped");
+                    foreach(string id in new[]{"bosnia","lithuania","gazaria","cyprus","athens","ionian_tocco"}){
+                        var shape=shapes.Single(t=>t.name==id);Check(Mathf.Abs(shape.color.r-.88f)<.001f&&Mathf.Abs(shape.color.g-.64f)<.001f,"Catholic colour rendered "+id);
+                    }
+                    yield return Shot(output,"court-religion-"+size.x);
+                }
             }
             var passage=Map.GetComponentsInChildren<MaritimeMapMedallions>().First(m=>m.Passage);
             Check(!passage.GetComponentsInChildren<TMP_Text>(true).First().gameObject.activeSelf,"Passage caption hidden until hover");
