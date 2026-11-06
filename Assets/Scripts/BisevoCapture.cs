@@ -63,11 +63,30 @@ Check(BisevoUI.IsOpen,"scene resume reopens pending ransom");
 Check(GameObject.Find("Biševo visit").GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="Pay 5,000 gold"),"resumed screen exposes ransom choice");
 BisevoDiscovery.Resolve(false);BisevoUI.Back();BisevoUI.Back();yield return null;
 var council=FindObjectOfType<CouncilUI>(true);
+VariableSingleton.SetInt(TheodoroVisit.AccessKey,0);VariableSingleton.SetInt("iMoney",2999);
+Check(!TheodoroVisit.Enter(true,null,out _)&&!TheodoroVisit.Admitted,"Theodoro insufficient payment blocked");
+Check(!TheodoroVisit.Enter(false,"gold",out _)&&!TheodoroVisit.Admitted,"incorrect riddle is harmless");
+Check(DailyLifeEvents.I("iMoney")==2999,"failed entrance does not spend");
+council.TheodoroCourt();yield return null;yield return Capture("theodoro-gate");
+Check(FindObjectsOfType<TMP_Text>().Any(t=>t.text=="THE GATE OF MANGUP"),"first visit opens guarded gate");
+typeof(CouncilUI).GetMethod("TheodoroRiddle",flags).Invoke(council,null);yield return null;
+var riddle=GameObject.Find("Theodoro riddle answer").GetComponent<TMP_InputField>();riddle.text="  Silence!  ";riddle.onSubmit.Invoke(riddle.text);yield return null;
+Check(TheodoroVisit.Admitted&&DailyLifeEvents.I("iMoney")==2999,"typed riddle unlocks without payment");
+Check(TheodoroVisit.Enter(true,null,out _)&&DailyLifeEvents.I("iMoney")==2999,"repeat entry cannot charge");
+var visitSave=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(VariableSingleton.Instance.CaptureState()));VariableSingleton.SetInt(TheodoroVisit.AccessKey,0);VariableSingleton.Instance.RestoreValidated(visitSave);
+Check(TheodoroVisit.Admitted,"Theodoro admission persists through save roundtrip");
+VariableSingleton.SetInt(TheodoroVisit.AccessKey,0);VariableSingleton.SetInt("iMoney",4000);Check(TheodoroVisit.Enter(true,null,out _)&&DailyLifeEvents.I("iMoney")==1000,"paid entrance costs exactly 3000");
+Check(TheodoroVisit.Enter(true,null,out _)&&DailyLifeEvents.I("iMoney")==1000,"paid entrance idempotent");
 council.TheodoroCourt();yield return null;
 typeof(CouncilUI).GetMethod("MariaAudience",flags).Invoke(council,null);yield return null;yield return Capture("maria-audience");
 Check(Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/theodoro-maria-palace")!=null,"Maria palace artwork loaded");
 for(int topic=0;topic<3;topic++){typeof(CouncilUI).GetMethod("MariaConversation",flags).Invoke(council,new object[]{topic});yield return null;yield return Capture("maria-topic-"+topic);Check(FindObjectsOfType<TMP_Text>().Any(t=>t.text=="Return to Maria"),"Maria dialogue has return path "+topic);ControlSingleton.Instance.GoBack();yield return null;}
 Check(Mathf.Abs(VultureFlight.CircuitSeconds-32f/.75f)<.001f,"fortress bird speed reduced by 25 percent");
+foreach(string method in new[]{"TheodoroGarden","TheodoroSeals"}) {
+typeof(CouncilUI).GetMethod(method,flags).Invoke(council,null);yield return null;yield return Capture(method);
+Check(FindObjectsOfType<LocationHotspot>().Any(h=>h.name.Contains("Return to the palace")),method+" has traced return door");
+ControlSingleton.Instance.GoBack();yield return null;Check(FindObjectsOfType<TMP_Text>().Any(t=>t.text=="MARIA ASANINA"),method+" returns to Maria");}
+for(int step=-1;step<3;step++){typeof(CouncilUI).GetMethod("TheodoroTraveller",flags).Invoke(council,new object[]{step});yield return null;yield return Capture("traveller-"+step);foreach(var t in GameObject.Find("Theodoro encounter").GetComponentsInChildren<TMP_Text>()){t.ForceMeshUpdate();Check(!t.isTextOverflowing,"traveller text fits "+step);}ControlSingleton.Instance.GoBack();yield return null;Check(FindObjectsOfType<TMP_Text>().Any(t=>t.text=="THE WALL GARDEN"),"traveller returns to garden");}
 council.CircassianPort();yield return null;yield return Capture("kuban-bottom-desk");
 var desk=GameObject.Find("Command desk").GetComponent<RectTransform>();Check(desk.anchorMax.y<=.34f&&desk.anchorMin.x<=.025f,"Kuban controls occupy horizontal bottom panel");
 ControlSingleton.Instance.GoBack();yield return null;Check(GameObject.Find("War Beyond the Walls map")!=null,"Kuban returns to map");WarTheatreUI.Close();yield return null;

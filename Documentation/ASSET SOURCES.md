@@ -102,3 +102,6 @@ Original generated monastic archive/workshop and bronze pull-ring: [RESEARCH-PRE
 
 ## Vicinity of Constantinople — 6 November 2026
 Original OpenAI-generated local geographic painting, final edit exec-5dbb6937-896c-4672-97be-db29b2deaf06.png; initial exec-1b05e98b-3456-46f9-8b2b-0cb235884c8c.png. Installed UI/Maps/ConstantinopleVicinity.png. Natural Earth public-domain coastline guide, manually clarified Golden Horn, retained with extent, source URL and hashes in ArtSources/Cartography/ConstantinopleVicinity/sources.json. Existing regional painting supplied visual language only. Historical-fiction layout; no claim of surveyed 1453 urban detail. Capital medallion is authored Unity UI geometry. Original-name headings now consistently use Noto Serif and matching native fallback families under their existing OFL licence; approved name strings remain unchanged.
+
+## Expanded Theodoro encounter - 6 November 2026
+Four original generated scenes, source filenames, reference, import settings and fiction boundaries: [Theodoro handover](THEODORO-EXPANDED-HANDOFF.txt). Revised Maria costume follows the user-supplied burial-shroud reference. Integrated and checked in private Windows preview; public Version44 unchanged.

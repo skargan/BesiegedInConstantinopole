@@ -9,6 +9,11 @@ public partial class CouncilUI
     Transform theodoroDesk;
     public void TheodoroCourt()
     {
+        if(!TheodoroVisit.Admitted){TheodoroGate();return;}
+        TheodoroBusiness();
+    }
+    void TheodoroBusiness()
+    {
         int country=CountryDiplomacy.Index("theodoro");if(country<0){DiplomaticRelations();return;}
         Open("Theodoro · Mangup","");ControlSingleton.Instance.ReturnAction=DiplomaticRelations;
         foreach(Transform child in screen.transform)child.gameObject.SetActive(false);
@@ -35,7 +40,7 @@ public partial class CouncilUI
     }
     void MariaAudience()
     {
-        TheodoroCourt();
+        TheodoroBusiness();
         foreach(Transform child in theodoroDesk){child.gameObject.SetActive(false);Destroy(child.gameObject);}
         var art=Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/theodoro-maria-palace");
         if(art!=null)theodoroDesk.parent.GetComponent<UnityEngine.UI.RawImage>().texture=art;
@@ -44,8 +49,10 @@ public partial class CouncilUI
         TheodoroButton("Tell me about yourself",.65f,.75f,()=>MariaConversation(0));
         TheodoroButton("Tell me about your people",.52f,.62f,()=>MariaConversation(1));
         TheodoroButton("What do you think of the Genoese?",.39f,.49f,()=>MariaConversation(2));
-        TheodoroButton("The affairs of Theodoro",.22f,.32f,TheodoroCourt);
-        TheodoroButton("Return",.05f,.15f,TheodoroCourt);
+        TheodoroButton("The affairs of Theodoro",.27f,.36f,TheodoroCourt);
+        TheodoroButton("The wall garden",.16f,.24f,TheodoroGarden);
+        TheodoroButton("The chamber of seals",.06f,.14f,TheodoroSeals);
+        TheodoroPalaceDoors();
         ControlSingleton.Instance.ReturnAction=TheodoroCourt;
     }
     void MariaConversation(int topic)

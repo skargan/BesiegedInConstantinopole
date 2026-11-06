@@ -1,0 +1,18 @@
+THEODORO EXPANDED VISIT — 6 November 2026 — ConstantineX
+
+Implemented: shroud-led replacement Maria palace; gate with azure captain and steppe retainer; typed riddle or confirmed 3,000-gold admission; persistent single admission flag and journal entry; Maria's existing three conversations and diplomatic actions; mountain wall garden, fictional Tibetan traveller Tenzin Dorje and three-stage faith conversation; Chamber of Seals; traced gate, figures and return door hotspots. Additional closed doors remain scenery for later expansion. No new resource rewards.
+
+Art direction: Maria's tall crown, close dark head covering, broad shoulder collar, full straight gold robe, large dark bird roundels and red belt derive from the supplied burial-shroud reference. Carved timber, patterned silks, carpets and inlaid furniture strengthen the steppe/eastern court atmosphere without turning the setting into a generic Byzantine throne room. These are historical-fiction designs, not documented reconstructions or evidence of ethnicity. Maria's government and Olubey's coma remain approved fiction. The traveller's violence is his own compromised conduct, not a statement of Buddhist doctrine.
+
+Original OpenAI image-generation sources, in C:/Users/Dainius/.codex/generated_images/01a0a8e2-b837-7953-bbb3-acf52c000d0c/:
+exec-8e5bf5ca-d41d-43e0-b733-028880989c08.png -> theodoro-maria-palace.png
+exec-3ff47ce3-2045-4a27-9fb2-e877c65511a5.png -> theodoro-gate.png
+exec-423d5fc0-2dfb-4b95-810e-07cb90c7ae7c.png -> theodoro-garden.png
+exec-12961f37-3e61-41b7-afc0-5753a97fb412.png -> theodoro-seals.png
+All installed in Assets/Resources/UI/MidnightMosaic/Scenes. Reference: user-supplied codex-clipboard-72a51abf-3795-4c31-9bdd-2f4346d48ac2.png. Generation specification: painterly realistic late-medieval Crimean court, figures/action on left, right kept suitable for existing UI; consistent warm lighting and azure/red textiles. Gate: two guards and usable arch; garden: weathered Tibetan traveller drawing with spear butt, palace return arch and mountain vista; archive: seals/documents/inlaid coffers, usable return arch and future closed door. Runtime texture import uncompressed, no mipmaps, clamp, bilinear, max2048.
+
+Verification: Unity 2022.3.15f1 private Windows build succeeded. BISEVO_CHECKS 133 passed. Checks include insufficient funds, wrong answer without penalty, actual text-field submission, persistent admission through capture/JSON/restore, payment exactly once, existing Maria conversations, garden and archive navigation, all traveller pages and text overflow. Runtime captures of all four scenes visually reviewed at 2560x1440. Player log contains no Exception/Error/FAIL matches. Evidence: Builds/Theodoro-expanded-build.log and Builds/BisevoPreview/Captures/Bisevo/.
+
+Pending editorial item: requested ten Crimean Tatar taunts are not yet translated/reviewed; only the welcome greeting is installed. Do not fabricate a claim of native-language validation. Greeting reference: https://polyglotclub.com/wiki/Language/Crimean-tatar/Vocabulary/How-to-Say-Hello-and-Greetings . Corpus for later review: https://ctcorpus.org/en/ . Traveller doctrinal background: https://plato.stanford.edu/entries/ethics-indian-buddhism/ .
+
+Publication: private preview only; public Version44 unchanged.

@@ -169,3 +169,8 @@ Remaining larger encounter: gate guards and traced gate, permanent riddle/paymen
 
 This is ConstantineX - 6 November 2026 - BLUF: Maria audience chunk verified. Final Windows preview build succeeded; BISEVO_CHECKS 102 passed, covering audience navigation, three conversations, art loading and slower bird circuit. Longest conversation runtime capture visually checked for text fit and portrait visibility. Published Version 44 unchanged; remaining encounter scope listed above.
 
+
+This is ConstantineX - 6 November 2026 - BLUF: expanded Theodoro encounter implemented and verified, replacing the rejected Maria art. Gate riddle/payment, persistent admission, shroud-inspired Maria, garden traveller and Chamber of Seals are connected. Private build succeeded; BISEVO_CHECKS 133 passed; four runtime scenes visually inspected. Handover and art sources: Documentation/THEODORO-EXPANDED-HANDOFF.txt. Ten Tatar taunts remain an editorial review item. Public Version44 unchanged.
+
+COORDINATION: JohanX requested TrainingPool/TroopTraining, Kjeld/Gennadios benefits, assassination integration, Gennadios portrait and public-support icon ownership. ConstantineX confirmed no collision; retains Theodoro files and build/release ownership. No publication until combined verification.
+
