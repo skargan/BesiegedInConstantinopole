@@ -411,6 +411,7 @@ public class VariableSingleton : MonoBehaviour
     public void RestoreValidated(CampaignSave data){RestoreState(data);}
     private void RestoreState(CampaignSave data)
     {
+        foreach(string key in new[]{BisevoDiscovery.EncounterKey,BisevoDiscovery.SecretKey}) iDict[key]=0;
         KjoldCourtOrders.ResetForRestore();
         CharacterChatter.ResetForRestore();
         DecisionJournal.Entries=data.journal??new List<DecisionJournal.Entry>();

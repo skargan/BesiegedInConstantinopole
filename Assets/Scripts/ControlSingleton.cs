@@ -53,6 +53,7 @@ public class ControlSingleton : MonoBehaviour
 
     public void GoBack()
     {
+        if(BisevoUI.Back())return;
         if(MapLandmarks.ViewOpen){MapLandmarks.CloseView();return;}
         if(ConstantinopleVicinityUI.Close())return;
         if(ProvinceHistoryUI.Close()||ProvincialConflictUI.Back())return;
@@ -89,6 +90,7 @@ public class ControlSingleton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if(BisevoUI.Back())return;
             if(MapLandmarks.ViewOpen){MapLandmarks.CloseView();return;}
             if(ConstantinopleVicinityUI.Close())return;
             if(ProvinceHistoryUI.Close()||ProvincialConflictUI.Back())return;

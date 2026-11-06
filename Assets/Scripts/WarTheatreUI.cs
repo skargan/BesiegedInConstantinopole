@@ -12,10 +12,10 @@ public class WarTheatreUI : MonoBehaviour
     void Register(TerritoryGraphic shape,WarTheatre.Region region) {
         string key=WarTheatre.HighlightKey(region);
         if(!powerShapes.TryGetValue(key,out var shapes)){shapes=new List<TerritoryGraphic>();powerShapes.Add(key,shapes);}
-        shapes.Add(shape);shape.Click=()=>Select(region);
+        shapes.Add(shape);shape.Click=()=>{if(region.id=="bisevo")BisevoUI.Show();else Select(region);};
         var power=WarTheatre.DiplomaticPower(region);
         int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
-        if(country>=0 && region.kind!="province" && region.kind!="capital")shape.DoubleClick=()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);};shape.Hover=on=>HoverPower(region,shape,on);
+        if(region.id!="bisevo" && country>=0 && region.kind!="province" && region.kind!="capital")shape.DoubleClick=()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);};shape.Hover=on=>HoverPower(region,shape,on);
     }
     void ClearHover() {
         foreach(var shapes in powerShapes.Values)foreach(var shape in shapes)if(shape!=null)shape.SetHighlighted(false);
@@ -67,7 +67,7 @@ public class WarTheatreUI : MonoBehaviour
     }
     void Resize(float value){zoom=Mathf.Clamp(value,1,3);map.sizeDelta=fit*zoom;}
     void Update(){if(nameMode!=DiplomaticNames.Mode){nameMode=DiplomaticNames.Mode;if(hoveredRegion!=null){hover.text=TerritoryName(hoveredRegion);DiplomaticNames.ApplyTypeface(hover);}}if(WorldMapUIOpen())return;float delta=Input.mouseScrollDelta.y;if(delta!=0&&RectTransformUtility.RectangleContainsScreenPoint(map.parent as RectTransform,Input.mousePosition))Resize(zoom*Mathf.Pow(1.12f,delta));}
-    bool WorldMapUIOpen()=>GameObject.Find("World map viewer")!=null||ConstantinopleVicinityUI.IsOpen;
+    bool WorldMapUIOpen()=>GameObject.Find("World map viewer")!=null||ConstantinopleVicinityUI.IsOpen||BisevoUI.IsOpen;
     void Clear(Transform t){foreach(Transform child in t){child.gameObject.SetActive(false);Destroy(child.gameObject);}}
     void Draw(){
         ClearHover();powerShapes.Clear();

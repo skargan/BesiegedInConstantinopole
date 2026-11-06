@@ -118,6 +118,7 @@ public class SaveResume : MonoBehaviour {
             else if(a.phase=="advance"){manager.gameObject.SetActive(false);CampaignHUD.Instance.ShowReport(a.title??"Siege report",a.report??"The operation is complete.",()=>{CampaignHUD.Instance.DismissReport();VariableSingleton.IncrementTurn();manager.gameObject.SetActive(true);});}
             else if(a.phase=="ended")CampaignHUD.Instance.ShowReport(a.title??"Campaign ended",a.report??"This campaign has ended.",()=>SceneManager.LoadScene("Menu"));
         }
+        if(BisevoDiscovery.Pending && !SaveGames.Terminal && string.IsNullOrEmpty(SaveGames.LastError)) BisevoUI.Show();
         if(!string.IsNullOrEmpty(SaveGames.LastError)&&CampaignHUD.Instance!=null)CampaignHUD.Instance.ShowReport("Save could not be loaded",SaveGames.LastError,()=>SceneManager.LoadScene("Menu"));
         Destroy(gameObject);
     }
