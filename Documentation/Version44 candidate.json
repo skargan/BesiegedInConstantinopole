@@ -1,0 +1,16 @@
+{
+  "version": 44,
+  "commit": "cc360328bf58f02761fdc4e741f120d590ea5e54",
+  "package": "Builds\\Saving-Constantinople-Version-44-Windows.zip",
+  "bytes": 1341405886,
+  "sha256": "2d63c52159d7e10fb91b9405aa3eb0fc6db3a368ba3219704bbcf71c24c80d3e",
+  "zipCrcPassed": true,
+  "excludedPersonalSavesAndCaptures": true,
+  "published": false,
+  "checks": {
+    "editor": 57,
+    "bisevoMap": 91,
+    "vicinityNames": 189,
+    "journalHistory": 87
+  }
+}
