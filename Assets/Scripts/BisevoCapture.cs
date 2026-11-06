@@ -23,6 +23,26 @@ void Check(bool ok,string text){if(!ok)throw new Exception(text);results.Add("PA
 IEnumerator Run(){AudioListener.volume=0;yield return null;SaveMenu.StartCampaign(false);
 float deadline=Time.realtimeSinceStartup+20;while((!VariableSingleton.IsInitialized||FindObjectOfType<ManagerUI>()==null)&&Time.realtimeSinceStartup<deadline)yield return null;
 yield return new WaitForSecondsRealtime(.5f);CampaignHUD.Instance.DismissReport();
+// Exercise the island through the live map raycaster, not a direct scene shortcut.
+WarTheatreUI.Show();yield return null;Canvas.ForceUpdateCanvases();
+var island=GameObject.Find("bisevo").GetComponent<TerritoryGraphic>();
+var rect=island.rectTransform.rect;var uv=WarTheatre.Find("bisevo").label;
+var screen=(Vector2)island.rectTransform.TransformPoint(new Vector3(rect.xMin+uv.x*rect.width,rect.yMin+uv.y*rect.height,0));
+var pointer=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=screen,button=UnityEngine.EventSystems.PointerEventData.InputButton.Left};
+var hits=new List<UnityEngine.EventSystems.RaycastResult>();UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointer,hits);
+Check(hits.Count>0&&hits[0].gameObject==island.gameObject,"Biševo is the first live map hit at the painted island");
+UnityEngine.EventSystems.ExecuteEvents.Execute(hits[0].gameObject,pointer,UnityEngine.EventSystems.ExecuteEvents.pointerClickHandler);yield return null;
+Check(BisevoUI.IsOpen,"map pointer click opens Biševo");BisevoUI.Back();yield return null;
+var theatre=GameObject.Find("War Beyond the Walls map").GetComponent<WarTheatreUI>();
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+typeof(WarTheatreUI).GetMethod("Resize",flags).Invoke(theatre,new object[]{3f});
+var map=(RectTransform)typeof(WarTheatreUI).GetField("map",flags).GetValue(theatre);
+map.anchoredPosition=new Vector2((.5f-.17f)*map.rect.width,(.5f-.74f)*map.rect.height);
+yield return Capture("adriatic-map");
+var venice=GameObject.Find("brac").GetComponent<TerritoryGraphic>();venice.OnPointerEnter(pointer);yield return Capture("adriatic-venetian-highlight");
+Check(GameObject.Find("hvar").GetComponent<TerritoryGraphic>().Highlighted,"Venetian islands highlight together");
+Check(WarTheatre.Find("croatia")==null,"Hungarian internal seam removed");WarTheatreUI.Close();yield return null;
+
 foreach(bool envoy in new[]{false,true})foreach(bool pay in new[]{false,true}) {
 VariableSingleton.SetInt(BisevoDiscovery.EncounterKey,0);VariableSingleton.SetInt("iEnvoys",envoy?2:0);VariableSingleton.SetInt("iShips",3);VariableSingleton.SetInt("iMoney",6000);
 Check(BisevoDiscovery.Enter(),"enter "+envoy+pay);int state=envoy?1:2;Check(BisevoDiscovery.State==state,"correct hostage");

@@ -145,3 +145,8 @@ Remaining queue: trace remaining Venetian Adriatic islands and visually verify t
 
 
 This is ConstantineX — 6 November 2026 — BLUF: cursor proportions corrected and connected to the active point/grip resource. Shorter index finger, existing black leather/aged gold/blue cuff retained; fingertip click pivot realigned. Private Windows build and 12 cursor assertions passed, actual-size/enlarged captures inspected. Source artwork provenance in ARCHIVE.md. Desktop/public43 unchanged. This narrow cursor request does not complete the remaining Adriatic map queue.
+
+
+This is ConstantineX — 6 November 2026 — BLUF: Version 44 combined Windows candidate built and checked; preparing publication package, not publishing.
+
+Completed 24 traced Venetian island components, preserved discovery island and Ragusan fringe, and visually confirmed removal of the Hungarian internal seam. Live map raycast opens Biševo correctly. Combined player: Biševo/map 91, vicinity/native names 189, journal history 87 checks passed; editor save/technology 57. Initial restricted preference write failed; normal-access rerun passed. Geometry: all polygons valid, unique IDs, eleven economic provinces unchanged. Release notes: Documentation/Version44 release notes.md. Public/Desktop43 unchanged. No further gameplay development is required for this candidate; long-campaign balancing and explicitly deferred content remain outside scope.

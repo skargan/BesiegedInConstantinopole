@@ -30,7 +30,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-    public const string BuildLabel="Version 43 · Saving Constantinople";
+    public const string BuildLabel="Version 44 · Saving Constantinople";
 
 
 
@@ -916,4 +916,3 @@ public partial class CouncilUI : MonoBehaviour
         manager.BringUpSiegeUI();
     }
 }
-
