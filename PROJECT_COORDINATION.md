@@ -190,3 +190,5 @@ Review and per-run evidence: Documentation/QA/Map-drag-and-twenty-campaigns/Revi
 
 
 This is ConstantineX — 6 November 2026 — BLUF: Version45 exported with 57 save/technology checks and 3,102 player assertions passed across 600 sally cases. Special actions visually inspected. Director authorised Desktop/GitHub publication; see Version45 release notes and publication record. Light cavalry currently intercepts sallies; no additional autonomous wall-assault schedule.
+
+Version45 published: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v45 . Desktop: C:/Users/Dainius/Desktop/Saving Constantinople - Version 45. Public release verified; asset bytes and SHA-256 match local ZIP. Full record: Documentation/Version45 publication.json.
