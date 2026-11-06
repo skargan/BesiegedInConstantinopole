@@ -1,0 +1,32 @@
+JohanX — 6 November 2026 — source/art handover for combined export
+
+Implemented
+1. Gennadios203 full-height sprite at Resources/UI/Identity/CourtFigures/203.png. Cleaned from the prior character concept using image generation, retaining face, pose and robes. RGB outside the figure still contains amber colouring, but its alpha is zero: do not judge this asset using an RGB-only viewer. Exterior sample alpha0; torso/head/shoe samples253/255. Existing CourtSilhouetteImage performs silhouette hit-testing and existing PalaceCourtFigure supplies contact shadow, nameplate and placement.
+2. CourtFigures.json adds measured554x1536 crop at209,0 in1024x1536 source. Matching CharacterPortraits203 crop comes from the same asset, preserving identity. Existing character availability and daily location assignment are unchanged.
+3. PalaceObjectContours contains three detailed door-opening outlines: garden→palace, palace→emperor chamber and chamber→palace. Three separate sail/mast/hull polygons replace ship rectangles; peer highlighting and Fleet callback remain connected. CouncilLocationsUI changes only these six shape references. HagiaSophia, books, map, journal and mirror geometry untouched.
+
+REQUIRED IMPORT BEFORE COMBINED EXPORT
+Run ConfigureGennadiosArt.Run in Unity Editor. This imports203.png readable, uncompressed, no mipmaps, Clamp, true alpha transparency. It creates the normal Unity .meta files. No Editor/build was launched here, respecting the root's concurrent-edit freeze. Include generated metadata when recording combined integration.
+
+Verification performed
+- All current runtime C# source compiled against installed Unity assemblies using kjold-next/compile.py.
+-720 static contour/alpha/crop checks passed via workspace palace-contours-next/check_source.py: six non-self-intersecting detailed polygons, valid coordinates, alpha exterior/opaque figure and crop bounds.
+- Actual sprite samples for head(.55,.90), torso(.52,.64), shoe(.30,.025) all opaque; outside(.02,.90) transparent.
+- The source/generation asset was viewed; raw RGB halo is invisible at alpha0.
+
+PLAYER VERIFICATION STILL REQUIRED — not claimed run
+Run the combined Development player with -palace-contour-capture (isolated saves).
+Harness writes Captures/PalaceContours/checks.txt plus1280/1600 screenshots of each highlighted door, all three linked ships and Gennadios in HagiaSophia. Tests scaled polygon hit/exclusion, actual three-door navigation callbacks, linked ship silhouettes and navigation, readable sprite/portrait lookup and clickable head/torso/shoe while rejecting transparent corners.
+Root should inspect the highlighted contours against actual backgrounds before publication; no player visual acceptance is claimed in this handover.
+
+Changed files
+Assets/Resources/UI/Identity/CourtFigures/203.png
+Assets/Resources/Content/CourtFigures.json
+Assets/Scripts/CharacterPortraits.cs
+Assets/Scripts/CouncilLocationsUI.cs
+Assets/Scripts/PalaceObjectContours.cs
+Assets/Scripts/PalaceContourCapture.cs
+Assets/Scripts/UI/Editor/ConfigureGennadiosArt.cs
+Documentation/PALACE-CONTOURS-GENNADIOS-HANDOFF.txt
+
+No release labels, journal/market/technology mechanics, character writing, loyalty, room assignment, calendar or combat changes. No publication performed.

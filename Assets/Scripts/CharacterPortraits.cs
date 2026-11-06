@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 // Stable character IDs; portraits never affect recruitment, loyalty or availability.
 public static class CharacterPortraits {
- public static readonly int[] People={0,1,2,3,4,5,6,7,8,100,101,102,103,104,105,200,201,202};
- public static string Resource(int id)=>id==0?"UI/Identity/Characters/0":id>=1&&id<=8?"UI/Identity/court-portraits":System.Array.IndexOf(People,id)>=0?"UI/Identity/Characters/"+id:null;
+ public static readonly int[] People={0,1,2,3,4,5,6,7,8,100,101,102,103,104,105,200,201,202,203};
+ public static string Resource(int id)=>id==203?PalaceFigureArt.Resource(id):id==0?"UI/Identity/Characters/0":id>=1&&id<=8?"UI/Identity/court-portraits":System.Array.IndexOf(People,id)>=0?"UI/Identity/Characters/"+id:null;
  public static Texture2D Texture(int id){var path=Resource(id);return path==null?null:Resources.Load<Texture2D>(path);}
  public static Rect UV(int id){
+  if(id==203)return new Rect(.37f,.79f,.27f,.21f);
   if(id==0)return new Rect(0,0,2f/3f,1);
   if(id<0||id>8)return new Rect(0,0,1,1);
   // Sheet boundaries measured on the supplied 1223 x 1286 artwork, not assumed equal cells.

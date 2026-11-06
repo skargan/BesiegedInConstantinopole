@@ -134,6 +134,15 @@
       "y": 28,
       "width": 649,
       "height": 1494
+    },
+    {
+      "id": 203,
+      "sourceWidth": 1024,
+      "sourceHeight": 1536,
+      "x": 209,
+      "y": 0,
+      "width": 554,
+      "height": 1536
     }
   ]
 }

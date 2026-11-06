@@ -24,15 +24,15 @@ public partial class CouncilUI
             LocationHotspot.Create(holder.transform,"To the garden",GardenDoor(),Garden);
             LocationHotspot.Create(holder.transform,"Hagia Sophia",PalaceCathedral(),HagiaSophia);
             LocationHotspot.Create(holder.transform,"Defence of the walls",new[]{new Vector2(.322f,.385f),new Vector2(.425f,.420f),new Vector2(.575f,.443f),new Vector2(.695f,.430f),new Vector2(.755f,.345f),new Vector2(.855f,.272f),new Vector2(.670f,.205f),new Vector2(.435f,.295f)},PalaceActions);
-            LocationHotspot.Create(holder.transform,"The Emperor's chamber",new[]{new Vector2(.025f,.355f),new Vector2(.025f,.647f),new Vector2(.043f,.702f),new Vector2(.070f,.718f),new Vector2(.097f,.680f),new Vector2(.112f,.635f),new Vector2(.112f,.355f)},PrivateChamber);
+            LocationHotspot.Create(holder.transform,"The Emperor's chamber",PalaceObjectContours.PalaceToChamber,PrivateChamber);
             for(int shelf=0;shelf<5;shelf++){int book=shelf;float top=.710f-shelf*.061f;LocationHotspot.Create(holder.transform,PalaceBookReader.Books[book].title,RoomBox(.143f,top-.051f,.216f,top),()=>PalaceBookReader.Open(book));}
             var ships=new[]{
-                LocationHotspot.Create(holder.transform,"Fleet orders",RoomBox(.607f,.639f,.630f,.676f),Fleet),
-                LocationHotspot.Create(holder.transform,"Fleet orders",RoomBox(.644f,.591f,.681f,.647f),Fleet),
-                LocationHotspot.Create(holder.transform,"Fleet orders",RoomBox(.669f,.659f,.683f,.685f),Fleet)};
+                LocationHotspot.Create(holder.transform,"Fleet orders",PalaceObjectContours.FleetShips[0],Fleet),
+                LocationHotspot.Create(holder.transform,"Fleet orders",PalaceObjectContours.FleetShips[1],Fleet),
+                LocationHotspot.Create(holder.transform,"Fleet orders",PalaceObjectContours.FleetShips[2],Fleet)};
             foreach(var ship in ships)ship.OutlinePeers=ships;
         }else if(place==1){
-            LocationHotspot.Create(holder.transform,"Return to the Palace",new[]{new Vector2(.015f,.46f),new Vector2(.080f,.48f),new Vector2(.081f,.77f),new Vector2(.043f,.79f),new Vector2(.014f,.77f)},Palace);
+            LocationHotspot.Create(holder.transform,"Return to the Palace",PalaceObjectContours.GardenToPalace,Palace);
             LocationHotspot.Create(holder.transform,"Hagia Sophia",new[]{new Vector2(.665f,.669f),new Vector2(.665f,.70f),new Vector2(.679f,.70f),new Vector2(.684f,.714f),new Vector2(.695f,.72f),new Vector2(.707f,.712f),new Vector2(.712f,.702f),new Vector2(.724f,.696f),new Vector2(.724f,.672f)},HagiaSophia);
         }else{
             LocationHotspot.Create(holder.transform,"Return to the Palace",HagiaPalacePortal(),Palace);
@@ -61,7 +61,7 @@ public partial class CouncilUI
         var texture=Resources.Load<Texture2D>("UI/PalaceLibrary/private-chamber");
         if(texture!=null){if(privateChamberPainting==null)privateChamberPainting=Sprite.Create(texture,new Rect(0,0,texture.width,texture.height),new Vector2(.5f,.5f));image.sprite=privateChamberPainting;image.color=Color.white;image.preserveAspect=true;var fit=holder.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=(float)texture.width/texture.height;}
         else image.color=ImperialTheme.Navy;
-        LocationHotspot.Create(holder.transform,"Return to the Palace",RoomBox(.035f,.29f,.205f,.82f),Palace);
+        LocationHotspot.Create(holder.transform,"Return to the Palace",PalaceObjectContours.ChamberToPalace,Palace);
         LocationHotspot.Create(holder.transform,"The Emperor's reflection",new[]{new Vector2(.748f,.39f),new Vector2(.735f,.49f),new Vector2(.739f,.65f),new Vector2(.765f,.748f),new Vector2(.787f,.735f),new Vector2(.812f,.63f),new Vector2(.814f,.49f),new Vector2(.790f,.40f)},PrivateReflection);
         LocationHotspot.Create(holder.transform,"Decision Journal",new[]{new Vector2(.301f,.572f),new Vector2(.365f,.568f),new Vector2(.400f,.502f),new Vector2(.337f,.493f)},()=>DecisionJournal.Show(true));
     }
