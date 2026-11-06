@@ -1,0 +1,9 @@
+run,group,seed,turn,node,issue,detail
+"1","mixed","460000","16","story22","negative-integer","iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"2","mixed","460001","16","story22","negative-integer","iCommander=-1;iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"5","training","460004","16","story22","negative-integer","iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"6","training","460005","16","story22","negative-integer","iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"13","diplomacy","460012","16","story22","negative-integer","iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"14","diplomacy","460013","16","story22","negative-integer","iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"19","archives","460018","16","story22","negative-integer","iCommander=-1;iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"
+"20","archives","460019","16","story22","negative-integer","iOttomanResolvedTurn=-1;iOttExecutedTurn=-1;iOttLastLandAssault=-100;iWbw37SupplyTick=-1"

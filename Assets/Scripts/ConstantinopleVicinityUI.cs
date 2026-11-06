@@ -35,7 +35,7 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         var go=new GameObject("Bosphorus geography",typeof(RectTransform),typeof(RawImage));go.transform.SetParent(viewport.transform,false);ui.map=(RectTransform)go.transform;ui.map.anchorMin=ui.map.anchorMax=new Vector2(.5f,.5f);
         var texture=Resources.Load<Texture2D>("UI/Maps/ConstantinopleVicinity");go.GetComponent<RawImage>().texture=texture;
         Canvas.ForceUpdateCanvases();var bounds=((RectTransform)viewport.transform).rect;float aspect=(float)texture.width/texture.height;float width=Mathf.Min(bounds.width,bounds.height*aspect);ui.fit=new Vector2(width,width/aspect);ui.Resize(1);
-        var scroll=viewport.AddComponent<ScrollRect>();scroll.viewport=(RectTransform)viewport.transform;scroll.content=ui.map;scroll.inertia=false;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.scrollSensitivity=0;
+        var scroll=viewport.AddComponent<MapDragScrollRect>();scroll.viewport=(RectTransform)viewport.transform;scroll.content=ui.map;scroll.inertia=false;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.scrollSensitivity=0;
         ui.detail=CampaignHUD.Panel(root.transform,"Local site information",new Vector2(.80f,.16f),new Vector2(.975f,.89f)).transform;ImperialTheme.Panel(ui.detail.gameObject,false);
         foreach(var site in Sites){if(site.Id=="rumeli"&&!MapLandmarks.FortressVisible)continue;ui.Marker(site);}
         var minus=CampaignHUD.MakeButton(root.transform,"−",new Vector2(.03f,.015f),new Vector2(.085f,.065f),()=>ui.Resize(ui.zoom/1.3f));

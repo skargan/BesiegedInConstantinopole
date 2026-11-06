@@ -24,7 +24,7 @@ public class WorldMapUI : MonoBehaviour
         var picture=new GameObject("Historical map",typeof(RectTransform),typeof(RawImage));picture.transform.SetParent(area.transform,false);
         view.content=picture.GetComponent<RectTransform>();view.content.anchorMin=view.content.anchorMax=new Vector2(.5f,.5f);
         var texture=Resources.Load<Texture2D>("UI/Maps/Europe1450");picture.GetComponent<RawImage>().texture=texture;
-        var scroll=area.AddComponent<ScrollRect>();scroll.viewport=view.viewport;scroll.content=view.content;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.inertia=false;scroll.scrollSensitivity=0;
+        var scroll=area.AddComponent<MapDragScrollRect>();scroll.viewport=view.viewport;scroll.content=view.content;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.inertia=false;scroll.scrollSensitivity=0;
         Canvas.ForceUpdateCanvases();
         float ratio=texture==null?16f/9f:(float)texture.width/texture.height;
         float width=Mathf.Min(view.viewport.rect.width,view.viewport.rect.height*ratio);view.fit=new Vector2(width,width/ratio);view.Resize(1);

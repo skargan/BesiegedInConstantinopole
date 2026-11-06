@@ -179,3 +179,11 @@ This is ConstantineX - 6 November 2026 - BLUF: corrected Golden Horn marker to p
 
 
 This is ConstantineX - 6 November 2026, 21:15 - BLUF: Aegean island correction ready in the private preview. Traced 65 island components, retaining Genoese, Hospitaller, Venetian/Latin and Greek dependencies; added local island descriptions while preserving shared diplomatic destinations and eleven economic provinces. Windows build passed; AEGEAN_CHECKS 395 and SAVE_AND_TECH_CHECKS 57 passed; runtime Aegean capture visually inspected. Ownership sources and grouping simplifications: Documentation/Aegean-island-ownership.md. Public44 unchanged. JohanX handover received (17 isolated checks plus compile); his files excluded from this commit and still await their own combined runtime checks.
+
+## 6 November 2026 — ConstantineX: map grab cursor and campaign review
+
+BLUF: map dragging now uses the existing fist cursor in War Beyond the Walls, Constantinople vicinity and retained reference atlas. Shared MapDragScrollRect preserves ScrollRect behaviour and clears grip on release, disable and focus loss; use it for future draggable maps. Private build passed 57 editor checks and 24 cursor/map runtime assertions. Regional and vicinity captures visually reviewed.
+
+Twenty automated scenarios completed: 968 siege days, 1,130 dialogue choices, 100 resolved assaults, 52 semantic save/load checks. Final outcomes: 14 public-support defeats, five wall defeats, one emperor death. No runtime exception or UI stall recorded. Not a human win-rate sample: twelve scenarios omit preparation rewards and policies are deliberately narrow. Raw negative-integer warnings are the intentional provincial pre-first-tick sentinel. Earlier save warnings were default-zero fields materialising on restoration, resolved by semantic comparison.
+
+Review and per-run evidence: Documentation/QA/Map-drag-and-twenty-campaigns/Review.md. Follow-ups: story23 fatal charge wrongly uses successful-return prose; review food scarcity communication (10/day market cap versus ~100/day demand); balanced policy testing before retuning difficulty. Optional mercenary/provincial/court interactions not comprehensively covered. No publication this task. Other workstreams' pre-existing edits preserved.

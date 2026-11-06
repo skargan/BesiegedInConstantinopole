@@ -55,7 +55,7 @@ public class WarTheatreUI : MonoBehaviour
         var area=CampaignHUD.Panel(root.transform,"Theatre viewport",new Vector2(.025f,.285f),new Vector2(.975f,.86f));area.AddComponent<RectMask2D>();
         var picture=new GameObject("Geographic base",typeof(RectTransform),typeof(RawImage));picture.transform.SetParent(area.transform,false);ui.map=picture.GetComponent<RectTransform>();ui.map.anchorMin=ui.map.anchorMax=new Vector2(.5f,.5f);
         var tex=Resources.Load<Texture2D>("UI/Maps/WarTheatreGeography");picture.GetComponent<RawImage>().texture=tex;
-        var scroll=area.AddComponent<ScrollRect>();scroll.viewport=area.GetComponent<RectTransform>();scroll.content=ui.map;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.inertia=false;scroll.scrollSensitivity=0;
+        var scroll=area.AddComponent<MapDragScrollRect>();scroll.viewport=area.GetComponent<RectTransform>();scroll.content=ui.map;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.inertia=false;scroll.scrollSensitivity=0;
         Canvas.ForceUpdateCanvases();var bounds=scroll.viewport.rect;float aspect=tex==null?3:(float)tex.width/tex.height;float width=Mathf.Min(bounds.width,bounds.height*aspect);ui.fit=new Vector2(width,width/aspect);ui.Resize(1);
         ui.detail=CampaignHUD.Panel(root.transform,"Province information",new Vector2(.025f,.02f),new Vector2(.975f,.245f)).transform;
         ImperialTheme.Panel(ui.detail.gameObject,false);
