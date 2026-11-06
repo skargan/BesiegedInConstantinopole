@@ -24,7 +24,8 @@ public partial class CouncilUI
         panel.GetComponent<Image>().color=new Color(.018f,.035f,.05f,.96f);
         var root=panel.transform;
         notice=IonianLabel(root,"",.085f,.15f,18);notice.color=new Color(1f,.76f,.48f);
-        IonianLabel(root,page=="main"?"THE IONIAN ISLES":page=="realm"?"The realm and its interests":page=="envoy"?"An envoy to the islands":"Raimondina Ventimiglia",.875f,.975f,27);
+        var realmHeading=IonianLabel(root,page=="main"?"THE IONIAN ISLES":page=="realm"?"The realm and its interests":page=="envoy"?"An envoy to the islands":"Raimondina Ventimiglia",.875f,.975f,27);
+        if(page=="main")DiplomaticNames.Bind(realmHeading,"ionian_tocco");
         if(page=="main") {
             IonianLabel(root,"The Tocco lordships\n"+CountryDiplomacy.EnvoyStatus(IonianDiplomacy.Country),.735f,.86f,20);
             IonianLabel(root,"These islands offer shelter and private understandings. They do not send an ordinary relief expedition.",.57f,.72f,21);

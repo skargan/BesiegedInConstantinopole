@@ -20,6 +20,7 @@ public static class ImperialTheme
                 font=TMP_FontAsset.CreateFontAsset(source);
                 font.fallbackFontAssetTable=new System.Collections.Generic.List<TMP_FontAsset>();
                 if(TMP_Settings.defaultFontAsset!=null)font.fallbackFontAssetTable.Add(TMP_Settings.defaultFontAsset);
+                DiplomaticNames.AddFonts(font);
             }
             return font;
         }

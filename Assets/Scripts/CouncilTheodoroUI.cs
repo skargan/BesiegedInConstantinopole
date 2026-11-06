@@ -18,7 +18,7 @@ public partial class CouncilUI
         var image=painting.GetComponent<UnityEngine.UI.RawImage>();image.texture=texture;image.raycastTarget=false;
         var fit=painting.GetComponent<UnityEngine.UI.AspectRatioFitter>();fit.aspectMode=UnityEngine.UI.AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=texture==null?16f/9:texture.width/(float)texture.height;
         var pane=CampaignHUD.Panel(painting.transform,"Theodoro encounter",new Vector2(.575f,.025f),new Vector2(.985f,.975f));ImperialTheme.Panel(pane,false);theodoroDesk=pane.transform;
-        TheodoroText("THEODORO · MANGUP",.90f,.985f,28);
+        DiplomaticNames.Bind(TheodoroText("THEODORO · MANGUP",.90f,.985f,28),"theodoro");
         TheodoroText(CountryDiplomacy.Attitude(country)+" · "+CountryDiplomacy.EnvoyStatus(country),.82f,.90f,19);
         TheodoroButton("Realm and its interests",.72f,.81f,()=>TheodoroConversation(0));
         TheodoroButton("Speak of old imperial ties",.61f,.70f,()=>TheodoroAgreement(0));

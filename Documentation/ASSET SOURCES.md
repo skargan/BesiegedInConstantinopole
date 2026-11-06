@@ -90,3 +90,7 @@ OpenAI edit exec-1d66e679-48d2-4a4c-a121-8f2a701aa44d.png, using the existing or
 
 ## Compact technology discovery workshop — 6 November 2026
 OpenAI image edits of the existing generated technology painting, final output exec-6cf950cc-003f-49a6-a640-21122d7d97f3.png (intermediate exec-c4dede8a-ab2b-4a8b-876b-a9686610d388.png). Installed Scenes/technologies-compact.png; previous technologies.png retained. Compresses the alchemical apparatus beside the right-hand menu while preserving the courier, scholar, skull with Columns of Gediminas and hidden chest. No third-party artwork incorporated. TechnologyDiscoveryShapes.cs traces the resulting object silhouettes. Historical-fiction workshop with deliberately playful discoveries; no claim of a documented apparatus or magical practice.
+
+
+## Original-name fallback fonts — Version 43
+Unmodified Noto Serif, Noto Serif Georgian and Noto Naskh Arabic Regular, from the Noto Project. SIL Open Font License 1.1, reproduced at Assets/Resources/Fonts/Noto-OFL.txt. Download URLs and SHA-256 hashes: Documentation/Version43 font sources.json. Used only for glyphs missing from the existing Crimson Text interface. Fixed Arabic name runs are pre-shaped for TextMeshPro; the catalogue retains the underlying original Unicode strings. No runtime shaping dependency.

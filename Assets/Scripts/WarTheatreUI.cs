@@ -37,24 +37,30 @@ public class WarTheatreUI : MonoBehaviour
         Close();root=new GameObject("War Beyond the Walls map",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster),typeof(Image),typeof(WarTheatreUI));
         var canvas=root.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=220;
         var scaler=root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);scaler.matchWidthOrHeight=.5f;
-        ImperialTheme.Panel(root,false);var ui=root.GetComponent<WarTheatreUI>();
-        CampaignHUD.Label(root.transform,"WAR BEYOND THE WALLS",new Vector2(.025f,.935f),new Vector2(.56f,.995f),30);
-        CampaignHUD.MakeButton(root.transform,"Diplomacy",new Vector2(.70f,.94f),new Vector2(.83f,.99f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
-        CampaignHUD.MakeButton(root.transform,"Return",new Vector2(.845f,.94f),new Vector2(.975f,.99f),()=>Close());
-        var selector=CampaignHUD.MakeButton(root.transform,"All territories",new Vector2(.025f,.875f),new Vector2(.31f,.925f),()=>{});selector.name="Map view selector";
+        ImperialTheme.Panel(root,true);var ui=root.GetComponent<WarTheatreUI>();
+        var title=CampaignHUD.Label(root.transform,"WAR BEYOND THE WALLS",new Vector2(.025f,.935f),new Vector2(.975f,.995f),30);
+        title.alignment=TextAlignmentOptions.Center;
+        CampaignHUD.MakeButton(root.transform,"Diplomacy",new Vector2(.735f,.94f),new Vector2(.85f,.99f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
+        CampaignHUD.MakeButton(root.transform,"Return",new Vector2(.86f,.94f),new Vector2(.975f,.99f),()=>Close());
+        var selector=CampaignHUD.MakeButton(root.transform,"All territories",new Vector2(.025f,.875f),new Vector2(.245f,.925f),()=>{});selector.name="Map view selector";
         selector.onClick.AddListener(()=>{ui.viewMode=(ui.viewMode+1)%4;ui.provinces=ui.viewMode!=2;ui.allies=ui.viewMode!=1;selector.GetComponentInChildren<TMP_Text>().text=new[]{"All territories","Ottoman provinces","Non-Ottoman Powers","Court religion"}[ui.viewMode];ui.Draw();ui.Clear(ui.detail);if(ui.viewMode==3)ui.ReligionLegend();});
-        CampaignHUD.MakeButton(root.transform,"Symbols",new Vector2(.325f,.875f),new Vector2(.46f,.925f),()=>{if(ui.viewMode==3)ui.ReligionLegend();else ui.Legend();});
+        CampaignHUD.MakeButton(root.transform,"Symbols",new Vector2(.255f,.875f),new Vector2(.35f,.925f),()=>{if(ui.viewMode==3)ui.ReligionLegend();else ui.Legend();});
+        DiplomaticNames.Selector(root.transform,new Vector2(.36f,.875f),new Vector2(.56f,.925f));
         var zoomFrame=CampaignHUD.Panel(root.transform,"Zoom controls",new Vector2(.75f,.872f),new Vector2(.975f,.928f));ImperialTheme.Panel(zoomFrame,false);
         CampaignHUD.MakeButton(zoomFrame.transform,"−",new Vector2(.015f,.08f),new Vector2(.28f,.92f),()=>ui.Resize(ui.zoom/1.35f));
         CampaignHUD.MakeButton(zoomFrame.transform,"Fit",new Vector2(.30f,.08f),new Vector2(.70f,.92f),()=>{ui.Resize(1);ui.map.anchoredPosition=Vector2.zero;});
         CampaignHUD.MakeButton(zoomFrame.transform,"+",new Vector2(.72f,.08f),new Vector2(.985f,.92f),()=>ui.Resize(ui.zoom*1.35f));
+        var atlasFrame=CampaignHUD.Panel(root.transform,"Atlas frame",new Vector2(.021f,.280f),new Vector2(.979f,.865f));ImperialTheme.Panel(atlasFrame,false);
         var area=CampaignHUD.Panel(root.transform,"Theatre viewport",new Vector2(.025f,.285f),new Vector2(.975f,.86f));area.AddComponent<RectMask2D>();
         var picture=new GameObject("Geographic base",typeof(RectTransform),typeof(RawImage));picture.transform.SetParent(area.transform,false);ui.map=picture.GetComponent<RectTransform>();ui.map.anchorMin=ui.map.anchorMax=new Vector2(.5f,.5f);
         var tex=Resources.Load<Texture2D>("UI/Maps/WarTheatreGeography");picture.GetComponent<RawImage>().texture=tex;
         var scroll=area.AddComponent<ScrollRect>();scroll.viewport=area.GetComponent<RectTransform>();scroll.content=ui.map;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.inertia=false;scroll.scrollSensitivity=0;
         Canvas.ForceUpdateCanvases();var bounds=scroll.viewport.rect;float aspect=tex==null?3:(float)tex.width/tex.height;float width=Mathf.Min(bounds.width,bounds.height*aspect);ui.fit=new Vector2(width,width/aspect);ui.Resize(1);
         ui.detail=CampaignHUD.Panel(root.transform,"Province information",new Vector2(.025f,.02f),new Vector2(.975f,.245f)).transform;
-        ui.hover=CampaignHUD.Label(root.transform,HoverHint,new Vector2(.025f,.248f),new Vector2(.975f,.283f),19);
+        ImperialTheme.Panel(ui.detail.gameObject,false);
+        var hoverPlate=CampaignHUD.Panel(root.transform,"Map hover plaque",new Vector2(.57f,.875f),new Vector2(.735f,.925f));ImperialTheme.Panel(hoverPlate,false);
+        ui.hover=CampaignHUD.Label(hoverPlate.transform,HoverHint,new Vector2(.04f,.08f),new Vector2(.96f,.92f),19);
+        ui.hover.alignment=TextAlignmentOptions.Center;
 
         ui.Draw();
         CampaignHUD.Label(ui.detail,"Choose a territory",new Vector2(.02f,.72f),new Vector2(.98f,.97f),28);
@@ -105,21 +111,27 @@ public class WarTheatreUI : MonoBehaviour
         if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}if(r.kind=="province"){ProvincialConflictUI.Show(r.id);return;}Clear(detail);
         var power=WarTheatre.DiplomaticPower(r);
         int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
-        CampaignHUD.Label(detail,DisplayName(power),new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
-        string summary=string.IsNullOrEmpty(power.summary)?power.name:power.summary;
+        var heading=CampaignHUD.Label(detail,TerritoryTitle(r),new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
+        if(country>=0)DiplomaticNames.Bind(heading,r.id=="sicily"?"sicily":r.id.StartsWith("sardinia")?"sardinia":CountryDiplomacy.Definitions[country].Id);
+        string summary=TerritorySummary(r);
         if(country>=0) {
-            var badge=CampaignHUD.Panel(detail,"Court attitude",new Vector2(.02f,.44f),new Vector2(.052f,.70f));
-            ImperialTheme.Panel(badge,false);badge.GetComponent<Image>().raycastTarget=false;
-            DiplomaticArtwork.DrawAttitude(badge.transform,CountryDiplomacy.Attitude(country).ToString(),new Vector2(.10f,.10f),new Vector2(.90f,.90f));
-            var state=CampaignHUD.Label(detail,CountryDiplomacy.Attitude(country)+" Â· "+CountryDiplomacy.FinalChance(country).ToString("0.##")+"% acceptance",new Vector2(.061f,.44f),new Vector2(.51f,.70f),21);
-            var envoy=CountryDiplomacy.EnvoyState(country);
-            string envoyText=envoy==CountryDiplomacy.EnvoyAssignment.Resident?"Envoy present":envoy==CountryDiplomacy.EnvoyAssignment.Outbound?"Envoy travelling":envoy==CountryDiplomacy.EnvoyAssignment.Returning?"Envoy returning":"No envoy";
-            CampaignHUD.Label(detail,envoyText,new Vector2(.52f,.44f),new Vector2(.73f,.70f),20);
-            CampaignHUD.MakeButton(detail,"Diplomatic relations",new Vector2(.76f,.36f),new Vector2(.98f,.80f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);});
+            DiplomaticSummary.Draw(detail,country,new Vector2(.02f,.44f),new Vector2(.73f,.70f),21);
+            CampaignHUD.MakeButton(detail,power.group=="naples"?"Alfonso’s court at Naples":"Diplomatic relations",new Vector2(.76f,.36f),new Vector2(.98f,.80f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);});
         }
         var body=CampaignHUD.Explanation(detail,summary,new Vector2(.02f,.08f),new Vector2(.73f,.40f),20);body.enableAutoSizing=true;body.fontSizeMin=17;body.fontSizeMax=20;
     }
     static string DisplayName(WarTheatre.Region r)=>r.id=="ionian_tocco"?"Ionian Lordships":r.name;
+    public static string TerritoryTitle(WarTheatre.Region region){
+        if(region.id=="sicily")return "Sicily";
+        if(region.id.StartsWith("sardinia"))return "Sardinia";
+        return DisplayName(WarTheatre.DiplomaticPower(region));
+    }
+    public static string TerritorySummary(WarTheatre.Region region){
+        if(region.id=="sicily")return "Sicily guards the passage between the western and eastern Mediterranean. Alfonso rules the island through a viceroy, while its barons defend privileges distinct from those of his mainland kingdom.";
+        if(region.id.StartsWith("sardinia"))return "Sardinia lies across the western sea, its ports and fortresses held for the Crown of Aragon. Alfonso’s authority binds the island to his other realms, but its institutions and troubled history remain its own.";
+        if(region.id=="naples")return "From Naples, Alfonso governs a mainland kingdom won by war and a court enriched by Mediterranean trade. His ambitions reach beyond Italy, while Sicily and Sardinia remain separate kingdoms beneath the same crown.";
+        var power=WarTheatre.DiplomaticPower(region);return string.IsNullOrEmpty(power.summary)?power.name:power.summary;
+    }
 
     void WarReport(WarTheatre.Region r){var power=WarTheatre.DiplomaticPower(r);Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelationsFor(power.group);}
     public static string CourtReligion(WarTheatre.Region region) {
@@ -143,6 +155,18 @@ public class WarTheatreUI : MonoBehaviour
         var c=religion=="Catholic"?new Color(.88f,.64f,.25f):religion=="Orthodox"?new Color(.63f,.39f,.82f):religion.Contains("Muslim")?new Color(.18f,.66f,.47f):new Color(.58f,.60f,.63f);
         c.a=.48f;return c;
     }
-    void ReligionLegend(){Clear(detail);CampaignHUD.Label(detail,"Court religion",new Vector2(.02f,.67f),new Vector2(.98f,.97f),28);bool unknown=WarTheatre.Data.regions.Any(r=>CourtReligion(r)=="Unclassified");CampaignHUD.Explanation(detail,"<color=#E0A340>Catholic</color>     <color=#A164D1>Orthodox</color>     <color=#2EA877>Muslim</color>"+(unknown?"     <color=#94999F>Unclassified</color>":""),new Vector2(.02f,.32f),new Vector2(.98f,.65f),22);}
+    void ReligionLegend(){
+        Clear(detail);
+        var panel=CampaignHUD.Panel(detail,"Court religion legend",new Vector2(.012f,.06f),new Vector2(.28f,.94f));ImperialTheme.Panel(panel,false);
+        CampaignHUD.Label(panel.transform,"Court religion",new Vector2(.06f,.73f),new Vector2(.94f,.96f),25);
+        string[] names={"Catholic","Orthodox","Muslim"};string[] colours={"#E0A340","#A164D1","#2EA877"};
+        for(int i=0;i<names.Length;i++){
+            float top=.72f-i*.22f;
+            var swatch=CampaignHUD.Panel(panel.transform,names[i]+" colour",new Vector2(.065f,top-.15f),new Vector2(.10f,top-.045f));
+            Color colour;ColorUtility.TryParseHtmlString(colours[i],out colour);swatch.GetComponent<Image>().color=colour;swatch.GetComponent<Image>().raycastTarget=false;
+            IllustratedIdentity.Faith(panel.transform,names[i],i==1,new Vector2(.13f,top-.19f),new Vector2(.23f,top));
+            CampaignHUD.Label(panel.transform,"<color="+colours[i]+">"+names[i]+"</color>",new Vector2(.27f,top-.19f),new Vector2(.94f,top),21);
+        }
+    }
     void Legend(){Clear(detail);string[] names={"Agent","Network","Insurrection","Imperial control","Land battle","Naval battle","Army","Fleet","Provisions","Artillery","Garrison","Revenue","Sabotage","Envoy","Liberation","Order"};for(int i=0;i<16;i++){float x=.06f+(i%8)*.126f,y=i<8?.73f:.26f;Icon(detail,i,new Vector2(x,y),43);var label=CampaignHUD.Label(detail,names[i],new Vector2(x-.06f,y-.24f),new Vector2(x+.06f,y-.12f),14);label.alignment=TextAlignmentOptions.Center;label.raycastTarget=false;}}
 }

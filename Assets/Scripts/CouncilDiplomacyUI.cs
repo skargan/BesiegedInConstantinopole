@@ -9,13 +9,14 @@ public partial class CouncilUI
     enum DiplomaticOrder { RequestAid, Expedite, Dispatch, Recall, Gift, RenewAid, War, RenewWar }
     static readonly Color[] AttitudeColours={new Color(.79f,.25f,.23f),new Color(.78f,.44f,.24f),new Color(.74f,.67f,.43f),new Color(.40f,.70f,.49f),new Color(.26f,.79f,.59f)};
 
-    Transform DiplomacyPage(string title,string introduction,Action back)
+    Transform DiplomacyPage(string title,string introduction,Action back,string realm=null,string suffix="")
     {
         Open(title,introduction);ControlSingleton.Instance.ReturnAction=back;
         var scroll=body.parent.GetComponent<ScrollRect>();
         if(scroll.verticalScrollbar!=null)scroll.verticalScrollbar.gameObject.SetActive(false);
         body.parent.gameObject.SetActive(false);
-        foreach(var label in screen.GetComponentsInChildren<TMP_Text>())if(label.transform.parent==screen.transform&&label.text==title)label.rectTransform.anchorMax=new Vector2(.72f,.98f);
+        foreach(var label in screen.GetComponentsInChildren<TMP_Text>())if(label.transform.parent==screen.transform&&label.text==title){label.rectTransform.anchorMax=new Vector2(.52f,.98f);if(realm!=null)DiplomaticNames.Bind(label,realm,suffix);}
+        DiplomaticNames.Selector(screen.transform,new Vector2(.54f,.91f),new Vector2(.72f,.975f));
         var count=CampaignHUD.Label(screen.transform,"Envoys: "+CountryDiplomacy.AvailableEnvoys+" / "+CountryDiplomacy.TotalEnvoys,new Vector2(.74f,.91f),new Vector2(.965f,.975f),24);
         count.alignment=TextAlignmentOptions.Right;
         var page=CampaignHUD.Panel(screen.transform,"Diplomatic page",new Vector2(.035f,.115f),new Vector2(.965f,.795f));
@@ -53,16 +54,9 @@ public partial class CouncilUI
             tile.gameObject.name="Diplomatic court "+CountryDiplomacy.Definitions[index].Id;
             DiplomacyFlag(tile.transform,index,new Vector2(.025f,.50f),new Vector2(.145f,.94f));
             var courtName=DiplomacyText(tile.transform,CountryDiplomacy.Definitions[index].Name,new Vector2(.175f,.65f),new Vector2(.96f,.95f),25);courtName.gameObject.name="Court name";
-            var attitudeFrame=CampaignHUD.Panel(tile.transform,"Court attitude badge",new Vector2(.17f,.405f),new Vector2(.965f,.65f));
-            ImperialTheme.Panel(attitudeFrame,false);
-            attitudeFrame.GetComponent<Image>().raycastTarget=false;
-            DiplomacyAttitude(attitudeFrame.transform,index,new Vector2(.015f,.12f),new Vector2(.075f,.88f));
-
-            var attitude=DiplomacyText(attitudeFrame.transform,CountryDiplomacy.Attitude(index)+(IonianDiplomacy.IsCountry(index)?" · Private agreements":" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance"),new Vector2(.09f,.08f),new Vector2(.985f,.92f),20);
-
-            attitude.alignment=TextAlignmentOptions.MidlineLeft;attitude.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];attitude.gameObject.name="Court attitude text";
-
-            var standing=DiplomacyText(tile.transform,CountryDiplomacy.EnvoyStatus(index)+"\n"+AidStanding(index),new Vector2(.035f,.03f),new Vector2(.96f,.39f),18);standing.gameObject.name="Court commitments";
+            DiplomaticNames.Bind(courtName,CountryDiplomacy.Definitions[index].Id);
+            DiplomaticSummary.Draw(tile.transform,index,new Vector2(.03f,.39f),new Vector2(.965f,.65f),18);
+            var standing=DiplomacyText(tile.transform,AidStanding(index),new Vector2(.035f,.03f),new Vector2(.96f,.36f),18);standing.gameObject.name="Court commitments";
         }
         var previous=CampaignHUD.MakeButton(stage,"‹ Previous courts",new Vector2(0,0),new Vector2(.27f,.09f),()=>{diplomacyPage--;UnifiedDiplomaticRelations();});previous.interactable=diplomacyPage>0;
         var pageLabel=DiplomacyText(stage,"Courts "+(diplomacyPage*perPage+1)+"–"+Mathf.Min(total,(diplomacyPage+1)*perPage)+" of "+total,new Vector2(.3f,0),new Vector2(.7f,.09f),20);pageLabel.alignment=TextAlignmentOptions.Center;
@@ -76,11 +70,10 @@ public partial class CouncilUI
         if(index<0||index>=CountryDiplomacy.Definitions.Length){DiplomaticRelations();return;}
         if(IonianDiplomacy.IsCountry(index)){IonianCourt();return;}
         var d=CountryDiplomacy.Definitions[index];var ally=CouncilActions.Allies[index];
-        var stage=DiplomacyPage(d.Name,DiplomaticChronicles.All[index].Religion+" · "+CountryDiplomacy.EnvoyStatus(index),DiplomaticRelations);
+        var stage=DiplomacyPage(d.Name,DiplomaticChronicles.All[index].Religion+" · "+CountryDiplomacy.EnvoyStatus(index),DiplomaticRelations,d.Id);
         var heading=CampaignHUD.Panel(stage,"Relationship",new Vector2(0,.73f),Vector2.one);ImperialTheme.Panel(heading,false);
         DiplomacyFlag(heading.transform,index,new Vector2(.02f,.17f),new Vector2(.17f,.90f));
-        DiplomacyAttitude(heading.transform,index,new Vector2(.19f,.60f),new Vector2(.24f,.89f));
-        var relationship=DiplomacyText(heading.transform,CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance",new Vector2(.255f,.57f),new Vector2(.97f,.94f),27);relationship.color=AttitudeColours[(int)CountryDiplomacy.Attitude(index)];relationship.gameObject.name="Court attitude text";
+        DiplomaticSummary.Draw(heading.transform,index,new Vector2(.19f,.57f),new Vector2(.97f,.94f),25);
         var breakdown=DiplomacyText(heading.transform,CountryDiplomacy.ChanceBreakdown(index),new Vector2(.19f,.08f),new Vector2(.97f,.56f),19);breakdown.gameObject.name="Court acceptance breakdown";
         var cargo=CampaignHUD.Panel(stage,"Aid and commitments",new Vector2(0,.40f),new Vector2(1,.705f));ImperialTheme.Panel(cargo,false);
         DiplomacyText(cargo.transform,AidStanding(index)+" · "+CountryDiplomacy.WarStatus(index),new Vector2(.025f,.72f),new Vector2(.975f,.96f),24);
@@ -98,7 +91,7 @@ public partial class CouncilUI
     void AdvancedDiplomacy(int index)
     {
         var d=CountryDiplomacy.Definitions[index];
-        var stage=DiplomacyPage(d.Name+" · Advanced diplomacy",CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance · "+CountryDiplomacy.EnvoyStatus(index),()=>DiplomaticPower(index));
+        var stage=DiplomacyPage(d.Name+" · Advanced diplomacy",CountryDiplomacy.Attitude(index)+" · "+CountryDiplomacy.FinalChance(index).ToString("0.##")+"% acceptance · "+CountryDiplomacy.EnvoyStatus(index),()=>DiplomaticPower(index),d.Id," · Advanced diplomacy");
         DiplomaticOrder[] orders={DiplomaticOrder.Gift,DiplomaticOrder.RenewAid,DiplomaticOrder.War,DiplomaticOrder.RenewWar};
         for(int n=0;n<orders.Length;n++) {
             int item=n;var order=orders[n];bool trakai=TrakaiIconGift.IsCountry(index);float x=n%2*.51f,top=1-n/2*(trakai?.44f:.505f);

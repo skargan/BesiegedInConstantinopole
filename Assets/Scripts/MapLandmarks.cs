@@ -11,6 +11,9 @@ public sealed class MapLandmarks : MonoBehaviour, IPointerEnterHandler, IPointer
     public static int Outcome=>DailyLifeEvents.I(OutcomeKey);
     public static bool FortressVisible=>Outcome>0||VariableSingleton.GetDate()>=new DateTime(1452,9,1);
     public static bool Building=>Outcome<=1&&VariableSingleton.GetDate()<new DateTime(1452,9,1);
+    // European bank of the painted Bosphorus; a short leader keeps the two
+    // neighbouring landmarks distinct at overview scale without moving the site offshore.
+    public static readonly Vector2 RumeliPosition=new Vector2(932f/2048f,1f-306f/683f);
     public static string FortressTitle=>Building?"Rumeli Fortress · under construction":Outcome==2?"The ruins of Rumeli":Outcome==3?"Rumeli Fortress · captured":Outcome==4?"Rumeli Fortress · guns silenced":"The Strait-Cutter Fortress";
     public static string FortressText=>Outcome==0&&VariableSingleton.GetBoolVariable("bStraitsOpen")?
         "Rumeli watches over the narrow water between Constantinople and the Black Sea. The passage is currently open to our shipping.\n\nThe surviving records do not establish whether the fortress was captured, damaged or otherwise deprived of its power to bar the route.":Building?
@@ -35,16 +38,25 @@ public sealed class MapLandmarks : MonoBehaviour, IPointerEnterHandler, IPointer
         Create(map,"Malta · Mercenary brokers",MercenaryMapMarkers.Malta,29,hover,clearHover,()=>MercenaryUI.Show());
         Create(map,"Sinop · Candar",WarTheatre.Find("candar_realm").front,29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CandarCourt();});
         Create(map,"Copa · Circassian coast",new Vector2(.655f,.786f),29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CircassianPort();});
-        if(FortressVisible)Create(map,"Strait-Cutter Fortress",WarTheatre.Find("constantinople").label+new Vector2(.003f,.08f),32,hover,clearHover,ShowFortress);
+        if(FortressVisible){
+            Vector2 offset=new Vector2(-15,18);
+            var leader=new GameObject("Rumeli shore leader",typeof(RectTransform),typeof(Image));leader.transform.SetParent(map,false);
+            var line=leader.GetComponent<RectTransform>();line.anchorMin=line.anchorMax=RumeliPosition;line.anchoredPosition=offset*.5f;
+            line.sizeDelta=new Vector2(offset.magnitude,1);line.localEulerAngles=new Vector3(0,0,Mathf.Atan2(offset.y,offset.x)*Mathf.Rad2Deg);
+            leader.GetComponent<Image>().color=ImperialTheme.Gold;leader.GetComponent<Image>().raycastTarget=false;
+            var marker=Create(map,"Strait-Cutter Fortress",RumeliPosition,22,hover,clearHover,ShowFortress);
+            ((RectTransform)marker.transform).anchoredPosition=offset;
+        }
     }
     static void OpenCourt(string id){var council=FindObjectOfType<CouncilUI>(true);if(council==null)return;int country=id==null?-1:CountryDiplomacy.Index(id);if(id!=null&&country<0)return;WarTheatreUI.Close();if(id==null)council.Palace();else council.DiplomaticPower(country);}
-    static void Create(Transform parent,string name,Vector2 pos,float size,TMP_Text hover,Action clearHover,UnityEngine.Events.UnityAction click)
+    static GameObject Create(Transform parent,string name,Vector2 pos,float size,TMP_Text hover,Action clearHover,UnityEngine.Events.UnityAction click)
     {
         var go=new GameObject("Landmark · "+name,typeof(RectTransform),typeof(RawImage),typeof(Button),typeof(Outline),typeof(MapLandmarks));go.transform.SetParent(parent,false);
         var rt=(RectTransform)go.transform;rt.anchorMin=rt.anchorMax=pos;rt.sizeDelta=Vector2.one*size;
         var image=go.GetComponent<RawImage>();image.texture=Resources.Load<Texture2D>("UI/Maps/Landmarks/city");image.uvRect=new Rect(.115f,.115f,.77f,.77f);
         var marker=go.GetComponent<MapLandmarks>();marker.title=name;marker.hint=hover;marker.clear=clearHover;marker.glow=go.GetComponent<Outline>();marker.glow.effectColor=new Color(1,.85f,.4f,1);marker.glow.effectDistance=new Vector2(2,2);marker.glow.enabled=false;
         var button=go.GetComponent<Button>();button.targetGraphic=image;button.transition=Selectable.Transition.None;button.onClick.AddListener(click);
+        return go;
     }
     public void OnPointerEnter(PointerEventData e){clear?.Invoke();glow.enabled=true;if(hint!=null)hint.text=title;}
     public void OnPointerExit(PointerEventData e){glow.enabled=false;if(hint!=null&&hint.text==title)hint.text="";}

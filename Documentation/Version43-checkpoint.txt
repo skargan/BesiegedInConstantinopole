@@ -1,0 +1,1 @@
+Version43 final export succeeded; seven player suites passed. All requested names approved and installed. Final map/native-script/mercenary captures reviewed. Desktop copy and ZIP packaging in progress. Root owns release; JohanX new siege report remains outside Assets. Next: commit/push, uploadv43, verify public asset/tag/hash and desktop launch, record publication.

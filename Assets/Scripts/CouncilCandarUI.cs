@@ -22,7 +22,7 @@ public partial class CouncilUI
         if(CandarDiplomacy.Unlocked)CandarCharacter(art.transform,hasCandarPainting);
         var panel=CampaignHUD.Panel(art.transform,"Candar negotiations",new Vector2(.57f,.025f),new Vector2(.985f,.975f));
         ImperialTheme.Panel(panel,false);candarDesk=panel.transform;
-        CandarLabel(candarDesk,"CANDAR · İSMAİL BEY",new Vector2(.04f,.91f),new Vector2(.96f,.98f),28);
+        DiplomaticNames.Bind(CandarLabel(candarDesk,"CANDAR · İSMAİL BEY",new Vector2(.04f,.91f),new Vector2(.96f,.98f),28),"candar"," · İsmail Bey");
         CandarLabel(candarDesk,(CandarDiplomacy.Unlocked?"Secret negotiations · no friendship promised":"Hostile · a guarded door")+"\nGold "+DailyLifeEvents.I("iMoney").ToString("N0"),new Vector2(.04f,.81f),new Vector2(.96f,.91f),21);
         CandarPlainButton(candarDesk,"Realm and its interests",new Vector2(.04f,.72f),new Vector2(.96f,.80f),CandarRealm);
         if(!CandarDiplomacy.Unlocked) {

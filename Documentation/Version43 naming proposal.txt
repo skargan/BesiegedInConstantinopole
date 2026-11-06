@@ -1,0 +1,140 @@
+VERSION 43 — REALM NAMING REVIEW
+6 November 2026. ConstantineX. PROPOSED, NOT INSTALLED.
+
+Scope: naming preference changes selected map information headings, diplomatic-list
+headings and individual court headings only. Short geographic labels, dialogue,
+events, troop origins, stable country IDs and saved indices remain unchanged.
+No floating country-name tooltip. A fixed map hover plaque remains. Original
+non-Latin script is followed by a Latin-script reading in parentheses.
+
+These are proposed display names, not a claim that every realm had one fixed
+legal title. Local-language forms may use normalised modern spelling. Descriptive
+reconstructions and uncertain orthography are internal review matters, never
+immersion-breaking player notices. User approval is required before installation.
+
+Short | Full English | Original-language display
+Hungary | Kingdom of Hungary | Regnum Hungariae
+Venice | Most Serene Republic of Venice | Serenissima Repubblica di Venezia
+Genoa | Republic of Genoa | Respublica Ianuensis
+The Papacy | The Holy See | Sancta Sedes
+Albania | League of Lezhë | Besëlidhja e Lezhës
+Knights Hospitaller | Order of the Hospital of Saint John of Jerusalem | Ordo Hospitalis Sancti Ioannis Hierosolymitani
+Naples | Kingdom of Sicily this side of the Lighthouse | Regnum Siciliae citra Pharum
+Holy Roman Empire | Holy Roman Empire | Sacrum Romanum Imperium
+France | Kingdom of France | Royaume de France
+Athens | Duchy of Athens | Ducatus Athenarum
+Georgia | Kingdom of Georgia | საქართველოს სამეფო (Sakartvelos Samepo)
+Trebizond | Empire of Trebizond | Βασιλεία τῆς Τραπεζοῦντος (Basileia tēs Trapezountos)
+Cyprus | Kingdom of Cyprus | Regnum Cypri
+Lithuania and Poland | Grand Duchy of Lithuania and Kingdom of Poland | Magnus Ducatus Lithuaniae et Regnum Poloniae
+Teutonic Order | Order of the Hospital of Saint Mary of the Germans in Jerusalem | Ordo domus Sanctae Mariae Theutonicorum Hierosolymitanorum
+England | Kingdom of England | Regnum Angliae
+Karaman | Beylik of Karaman | قرامان (Karaman)
+Aq Qoyunlu | Aq Qoyunlu Confederation | آق قویونلو (Āq Qoyunlū)
+Wallachia | Principality of Wallachia | Țara Românească
+Moldavia | Principality of Moldavia | Țara Moldovei
+Serbia | Serbian Despotate | Српска деспотовина (Srpska despotovina)
+Bosnia | Kingdom of Bosnia | Regnum Bosnae
+Crimea | Crimean Khanate | قریم خانلغی (Qırım Hanlığı)
+Mamluks | Sultanate of Egypt and Syria | دولة الجراكسة (Dawlat al-Jarākisa)
+Morea | Despotate of the Morea | Δεσποτᾶτον τοῦ Μορέως (Despotaton tou Moreōs)
+Ragusa | Republic of Ragusa | Respublica Ragusina
+Ionian Lordships | County Palatine of Cephalonia and Zakynthos | Contea palatina di Cefalonia e Zante
+Florence | Republic of Florence | Respublica Florentina
+Milan | Duchy of Milan | Ducatus Mediolani
+Siena | Republic of Siena | Respublica Senensis
+Theodoro | Lordship of Theodoro and the Maritime Region | Αὐθεντία πόλεως Θεοδωροῦς καὶ παραθαλασσίας (Authentia poleōs Theodorous kai parathalassias)
+Gazaria | Genoese Gazaria | Officium Gazarie
+Candar | Beylik of Candar | جاندار اوغوللری (Candar oğulları)
+Constantinople | Empire of the Romans | Βασιλεία τῶν Ῥωμαίων (Basileia tōn Rhōmaiōn)
+Ottomans | Ottoman Sultanate | آل عثمان (Āl-i ʿOsmān)
+Savoy | Duchy of Savoy | Ducatus Sabaudiae
+Po Lordships | Lordships of the Po Valley | Signorie della Valle del Po
+
+INTERNAL RESEARCH NOTES
+- Latin is an original diplomatic/chancery language, not always the local spoken
+  language. The selector should be called Original names, not Native languages.
+- Venice: Treccani dates the official Maggior Consiglio formula Serenissima
+  signoria to 1462. Comune Veneciarum is the stricter proposal for 1453. Most
+  Serene Republic of Venice is an alternative familiar historical-fiction title.
+- Lithuania and Poland remain two realms under one monarch, NOT the post-1569
+  Commonwealth. Latin preserves a shared period documentary language without
+  inventing a single Lithuanian-Polish state name. A bilingual Lithuanian/Polish
+  alternative is possible, with normalised spelling explicitly recorded here.
+- Papacy/Holy See is the diplomatic court. Papal States remains the short map
+  territory label. No map-label replacement is implied.
+- Naples: archival distinction citra/ultra Pharum separates mainland and island
+  Sicily. Do not rename all possessions or imply a unitary Kingdom of Two Sicilies.
+- Albania and Po Lordships are alliance/aggregate labels, not unitary kingdoms.
+- Original-language proposals for Albania, Wallachia, Moldavia and Serbia are
+  normalised labels, NOT verified transcriptions of 1453 chancery documents.
+- Trebizond/Morea are descriptive Greek renderings; do not claim a unique attested
+  legal state title. Theodoro's long form derives from recorded ruler titulature.
+- Crimean and Candar Arabic-script spellings require a specialist transcription
+  check before being presented as exact period spelling. Karaman and Ottoman
+  originals deliberately use shorter regional/dynastic labels.
+- Mamluk Circassian-dynasty label is a period-oriented alternative to the modern
+  conventional Mamluk Sultanate, not an exclusive legal title.
+- Gaza/Caffa display identity must not imply independence from Genoa or change
+  existing Bank relationships. All dependencies retain their grouped identities.
+
+SOURCES CONSULTED (basis varies by row; not blanket exact-title certification)
+https://www.treccani.it/enciclopedia/la-repubblica-di-venezia_%28Storia-della-civilta-europea-a-cura-di-Umberto-Eco%29/
+https://sias-archivi.cultura.gov.it/cgi-bin/pagina.pl?Chiave=978&TipoPag=profist
+https://www.orderofmalta.int/history/names-of-the-order/
+https://www.orderofmalta.int/history/11-century-to-the-present-day/
+https://www.metmuseum.org/fr/essays/byzantium-ca-330-1453
+https://www.encyclopedia.com/religion/encyclopedias-almanacs-transcripts-and-maps/byzantine-empire
+https://www.lrs.lt/sip/portal.show?p_a=1745&p_k=1&p_kade_id=10&p_r=35517
+https://www.vle.lt/straipsnis/lietuvos-didzioji-kunigaikstyste/
+https://islamansiklopedisi.org.tr/candarogullari
+https://islamansiklopedisi.org.tr/memluk
+https://www.iranicaonline.org/articles/aq-qoyunlu-confederation/
+https://en.wikipedia.org/wiki/Principality_of_Theodoro
+https://webserver.rcub.bg.ac.rs/en/predmet/2430/Srpska-Despotovina-1402-1459
+
+PRESENTATION CHECKPOINT
+WarTheatreUI source pass: centred title; existing mosaic surround; inset gilded
+atlas frame; framed information panel; fixed hover plaque above map; vertical
+religion legend with existing faith medallions; malformed U+00C2 separator fixed.
+Source compilation passed using Unity Roslyn and installed project dependencies.
+NOT yet runtime/visually verified. Naming selector, uniform diplomatic summary,
+envoy-only tooltip, full release verification and publication remain pending.
+Do not publish Version43 until naming review and presentation checks are complete.
+Ready handover: JohanX reports 1e37392 and ed8d2a5 for biography/Cardinal arrival;
+private verification supplied by JohanX, not yet independently rechecked here.
+
+REVIEW UPDATE — 6 November 2026
+User approved three selector modes, familiar Most Serene Republic of Venice /
+Serenissima Repubblica di Venezia, and retained the unusual Naples Lighthouse
+name. User requests a second historical audit before publication. Gazaria is
+unresolved: recommend Short Gazaria, Full Genoese Gazaria, Original Gazaria;
+Caffa is the city/consular seat, not the whole colonial territory. Do not treat
+Officium Gazarie as a country name: it is an administrative office.
+Wallachia: distinguish local Romanian name (modern normalised spelling) from
+Slavonic documentary usage Ungro-Vlahia; the first draft was not an exact 1453
+chancery transcription. No new name installed pending final audit.
+Sources added:
+https://www.museidigenova.it/en/liber-gazarie
+https://www.treccani.it/enciclopedia/caffa_(Enciclopedia-Italiana)/
+https://historicalyearbook.ro/wp-content/volumes/hy_2010/01-papacostea_01.pdf
+https://www.treccani.it/enciclopedia/alfonso-v-il-magnanimo-re-di-aragona-iv-come-conte-di-catalogna-i-come-re-di-napoli/
+Current map: Sicily and Sardinia both group=naples; selecting either currently
+resolves to the shared Naples court. Historically different kingdoms under
+Alfonso V, not territories constitutionally subordinate to the mainland kingdom.
+
+COASTAL PATCH CHECKPOINT
+MapLandmarks: Rumeli shore anchor (932,306) in 2048x683 painting coordinates;
+22px icon with (-15,+18) display offset and short gold leader avoids capital
+marker overlap. Existing construction, visibility, click and outcome rules kept.
+WarTheatre.json: removed Leucas mainland rectangle; filled Albania coastal strip;
+assigned uncovered Acarnanian mainland to existing Ottoman Macedonia province;
+shared Macedonia/Thrace vertices replace folded coastal seam. Four point arrays
+only; stable IDs, province count, routes and mechanics unchanged.
+Source compilation exit0. Seven focused coverage/count checks passed. Enlarged
+before/after geography overlays visually inspected. Actual Unity player UI check
+still pending; not yet published. Full Version43 remains pending naming review.
+Historical simplification explicitly requested: no Tocco mainland shading even
+though Vonitsa remained Tocco until1479 (Greek Ministry of Culture).
+https://castleroute.culture.gov.gr/en/vonitsa/
+CONFIRMED: user selects Officium Gazarie as an intentional Original-mode game title; Short Gazaria, Full Genoese Gazaria. Administrative-office distinction stays internal.

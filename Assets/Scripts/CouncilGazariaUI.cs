@@ -7,7 +7,7 @@ public partial class CouncilUI
  {
  var pane=MilitaryCanvas("Genoese Gazaria · Caffa","caffa-harbour","Between the steppe and the sea.");ControlSingleton.Instance.ReturnAction=DiplomaticRelations;
  int index=CountryDiplomacy.Index("gazaria");
- CompactText(pane,"CAFFA",.04f,.91f,.96f,.98f,30);CompactText(pane,"Goodwill "+CountryDiplomacy.Goodwill(index).ToString("0.##")+" · "+CountryDiplomacy.EnvoyStatus(index),.04f,.84f,.96f,.91f,21);
+ DiplomaticNames.Bind(CompactText(pane,"CAFFA",.04f,.91f,.96f,.98f,30),"gazaria");CompactText(pane,"Goodwill "+CountryDiplomacy.Goodwill(index).ToString("0.##")+" · "+CountryDiplomacy.EnvoyStatus(index),.04f,.84f,.96f,.91f,21);
  CompactText(pane,speaker==0?"Borruele Grimaldi · Consul":"Dorino Grimaldi · Bank of St George",.04f,.74f,.96f,.84f,26);
  var words=CompactText(pane,speaker==0?
  "Caffa’s quays are crowded with grain ships, interpreters and men who have crossed half the steppe. Genoa’s cross hangs above the harbour, but decisions here answer to local dangers as much as distant councils.\n\n‘Our merchants need the straits open, Emperor. They also need to know that their next cargo will not become somebody’s contribution to a war. Give us a passage that can be sailed, and there will be much to discuss.’":

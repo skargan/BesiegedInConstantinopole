@@ -1,0 +1,278 @@
+{
+  "Version": 1,
+  "Names": [
+    {
+      "Id": "hungary",
+      "Short": "Hungary",
+      "Full": "Kingdom of Hungary",
+      "Original": "Regnum Hungariae",
+      "Display": "Regnum Hungariae"
+    },
+    {
+      "Id": "venice",
+      "Short": "Venice",
+      "Full": "Most Serene Republic of Venice",
+      "Original": "Serenissima Repubblica di Venezia",
+      "Display": "Serenissima Repubblica di Venezia"
+    },
+    {
+      "Id": "genoa",
+      "Short": "Genoa",
+      "Full": "Republic of Genoa",
+      "Original": "Respublica Ianuensis",
+      "Display": "Respublica Ianuensis"
+    },
+    {
+      "Id": "papacy",
+      "Short": "The Papacy",
+      "Full": "The Holy See",
+      "Original": "Sancta Sedes",
+      "Display": "Sancta Sedes"
+    },
+    {
+      "Id": "albania",
+      "Short": "Albania",
+      "Full": "League of Lezhë",
+      "Original": "Besëlidhja e Lezhës",
+      "Display": "Besëlidhja e Lezhës"
+    },
+    {
+      "Id": "hospitallers",
+      "Short": "Knights Hospitaller",
+      "Full": "Order of the Hospital of Saint John of Jerusalem",
+      "Original": "Ordo Hospitalis Sancti Ioannis Hierosolymitani",
+      "Display": "Ordo Hospitalis Sancti Ioannis Hierosolymitani"
+    },
+    {
+      "Id": "naples",
+      "Short": "Naples",
+      "Full": "Kingdom of Sicily this side of the Lighthouse",
+      "Original": "Regnum Siciliae citra Pharum",
+      "Display": "Regnum Siciliae citra Pharum"
+    },
+    {
+      "Id": "holy_roman_empire",
+      "Short": "Holy Roman Empire",
+      "Full": "Holy Roman Empire",
+      "Original": "Sacrum Romanum Imperium",
+      "Display": "Sacrum Romanum Imperium"
+    },
+    {
+      "Id": "france",
+      "Short": "France",
+      "Full": "Kingdom of France",
+      "Original": "Royaume de France",
+      "Display": "Royaume de France"
+    },
+    {
+      "Id": "athens",
+      "Short": "Athens",
+      "Full": "Duchy of Athens",
+      "Original": "Ducatus Athenarum",
+      "Display": "Ducatus Athenarum"
+    },
+    {
+      "Id": "georgia",
+      "Short": "Georgia",
+      "Full": "Kingdom of Georgia",
+      "Original": "საქართველოს სამეფო (Sakartvelos Samepo)",
+      "Display": "საქართველოს სამეფო (Sakartvelos Samepo)"
+    },
+    {
+      "Id": "trebizond",
+      "Short": "Trebizond",
+      "Full": "Empire of Trebizond",
+      "Original": "Βασιλεία τῆς Τραπεζοῦντος (Basileia tēs Trapezountos)",
+      "Display": "Βασιλεία τῆς Τραπεζοῦντος (Basileia tēs Trapezountos)"
+    },
+    {
+      "Id": "cyprus",
+      "Short": "Cyprus",
+      "Full": "Kingdom of Cyprus",
+      "Original": "Regnum Cypri",
+      "Display": "Regnum Cypri"
+    },
+    {
+      "Id": "poland_lithuania",
+      "Short": "Lithuania and Poland",
+      "Full": "Grand Duchy of Lithuania and Kingdom of Poland",
+      "Original": "Magnus Ducatus Lithuaniae et Regnum Poloniae",
+      "Display": "Magnus Ducatus Lithuaniae et Regnum Poloniae"
+    },
+    {
+      "Id": "teutonic_order",
+      "Short": "Teutonic Order",
+      "Full": "Order of the Hospital of Saint Mary of the Germans in Jerusalem",
+      "Original": "Ordo domus Sanctae Mariae Theutonicorum Hierosolymitanorum",
+      "Display": "Ordo domus Sanctae Mariae Theutonicorum Hierosolymitanorum"
+    },
+    {
+      "Id": "england",
+      "Short": "England",
+      "Full": "Kingdom of England",
+      "Original": "Regnum Angliae",
+      "Display": "Regnum Angliae"
+    },
+    {
+      "Id": "karaman",
+      "Short": "Karaman",
+      "Full": "Beylik of Karaman",
+      "Original": "قرامان (Karaman)",
+      "Display": "ﻥﺎﻣﺍﺮﻗ (Karaman)"
+    },
+    {
+      "Id": "aq_qoyunlu",
+      "Short": "Aq Qoyunlu",
+      "Full": "Aq Qoyunlu Confederation",
+      "Original": "آق قویونلو (Āq Qoyunlū)",
+      "Display": "ﻮﻠﻧﻮﯾﻮﻗ ﻕﺁ (Āq Qoyunlū)"
+    },
+    {
+      "Id": "wallachia",
+      "Short": "Wallachia",
+      "Full": "Principality of Wallachia",
+      "Original": "Земля Угровлахийская (Zemlja Ugrovlahijskaja) — Țara Românească",
+      "Display": "Земля Угровлахийская (Zemlja Ugrovlahijskaja) — Țara Românească"
+    },
+    {
+      "Id": "moldavia",
+      "Short": "Moldavia",
+      "Full": "Principality of Moldavia",
+      "Original": "Земля Молдавская (Zemlja Moldavskaja) — Țara Moldovei",
+      "Display": "Земля Молдавская (Zemlja Moldavskaja) — Țara Moldovei"
+    },
+    {
+      "Id": "serbia",
+      "Short": "Serbia",
+      "Full": "Serbian Despotate",
+      "Original": "Српска деспотовина (Srpska despotovina)",
+      "Display": "Српска деспотовина (Srpska despotovina)"
+    },
+    {
+      "Id": "bosnia",
+      "Short": "Bosnia",
+      "Full": "Kingdom of Bosnia",
+      "Original": "Regnum Bosnae",
+      "Display": "Regnum Bosnae"
+    },
+    {
+      "Id": "crimea",
+      "Short": "Crimea",
+      "Full": "Crimean Khanate",
+      "Original": "قریم خانلغی (Qırım Hanlığı)",
+      "Display": "ﯽﻐﻠﻧﺎﺧ ﻢﯾﺮﻗ (Qırım Hanlığı)"
+    },
+    {
+      "Id": "mamluks",
+      "Short": "Mamluks",
+      "Full": "Sultanate of Egypt and Syria",
+      "Original": "دولة الجراكسة (Dawlat al-Jarākisa)",
+      "Display": "ﺔﺴﻛﺍﺮﺠﻟﺍ ﺔﻟﻭﺩ (Dawlat al-Jarākisa)"
+    },
+    {
+      "Id": "morea",
+      "Short": "Morea",
+      "Full": "Despotate of the Morea",
+      "Original": "Δεσποτᾶτον τοῦ Μορέως (Despotaton tou Moreōs)",
+      "Display": "Δεσποτᾶτον τοῦ Μορέως (Despotaton tou Moreōs)"
+    },
+    {
+      "Id": "ragusa",
+      "Short": "Ragusa",
+      "Full": "Republic of Ragusa",
+      "Original": "Respublica Ragusina",
+      "Display": "Respublica Ragusina"
+    },
+    {
+      "Id": "ionian_tocco",
+      "Short": "Ionian Lordships",
+      "Full": "County Palatine of Cephalonia and Zakynthos",
+      "Original": "Contea palatina di Cefalonia e Zante",
+      "Display": "Contea palatina di Cefalonia e Zante"
+    },
+    {
+      "Id": "florence",
+      "Short": "Florence",
+      "Full": "Republic of Florence",
+      "Original": "Respublica Florentina",
+      "Display": "Respublica Florentina"
+    },
+    {
+      "Id": "milan",
+      "Short": "Milan",
+      "Full": "Duchy of Milan",
+      "Original": "Ducatus Mediolani",
+      "Display": "Ducatus Mediolani"
+    },
+    {
+      "Id": "siena",
+      "Short": "Siena",
+      "Full": "Republic of Siena",
+      "Original": "Respublica Senensis",
+      "Display": "Respublica Senensis"
+    },
+    {
+      "Id": "theodoro",
+      "Short": "Theodoro",
+      "Full": "Lordship of Theodoro and the Maritime Region",
+      "Original": "Αὐθεντία πόλεως Θεοδωροῦς καὶ παραθαλασσίας (Authentia poleōs Theodorous kai parathalassias)",
+      "Display": "Αὐθεντία πόλεως Θεοδωροῦς καὶ παραθαλασσίας (Authentia poleōs Theodorous kai parathalassias)"
+    },
+    {
+      "Id": "gazaria",
+      "Short": "Gazaria",
+      "Full": "Genoese Gazaria",
+      "Original": "Officium Gazarie",
+      "Display": "Officium Gazarie"
+    },
+    {
+      "Id": "candar",
+      "Short": "Candar",
+      "Full": "Beylik of Candar",
+      "Original": "جاندار اوغوللری (Candar oğulları)",
+      "Display": "ﯼﺮﻠﻟﻮﻏﻭﺍ ﺭﺍﺪﻧﺎﺟ (Candar oğulları)"
+    },
+    {
+      "Id": "constantinople",
+      "Short": "Constantinople",
+      "Full": "Empire of the Romans",
+      "Original": "Βασιλεία τῶν Ῥωμαίων (Basileia tōn Rhōmaiōn)",
+      "Display": "Βασιλεία τῶν Ῥωμαίων (Basileia tōn Rhōmaiōn)"
+    },
+    {
+      "Id": "ottomans",
+      "Short": "Ottomans",
+      "Full": "Ottoman Sultanate",
+      "Original": "آل عثمان (Āl-i ʿOsmān)",
+      "Display": "ﻥﺎﻤﺜﻋ ﻝﺁ (Āl-i ʿOsmān)"
+    },
+    {
+      "Id": "savoy",
+      "Short": "Savoy",
+      "Full": "Duchy of Savoy",
+      "Original": "Ducatus Sabaudiae",
+      "Display": "Ducatus Sabaudiae"
+    },
+    {
+      "Id": "po_lordships",
+      "Short": "Po Lordships",
+      "Full": "Lordships of the Po Valley",
+      "Original": "Signorie della Valle del Po",
+      "Display": "Signorie della Valle del Po"
+    },
+    {
+      "Id": "sicily",
+      "Short": "Sicily",
+      "Full": "Kingdom of Sicily beyond the Lighthouse",
+      "Original": "Regnum Siciliae ultra Pharum",
+      "Display": "Regnum Siciliae ultra Pharum"
+    },
+    {
+      "Id": "sardinia",
+      "Short": "Sardinia",
+      "Full": "Kingdom of Sardinia",
+      "Original": "Regnum Sardiniae",
+      "Display": "Regnum Sardiniae"
+    }
+  ]
+}

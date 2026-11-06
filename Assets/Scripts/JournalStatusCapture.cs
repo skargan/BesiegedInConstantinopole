@@ -12,7 +12,7 @@ public sealed class JournalStatusCapture:MonoBehaviour
 {
     string folder;int checks;
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-    static void Begin(){if(!Environment.GetCommandLineArgs().Contains("-journal-status-capture"))return;var go=new GameObject("Journal status checks");DontDestroyOnLoad(go);go.AddComponent<JournalStatusCapture>();}
+    static void Begin(){if(!Environment.GetCommandLineArgs().Contains("-journal-status-capture"))return;Application.runInBackground=true;var go=new GameObject("Journal status checks");DontDestroyOnLoad(go);go.AddComponent<JournalStatusCapture>();}
     void Check(bool value,string message){if(!value)throw new Exception(message);checks++;}
     string Status(string id)=>JournalStrategicStatus.Read().Single(r=>r.Id==id).Status;
     IEnumerator Start(){folder=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/JournalStatus"));Directory.CreateDirectory(folder);SaveGames.TestRoot=Path.Combine(folder,"Saves");Directory.CreateDirectory(SaveGames.TestRoot);VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.json");var stack=new Stack<IEnumerator>();stack.Push(Run());File.WriteAllText(Path.Combine(folder,"checks.txt"),"RUNNING");

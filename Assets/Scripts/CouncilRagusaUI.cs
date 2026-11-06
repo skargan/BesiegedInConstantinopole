@@ -82,7 +82,7 @@ public partial class CouncilUI
     void RagusaMain(Transform root)
     {
         int country=CountryDiplomacy.Index("ragusa");
-        RagusaLabel(root,"THE REPUBLIC OF RAGUSA",new Vector2(.045f,.91f),new Vector2(.955f,.975f),27);
+        DiplomaticNames.Bind(RagusaLabel(root,"THE REPUBLIC OF RAGUSA",new Vector2(.045f,.91f),new Vector2(.955f,.975f),27),"ragusa");
         if(RagusaDiplomacy.EnvoyPresent)RagusaLabel(root,RagusaDiplomacy.ActiveRepresentativeName,new Vector2(.045f,.815f),new Vector2(.955f,.905f),22);
         string goodwill="Ragusan goodwill "+RagusaDiplomacy.Relations.ToString("0")+" · "+CountryDiplomacy.Attitude(country);
         if(RagusaDiplomacy.EnvoyPresent)goodwill+="\nPersonal favour "+RagusaDiplomacy.Favour(RagusaDiplomacy.ActiveRepresentative);
