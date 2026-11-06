@@ -9,7 +9,7 @@ public sealed class MaritimeCityVisitUI:MonoBehaviour
     public static string Description(string city)=>city=="genoa"?
         "Genoa crowds between the Ligurian hills and the sea, its houses climbing above a harbour filled with cargo, arguments and credit. The republic's merchants have interests far beyond these quays. In Constantinople, Genoese captains and traders have much to protect, but their purses do not all open at the same command. An appeal made here must find its way through family interests, commercial calculations and the uncomfortable question of who will pay.":
         "The Doge's Palace looks out across a lagoon crowded with vessels, while the councils within weigh the business of a maritime republic. Venice's wealth travels by sea, and the fate of Constantinople reaches into its accounts, harbours and merchant households. Concern is plentiful; a commitment requires more work. Your envoys must persuade the republic that helping the City is worth the ships, money and trouble that its councillors will certainly count.";
-    public static Vector2 MapPosition(string city)=>WarTheatre.Find(city).label+new Vector2(0,-.018f);
+    public static Vector2 MapPosition(string city)=>city=="genoa"?new Vector2(72f/2048f,1-174f/683f):new Vector2(190f/2048f,1-110f/683f);
     public static void Show(string city)
     {
         if(city!="genoa"&&city!="venice")return;

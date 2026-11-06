@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public partial class CouncilUI
 {
+    void ReturnToTheatre(){Hide();WarTheatreUI.Show();}
     Transform candarDesk;
     public void CandarCourt()=>CandarPage();
     void CandarPage()
     {
         Open("Candar · İsmail Bey","");
-        ControlSingleton.Instance.ReturnAction=DiplomaticRelations;
+        ControlSingleton.Instance.ReturnAction=ReturnToTheatre;
         foreach(Transform child in screen.transform)child.gameObject.SetActive(false);
         string scene=CandarDiplomacy.Unlocked?"candar-open":"candar-closed";
         var texture=Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/"+scene);bool hasCandarPainting=texture!=null;
@@ -41,7 +42,7 @@ public partial class CouncilUI
             CandarOrderButton(2,"Disrupt Ottoman preparations · 2,500",CandarDiplomacy.DisruptionReason,.27f);
         }
         CandarLabel(candarDesk,"No banners. No promises of friendship. Only business.",new Vector2(.04f,.105f),new Vector2(.96f,.245f),19);
-        CandarPlainButton(candarDesk,"Return",new Vector2(.20f,.025f),new Vector2(.80f,.09f),DiplomaticRelations);
+        CandarPlainButton(candarDesk,"Return",new Vector2(.20f,.025f),new Vector2(.80f,.09f),ReturnToTheatre);
     }
     void CandarCharacter(Transform painting,bool hasCandarPainting)
     {

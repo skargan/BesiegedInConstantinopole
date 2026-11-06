@@ -40,8 +40,10 @@ public class WarTheatreUI : MonoBehaviour
         ImperialTheme.Panel(root,true);var ui=root.GetComponent<WarTheatreUI>();
         var title=CampaignHUD.Label(root.transform,"WAR BEYOND THE WALLS",new Vector2(.025f,.935f),new Vector2(.975f,.995f),30);
         title.alignment=TextAlignmentOptions.Center;
-        CampaignHUD.MakeButton(root.transform,"Diplomacy",new Vector2(.735f,.94f),new Vector2(.85f,.99f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
-        CampaignHUD.MakeButton(root.transform,"Return",new Vector2(.86f,.94f),new Vector2(.975f,.99f),()=>Close());
+        CampaignHUD.MakeButton(root.transform,"Diplomacy",new Vector2(.025f,.94f),new Vector2(.15f,.99f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
+        CampaignHUD.MakeButton(root.transform,"Return",new Vector2(.16f,.94f),new Vector2(.25f,.99f),()=>Close());
+        CampaignHUD.MakeButton(root.transform,"Campaign menu",new Vector2(.84f,.955f),new Vector2(.975f,.995f),()=>{Close();CampaignHUD.Instance.TogglePause();});
+        var date=CampaignHUD.Label(root.transform,VariableSingleton.GetDate().ToString("d MMM yyyy"),new Vector2(.84f,.929f),new Vector2(.975f,.955f),18);date.alignment=TextAlignmentOptions.Center;
         var selector=CampaignHUD.MakeButton(root.transform,"All territories",new Vector2(.025f,.875f),new Vector2(.235f,.925f),()=>{});selector.name="Map view selector";
         selector.onClick.AddListener(()=>{ui.viewMode=(ui.viewMode+1)%4;ui.provinces=ui.viewMode!=2;ui.allies=ui.viewMode!=1;selector.GetComponentInChildren<TMP_Text>().text=new[]{"All territories","Ottoman provinces","Non-Ottoman Powers","Court religion"}[ui.viewMode];ui.Draw();ui.Clear(ui.detail);if(ui.viewMode==3)ui.ReligionLegend();});
         DiplomaticNames.Selector(root.transform,new Vector2(.245f,.875f),new Vector2(.365f,.925f));
@@ -86,7 +88,7 @@ public class WarTheatreUI : MonoBehaviour
                     var ink=leader.GetComponent<Image>();ink.color=new Color(.87f,.78f,.48f,.8f);ink.raycastTarget=false;
                 }
                 var go=new GameObject(r.name,typeof(RectTransform),typeof(TerritoryGraphic));go.transform.SetParent(overlays,false);var rt=go.GetComponent<RectTransform>();rt.anchorMin=rt.anchorMax=r.label;rt.anchoredPosition=markerOffset;rt.sizeDelta=Vector2.one*(r.kind=="capital"?8:5);var shape=go.GetComponent<TerritoryGraphic>();shape.Points=Enumerable.Range(0,16).Select(i=>new Vector2(.5f+.5f*Mathf.Cos(i*Mathf.PI/8),.5f+.5f*Mathf.Sin(i*Mathf.PI/8))).ToArray();shape.color=r.kind=="capital"?new Color(.96f,.78f,.38f):viewMode==3?ReligionColour(r):WarTheatre.Tint(r);Register(shape,r);}
-            if(r.kind!="colony"&&r.kind!="island"){
+            if(r.kind!="colony"&&r.kind!="island"&&r.id!="po_lordships_part2"){
                 bool eastern=r.id=="aq_qoyunlu";
                 bool compact=new[]{"candar_realm","savoy","milan","po_lordships","florence","siena","papacy","genoa","theodoro","sardinia","corsica","athens","ionian_tocco"}.Contains(r.id);
                 string caption=eastern?"Turkmen\nConfederations":r.id=="milan"?"Milan":r.id=="athens"?"Athens":r.id=="ionian_tocco"?"Ionian\nLordships":r.id=="po_lordships"?"Po lords":r.id=="papacy"?"Papal\nStates":r.name;

@@ -62,6 +62,17 @@ yield return null;yield return null;yield return null;yield return null;
 Check(BisevoUI.IsOpen,"scene resume reopens pending ransom");
 Check(GameObject.Find("Biševo visit").GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="Pay 5,000 gold"),"resumed screen exposes ransom choice");
 BisevoDiscovery.Resolve(false);BisevoUI.Back();BisevoUI.Back();yield return null;
+var council=FindObjectOfType<CouncilUI>(true);
+council.CircassianPort();yield return null;yield return Capture("kuban-bottom-desk");
+var desk=GameObject.Find("Command desk").GetComponent<RectTransform>();Check(desk.anchorMax.y<=.34f&&desk.anchorMin.x<=.025f,"Kuban controls occupy horizontal bottom panel");
+ControlSingleton.Instance.GoBack();yield return null;Check(GameObject.Find("War Beyond the Walls map")!=null,"Kuban returns to map");WarTheatreUI.Close();yield return null;
+council.CandarCourt();yield return null;ControlSingleton.Instance.GoBack();yield return null;Check(GameObject.Find("War Beyond the Walls map")!=null,"Candar returns to map");WarTheatreUI.Close();yield return null;
+council.IonianCourt();yield return null;ControlSingleton.Instance.GoBack();yield return null;Check(GameObject.Find("War Beyond the Walls map")!=null,"Ionian court returns to map");WarTheatreUI.Close();yield return null;
+Check(DiplomaticNames.All.First(e=>e.Id=="wallachia").Display=="Țara Românească","Romanian Wallachia name");
+Check(DiplomaticNames.All.First(e=>e.Id=="moldavia").Display=="Țara Moldovei","Romanian Moldavia name");
+BisevoUI.Show();yield return null;foreach(var hot in GameObject.Find("Biševo visit").GetComponentsInChildren<LocationHotspot>())hot.SetHighlighted(true);yield return Capture("landing-outlines");
+var open=typeof(BisevoUI).GetMethod("Open",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic);open.Invoke(null,new object[]{"sanctuary"});yield return null;
+foreach(var hot in GameObject.Find("Biševo visit").GetComponentsInChildren<LocationHotspot>())hot.SetHighlighted(true);yield return Capture("flowers-outline");BisevoUI.Back();BisevoUI.Back();yield return null;
 foreach(var size in new[]{new Vector2Int(1280,720),new Vector2Int(1600,900)}) {
 Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.3f);VariableSingleton.SetInt("iShips",3);VariableSingleton.SetInt("iEnvoys",1);VariableSingleton.SetInt("iMoney",6000);VariableSingleton.SetInt(BisevoDiscovery.EncounterKey,0);BisevoUI.Show();yield return null;
 yield return Capture("landing-"+size.x);

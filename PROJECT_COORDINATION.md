@@ -155,3 +155,9 @@ Version 44 publication readiness: READY. Candidate source cc36032; 287 player fi
 
 
 This is ConstantineX — 6 November 2026 — BLUF: Version 44 published to GitHub and installed on Desktop. Release: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v44 . Desktop: C:/Users/Dainius/Desktop/Saving Constantinople - Version 44. Source 96b3ad6; public download returns HTTP 200 and 1,341,405,886 bytes; GitHub digest matches tested ZIP. Desktop launch verified. Publication record: Documentation/Version44 publication.json. Version43 retained.
+
+
+### ConstantineX — 6 November 2026 — Map and encounter presentation corrections
+Completed: map header menu/date and left navigation; Romanian realm names; Kuban bottom desk; Candar/Ionian map returns; independent Venice/Genoa city coordinates; Venetian coastal fill and Po fragment colour; Biševo silhouette refinement. Gameplay rules unchanged. Private Windows preview compiled successfully; BISEVO_CHECKS 97 passed, including navigation and bottom-panel assertions. Runtime captures of the Adriatic map, Kuban panel, landing silhouettes and flowers were visually inspected. Seven tiny disconnected raster coast patches remain outside the mainland union; the marked connected coastal gap is filled. Published Version 44 is unchanged.
+
+Clickable artwork must use the same carefully traced silhouette for hit testing and highlighting, including visible recesses and projections. Check outlines against the source painting and at runtime scale; do not substitute broad ovals or boxes. Coastline polygons follow the painted shore, with shared diplomatic ownership for dependencies.

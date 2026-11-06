@@ -11,7 +11,7 @@ public partial class CouncilUI
     void IonianPage(string page)
     {
         Open("The Ionian Isles","");
-        ControlSingleton.Instance.ReturnAction=page=="main"?(Action)DiplomaticRelations:IonianCourt;
+        ControlSingleton.Instance.ReturnAction=page=="main"?(Action)ReturnToTheatre:IonianCourt;
         foreach(Transform child in screen.transform)child.gameObject.SetActive(false);
         var art=new GameObject("Ionian coast",typeof(RectTransform),typeof(RawImage),typeof(AspectRatioFitter));art.transform.SetParent(screen.transform,false);
         var rect=art.GetComponent<RectTransform>();rect.anchorMin=rect.anchorMax=rect.pivot=new Vector2(.5f,.5f);
@@ -47,7 +47,7 @@ public partial class CouncilUI
             IonianReading(root,page=="about"?IonianText.Data.about:IonianText.Data.siege,.27f,.86f);
             IonianButton(root,"Return to our conversation",.17f,.25f,()=>IonianPage("visit"));
         } else IonianVisit(root);
-        IonianButton(root,page=="main"?"Return to diplomacy":"Return to the Ionian Isles",.02f,.08f,()=>{if(page=="main")DiplomaticRelations();else IonianCourt();},19);
+        IonianButton(root,page=="main"?"Return to map":"Return to the Ionian Isles",.02f,.08f,()=>{if(page=="main")ReturnToTheatre();else IonianCourt();},19);
     }
     void IonianVisit(Transform root)
     {

@@ -129,17 +129,17 @@
     },
     {
       "Id": "wallachia",
-      "Short": "Wallachia",
-      "Full": "Principality of Wallachia",
-      "Original": "Земля Угровлахийская (Zemlja Ugrovlahijskaja) — Țara Românească",
-      "Display": "Земля Угровлахийская (Zemlja Ugrovlahijskaja) — Țara Românească"
+      "Short": "Țara Românească",
+      "Full": "Țara Românească",
+      "Original": "Țara Românească",
+      "Display": "Țara Românească"
     },
     {
       "Id": "moldavia",
-      "Short": "Moldavia",
-      "Full": "Principality of Moldavia",
-      "Original": "Земля Молдавская (Zemlja Moldavskaja) — Țara Moldovei",
-      "Display": "Земля Молдавская (Zemlja Moldavskaja) — Țara Moldovei"
+      "Short": "Țara Moldovei",
+      "Full": "Țara Moldovei",
+      "Original": "Țara Moldovei",
+      "Display": "Țara Moldovei"
     },
     {
       "Id": "serbia",
