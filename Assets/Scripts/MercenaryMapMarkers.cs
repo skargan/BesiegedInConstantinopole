@@ -6,7 +6,8 @@ using TMPro;
 public sealed class MercenaryMapMarkers:MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
  int company;TMP_Text hover;Action clear;
- public static readonly Vector2 Malta=new Vector2(.225f,.15f);
+ // Centre of Malta on the 2172x724 painted base; shared by the landmark and departures.
+ public static readonly Vector2 Malta=new Vector2(199f/2172f,1f-605f/724f);
  public static Vector2 Position(int id)
  {
  var c=MercenaryRoster.All[id];var end=WarTheatre.Find("constantinople").label;

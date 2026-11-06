@@ -169,6 +169,8 @@ This is ConstantineX — 02:00, 6 November 2026, Europe/Bucharest. Update BLUF: 
 
 This is ConstantineX — 02:24, 6 November 2026, Europe/Bucharest. Update BLUF: separate journal/status tabs implemented and privately verified; no publication. Regional map request clarified as War Beyond the Walls. Recovered original user red-marked a569f691 map and related written corrections; their coastal/territorial revisions are already loaded in current96-region catalogue. See REGIONAL-MAP-CORRECTIONS.md. User confirmed the recovered set is the intended set; reconciliation complete, with no missing older geometry to overwrite. Original annotation retained in Documentation/MapReferences/user-annotated-regional-corrections.png. Final139 exported-player checks passed at exact1280×720/1600×900, including actual tab/Return navigation. Journal source commit50cd279. Build slot released. Do not regress current Candar/Rhodes/Italian/Crimean/Lithuanian additions with older staging JSON. JohanX owns Copa art/hook; included in export, his visual QA remains separate. Remote backup remains pending prior GitHub server error.
 
+This is ConstantineX — 02:38, 6 November 2026, Europe/Bucharest. Update BLUF: Malta mercenary-market marker moved from the Ionian Sea onto painted Malta south of Sicily. MercenaryMapMarkers.Malta is shared by landmark and voyage departure, now pixel199,605 on2172×724 base. Private Windows build succeeded;14 focused checks passed at exact1280×720/1600×900, including zoomed pointer, marketplace/Return and departure anchor. Screenshot visually inspected. No contract balance/time/risk changes. Ready next publication; public41 unchanged. Build slot released. Copa art/hook remains JohanX-owned.
+
 
 VERSION CHANGELOG
 

@@ -28,3 +28,9 @@ Checked `Assets/Resources/Content/WarTheatre.json`, loaded by `WarTheatre.Data`,
 These revisions were already in the authoritative map data. No old staging JSON was copied over newer Candar, Rhodes, Italian, Crimean or Lithuanian additions. No territory resources, province IDs, diplomatic identities or ownership rules were changed in this pass. Existing historical grounding and previous geometry work are recorded in `Cartography revision 36.5.txt`, `Cartography revision 36.9.txt` and `Historical map and diplomacy sources 36.13.txt`.
 
 The map remains an interpreted gameplay map. Do not present this audit as proof of exact historical boundaries or a newly completed comprehensive cartographic redraw. For future annotated maps, apply remaining differences to the current catalogue, preserving subsequent approved additions. The current requested set needs no replacement geometry: its corrections are already integrated.
+
+## Follow-up annotation: Malta
+
+User image `codex-clipboard-d0ff4774-eb68-421e-9261-8d035994238d.png` identifies the misplaced mercenary-market marker in the Ionian Sea. `MercenaryMapMarkers.Malta` now anchors to painted Malta south of Sicily: source pixel (199,605) in the 2172×724 base. The landmark and Malta voyage departures share this coordinate. No contract balance, duration, risk or geographic territory ownership changed.
+
+Verification: private Windows build succeeded; 14 focused Malta checks passed at exact 1280×720 and 1600×900. Zoomed marker hit-testing, marketplace opening/Return and departure anchor verified; screenshot visually inspected. Captures/MaltaMap in the private preview.
