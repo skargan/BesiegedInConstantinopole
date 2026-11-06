@@ -17,8 +17,8 @@ public sealed class NamelessFortressUI:MonoBehaviour
         var rect=(RectTransform)painting.transform;rect.anchorMin=rect.anchorMax=new Vector2(.5f,.5f);
         var texture=Resources.Load<Texture2D>("UI/Maps/Landmarks/nameless-fortress");painting.GetComponent<RawImage>().texture=texture;painting.GetComponent<RawImage>().raycastTarget=false;
         var fit=painting.GetComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=texture==null?16f/9:texture.width/(float)texture.height;
-        var vulture=new GameObject("Circling vulture",typeof(RectTransform),typeof(RawImage));vulture.transform.SetParent(painting.transform,false);
-        VultureFlight.Attach((RectTransform)vulture.transform);
+        var eagle=new GameObject("Circling eagle",typeof(RectTransform),typeof(RawImage));eagle.transform.SetParent(painting.transform,false);
+        EagleFlight.Attach((RectTransform)eagle.transform);
         var card=CampaignHUD.Panel(view.transform,"Nameless message",new Vector2(.035f,.04f),new Vector2(.72f,.205f));ImperialTheme.Panel(card,false);
         var title=CampaignHUD.Label(card.transform,"Nameless Fortress",new Vector2(.035f,.57f),new Vector2(.965f,.96f),29);
         var text=CampaignHUD.Label(card.transform,Message,new Vector2(.035f,.08f),new Vector2(.965f,.56f),23);text.fontStyle=FontStyles.Italic;text.enableAutoSizing=true;text.fontSizeMin=18;text.fontSizeMax=23;

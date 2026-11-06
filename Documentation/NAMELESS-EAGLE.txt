@@ -1,0 +1,17 @@
+NAMELESS FORTRESS EAGLE - 6 NOVEMBER 2026
+User supplied Animated Eagle Flight Loop.gif replaces the live mechanical vulture.
+
+Source preserved: ArtSources/NamelessFortress/Animated-Eagle-Flight-Loop.gif.
+Converted to an uncompressed alpha PNG frame atlas and JSON bounds/timing under Assets/Resources/UI/Maps/Landmarks/nameless-eagle-frames.
+64 frame slots, original 420ms timing, 26.88-second loop. Source last frame is empty; its slot holds the previous pose to avoid blinking out.
+Alpha-bounds UVs stabilise the bird inside the source canvas without painting new bird poses. No runtime GIF decoder/dependency.
+EagleFlight drives a smooth 26.88-second elliptical circuit above the tower using original native wing/body frames. No mirrored transforms, artificial rotation, old pose crossfade or campaign RNG.
+Reduced-motion setting freezes both circuit and frame playback. Bird does not intercept pointer events. Existing Return and Escape remain unchanged.
+The old VultureFlight source and original views remain available for comparison, but are not attached by NamelessFortressUI.
+
+Editor import configuration: BuildEaglePreview.Build uses TextureImporter, preserves original atlas dimensions, disables mipmaps/compression, enables alpha transparency and bilinear filtering; exports only the private TheodoroPreview folder.
+Updated NamelessFortressCapture verifies frame timing/bounds, circuit continuity, live playback, no old live component, reduced motion, visible controls and Return at 1280x720 and 1920x1080. It also captures 64 full-scene preview frames at 640x360.
+Private results: Builds/TheodoroPreview/Captures/NamelessFortress.
+No public release made by this task.
+Final result: 1,355 private-player checks passed at requested 1280x720 and 1920x1080. Reviewed 1280 screenshot; 64 scene frames exported as an animated preview in workspace/eagle-next/Nameless-Fortress-eagle-preview.gif.
+Reproducible conversion: Tools/import_eagle_animation.py (Pillow), then BuildEaglePreview.Build for Unity import settings.
