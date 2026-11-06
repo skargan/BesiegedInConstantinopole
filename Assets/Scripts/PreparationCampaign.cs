@@ -40,6 +40,7 @@ public static class PreparationCampaign
     public static string Followup(string node)=>Active&&node=="story5"?"story4":null;
     public static void Complete(string node)
     {
+        if(node=="story1")DecisionJournal.Record("union-of-florence","Union of Florence",I("iReligion")==1?"The Emperor implements the Union of Florence.":I("iReligion")==2?"The Emperor accepts the Union of Florence symbolically, without enforcing it.":"The Emperor rejects the Union of Florence and retains Orthodox observance.",true);
         int index=Array.IndexOf(Nodes,node);
         if(index>=0&&I("iPrepDone"+index)==0){VariableSingleton.SetInt("iPrepDone"+index,1);if(node=="story14" && I("iCommander")>=0)VariableSingleton.ChangePercentFloat("fTroopRep",.10f);}
         if(node.StartsWith("galata")&&node.Length==8&&int.TryParse(node.Substring(6),out int id)&&id>=26&&id<=32)VariableSingleton.SetInt("iGalataEvent"+id,1);
