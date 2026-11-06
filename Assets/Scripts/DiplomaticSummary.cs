@@ -13,7 +13,7 @@ public static class DiplomaticSummary
             default:return "No envoy";
         }
     }
-    public static void Draw(Transform parent,int country,Vector2 min,Vector2 max,float size=20){
+    public static void Draw(Transform parent,int country,Vector2 min,Vector2 max,float size=20,string suffix=""){
         var row=CampaignHUD.Panel(parent,"Diplomatic standing",min,max);
         row.GetComponent<Image>().color=Color.clear;row.GetComponent<Image>().raycastTarget=false;
         var badge=CampaignHUD.Panel(row.transform,"Court attitude badge",new Vector2(0,.12f),new Vector2(.065f,.88f));
@@ -22,7 +22,7 @@ public static class DiplomaticSummary
         string acceptance=IonianDiplomacy.IsCountry(country)?"Private agreements":CountryDiplomacy.FinalChance(country).ToString("0.##")+"% acceptance";
         var text=CampaignHUD.Label(row.transform,CountryDiplomacy.Attitude(country)+" \u00b7 "+acceptance,new Vector2(.08f,0),new Vector2(.65f,1),size);
         Fit(text,size);text.gameObject.name="Court attitude text";
-        var envoy=CampaignHUD.Label(row.transform,"\u00b7 "+EnvoyLabel(country),new Vector2(.66f,0),Vector2.one,size);
+        var envoy=CampaignHUD.Label(row.transform,"\u00b7 "+EnvoyLabel(country)+suffix,new Vector2(.66f,0),Vector2.one,size);
         Fit(envoy,size);envoy.gameObject.name="Envoy standing";envoy.raycastTarget=true;
         envoy.gameObject.AddComponent<CampaignChoiceTooltip>().Hint=CountryDiplomacy.EnvoyStatus(country);
         var layout=row.AddComponent<DiplomaticStandingLayout>();layout.Badge=badge.GetComponent<RectTransform>();layout.Main=text;layout.Envoy=envoy;layout.Size=size;

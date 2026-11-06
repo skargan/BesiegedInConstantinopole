@@ -53,6 +53,8 @@ public class ControlSingleton : MonoBehaviour
 
     public void GoBack()
     {
+        if(MapLandmarks.ViewOpen){MapLandmarks.CloseView();return;}
+        if(ConstantinopleVicinityUI.Close())return;
         if(ProvinceHistoryUI.Close()||ProvincialConflictUI.Back())return;
         if(EventCardArt.ClosePreview()||DecisionJournal.Close()||WorldMapUI.Close()||MaritimeCityVisitUI.Close()||HexamilionVisitUI.Close()||WarTheatreUI.Close()||TechnologyArtwork.ClosePreview())return;
         if (ReturnAction != null) { var action=ReturnAction; ClearHistory(); action(); return; }
@@ -87,6 +89,8 @@ public class ControlSingleton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if(MapLandmarks.ViewOpen){MapLandmarks.CloseView();return;}
+            if(ConstantinopleVicinityUI.Close())return;
             if(ProvinceHistoryUI.Close()||ProvincialConflictUI.Back())return;
             if(EventCardArt.ClosePreview()||AudioSettingsUI.Close()||DecisionJournal.Close()||WorldMapUI.Close()||MaritimeCityVisitUI.Close()||HexamilionVisitUI.Close()||WarTheatreUI.Close()||SaveMenu.Close()||TechnologyArtwork.ClosePreview())return;
             if (CampaignHUD.Instance != null && CampaignHUD.Instance.HasModal) { CampaignHUD.Instance.TogglePause(); return; }

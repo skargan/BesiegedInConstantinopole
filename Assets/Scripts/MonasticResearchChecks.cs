@@ -26,6 +26,25 @@ public static class MonasticResearchChecks
         int oldThreshold=MonasticResearch.Rules.ProgressPerSecret,oldRate=MonasticResearch.Rules.ProgressPerMonkPerDay;
         try{
             MonasticResearch.Rules.ProgressPerSecret=100;MonasticResearch.Rules.ProgressPerMonkPerDay=1;
+            var preparation=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(original));
+            preparation.turn=0;preparation.ints.Find(v=>v.key=="iPreparationVersion").value=2;
+            VariableSingleton.Instance.RestoreValidated(preparation);Fixture(10);Set("iMonasticActive",6);Set("iMonasticProgress",64);
+            DateTime preparationStart=Date;
+            string preparationReport=CampaignPersonnelCalendar.Advance(preparationStart,preparationStart.AddMonths(2));
+            Check(MonasticResearch.Progress==64&&I("iSecrets")==0,"preparation month jumps produce no progress or secrets and preserve earlier work");
+            Check(MonasticResearch.DailyProgress==0&&MonasticResearch.DaysToDiscovery(6)==0&&!preparationReport.Contains("Monastic research continues"),"preparation screens and reports do not promise ongoing production or a discovery ETA");
+            var pausedSave=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(VariableSingleton.Instance.CaptureState()));
+            VariableSingleton.Instance.RestoreValidated(pausedSave);
+            MonasticResearch.Advance(preparationStart.AddMonths(2));
+            Check(MonasticResearch.Progress==64&&I("iSecrets")==0,"saved preparation progress cannot be awarded again");
+            var siege=JsonUtility.FromJson<VariableSingleton.CampaignSave>(JsonUtility.ToJson(original));
+            siege.turn=PreparationCampaign.SiegeTurn;siege.ints.Find(v=>v.key=="iPreparationVersion").value=2;
+            VariableSingleton.Instance.RestoreValidated(siege);Fixture(10);Set("iMonasticActive",6);Set("iMonasticProgress",98);
+            DateTime siegeStart=MonasticResearch.ResearchStart;Set("iMonasticLastDay",TrainingPool.Day(siegeStart.AddDays(-5)));
+            string firstDay=CampaignPersonnelCalendar.Advance(siegeStart.AddDays(-5),siegeStart);
+            Check(I("iSecrets")==1&&MonasticResearch.Progress==4&&firstDay.Contains("Knowledge recovered: +1 Secret"),"crossing into the siege counts only its first eligible day, not preceding preparation days");
+            MonasticResearch.Advance(siegeStart);Check(I("iSecrets")==1&&MonasticResearch.Progress==4,"first siege day is idempotent");
+            Check(MonasticResearch.DailyProgress==6&&MonasticResearch.DaysToDiscovery(6)==16,"daily production and truthful ETA resume during siege");
             Fixture(10);
             Check(MonasticResearch.ResearchMonks==0&&MonasticResearch.InfirmaryMonks==10&&MonasticResearch.Progress==0,"new service assigns everyone to infirmary with no retroactive progress");
             Check(!MonasticResearch.ApplyAllocation(11,out var report)&&!MonasticResearch.ApplyAllocation(-1,out report),"allocation cannot exceed roster or go negative");
@@ -37,7 +56,7 @@ public static class MonasticResearchChecks
             Check(I("iSecrets")==1&&MonasticResearch.Progress==4&&daily.Contains("Knowledge recovered: +1 Secret"),"overflow awards currency and carries remainder into daily report");
             Check(MonasticResearch.ResearchMonks==6&&MedicalRecovery.Capacity==4&&!MonasticResearch.HasPending,"one allocation is shared by medicine and research");
             int secrets=I("iSecrets"),progress=MonasticResearch.Progress;
-            for(int i=0;i<5;i++){string summary=MonasticResearch.Summary;int places=MedicalRecovery.Capacity;Check(places==4&&summary.Contains("6 researching"),"screen reads show stable allocation");}
+            for(int i=0;i<5;i++){string summary=MonasticResearch.Summary;int places=MedicalRecovery.Capacity;Check(places==4&&summary.Contains("6 assigned to research"),"screen reads show stable allocation");}
             CampaignPersonnelCalendar.Advance(Date,Date.AddDays(1));
             Check(I("iSecrets")==secrets&&MonasticResearch.Progress==progress,"same date cannot duplicate discoveries");
 

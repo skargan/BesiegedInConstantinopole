@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,7 +8,7 @@ public class WarTheatreUI : MonoBehaviour
 {
     static GameObject root; RectTransform map; Transform overlays,detail; TMP_Text hover;
     readonly Dictionary<string,List<TerritoryGraphic>> powerShapes=new Dictionary<string,List<TerritoryGraphic>>();
-    TerritoryGraphic hoveredShape;
+    TerritoryGraphic hoveredShape;WarTheatre.Region hoveredRegion;DiplomaticNames.Style nameMode;
     void Register(TerritoryGraphic shape,WarTheatre.Region region) {
         string key=WarTheatre.HighlightKey(region);
         if(!powerShapes.TryGetValue(key,out var shapes)){shapes=new List<TerritoryGraphic>();powerShapes.Add(key,shapes);}
@@ -19,15 +19,15 @@ public class WarTheatreUI : MonoBehaviour
     }
     void ClearHover() {
         foreach(var shapes in powerShapes.Values)foreach(var shape in shapes)if(shape!=null)shape.SetHighlighted(false);
-        hoveredShape=null;if(hover!=null)hover.text=HoverHint;
+        hoveredShape=null;hoveredRegion=null;if(hover!=null)hover.text=HoverHint;
     }
     void HoverPower(WarTheatre.Region region,TerritoryGraphic source,bool on) {
         string key=WarTheatre.HighlightKey(region);
         if(!on){if(hoveredShape==source)ClearHover();return;}
-        ClearHover();hoveredShape=source;
+        ClearHover();hoveredShape=source;hoveredRegion=region;
         if(powerShapes.TryGetValue(key,out var shapes))foreach(var shape in shapes)shape.SetHighlighted(true);
         var power=WarTheatre.DiplomaticPower(region);
-        hover.text=DisplayName(power);
+        hover.text=TerritoryName(region);DiplomaticNames.ApplyTypeface(hover);
     }
     void OnDisable(){ClearHover();}
     bool provinces=true,allies=true; int viewMode; public int ViewMode=>viewMode; float zoom=1; Vector2 fit;
@@ -42,10 +42,9 @@ public class WarTheatreUI : MonoBehaviour
         title.alignment=TextAlignmentOptions.Center;
         CampaignHUD.MakeButton(root.transform,"Diplomacy",new Vector2(.735f,.94f),new Vector2(.85f,.99f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticRelations();});
         CampaignHUD.MakeButton(root.transform,"Return",new Vector2(.86f,.94f),new Vector2(.975f,.99f),()=>Close());
-        var selector=CampaignHUD.MakeButton(root.transform,"All territories",new Vector2(.025f,.875f),new Vector2(.245f,.925f),()=>{});selector.name="Map view selector";
+        var selector=CampaignHUD.MakeButton(root.transform,"All territories",new Vector2(.025f,.875f),new Vector2(.235f,.925f),()=>{});selector.name="Map view selector";
         selector.onClick.AddListener(()=>{ui.viewMode=(ui.viewMode+1)%4;ui.provinces=ui.viewMode!=2;ui.allies=ui.viewMode!=1;selector.GetComponentInChildren<TMP_Text>().text=new[]{"All territories","Ottoman provinces","Non-Ottoman Powers","Court religion"}[ui.viewMode];ui.Draw();ui.Clear(ui.detail);if(ui.viewMode==3)ui.ReligionLegend();});
-        CampaignHUD.MakeButton(root.transform,"Symbols",new Vector2(.255f,.875f),new Vector2(.35f,.925f),()=>{if(ui.viewMode==3)ui.ReligionLegend();else ui.Legend();});
-        DiplomaticNames.Selector(root.transform,new Vector2(.36f,.875f),new Vector2(.56f,.925f));
+        DiplomaticNames.Selector(root.transform,new Vector2(.245f,.875f),new Vector2(.365f,.925f));
         var zoomFrame=CampaignHUD.Panel(root.transform,"Zoom controls",new Vector2(.75f,.872f),new Vector2(.975f,.928f));ImperialTheme.Panel(zoomFrame,false);
         CampaignHUD.MakeButton(zoomFrame.transform,"−",new Vector2(.015f,.08f),new Vector2(.28f,.92f),()=>ui.Resize(ui.zoom/1.35f));
         CampaignHUD.MakeButton(zoomFrame.transform,"Fit",new Vector2(.30f,.08f),new Vector2(.70f,.92f),()=>{ui.Resize(1);ui.map.anchoredPosition=Vector2.zero;});
@@ -58,17 +57,17 @@ public class WarTheatreUI : MonoBehaviour
         Canvas.ForceUpdateCanvases();var bounds=scroll.viewport.rect;float aspect=tex==null?3:(float)tex.width/tex.height;float width=Mathf.Min(bounds.width,bounds.height*aspect);ui.fit=new Vector2(width,width/aspect);ui.Resize(1);
         ui.detail=CampaignHUD.Panel(root.transform,"Province information",new Vector2(.025f,.02f),new Vector2(.975f,.245f)).transform;
         ImperialTheme.Panel(ui.detail.gameObject,false);
-        var hoverPlate=CampaignHUD.Panel(root.transform,"Map hover plaque",new Vector2(.57f,.875f),new Vector2(.735f,.925f));ImperialTheme.Panel(hoverPlate,false);
+        var hoverPlate=CampaignHUD.Panel(root.transform,"Map hover plaque",new Vector2(.375f,.875f),new Vector2(.735f,.925f));ImperialTheme.Panel(hoverPlate,false);
         ui.hover=CampaignHUD.Label(hoverPlate.transform,HoverHint,new Vector2(.04f,.08f),new Vector2(.96f,.92f),19);
-        ui.hover.alignment=TextAlignmentOptions.Center;
+        ui.hover.alignment=TextAlignmentOptions.Center;ui.hover.enableAutoSizing=true;ui.hover.fontSizeMin=13;ui.hover.fontSizeMax=21;ui.nameMode=DiplomaticNames.Mode;
 
         ui.Draw();
         CampaignHUD.Label(ui.detail,"Choose a territory",new Vector2(.02f,.72f),new Vector2(.98f,.97f),28);
 
     }
     void Resize(float value){zoom=Mathf.Clamp(value,1,3);map.sizeDelta=fit*zoom;}
-    void Update(){if(WorldMapUIOpen())return;float delta=Input.mouseScrollDelta.y;if(delta!=0&&RectTransformUtility.RectangleContainsScreenPoint(map.parent as RectTransform,Input.mousePosition))Resize(zoom*Mathf.Pow(1.12f,delta));}
-    bool WorldMapUIOpen()=>GameObject.Find("World map viewer")!=null;
+    void Update(){if(nameMode!=DiplomaticNames.Mode){nameMode=DiplomaticNames.Mode;if(hoveredRegion!=null){hover.text=TerritoryName(hoveredRegion);DiplomaticNames.ApplyTypeface(hover);}}if(WorldMapUIOpen())return;float delta=Input.mouseScrollDelta.y;if(delta!=0&&RectTransformUtility.RectangleContainsScreenPoint(map.parent as RectTransform,Input.mousePosition))Resize(zoom*Mathf.Pow(1.12f,delta));}
+    bool WorldMapUIOpen()=>GameObject.Find("World map viewer")!=null||ConstantinopleVicinityUI.IsOpen;
     void Clear(Transform t){foreach(Transform child in t){child.gameObject.SetActive(false);Destroy(child.gameObject);}}
     void Draw(){
         ClearHover();powerShapes.Clear();
@@ -108,19 +107,30 @@ public class WarTheatreUI : MonoBehaviour
     }
     void Select(WarTheatre.Region r){
         if(r.id=="candar_realm"){Close();FindObjectOfType<CouncilUI>(true).CandarCourt();return;}
-        if(r.kind=="capital"){Close();FindObjectOfType<CouncilUI>(true).Palace();return;}if(r.kind=="province"){ProvincialConflictUI.Show(r.id);return;}Clear(detail);
+        if(r.kind=="capital"){ConstantinopleVicinityUI.Show();return;}if(r.kind=="province"){ProvincialConflictUI.Show(r.id);return;}Clear(detail);
         var power=WarTheatre.DiplomaticPower(r);
         int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
-        var heading=CampaignHUD.Label(detail,TerritoryTitle(r),new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
-        if(country>=0)DiplomaticNames.Bind(heading,r.id=="sicily"?"sicily":r.id.StartsWith("sardinia")?"sardinia":CountryDiplomacy.Definitions[country].Id);
+        var heading=CampaignHUD.Label(detail,TerritoryName(r),new Vector2(.02f,.72f),new Vector2(.73f,.97f),28);
+        if(country>=0)DiplomaticNames.Bind(heading,r.id=="sicily"?"sicily":r.id.StartsWith("sardinia")?"sardinia":CountryDiplomacy.Definitions[country].Id,TerritorySuffix(r));
         string summary=TerritorySummary(r);
         if(country>=0) {
-            DiplomaticSummary.Draw(detail,country,new Vector2(.02f,.44f),new Vector2(.73f,.70f),21);
+            bool tributary=r.group=="serbia"&&!CountryDiplomacy.IsIntervening(country);
+            DiplomaticSummary.Draw(detail,country,new Vector2(.02f,.44f),new Vector2(.73f,.70f),21,tributary?" · Ottoman vassal":"");
             CampaignHUD.MakeButton(detail,power.group=="naples"?"Alfonso’s court at Naples":"Diplomatic relations",new Vector2(.76f,.36f),new Vector2(.98f,.80f),()=>{Close();FindObjectOfType<CouncilUI>(true).DiplomaticPower(country);});
         }
         var body=CampaignHUD.Explanation(detail,summary,new Vector2(.02f,.08f),new Vector2(.73f,.40f),20);body.enableAutoSizing=true;body.fontSizeMin=17;body.fontSizeMax=20;
     }
     static string DisplayName(WarTheatre.Region r)=>r.id=="ionian_tocco"?"Ionian Lordships":r.name;
+    public static string TerritorySuffix(WarTheatre.Region region){
+        if(region.id=="sicily"||region.id.StartsWith("sardinia"))return "";
+        var power=WarTheatre.DiplomaticPower(region);
+        return region.id!=power.id&&(region.kind=="island"||region.kind=="colony")?" · "+DisplayName(region):"";
+    }
+    public static string TerritoryName(WarTheatre.Region region){
+        var power=WarTheatre.DiplomaticPower(region);int country=CountryDiplomacy.Index(string.IsNullOrEmpty(power.group)?power.id:power.group);
+        if(region.id=="sicily"||region.id.StartsWith("sardinia"))return DiplomaticNames.Name(region.id=="sicily"?"sicily":"sardinia");
+        return country<0?DisplayName(region):DiplomaticNames.Name(CountryDiplomacy.Definitions[country].Id)+TerritorySuffix(region);
+    }
     public static string TerritoryTitle(WarTheatre.Region region){
         if(region.id=="sicily")return "Sicily";
         if(region.id.StartsWith("sardinia"))return "Sardinia";

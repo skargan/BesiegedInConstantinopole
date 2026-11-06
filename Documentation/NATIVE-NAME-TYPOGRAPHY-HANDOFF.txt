@@ -1,0 +1,42 @@
+NATIVE DIPLOMATIC TYPOGRAPHY — 6 November 2026 — native_typography
+
+Source-ready, not yet runtime verified in a combined export.
+
+Diagnosis
+ImperialTheme supplied Crimson Text with the generic TextMeshPro default fallback
+ahead of Noto. Missing Cyrillic therefore selected the generic sans face, producing
+the mismatch visible beside the Latin reading in the designer's screenshots.
+
+Changes
+- Original-mode realm headings use a cached Noto Serif primary, covering both the
+  Cyrillic and accompanying Latin reading in one book face.
+- Georgian uses Noto Serif Georgian; Arabic uses the existing Noto Naskh Arabic.
+- Short and Full modes retain the current Crimson Text appearance.
+- Existing native scripts, approved spellings, Arabic pre-shaped runs and catalogue
+  strings remain unchanged.
+- Cached runtime font assets use consistent90-point sampling/9-padding, scale1 and
+  bounded1024 dynamic atlases with multi-atlas support. They are generated at runtime
+  and are not serialized with editor-populated glyph data into builds.
+- Native serifs precede the generic TMP default in the existing fallback list.
+- Rebinding a realm heading reuses its existing binding component.
+
+Files owned
+Assets/Scripts/DiplomaticNames.cs
+Assets/Scripts/NativeNameChecks.cs +meta
+
+Map integration
+Call DiplomaticNames.ApplyTypeface(fixedHoverPlaque) when its text/name mode refreshes.
+Existing DiplomaticNames.Bind automatically selects/refreshes the family on selector
+changes. The parent owns hover content/width and WarTheatreUI; not edited here.
+
+Verification
+Fresh compile of all current non-editor C# against installed Unity/Yarn assemblies
+passed: workspace native-name-check.log. Existing warnings only, no errors.
+NativeNameChecks.Run(surface) is prepared for the parent's isolated exported-player
+suite:39-profile glyph coverage, actual Cyrillic font selection, family fallback
+order, scale/padding, one binding, and restoration of the English face.
+Actual Unity font rendering and screenshots remain pending the combined export.
+
+No new font files, packages, source downloads, gameplay changes or publication.
+
+Combined player verification completed: see VICINITY-RESEARCH-MOTION-HANDOFF.md and Vicinity presentation verification.json.

@@ -26,6 +26,8 @@ public static class WarTheatre
         if(r.kind=="province"){if(ProvincialWar.Ready&&ProvincialWar.Find(r.id).Owner==ProvincialWar.Chaos)return new Color(.36f,.34f,.32f,.55f);if(ProvincialWar.Ready&&ProvincialWar.Find(r.id).Owner>=ProvincialWar.AllyOwnerOffset)return Color.HSVToRGB((ProvincialWar.Find(r.id).Owner*47%360)/360f,.4f,.55f)*new Color(1,1,1,.45f);if(Captured(r))return new Color(.59f,.25f,.77f,.48f);if(Resistance(r)>=2)return new Color(.95f,.35f,.10f,.48f);return Color.Lerp(new Color(.85f,.60f,.13f,.43f),new Color(.12f,.56f,.40f,.36f),Control(r)/100f);}
         if(r.kind=="neutral")return new Color(.60f,.57f,.46f,.28f);
         if(r.id=="morea"||r.kind=="capital")return new Color(.66f,.28f,.82f,.5f);
+        if(r.group=="serbia")return new Color(.76f,.27f,.32f,.43f);
+        if(r.group=="bosnia")return new Color(.27f,.42f,.76f,.40f);
         int hash=0;foreach(char c in r.group)hash=(hash*31+c)&0x7fffffff;
         var color=Color.HSVToRGB((hash%360)/360f,.48f,.87f);color.a=.35f;return color;
     }

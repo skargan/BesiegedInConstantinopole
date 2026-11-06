@@ -1,0 +1,9 @@
+{
+  "art": "Assets/Resources/UI/Maps/ConstantinopleVicinity.png",
+  "generation": "OpenAI image generation; final edit exec-5dbb6937-896c-4672-97be-db29b2deaf06.png; initial exec-1b05e98b-3456-46f9-8b2b-0cb235884c8c.png",
+  "reference": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_land.geojson",
+  "reference_license": "Natural Earth public domain",
+  "reference_sha256": "1ac90796408bc6ad6911d69448485d3c4dbf2190370080368a09976e1c9f7416",
+  "final_sha256": "be063b38658469532e8a15862d71fbebdee027a904d59c6994d3b1816e6d0d8f",
+  "notes": "Coastline guide with manually clarified Golden Horn; painterly historical-fiction geography, not survey reconstruction. No modern bridges, minarets, baked defensive chain or new simulated sites. Art sites calibrated to painting. Camp terrain reserved west of city; no camp implemented."
+}

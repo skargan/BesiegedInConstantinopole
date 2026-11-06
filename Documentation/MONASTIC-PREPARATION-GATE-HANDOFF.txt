@@ -1,0 +1,44 @@
+MONASTIC RESEARCH PREPARATION GATE — research_phase — 6 November 2026
+
+Implemented in shared source; no export or public build performed here.
+
+Root cause: CampaignPersonnelCalendar resolves each intervening day when a
+preparation month advances. MonasticResearch.Advance previously awarded progress
+on every such day. Global HasSiegeStarted is insufficient when the current turn
+has already advanced into the siege but the calendar loop is resolving earlier days.
+
+MonasticResearch now checks each resolved date against the existing preparation
+calendar's siege start. Paused dates still update LastProcessedDay, so they cannot
+be caught up later. Pending monk allocations still resolve as before. Accumulated
+progress and existing secrets are preserved; no retroactive removal. The first
+eligible siege date adds one day's normal researcher output. The 50/50 initial
+allocation, 1,000 progress per Secret, rate and technology costs are unchanged.
+
+Research summaries show zero current production and a concise siege-start notice
+during preparations; the research tab and allocation preview omit a discovery ETA.
+The calendar omits the misleading 'research continues' report during preparation.
+
+Files owned and edited:
+Assets/Scripts/MonasticResearch.cs
+Assets/Scripts/CampaignPersonnelCalendar.cs
+Assets/Scripts/CouncilMonasticUI.cs
+Assets/Scripts/CouncilTechnologyUI.cs (summary only)
+Assets/Scripts/MonasticResearchChecks.cs
+Assets/Scripts/MonasticPhaseCapture.cs +meta
+
+Verification: full current non-editor C# source compilation passed using installed
+Unity references (workspace research-phase-check.log). Added production/paused-save/
+first-siege-boundary/idempotence checks to MonasticResearchChecks, moving the
+existing research-production fixtures explicitly into siege phase. These new
+assertions are NOT claimed run here.
+
+Root final-player verification: flag -monastic-phase-capture. Runs the expanded
+calendar/medical/research checks, advances actual preparation turns through the
+siege boundary, checks unchanged allocation and no accumulated windfall, then
+captures the paused research view at1280/1600 and validates its text/ETA.
+Evidence goes to Captures/MonasticPhase/checks.txt and paused-research screenshots.
+Also rerun existing -discovery-capture if its technology summary layout is in scope.
+
+No new save variables, random rolls, balance changes, builds or version edits.
+
+Combined player verification completed: see VICINITY-RESEARCH-MOTION-HANDOFF.md and Vicinity presentation verification.json.

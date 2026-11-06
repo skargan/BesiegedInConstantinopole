@@ -20,7 +20,7 @@ public static class CampaignPersonnelCalendar
             if(!string.IsNullOrEmpty(medical)){
                 medicalActivity=true;medicalReturns+=DailyLifeEvents.I("iMedicalLastReturned");medicalProvisions+=MedicalRecovery.LastProvisionCost;
             }
-            researching|=MonasticResearch.ResearchMonks>0;
+            researching|=MonasticResearch.CanResearchOn(date)&&MonasticResearch.ResearchMonks>0;
             discoveries+=MonasticResearch.Advance(date);
             reports.Append(CountryDiplomacy.Advance(date));
             reports.Append(RagusaDiplomacy.Advance(date));

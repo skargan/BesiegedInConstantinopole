@@ -24,9 +24,10 @@ public sealed class MapLandmarks : MonoBehaviour, IPointerEnterHandler, IPointer
         "Mehmed's fortress grips the European shore where the Bosphorus narrows. From these high walls, the gunners watch the merchantmen that carry grain, men and news between Constantinople and the Black Sea.\n\nAs long as its guns remain in Ottoman hands, every ship passing beneath them is under threat. A captain may have wind in his sails and still find the strait closed before him.";
     string title; TMP_Text hint; Action clear; Outline glow;
     static GameObject view;
+    public static bool ViewOpen=>view!=null;
     public static void Add(Transform map,TMP_Text hover,Action clearHover)
     {
-        Create(map,"Constantinople",WarTheatre.Find("constantinople").label,42,hover,clearHover,()=>OpenCourt(null));
+        var capital=Create(map,"Constantinople",WarTheatre.Find("constantinople").label+new Vector2(-.008f,.006f),56,hover,clearHover,ConstantinopleVicinityUI.Show);CapitalSeal.Add(capital.transform);
         Create(map,"Ragusa",WarTheatre.Find("ragusa").label+new Vector2(0,-.035f),29,hover,clearHover,()=>OpenCourt("ragusa"));
         Create(map,"Rome",WarTheatre.Find("papacy").label+new Vector2(0,-.045f),29,hover,clearHover,RomeVisitUI.Show);
         Create(map,"Genoa",MaritimeCityVisitUI.MapPosition("genoa"),25,hover,clearHover,()=>MaritimeCityVisitUI.Show("genoa"));

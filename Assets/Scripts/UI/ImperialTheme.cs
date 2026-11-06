@@ -67,6 +67,7 @@ public static class ImperialTheme
         Frame(obj);
     }
     public static void Button(Selectable button) {
+        if(button.GetComponent<CapitalSealHover>()!=null)return; // The circular capital medallion owns its appearance.
         if(button.GetComponent<MaritimeMapMedallions>()!=null)return; // Circular artwork owns its hover outline.
         var image=button.GetComponent<Image>();
         if(image!=null) {image.sprite=MaterialFor(image);image.type=Image.Type.Simple;image.color=Color.white;button.targetGraphic=image;}

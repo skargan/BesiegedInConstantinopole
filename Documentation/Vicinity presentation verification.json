@@ -1,0 +1,37 @@
+[
+  {
+    "suite": "MonasticPhase",
+    "exit": 0,
+    "result": "52 phase/UI checks passed; MonasticResearchChecks included",
+    "extra": null,
+    "seconds": 6.0
+  },
+  {
+    "suite": "VicinityMap",
+    "exit": 0,
+    "result": "189 vicinity/name checks passed",
+    "extra": null,
+    "seconds": 6.9
+  },
+  {
+    "suite": "ChamberShip",
+    "exit": 0,
+    "result": "75 checks passed",
+    "extra": null,
+    "seconds": 8.3
+  },
+  {
+    "suite": "NamelessFortress",
+    "exit": 0,
+    "result": "1436 eagle animation and presentation checks passed",
+    "extra": null,
+    "seconds": 17.7
+  },
+  {
+    "suite": "CourtReligion",
+    "exit": 0,
+    "result": "COURT_MAP_SETUP 1 passed",
+    "extra": "COMPACT_MAP_CHECKS 473 passed",
+    "seconds": 8.1
+  }
+]

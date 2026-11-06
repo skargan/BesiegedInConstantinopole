@@ -56,7 +56,7 @@ public partial class CouncilUI
         });
         research.name="Research selected technology";research.interactable=!unlocked&&CouncilActions.Int("iSecrets")>=tech.Cost;ImperialTheme.Button(research);
         TechnologyResearchAvailability.Attach(research,choice);
-        var summary=MedicalText(desk.transform,MonasticResearch.ResearchMonks+" monks researching\n+"+MonasticResearch.DailyProgress+"/day · "+MonasticResearch.Progress+"/"+MonasticResearch.Rules.ProgressPerSecret+" next secret",new Vector2(.025f,.105f),new Vector2(.365f,.18f),20);
+        var summary=MedicalText(desk.transform,MonasticResearch.ResearchMonks+" monks assigned\n"+(MonasticResearch.ProductionEnabled?"+"+MonasticResearch.DailyProgress+"/day · "+MonasticResearch.Progress+"/"+MonasticResearch.Rules.ProgressPerSecret+" next secret":"Research begins with the siege"),new Vector2(.025f,.105f),new Vector2(.365f,.18f),20);
         summary.name="Technology monastery summary";
         var monastery=CampaignHUD.MakeButton(desk.transform,"Monastic research",new Vector2(.025f,.025f),new Vector2(.325f,.095f),()=>{
             MonasticResearchView();ControlSingleton.Instance.ReturnAction=Technologies;

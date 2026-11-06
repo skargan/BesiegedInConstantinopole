@@ -20,13 +20,19 @@ public static class MonasticResearch
     public static int ResearchMonks {get {Ensure();ValidateAllocation();return I("Active");}}
     public static int InfirmaryMonks=>TotalMonks-ResearchMonks;
     public static int Progress {get {Ensure();return I("Progress");}}
-    public static int DailyProgress=>ProgressFor(ResearchMonks);
+    // Calendar work is evaluated against the day being resolved, not the already
+    // advanced global turn (a preparation turn can cross into the siege).
+    public static DateTime ResearchStart=>PreparationCampaign.Date(PreparationCampaign.SiegeTurn).Date;
+    public static bool CanResearchOn(DateTime date)=>date.Date>=ResearchStart;
+    public static bool ProductionEnabled=>VariableSingleton.HasSiegeStarted()&&CanResearchOn(VariableSingleton.GetDate());
+    public static int DailyProgress=>ProductionEnabled?ProgressFor(ResearchMonks):0;
     public static int ProgressFor(int monks)=>Clamp((long)Math.Max(0,monks)*Rules.ProgressPerMonkPerDay);
     public static bool HasPending {get {Ensure();return I("PendingDay")>0;}}
     public static int PendingResearchMonks {get {Ensure();ValidateAllocation();return HasPending?I("Pending"):ResearchMonks;}}
     public static DateTime PendingDate=>new DateTime((long)I("PendingDay")*TimeSpan.TicksPerDay);
     public static int LastProcessedDay=>I("LastDay");
     public static int DaysToDiscovery(int monks) {
+        if(!ProductionEnabled)return 0;
         long daily=ProgressFor(monks);return daily==0?0:(int)Math.Max(1,((long)Rules.ProgressPerSecret-Progress+daily-1)/daily);
     }
     public static void ResetForRestore(){foreach(string field in Fields)Set(field,0);}
@@ -60,7 +66,8 @@ public static class MonasticResearch
     public static int Advance(DateTime date) {
         Ensure();int day=TrainingPool.Day(date);if(day<=LastProcessedDay)return 0;
         AllocationsForDay(date);
-        long total=(long)Progress+DailyProgress;
+        if(!CanResearchOn(date)){Set("LastDay",day);return 0;}
+        long total=(long)Progress+ProgressFor(ResearchMonks);
         int discoveries=Clamp(total/Rules.ProgressPerSecret);
         Set("Progress",(int)(total%Rules.ProgressPerSecret));Set("LastDay",day);
         if(discoveries>0)VariableSingleton.SetInt("iSecrets",Clamp((long)DailyLifeEvents.I("iSecrets")+discoveries));
@@ -71,6 +78,6 @@ public static class MonasticResearch
         return (discoveries>0?"Knowledge recovered: +"+discoveries+" Secret"+(discoveries==1?"":"s")+".\n":"")+
             "Monastic research continues: "+Progress+" / "+Rules.ProgressPerSecret+" progress.\n\n";
     }
-    public static string Summary=>ResearchMonks+" researching · "+InfirmaryMonks+" tending the wounded\n"+Progress+" / "+Rules.ProgressPerSecret+" toward the next Secret · +"+DailyProgress+" progress/day"+
+    public static string Summary=>ResearchMonks+" assigned to research · "+InfirmaryMonks+" tending the wounded\n"+Progress+" / "+Rules.ProgressPerSecret+" toward the next Secret · "+(ProductionEnabled?"+"+DailyProgress+" progress/day":"Research begins with the siege")+
         (HasPending?"\nFrom "+PendingDate.ToString("d MMM")+": "+PendingResearchMonks+" researching":"");
 }

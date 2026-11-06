@@ -14,7 +14,7 @@ public partial class CouncilUI
         track.GetComponent<Image>().color=new Color(.04f,.08f,.12f);track.GetComponent<Image>().raycastTarget=false;
         var fill=CampaignHUD.Panel(track.transform,"Knowledge recovered",Vector2.zero,new Vector2(Mathf.Clamp01((float)MonasticResearch.Progress/MonasticResearch.Rules.ProgressPerSecret),1));
         fill.GetComponent<Image>().color=ImperialTheme.Gold;fill.GetComponent<Image>().raycastTarget=false;
-        string current=MonasticResearch.ResearchMonks==0?"Research paused · progress preserved":"Next discovery in "+MonasticResearch.DaysToDiscovery(MonasticResearch.ResearchMonks)+" days at the current allocation";
+        string current=!MonasticResearch.ProductionEnabled?"Research begins with the siege · progress preserved":MonasticResearch.ResearchMonks==0?"Research paused · progress preserved":"Next discovery in "+MonasticResearch.DaysToDiscovery(MonasticResearch.ResearchMonks)+" days at the current allocation";
         MedicalText(card.transform,current,new Vector2(.03f,.675f),new Vector2(.97f,.75f),21);
         var pending=MedicalText(card.transform,MonasticResearch.HasPending?"From "+MonasticResearch.PendingDate.ToString("d MMM")+": "+MonasticResearch.PendingResearchMonks+" researching · "+(MonasticResearch.TotalMonks-MonasticResearch.PendingResearchMonks)+" in care":"No allocation change pending",new Vector2(.03f,.59f),new Vector2(.97f,.675f),21);
         pending.color=MonasticResearch.HasPending?ImperialTheme.Gold:ImperialTheme.Ivory;
@@ -23,8 +23,8 @@ public partial class CouncilUI
         Button apply=null;
         Action refresh=()=>{
             int capacity=MonasticResearch.TotalMonks-selected;
-            string estimate=selected==0?"research paused":"next Secret in "+MonasticResearch.DaysToDiscovery(selected)+" days";
-            preview.text="Preview: "+selected+" researching · +"+MonasticResearch.ProgressFor(selected)+" progress/day\nCare places: "+MonasticResearch.InfirmaryMonks+" → "+capacity+" · "+estimate+
+            string estimate=!MonasticResearch.ProductionEnabled?"research begins with the siege":selected==0?"research paused":"next Secret in "+MonasticResearch.DaysToDiscovery(selected)+" days";
+            preview.text="Preview: "+selected+" assigned · +"+(MonasticResearch.ProductionEnabled?MonasticResearch.ProgressFor(selected):0)+" progress/day\nCare places: "+MonasticResearch.InfirmaryMonks+" → "+capacity+" · "+estimate+
                 (MedicalRecovery.Total>capacity?"\n"+(MedicalRecovery.Total-capacity)+" patients would wait; their progress is preserved.":"");
             if(apply!=null)apply.interactable=selected!=MonasticResearch.PendingResearchMonks;
         };
