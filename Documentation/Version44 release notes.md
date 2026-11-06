@@ -1,10 +1,10 @@
-# Version 44 — release candidate
+# Version 44 â€” release candidate
 
 Against Fate: Saving Constantinople
 
 ## Changes since Version 43
 
-- Added Biševo's shore, Blue Cave, sanctuary discovery and monastery encounter. The pirate ransom is resolved once, persists through saves and leaves an empty monastery on later visits.
+- Added BiÅ¡evo's shore, Blue Cave, sanctuary discovery and monastery encounter. The pirate ransom is resolved once, persists through saves and leaves an empty monastery on later visits.
 - Corrected Adriatic island coastlines and shared Venetian highlighting; merged the redundant Hungarian/Croatian internal boundary.
 - Added the Constantinople vicinity map and its existing-location links.
 - Improved native-script realm names and the fixed map name plaque; removed the Symbols gallery and differentiated Bosnia and Serbia.
@@ -18,12 +18,12 @@ Against Fate: Saving Constantinople
 ## Verification
 
 Combined Windows export: successful; 57 save/technology editor checks.
-Version 44 player: 91 Biševo/map checks, 189 vicinity/native-name checks, 87 journal-history checks.
-Adriatic map and grouped hover inspected in the exported player. Biševo scene presentation and cursor were inspected in the preceding private build; unchanged artwork is reused.
+Version 44 player: 91 BiÅ¡evo/map checks, 189 vicinity/native-name checks, 87 journal-history checks.
+Adriatic map and grouped hover inspected in the exported player. BiÅ¡evo scene presentation and cursor were inspected in the preceding private build; unchanged artwork is reused.
 All territorial polygons valid, IDs unique, eleven Ottoman economic provinces retained.
 
 ## Remaining development, outside this release
 
 Theodoro reincorporation, Bank takeover routes, low-support Senate variants and longer character story arcs remain deferred. Full long-campaign balance testing remains ongoing.
 
-This candidate has not been uploaded to GitHub or installed on the Desktop. Publication remains a separate step.
+Published on GitHub and installed on Desktop on 6 November 2026. See Version44 publication.json for the verified package identity.
