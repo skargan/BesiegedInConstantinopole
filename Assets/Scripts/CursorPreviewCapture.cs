@@ -68,7 +68,7 @@ public sealed class CursorPreviewCapture : MonoBehaviour
         var hand=cursor.GetComponentInChildren<RawImage>(true);
         var expected=Resources.Load<Texture2D>(ByzantineCursor.ResourcePath);
         Check(expected!=null&&hand!=null&&hand.texture==expected,"displayed image uses requested resource");
-        Check(expected.width>0&&expected.height>0&&expected.width==expected.height,"square source prevents stretched proportions");
+        Check(expected.width>0&&expected.height>0&&expected.width==expected.height*2,"two square cursor cells prevent stretched proportions");
         Canvas.ForceUpdateCanvases();
         Check(Mathf.Approximately(hand.rectTransform.rect.width,ByzantineCursor.PixelSize)&&Mathf.Approximately(hand.rectTransform.rect.height,ByzantineCursor.PixelSize),"actual cursor dimensions match PixelSize");
         Check(Mathf.Approximately(ByzantineCursor.PixelSize,56f),"preview uses actual 56 pixel cursor");
@@ -92,6 +92,9 @@ public sealed class CursorPreviewCapture : MonoBehaviour
         Capture("01-cursor-actual-size.png");
         AddEnlargedPanel(expected);
         Capture("02-cursor-four-times.png");
+        hand.uvRect=new Rect(.5f,0,.5f,1);hand.rectTransform.pivot=new Vector2(.5f,.65f);
+        var enlarged=GameObject.Find("Enlarged cursor").GetComponent<RawImage>();enlarged.uvRect=hand.uvRect;
+        Capture("03-grip-four-times.png");
         Check(FindObjectOfType<VariableSingleton>()==null,"preview remains outside campaign");
     }
 
@@ -104,7 +107,7 @@ public sealed class CursorPreviewCapture : MonoBehaviour
         ImperialTheme.Panel(panel,false);panel.GetComponent<Image>().raycastTarget=false;
         var label=CampaignHUD.Label(panel.transform,"Cursor · 4× enlargement",new Vector2(.05f,.85f),new Vector2(.95f,.98f),23);label.alignment=TextAlignmentOptions.Center;
         var obj=new GameObject("Enlarged cursor",typeof(RectTransform),typeof(RawImage));obj.transform.SetParent(panel.transform,false);
-        var image=obj.GetComponent<RawImage>();image.texture=texture;image.raycastTarget=false;
+        var image=obj.GetComponent<RawImage>();image.texture=texture;image.uvRect=new Rect(0,0,.5f,1);image.raycastTarget=false;
         var area=obj.GetComponent<RectTransform>();area.anchorMin=area.anchorMax=new Vector2(.5f,.45f);area.pivot=new Vector2(.5f,.5f);area.sizeDelta=Vector2.one*ByzantineCursor.PixelSize*4;
     }
 
