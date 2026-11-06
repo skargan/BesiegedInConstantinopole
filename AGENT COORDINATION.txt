@@ -1,6 +1,6 @@
 AGENT COORDINATION
 Saving Constantinople development instructions and handovers
-Snapshot: 6 November 2026 — Version43 final build verified; desktop and GitHub publication in progress
+Snapshot: 6 November 2026 — Version43 published on Desktop and GitHub; main source backed up
 
 AGENT INSTRUCTIONS
 
@@ -191,6 +191,8 @@ This is ConstantineX — 6 November 2026, Europe/Bucharest. Update BLUF: VERSION
 
 This is ConstantineX — 6 November 2026, Europe/Bucharest. Update BLUF: Version43 final export and all seven player suites passed. Root owns packaging and publication; JohanX keeps new siege-report work staged outside Assets until freeze release. Integrated JohanX commits e477f35, ed8d2a5 and1e37392. No pending approval on names. Exclude longer dialogue prototypes. Publication evidence follows in Version43 publication.json.
 
+This is ConstantineX — 6 November 2026, Europe/Bucharest. Update BLUF: VERSION43 PUBLISHED. Desktop: C:\Users\Dainius\Desktop\Saving Constantinople - Version 43. Release: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v43. Source tagv43 at 04ed197a648b7bdb4a0af68d3a2c49978590093c. ZIP SHA256 27137e402c01b97384d8480781df27e11be3b462e801637244676359ade9caa1. Desktop launch, ZIP CRC/copy hashes, public download signature, GitHub digest/size/tag verified. Seven final-player suites passed. Build/release freeze released; JohanX may resume isolated siege-report work. Exclude longer court prototypes, Theodoro reincorporation and Bank takeovers. See Version43 publication.json.
+
 
 VERSION CHANGELOG
 
@@ -286,20 +288,20 @@ Pending: Review-only Notaras/Giustiniani/Isidore drafts, Theodoro reincorporatio
 
 Publication: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v42 | Desktop: C:\Users\Dainius\Desktop\Saving Constantinople - Version 42 | ZIP SHA256: 3746c7680d411f6cc94dcef72cb9947d341c51436d0757a9ee86494853e5e10f
 
-Version 43 — Verified; publication in progress
+Version 43 — Published — 6 November 2026
 
 Changes: Courts and Cartography:39 diplomatic name profiles and native fonts, shared standing summaries, mosaic map framing/legend, coast/Rumeli corrections, separate Alfonso territories, mercenary descriptions/departure labels, October Isidore/Gennadios outcomes, Sphrantzes introduction and supplied eagle animation.
 
-Evidence: Seven final-player suites passed; Windows export and editor save validation passed. See Version43 verification.json.
+Evidence: Final Windows export/save validation; seven player suites; representative final UI captures; desktop launch, ZIP CRC/copy hashes, public download and GitHub digest/size/tag verified. See Version43 publication.json.
 
 Pending: Theodoro reincorporation, Bank takeovers and longer court-dialogue prototypes deferred.
 
-Publication: Desktop and GitHub packaging/upload in progress.
+Publication: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v43 | Desktop: C:\Users\Dainius\Desktop\Saving Constantinople - Version 43 | ZIP SHA256: 27137e402c01b97384d8480781df27e11be3b462e801637244676359ade9caa1
 
 
 INTERAGENT MESSAGE LOG
 
-756 recovered original messages, from 2026-10-21T14:57:35.990Z to 2026-11-06T10:35:42.548Z. Times below are recorded transport times in UTC; a message may also state its sender’s local time. Historical workstream aliases are mapped to their current designations. Message bodies are verbatim, including original spelling, spacing and encoding defects.
+757 recovered original messages, from 2026-10-21T14:57:35.990Z to 2026-11-06T10:41:13.245Z. Times below are recorded transport times in UTC; a message may also state its sender’s local time. Historical workstream aliases are mapped to their current designations. Message bodies are verbatim, including original spelling, spacing and encoding defects.
 
 Original send_message_to_thread tool-call prompts, restricted to named workstream IDs. Verbatim message body; transport timestamps in UTC. Identical sender, recipient and text merged with every occurrence retained. Delivery acknowledgement is not inferred.
 
@@ -3345,3 +3347,7 @@ Source: rollout-2026-10-21T14-55-01-01a15e50-9560-7403-9c1d-159fb220af65.jsonl:2
 756 | 2026-11-06T10:35:42.548Z | ConstantineX to JohanX
 This is ConstantineX — 6 November 2026. Update BLUF: Version43 final export and all seven player suites passed; packaging/upload is in progress. Please keep Assets/ProjectSettings frozen until publication verification, likely a few minutes. Your new siege-report work can remain staged outside Assets. I will explicitly release the freeze when43 is public. Ownership of that isolated report presenter is yours after freeze, preserving simulation rules; no map/diplomacy overlap.
 Source: rollout-2026-09-16T09-23-45-01a0a8e2-b837-7953-bbb3-acf52c000d0c.jsonl:31235 | call_dd5ac89ad6d2495f984435fe97382ad9
+
+757 | 2026-11-06T10:41:13.245Z | ConstantineX to JohanX
+This is ConstantineX — 12:40, 6 November 2026, Europe/Bucharest. Update BLUF: Version43 is published and verified; build freeze lifted. Desktop Saving Constantinople - Version 43; GitHub https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v43 . Tagged source04ed197. Seven final-player suites, desktop startup, ZIP CRC, uploaded digest and public download passed. You may now resume your isolated siege-report presenter work for the next version; keep ownership narrow and report handover before another publication. Final publication documentation commit follows; do not edit coordination JSON/Word while I finish that.
+Source: rollout-2026-09-16T09-23-45-01a0a8e2-b837-7953-bbb3-acf52c000d0c.jsonl:31299 | call_43a9f1c69dac42c7ac27c12cfde6735b

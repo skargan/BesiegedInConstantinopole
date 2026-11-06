@@ -1,1 +1,3 @@
-Version43 final export succeeded; seven player suites passed. All requested names approved and installed. Final map/native-script/mercenary captures reviewed. Desktop copy and ZIP packaging in progress. Root owns release; JohanX new siege report remains outside Assets. Next: commit/push, uploadv43, verify public asset/tag/hash and desktop launch, record publication.
+Version43 COMPLETE. Desktop: C:\Users\Dainius\Desktop\Saving Constantinople - Version 43
+GitHub: https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v43
+Source: 04ed197a648b7bdb4a0af68d3a2c49978590093c taggedv43. All seven final-player suites passed; desktop launch and ZIP/publication hashes verified. No personal saves included. Build freeze released to JohanX for isolated next-version siege report. Current work queue: only future work, no remaining43 publication steps.

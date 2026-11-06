@@ -1,0 +1,64 @@
+{
+  "release": "https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v43",
+  "download": "https://github.com/skargan/BesiegedInConstantinopole/releases/download/v43/Saving-Constantinople-Version-43-Windows.zip",
+  "commit": "04ed197a648b7bdb4a0af68d3a2c49978590093c",
+  "assetBytes": 1298191106,
+  "sha256": "27137e402c01b97384d8480781df27e11be3b462e801637244676359ade9caa1",
+  "githubDigest": "sha256:27137e402c01b97384d8480781df27e11be3b462e801637244676359ade9caa1",
+  "downloadStatus": 206,
+  "tagVerified": true,
+  "zipSignatureVerified": true,
+  "desktopLaunchVerified": true,
+  "desktop": "C:\\Users\\Dainius\\Desktop\\Saving Constantinople - Version 43",
+  "suites": [
+    {
+      "suite": "Court map",
+      "result": "COURT_MAP_SETUP 1 passed",
+      "extra": "COMPACT_MAP_CHECKS 473 passed",
+      "seconds": 8.4
+    },
+    {
+      "suite": "Journal",
+      "result": "139 journal/status/map checks passed",
+      "extra": null,
+      "seconds": 8.1
+    },
+    {
+      "suite": "Discoveries",
+      "result": "DISCOVERY_CHECKS 244 passed",
+      "extra": null,
+      "seconds": 40.0
+    },
+    {
+      "suite": "Diplomatic expansion",
+      "result": "199 diplomatic expansion checks passed",
+      "extra": null,
+      "seconds": 9.9
+    },
+    {
+      "suite": "Kjold",
+      "result": "KJOLD_CHECKS 309 passed",
+      "extra": null,
+      "seconds": 7.3
+    },
+    {
+      "suite": "Cardinal arrival",
+      "result": "82 checks passed",
+      "extra": null,
+      "seconds": 14.3
+    },
+    {
+      "suite": "Eagle",
+      "result": "1355 eagle animation and presentation checks passed",
+      "extra": null,
+      "seconds": 17.7
+    }
+  ],
+  "excluded": [
+    "Saves",
+    "Captures",
+    "Logs",
+    "DoNotShip folders",
+    "PDB symbols"
+  ]
+}

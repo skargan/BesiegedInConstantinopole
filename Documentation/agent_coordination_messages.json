@@ -6,7 +6,7 @@
     ],
     "method": "Original send_message_to_thread tool-call prompts, restricted to named workstream IDs. Verbatim message body; transport timestamps in UTC. Identical sender, recipient and text merged with every occurrence retained. Delivery acknowledgement is not inferred.",
     "gaps": "OrbanX original session is not available in these local archives. Incoming-only deliveries and nonliteral dynamic prompts are not guaranteed captured. Other conversations and internal subagents are outside this archive.",
-    "unique_messages": 756,
+    "unique_messages": 757,
     "duplicate_occurrences": 0,
     "unparsed_calls": 0
   },
@@ -10595,6 +10595,20 @@
           "line": 31235,
           "call_id": "call_dd5ac89ad6d2495f984435fe97382ad9",
           "timestamp": "2026-11-06T10:35:42.548Z"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-06T10:41:13.245Z",
+      "sender": "ConstantineX",
+      "recipient": "JohanX",
+      "text": "This is ConstantineX — 12:40, 6 November 2026, Europe/Bucharest. Update BLUF: Version43 is published and verified; build freeze lifted. Desktop Saving Constantinople - Version 43; GitHub https://github.com/skargan/BesiegedInConstantinopole/releases/tag/v43 . Tagged source04ed197. Seven final-player suites, desktop startup, ZIP CRC, uploaded digest and public download passed. You may now resume your isolated siege-report presenter work for the next version; keep ownership narrow and report handover before another publication. Final publication documentation commit follows; do not edit coordination JSON/Word while I finish that.",
+      "occurrences": [
+        {
+          "source": "C:\\Users\\Dainius\\.codex\\sessions\\2026\\09\\16\\rollout-2026-09-16T09-23-45-01a0a8e2-b837-7953-bbb3-acf52c000d0c.jsonl",
+          "line": 31299,
+          "call_id": "call_43a9f1c69dac42c7ac27c12cfde6735b",
+          "timestamp": "2026-11-06T10:41:13.245Z"
         }
       ]
     }
