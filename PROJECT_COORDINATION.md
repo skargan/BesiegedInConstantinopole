@@ -4,7 +4,7 @@
 
 ## 0. Current Snapshot
 
-Migration base: `b1e12b1771cf154456729be602f2dfcb8015a3f6`; old state preserved on `archive/pre-three-document-migration`. Development continues on `docs/three-document-coordination` after cutover; `main` is retained, not deleted. Latest lead-confirmed main revision: `b1e12b1`, committed and pushed on 6 November. Public and Desktop release remains **Version 43**. Private preview verification is not publication.
+Migration base: `b1e12b1771cf154456729be602f2dfcb8015a3f6`; old state preserved on `archive/pre-three-document-migration`. Development continues on `main-current-november-2026` after cutover; `main` is retained, not deleted. Latest lead-confirmed main revision: `b1e12b1`, committed and pushed on 6 November. Public and Desktop release remains **Version 43**. Private preview verification is not publication.
 
 ConstantineX reports a successful VicinityPresentationPreview Windows export, 57 editor checks and 2,226 focused player assertions: research 52, vicinity/native names 189, ship 75, eagle 1,436, court/map 474. Final selected screenshots inspected. This is not a full campaign balance test. Latest handover: [latest verified handover](Documentation/VICINITY-RESEARCH-MOTION-HANDOFF.md).
 
@@ -70,7 +70,7 @@ Longer Isidore theology, Orban philosophy and the Notaras/Giustiniani frenemy ar
 | Owner | Scope/location | Confirmed state | Next action |
 | --- | --- | --- | --- |
 | ConstantineX | Main integration/build/release | b1e12b1 pushed; private preview verified; public43 unchanged; freeze released | Review documentation cutover and own next release |
-| JohanX | docs/three-document-coordination; isolated coordination-migration worktree | Documentation cutover authorised; root documents, evidence audit and legacy exporter safeguards only | Hand over canonical maintenance to ConstantineX |
+| JohanX | main-current-november-2026; isolated coordination-migration worktree | Documentation cutover authorised; root documents, evidence audit and legacy exporter safeguards only | Hand over canonical maintenance to ConstantineX |
 | OrbanX | Historical specialist stream | Inactive; no new assignment confirmed | Preserve historical handovers; do not assume active ownership |
 
 Other historical agent names are not evidence of live assignments. Verify before allocating shared files.
