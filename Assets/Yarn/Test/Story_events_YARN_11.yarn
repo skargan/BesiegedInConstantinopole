@@ -667,6 +667,7 @@ title: story19
     <<Change iAmmunition 100>>
     <<Change iCannons 10>>
     <<Change iMoney -5000>>
+    <<Change bGoldenHornChain FALSE>>
 -> The Chain is absolutely massive… We could ask Orban to cast the greatest cannon in the world from its metal. (5,000 gold) <<if GetBool("bCharArtillerist5") && GetInt("iMoney") >= 5000>> 
     <<Change iMoney -5000>>
     Orban has the Chain dragged to the foundry. The furnaces burn through the night, and the mould is packed beneath a forest of wooden braces. At last the Grand Cannon emerges. The gunfounders cheer; the treasurer asks whether anyone has weighed how much powder it will need.

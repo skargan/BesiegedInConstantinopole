@@ -1,0 +1,29 @@
+JohanX — 6 November 2026 — chain event and Relations Overview
+
+Root cause
+story19's ordinary cannon/ammunition option granted100 ammunition and10 cannons, charged5000 gold, but omitted the bGoldenHornChain=false command. Sell and Grand Cannon options already removed the chain. The absent state change preserved both harbour protection and the fleet painting's chain. Added the missing command; rewards and costs unchanged. No separate Bosphorus-passage rule was changed: that strait control remains its own mechanic.
+
+Presentation
+- Diplomatic relations overview renamed Relations Overview, including the entry in Diplomacy and court.
+- Bottom-right button: Diplomacy and Court; existing return route retained.
+- Bottom-left button: War Beyond the Walls, opens existing map overlay.
+- Attitude/envoy and aid-status lines share the country-name column atx=.175; flags remain in their own column. This fixes the overlap in the user's screenshot.
+- Explicit full-silhouette tracing instruction saved in AGENTS.md and included by ConstantineX in6e07f60: garments, sleeves, arms, hands and held objects; tight contour and same hit/hover geometry; no coarse substitute; visual checking required. This batch does not claim a new Senate retrace.
+
+Verification
+- All current runtime C# source compiled.
+- Private Development export succeeded: Builds/ChainRelationsPreview/Saving Constantinople.exe.
+-50 exported-player checks passed with -chain-relations-capture, isolated saves.
+- Executed all4 actual Yarn story19 choices, checked chain fate, DefencePosture.HornOpen, correct fleet resource texture and whether chain hotspot remained active.
+- Ordinary recast option verified exact original costs/rewards.
+-1280x720 and1600x900 Relations Overview captures visually inspected: no flag/status overlap, readable text, fixed footer navigation and pagination.
+- Left footer actually opens map; right footer actually returns to Diplomacy and court.
+Evidence: Builds/ChainRelationsPreview/Captures/ChainRelations/checks.txt and1280-relations.png /1600-relations.png.
+
+Changed production files
+Assets/Yarn/Test/Story_events_YARN_11.yarn — one missing state update.
+Assets/Scripts/CouncilDiplomacyUI.cs — title, footer links, tile text-column alignment.
+Assets/Scripts/CouncilUI.cs — overview entry wording.
+Development-only helpers: ChainRelationsCapture.cs and UI/Editor/BuildChainRelationsPreview.cs plus Unity metadata.
+
+No save migration, balance changes, general navigation refactor or public release. Published43 unchanged. Prior completed recast choices in old campaign data are not retroactively inferred; the corrected choice now records the proper state when selected.

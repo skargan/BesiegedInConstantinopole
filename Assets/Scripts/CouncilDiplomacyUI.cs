@@ -42,7 +42,12 @@ public partial class CouncilUI
     {
         CountryDiplomacy.Ensure();int total=CountryDiplomacy.Definitions.Length+1,perPage=8,pages=(total+perPage-1)/perPage;
         diplomacyPage=Mathf.Clamp(diplomacyPage,0,pages-1);
-        var stage=DiplomacyPage("Diplomatic relations","Choose a court. Aid appeals need no envoy; resident envoys open deeper negotiations.",Diplomacy);
+        var stage=DiplomacyPage("Relations Overview","Choose a court. Aid appeals need no envoy; resident envoys open deeper negotiations.",Diplomacy);
+        var back=screen.transform.Find("Return").GetComponent<Button>();
+        back.GetComponentInChildren<TMP_Text>().text="Diplomacy and Court";
+        back.GetComponent<RectTransform>().anchorMin=new Vector2(.69f,.02f);
+        notice.gameObject.SetActive(false);
+        CampaignHUD.MakeButton(screen.transform,"War Beyond the Walls",new Vector2(.035f,.02f),new Vector2(.31f,.09f),WarTheatreUI.Show);
         for(int n=0;n<perPage&&diplomacyPage*perPage+n<total;n++) {
             int index=diplomacyPage*perPage+n;float left=(n%2)*.505f,top=1-(n/2)*.222f;
             if(index==CountryDiplomacy.Definitions.Length) {
@@ -55,8 +60,8 @@ public partial class CouncilUI
             DiplomacyFlag(tile.transform,index,new Vector2(.025f,.50f),new Vector2(.145f,.94f));
             var courtName=DiplomacyText(tile.transform,CountryDiplomacy.Definitions[index].Name,new Vector2(.175f,.65f),new Vector2(.96f,.95f),25);courtName.gameObject.name="Court name";
             DiplomaticNames.Bind(courtName,CountryDiplomacy.Definitions[index].Id);
-            DiplomaticSummary.Draw(tile.transform,index,new Vector2(.03f,.39f),new Vector2(.965f,.65f),18);
-            var standing=DiplomacyText(tile.transform,AidStanding(index),new Vector2(.035f,.03f),new Vector2(.96f,.36f),18);standing.gameObject.name="Court commitments";
+            DiplomaticSummary.Draw(tile.transform,index,new Vector2(.175f,.39f),new Vector2(.965f,.65f),18);
+            var standing=DiplomacyText(tile.transform,AidStanding(index),new Vector2(.175f,.03f),new Vector2(.96f,.36f),18);standing.gameObject.name="Court commitments";
         }
         var previous=CampaignHUD.MakeButton(stage,"‹ Previous courts",new Vector2(0,0),new Vector2(.27f,.09f),()=>{diplomacyPage--;UnifiedDiplomaticRelations();});previous.interactable=diplomacyPage>0;
         var pageLabel=DiplomacyText(stage,"Courts "+(diplomacyPage*perPage+1)+"–"+Mathf.Min(total,(diplomacyPage+1)*perPage)+" of "+total,new Vector2(.3f,0),new Vector2(.7f,.09f),20);pageLabel.alignment=TextAlignmentOptions.Center;

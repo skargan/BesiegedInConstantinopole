@@ -624,7 +624,7 @@ public partial class CouncilUI : MonoBehaviour
 
         CampaignHUD.Label(summary.transform,incoming.Count==0?"No foreign expeditions are currently committed.":"Committed reinforcements\n"+string.Join("\n",incoming),new Vector2(.03f,.06f),new Vector2(.97f,.94f),25);
 
-        CampaignHUD.MakeButton(links.transform,"Diplomatic relations · "+CouncilActions.Allies.Length+" powers",new Vector2(.04f,.77f),new Vector2(.96f,.97f),DiplomaticRelations);
+        CampaignHUD.MakeButton(links.transform,"Relations Overview · "+CouncilActions.Allies.Length+" powers",new Vector2(.04f,.77f),new Vector2(.96f,.97f),DiplomaticRelations);
 
         CampaignHUD.MakeButton(links.transform,"Negotiate with the Sultan",new Vector2(.04f,.53f),new Vector2(.96f,.73f),Sultan);
 
