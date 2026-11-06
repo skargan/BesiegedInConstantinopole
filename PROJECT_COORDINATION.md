@@ -174,3 +174,6 @@ This is ConstantineX - 6 November 2026 - BLUF: expanded Theodoro encounter imple
 
 COORDINATION: JohanX requested TrainingPool/TroopTraining, Kjeld/Gennadios benefits, assassination integration, Gennadios portrait and public-support icon ownership. ConstantineX confirmed no collision; retains Theodoro files and build/release ownership. No publication until combined verification.
 
+
+This is ConstantineX - 6 November 2026 - BLUF: corrected Golden Horn marker to painted inlet (.441,.393 top-origin); removed regional Rumeli marker/leader while retaining local fortress access; Original capital name now names the city, Κωνσταντινούπολις (Konstantinoupolis), and local detail heading follows selector. Windows preview compiled; 193 vicinity/name checks passed at 1280x720 and 1600x900; runtime placement visually inspected. Source for written Greek name: https://constantinethegreatcoins.com/articles/Georgacas_The_Names_of_Constantinople.pdf . Public44 unchanged.
+

@@ -39,15 +39,7 @@ public sealed class MapLandmarks : MonoBehaviour, IPointerEnterHandler, IPointer
         Create(map,"Malta · Mercenary brokers",MercenaryMapMarkers.Malta,29,hover,clearHover,()=>MercenaryUI.Show());
         Create(map,"Sinop · Candar",WarTheatre.Find("candar_realm").front,29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CandarCourt();});
         Create(map,"Copa · Circassian coast",new Vector2(.655f,.786f),29,hover,clearHover,()=>{WarTheatreUI.Close();FindObjectOfType<CouncilUI>(true).CircassianPort();});
-        if(FortressVisible){
-            Vector2 offset=new Vector2(-15,18);
-            var leader=new GameObject("Rumeli shore leader",typeof(RectTransform),typeof(Image));leader.transform.SetParent(map,false);
-            var line=leader.GetComponent<RectTransform>();line.anchorMin=line.anchorMax=RumeliPosition;line.anchoredPosition=offset*.5f;
-            line.sizeDelta=new Vector2(offset.magnitude,1);line.localEulerAngles=new Vector3(0,0,Mathf.Atan2(offset.y,offset.x)*Mathf.Rad2Deg);
-            leader.GetComponent<Image>().color=ImperialTheme.Gold;leader.GetComponent<Image>().raycastTarget=false;
-            var marker=Create(map,"Strait-Cutter Fortress",RumeliPosition,22,hover,clearHover,ShowFortress);
-            ((RectTransform)marker.transform).anchoredPosition=offset;
-        }
+        // Rumeli belongs on the local Bosphorus map, not the regional overview.
     }
     static void OpenCourt(string id){var council=FindObjectOfType<CouncilUI>(true);if(council==null)return;int country=id==null?-1:CountryDiplomacy.Index(id);if(id!=null&&country<0)return;WarTheatreUI.Close();if(id==null)council.Palace();else council.DiplomaticPower(country);}
     static GameObject Create(Transform parent,string name,Vector2 pos,float size,TMP_Text hover,Action clearHover,UnityEngine.Events.UnityAction click)

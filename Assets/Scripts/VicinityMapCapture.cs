@@ -27,6 +27,8 @@ public sealed class VicinityMapCapture:MonoBehaviour
         foreach(var size in new[]{new Vector2Int(1280,720),new Vector2Int(1600,900)}){
             Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.3f);DiplomaticNames.Mode=DiplomaticNames.Style.Short;WarTheatreUI.Show();yield return null;
             Check(!Map.GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="Symbols"),"retired Symbols control");
+            Check(!Map.GetComponentsInChildren<Button>().Any(b=>b.name=="Landmark · Strait-Cutter Fortress"),"fortress absent from regional map");
+            DiplomaticNames.Mode=DiplomaticNames.Style.Original;Check(DiplomaticNames.Name("constantinople")=="Κωνσταντινούπολις (Konstantinoupolis)","capital original city name");DiplomaticNames.Mode=DiplomaticNames.Style.Short;
             var hover=Map.transform.Find("Map hover plaque").GetComponentInChildren<TMP_Text>();var selector=Map.GetComponentsInChildren<Button>().First(b=>b.name=="Realm naming selector");
             Check(hover.rectTransform.rect.width>((RectTransform)selector.transform).rect.width*2,"name plaque has more room than selector");
             var territory=Map.GetComponentsInChildren<TerritoryGraphic>().First(t=>t.name=="wallachia");territory.OnPointerEnter(new PointerEventData(EventSystem.current));

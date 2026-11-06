@@ -18,7 +18,7 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         new Site("chrysopolis","Chrysopolis",.545f,.487f,"The Asian landing place faces the entrance to the Golden Horn across the Bosphorus."),
         new Site("chalcedon","Chalcedon",.565f,.575f,"The ancient settlement on the Asian shore looks west across the water towards Constantinople."),
         new Site("blachernae","Blachernae",.444f,.482f,"The imperial palace quarter occupies the northwestern edge of the city, where the land walls meet the Golden Horn."),
-        new Site("horn","Golden Horn",.474f,.436f,"The long inlet shelters the city's shipping between Constantinople and Galata.","fleet",23)
+        new Site("horn","Golden Horn",.441f,.393f,"The long inlet shelters the city's shipping between Constantinople and Galata.","fleet",23)
     };
     static GameObject root;Transform detail;RectTransform map;Vector2 fit;float zoom=1;
     public static bool IsOpen=>root!=null;
@@ -58,7 +58,7 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
     }
     void Select(Site site){
         foreach(Transform child in detail){child.gameObject.SetActive(false);Destroy(child.gameObject);}
-        var title=CampaignHUD.Label(detail,site.Name,new Vector2(.06f,.78f),new Vector2(.94f,.97f),29);title.alignment=TextAlignmentOptions.Center;title.enableAutoSizing=true;title.fontSizeMin=21;title.fontSizeMax=29;
+        var title=CampaignHUD.Label(detail,site.Name,new Vector2(.06f,.78f),new Vector2(.94f,.97f),29);title.alignment=TextAlignmentOptions.Center;title.enableAutoSizing=true;title.fontSizeMin=21;title.fontSizeMax=29; if(site.Id=="city")DiplomaticNames.Bind(title,"constantinople");
         string text=site.Id=="rumeli"?MapLandmarks.FortressTitle+"\n\n"+site.Text:site.Text;
         var prose=CampaignHUD.Label(detail,text,new Vector2(.07f,.26f),new Vector2(.93f,.75f),23);prose.enableAutoSizing=true;prose.fontSizeMin=18;prose.fontSizeMax=23;
         if(site.Route!="")CampaignHUD.MakeButton(detail,site.Route=="palace"?"The Palace":site.Route=="galata"?"Galata relations":site.Route=="fleet"?"Fleet":"Inspect fortress",new Vector2(.07f,.055f),new Vector2(.93f,.19f),()=>Navigate(site.Route));
