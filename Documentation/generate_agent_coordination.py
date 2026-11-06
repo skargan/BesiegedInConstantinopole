@@ -50,6 +50,8 @@ for i,m in enumerate(messages,1):
     heading=f"{i:03d} | {m['timestamp']} | {m['sender']} to {m['recipient']}"
     p=d.add_paragraph();p.paragraph_format.space_before=Pt(7);p.paragraph_format.space_after=Pt(3);p.paragraph_format.keep_with_next=True
     r=p.add_run(heading);r.bold=True;r.font.size=Pt(9.5)
+    if m.get('format'):
+        form='Source form: '+m['format'];d.add_paragraph(form).runs[0].font.size=Pt(8);text.append(form)
     p=d.add_paragraph(m['text']);p.paragraph_format.space_after=Pt(3);p.paragraph_format.line_spacing=1
     for r in p.runs:r.font.size=Pt(9.5)
     refs=[f"{Path(ref['source']).name}:{ref['line']} | {ref['call_id']}" for ref in m['occurrences']]
