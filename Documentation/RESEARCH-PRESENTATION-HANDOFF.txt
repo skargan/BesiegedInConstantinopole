@@ -1,0 +1,52 @@
+RESEARCH AND REDISCOVERY — 6 November 2026 — research_room
+
+Implemented, not yet exported/runtime checked
+- Council technology label and desk heading renamed Research and Rediscovery.
+- Monastic research button opens the research allocation tab directly; that tab gets
+  its own generated cloister archive/workshop background. Infirmary keeps its image.
+- Return from the research allocation view remains Research and Rediscovery, even
+  after changing tabs or applying allocation. No allocation/ration/progress changes.
+- Generated bronze pull-ring icon replaces procedural doughnut; anchored to the
+  desk's upper-right corner, overlapping its goldwork. Click/drag rail unchanged.
+- Mortar, pouring vessel, furnace, bell and chalice contours have finer authored
+  silhouettes. Every contour uses only1.25 painting-pixel corner rounding, avoiding
+  large bevels. The same boundary still drives glow and pointer hit-testing.
+- Skull, chest catch and letter keep their tight existing contours, with the same
+  restrained corner treatment. Original discoverable painting remains unchanged.
+
+Files
+Assets/Scripts/CouncilTechnologyUI.cs
+Assets/Scripts/CouncilMedicalUI.cs
+Assets/Scripts/CouncilUI.cs (one council label only)
+Assets/Scripts/TechnologyPanelRail.cs
+Assets/Scripts/TechnologyDiscoveryShapes.cs
+Assets/Scripts/DiscoveryCapture.cs (test-only assertions and background operation)
+Assets/Resources/UI/MidnightMosaic/Scenes/monastic-rediscovery.png +meta
+Assets/Resources/UI/MidnightMosaic/technology-pull-ring.png +meta
+
+Evidence
+- Full current non-editor source compiled successfully with Unity's DotNetSdkRoslyn
+  against the existing Unity/Yarn references (research-room-check.log). Existing
+  netstandard/serialized-field warnings, no compilation errors.
+-9 authored silhouette anchor-interior checks and6 default-panel clearances pass.
+- Generated artwork visually reviewed: Augustus, ancient armour, manuscript sorting,
+  backlit vellum and prototype ballista all visible on left; quiet right-side menu.
+- DiscoveryCapture now checks generated ring/corner anchor, title, direct research
+  view at1280 and1600, its backdrop and return route. Existing capture already covers
+  all9 hit boundaries,6 alchemy steps at4 aspect ratios, rewards and save/load.
+- Root owns final combined export and executing those runtime checks. No Unity
+  build, public release or version-label change was performed by this workstream.
+
+Asset provenance
+Both original assets generated with built-in OpenAI image generation on6 Nov2026,
+for this game; no external downloaded artwork. Background source:
+C:/Users/Dainius/.codex/generated_images/01a1b08d-177c-7da0-912b-3c2d3a8bae20/exec-f84d9fc6-b2d1-4c30-94ed-711d649982fa.png
+Ring source: same directory, exec-ebf985f5-c2de-4e3c-a234-a1a51bb3d7a7.png
+Generated masters copied unmodified to project resources with alpha preserved.
+Background specification:16:9 late Byzantine monastic archive, warm window light,
+midnight-blue/gold mosaics, left-half scholarly activity, young monks sorting papyri,
+elder holding vellum against sun, foreground monk using convex lens to reconstruct
+small torsion ballista from Roman drawing, Augustus and corroded armour nearby,
+quiet right arches, no text/UI/minarets/modern objects.
+Ring specification: transparent isolated engraved bronze Byzantine pull ring with
+small navy enamel cross backplate, realistic metal, readable compact silhouette.

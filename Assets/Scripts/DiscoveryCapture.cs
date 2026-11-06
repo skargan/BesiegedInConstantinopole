@@ -16,6 +16,7 @@ public sealed class DiscoveryCapture : MonoBehaviour
     static void Begin(){if(!Environment.GetCommandLineArgs().Contains("-discovery-capture"))return;
         string folder=Path.GetFullPath(Path.Combine(Application.dataPath,"../Captures/Discoveries"));Directory.CreateDirectory(folder);
         SaveGames.TestRoot=Path.Combine(folder,"Saves");Directory.CreateDirectory(SaveGames.TestRoot);VariableSingleton.TestSavePath=Path.Combine(SaveGames.TestRoot,"checkpoint.besieged.json");
+        Application.runInBackground=true;
         var go=new GameObject("Technology verification");DontDestroyOnLoad(go);go.AddComponent<DiscoveryCapture>().output=folder;}
 
     void Check(bool ok,string text){if(!ok)throw new InvalidOperationException(text);results.Add("PASS "+text);}
@@ -31,6 +32,10 @@ public sealed class DiscoveryCapture : MonoBehaviour
         yield return new WaitForSecondsRealtime(.5f);CampaignHUD.Instance.DismissReport();council=CouncilUI.For(FindObjectOfType<ManagerUI>());
         Screen.SetResolution(1600,900,false);yield return new WaitForSecondsRealtime(.5f);council.Technologies();yield return null;
         Check(Room()!=null,"room installed");Check(!SaveGames.DiscoveryAchievementEligible,"test runs cannot unlock career achievements");
+        Check(Root().GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="RESEARCH AND REDISCOVERY"),"research title renamed");
+        var cornerRing=Root().GetComponentInChildren<TechnologyPullRing>();
+        Check(cornerRing!=null&&cornerRing.mainTexture==Resources.Load<Texture2D>("UI/MidnightMosaic/technology-pull-ring"),"generated bronze handle installed");
+        Check(cornerRing.rectTransform.anchorMin==Vector2.one&&cornerRing.rectTransform.anchorMax==Vector2.one,"handle anchored to desk corner");
         foreach(var name in new[]{"grind","pour","fire","bell","boil","choir","growl","coins"}){var clip=Resources.Load<AudioClip>("Audio/Discoveries/"+name);Check(clip!=null&&clip.length>.4f&&clip.length<=3,"audio imported "+name);}
         // Read eligibility only; never award against real user preferences.
         var testPath=VariableSingleton.TestSavePath;VariableSingleton.TestSavePath=null;
@@ -96,6 +101,15 @@ public sealed class DiscoveryCapture : MonoBehaviour
             Room().Hover(7,true);skull.SetHighlighted(true);yield return Capture("left-panel-"+size.x+"x"+size.y);skull.SetHighlighted(false);Room().Hover(7,false);
             if(size.x==1600){Room().Hover(8,true);chest.SetHighlighted(true);yield return Capture("chest-knob-outline");chest.SetHighlighted(false);Room().Hover(8,false);}
             foreach(var text in Root().GetComponentsInChildren<TMP_Text>()){text.ForceMeshUpdate();Check(!text.isTextOverflowing,"text fits "+size+" "+text.name);}
+        }
+        foreach(var size in new[]{new Vector2Int(1280,720),new Vector2Int(1600,900)}){
+            Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.4f);
+            council.MonasticResearchView();yield return null;Canvas.ForceUpdateCanvases();
+            Check(Root().transform.Find("Scene artwork").GetComponent<RawImage>().texture==Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/monastic-rediscovery"),"rediscovery backdrop installed "+size);
+            Check(!Root().transform.Find("Infirmary desk/Medical tab 1").GetComponent<Button>().interactable,"research allocation tab selected "+size);
+            yield return Capture("monastic-rediscovery-"+size.x);
+            ControlSingleton.Instance.GoBack();yield return null;
+            Check(Room()!=null,"monastic research returns to desk "+size);
         }
     }
     IEnumerator Capture(string name){yield return new WaitForSecondsRealtime(.1f);Canvas.ForceUpdateCanvases();var go=new GameObject("Diplomacy capture camera",typeof(Camera));var camera=go.GetComponent<Camera>();camera.orthographic=true;camera.clearFlags=CameraClearFlags.SolidColor;camera.backgroundColor=ImperialTheme.Navy;camera.nearClipPlane=.1f;camera.farClipPlane=100;

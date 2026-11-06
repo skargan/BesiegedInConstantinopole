@@ -8,7 +8,7 @@ public partial class CouncilUI
     int selectedTechnology;
     void ShowTechnologyDesk()
     {
-        Open("Technologies", "");
+        Open("Research and Rediscovery", "");
         SceneBackdrop.Apply(screen,"technologies-compact",1f); // Keep the courier and pigeon in view on ultrawide screens.
         foreach(Transform child in screen.transform)
             if(child.name!="Scene artwork"&&child.name!="Imperial goldwork")child.gameObject.SetActive(false);
@@ -16,7 +16,8 @@ public partial class CouncilUI
         var desk=CampaignHUD.Panel(screen.transform,"Technology desk",new Vector2(.505f,.025f),new Vector2(.985f,.975f));
         ImperialTheme.Panel(desk,false);
 
-        MedicalText(desk.transform,"TECHNOLOGIES",new Vector2(.025f,.91f),new Vector2(.59f,.985f),30);
+        var heading=MedicalText(desk.transform,"RESEARCH AND REDISCOVERY",new Vector2(.025f,.91f),new Vector2(.65f,.985f),26);
+        heading.fontSizeMin=18;
         TechnologySecretsCounter.Attach(desk.transform);
         var counter=desk.transform.Find("Available research secrets").GetComponent<RectTransform>();
         counter.anchorMin=new Vector2(.68f,.895f);counter.anchorMax=new Vector2(.975f,.985f);
@@ -57,8 +58,8 @@ public partial class CouncilUI
         TechnologyResearchAvailability.Attach(research,choice);
         var summary=MedicalText(desk.transform,MonasticResearch.ResearchMonks+" monks researching\n+"+MonasticResearch.DailyProgress+"/day · "+MonasticResearch.Progress+"/"+MonasticResearch.Rules.ProgressPerSecret+" next secret",new Vector2(.025f,.105f),new Vector2(.365f,.18f),20);
         summary.name="Technology monastery summary";
-        var monastery=CampaignHUD.MakeButton(desk.transform,"Monasteries",new Vector2(.025f,.025f),new Vector2(.325f,.095f),()=>{
-            Infirmary();ControlSingleton.Instance.ReturnAction=Technologies;
+        var monastery=CampaignHUD.MakeButton(desk.transform,"Monastic research",new Vector2(.025f,.025f),new Vector2(.325f,.095f),()=>{
+            MonasticResearchView();ControlSingleton.Instance.ReturnAction=Technologies;
         });ImperialTheme.Button(monastery);monastery.name="Technology monasteries";
         var back=CampaignHUD.MakeButton(desk.transform,"Return",new Vector2(.35f,.025f),new Vector2(.635f,.095f),()=>ControlSingleton.Instance.GoBack());
         ImperialTheme.Button(back);back.name="Technology return";

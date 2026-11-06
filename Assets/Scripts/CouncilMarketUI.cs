@@ -18,12 +18,14 @@ public partial class CouncilUI
         var panel=CampaignHUD.Panel(screen.transform,"Market desk",new Vector2(.515f,.025f),new Vector2(.985f,.975f));
         ImperialTheme.Panel(panel,false);
         MarketText(panel.transform,"TREASURY AND MARKET",new Vector2(.04f,.93f),new Vector2(.96f,.985f),29);
-        MarketText(panel.transform,"Gold "+CouncilActions.Int("iMoney").ToString("N0")+"  ·  Food "+SupplyEconomy.DaysLeft.ToString("N0")+" days\nDaily ration: "+SharedProvisions.Format(SharedProvisions.CityDemand)+" provisions",new Vector2(.04f,.845f),new Vector2(.96f,.93f),23);
-        MarketText(panel.transform,"Quantity step",new Vector2(.04f,.785f),new Vector2(.43f,.835f),21);
+        MarketText(panel.transform,"Daily food consumption: "+SharedProvisions.Format(SharedProvisions.CityDemand)+" provisions · Food remaining: "+SupplyEconomy.DaysLeft.ToString("N0")+" days",new Vector2(.04f,.845f),new Vector2(.96f,.93f),21);
+        var stepPanel=CampaignHUD.Panel(panel.transform,"Market quantity step",new Vector2(.025f,.78f),new Vector2(.975f,.84f));
+        ImperialTheme.Panel(stepPanel,false);
+        MarketText(stepPanel.transform,"Quantity step",new Vector2(.025f,.09f),new Vector2(.42f,.91f),21);
         int[] steps={1,10,100};
         for(int i=0;i<steps.Length;i++) {
-            int step=steps[i];float x=.46f+i*.17f;
-            var button=CampaignHUD.MakeButton(panel.transform,step.ToString(),new Vector2(x,.785f),new Vector2(x+.15f,.835f),()=>{marketStep=step;Market();});
+            int step=steps[i];float x=.44f+i*.18f;
+            var button=CampaignHUD.MakeButton(stepPanel.transform,step.ToString(),new Vector2(x,.09f),new Vector2(x+.16f,.91f),()=>{marketStep=step;Market();});
             button.gameObject.name="Market step "+step;
             button.interactable=marketStep!=step;
             MarketButtonText(button,21);

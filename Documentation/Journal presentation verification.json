@@ -1,0 +1,49 @@
+{
+  "build": "Private JournalPresentationPreview; public43 unchanged",
+  "suites": [
+    {
+      "suite": "JournalHistory",
+      "exit": 0,
+      "result": "87 journal history checks passed",
+      "seconds": 7.8
+    },
+    {
+      "suite": "JournalStatus",
+      "exit": 0,
+      "result": "147 journal/status/map checks passed",
+      "seconds": 8.1
+    },
+    {
+      "suite": "Market",
+      "exit": 0,
+      "result": "MARKET_CAPTURE 44 checks passed at 1600x900 and 1280x720; isolated purchases and save reload verified.",
+      "seconds": 7.2
+    },
+    {
+      "suite": "Mercenaries",
+      "exit": 0,
+      "result": "283 mercenary checks passed",
+      "seconds": 7.1
+    },
+    {
+      "suite": "MilitaryOrders",
+      "exit": 0,
+      "result": "270 military order checks passed",
+      "seconds": 9.5
+    },
+    {
+      "suite": "Discoveries",
+      "exit": 0,
+      "result": "DISCOVERY_CHECKS 253 passed",
+      "seconds": 41.3
+    },
+    {
+      "suite": "PalaceContours",
+      "exit": 0,
+      "result": "46 checks passed",
+      "seconds": 8.4
+    }
+  ],
+  "editorSaveChecks": 57,
+  "export": "succeeded"
+}

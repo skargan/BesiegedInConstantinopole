@@ -21,7 +21,7 @@ public partial class CouncilUI
  }
  public void Shipyard(Action back=null)
  {
-  Action previous=back??(()=>Fleet());var pane=MilitaryCanvas("The Imperial Shipyard","shipyard","");screen.name="Shipyard screen";ControlSingleton.Instance.ReturnAction=()=>{Hide();previous();};
+  Action previous=()=>MilitarySelectionDesk.ShowUnit(manager,4);var pane=MilitaryCanvas("The Imperial Shipyard","shipyard","");screen.name="Shipyard screen";ControlSingleton.Instance.ReturnAction=()=>{Hide();previous();};
   CompactText(pane,"THE IMPERIAL SHIPYARD",.05f,.89f,.95f,.985f,28);
   CompactText(pane,CouncilActions.Int("iShips")+" warships in service",.05f,.80f,.95f,.89f,24);
   CampaignHUD.MakeButton(pane,"Build warships",new Vector2(.05f,.68f),new Vector2(.95f,.79f),()=>RecruitmentOrder(5,()=>Shipyard(previous)));

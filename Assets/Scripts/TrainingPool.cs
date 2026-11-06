@@ -62,6 +62,7 @@ public static class TrainingPool
         var order=new Order {unit=unit,quantity=quantity,readyDay=Day(VariableSingleton.GetDate())+Duration(unit),kind=unit=="iShips"||unit=="iCannons"?Construction:unit=="iEngineers"?Instruction:Training};
         SpecialistPersonnel.ReserveForOrder(order);
         VariableSingleton.ChangeInt("iMoney",-(quantity*unitCost));Orders.Add(order);
+        PalaceAdministration.RecordOrder("Ordered "+quantity.ToString("N0")+" "+Name(unit).ToLowerInvariant(),"ready "+ReadyDate(order).ToString("d MMM yyyy"));
         return true;
     }
     public static int MaximumShipRepairs=>Math.Max(0,new[]{SpecialistPersonnel.AvailableDamagedShips,DailyLifeEvents.I("iMoney")/SpecialistPersonnel.ShipRepairPrice,DailyLifeEvents.I("iMaterials")/SpecialistPersonnel.ShipRepairMaterials,RecruitmentLogistics.AvailableManpower/SpecialistPersonnel.ShipRepairManpower,SpecialistPersonnel.Available/SpecialistPersonnel.ShipRepairEngineers}.Min());

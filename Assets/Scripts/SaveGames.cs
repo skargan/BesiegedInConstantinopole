@@ -113,7 +113,7 @@ public static class SaveGames {
     static void Written(Archive a,string path){Sequence=a.sequence;Phase=a.phase;if(Automated)return;PlayerPrefs.SetString("Besieged.LastSave",path);if(a.ironman)PlayerPrefs.SetInt("Besieged.IronSequence."+a.campaignId,a.sequence);PlayerPrefs.Save();}
     public static bool Checkpoint(string phase="council",string node=null,string title=null,string report=null){
         if(restoring||AssaultPractice.Active||!VariableSingleton.IsInitialized||string.IsNullOrEmpty(CampaignId))return false;
-        try {var a=Snapshot(Ironman?"Ironman campaign":"Automatic checkpoint",phase,node,title,report);
+        try {PalaceAdministration.Checkpoint();var a=Snapshot(Ironman?"Ironman campaign":"Automatic checkpoint",phase,node,title,report);
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             if(Automated){AtomicWrite(VariableSingleton.SavePath,JsonUtility.ToJson(a,true));Written(a,VariableSingleton.SavePath);VariableSingleton.LastCheckpointTurn=VariableSingleton.Turn;return true;}
 #endif
@@ -122,7 +122,7 @@ public static class SaveGames {
     }
     public static bool Named(string name,out string message){
         if(!CanManualSave){message=Ironman?"Ironman uses its rolling autosave. Manual slots are disabled.":"Return to the council before making a named save.";return false;}
-        try {name=(name??"").Trim();if(name.Length==0)name="Council save";if(name.Length>60)name=name.Substring(0,60);var a=Snapshot(name);string path=Path.Combine(Root,"save-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff")+"-"+Guid.NewGuid().ToString("N").Substring(0,6)+".besieged.json");AtomicWrite(path,JsonUtility.ToJson(a,true));Written(a,path);message="Saved: "+Path.GetFileName(path);return true;}catch(Exception e){message="Could not save: "+e.Message;return false;}
+        try {PalaceAdministration.Checkpoint();name=(name??"").Trim();if(name.Length==0)name="Council save";if(name.Length>60)name=name.Substring(0,60);var a=Snapshot(name);string path=Path.Combine(Root,"save-"+DateTime.UtcNow.ToString("yyyyMMdd-HHmmss-fff")+"-"+Guid.NewGuid().ToString("N").Substring(0,6)+".besieged.json");AtomicWrite(path,JsonUtility.ToJson(a,true));Written(a,path);message="Saved: "+Path.GetFileName(path);return true;}catch(Exception e){message="Could not save: "+e.Message;return false;}
     }
     public static List<Entry> Entries(){
         var result=new List<Entry>();foreach(var path in Directory.GetFiles(Root,"*.besieged.json")){var entry=new Entry{path=path};try {entry.archive=Read(path);if(entry.archive.ironman&&entry.archive.sequence<PlayerPrefs.GetInt("Besieged.IronSequence."+entry.archive.campaignId,0))entry.error="Older Ironman checkpoint; rolling progress has moved on.";if(entry.archive.terminal&&entry.archive.ironman)entry.error="Finished Ironman campaign.";}catch(Exception e){entry.error=e.Message;}result.Add(entry);}return result.OrderByDescending(x=>File.GetLastWriteTimeUtc(x.path)).ToList();

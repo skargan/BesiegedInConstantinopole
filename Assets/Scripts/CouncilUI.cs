@@ -144,7 +144,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
 
-        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest","Defence of the walls","The Senate","Diplomacy and court","Technologies","Treasury and market"};
+        string[] labels={"Siege overview","Military and recruitment","Fleet","Spies and intelligence","The Palace","Rest","Defence of the walls","The Senate","Diplomacy and court","Research and Rediscovery","Treasury and market"};
 
 
 
@@ -341,6 +341,7 @@ public partial class CouncilUI : MonoBehaviour
 
 
         if(!success) {notice.text=result;return;}
+        PalaceAdministration.RecordOrder("Imperial order",(result??"").Split(new[]{'\r','\n'},StringSplitOptions.RemoveEmptyEntries).Length>0?(result??"").Split(new[]{'\r','\n'},StringSplitOptions.RemoveEmptyEntries)[0]:"");
 
 
 

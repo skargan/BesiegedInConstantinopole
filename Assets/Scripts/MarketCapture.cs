@@ -61,9 +61,13 @@ public sealed class MarketCapture : MonoBehaviour
             Check(bounds.width<=Screen.width*.48f && bounds.xMin>=Screen.width*.5f && Inside(new Rect(0,0,Screen.width,Screen.height),bounds),suffix+" market fits right half of screen");
             var bad=new List<string>();foreach(var label in Desk().GetComponentsInChildren<TMP_Text>()){label.ForceMeshUpdate();if(label.isTextOverflowing)bad.Add(label.text);}
             Check(bad.Count==0,suffix+" all market text fits: "+string.Join(" | ",bad));
-            Check(Desk().GetComponentsInChildren<TMP_InputField>().Length==3 && Desk().GetComponentsInChildren<TMP_Text>().Any(t=>t.text.Contains("1,234,567")),suffix+" all resources editable and treasury unabridged");
+            Check(Desk().GetComponentsInChildren<TMP_InputField>().Length==3 && !Desk().GetComponentsInChildren<TMP_Text>().Any(t=>t.text.Contains("1,234,567")),suffix+" all resources editable without duplicate treasury");
+            var stepPanel=Desk().transform.Find("Market quantity step");
+            Check(stepPanel!=null&&stepPanel.GetComponentsInChildren<Button>().Length==3&&new[]{1,10,100}.All(n=>Button("Market step "+n).transform.parent==stepPanel),suffix+" quantity label and all steps share their compact panel");
+            Check(Desk().GetComponentsInChildren<TMP_Text>().Any(t=>t.text.StartsWith("Daily food consumption:")&&t.text.Contains("Food remaining:")),suffix+" daily consumption and food horizon shown together");
             Check(Button("Market emergency levy").GetComponent<TurnActionButton>()!=null && new[]{"iProvisions","iMaterials","iAmmunition"}.All(k=>Button("Market buy "+k).GetComponent<TurnActionButton>()==null),suffix+" only levy commits time");
             yield return Capture("market-"+suffix);
+            var merchant=FindObjectsOfType<LocationHotspot>().First(h=>h.name=="Hotspot · Merchant");Check(merchant.Shape.Length>=35,suffix+" merchant silhouette retains fine contour points");merchant.SetHighlighted(true);yield return Capture("market-merchant-outline-"+suffix);merchant.SetHighlighted(false);
             Input().text="1";int gold=DailyLifeEvents.I("iMoney"),food=DailyLifeEvents.I("iProvisions"),turn=VariableSingleton.Turn;
             Button("Market buy iProvisions").onClick.Invoke();yield return null;
             Check(DailyLifeEvents.I("iProvisions")==food+1&&DailyLifeEvents.I("iMoney")==gold-2&&MarketPurchaseLimits.Remaining("iProvisions")==MarketPurchaseLimits.ProvisionsPerTurn-1&&VariableSingleton.Turn==turn,suffix+" real quantity-one button buys exact amount without ending month");

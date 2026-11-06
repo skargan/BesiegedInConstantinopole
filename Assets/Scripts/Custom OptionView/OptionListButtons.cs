@@ -97,6 +97,7 @@ namespace Yarn.Unity
 
         public override void RunOptions(DialogueOption[] dialogueOptions, Action<int> onOptionSelected)
         {
+            FindObjectOfType<EventUI>()?.ObserveOptions(dialogueOptions);
             // If we don't already have enough option views, create more
             if (dialogueOptions.Length > optionButtons.Count)
             {

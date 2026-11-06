@@ -94,3 +94,7 @@ OpenAI image edits of the existing generated technology painting, final output e
 
 ## Original-name fallback fonts — Version 43
 Unmodified Noto Serif, Noto Serif Georgian and Noto Naskh Arabic Regular, from the Noto Project. SIL Open Font License 1.1, reproduced at Assets/Resources/Fonts/Noto-OFL.txt. Download URLs and SHA-256 hashes: Documentation/Version43 font sources.json. Used only for glyphs missing from the existing Crimson Text interface. Fixed Arabic name runs are pre-shaped for TextMeshPro; the catalogue retains the underlying original Unicode strings. No runtime shaping dependency.
+
+
+## Research and palace presentation — 6 November 2026
+Original generated monastic archive/workshop and bronze pull-ring: [RESEARCH-PRESENTATION-HANDOFF.txt](RESEARCH-PRESENTATION-HANDOFF.txt), including source master paths and generation specifications. Generated Gennadios full-height figure, alpha cleanup and matching portrait: [PALACE-CONTOURS-GENNADIOS-HANDOFF.txt](PALACE-CONTOURS-GENNADIOS-HANDOFF.txt). Authored object contours are project code, not third-party artwork. Integrated and verified in private JournalPresentationPreview; not public43.

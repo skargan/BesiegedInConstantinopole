@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public partial class CouncilUI
 {
     int medicalTab;
+    bool medicalReturnsToResearch;
     Transform medicalCanvas;
-    public void Infirmary() { medicalTab=0; InfirmaryPage(""); }
+    public void Infirmary() { medicalReturnsToResearch=false;medicalTab=0; InfirmaryPage(""); }
+    public void MonasticResearchView() { medicalReturnsToResearch=true;medicalTab=1; InfirmaryPage(""); }
 
     private void InfirmaryPage(string message)
     {
         Open("Infirmary and Monasteries", "");
-        ControlSingleton.Instance.ReturnAction=Training;
-        SceneBackdrop.Apply(screen,"infirmary");
+        ControlSingleton.Instance.ReturnAction=medicalReturnsToResearch?(System.Action)Technologies:Training;
+        SceneBackdrop.Apply(screen,medicalTab==1?"monastic-rediscovery":"infirmary");
         foreach(Transform child in screen.transform)
             if(child.name!="Scene artwork" && child.name!="Imperial goldwork")child.gameObject.SetActive(false);
         var desk=CampaignHUD.Panel(screen.transform,"Infirmary desk",new Vector2(.505f,.025f),new Vector2(.985f,.975f));

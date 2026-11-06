@@ -299,6 +299,7 @@ public class VariableSingleton : MonoBehaviour
         SpecialistPersonnel.EnsureInitialized();
         CountryDiplomacy.BeginCampaign();
         MehmedAssassination.ResetForRestore();
+        PalaceAdministration.Baseline();
     }
 
     /*********************
@@ -455,6 +456,7 @@ public class VariableSingleton : MonoBehaviour
         MonasticResearch.AfterRestore();
         SpecialistPersonnel.EnsureInitialized();
         CountryDiplomacy.AfterRestore();
+        PalaceAdministration.Baseline();
     }
 
     private void Awake()

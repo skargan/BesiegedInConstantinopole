@@ -8,7 +8,8 @@ public sealed class TechnologyPanelRail:MonoBehaviour,IPointerDownHandler,IDragH
     RectTransform panel,parent;float startX,startAnchor;bool dragged;
     public static void Attach(RectTransform desk){
         var ring=new GameObject("Drag technology panel",typeof(RectTransform),typeof(TechnologyPullRing));ring.transform.SetParent(desk,false);
-        var rect=(RectTransform)ring.transform;rect.anchorMin=new Vector2(.595f,.90f);rect.anchorMax=new Vector2(.675f,.98f);rect.offsetMin=rect.offsetMax=Vector2.zero;
+        var rect=(RectTransform)ring.transform;rect.anchorMin=rect.anchorMax=Vector2.one;
+        rect.pivot=new Vector2(.70f,.70f);rect.sizeDelta=new Vector2(44,44);rect.anchoredPosition=new Vector2(-4,-4);
         var rail=ring.AddComponent<TechnologyPanelRail>();rail.panel=desk;rail.parent=desk.parent as RectTransform;
     }
     public void OnPointerDown(PointerEventData e){if(e.button!=PointerEventData.InputButton.Left)return;startX=e.position.x;startAnchor=panel.anchorMin.x;dragged=false;ByzantineCursor.SetGripping(this,true);}
@@ -23,19 +24,20 @@ public sealed class TechnologyPanelRail:MonoBehaviour,IPointerDownHandler,IDragH
     void OnDisable(){ByzantineCursor.SetGripping(this,false);}
 }
 
-// A small bronze door-ring, drawn crisply at the current resolution.
+// The generated bronze hardware overlaps the desk's upper-right goldwork.
 public sealed class TechnologyPullRing:MaskableGraphic,IPointerEnterHandler,IPointerExitHandler
 {
     bool lit;
+    Texture2D ring;
+    public override Texture mainTexture { get { if(ring==null)ring=Resources.Load<Texture2D>("UI/MidnightMosaic/technology-pull-ring");return ring==null?Texture2D.whiteTexture:ring; } }
     public void OnPointerEnter(PointerEventData e){lit=true;SetVerticesDirty();GetComponentInParent<TechnologyDiscoveryRoom>()?.HoverRail(true);}
     public void OnPointerExit(PointerEventData e){lit=false;SetVerticesDirty();GetComponentInParent<TechnologyDiscoveryRoom>()?.HoverRail(false);}
     protected override void OnPopulateMesh(VertexHelper vh){
-        vh.Clear();var r=rectTransform.rect;var centre=r.center;float radius=Mathf.Min(r.width,r.height)*.31f;
-        for(int n=0;n<40;n++){
-            float a=n*Mathf.PI*2/40,b=(n+1)*Mathf.PI*2/40;int v=vh.currentVertCount;
-            Color tint=Color.Lerp(new Color(.38f,.20f,.07f),new Color(1,.83f,.42f),(.5f+.5f*Mathf.Sin(a))*(lit?1f:.8f));
-            foreach(var p in new[]{centre+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius,centre+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*(radius*.65f),centre+new Vector2(Mathf.Cos(b),Mathf.Sin(b))*(radius*.65f),centre+new Vector2(Mathf.Cos(b),Mathf.Sin(b))*radius})vh.AddVert(p,tint,Vector2.zero);
-            vh.AddTriangle(v,v+1,v+2);vh.AddTriangle(v,v+2,v+3);
-        }
+        vh.Clear();var r=rectTransform.rect;Color tint=lit?new Color(1f,.94f,.76f):Color.white;
+        vh.AddVert(new Vector2(r.xMin,r.yMin),tint,new Vector2(0,0));
+        vh.AddVert(new Vector2(r.xMax,r.yMin),tint,new Vector2(1,0));
+        vh.AddVert(new Vector2(r.xMax,r.yMax),tint,new Vector2(1,1));
+        vh.AddVert(new Vector2(r.xMin,r.yMax),tint,new Vector2(0,1));
+        vh.AddTriangle(0,1,2);vh.AddTriangle(0,2,3);
     }
 }

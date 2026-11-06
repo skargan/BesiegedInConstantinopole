@@ -28,7 +28,7 @@ public static class CharacterChatter
     }
     static double Until(string actor)=>Read(actor,"UntilSeconds")+Read(actor,"UntilMillis")/1000.0;
     public static int Count(string actor){Ensure(actor);return Read(actor,"Count");}
-    public static bool Spent(string actor,double? now=null){Ensure(actor);return Read(actor,"Count")>=DailyLimit||(now??Now)<Until(actor);}
+    public static bool Spent(string actor,double? now=null){if(Read(actor,"Day")!=TrainingPool.Day(VariableSingleton.GetDate()))return false;return Read(actor,"Count")>=DailyLimit||(now??Now)<Until(actor);}
     public static string Current(string actor,string[] lines,string farewell)
     {
         Ensure(actor);int shown=Read(actor,"Shown");

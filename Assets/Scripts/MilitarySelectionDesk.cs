@@ -21,6 +21,12 @@ public sealed class MilitarySelectionDesk:MonoBehaviour
         ImperialTheme.Panel(view.pane.gameObject,false);view.Draw();
     }
     public static readonly string[] Art={"training-infantry","training-archers","training-cavalry","training-varangians","training-cannons","shipyard"};
+    public static void ShowUnit(ManagerUI owner,int unit)
+    {
+        owner.BringUpTroopsUI();
+        var desk=FindObjectsOfType<MilitarySelectionDesk>().FirstOrDefault(d=>d.manager==owner);
+        if(desk!=null){desk.selected=Mathf.Clamp(unit,0,4);desk.Draw();}
+    }
     void Draw()
     {
         SceneBackdrop.Apply(gameObject,Art[selected]);
