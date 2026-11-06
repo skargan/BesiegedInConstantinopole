@@ -7,6 +7,14 @@ import json, re, hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+import argparse
+parser=argparse.ArgumentParser(description="Extract historical messages to a new evidence file.")
+parser.add_argument('--output', required=True)
+args=parser.parse_args()
+OUTPUT=Path(args.output).resolve()
+if OUTPUT.exists():
+    parser.error('Output already exists; preserve original evidence and choose a new path.')
+OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 IDS = {'01a0a8e2-b837-7953-bbb3-acf52c000d0c':'ConstantineX',
        '01a15e50-9560-7403-9c1d-159fb220af65':'JohanX',
        '6ae9c0d1-fbfc-83eb-baf4-0595d0c4a746':'OrbanX'}
@@ -60,6 +68,6 @@ for source in SOURCES:
                 records.append(record);seen[key]=record
 records.sort(key=lambda r:r['timestamp'] or '')
 out={'coverage':{'sources':[str(s) for s in SOURCES],'method':'Original send_message_to_thread tool-call prompts, restricted to named workstream IDs. Verbatim message body; transport timestamps in UTC. Identical sender, recipient and text merged with every occurrence retained. Delivery acknowledgement is not inferred.','gaps':'OrbanX original session is not available in these local archives. Incoming-only deliveries and nonliteral dynamic prompts are not guaranteed captured. Other conversations and internal subagents are outside this archive.','unique_messages':len(records),'duplicate_occurrences':duplicate_count,'unparsed_calls':len(unresolved)},'messages':records,'unresolved':unresolved}
-(ROOT/'agent_coordination_messages.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf8')
+OUTPUT.write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf8')
 print(json.dumps(out['coverage'],ensure_ascii=False,indent=2))
 for r in unresolved:print('UNRESOLVED',r['timestamp'],r['code'][:300])

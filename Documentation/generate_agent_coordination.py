@@ -6,7 +6,14 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 HERE=Path(__file__).resolve().parent
-OUT=HERE.parent
+import argparse
+parser=argparse.ArgumentParser(description="Reproduce legacy coordination exports; not canonical project state.")
+parser.add_argument('--legacy-export-dir', required=True)
+args=parser.parse_args()
+OUT=Path(args.legacy_export_dir).resolve()
+if OUT == HERE.parent.resolve():
+    parser.error('Choose an archival output directory, not the repository root.')
+OUT.mkdir(parents=True, exist_ok=True)
 c=json.loads((HERE/'agent_coordination_content.json').read_text(encoding='utf8'))
 a=json.loads((HERE/'agent_coordination_messages.json').read_text(encoding='utf8'))
 d=Document(); s=d.sections[0]
