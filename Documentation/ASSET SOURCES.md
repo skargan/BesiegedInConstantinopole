@@ -105,3 +105,7 @@ Original OpenAI-generated local geographic painting, final edit exec-5dbb6937-89
 
 ## Expanded Theodoro encounter - 6 November 2026
 Four original generated scenes, source filenames, reference, import settings and fiction boundaries: [Theodoro handover](THEODORO-EXPANDED-HANDOFF.txt). Revised Maria costume follows the user-supplied burial-shroud reference. Integrated and checked in private Windows preview; public Version44 unchanged.
+
+
+## Fortress Stadia — 7 November 2026
+Generated with built-in image_gen. File: Assets/Resources/UI/Maps/VicinityLocations/stadia.png. Prompt: compact late Byzantine coastal castle, three unequal towers linked by crenellated walkways on a seaside rock, bird’s-eye view, countryside and distant minaret-free Constantinople, small seagull, warm painterly realism; right quarter reserved for location panel. Fictionalised Director-approved reconstruction, not an archaeological reconstruction. Source generation: exec-aec96969-e967-453b-a7eb-f70acb832945.png.
