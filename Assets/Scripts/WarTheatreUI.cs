@@ -139,6 +139,7 @@ public class WarTheatreUI : MonoBehaviour
         return DisplayName(WarTheatre.DiplomaticPower(region));
     }
     public static string TerritorySummary(WarTheatre.Region region){
+        if(region.kind=="island"&&!string.IsNullOrEmpty(region.summary))return region.summary;
         if(region.id=="sicily")return "Sicily guards the passage between the western and eastern Mediterranean. Alfonso rules the island through a viceroy, while its barons defend privileges distinct from those of his mainland kingdom.";
         if(region.id.StartsWith("sardinia"))return "Sardinia lies across the western sea, its ports and fortresses held for the Crown of Aragon. Alfonso’s authority binds the island to his other realms, but its institutions and troubled history remain its own.";
         if(region.id=="naples")return "From Naples, Alfonso governs a mainland kingdom won by war and a court enriched by Mediterranean trade. His ambitions reach beyond Italy, while Sicily and Sardinia remain separate kingdoms beneath the same crown.";
