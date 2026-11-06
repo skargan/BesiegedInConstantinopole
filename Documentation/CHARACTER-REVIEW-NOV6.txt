@@ -8,7 +8,7 @@ Approved introduction from writing block 73528 replaces GardenConversations.Intr
 GENNADIOS - APPROVED WRITING, NOT IMPLEMENTED
 Writing block 59264, three-paragraph Tell Me About Yourself, accepted.
 Dogmatic, grim, determined; formidable scholar and monk. Not yet patriarch.
-Both Gennadios and Isidore present from campaign start; no separate arrival events.
+SUPERSEDED BY LATER USER APPROVAL: Gennadios present from campaign start; Isidore first available in October through The Cardinal Returns. See CARDINAL-OCTOBER-ARRIVAL.txt. The earlier both-present-from-start proposal no longer applies to Isidore.
 Union outcomes: full acceptance exiles Gennadios; rejection exiles Isidore; symbolic acceptance and Faith/Unity wartime compact retain both as bitter opponents.
 
 TO BE DEVELOPED - NOT SCHEDULED

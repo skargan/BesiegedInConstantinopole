@@ -822,7 +822,7 @@ public partial class CouncilUI : MonoBehaviour
 
         bool shahServing=SultanGifts.Known && (DailyLifeEvents.I("iShahStatus")==4 || DailyLifeEvents.I("iShahStatus")==7);
 
-        int count=0;for(int i=0;i<8;i++)if(CourtRoster.InService(i)||KjoldCourtOrders.Sentenced(i))count++;
+        int count=ChurchCourt.GennadiosAvailable?1:0;for(int i=0;i<8;i++)if(CourtRoster.InService(i)||KjoldCourtOrders.Sentenced(i))count++;
         bool showKjold=DailyLifeEvents.I("iKjoldState",1)==1;
         bool sentencedShah=KjoldCourtOrders.Sentenced(KjoldCourtOrders.Storyteller);
         bool sentencedVisitor=CharacterPreparations.Invited&&KjoldCourtOrders.Sentenced(CharacterPreparations.CommanderId);
@@ -848,6 +848,7 @@ public partial class CouncilUI : MonoBehaviour
 
         }
 
+        if(ChurchCourt.GennadiosAvailable){var row=Row(position++,230);CampaignHUD.Label(row.transform,"Gennadios Scholarios · Loyalty "+DailyLifeEvents.I("iLoyalty203")+" / 100",new Vector2(.04f,.64f),new Vector2(.96f,.94f),27);CampaignHUD.Explanation(row.transform,"Monk and scholar · opponent of Church Union",new Vector2(.04f,.40f),new Vector2(.96f,.63f),23);CampaignHUD.MakeButton(row.transform,"Speak",new Vector2(.60f,.08f),new Vector2(.96f,.36f),()=>GardenTalk(ChurchCourt.Gennadios,0));}
         if(sentencedShah)CourtSentenceRow(KjoldCourtOrders.Storyteller,position++);
         else if(shahServing) {var row=Row(position++,230);IllustratedIdentity.Portrait(row.transform,201);CampaignHUD.Label(row.transform,"Shaherezade — "+SultanGifts.Status+"\n\n"+SultanGifts.Note,new Vector2(.20f,.08f),new Vector2(.97f,.94f),25);}
         if(showKjold)CourtKjoldRow(position++);

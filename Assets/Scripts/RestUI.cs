@@ -45,6 +45,7 @@ public class RestUI : UIWindowFam
             eventPhaseUI.GetComponent<EventUI>().SetStartNode(milestone);
             SwitchPhase(eventPhaseUI);return;
         }
+        if(ChurchCourt.ArrivalDue){eventPhaseUI.GetComponent<EventUI>().SetStartNode(ChurchCourt.ArrivalNode);SwitchPhase(eventPhaseUI);return;}
         if(PreparationCampaign.Active&&PreparationCampaign.Flexible(VariableSingleton.Turn)) {
             PreparationMenu.Show(transform,node=>{eventPhaseUI.GetComponent<EventUI>().SetStartNode(node);SwitchPhase(eventPhaseUI);});return;
         }

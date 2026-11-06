@@ -239,3 +239,17 @@ title: giovanniThrone
     <<SetInt iDeposed 1>>
     You are deposed. Your reign ends; Giovanni’s seizure of the throne does not promise that the City will survive.
 ===
+
+title: cardinalReturns
+---
+<b>The Cardinal Returns</b>: Cardinal Isidore has returned to Constantinople. His servants carry his baggage through the palace gates, and news of his arrival travels considerably faster.<br><br>A Greek churchman and a cardinal of Rome, Isidore has spent years working towards reconciliation between the churches. He believes the agreement reached at Florence offers a way to restore Christian unity—and secure assistance for the City.<br><br>Gennadios Scholarios remains its most determined opponent. A scholar, monk and former imperial official, he regards the proposed settlement as a surrender of the faith the empire is supposed to defend. He has already asked whether the Cardinal intends to appear before you in Latin dress.<br><br>Before long, you will have to decide how the Union is to be received in Constantinople. For now, there is still time to speak with both men.
+-> Go personally to welcome Cardinal Isidore. Isidore loyalty +5; Gennadios loyalty -5.
+    <<CardinalReception 0>>
+    You meet Isidore before his servants have finished unloading. "Majesty. You honour me." For a moment, the Cardinal appears to forget the formal greeting he had prepared. He takes your offered hand with both of his. Gennadios hears of the reception before the afternoon is out. He makes no public comment.
+-> Keep Isidore outside the palace gates until he changes into Orthodox robes. Isidore loyalty -5; Gennadios loyalty +10.
+    <<CardinalReception 1>>
+    Your instructions reach the Cardinal at the entrance. He listens without interrupting, then asks that his baggage be opened. When he is finally admitted, he wears the robes of a Greek churchman. His greeting is courteous and brief. Gennadios expresses his approval. "It is well that he should remember the Church from which he came."
+-> Leave his reception to the palace officials. No effects.
+    <<CardinalReception 2>>
+    Rooms are prepared, baggage is carried inside, and the Cardinal is informed that you will receive him when your duties permit. By evening, both Isidore and Gennadios are requesting an audience.
+===

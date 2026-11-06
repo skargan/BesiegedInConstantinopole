@@ -16,6 +16,7 @@ public static class EventOutcome
 
     private static readonly Dictionary<string,string> Names = new Dictionary<string,string> {
 
+        {"iLoyalty7","Isidore loyalty"},{"iLoyalty203","Gennadios loyalty"},
         {"iCampAlert","Enemy camp alert (points)"},{"iIncome","Daily merchant levy (gold)"},{"fSultanRage","Sultan's fury"},{"iEnemyDelay","Enemy operations delayed (days)"},{"iTurkCannons","Ottoman cannons"},{"iTurkSpies","Ottoman spies in Constantinople"},{"iPopulation","City population"},{"iMoney","Gold"},{"iInfantry","Infantry"},{"iArchers","Archers"},{"iCavalry","Cavalry"},
 
         {"iVarangians","Varangian Guard"},{"iShips","Ships"},{"iCannons","Cannons"},{"iProvisions","Provisions"},{"iMaterials","Materials"},
@@ -59,6 +60,7 @@ public static class EventOutcome
         foreach(var v in after.ints)
 
         {
+            if(v.key=="iCardinalReceptionDone"||v.key=="iGennadiosPresent")continue;
             if(v.key==SharedProvisions.City||v.key==SharedProvisions.Camp)continue;
             if(v.key.StartsWith("iProvision")&&v.key!="iProvisions")continue;
 

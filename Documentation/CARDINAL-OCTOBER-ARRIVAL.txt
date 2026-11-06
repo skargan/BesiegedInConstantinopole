@@ -1,0 +1,29 @@
+THE CARDINAL RETURNS - OCTOBER IMPLEMENTATION
+6 November 2026 - JohanX
+
+Latest explicit user instruction supersedes the earlier both-present-from-start proposal: Isidore first becomes available in October 1452. Gennadios is present from the beginning. The separate long October debate remains deferred and consumes no preparation slot.
+
+Runtime flow
+- Before October's selectable preparation, cardinalReturns runs once.
+- Personal greeting: Isidore +5 loyalty; Gennadios -5.
+- Require Orthodox robes: Isidore -5 loyalty; Gennadios +10.
+- Palace officials receive him: no loyalty effects.
+- All choices make Isidore available. No additional gold, support or calendar cost.
+- The outcome continues into the same October preparation menu. The chosen preparation then advances to November normally.
+- Receipt flag, character presence and loyalty use existing saved campaign state. Replay cannot grant the reception effects again.
+- Current Union illustration reused; no new art generated or unclean sprite installed.
+
+Gennadios identity 203
+Distinct from enemy 8, Kjold 200 and other existing characters. Starts with 50 loyalty. Court row and approved three-paragraph introduction available; location pool includes him without duplicate daily placement. Isidore and Gennadios alternate priority for Hagia Sophia after arrival.
+No invented commander or specialist bonus. The draft full sprite still requires edge cleanup and is deliberately outside Assets.
+
+December Union
+The existing fixed milestone remains 12 December 1452.
+Full Union removes Gennadios; other routes retain him. Existing Isidore choices remove him on rejection and retain him for symbolic/full/compact decisions. Gennadios sermons are suppressed while he is absent, preventing an exiled character appearing in those city events.
+
+Verification
+All runtime C# compiled and private Unity export succeeded.
+Private-player fixture CardinalArrivalCapture checks due date, service gates, three exact loyalty pairs, no repeat, no economy/time/RNG side effects, save/load, Union fates, actual Yarn options, return to October preparation and advancement to November at 1280x720 and 1600x900.
+Fixture development errors concerned selection by unordered option inventory and the nested prepPass confirmation. Corrected fixture selects actual option text and confirms Let the month pass. These were not gameplay fixes.
+Final result: 82 private-player checks passed. Actual 1280x720 and 1600x900 reception, court and biography screenshots captured; reception at 1280, court at 1280 and biography at 1600 visually inspected. Builds/TheodoroPreview/Captures/CardinalArrival contains final results. Earlier fixture failure retained outside the final results folder in workspace/cardinal-next.
+Published Version42 unchanged. Private build only; include in a future authorised publication.

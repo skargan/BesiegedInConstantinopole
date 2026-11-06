@@ -938,6 +938,13 @@
       "source": "User supplied codex-clipboard-291a0024-2029-41d5-92de-32cdd4de7b06.png",
       "fit": "contain",
       "focusY": 0.5
+    },
+    {
+      "node": "cardinalReturns",
+      "path": "EventArt/Covers/story1",
+      "source": "Reuse existing Union church artwork for Cardinal reception",
+      "fit": "contain",
+      "focusY": 0.5
     }
   ]
 }

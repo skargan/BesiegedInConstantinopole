@@ -41,6 +41,7 @@ public class EventUI : UIWindowFam
     public void ResumeCheckpoint(string node,string heading,string body){Node=node;completed=true;resumed=true;CampaignHUD.Instance.ShowReport(heading,body,ContinueToAssault);MarkCalendarProgression();}
     void MarkCalendarProgression()
     {
+        if(Node==ChurchCourt.ArrivalNode)return;
         // Follow-up dialogue is still part of this decision; only the final report progresses time.
         if((PreparationCampaign.Followup(Node)??SupplyEconomy.PendingNode??PoliticalDemands.PendingNode??SultanGifts.PendingNode)!=null)return;
         CampaignHUD.Instance.MarkReportAdvance(VariableSingleton.HasSiegeStarted()?"Proceed to the Ottoman siege activity.":"Proceed to the next month.");
@@ -59,6 +60,7 @@ public class EventUI : UIWindowFam
         if(CampaignHUD.Instance.HasModal) return;
         string followup=PreparationCampaign.Followup(Node) ?? SupplyEconomy.PendingNode ?? PoliticalDemands.PendingNode ?? SultanGifts.PendingNode;
         if(followup!=null && runner!=null) {if(resumed){resumed=false;SetStartNode(followup);gameObject.SetActive(true);}else{BeginEvent(followup);runner.StartDialogue(followup);}return;}
+        if(Node==ChurchCourt.ArrivalNode && PreparationCampaign.Active && VariableSingleton.Turn==9 && runner!=null){PreparationMenu.Show(transform,node=>{resumed=false;BeginEvent(node);runner.StartDialogue(node);});return;}
         if(VariableSingleton.HasSiegeStarted()) SwitchPhase(assaultUI);
         else {VariableSingleton.IncrementTurn();SwitchPhase(managerUI);}
     }

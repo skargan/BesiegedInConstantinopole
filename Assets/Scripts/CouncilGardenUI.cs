@@ -7,6 +7,7 @@ public partial class CouncilUI
     {
         if(person==GardenConversations.Kjold){KjoldTalk(topic==0?0:topic==1?2:1);return;}
         if(!GardenConversations.Available(person)){Location(conversationLocation);return;}
+        if(person==ChurchCourt.Gennadios){Open("Gennadios Scholarios","Tell me about yourself");ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);FitConversation();ConversationText(ChurchCourt.Biography,new Vector2(.04f,.05f),new Vector2(.96f,.97f));return;}
         Open(GardenConversations.Name(person),new[]{"In the Palace","In the palace garden","In Hagia Sophia"}[conversationLocation]);ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);FitConversation();
         CharacterPortraits.Draw(body,person,new Vector2(.025f,.35f),new Vector2(.29f,.97f));
         string text=topic==0?GardenConversations.Introduction(person):topic==1?GardenConversations.Siege(person):GardenConversations.Advice(person);

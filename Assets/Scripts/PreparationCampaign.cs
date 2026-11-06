@@ -40,6 +40,7 @@ public static class PreparationCampaign
     public static string Followup(string node)=>Active&&node=="story5"?"story4":null;
     public static void Complete(string node)
     {
+        if(node=="story1")ChurchCourt.ResolveUnion();
         if(node=="story1")DecisionJournal.Record("union-of-florence","Union of Florence",I("iReligion")==1?"The Emperor implements the Union of Florence.":I("iReligion")==2?"The Emperor accepts the Union of Florence symbolically, without enforcing it.":"The Emperor rejects the Union of Florence and retains Orthodox observance.",true);
         int index=Array.IndexOf(Nodes,node);
         if(index>=0&&I("iPrepDone"+index)==0){VariableSingleton.SetInt("iPrepDone"+index,1);if(node=="story14" && I("iCommander")>=0)VariableSingleton.ChangePercentFloat("fTroopRep",.10f);}
@@ -55,6 +56,7 @@ public static class PreparationCampaign
         VariableSingleton.SetInt("iGalataDefences",100);VariableSingleton.SetInt("iArmySupport",50);
         for(int i=0;i<Nodes.Length;i++)VariableSingleton.SetInt("iPrepDone"+i,0);
         for(int i=0;i<CourtRoster.Keys.Length;i++)VariableSingleton.SetInt("iLoyalty"+i,50);
+        if(!legacy)ChurchCourt.Initialize();
         for(int i=26;i<=32;i++)VariableSingleton.SetInt("iGalataEvent"+i,0);
     }
     public static string Advance()
