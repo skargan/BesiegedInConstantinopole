@@ -1,0 +1,29 @@
+CHARACTER REVIEW DECISIONS - 6 NOVEMBER 2026
+Authority: explicit user instructions; supplements Characters and Their Stories.docx until the next document consolidation. Do not treat the earlier document as overriding these later decisions.
+
+SPHRANTZES - APPROVED AND SOURCE IMPLEMENTED
+Diplomat; loyal to the imperial family and emperor; personal confidant; less power than Notaras and more diplomatically focused.
+Approved introduction from writing block 73528 replaces GardenConversations.Introduction(4), adding governed cities Patras, Selybria and Mystras. No foreign-court list added. Marriage reference retained without elaboration. No loyalty or mechanics changes.
+
+GENNADIOS - APPROVED WRITING, NOT IMPLEMENTED
+Writing block 59264, three-paragraph Tell Me About Yourself, accepted.
+Dogmatic, grim, determined; formidable scholar and monk. Not yet patriarch.
+Both Gennadios and Isidore present from campaign start; no separate arrival events.
+Union outcomes: full acceptance exiles Gennadios; rejection exiles Isidore; symbolic acceptance and Faith/Unity wartime compact retain both as bitter opponents.
+
+TO BE DEVELOPED - NOT SCHEDULED
+An Agreement Without Peace (October debate), writing block 59265: accepted as a draft to retain for later, expressly NOT to consume a current preparation event slot. Revisit only when preparation can accommodate more narrative events. Not an arrival event.
+Courtiers Play Chess: recurring random event selecting two serving courtiers; repeatable, artwork eventually required. No mechanics, results, cooldowns or implementation approved yet.
+
+ISIDORE - USER EDITED CANONICAL TEXT
+Writing block 41875, complete user-edited snapshot supplied in ten parts, supersedes original faith explanations. Preserve original user wording, including Persian loss-of-civilisation interpretation from Byzantine viewpoint. Do NOT silently replace with the assistant's suggested ancient-empire phrasing.
+Muslim history replacement: Their religion arose in Arabia through Muhammad, whom they regard as God's messenger. Within a few generations, Muslim rulers had conquered provinces from both us, when the Rome stretched from Alexandria to Caffa and the Persians, when they still had their own civilisation. Since then, their world has produced many kingdoms, schools of learning and disputes of its own. Mehmed is a powerful Muslim ruler. He is not the ruler of every Muslim, and we would be foolish to conduct our diplomacy as though he were.
+Muslim relations replacement includes: Christian and Jewish communities live under Muslim rulers, commonly with recognised but unequal standing, paying jizya tax and restrictions which differ according to place and ruler.
+Jewish theology paragraph: delete But disagreement should be described accurately. The rest remains as edited by user.
+The accepted edited passage is character-perspective dialogue, not a claim that Persian culture ceased to exist. No additional editorial correction authorised.
+
+LOYALTY AUDIT - CURRENT SOURCE
+Core roster initial values 50/100, clamped 0..100. Visiting adventurer 50. Orhan household event sets 0 on execution, 50 for limited command, 90 for protected households/battalion/screened service.
+General specialist and commander bonuses do not scale with loyalty. General conversations currently inspect/read or store a reply, without loyalty rewards.
+Conditional exception: during siege, Giovanni in service and autonomous Galata, loyalty <=30 enables warning; <=20 after warning enables throne crisis. Existing event choices can buy settlement, imprison him or end reign by deposition.
+General betrayal/dismissal/desertion, high-loyalty benefit scaling and commander-replacement loyalty penalties were not found implemented. New Orban/Notaras/Isidore dialogue loyalty effects remain approved/planned, not implemented.
