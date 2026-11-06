@@ -6,7 +6,7 @@ Owner: ConstantineX. User clarified that this request concerns War Beyond the Wa
 
 The original user attachment `codex-clipboard-a569f691-4c29-40a8-908e-5c1c2794d30a.png` was recovered from this chat's original image content after its temporary path disappeared. It marks the Adriatic hinterland, western Greece, Chalkidiki, western Anatolian promontories and the Antalya/Karaman coastal boundary in red. The written requests also cover Constantinople's position, Morea's coast, Hungary/Wallachia/Moldavia, splitting Anatolikon and Armeniakon, merging Lydia/Thrakesion, and grouped maritime dependencies.
 
-The screenshot is a review reference, not an authoritative historical survey. Its recovery does not establish that there were no additional maps in other chats. The user has been asked whether later hand-drawn references are also intended; that reconciliation remains pending their answer.
+The user confirmed that this is the intended set of corrections. The recovered image is retained as [the annotated regional reference](MapReferences/user-annotated-regional-corrections.png). It is a review reference, not an authoritative historical survey.
 
 ## Current authoritative integration
 
@@ -27,4 +27,4 @@ Checked `Assets/Resources/Content/WarTheatre.json`, loaded by `WarTheatre.Data`,
 
 These revisions were already in the authoritative map data. No old staging JSON was copied over newer Candar, Rhodes, Italian, Crimean or Lithuanian additions. No territory resources, province IDs, diplomatic identities or ownership rules were changed in this pass. Existing historical grounding and previous geometry work are recorded in `Cartography revision 36.5.txt`, `Cartography revision 36.9.txt` and `Historical map and diplomacy sources 36.13.txt`.
 
-The map remains an interpreted gameplay map. Do not present this audit as proof of exact historical boundaries or a newly completed comprehensive cartographic redraw. If later annotated maps are supplied or located, apply their remaining differences to the current catalogue, preserving subsequent approved additions.
+The map remains an interpreted gameplay map. Do not present this audit as proof of exact historical boundaries or a newly completed comprehensive cartographic redraw. For future annotated maps, apply remaining differences to the current catalogue, preserving subsequent approved additions. The current requested set needs no replacement geometry: its corrections are already integrated.
