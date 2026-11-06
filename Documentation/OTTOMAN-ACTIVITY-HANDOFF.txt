@@ -1,0 +1,51 @@
+OTTOMAN SIEGE ACTIVITY — JOHANX — 6 NOVEMBER 2026
+
+Ready in shared source and private TheodoroPreview player. Not part of published Version43. No version label changes; publication belongs to ConstantineX.
+
+Presentation
+- Full original painted background below the resource bar, compact right-hand navy/gold report panel.
+- Three illustrations: quiet watch and tower construction; assault over the filled moat; Varangian repelling a Janissary on the battlements. The last depicts an intact opponent, not bisection.
+- Each opening selects another illustration without an immediate repeat. A separate System.Random stream avoids consuming Unity campaign/combat randomness. Artwork is atmospheric and not a literal claim about today's operation.
+- Calm tower site and both combatants were repositioned in generation so they remain visible beside the panel.
+- Report text scrolls independently when long; work status and action remain visible.
+- Action is Continue on non-assault days and Prepare the defence on assault days. Existing button listeners and simulation routes are preserved.
+
+Read-only values
+- fSiegeRamp: completion, clamped 0–100%.
+- bSiegeTower / bBatteringRam / iOttArrowScreens: Ready or Not built. These systems do not currently track partial construction; no artificial intermediate percentages were added.
+- iOttHornWorks: overland slipway completion.
+- iOttChainDamage: damage inflicted on the anchorage.
+- fMoat: remaining moat protection, explicitly labelled so it cannot be mistaken for Ottoman construction completion.
+Completed/ready works stay listed. Destruction or clearing follows existing state; this is not a historical ledger of previously destroyed engines.
+
+Exact changed files, excluding generated Unity .meta companions
+Assets/Scripts/AssaultUI.cs
+Assets/Scripts/OttomanActivityView.cs
+Assets/Scripts/OttomanActivityCapture.cs
+Assets/Scripts/UI/Editor/BuildOttomanReportPreview.cs
+Assets/Resources/UI/SiegeActivity/calm-watch.png
+Assets/Resources/UI/SiegeActivity/moat-assault.png
+Assets/Resources/UI/SiegeActivity/varangian-defence.png
+Documentation/OTTOMAN-ACTIVITY-ART-PROMPTS.txt
+Documentation/OTTOMAN-ACTIVITY-HANDOFF.txt
+
+Verification
+- Standalone C# compiler passed.
+- Unity private Development export passed using BuildOttomanReportPreview.Build.
+- Final player flag: -ottoman-activity-capture
+- 121 checks passed, isolated save directory; no player saves used.
+- Actual 1280x720 and 1600x900 checked, fixed captions fit and heading stays below top bar.
+- Three artwork resources loaded at each size, report remains right of centre.
+- Independent art selection reaches all variants, avoids immediate repeats and changes neither campaign state nor gameplay RNG.
+- Long report reaches the bottom within RectMask2D and retains the fixed work/action sections.
+- Actual Continue listener advances one day and returns council.
+- Actual assault listener opens the existing PhasedAssaultUI with the existing pending encounter and does not advance time.
+- Screenshots visually inspected for header, scene composition, readable status rows and long-report clipping.
+
+Evidence under Builds/TheodoroPreview/Captures/OttomanActivity:
+checks.txt
+1280-calm-watch.png / 1280-moat-assault.png / 1280-varangian-defence.png
+1600-calm-watch.png / 1600-moat-assault.png / 1600-varangian-defence.png
+1600-long-report.png
+
+Simulation, scheduler, enemy costs, preparation rates, assault calculations, map, diplomacy and release metadata were not changed.

@@ -14,6 +14,7 @@ public class AssaultUI : UIWindowFam
     private TMP_Text stages,losses;
     private bool wallHeld;
     private bool finished;
+    private OttomanActivityView activityView;
     private System.Collections.Generic.List<TMP_Text> reportFields=new System.Collections.Generic.List<TMP_Text>();
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class AssaultUI : UIWindowFam
     {
         foreach(var text in reportFields) text.text="Ottoman action — siege day "+VariableSingleton.SiegeDay+"\n\n"+AI.Instance.LastReport;
         if(enemyActionText!=null) enemyActionText.text=AI.Instance.LastReport;
+        if(activityView!=null)activityView.Refresh();
     }
 
     public void ContinueToEmperorAction()
@@ -57,6 +59,7 @@ public class AssaultUI : UIWindowFam
     public void SetAssaultResultButton(bool wallsHeld) { wallHeld = wallsHeld; }
     public void ShowResult()
     {
+        if(activityView!=null)activityView.Hide();
         procedeToAssaultResult.gameObject.SetActive(false);
         if (!AI.Instance.WasAssault) { ContinueToEmperorAction(); return; }
         if(AI.Instance.HasPendingPhased){PhasedAssaultUI.Open(AI.Instance.PendingPhased,transform.parent);return;}
@@ -66,6 +69,7 @@ public class AssaultUI : UIWindowFam
     public void WallsHeld() { AssaultAftermathUI(); }
     public void WallsOverwhelmed()
     {
+        if(activityView!=null)activityView.Hide();
         if (!AI.Instance.WasAssault) { ContinueToEmperorAction(); return; }
         wallsOverwhelmedChoice.SetActive(true);
         foreach (var button in wallsOverwhelmedChoice.GetComponentsInChildren<Button>(true))
@@ -75,6 +79,7 @@ public class AssaultUI : UIWindowFam
     }
     public void AssaultAftermathUI()
     {
+        if(activityView!=null)activityView.Hide();
         if (!AI.Instance.WasAssault) { ContinueToEmperorAction(); return; }
         wallsHeldMessage.SetActive(false);
         wallsOverwhelmedChoice.SetActive(false);
@@ -86,8 +91,10 @@ public class AssaultUI : UIWindowFam
     public void DecideVarangianDeployment() { AI.Instance.BreachingAssaultAftermath(DeployVarangiansDecision); }
     private void OnEnable()
     {
-        ImperialTheme.LegacySurface(gameObject);
-        foreach(var image in GetComponentsInChildren<Image>(true))if(image.GetComponent<Button>()==null && (image.sprite==null || (image.color.r>image.color.b*1.2f && image.color.g>.15f && image.color.a>.3f)))ImperialTheme.Panel(image.gameObject);
+        if(activityView==null){
+            ImperialTheme.LegacySurface(gameObject);
+            foreach(var image in GetComponentsInChildren<Image>(true))if(image.GetComponent<Button>()==null && (image.sprite==null || (image.color.r>image.color.b*1.2f && image.color.g>.15f && image.color.a>.3f)))ImperialTheme.Panel(image.gameObject);
+        }
         finished = false;
         wallsHeldMessage.SetActive(false);
         wallsOverwhelmedChoice.SetActive(false);
@@ -97,5 +104,11 @@ public class AssaultUI : UIWindowFam
         if(!AI.Instance.WasAssault)TurnActionButton.Mark(procedeToAssaultResult,"Proceed to the next day.");else TurnActionButton.Unmark(procedeToAssaultResult);
         if(!AI.Instance.HasPendingPhased&&!AI.Instance.AwaitingBreachDecision)SaveGames.Checkpoint("advance",null,"Ottoman siege activity",AI.Instance.LastReport);
         RefreshReport();
+        if(activityView==null){
+            var rect=GetComponent<RectTransform>();rect.anchorMin=Vector2.zero;rect.anchorMax=new Vector2(1,.88f);rect.offsetMin=rect.offsetMax=Vector2.zero;
+            var background=GetComponent<Image>();if(background!=null){background.sprite=null;background.color=Color.black;}
+            activityView=new OttomanActivityView(transform,procedeToAssaultResult);
+        }
+        activityView.Show(AI.Instance.WasAssault);
     }
 }
