@@ -47,9 +47,18 @@ Detailed current authorities: [journal](Documentation/JOURNAL-ADMINISTRATION-AND
 
 ## 4. Style and Quality Standards
 
-Preserve approved wording before optional editing. Distinguish user-approved characterization from generated proposals and historical evidence. Avoid generic prose and needless player-facing caveats. Show meaningful costs and commitments before confirmation, outcomes afterwards.
+The Director approved the interface-economy rules on 6 November 2026; see AGENTS.md section 5 for the general policy. Apply them within Midnight Mosaic's established visual language.
 
-Preserve Midnight Mosaic visual conventions, compact controls and room for artwork. Trace the actual visible silhouette, including clothing, arms and held objects; share the same contour between hover and hit testing. Do not substitute coarse rectangles or ellipses for requested tracing. Inspect against the displayed artwork.
+| Information or change | Placement and review rule |
+| --- | --- |
+| Sources, historical context, methodology | Check existing realm/history/help/reference sections first. Extend the appropriate section; link only where useful. Keep decision-critical qualifications next to the choice. Do not add a new explanatory panel merely because more source material exists. |
+| Main screens | Essential state and actions; remove redundant control instructions, production caveats and irrelevant negatives such as 'No war commitment' for a court without war options. |
+| Orders | Costs and commitments before confirmation; outcomes afterwards. Avoid repeating the same explanation in title, body, button and footer. |
+| Additional options | Reuse spacing, typography and shared controls. Consolidate repeated actions where useful. Preserve all functionality; assess readability and art visibility before accepting a layout change. |
+| Writing | Preserve approved voice, humour and context. Correct unclear references without replacing the text with generic aphorisms. Reactive dialogue must follow from the actual question, report and known state. |
+| Artwork | Reserve character/object space and protect focal landmarks. Match perspective, lighting and scale; inspect at actual display sizes. |
+
+Trace the actual visible silhouette, including clothing, arms and held objects; share the same contour between hover and hit testing. Do not substitute coarse rectangles or ellipses for requested tracing. Inspect against the displayed artwork.
 
 Use immersive second-person present where established; distinguish documented history, interpretation and deliberate alternatives internally. Preserve material/geographic constraints (Golden Horn/Galata/Marmara, distinct wall systems). Do not invent consultation or claim every proposed event is live. No universal two-outcome rewrite: preserve existing event structures and approved exceptions. Profile measured bottlenecks; use deterministic tests for logic and human visual/experiential review for feel. Test unreachable conditions, duplicate rewards, underflow, softlocks and dominant strategies proportionately.
 
@@ -126,4 +135,13 @@ For game releases, retain actual source revision, checks, package identity and p
 
 The Director and ConstantineX authorised cutover on6November; no source/build work was active. Original Word/text/JSON evidence remains unchanged; archival branch preserves the full pre-cutover tree. Preserve unrelated `.vscode/settings.json` and `Tools/__pycache__/` in consolidation. ConstantineX resumes current-state maintenance and development on the new branch after handover.
 
-Biševo is design-stage only: one-time monastery pirate ransom encounter (5,000gold or envoy death), empty ruins on later visits; envoy eligibility awaits the Director. Do not implement an invented eligibility rule. No numbered game publication was performed by documentation migration.
+This is ConstantineX — 6 November 2026 — BLUF: the approved combined Biševo composition is retained and its encounter is implemented in a private preview. No numbered publication.
+
+Biševo: island-only entry, shore/sanctuary/Blue Cave/monastery scenes, separate pirate sprite. A warship is required to enter the monastery. First entry reserves a free envoy if available; pay 5,000 gold or lose that envoy. Without a free envoy, pay or lose one warship. Never substitute a ship for an envoy. Pending hostage state persists; resolved visits are empty. Sanctuary discovery awards one secret once per campaign and records it in the journal. Existing campaign integer/save infrastructure is authoritative.
+
+Verification checkpoint: final private Windows preview compiled successfully and passed 87 focused runtime assertions, including the resume-screen hook, with screenshots at 1280×720 and 1600×900. Landing, pirate, sanctuary and Blue Cave presentation were visually inspected; all five source images were inspected. Hungary/Croatia polygons have been merged with equal-area and valid-geometry checks to remove their internal seam; visual map verification remains pending.
+
+Remaining queue: trace remaining Venetian Adriatic islands and visually verify the merged Hungarian border; reconcile outstanding work against actual source before expanding scope. Public/Desktop43 is unchanged. Asset provenance and historical-fiction boundary are recorded at the end of ARCHIVE.md.
+
+
+This is ConstantineX — 6 November 2026 — BLUF: cursor proportions corrected and connected to the active point/grip resource. Shorter index finger, existing black leather/aged gold/blue cuff retained; fingertip click pivot realigned. Private Windows build and 12 cursor assertions passed, actual-size/enlarged captures inspected. Source artwork provenance in ARCHIVE.md. Desktop/public43 unchanged. This narrow cursor request does not complete the remaining Adriatic map queue.

@@ -69,9 +69,15 @@ Report each verification stage separately. Never claim a successful build, playt
 
 When changing persistent state, examine save/load behaviour and downstream consequences. Presentation changes must not silently change simulation outcomes or consume authoritative gameplay randomness.
 
-For creative work, preserve the established writing style, visual identity and intended audience experience. Prioritise clarity, originality, internal consistency and meaningful consequences. Avoid generic content, repetitive explanations and excessive interface complexity.
+### Creative direction and interface economy
 
-Player-facing information should communicate decision-critical costs, commitments and consequences without unnecessary caveats. Detailed provenance and technical uncertainty belong primarily in internal documentation.
+- Present the world, the choice and its consequences. Avoid unnecessary contrastive explanations ("X, not Y") and exclusions unless a plausible misunderstanding would materially affect a decision. Trust clear visual cues, genre and established interactions.
+- Before adding context, sources or instructions, find their existing home: methodology, references, history, help or optional detail. Update that section and provide a concise route to it where useful. Keep detailed provenance and production uncertainty there or in internal documentation; do not scatter them across primary screens.
+- Preserve the established composition, typography and controls when adding content. Change layout when it demonstrably improves clarity, space or usability. Group repeated actions and remove duplication before shrinking text; protect artwork and readable decision information.
+- Show essential state at a glance, costs and commitments before confirmation, and results afterwards. Give each explanation a purpose and a home. Brevity removes repetition, not context needed to understand a choice.
+- Preserve approved wording and the Director's voice. Correct dictation and grammar minimally; flag substantive conflicts. Dialogue must answer the question and fit the character's knowledge, personality and actual game state. Treat approved creative licence confidently; investigate material historical conflicts internally.
+- Design artwork and interaction together: composition, lighting, scale, character space and accurate visible-object selection. Apply the detailed tracing standard in PROJECT_COORDINATION.md section 4.
+- Match investigation and checks to the requested change. A cosmetic correction does not authorise a mechanics redesign. Before finishing, ask what can be removed without reducing understanding, atmosphere, meaningful choice or necessary evidence.
 
 Generated assets require traceable provenance, compatible formats and validation within the existing asset pipeline.
 
