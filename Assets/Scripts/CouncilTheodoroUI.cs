@@ -20,7 +20,7 @@ public partial class CouncilUI
         var pane=CampaignHUD.Panel(painting.transform,"Theodoro encounter",new Vector2(.575f,.025f),new Vector2(.985f,.975f));ImperialTheme.Panel(pane,false);theodoroDesk=pane.transform;
         DiplomaticNames.Bind(TheodoroText("THEODORO · MANGUP",.90f,.985f,28),"theodoro");
         TheodoroText(CountryDiplomacy.Attitude(country)+" · "+CountryDiplomacy.EnvoyStatus(country),.82f,.90f,19);
-        TheodoroButton("Realm and its interests",.72f,.81f,()=>TheodoroConversation(0));
+        TheodoroButton("An audience with Maria Asanina",.72f,.81f,MariaAudience);
         TheodoroButton("Speak of old imperial ties",.61f,.70f,()=>TheodoroAgreement(0));
         TheodoroButton("Discuss cooperation in archery",.50f,.59f,()=>TheodoroAgreement(1));
         var incorporation=TheodoroButton("Reincorporation into the Empire · In development",.40f,.48f,()=>{});incorporation.interactable=false;
@@ -32,6 +32,36 @@ public partial class CouncilUI
         var envoyButton=CampaignHUD.MakeButton(theodoroDesk,OrderTitle(envoy),new Vector2(.515f,.19f),new Vector2(.96f,.28f),()=>ReviewDiplomaticOrder(country,envoy));envoyButton.interactable=OrderReason(country,envoy)==null;
         TheodoroText("Archery cooperation: "+(TheodoroDiplomacy.Archery?"agreed · +5% lethality":"not yet agreed")+".",.105f,.18f,18);
         TheodoroButton("Return",.025f,.095f,DiplomaticRelations);
+    }
+    void MariaAudience()
+    {
+        TheodoroCourt();
+        foreach(Transform child in theodoroDesk){child.gameObject.SetActive(false);Destroy(child.gameObject);}
+        var art=Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/theodoro-maria-palace");
+        if(art!=null)theodoroDesk.parent.GetComponent<UnityEngine.UI.RawImage>().texture=art;
+        TheodoroText("MARIA ASANINA",.88f,.97f,28);
+        TheodoroText("Mistress of the palace",.80f,.87f,20);
+        TheodoroButton("Tell me about yourself",.65f,.75f,()=>MariaConversation(0));
+        TheodoroButton("Tell me about your people",.52f,.62f,()=>MariaConversation(1));
+        TheodoroButton("What do you think of the Genoese?",.39f,.49f,()=>MariaConversation(2));
+        TheodoroButton("The affairs of Theodoro",.22f,.32f,TheodoroCourt);
+        TheodoroButton("Return",.05f,.15f,TheodoroCourt);
+        ControlSingleton.Instance.ReturnAction=TheodoroCourt;
+    }
+    void MariaConversation(int topic)
+    {
+        MariaAudience();
+        foreach(Transform child in theodoroDesk){child.gameObject.SetActive(false);Destroy(child.gameObject);}
+        string[] titles={"Tell me about yourself","Tell me about your people","What do you think of the Genoese?"};
+        string[] words={
+            "“I am Maria Asanina, a humble servant of my lord Olubey. For three years he has lain under a dark witch’s spell: without a word, without a movement. I attend to his affairs until his strength returns.”\n\nShe rests one hand upon the arm of her chair.\n\n“The petitions cannot wait beside his bed. Nor can the harvest, or the men who guard our roads. Someone must hear them. His seal remains here, and his household is cared for.”\n\nFor a moment she looks towards the inner door. “When he wakes, I intend that he shall find everything in order.”",
+            "“In winter the wind finds every loose shutter in this palace. My attendants blame the carpenters; the carpenters blame the mountain. Both ask me for money.”\n\n“Our priests pray in Greek. Down in the market you will hear other tongues, and a man who cannot bargain in his neighbour’s language soon learns to count on his fingers. Families keep their customs. They also borrow one another’s recipes and quarrel over the same springs.”\n\n“From these heights the coast looks very close. It is a long road when you must bring salt up it, or carry your wounded home. Remember that when someone tells you our cliffs make us safe.”",
+            "“Those plague rats.”\n\nShe notices your expression. “Literally. Their ships brought the sickness into our ports.”\n\n“I had heard it travelled the other way—from Asia, through these ports.”\n\nMaria gives a short, angry laugh. “Then you have heard their account. They arrive from Europe with their holds and their vermin, and somehow the blame belongs to everyone else.”\n\nShe draws a finger along the coast on a small map. “A warehouse becomes a claim. A debt becomes a harbour. Now there is this Bank of Saint George. I wonder how much of our country its clerks have already promised one another.”"
+        };
+        TheodoroText(titles[topic],.88f,.98f,25);
+        TheodoroText(words[topic],.17f,.86f,21);
+        TheodoroButton("Return to Maria",.035f,.125f,MariaAudience);
+        ControlSingleton.Instance.ReturnAction=MariaAudience;
     }
     void TheodoroAgreement(int action)
     {

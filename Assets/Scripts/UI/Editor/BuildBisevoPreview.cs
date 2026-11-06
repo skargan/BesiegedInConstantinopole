@@ -9,7 +9,7 @@ public static class BuildBisevoPreview
 {
     public static void Build()
     {
-        foreach(var image in Directory.GetFiles("Assets/Resources/UI/Maps/Bisevo","*.png")) {
+        foreach(var image in Directory.GetFiles("Assets/Resources/UI/Maps/Bisevo","*.png").Concat(new[]{"Assets/Resources/UI/MidnightMosaic/Scenes/theodoro-maria-palace.png"})) {
             AssetDatabase.ImportAsset(image,ImportAssetOptions.ForceSynchronousImport);
             var importer=(TextureImporter)AssetImporter.GetAtPath(image);importer.textureType=TextureImporterType.Default;
             importer.mipmapEnabled=false;importer.npotScale=TextureImporterNPOTScale.None;importer.maxTextureSize=2048;

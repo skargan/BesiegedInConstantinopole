@@ -63,6 +63,11 @@ Check(BisevoUI.IsOpen,"scene resume reopens pending ransom");
 Check(GameObject.Find("Biševo visit").GetComponentsInChildren<TMP_Text>().Any(t=>t.text=="Pay 5,000 gold"),"resumed screen exposes ransom choice");
 BisevoDiscovery.Resolve(false);BisevoUI.Back();BisevoUI.Back();yield return null;
 var council=FindObjectOfType<CouncilUI>(true);
+council.TheodoroCourt();yield return null;
+typeof(CouncilUI).GetMethod("MariaAudience",flags).Invoke(council,null);yield return null;yield return Capture("maria-audience");
+Check(Resources.Load<Texture2D>("UI/MidnightMosaic/Scenes/theodoro-maria-palace")!=null,"Maria palace artwork loaded");
+for(int topic=0;topic<3;topic++){typeof(CouncilUI).GetMethod("MariaConversation",flags).Invoke(council,new object[]{topic});yield return null;yield return Capture("maria-topic-"+topic);Check(FindObjectsOfType<TMP_Text>().Any(t=>t.text=="Return to Maria"),"Maria dialogue has return path "+topic);ControlSingleton.Instance.GoBack();yield return null;}
+Check(Mathf.Abs(VultureFlight.CircuitSeconds-32f/.75f)<.001f,"fortress bird speed reduced by 25 percent");
 council.CircassianPort();yield return null;yield return Capture("kuban-bottom-desk");
 var desk=GameObject.Find("Command desk").GetComponent<RectTransform>();Check(desk.anchorMax.y<=.34f&&desk.anchorMin.x<=.025f,"Kuban controls occupy horizontal bottom panel");
 ControlSingleton.Instance.GoBack();yield return null;Check(GameObject.Find("War Beyond the Walls map")!=null,"Kuban returns to map");WarTheatreUI.Close();yield return null;

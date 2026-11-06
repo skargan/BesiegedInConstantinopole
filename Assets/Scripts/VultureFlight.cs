@@ -4,7 +4,7 @@ using UnityEngine.UI;
 // A decorative, deterministic orbit. No sign flips, simulation clock or random calls.
 public sealed class VultureFlight:MonoBehaviour
 {
-    public const float CircuitSeconds=32;
+    public const float CircuitSeconds=32f/.75f;
     public struct Pose {public Vector2 anchor;public float bank,depth,blend;public int first,second;}
     static readonly Rect[] Views={new Rect(0,.5f,.5f,.5f),new Rect(1,.5f,-.5f,.5f),new Rect(0,0,.5f,.5f),new Rect(.5f,0,.5f,.5f)};
     RectTransform bird;RawImage first,second;float opened,elapsed;
