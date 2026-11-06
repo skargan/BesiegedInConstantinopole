@@ -75,7 +75,11 @@ title: lifeBread
     <<set $chance = dice(100)>>
     <<if $chance <= 2>>
     <<LifePoison>>
+    <<if LifeInt("iLifeKjeldRescue") == 1>>
+    Kjeld catches the baker’s sudden movement and knocks the bread from your hand. His guards seize the man; concealed beneath his coat is a small vial.
+    <<else>>
     The taste turns bitter. Your hand will no longer close around the cup. Someone shouts for a physician, but the poison has already done its work.
+    <<endif>>
     <<else>>
     You break the loaf into portions. The sentries eat slowly, unwilling to finish it.
     <<endif>>
@@ -84,7 +88,11 @@ title: lifeBread
     <<set $chance = dice(100)>>
     <<if $chance <= 2>>
     <<LifePoison>>
+    <<if LifeInt("iLifeKjeldRescue") == 1>>
+    Kjeld catches the baker’s sudden movement and knocks the bread from your hand. His guards seize the man; concealed beneath his coat is a small vial.
+    <<else>>
     Before the loaf is finished, your breath catches. The guards seize the baker as you collapse. There will be questions, but you will not hear the answers.
+    <<endif>>
     <<else>>
     Warm bread, a little water, and a few minutes in which nobody asks for anything. You feel better than you have all morning.
     <<endif>>

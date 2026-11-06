@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,8 +19,8 @@ public static class TrainingPool
     }
     public static readonly string[] Units={"iInfantry","iArchers","iCavalry","iVarangians","iShips","iCannons","iHealers","iEngineers","iEnvoys"};
     public static readonly string[] Names={"Infantry","Archers","Cavalry","Varangians","Warships","Cannons","Monks","Engineers","Envoys"};
-    public static readonly int[] Days={5,10,15,20,30,10,MedicalRecovery.RecruitmentDays,SpecialistPersonnel.EngineerTrainingDays,SpecialistPersonnel.EnvoyTrainingDays};
-    public static int Duration(string unit) {int i=Array.IndexOf(Units,unit);return i<0?0:Days[i];}
+    public static readonly int[] Days={5,10,15,30,30,10,MedicalRecovery.RecruitmentDays,SpecialistPersonnel.EngineerTrainingDays,SpecialistPersonnel.EnvoyTrainingDays};
+    public static int Duration(string unit) {if(unit=="iVarangians")return CourtServiceBenefits.GuardTrainingDays;int i=Array.IndexOf(Units,unit);return i<0?0:Days[i];}
     public static string Name(string unit) {int i=Array.IndexOf(Units,unit);return i<0?unit:Names[i];}
     public static string OrderName(Order order)=>order.kind==RagusaDiplomacy.ExpeditionReturn?Name(order.unit)+" · Returning from Ragusan service":order.kind==ShipRepair?"Warships · Repairing":order.kind==Recuperation?"Engineers · Recuperating":Name(order.unit)+(order.instructorFree?" · No instructor":"");
     public static int Day(DateTime date) => (int)(date.Ticks/TimeSpan.TicksPerDay);
@@ -45,12 +45,13 @@ public static class TrainingPool
     {
         unitCost=UnitPrice(unit,unitCost);if(unitCost<=0||Duration(unit)==0)return 0;
         int affordable=Math.Max(0,DailyLifeEvents.I("iMoney"))/unitCost;
-        return SpecialistPersonnel.MaximumOrder(unit,RecruitmentLogistics.MaximumOrder(unit,affordable));
+        return Math.Min(unit=="iVarangians"?CourtServiceBenefits.GuardRemaining:int.MaxValue,SpecialistPersonnel.MaximumOrder(unit,RecruitmentLogistics.MaximumOrder(unit,affordable)));
     }
     public static bool CanPlace(string unit,int quantity,int unitCost,out string reason)
     {
         reason="";unitCost=UnitPrice(unit,unitCost);long cost=(long)quantity*unitCost;
         if(quantity<=0||Duration(unit)==0||unitCost<=0){reason="Choose a valid recruit or construction order.";return false;}
+        if(unit=="iVarangians"&&quantity>CourtServiceBenefits.GuardRemaining){reason=CourtServiceBenefits.GuardAvailability;return false;}
         if(cost>DailyLifeEvents.I("iMoney")){reason="Not enough gold.";return false;}
         if(RecruitmentLogistics.IsRegular(unit)&&!RecruitmentLogistics.CanRecruit(unit,quantity)){reason="Not enough uncommitted recruitment manpower.";return false;}
         return SpecialistPersonnel.CanStart(unit,quantity,out reason);
@@ -61,6 +62,7 @@ public static class TrainingPool
         unitCost=UnitPrice(unit,unitCost);
         var order=new Order {unit=unit,quantity=quantity,readyDay=Day(VariableSingleton.GetDate())+Duration(unit),kind=unit=="iShips"||unit=="iCannons"?Construction:unit=="iEngineers"?Instruction:Training};
         SpecialistPersonnel.ReserveForOrder(order);
+        if(unit=="iVarangians")CourtServiceBenefits.RecordGuardRecruitment(quantity);
         VariableSingleton.ChangeInt("iMoney",-(quantity*unitCost));Orders.Add(order);
         PalaceAdministration.RecordOrder("Ordered "+quantity.ToString("N0")+" "+Name(unit).ToLowerInvariant(),"ready "+ReadyDate(order).ToString("d MMM yyyy"));
         return true;

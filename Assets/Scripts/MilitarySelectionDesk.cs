@@ -33,7 +33,13 @@ public sealed class MilitarySelectionDesk:MonoBehaviour
         foreach(Transform child in pane){child.gameObject.SetActive(false);Destroy(child.gameObject);}
         Text("MILITARY & RECRUITMENT",.04f,.91f,.96f,.99f,28);
         for(int i=0;i<6;i++){int unit=i;float top=.90f-i*.08f;
-            var button=CampaignHUD.MakeButton(pane,Names[i]+"     "+CouncilActions.Int(Keys[i]).ToString("N0"),new Vector2(.04f,top-.069f),new Vector2(.96f,top),()=>{selected=unit;if(unit==5){gameObject.SetActive(false);CouncilUI.For(manager).Shipyard(()=>manager.BringUpTroopsUI());}else Draw();});
+            var button=CampaignHUD.MakeButton(pane,Names[i],new Vector2(.04f,top-.069f),new Vector2(.96f,top),()=>{selected=unit;if(unit==5){gameObject.SetActive(false);CouncilUI.For(manager).Shipyard(()=>manager.BringUpTroopsUI());}else Draw();});
+            var title=button.GetComponentInChildren<TMP_Text>();
+            title.rectTransform.anchorMax=new Vector2(.49f,1);title.alignment=TextAlignmentOptions.MidlineLeft;
+            var count=CampaignHUD.Label(button.transform,CouncilActions.Int(Keys[i]).ToString("N0"),new Vector2(.50f,.08f),new Vector2(.73f,.92f),23);count.alignment=TextAlignmentOptions.Center;count.raycastTarget=false;
+            var system=FindObjectOfType<AssaultSystem>(true);
+            string lethality=i<3?"×"+TroopTraining.Lethality(i).ToString("0.##"):i==3&&system!=null?"×"+system.GuardLethality.ToString("0.##"):i==4&&system!=null?"×"+system.CannonLethality.ToString("0.##"):"—";
+            var rating=CampaignHUD.Label(button.transform,lethality,new Vector2(.75f,.08f),new Vector2(.97f,.92f),23);rating.alignment=TextAlignmentOptions.Center;rating.raycastTarget=false;
             if(i==selected){var colours=button.colors;colours.normalColor=new Color(1f,.78f,.36f);button.colors=colours;}
             button.name="Select military unit "+i;
         }

@@ -24,7 +24,7 @@ public static class EspionageSystem
     {
         if(CouncilActions.Int("iSpies")<level+1) return "Unknown";
         switch(level) {
-            case 0: return (CouncilActions.Int("iBalkans")+CouncilActions.Int("iBazouks")+CouncilActions.Int("iJanissaries")).ToString("N0");
+            case 0: return (CouncilActions.Int("iBalkans")+CouncilActions.Int("iBazouks")+CouncilActions.Int("iJanissaries")+DailyLifeEvents.I("iOttLightCavalry")).ToString("N0");
             case 1: return CouncilActions.Int("iTurkCannons")+" cannons · "+NavalState.EnemyShips+" vessels"+(DailyLifeEvents.I("iOttGrandCannon")>0?" · great bombard deployed":"");
             case 2: return SharedProvisions.CampStockReport;
             case 3: return SharedProvisions.CampConsumptionReport;

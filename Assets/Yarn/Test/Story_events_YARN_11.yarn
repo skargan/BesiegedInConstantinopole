@@ -764,19 +764,25 @@ title: story23
     <<RndChange iBazouks -312 -895>> 
     <<RndChange iCavalry -25 -50>>
     <<endif>>
--> It is time for the Imperator to stretch his legs. I am going to personally lead the cavalry charge. Our goal is to kill as many of them as possible and retreat.
+-> Personally lead the cavalry against the Ottoman vanguard, then withdraw before their main force arrives.
     <<set $chance = dice(100)>>
-    <<if $chance <= (GetInt("iCavalry")/10+20)>> 
-    Your charge catches the Ottoman vanguard before it can form. The horsemen break through, then turn for the gates. Several saddles return empty; hundreds of enemies lie on the road.
-    <<RndChange iBazouks -751 -2565>> 
+    <<if $chance <= 10>>
+    Your charge breaks through to the artillery train. Before the Ottoman horsemen can close the road, your men turn several gun carts towards the gates and drive them into the city. The prize is three cannons, sixty rounds of ammunition and thirty materials. Two Armenian engineers, brought with the guns as slaves, accept your offer of freedom and imperial service.
+    <<Change iCannons 3>>
+    <<Change iAmmunition 60>>
+    <<Change iMaterials 30>>
+    <<Change iEngineers 2>>
     <<RndChange iCavalry -5 -25>>
-    <<elseif $chance <= (GetInt("iCavalry")/10+45)>> 
-    Your charge catches the Ottoman vanguard before it can form. The horsemen break through, then turn for the gates. Several saddles return empty; hundreds of enemies lie on the road.
+    <<elseif $chance <= (GetInt("iCavalry")/10+20)>>
+    You strike before the vanguard can form. Your horsemen scatter the leading companies and cut down men trying to rally beside the road. When fresh Ottoman banners appear beyond them, you sound the withdrawal. The gates close behind your last riders; several horses return with empty saddles.
+    <<RndChange iBazouks -751 -2565>>
+    <<RndChange iCavalry -5 -25>>
+    <<elseif $chance <= (GetInt("iCavalry")/10+45)>>
+    The first Ottoman ranks give way, drawing your riders farther from the walls. Then enemy horsemen sweep across your flank. You fight your way back through a closing gap, leaving wounded men behind where their horses have fallen. You reach the gate alive, but the muster that follows makes the cost plain.
     <<RndChange iBazouks -312 -895>>
     <<RndChange iCavalry -50 -100>>
     <<else>>
-    Your charge catches the Ottoman vanguard before it can form. The horsemen break through, then turn for the gates. Several saddles return empty; hundreds of enemies lie on the road.
-    <<SetInt iCourtState5 3>>
+    Ottoman horsemen close the road to the city. Your standard disappears in the crush as the charge turns into a desperate struggle to escape. A handful of riders reach the gates without you. By evening, the defenders know that their Emperor will not return.
     <<ChangeFraction fHealth -1>>
     <<endif>>
 -> Conserve our forces. Set the fields and houses in front of the city on fire. // 

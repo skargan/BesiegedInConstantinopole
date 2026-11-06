@@ -10,11 +10,11 @@ public static class SharedProvisions
 {
     public const string City="iProvisions", Camp="iFood";
     const long Scale=1000000;
-    static readonly string[] Land={"iBalkans","iBazouks","iJanissaries"};
+    static readonly string[] Land={"iBalkans","iBazouks","iJanissaries","iOttLightCavalry"};
     static string Whole(string key)=>key==City||key==Camp?key:"iProvisionStock_"+key;
     static string Part(string key)=>"iProvisionPart_"+key;
     static int I(string key)=>DailyLifeEvents.I(key);
-    public static long OttomanPeople=>Land.Sum(k=>(long)Math.Max(0,I(k)));
+    public static long OttomanPeople {get { SallyOut.EnsureLightCavalry();return Land.Sum(k=>(long)Math.Max(0,I(k)));}}
     // City population is inclusive of the garrison. Recruiting residents does not add mouths.
     public static long CityPeople=>Math.Max(PopulationAccounting.People,(long)RecruitmentLogistics.Serving+RecruitmentLogistics.Queued+Math.Max(0,I("iVarangians"))+MedicalRecovery.RegularWounded);
     public static double CityDemand=>Math.Max(0,CityPeople-RagusaDiplomacy.PeopleAbroad)/1000d;

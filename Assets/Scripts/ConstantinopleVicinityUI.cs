@@ -14,17 +14,21 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         new Site("rumeli","Strait-Cutter Fortress",.574f,.292f,"The new towers on the European shore command the narrow passage beside the older Anatolian fortress.","rumeli",25),
         new Site("anadolu","Anatolian Fortress",.616f,.307f,"Bayezid's fortress stands on the Asian shore, opposite the site chosen for Mehmed's new stronghold."),
         new Site("therapia","Therapia",.586f,.126f,"A fortified settlement overlooks a sheltered bay on the European bank of the Bosphorus."),
-        new Site("studios","Studios",.427f,.566f,"The old district of Stoudios lies beside the southern walls, around the monastery of St John."),
-        new Site("chrysopolis","Chrysopolis",.545f,.487f,"The Asian landing place faces the entrance to the Golden Horn across the Bosphorus."),
-        new Site("chalcedon","Chalcedon",.565f,.575f,"The ancient settlement on the Asian shore looks west across the water towards Constantinople."),
-        new Site("blachernae","Blachernae",.444f,.482f,"The imperial palace quarter occupies the northwestern edge of the city, where the land walls meet the Golden Horn."),
+        new Site("studios","Stoudios Monastery",.427f,.566f,"The old district of Stoudios lies beside the southern walls, around the monastery of St John."),
+        new Site("chrysopolis","Chrysopolis",.545f,.487f,"Ferries nose into the muddy landing at Chrysopolis. Boatmen, traders and Ottoman supply handlers share the shore; a sack unloaded here may feed a village or an army. Across the water lie Constantinople and Galata. Your agent watches the traffic from the shadows, listening for names, destinations and departures.","visit"),
+        new Site("chalcedon","Chalcedon",.565f,.575f,"From the old heights of Chalcedon, Constantinople lies across a broad reach of water. Worn marble recalls the Greek city that stood here long before New Rome; nearby Ottoman standards announce who commands the shore today. Your agent has found a quiet vantage point among the stones. The city is plainly visible. Reaching it is another matter.","visit"),
+        new Site("blachernae","Blachernae",.444f,.482f,"The imperial palace quarter occupies the northwestern edge of the city, where the land walls meet the Golden Horn.","palace"),
+        // Studius is a provisional gameplay anchor, not an established archaeological location.
+        new Site("stadia","Studius Fortress",.34f,.59f,"An outlying Roman stronghold guards the Marmara approaches. Its small garrison watches the roads while the capital gathers its strength behind greater walls."),
+        // Display anchor brought inside the illustrated atlas edge.
+        new Site("prinkipo","Prinkipo",.675f,.955f,"Pine-covered Prinkipo rises from the Sea of Marmara, the largest of the Princes’ Islands. Fishermen work its shore beneath a modest fortified refuge. From the capital, the island may seem remote from the quarrels of emperors. Yet its boats, inhabitants and little garrison are exposed to any fleet that commands these waters.","visit"),
         new Site("horn","Golden Horn",.441f,.393f,"The long inlet shelters the city's shipping between Constantinople and Galata.","fleet",23)
     };
     static GameObject root;Transform detail;RectTransform map;Vector2 fit;float zoom=1;
     public static bool IsOpen=>root!=null;
-    public static bool Close(){if(root==null)return false;root.SetActive(false);Destroy(root);root=null;return true;}
+    public static bool Close(){if(VicinityLocations.Close())return true;if(root==null)return false;root.SetActive(false);Destroy(root);root=null;return true;}
     public static void Show(){
-        Close();root=new GameObject("Vicinity of Constantinople",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster),typeof(Image),typeof(ConstantinopleVicinityUI));
+        VicinityLocations.Close();Close();root=new GameObject("Vicinity of Constantinople",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster),typeof(Image),typeof(ConstantinopleVicinityUI));
         root.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;root.GetComponent<Canvas>().sortingOrder=235;
         var scaler=root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1600,900);scaler.matchWidthOrHeight=.5f;
         ImperialTheme.Panel(root,true);var ui=root.GetComponent<ConstantinopleVicinityUI>();
@@ -37,6 +41,7 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         Canvas.ForceUpdateCanvases();var bounds=((RectTransform)viewport.transform).rect;float aspect=(float)texture.width/texture.height;float width=Mathf.Min(bounds.width,bounds.height*aspect);ui.fit=new Vector2(width,width/aspect);ui.Resize(1);
         var scroll=viewport.AddComponent<MapDragScrollRect>();scroll.viewport=(RectTransform)viewport.transform;scroll.content=ui.map;scroll.inertia=false;scroll.movementType=ScrollRect.MovementType.Clamped;scroll.scrollSensitivity=0;
         ui.detail=CampaignHUD.Panel(root.transform,"Local site information",new Vector2(.80f,.16f),new Vector2(.975f,.89f)).transform;ImperialTheme.Panel(ui.detail.gameObject,false);
+        if(VariableSingleton.HasSiegeStarted())VicinityCampArt.Add(ui.map,ui.Select);
         foreach(var site in Sites){if(site.Id=="rumeli"&&!MapLandmarks.FortressVisible)continue;ui.Marker(site);}
         var minus=CampaignHUD.MakeButton(root.transform,"−",new Vector2(.03f,.015f),new Vector2(.085f,.065f),()=>ui.Resize(ui.zoom/1.3f));
         CampaignHUD.MakeButton(root.transform,"Fit",new Vector2(.09f,.015f),new Vector2(.17f,.065f),()=>{ui.Resize(1);ui.map.anchoredPosition=Vector2.zero;});
@@ -44,7 +49,7 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         ui.Select(Sites[0]);
     }
     void Marker(Site site){
-        var button=CampaignHUD.MakeButton(map,site.Id=="city"?"C":"",site.Point,site.Point,()=>Select(site));button.name="Local site "+site.Id;
+        var button=CampaignHUD.MakeButton(map,site.Id=="city"?"C":"",site.Point,site.Point,()=>{if(site.Id=="blachernae")Navigate("palace");else Select(site);});button.name="Local site "+site.Id;
         var rect=(RectTransform)button.transform;rect.sizeDelta=Vector2.one*site.Size;
         if(site.Id=="city")CapitalSeal.Add(button.transform);else{
             var icon=new GameObject("Site tower",typeof(RectTransform),typeof(RawImage));icon.transform.SetParent(button.transform,false);var ir=(RectTransform)icon.transform;ir.anchorMin=new Vector2(.08f,.08f);ir.anchorMax=new Vector2(.92f,.92f);ir.offsetMin=ir.offsetMax=Vector2.zero;
@@ -61,7 +66,7 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         var title=CampaignHUD.Label(detail,site.Name,new Vector2(.06f,.78f),new Vector2(.94f,.97f),29);title.alignment=TextAlignmentOptions.Center;title.enableAutoSizing=true;title.fontSizeMin=21;title.fontSizeMax=29; if(site.Id=="city")DiplomaticNames.Bind(title,"constantinople");
         string text=site.Id=="rumeli"?MapLandmarks.FortressTitle+"\n\n"+site.Text:site.Text;
         var prose=CampaignHUD.Label(detail,text,new Vector2(.07f,.26f),new Vector2(.93f,.75f),23);prose.enableAutoSizing=true;prose.fontSizeMin=18;prose.fontSizeMax=23;
-        if(site.Route!="")CampaignHUD.MakeButton(detail,site.Route=="palace"?"The Palace":site.Route=="galata"?"Galata relations":site.Route=="fleet"?"Fleet":"Inspect fortress",new Vector2(.07f,.055f),new Vector2(.93f,.19f),()=>Navigate(site.Route));
+        if(site.Route!="")CampaignHUD.MakeButton(detail,site.Route=="visit"?"Visit "+site.Name:site.Route=="palace"?"The Palace":site.Route=="galata"?"Galata relations":site.Route=="fleet"?"Fleet":"Inspect fortress",new Vector2(.07f,.055f),new Vector2(.93f,.19f),()=>{if(site.Route=="visit")VicinityLocations.Show(site);else Navigate(site.Route);});
     }
     static void Navigate(string route){
         if(route=="rumeli"){MapLandmarks.ShowFortress();return;}
@@ -69,5 +74,5 @@ public sealed class ConstantinopleVicinityUI:MonoBehaviour
         if(route=="palace")council.Palace();else if(route=="galata")council.Galata();else if(route=="fleet")council.Fleet();
     }
     void Resize(float amount){zoom=Mathf.Clamp(amount,1,3);map.sizeDelta=fit*zoom;}
-    void Update(){if(MapLandmarks.ViewOpen)return;if(Input.mouseScrollDelta.y!=0&&RectTransformUtility.RectangleContainsScreenPoint(map.parent as RectTransform,Input.mousePosition))Resize(zoom*Mathf.Pow(1.12f,Input.mouseScrollDelta.y));}
+    void Update(){if(MapLandmarks.ViewOpen||VicinityLocations.IsOpen)return;if(Input.mouseScrollDelta.y!=0&&RectTransformUtility.RectangleContainsScreenPoint(map.parent as RectTransform,Input.mousePosition))Resize(zoom*Mathf.Pow(1.12f,Input.mouseScrollDelta.y));}
 }

@@ -5,7 +5,7 @@ public static class GardenConversations
 {
     public const int Kjold=200;
     public static bool IsVisitor(int person)=>person>=100&&person<100+CharacterPreparations.Names.Length;
-    public static string Name(int person)=>person==ChurchCourt.Gennadios?"Gennadios Scholarios":person==Kjold?"Kjold":IsVisitor(person)?CharacterPreparations.Names[person-100]:person>=0&&person<8?CourtRoster.Names[person]:"Unknown visitor";
+    public static string Name(int person)=>person==ChurchCourt.Gennadios?"Gennadios Scholarios":person==Kjold?"Kjeld Haraldsson":IsVisitor(person)?CharacterPreparations.Names[person-100]:person>=0&&person<8?CourtRoster.Names[person]:"Unknown visitor";
     public static string Role(int person)=>person==ChurchCourt.Gennadios?"Monk and scholar":person==Kjold?"Varangian officer · imperial guard":IsVisitor(person)?CharacterPreparations.Roles[person-100]:person>=0&&person<8?CourtRoster.Roles[person]:"";
     public static bool Available(int person)
     {

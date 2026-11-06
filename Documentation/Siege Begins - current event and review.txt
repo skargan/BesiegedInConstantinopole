@@ -1,0 +1,52 @@
+SIEGE BEGINS — CURRENT EVENT AND REVIEW
+6 November 2026
+
+Exact current event text and commands (story23):
+---
+<b>Siege Begins</b>: <br> So the time has come. You can see Mehmed's army marching in the distance, sky in their direction is marked by plumes of black smoke from the villages they set on fire while coming here. The siege of Constantinople has begun. <br> <br> <color=\#B8CFDA><i>\[You have now entered siege phase. Please note that while in the early game turns marked passing weeks, currently each turn marks a passing day. Furthermore, as food will now stop coming into the city, your provisions will start decreasing at a rate based on your population size. Enemy will be attacking your walls daily and when they will be reduced enough, they will launch an assault, trying to take your head. Good luck.\]</i></color> 
+-> Greet our guests - send the cavalry to harass their forward formations, but avoid serious engagements.
+    <<set $chance = dice(100)>>
+    <<if $chance <= (GetInt("iCavalry")/10+10)>> 
+    Your cavalry, adept at hit-and-run tactics, successfully disrupts the Ottoman vanguard, overrunning a surprised column of slaves, engineers and cooks and inflicting notable damage without being drawn into a decisive battle. One of your knights even manages to set a gunpowder wagon on fire, exploding it and destroying a few enemy cannons. The manoeuvre not only sets the stage for a more fortified defence but also instills a renewed sense of confidence among your ranks.
+    <<Change iTurkCannons -5>> 
+    <<RndChange iBazouks -517 -1578>> 
+    <<RndChange iCavalry -5 -25>>
+    <<else>>
+    Your decision to send the cavalry to harass Ottoman forward formations takes a disastrous turn. The seemingly straightforward plan unravels as the Turks send their light steppe horsemen to intercept your force. They are more formidable than expected and manage to repel your cavalry. What was intended as a show of strength turns into a minor defeat as both sides suffer casualties.
+    <<RndChange iBazouks -312 -895>> 
+    <<RndChange iCavalry -25 -50>>
+    <<endif>>
+-> It is time for the Imperator to stretch his legs. I am going to personally lead the cavalry charge. Our goal is to kill as many of them as possible and retreat.
+    <<set $chance = dice(100)>>
+    <<if $chance <= (GetInt("iCavalry")/10+20)>> 
+    Your charge catches the Ottoman vanguard before it can form. The horsemen break through, then turn for the gates. Several saddles return empty; hundreds of enemies lie on the road.
+    <<RndChange iBazouks -751 -2565>> 
+    <<RndChange iCavalry -5 -25>>
+    <<elseif $chance <= (GetInt("iCavalry")/10+45)>> 
+    Your charge catches the Ottoman vanguard before it can form. The horsemen break through, then turn for the gates. Several saddles return empty; hundreds of enemies lie on the road.
+    <<RndChange iBazouks -312 -895>>
+    <<RndChange iCavalry -50 -100>>
+    <<else>>
+    Your charge catches the Ottoman vanguard before it can form. The horsemen break through, then turn for the gates. Several saddles return empty; hundreds of enemies lie on the road.
+    <<SetInt iCourtState5 3>>
+    <<ChangeFraction fHealth -1>>
+    <<endif>>
+-> Conserve our forces. Set the fields and houses in front of the city on fire. // 
+    Ashes and dust will be all that will greet our invaders. Let them feast on that! We must hope that they will not be able to procure enough food to sustain this siege for long...
+    <<EnemyFoodDays -20>>
+-> Infiltrate the Ottoman camp. Seek informants among its interpreters, drivers and camp followers; the strength of the network remains uncertain. \[Cost: 5,000 gold\] <<if GetInt("iMoney") >= 5000>>
+    <<set $openingAgents = OpeningRecruits()>>
+    Quiet approaches to interpreters, drivers and camp followers establish {$openingAgents} new agents inside the Ottoman camp. Their reports will begin reaching your spymaster.
+    <<Change iSpies {$openingAgents}>>
+    <<Change iMoney -5000>> 
+
+REVIEW — PROPOSED, NOT APPLIED
+The personal charge repeats a successful-return paragraph in all three branches, including the lethal health loss. The fatal branch also marks Orban unavailable/dead through iCourtState5=3; confirm intended character consequence before retaining it.
+Scorched earth removes twenty reference army-days of already-held Ottoman provisions, rather than merely preventing local foraging.
+The introductory tutorial refers to preparation weeks instead of months and implies food stops arriving altogether, despite current supply routes.
+
+STANDING SALLY — RECOVERED REQUIREMENT
+Core mechanics 1.3.docx: Order a Sally! / Opens Sally sub-menu. No standing-action numerical rules located. Existing PhasedAssault.Sortie implements an infantry raid against siege engines during assaults, not a repeatable cavalry order. Await target-scope decision before introducing new combat balance.
+
+EVENT DIRECTION
+Make this a unique opening opportunity: a dispersed vanguard and exposed powder train before the Ottoman siege lines are established. Ordinary sallies should use the standing action; this event should offer a special target or unusually favourable circumstances. Each outcome must describe its actual losses. Review the personal-death gamble explicitly, and replace the arbitrary camp-food destruction with an agreed effect appropriate to scorched earth. Do not increase every reward by a flat multiplier merely to distinguish the event.

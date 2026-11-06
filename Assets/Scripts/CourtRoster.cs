@@ -27,13 +27,16 @@ public static class CourtRoster
     };
     public static bool InService(int index)=>index>=0 && index<8 && !KjoldCourtOrders.Sentenced(index) && VariableSingleton.GetBoolVariable(Keys[index]);
     public static string CommanderName(int id) {
+        if(id==200||id==203)return GardenConversations.Name(id);
         if(id>=100 && id<100+CharacterPreparations.Names.Length)return CharacterPreparations.Names[id-100];
         return id>=0&&id<8?Names[id]:"The Emperor · personal direction";
     }
-    public static bool CanCommand(int id)=>InService(id)||(CharacterPreparations.InService&&id==CharacterPreparations.CommanderId);
+    public static bool CanCommand(int id)=>((id==200||id==203)&&GardenConversations.Available(id))||InService(id)||(CharacterPreparations.InService&&id==CharacterPreparations.CommanderId);
     public static string CommanderBenefit(int id)
     {
         if(!CanCommand(id))return "No commander bonus active.";
+        if(id==200)return "Varangian recruitment doubled; training takes 15 days. Personal bodyguard protection suspended while commanding.";
+        if(id==203)return "Sermons restore 3 support points each day.";
         if(id>=100)return new[]{"Infantry lethality +12%.","Aid acceptance +12 percentage points.","Wall defence +4 points.","Cannon lethality +12%.","Effective army morale in breach tests +6 points.","Assault casualty bonus +9%."}[id-100];
         switch(id){
             case 0:return "Infantry lethality +15%.";
@@ -52,7 +55,7 @@ public static class CourtRoster
         report="This adviser is no longer available.";
         if(!CanCommand(id))return false;
         if(CouncilActions.Int("iCommander")==id){report="This adviser already commands the defence.";return false;}
-        if(id>=100)return CharacterPreparations.Appoint(out report);
+        if(id>=100&&id<200)return CharacterPreparations.Appoint(out report);
         VariableSingleton.SetInt("iCommander",id);
         report=CommanderName(id)+" takes command of the siege defence.\n"+CommanderBenefit(id);
         return true;

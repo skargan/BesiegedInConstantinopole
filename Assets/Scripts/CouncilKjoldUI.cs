@@ -8,7 +8,7 @@ public partial class CouncilUI
         if(!GardenConversations.Available(GardenConversations.Kjold)){Location(conversationLocation);return;}
         string text=topic==1?KjoldConversations.SecurityAssessment():topic==2?KjoldConversations.Text.guardHistory:KjoldConversations.Text.introduction;
         if(topic==1){KjoldConversations.HearSecurity();SaveGames.Checkpoint();}
-        Open("Kjold",new[]{"In the Palace","In the Palace Garden","In Hagia Sophia"}[conversationLocation]);
+        Open("Kjeld Haraldsson",new[]{"In the Palace","In the Palace Garden","In Hagia Sophia"}[conversationLocation]);
         ControlSingleton.Instance.ReturnAction=()=>Location(conversationLocation);FitConversation();
         CharacterPortraits.Draw(body,GardenConversations.Kjold,new Vector2(.025f,.12f),new Vector2(.29f,.97f));
         KjoldReading(text);
@@ -34,7 +34,7 @@ public partial class CouncilUI
     private void KjoldOrders()
     {
         if(!KjoldCourtOrders.Available){KjoldTalk(0);return;}
-        Open("Kjold · Your orders","“Of course, my emperor. What are your orders?”");ControlSingleton.Instance.ReturnAction=()=>KjoldTalk(1);FitConversation();
+        Open("Kjeld Haraldsson · Your orders","“Of course, my emperor. What are your orders?”");ControlSingleton.Instance.ReturnAction=()=>KjoldTalk(1);FitConversation();
         CharacterPortraits.Draw(body,GardenConversations.Kjold,new Vector2(.03f,.08f),new Vector2(.30f,.96f));
         var actions=new[]{KjoldCourtOrders.Sentence.Exile,KjoldCourtOrders.Sentence.Imprison,KjoldCourtOrders.Sentence.Execute};
         string[] labels={"Exile a courtier","Imprison a courtier","Execute a courtier"};
@@ -78,7 +78,7 @@ public partial class CouncilUI
     private void CourtKjoldRow(int position)
     {
         var row=Row(position,230);IllustratedIdentity.Portrait(row.transform,GardenConversations.Kjold);
-        CampaignHUD.Label(row.transform,"Kjold · Varangian officer",new Vector2(.20f,.72f),new Vector2(.97f,.96f),28);
-        CampaignHUD.Explanation(row.transform,KjoldConversations.Text.biography,new Vector2(.20f,.06f),new Vector2(.97f,.69f),20).enableAutoSizing=true;
+        CampaignHUD.Label(row.transform,"Kjeld Haraldsson · Varangian officer",new Vector2(.20f,.72f),new Vector2(.97f,.96f),28);
+        CampaignHUD.Explanation(row.transform,"In service: 50% chance to intercept an assassin while not commander.\n\nAs commander: double Varangian recruitment; 15 days’ training.",new Vector2(.20f,.06f),new Vector2(.97f,.69f),20).enableAutoSizing=true;
     }
 }

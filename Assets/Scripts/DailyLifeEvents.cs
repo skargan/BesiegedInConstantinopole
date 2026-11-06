@@ -20,7 +20,7 @@ public static class DailyLifeEvents
     [YarnCommand("LifeBarrel")] public static void Barrel(int use){VariableSingleton.SetInt("iLifeBarrelUse",use);VariableSingleton.SetInt("iLifeBarrelDue",Day+3);}
     // Compatibility entry point for older narrative checkpoints; merchant favour is retired.
     [YarnCommand("MerchantFavor")] public static void Merchant(int delta) { }
-    [YarnCommand("LifePoison")] public static void Poison(){VariableSingleton.SetInt("iLifePoisonEnding",1);VariableSingleton.ChangePercentFloat("fHealth",-1f);}
+    [YarnCommand("LifePoison")] public static void Poison(){if(CourtServiceBenefits.TryRescue())return;VariableSingleton.SetInt("iLifePoisonEnding",1);VariableSingleton.ChangePercentFloat("fHealth",-1f);}
     [YarnFunction("LifeCanSurprise")] public static bool CanSurprise()=>I("iEnemyDelay")==0&&I("iBazouks")>0;
     [YarnCommand("LifeSurprise")] public static void Surprise()=>VariableSingleton.SetInt("iLifeSurprise",1);
     // Only The Apprentice Gunner event uses this five-day assignment; it is not a general training system.

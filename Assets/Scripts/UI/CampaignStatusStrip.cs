@@ -66,6 +66,7 @@ public sealed class CampaignStatusStrip : MonoBehaviour
         var rect=go.GetComponent<RectTransform>();rect.anchorMin=min;rect.anchorMax=max;
         rect.offsetMin=rect.offsetMax=Vector2.zero;
         CampaignStatArt.Apply(go.GetComponent<Image>(),stat);
+        if(index==11)go.GetComponent<Image>().color=new Color(.64f,.70f,.88f);
         return rect;
     }
     void Update()

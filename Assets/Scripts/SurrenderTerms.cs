@@ -42,8 +42,10 @@ public static class SurrenderTerms
     public static bool Accept(out string report)
     {
         report="The offer has expired. Request new terms.";if(!Valid)return false;
+        VariableSingleton.SetInt("iLifeKjeldRescue",0);
         int risk=AssassinationRisk;
         bool assassinated=risk>0 && UnityEngine.Random.Range(0,100)<risk;
+        if(assassinated&&CourtServiceBenefits.TryRescue())assassinated=false;
         VariableSingleton.SetInt("iSurrenderEnding",assassinated?2:1);
         VariableSingleton.SetInt("iSurrenderDays",VariableSingleton.CompletedSiegeDays);
         if(assassinated) Achievements.Unlock(1); else Achievements.Unlock(2);
@@ -52,7 +54,7 @@ public static class SurrenderTerms
     public static string EndingText {
         get {
             if(CouncilActions.Int("iSurrenderEnding")==2) return "Before your envoys can deliver acceptance, men of your own City strike you down. The surrender is repudiated. Another council takes command, and the siege continues without you.\n\nYour reign ends in assassination.";
-            string result="The seals are exchanged. Ottoman officers enter the gates, and Constantinople passes into the Sultan's hands.\n";
+            string result=(DailyLifeEvents.I("iLifeKjeldRescue")==1?CourtServiceBenefits.RescueText+"\n\n":"")+"The seals are exchanged. Ottoman officers enter the gates, and Constantinople passes into the Sultan's hands.\n";
             for(int i=0;i<Groups.Length;i++) result+="\n"+Groups[i]+": "+Heading(i)+". "+Detail(i)+"\n";
             return result;
         }

@@ -8,6 +8,7 @@ public partial class CouncilUI
         Open("Siege commander","Choose a serving adviser to review their appointment.");
         ControlSingleton.Instance.ReturnAction=Overview;
         var candidates=Enumerable.Range(0,8).Where(CourtRoster.InService).ToList();
+        foreach(int special in new[]{200,203})if(CourtRoster.CanCommand(special))candidates.Add(special);
         if(CharacterPreparations.InService)candidates.Add(CharacterPreparations.CommanderId);
         BodyHeight(Mathf.Max(140,candidates.Count*140));
         for(int i=0;i<candidates.Count;i++){

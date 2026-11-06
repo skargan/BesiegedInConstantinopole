@@ -34,9 +34,9 @@ public class AI: MonoBehaviour
 
     [SerializeField] EnemyLossDisplay enemyLossDisplay;
     
-    public int TroopAssaultRating(int type) => type==0?christianBalkanSubjectAV:type==1?bashiBazoukAV:janissaryAV;
-    public int TroopWaveSize(int type) => type==0?averageBalkanSubjectForce:type==1?averageBashiBazoukForce:averageJanissaryForce;
-    public float TroopLethality(int type) => assaultSystem.EnemyLethality(type==2);
+    public int TroopAssaultRating(int type) => type==3?christianBalkanSubjectAV:type==0?christianBalkanSubjectAV:type==1?bashiBazoukAV:janissaryAV;
+    public int TroopWaveSize(int type) => type==3?500:type==0?averageBalkanSubjectForce:type==1?averageBashiBazoukForce:averageJanissaryForce;
+    public float TroopLethality(int type) => type==3?.15f:assaultSystem.EnemyLethality(type==2);
     public string LastReport { get; private set; } = "";
     public int GuardsRequired => assaultTest;
     public bool CanDeployGuards => assaultTest > 0 && VariableSingleton.GetIntVariable("iVarangians") >= assaultTest;
@@ -47,7 +47,7 @@ public class AI: MonoBehaviour
     public bool HasPendingPhased=>PendingPhased!=null&&!PendingPhased.Committed;
     void BeginPhased(int type) {
         WasAssault=true;AwaitingBreachDecision=false;assaultType=(AssaultType)type;
-        string key=type==0?"iBalkans":type==1?"iBazouks":"iJanissaries";
+        string key=type==0?"iBalkans":type==1?"iBazouks":type==3?"iOttLightCavalry":"iJanissaries";
         var b=new PhasedAssault(Random.Range(1,int.MaxValue));
         b.Type=type;b.Attackers=b.EnemyLeft=Mathf.Min(TroopWaveSize(type),VariableSingleton.GetIntVariable(key));
         if(b.Attackers==0){WasAssault=false;PendingPhased=null;LastReport="No troops remain to mount this assault.";return;}
@@ -178,7 +178,8 @@ public class AI: MonoBehaviour
     { 
         Balkan,
         Bazouk,
-        Janissary
+        Janissary,
+        LightCavalry
     }
     //there could be a custom object to contain these for turns where it's necessary
     int assaultTest;            //equal to required varangian n
@@ -210,6 +211,8 @@ public class AI: MonoBehaviour
             case AssaultType.Bazouk:
                 VariableSingleton.ChangeInt("iBazouks", -enemyLosses); break;
 
+            case AssaultType.LightCavalry:
+                VariableSingleton.ChangeInt("iOttLightCavalry",-enemyLosses); break;
             case AssaultType.Janissary:
                 VariableSingleton.ChangeInt("iJanissaries", -enemyLosses); break;
         }

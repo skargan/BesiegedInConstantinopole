@@ -18,14 +18,14 @@ public partial class CouncilUI
         Canvas.ForceUpdateCanvases();BodyHeight(Mathf.Max(650,((RectTransform)body.parent).rect.height));
         bool known=CouncilActions.Int("iSpies")>=1;
         var ai=AI.Instance;
-        string[] names={"Christian Balkan contingents","Bashi-bazouks · irregulars","Janissaries"};
-        string[] keys={"iBalkans","iBazouks","iJanissaries"};
-        string[] descriptions={"Troops drawn from the Sultan's Balkan subjects. Their assault pressure differs from that of the other formations.","Irregular troops used in mass attacks. They share the Balkan contingents' per-man lethality in the current battle rules.","The Sultan's elite infantry. Their assault pressure and per-man lethality are tracked separately."};
+        string[] names={"Christian Balkan contingents","Bashi-bazouks · irregulars","Janissaries","Ottoman light cavalry"};
+        string[] keys={"iBalkans","iBazouks","iJanissaries","iOttLightCavalry"};
+        string[] descriptions={"Troops drawn from the Sultan's Balkan subjects. Their assault pressure differs from that of the other formations.","Irregular troops used in mass attacks. They share the Balkan contingents' per-man lethality in the current battle rules.","The Sultan's elite infantry. Their assault pressure and per-man lethality are tracked separately.","Mounted troops intercept sallies outside the walls. Lethality: 1 outside; 0.15 at the walls."};
         CampaignHUD.Label(body,known?"REPORTED TOTAL  ·  "+EspionageSystem.IntelligenceValue(0):"NUMBERS UNKNOWN  ·  Establish at least one agent to reveal enemy strength",new Vector2(.03f,.92f),new Vector2(.97f,.99f),24);
-        for(int i=0;i<3;i++)
+        for(int i=0;i<4;i++)
         {
-            float top=.90f-i*.235f;
-            var row=CampaignHUD.Panel(body,names[i],new Vector2(.025f,top-.22f),new Vector2(.975f,top));
+            float top=.90f-i*.175f;
+            var row=CampaignHUD.Panel(body,names[i],new Vector2(.025f,top-.165f),new Vector2(.975f,top));
             row.GetComponent<Image>().color=ImperialTheme.Surface;
             CampaignHUD.Label(row.transform,names[i],new Vector2(.025f,.72f),new Vector2(.97f,.98f),25);
             int count=CouncilActions.Int(keys[i]);

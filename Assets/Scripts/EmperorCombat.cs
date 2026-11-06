@@ -37,6 +37,7 @@ public static class EmperorCombat
     [YarnCommand("FightAssassin")]
     public static void Fight(int style)
     {
+        if(CourtServiceBenefits.TryRescue()){VariableSingleton.SetInt("iCombatAssassinWon",1);VariableSingleton.SetInt("iCombatLastDamage",0);VariableSingleton.SetInt("iCombatAssassinationFatal",0);return;}
         int damage;
         bool win;
         if (style == 0)

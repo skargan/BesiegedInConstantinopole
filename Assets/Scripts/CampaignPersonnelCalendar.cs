@@ -11,6 +11,7 @@ public static class CampaignPersonnelCalendar
         var reports=new StringBuilder();int discoveries=0;bool researching=false,medicalActivity=false;
         long medicalReturns=0;double medicalProvisions=0;
         for(var date=previous.Date.AddDays(1);date<=current.Date;date=date.AddDays(1)) {
+            CourtServiceBenefits.Sermon(date);
             reports.Append(TrainingPool.CompleteDueOrders(date));
             reports.Append(SpecialistPersonnel.Advance(date));
             MonasticResearch.AllocationsForDay(date);
