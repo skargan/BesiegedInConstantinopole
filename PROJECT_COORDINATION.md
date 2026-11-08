@@ -195,3 +195,7 @@ Version45 published: https://github.com/skargan/BesiegedInConstantinopole/releas
 
 
 This is ConstantineX — 7 November 2026 — BLUF: Frameless vicinity camps and Fortress Stadia integrated and privately verified. Retired Stoudios Monastery marker; renamed/repositioned stadia at (.08,.63 top-origin), coastal spot selected by Director. New generated three-tower seaside illustration wired to existing visit/return screen; provenance in ASSET SOURCES.md. ImperialTheme skips VicinityCampArt so late styling cannot add rectangular frames or suppress silhouette hover. Windows preview export passed 57 save/technology checks and STADIA_CHECKS 17; map and fortress screenshots visually inspected at1600x900. Version45 public/Desktop build unchanged; these changes await next publication.
+
+### ConstantineX — 8 November 2026 — Repository backup handover
+BLUF: Final approved Fortress Stadia painting, seven preserved artwork variants, provenance and the Morea character backlog note are included in this source backup, alongside the preceding Stadia/map implementation commit. This is a GitHub source update, not a new playable release. Version 45 remains the published build. Before the next build, adjust the Stadia information panel so it does not obscure the offshore tower and quay, then visually verify it. Machine-specific editor settings, runtime logs and Python caches remain local.
+

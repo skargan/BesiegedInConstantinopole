@@ -134,3 +134,8 @@ Audit limitations: static source inspection and catalogue consistency only. Pref
 
 23 OCTOBER CONSOLIDATION UPDATE
 The approved narrow fixes are implemented in codex/event-consolidation, based on Version31; see Consolidation candidate - 2026-10-23.txt for exact scope, 40-check verification and remaining limitations. They are not yet in the published build. All other proposed expansion remains design work.
+
+CHARACTER FOR FUTURE MOREA EVENTS — DIRECTOR REQUEST, 6 NOVEMBER 2026
+Konstantinos Graitzas Palaiologos.
+Status: approved for the character/development backlog; no gameplay implementation requested yet.
+Director's characterisation: brave. Consider him when developing the Morea event chains. His specific role, appearances, relationships and mechanical effects remain to be developed. Research historical context when drafting his content.
