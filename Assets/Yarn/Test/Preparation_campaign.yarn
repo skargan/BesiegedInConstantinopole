@@ -39,24 +39,28 @@ title: prepScorched
 title: prepFortress
 ---
 <<SetInt iRumeliLandmark 1>>
-<b>A Fortress Rises on the Bosphorus</b>: The report reaches you before the morning bells. Across the water, Mehmed’s men are clearing ground. Stone barges crowd the landing; armed guards turn away questions. Your pilots need no architect to explain the plan: grain ships from the Black Sea could soon pass beneath Ottoman guns. Notaras spreads a chart across the council table. “We can protest, Majesty. We can buy what we need while the passage remains open. Or we can learn precisely what the Sultan is building.”
--> Send a formal protest to the Sultan and the Christian courts. 1,000 gold; public morale +5; one diplomatic secret. <<if GetInt("iMoney") >= 1000>>
-    <<Change iMoney -1000>>
-    <<Change fPeopleRep 0.05>>
+<b>A Fortress Rises on the Bosphorus</b>: The report reaches you before the morning bells. Across the water, Mehmed’s men are clearing ground. Stone barges crowd the landing; armed guards turn away questions. Your pilots need no architect to explain the plan: grain ships from the Black Sea could soon pass beneath Ottoman guns. Notaras spreads a chart across the council table. “He plans to choke our access to the Pontus, Emperor. We can buy what we need while the passage remains open. Or we can take more active measures. We are still at peace, at least on paper, but the chess pieces are already moving. We should learn precisely what is being built—and how we might interfere with the Sultan’s plans.”
+-> Send a formal complaint to the Sultan. Building a fortress on our doorstep endangers an already fragile peace. 500 gold; one diplomatic secret. <<if GetInt("iMoney") >= 500>>
+    <<Change iMoney -500>>
     <<Change iSecrets 1>>
-    Your letters establish the threat and open channels for later diplomacy. Construction continues.
--> Let them raise towers. We shall fill our granaries. 6,000 gold; +3,000 provisions. <<if GetInt("iMoney") >= 6000>>
+    Your envoys are turned away with smiles that barely conceal a predatory satisfaction. The Sultan’s courtiers know that soon the City will be cut off from the lifeline that feeds it. It is now clear to you that war is inevitable.
+    Nevertheless, your envoy’s time at the court has yielded insights that may prove useful later.
+-> There is little we can do but make haste. Order as many shipments of food as possible while the straits remain open. 6,000 gold; +3,000 provisions. <<if GetInt("iMoney") >= 6000>>
     <<Change iMoney -6000>>
     <<Change iProvisions 3000>>
-    Grain enters the storehouses while the passage is still open.
--> Send five Varangians to reconnoitre the works. 50% return chance; success gives +1 secret and +30 points to later infiltration. <<if GetInt("iVarangians") >= 5>>
+    You order Loukas Notaras to arrange for six ships to sail to the Black Sea ports and return laden with grain. Over the following days, he sends instructions to liquidate the imperial assets you still hold there and use the proceeds to purchase supplies. Where necessary, your agents offer merchants twice the price, payable after the war.
+    Your promises do not carry equal weight in every port. Some merchants insist on payment now, and the treasury must cover part of the cost. Nevertheless, the ships return with a substantial cargo of grain—a reserve that could make a considerable difference in the coming siege.
+-> Armed reconnaissance. Send five of your best Varangians to infiltrate the fortress and discover its weaknesses. 50% return chance; success gives +1 secret and +30 percentage points to later infiltration. <<if GetInt("iVarangians") >= 5>>
     <<set $chance = dice(100)>>
     <<if $chance <= 50>>
     <<RumeliRecon varangians true>>
-    All five return with sketches of the approaches and watch changes. One secret gained. Their intelligence will improve an infiltration of the Straitcutter Fortress.
+    You choose the Varangians because they are the most elite soldiers in your service. Under cover of darkness, they scale an unfinished section of wall, enter the works and steal a copy of the plans.
+    All five return safely. This intelligence will improve your future operations against the Straitcutter Fortress.
     <<else>>
     <<RumeliRecon varangians false>>
-    Five men leave. None return. The works keep their secrets.
+    You choose the Varangians because they are the most elite soldiers in your service. Under cover of darkness, they attempt to scale an unfinished section of wall and enter the works.
+    But even elite soldiers sometimes fall prey to chance. Your Varangians are caught. The following morning, your scouts report that all five can be seen impaled upon the fortress’s battlements.
+    You will need to find another way to destroy it.
     <<endif>>
 -> Send one spy to reconnoitre the works. 75% success; failure loses the agent. Success gives +1 secret and +30 points to later infiltration. <<if GetInt("iSpies") >= 1>>
     <<set $chance = dice(100)>>
